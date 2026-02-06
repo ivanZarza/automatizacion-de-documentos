@@ -40,6 +40,9 @@ export const memoriaTecnicaConfig = {
   fileName: 'memoria-tecnica-fotovoltaica.pdf',
   route: '/memoria-tecnica',
   defaultData: {
+    // Expediente
+    numeroExpediente: '',
+    numeroRegistro: '',
     // Sección A - TITULAR
     apellidosNombre: 'Mateos Campos, Carmen',
     nifCif: '12345678-A',
@@ -86,9 +89,17 @@ export const memoriaTecnicaConfig = {
     tensionSalidaInversor: '230V',
     // E.1.7 Información de la Demanda
     potenciaMaximaDemanda: '10.24 kWh',
-    energiaDiariaDemanda: '10.24 kWh'
+    energiaDiariaDemanda: '10.24 kWh',
+    // Sección F - Planos y Esquemas
+    planoEmplazamiento: '',
+    esquemaUnifilar: '',
+    // Sección G - Documentación
+    documentacionTecnica: []
   },
   fields: [
+    // Expediente
+    { name: 'numeroExpediente', label: 'Número de Expediente', placeholder: 'Ej: EXP-2025-001', type: 'text' },
+    { name: 'numeroRegistro', label: 'Número de Registro de la Instalación', placeholder: 'Ej: REG-2025-001', type: 'text' },
     // Sección A
     { name: 'apellidosNombre', label: 'Apellidos y Nombre/Razón Social', placeholder: 'Ej: Mateos Campos, Carmen', type: 'text', fullWidth: true },
     { name: 'nifCif', label: 'NIF/CIF', placeholder: 'Ej: 12345678-A', type: 'text' },
@@ -129,7 +140,10 @@ export const memoriaTecnicaConfig = {
     { name: 'tensionEntradaInversor', label: 'Tensión de Entrada del Inversor (V)', placeholder: '48V', type: 'text' },
     { name: 'tensionSalidaInversor', label: 'Tensión de Salida del Inversor (V)', placeholder: '230V', type: 'text' },
     { name: 'potenciaMaximaDemanda', label: 'Potencia Máxima Demandada (kWh)', placeholder: '10.24 kWh', type: 'text' },
-    { name: 'energiaDiariaDemanda', label: 'Energía Diaria Media Demandada (kWh/día)', placeholder: '10.24 kWh', type: 'text' }
+    { name: 'energiaDiariaDemanda', label: 'Energía Diaria Media Demandada (kWh/día)', placeholder: '10.24 kWh', type: 'text' },
+    // Sección F - Planos y Esquemas
+    { name: 'planoEmplazamiento', label: 'Plano de Emplazamiento (Imagen)', placeholder: 'Selecciona una imagen', type: 'file', accept: 'image/*', fullWidth: true },
+    { name: 'esquemaUnifilar', label: 'Esquema Unifilar (Imagen)', placeholder: 'Selecciona una imagen', type: 'file', accept: 'image/*', fullWidth: true }
   ],
   capabilities: {
     canPreview: true,

@@ -44,6 +44,22 @@
                 {{ option }}
               </option>
             </select>
+
+            <!-- File Input -->
+            <div v-else-if="field.type === 'file'" class="space-y-3">
+              <input 
+                :key="field.name"
+                type="file"
+                :accept="field.accept || '*'"
+                class="w-full text-lg border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
+                @change="handleFileUpload($event, field.name)"
+              />
+              <div v-if="formData[field.name]" class="mt-3 p-3 bg-blue-50 rounded-lg border border-blue-200">
+                <p class="text-sm text-gray-700">Archivo seleccionado:</p>
+                <img v-if="field.accept?.includes('image')" :src="formData[field.name]" style="max-width: 300px; max-height: 150px; object-fit: contain; border-radius: 4px;" />
+                <p v-else class="text-sm text-blue-600 break-all">{{ extractFileName(formData[field.name]) }}</p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -103,6 +119,25 @@ const formData = ref({ ...props.initialData })
 watch(() => props.initialData, (newData) => {
   formData.value = { ...newData }
 }, { deep: true })
+
+const handleFileUpload = (event, fieldName) => {
+  const file = event.target.files[0]
+  if (file) {
+    const reader = new FileReader()
+    reader.onload = (e) => {
+      // Guardar el contenido del archivo como data URL
+      formData.value[fieldName] = e.target.result
+    }
+    reader.readAsDataURL(file)
+  }
+}
+
+const extractFileName = (dataUrl) => {
+  if (typeof dataUrl === 'string' && dataUrl.startsWith('data:')) {
+    return 'Imagen cargada'
+  }
+  return dataUrl
+}
 
 const submit = () => {
   emit('submit', formData.value)

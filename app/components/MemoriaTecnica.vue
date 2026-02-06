@@ -18,6 +18,17 @@
           <div style="margin: 3px 0; color: #d97860;">{{ numeroRegistro }}</div>
         </div>
       </div>
+      <!-- NÚMERO DE EXPEDIENTE Y REGISTRO -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+        <div style="border: 1px solid #000; padding: 10px;">
+          <div style="background-color: #f4b5a0; padding: 5px; font-weight: bold; border-bottom: 1px solid #000; margin-bottom: 8px;">Nº EXPEDIENTE:</div>
+          <div style="margin: 3px 0; color: #d97860;">{{ numeroExpediente }}</div>
+        </div>
+        <div style="border: 1px solid #000; padding: 10px;">
+          <div style="background-color: #f4b5a0; padding: 5px; font-weight: bold; border-bottom: 1px solid #000; margin-bottom: 8px;">Nº REGISTRO DE LA INSTALACIÓN:</div>
+          <div style="margin: 3px 0; color: #d97860;">{{ numeroRegistro }}</div>
+        </div>
+      </div>
 
       <!-- SECCIÓN A: TITULAR -->
       <div style="border: 2px solid #000; margin-bottom: 15px;">
@@ -291,7 +302,7 @@
         </div>
 
         <!-- E.1.7 Información de la Demanda -->
-        <div style="padding: 10px;">
+        <div style="border-bottom: 1px solid #000; padding: 10px;">
           <div style="font-weight: bold; background-color: #f0f0f0; padding: 5px; margin-bottom: 8px;">E.1.7 INFORMACIÓN DE LA DEMANDA</div>
           
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
@@ -304,6 +315,79 @@
               <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ energiaDiariaDemanda }}</div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN F: PLANOS Y ESQUEMAS -->
+      <div style="border: 2px solid #000; margin-bottom: 15px;">
+        <div style="background-color: #f4b5a0; padding: 8px; font-weight: bold;">F | PLANOS Y ESQUEMAS</div>
+        
+        <!-- Plano de Emplazamiento -->
+        <div style="border-bottom: 1px solid #000; padding: 15px;">
+          <div style="font-weight: bold; background-color: #f0f0f0; padding: 5px; margin-bottom: 10px; font-size: 11px;">F.1 PLANO DE EMPLAZAMIENTO</div>
+          <div style="color: #333; font-size: 10px; margin-bottom: 10px;">Fotografía aérea o plano del emplazamiento de la instalación:</div>
+          <div style="border: 2px dashed #d97860; padding: 30px; text-align: center; background-color: #fff9f7; min-height: 150px; display: flex; align-items: center; justify-content: center;">
+            <img v-if="planoEmplazamiento" :src="planoEmplazamiento" style="max-width: 100%; max-height: 150px; object-fit: contain;" />
+            <div v-else style="color: #999; font-size: 12px;">Imagen del plano de emplazamiento</div>
+          </div>
+        </div>
+
+        <!-- Esquema Unifilar -->
+        <div style="padding: 15px;">
+          <div style="font-weight: bold; background-color: #f0f0f0; padding: 5px; margin-bottom: 10px; font-size: 11px;">F.2 ESQUEMA UNIFILAR</div>
+          <div style="color: #333; font-size: 10px; margin-bottom: 10px;">Esquema eléctrico unifilar de la instalación:</div>
+          <div style="border: 2px dashed #d97860; padding: 30px; text-align: center; background-color: #fff9f7; min-height: 150px; display: flex; align-items: center; justify-content: center;">
+            <img v-if="esquemaUnifilar" :src="esquemaUnifilar" style="max-width: 100%; max-height: 150px; object-fit: contain;" />
+            <div v-else style="color: #999; font-size: 12px;">Esquema eléctrico unifilar</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN G: DOCUMENTACIÓN TÉCNICA -->
+      <div style="border: 2px solid #000; margin-bottom: 15px;">
+        <div style="background-color: #f4b5a0; padding: 8px; font-weight: bold;">G | DOCUMENTACIÓN TÉCNICA Y CERTIFICADOS</div>
+        
+        <div style="padding: 10px;">
+          <div style="font-weight: bold; margin-bottom: 10px;">Documentación requerida adjunta:</div>
+          
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 11px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <input type="checkbox" :checked="documentacionTecnica?.includes('certificados')" />
+              <span>Certificados de homologación de módulos fotovoltaicos</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <input type="checkbox" :checked="documentacionTecnica?.includes('inversor')" />
+              <span>Certificado de homologación del inversor</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <input type="checkbox" :checked="documentacionTecnica?.includes('regulador')" />
+              <span>Certificado de homologación del regulador (si aplica)</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <input type="checkbox" :checked="documentacionTecnica?.includes('bateria')" />
+              <span>Certificado de homologación de baterías (si aplica)</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <input type="checkbox" :checked="documentacionTecnica?.includes('seguridad')" />
+              <span>Certificado de conformidad y seguridad de la instalación</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN H: NORMATIVA Y CONFORMIDAD -->
+      <div style="border: 2px solid #000; margin-bottom: 15px;">
+        <div style="background-color: #f4b5a0; padding: 8px; font-weight: bold;">H | NORMATIVA Y CONFORMIDAD</div>
+        
+        <div style="padding: 10px; font-size: 10px; line-height: 1.6;">
+          <p style="margin: 5px 0; font-weight: bold;">Esta instalación se ha realizado de conformidad con:</p>
+          <ul style="margin: 8px 0 0 20px; padding-left: 0;">
+            <li>Real Decreto 842/2002, de 2 de agosto, por el que se aprueba el Reglamento Electrotécnico para Baja Tensión (REBT)</li>
+            <li>UNE 20460-1 y UNE 20460-7-712: Instalaciones eléctricas de baja tensión</li>
+            <li>RD 1699/2003 para el procedimiento administrativo de conexión a red (si aplica)</li>
+            <li>Normativa específica aplicable en la comunidad autónoma correspondiente</li>
+            <li>Código Técnico de la Edificación (CTE) en vigor</li>
+          </ul>
         </div>
       </div>
 
@@ -322,6 +406,9 @@
 
 <script setup>
 defineProps({
+  // Expediente
+  numeroExpediente: String,
+  numeroRegistro: String,
   // Sección A
   apellidosNombre: String,
   nifCif: String,
@@ -363,6 +450,11 @@ defineProps({
   tensionSalidaInversor: String,
   potenciaMaximaDemanda: String,
   energiaDiariaDemanda: String,
+  // Sección F - Imágenes
+  planoEmplazamiento: String,
+  esquemaUnifilar: String,
+  // Sección G - Documentación
+  documentacionTecnica: Array,
   generatedDate: String
 })
 </script>
