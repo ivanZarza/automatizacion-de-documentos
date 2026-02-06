@@ -6,7 +6,7 @@
       <!-- Encabezado con Logo -->
       <div style="display: flex; justify-content: space-between; align-items: flex-start; padding: 18px 0; border-bottom: 2px solid #0066cc; margin-bottom: 27px;">
         <div style="flex: 1;">
-          <h1 style="margin: 0; font-size: 26px; font-weight: bold; color: #0066cc; text-align: center;">AUTORIZACIÓN DE REPRESENTACIÓN</h1>
+          <h1 style="margin: 0; font-size: 26px; font-weight: bold; color: var(--color-orange-medium-strong); text-align: center;">AUTORIZACIÓN DE REPRESENTACIÓN</h1>
           <p style="margin: 2px 0 0 0; font-size: 16px; color: #666; text-align: center;">Documento válido para trámites administrativos</p>
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" style="width: 120px; height: auto; margin-left: 15px; flex-shrink: 0;" />
@@ -24,7 +24,7 @@
           <strong>{{ representante }}</strong>, con DNI/NIF <strong>{{ dniRepresentante }}</strong>, ante <strong>{{ organismo }}</strong>, para realizar en mi nombre las gestiones de <strong>{{ gestiones }}</strong>.
         </p>
 
-        <div style="background-color: #f0f4ff; border-left: 4px solid #0066cc; padding: 12px; margin: 15px 0; font-size: 14px;">
+        <div style="background-color: var(--color-orange-weak); border-left: 4px solid var(--color-orange-medium-strong); padding: 12px; margin: 15px 0; font-size: 14px;">
           <p style="margin: 0;">
             <strong>VALIDEZ:</strong> Esta autorización es válida desde su firma hasta que sea revocada expresamente.
           </p>
