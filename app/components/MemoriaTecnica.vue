@@ -312,6 +312,329 @@
       <div style="border: 2px solid #000; margin-bottom: 15px;">
         <div style="background-color: #f4b5a0; padding: 8px; font-weight: bold;">E | MEMORIA DESCRIPTIVA</div>
         
+        <!-- E1: INSTALACIÓN GENERADORA FOTOVOLTAICA AISLADA (Condicional) -->
+        <div v-if="e1_potenciaPicoGenerador || e1_marcaModeloBateria" style="padding: 10px;">
+          <div style="font-weight: bold; background-color: #f0f0f0; padding: 5px; margin-bottom: 10px;">E1. INSTALACIÓN GENERADORA FOTOVOLTAICA AISLADA</div>
+          
+          <!-- E1.1 Módulo Fotovoltaico -->
+          <div style="border-bottom: 1px solid #000; padding: 10px;">
+            <div style="font-weight: bold; margin-bottom: 8px;">E1.1 MÓDULO FOTOVOLTAICO</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TECNOLOGÍA DE LA CÉLULA:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_tecnologiaCelulaModulo }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">MARCA Y MODELO:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_marcaModeloModulo }}</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">POTENCIA PICO (Wp):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_potenciaPicoModulo }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TONC (ºC):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_toncModulo }}</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- E1.2 Generador Fotovoltaico -->
+          <div style="border-bottom: 1px solid #000; padding: 10px;">
+            <div style="font-weight: bold; margin-bottom: 8px;">E1.2 GENERADOR FOTOVOLTAICO</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">POTENCIA PICO (Wp):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_potenciaPicoGenerador }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">INTENSIDAD MÁXIMA POTENCIA, Ipmp (A):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_intensidadIpmpGenerador }}</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN MÁXIMA POTENCIA, Vpmp (V):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_tensionVpmpGenerador }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">ORIENTACIÓN:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_orientacionGenerador }}</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">INCLINACIÓN (º):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_inclinacionGenerador }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">Nº TOTAL MÓDULOS:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_totalModulos }}</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">Nº MÓDULOS EN SERIE:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_modulosEnSerie }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">Nº RAMAS EN PARALELO:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_ramasEnParalelo }}</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- E1.3 Baterías -->
+          <div style="border-bottom: 1px solid #000; padding: 10px;">
+            <div style="font-weight: bold; margin-bottom: 8px;">E1.3 BATERÍAS</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">MARCA Y MODELO:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_marcaModeloBateria }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TIPO DE BATERÍA:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_tipoBateria }}</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TIPO DE PLACA:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_tipoPlacaBateria }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">C10 (Ah):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_c10Bateria }}</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">C100 (Ah):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_c100Bateria }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN NOMINAL (V):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_tensionNominalBateria }}</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">PROFUNDIDAD DESCARGA:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_profundidadDescargaBateria }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN MÁXIMA (V):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_tensionMaximaBateria }}</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN MÍNIMA (V):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_tensionMinimaBateria }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">INTENSIDAD MÁX CARGA (A):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_intensidadMaximaCargaBateria }}</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- E1.4 Regulador -->
+          <div style="border-bottom: 1px solid #000; padding: 10px;">
+            <div style="font-weight: bold; margin-bottom: 8px;">E1.4 REGULADOR</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">MARCA Y MODELO:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_marcaModeloRegulador }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">INTENSIDAD MÁXIMA (A):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_intensidadMaximaRegulador }}</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN CORTE ALTA (V):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_tensionCorteAltaRegulador }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN CORTE BAJA (V):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_tensionCorteBajaRegulador }}</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- E1.5 Inversor -->
+          <div style="border-bottom: 1px solid #000; padding: 10px;">
+            <div style="font-weight: bold; margin-bottom: 8px;">E1.5 INVERSOR</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">MARCA Y MODELO:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_marcaModeloInversor }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">POTENCIA NOMINAL (W):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_potenciaNominalInversor }}</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 9px; margin-bottom: 3px;">REND 10%:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_rendimientoInversor10 }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 9px; margin-bottom: 3px;">REND 25%:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_rendimientoInversor25 }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 9px; margin-bottom: 3px;">REND 50%:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_rendimientoInversor50 }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 9px; margin-bottom: 3px;">REND 75%:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_rendimientoInversor75 }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 9px; margin-bottom: 3px;">REND 100%:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_rendimientoInversor100 }}</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">RELACIÓN TENSIÓN VCC/VCA:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_relacionTensionInversor }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">FORMA ONDA SALIDA:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_formaOndaSalidaInversor }}</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">FRECUENCIA NOMINAL (Hz):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_frecuenciaNominalInversor }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN MÁX ENTRADA (V):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_tensionMaximaEntradaInversor }}</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN SALIDA (V):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_tensionSalidaInversor }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">CONSUMO EN VACÍO:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_consumoVacioInversor }}</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- E1.6 Otros -->
+          <div style="border-bottom: 1px solid #000; padding: 10px;">
+            <div style="font-weight: bold; margin-bottom: 8px;">E1.6 OTROS</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">CONVERTIDOR CC/CC:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_convertidorCC_CC }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">REL TENSIÓN VCC1/VCC2:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_relacionTensionCC }}</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">VARIADOR FRECUENCIA:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_variadorFrecuencia }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">GRUPO AUXILIAR APOYO:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_grupoAuxiliarApoyo }}</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">POTENCIA GRUPO AUX (W):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_potenciaGrupoAuxiliar }}</div>
+              </div>
+            </div>
+            <div style="padding: 8px; margin-top: 8px; background-color: #fff9f7;">
+              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">OTROS EQUIPOS:</div>
+              <div style="color: #d97860; font-size: 10px; white-space: pre-wrap;">{{ e1_otrosEquipos }}</div>
+            </div>
+          </div>
+
+          <!-- E1.7 Información de la Demanda -->
+          <div style="padding: 10px;">
+            <div style="font-weight: bold; margin-bottom: 8px;">E1.7 INFORMACIÓN DE LA DEMANDA</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">POTENCIA MÁX DEMANDADA (W):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_potenciaMaximaDemanda }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">PERIODICIDAD:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ e1_periodicidadDemanda }}</div>
+              </div>
+            </div>
+            <div style="font-weight: bold; font-size: 10px; margin-bottom: 8px;">ENERGÍA DIARIA MEDIA MENSUAL (Wh/día):</div>
+            <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 5px;">
+              <div>
+                <div style="font-weight: bold; font-size: 9px;">ENE</div>
+                <div style="color: #d97860; padding: 3px; background-color: #fff9f7; font-size: 9px;">{{ e1_energiaDiariaEnero }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 9px;">FEB</div>
+                <div style="color: #d97860; padding: 3px; background-color: #fff9f7; font-size: 9px;">{{ e1_energiaDiariaFebrero }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 9px;">MAR</div>
+                <div style="color: #d97860; padding: 3px; background-color: #fff9f7; font-size: 9px;">{{ e1_energiaDiariaMarzo }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 9px;">ABR</div>
+                <div style="color: #d97860; padding: 3px; background-color: #fff9f7; font-size: 9px;">{{ e1_energiaDiariaAbril }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 9px;">MAY</div>
+                <div style="color: #d97860; padding: 3px; background-color: #fff9f7; font-size: 9px;">{{ e1_energiaDiariaMayo }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 9px;">JUN</div>
+                <div style="color: #d97860; padding: 3px; background-color: #fff9f7; font-size: 9px;">{{ e1_energiaDiariaJunio }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 9px;">JUL</div>
+                <div style="color: #d97860; padding: 3px; background-color: #fff9f7; font-size: 9px;">{{ e1_energiaDiariaJulio }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 9px;">AGO</div>
+                <div style="color: #d97860; padding: 3px; background-color: #fff9f7; font-size: 9px;">{{ e1_energiaDiariaAgosto }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 9px;">SEP</div>
+                <div style="color: #d97860; padding: 3px; background-color: #fff9f7; font-size: 9px;">{{ e1_energiaDiariaSeptiembre }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 9px;">OCT</div>
+                <div style="color: #d97860; padding: 3px; background-color: #fff9f7; font-size: 9px;">{{ e1_energiaDiariaOctubre }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 9px;">NOV</div>
+                <div style="color: #d97860; padding: 3px; background-color: #fff9f7; font-size: 9px;">{{ e1_energiaDiariaNoviembre }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 9px;">DIC</div>
+                <div style="color: #d97860; padding: 3px; background-color: #fff9f7; font-size: 9px;">{{ e1_energiaDiariaDiciembre }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
         <!-- E2: INSTALACIÓN GENERADORA FOTOVOLTAICA INTERCONECTADA CON ALMACENAMIENTO -->
         <div style="padding: 10px;">
           <div style="font-weight: bold; background-color: #f0f0f0; padding: 5px; margin-bottom: 10px;">E2. INSTALACIÓN GENERADORA FOTOVOLTAICA INTERCONECTADA CON ALMACENAMIENTO</div>
@@ -675,6 +998,74 @@ defineProps({
   modalidadEspecialistaM7: Boolean,
   modalidadEspecialistaM8: Boolean,
   modalidadEspecialistaM9: Boolean,
+  // Sección E1: INSTALACIÓN GENERADORA FOTOVOLTAICA AISLADA
+  // E1.1 Módulo Fotovoltaico
+  e1_tecnologiaCelulaModulo: String,
+  e1_marcaModeloModulo: String,
+  e1_potenciaPicoModulo: String,
+  e1_toncModulo: String,
+  // E1.2 Generador Fotovoltaico
+  e1_potenciaPicoGenerador: String,
+  e1_intensidadIpmpGenerador: String,
+  e1_tensionVpmpGenerador: String,
+  e1_orientacionGenerador: String,
+  e1_inclinacionGenerador: String,
+  e1_totalModulos: String,
+  e1_modulosEnSerie: String,
+  e1_ramasEnParalelo: String,
+  // E1.3 Baterías
+  e1_marcaModeloBateria: String,
+  e1_tipoBateria: String,
+  e1_tipoPlacaBateria: String,
+  e1_c10Bateria: String,
+  e1_c100Bateria: String,
+  e1_tensionNominalBateria: String,
+  e1_profundidadDescargaBateria: String,
+  e1_tensionMaximaBateria: String,
+  e1_tensionMinimaBateria: String,
+  e1_intensidadMaximaCargaBateria: String,
+  // E1.4 Regulador
+  e1_marcaModeloRegulador: String,
+  e1_intensidadMaximaRegulador: String,
+  e1_tensionCorteAltaRegulador: String,
+  e1_tensionCorteBajaRegulador: String,
+  // E1.5 Inversor
+  e1_marcaModeloInversor: String,
+  e1_potenciaNominalInversor: String,
+  e1_rendimientoInversor10: String,
+  e1_rendimientoInversor25: String,
+  e1_rendimientoInversor50: String,
+  e1_rendimientoInversor75: String,
+  e1_rendimientoInversor100: String,
+  e1_relacionTensionInversor: String,
+  e1_formaOndaSalidaInversor: String,
+  e1_frecuenciaNominalInversor: String,
+  e1_tensionMaximaEntradaInversor: String,
+  e1_tensionSalidaInversor: String,
+  e1_consumoVacioInversor: String,
+  e1_seguidorPuntoMaximaPotencia: String,
+  // E1.6 Otros
+  e1_convertidorCC_CC: String,
+  e1_relacionTensionCC: String,
+  e1_variadorFrecuencia: String,
+  e1_grupoAuxiliarApoyo: String,
+  e1_potenciaGrupoAuxiliar: String,
+  e1_otrosEquipos: String,
+  // E1.7 Información de la Demanda
+  e1_potenciaMaximaDemanda: String,
+  e1_periodicidadDemanda: String,
+  e1_energiaDiariaEnero: String,
+  e1_energiaDiariaFebrero: String,
+  e1_energiaDiariaMarzo: String,
+  e1_energiaDiariaAbril: String,
+  e1_energiaDiariaMayo: String,
+  e1_energiaDiariaJunio: String,
+  e1_energiaDiariaJulio: String,
+  e1_energiaDiariaAgosto: String,
+  e1_energiaDiariaSeptiembre: String,
+  e1_energiaDiariaOctubre: String,
+  e1_energiaDiariaNoviembre: String,
+  e1_energiaDiariaDiciembre: String,
   // Sección E2: MEMORIA DESCRIPTIVA
   // E2.1
   potenciaNominalInversores: String,
