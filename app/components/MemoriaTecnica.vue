@@ -39,7 +39,11 @@
           <div style="color: #d97860;">{{ domicilio }}</div>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0;">
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-bottom: 1px solid #000;">
+          <div style="padding: 8px; border-right: 1px solid #000;">
+            <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">CÓDIGO POSTAL:</div>
+            <div style="color: #d97860;">{{ codigoPostal }}</div>
+          </div>
           <div style="padding: 8px; border-right: 1px solid #000;">
             <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">LOCALIDAD:</div>
             <div style="color: #d97860;">{{ localidad }}</div>
@@ -50,7 +54,7 @@
           </div>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid #000;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid #000;">
           <div style="padding: 8px; border-right: 1px solid #000;">
             <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">CORREO ELECTRÓNICO:</div>
             <div style="color: #d97860; font-size: 10px;">{{ correoElectronico }}</div>
@@ -60,12 +64,28 @@
             <div style="color: #d97860;">{{ telefono }}</div>
           </div>
         </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0;">
+          <div style="padding: 8px; border-right: 1px solid #000;">
+            <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">REPRESENTANTE:</div>
+            <div style="color: #d97860;">{{ representante }}</div>
+          </div>
+          <div style="padding: 8px;">
+            <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">DNI REPRESENTANTE:</div>
+            <div style="color: #d97860;">{{ dniRepresentante }}</div>
+          </div>
+        </div>
       </div>
 
       <!-- SECCIÓN B: EMPLAZAMIENTO -->
       <div style="border: 2px solid #000; margin-bottom: 15px;">
         <div style="background-color: #f4b5a0; padding: 8px; font-weight: bold; border-bottom: 1px solid #000;">B | EMPLAZAMIENTO DE LA INSTALACIÓN Y USO AL QUE SE DESTINA</div>
         
+        <div style="padding: 8px; border-bottom: 1px solid #000;">
+          <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">CALLE/AVENIDA:</div>
+          <div style="color: #d97860;">{{ emplazamientoCalle }}</div>
+        </div>
+
         <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border-bottom: 1px solid #000;">
           <div style="padding: 8px; border-right: 1px solid #000;">
             <div style="font-weight: bold; font-size: 9px; margin-bottom: 3px;">NÚMERO:</div>
@@ -76,14 +96,10 @@
             <div style="color: #d97860; min-height: 20px;">{{ bloque }}</div>
           </div>
           <div style="padding: 8px; border-right: 1px solid #000;">
-            <div style="font-weight: bold; font-size: 9px; margin-bottom: 3px;">PUERTA:</div>
-            <div style="color: #d97860; min-height: 20px;">{{ puerta }}</div>
-          </div>
-          <div style="padding: 8px; border-right: 1px solid #000;">
             <div style="font-weight: bold; font-size: 9px; margin-bottom: 3px;">ESCALERA:</div>
             <div style="color: #d97860; min-height: 20px;">{{ escalera }}</div>
           </div>
-          <div style="padding: 8px;">
+          <div style="padding: 8px; border-right: 1px solid #000;">
             <div style="font-weight: bold; font-size: 9px; margin-bottom: 3px;">PISO:</div>
             <div style="color: #d97860; min-height: 20px;">{{ piso }}</div>
           </div>
@@ -100,22 +116,25 @@
           </div>
         </div>
 
-        <div style="padding: 8px;">
-          <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">USO A QUE SE DESTINA:</div>
-          <div style="display: flex; gap: 20px;">
-            <div>
-              <input type="checkbox" :checked="usoDestino === 'Nueva'" style="margin-right: 5px;"/>
-              <span style="font-weight: bold;">Nueva</span>
-            </div>
-            <div>
-              <input type="checkbox" :checked="usoDestino === 'Ampliación'" style="margin-right: 5px;"/>
-              <span style="font-weight: bold;">Ampliación</span>
-            </div>
-            <div>
-              <input type="checkbox" :checked="usoDestino === 'Modificación'" style="margin-right: 5px;"/>
-              <span style="font-weight: bold;">Modificación</span>
-            </div>
+        <div style="padding: 8px; border-bottom: 1px solid #000;">
+          <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">CORREO ELECTRÓNICO EMPLAZAMIENTO:</div>
+          <div style="color: #d97860; font-size: 10px;">{{ correoElectronicoEmplazamiento }}</div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid #000;">
+          <div style="padding: 8px; border-right: 1px solid #000;">
+            <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TIPO DE INSTALACIÓN:</div>
+            <div style="color: #d97860;">{{ tipoInstalacion }}</div>
           </div>
+          <div style="padding: 8px;">
+            <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">USO A QUE SE DESTINA:</div>
+            <div style="color: #d97860;">{{ usoDestino }}</div>
+          </div>
+        </div>
+
+        <div style="padding: 8px;">
+          <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">DETALLE DEL USO/DESTINO:</div>
+          <div style="color: #d97860;">{{ usoDestinoDetalle }}</div>
         </div>
       </div>
 
@@ -123,30 +142,112 @@
       <div style="border: 2px solid #000; margin-bottom: 15px;">
         <div style="background-color: #f4b5a0; padding: 8px; font-weight: bold; border-bottom: 1px solid #000;">C | IDENTIFICACIÓN DE LA PERSONA QUE FIRMA LA MTD</div>
         
-        <div style="padding: 8px; border-bottom: 1px solid #000; background-color: #f9f9f9;">
-          <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">MEMORIA REALIZADA POR INSTALADOR ELÉCTRICO AUTORIZADO:</div>
-          <div style="color: #333; font-weight: 500;">Eduardo Rivera Cabezas</div>
-        </div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0;">
-          <div style="padding: 8px; border-right: 1px solid #000; border-bottom: 1px solid #000; background-color: #f9f9f9;">
-            <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">Nº DE CERTIFICADO DE CUALIFICACIÓN INDIVIDUAL:</div>
-            <div style="color: #333; font-weight: 500;">4654 COIIAOC</div>
+        <!-- Técnico Instalador Autorizado -->
+        <div style="padding: 10px;">
+          <div style="font-weight: bold; font-size: 11px; margin-bottom: 8px;">INSTALADOR ELÉCTRICO AUTORIZADO:</div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+            <div style="padding: 8px; background-color: #f9f9f9; border: 1px solid #ddd;">
+              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">NOMBRE:</div>
+              <div style="color: #333;">{{ nombreTecnicoInstalador }}</div>
+            </div>
+            <div style="padding: 8px; background-color: #f9f9f9; border: 1px solid #ddd;">
+              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">Nº DE CERTIFICADO:</div>
+              <div style="color: #333;">{{ numeroCertificadoInstalador }}</div>
+            </div>
           </div>
-          <div style="padding: 8px; border-bottom: 1px solid #000; background-color: #f9f9f9;">
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+            <div style="padding: 8px; background-color: #f9f9f9; border: 1px solid #ddd;">
+              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">Nº DE EMPRESA:</div>
+              <div style="color: #333;">{{ numeroInstaladorEmpresa }}</div>
+            </div>
+            <div style="padding: 8px; background-color: #f9f9f9; border: 1px solid #ddd;">
+              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">DOMICILIO:</div>
+              <div style="color: #333;">{{ domicilioTecnico }}</div>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 8px;">
+            <div style="padding: 8px; background-color: #f9f9f9; border: 1px solid #ddd;">
+              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">NÚMERO:</div>
+              <div style="color: #333;">{{ numeroTecnico }}</div>
+            </div>
+            <div style="padding: 8px; background-color: #f9f9f9; border: 1px solid #ddd;">
+              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">LOCALIDAD:</div>
+              <div style="color: #333;">{{ localidadTecnico }}</div>
+            </div>
+            <div style="padding: 8px; background-color: #f9f9f9; border: 1px solid #ddd;">
+              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">C.P.:</div>
+              <div style="color: #333;">{{ codigoPostalTecnico }}</div>
+            </div>
+          </div>
+
+          <div style="padding: 8px; background-color: #f9f9f9; border: 1px solid #ddd;">
             <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TELÉFONO:</div>
-            <div style="color: #333; font-weight: 500;">629 118 196</div>
+            <div style="color: #333;">{{ telefonoTecnico }}</div>
           </div>
         </div>
 
-        <div style="padding: 15px; text-align: center; border-bottom: 1px solid #000;">
+        <!-- Técnico Competente (Opcional) -->
+        <div v-if="nombreTecnicoCompetente" style="padding: 10px; border-top: 2px solid #f4b5a0;">
+          <div style="font-weight: bold; font-size: 11px; margin-bottom: 8px;">TÉCNICO COMPETENTE:</div>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+            <div style="padding: 8px; background-color: #f9f9f9; border: 1px solid #ddd;">
+              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">NOMBRE:</div>
+              <div style="color: #333;">{{ nombreTecnicoCompetente }}</div>
+            </div>
+            <div style="padding: 8px; background-color: #f9f9f9; border: 1px solid #ddd;">
+              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">DOMICILIO:</div>
+              <div style="color: #333;">{{ domicilioTecnicoCompetente }}</div>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 8px;">
+            <div style="padding: 8px; background-color: #f9f9f9; border: 1px solid #ddd;">
+              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">NÚMERO:</div>
+              <div style="color: #333;">{{ numeroTecnicoCompetente }}</div>
+            </div>
+            <div style="padding: 8px; background-color: #f9f9f9; border: 1px solid #ddd;">
+              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">LOCALIDAD:</div>
+              <div style="color: #333;">{{ localidadTecnicoCompetente }}</div>
+            </div>
+            <div style="padding: 8px; background-color: #f9f9f9; border: 1px solid #ddd;">
+              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">C.P.:</div>
+              <div style="color: #333;">{{ codigoPostalTecnicoCompetente }}</div>
+            </div>
+          </div>
+
+          <div style="padding: 8px; background-color: #f9f9f9; border: 1px solid #ddd;">
+            <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TELÉFONO:</div>
+            <div style="color: #333;">{{ telefonoTecnicoCompetente }}</div>
+          </div>
+        </div>
+
+        <!-- Colegio Oficial -->
+        <div v-if="colegioOficial" style="padding: 10px; border-top: 2px solid #f4b5a0;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div style="padding: 8px; background-color: #f9f9f9; border: 1px solid #ddd;">
+              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">COLEGIO OFICIAL:</div>
+              <div style="color: #333;">{{ colegioOficial }}</div>
+            </div>
+            <div style="padding: 8px; background-color: #f9f9f9; border: 1px solid #ddd;">
+              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">Nº COLEGIADO:</div>
+              <div style="color: #333;">{{ numeroColegiado }}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Firma y Fecha -->
+        <div style="padding: 15px; text-align: center; border-top: 1px solid #000;">
           <div style="font-weight: bold; font-size: 10px; margin-bottom: 10px;">FIRMA DEL TÉCNICO COMPETENTE:</div>
           <div style="min-height: 60px; display: flex; align-items: center; justify-content: center;">
             <img src="/firma-solay.png" alt="Firma" style="height: 50px; object-fit: contain;" />
           </div>
         </div>
 
-        <div style="padding: 8px; text-align: center; font-size: 10px; color: #666;">
+        <div style="padding: 8px; text-align: center; font-size: 10px; color: #666; border-top: 1px solid #000;">
           <p style="margin: 0;">En Sevilla a {{ generatedDate }}</p>
           <p style="margin: 5px 0 0 0; font-weight: bold;">Firma del Instalador Autorizado (Técnico Titulado)</p>
         </div>
@@ -156,14 +257,53 @@
       <div style="border: 2px solid #000; margin-bottom: 15px;">
         <div style="background-color: #f4b5a0; padding: 8px; font-weight: bold; border-bottom: 1px solid #000;">D | CATEGORÍA Y ESPECIALIDAD DEL INSTALADOR</div>
         
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding: 8px;">
-          <div style="border-right: 1px solid #000;">
-            <input type="checkbox" style="margin-right: 5px;"/>
-            <span style="font-weight: bold;">BÁSICA</span>
+        <!-- BÁSICA -->
+        <div style="padding: 12px; border-bottom: 1px solid #ddd;">
+          <div style="font-weight: bold; font-size: 11px; margin-bottom: 8px;">CATEGORÍA BÁSICA:</div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+            <div style="display: flex; align-items: center;">
+              <input type="checkbox" :checked="modalidadBasicaM1" style="margin-right: 8px;" disabled/>
+              <span>M1 - Instalaciones en viviendas (hasta 10kWp)</span>
+            </div>
+            <div style="display: flex; align-items: center;">
+              <input type="checkbox" :checked="modalidadBasicaM2" style="margin-right: 8px;" disabled/>
+              <span>M2 - Instalaciones en pequeño comercio (hasta 15kWp)</span>
+            </div>
+            <div style="display: flex; align-items: center;">
+              <input type="checkbox" :checked="modalidadBasicaM3" style="margin-right: 8px;" disabled/>
+              <span>M3 - Instalaciones con almacenamiento (hasta 10kWp)</span>
+            </div>
           </div>
-          <div>
-            <input type="checkbox" style="margin-right: 5px;"/>
-            <span style="font-weight: bold;">ESPECIALISTA</span>
+        </div>
+
+        <!-- ESPECIALISTA -->
+        <div style="padding: 12px;">
+          <div style="font-weight: bold; font-size: 11px; margin-bottom: 8px;">CATEGORÍA ESPECIALISTA:</div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+            <div style="display: flex; align-items: center;">
+              <input type="checkbox" :checked="modalidadEspecialistaM4" style="margin-right: 8px;" disabled/>
+              <span>M4 - Pequeña potencia (15-100kWp)</span>
+            </div>
+            <div style="display: flex; align-items: center;">
+              <input type="checkbox" :checked="modalidadEspecialistaM5" style="margin-right: 8px;" disabled/>
+              <span>M5 - Mediana potencia (100-500kWp)</span>
+            </div>
+            <div style="display: flex; align-items: center;">
+              <input type="checkbox" :checked="modalidadEspecialistaM6" style="margin-right: 8px;" disabled/>
+              <span>M6 - Gran potencia (&gt;500kWp)</span>
+            </div>
+            <div style="display: flex; align-items: center;">
+              <input type="checkbox" :checked="modalidadEspecialistaM7" style="margin-right: 8px;" disabled/>
+              <span>M7 - Almacenamiento (15-100kWp)</span>
+            </div>
+            <div style="display: flex; align-items: center;">
+              <input type="checkbox" :checked="modalidadEspecialistaM8" style="margin-right: 8px;" disabled/>
+              <span>M8 - Almacenamiento mediano (100-500kWp)</span>
+            </div>
+            <div style="display: flex; align-items: center;">
+              <input type="checkbox" :checked="modalidadEspecialistaM9" style="margin-right: 8px;" disabled/>
+              <span>M9 - Almacenamiento gran escala (&gt;500kWp)</span>
+            </div>
           </div>
         </div>
       </div>
@@ -384,7 +524,28 @@
               <td style="border: 1px solid #000; padding: 5px; color: #d97860;">{{ medidaSobretensiones }}</td>
               <td style="border: 1px solid #000; padding: 5px; color: #d97860;">{{ parteInstalacionSobretensiones }}</td>
             </tr>
+            <tr v-if="medidaPuntoCaliente" style="border: 1px solid #000;">
+              <td style="border: 1px solid #000; padding: 5px;">Efecto Punto Caliente (3 Diodos Bypass)</td>
+              <td style="border: 1px solid #000; padding: 5px; color: #d97860;">{{ medidaPuntoCaliente }}</td>
+              <td style="border: 1px solid #000; padding: 5px; color: #d97860;">{{ parteInstalacionPuntoCaliente }}</td>
+            </tr>
+            <tr v-if="medidaExplosion" style="border: 1px solid #000;">
+              <td style="border: 1px solid #000; padding: 5px;">Riesgo de Explosión</td>
+              <td style="border: 1px solid #000; padding: 5px; color: #d97860;">{{ medidaExplosion }}</td>
+              <td style="border: 1px solid #000; padding: 5px; color: #d97860;">{{ parteInstalacionExplosion }}</td>
+            </tr>
+            <tr v-if="medidaCorrosion" style="border: 1px solid #000;">
+              <td style="border: 1px solid #000; padding: 5px;">Riesgo de Corrosión</td>
+              <td style="border: 1px solid #000; padding: 5px; color: #d97860;">{{ medidaCorrosion }}</td>
+              <td style="border: 1px solid #000; padding: 5px; color: #d97860;">{{ parteInstalacionCorrosion }}</td>
+            </tr>
           </table>
+
+          <!-- Otras Protecciones -->
+          <div v-if="otrasProtecciones" style="margin-top: 15px; padding: 10px; background-color: #fff9f7; border: 1px solid #f4b5a0;">
+            <div style="font-weight: bold; font-size: 10px; margin-bottom: 5px;">OTRAS MEDIDAS DE PROTECCIÓN:</div>
+            <div style="color: #d97860; font-size: 10px; line-height: 1.5;">{{ otrasProtecciones }}</div>
+          </div>
         </div>
       </div>
 
@@ -464,27 +625,129 @@ defineProps({
   // Expediente
   numeroExpediente: String,
   numeroRegistro: String,
-  // Sección A
+  // Sección A: TITULAR
   apellidosNombre: String,
   nifCif: String,
   domicilio: String,
+  codigoPostal: String,
   localidad: String,
   provincia: String,
   correoElectronico: String,
   telefono: String,
-  // Sección B
+  representante: String,
+  dniRepresentante: String,
+  // Sección B: EMPLAZAMIENTO
+  emplazamientoCalle: String,
   numero: String,
   bloque: String,
-  puerta: String,
   escalera: String,
   piso: String,
   localidadEmplazamiento: String,
   provinciaEmplazamiento: String,
+  correoElectronicoEmplazamiento: String,
+  tipoInstalacion: String,
   usoDestino: String,
-  // Sección E - E2 Conexión a Red
+  usoDestinoDetalle: String,
+  // Sección C: TÉCNICO FIRMANTE
+  nombreTecnicoInstalador: String,
+  numeroCertificadoInstalador: String,
+  numeroInstaladorEmpresa: String,
+  domicilioTecnico: String,
+  numeroTecnico: String,
+  localidadTecnico: String,
+  codigoPostalTecnico: String,
+  telefonoTecnico: String,
+  nombreTecnicoCompetente: String,
+  domicilioTecnicoCompetente: String,
+  numeroTecnicoCompetente: String,
+  localidadTecnicoCompetente: String,
+  codigoPostalTecnicoCompetente: String,
+  telefonoTecnicoCompetente: String,
+  colegioOficial: String,
+  numeroColegiado: String,
+  // Sección D: MODALIDADES
+  modalidadBasicaM1: Boolean,
+  modalidadBasicaM2: Boolean,
+  modalidadBasicaM3: Boolean,
+  modalidadEspecialistaM4: Boolean,
+  modalidadEspecialistaM5: Boolean,
+  modalidadEspecialistaM6: Boolean,
+  modalidadEspecialistaM7: Boolean,
+  modalidadEspecialistaM8: Boolean,
+  modalidadEspecialistaM9: Boolean,
+  // Sección E2: MEMORIA DESCRIPTIVA
+  // E2.1
   potenciaNominalInversores: String,
   tipoConexionRed: String,
-  // ...existing code...
+  // E2.2
+  tecnologiaCelulaModulo: String,
+  marcaModeloModulo: String,
+  potenciaPicoModulo: String,
+  toncModulo: String,
+  // E2.3
+  potenciaPicoGenerador: String,
+  tensionVpmpGenerador: String,
+  intensidadIpmpGenerador: String,
+  orientacionGenerador: String,
+  inclinacionGenerador: String,
+  totalModulos: String,
+  modulosEnSerie: String,
+  ramrasEnParalelo: String,
+  // E2.4
+  marcaModeloInversor: String,
+  potenciaACInversor: String,
+  tensionNominalInversor: String,
+  vccMaximaInversor: String,
+  vccMinimaInversor: String,
+  tipoConexionInversor: String,
+  // E2.5
+  marcaModeloBateria: String,
+  tipoBateria: String,
+  tensionNominalBateria: String,
+  profundidadDescargaBateria: String,
+  tensionMaximaBateria: String,
+  tensionMinimaBateria: String,
+  energiaTotalBateria: String,
+  potenciaMaximaSalidaBateria: String,
+  // E2.6
+  intensidadInterruptorGeneral: String,
+  poderCorteInterruptor: String,
+  // Sección F: MEDIDAS DE PROTECCIÓN
+  medidaContactosDirectos: String,
+  parteInstalacionDirectos: String,
+  medidaContactosIndirectos: String,
+  parteInstalacionIndirectos: String,
+  medidaSobretensiones: String,
+  parteInstalacionSobretensiones: String,
+  medidaPuntoCaliente: String,
+  parteInstalacionPuntoCaliente: String,
+  medidaExplosion: String,
+  parteInstalacionExplosion: String,
+  medidaCorrosion: String,
+  parteInstalacionCorrosion: String,
+  otrasProtecciones: String,
+  // Sección G: LÍNEAS Y CIRCUITOS
+  longitudGeneradorInversor: String,
+  materialGeneradorInversor: String,
+  intensidadGeneradorInversor: String,
+  caidaTensionGeneradorInversor: String,
+  longitudBateriaInversor: String,
+  materialBateriaInversor: String,
+  intensidadBateriaInversor: String,
+  caidaTensionBateriaInversor: String,
+  longitudSalidaRed: String,
+  materialSalidaRed: String,
+  intensidadSalidaRed: String,
+  caidaTensionSalidaRed: String,
+  // Sección H: ESQUEMA UNIFILAR
+  esquemaUnifilar: String,
+  // Sección I: PLANO EMPLAZAMIENTO
+  planoEmplazamiento: String,
+  // Generado
+  generatedDate: {
+    type: String,
+    default: new Date().toLocaleDateString('es-ES')
+  }
 })
 </script>
 
