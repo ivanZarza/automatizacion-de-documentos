@@ -270,12 +270,12 @@
       </div>
 
       <!-- SECCIÓN D: CATEGORÍA Y ESPECIALIDAD -->
-      <div style="border: 2px solid #000; margin-bottom: 15px;">
-        <div style="background-color: #f4b5a0; padding: 8px; font-weight: bold; border-bottom: 1px solid #000;">D | CATEGORÍA Y ESPECIALIDAD DEL INSTALADOR</div>
+      <div class="seccion">
+        <div class="encabezado-seccion">D | CATEGORÍA Y ESPECIALIDAD DEL INSTALADOR</div>
         
         <!-- BÁSICA -->
-        <div style="padding: 8px; border-bottom: 1px solid #000;">
-          <div style="font-weight: bold; font-size: 11px; margin-bottom: 8px;">CATEGORÍA BÁSICA:</div>
+        <div class="cuerpo-seccion" style="border-bottom: 1px solid #000;">
+          <div class="etiqueta-grande">CATEGORÍA BÁSICA:</div>
           <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
             <div style="display: flex; align-items: center;">
               <input type="checkbox" :checked="modalidadBasicaM1" style="margin-right: 8px;" disabled/>
@@ -293,8 +293,8 @@
         </div>
 
         <!-- ESPECIALISTA -->
-        <div style="padding: 8px;">
-          <div style="font-weight: bold; font-size: 11px; margin-bottom: 8px;">CATEGORÍA ESPECIALISTA:</div>
+        <div class="cuerpo-seccion">
+          <div class="etiqueta-grande">CATEGORÍA ESPECIALISTA:</div>
           <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
             <div style="display: flex; align-items: center;">
               <input type="checkbox" :checked="modalidadEspecialistaM4" style="margin-right: 8px;" disabled/>
