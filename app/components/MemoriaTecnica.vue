@@ -276,17 +276,17 @@
         <!-- BÁSICA -->
         <div class="cuerpo-seccion" style="border-bottom: 1px solid #000;">
           <div class="etiqueta-grande">CATEGORÍA BÁSICA:</div>
-          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
-            <div style="display: flex; align-items: center;">
-              <input type="checkbox" :checked="modalidadBasicaM1" style="margin-right: 8px;" disabled/>
+          <div class="grid-checkboxes">
+            <div class="item-checkbox">
+              <input type="checkbox" :checked="modalidadBasicaM1" disabled/>
               <span>M1 - Instalaciones en viviendas (hasta 10kWp)</span>
             </div>
-            <div style="display: flex; align-items: center;">
-              <input type="checkbox" :checked="modalidadBasicaM2" style="margin-right: 8px;" disabled/>
+            <div class="item-checkbox">
+              <input type="checkbox" :checked="modalidadBasicaM2" disabled/>
               <span>M2 - Instalaciones en pequeño comercio (hasta 15kWp)</span>
             </div>
-            <div style="display: flex; align-items: center;">
-              <input type="checkbox" :checked="modalidadBasicaM3" style="margin-right: 8px;" disabled/>
+            <div class="item-checkbox">
+              <input type="checkbox" :checked="modalidadBasicaM3" disabled/>
               <span>M3 - Instalaciones con almacenamiento (hasta 10kWp)</span>
             </div>
           </div>
@@ -295,29 +295,29 @@
         <!-- ESPECIALISTA -->
         <div class="cuerpo-seccion">
           <div class="etiqueta-grande">CATEGORÍA ESPECIALISTA:</div>
-          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
-            <div style="display: flex; align-items: center;">
-              <input type="checkbox" :checked="modalidadEspecialistaM4" style="margin-right: 8px;" disabled/>
+          <div class="grid-checkboxes">
+            <div class="item-checkbox">
+              <input type="checkbox" :checked="modalidadEspecialistaM4" disabled/>
               <span>M4 - Pequeña potencia (15-100kWp)</span>
             </div>
-            <div style="display: flex; align-items: center;">
-              <input type="checkbox" :checked="modalidadEspecialistaM5" style="margin-right: 8px;" disabled/>
+            <div class="item-checkbox">
+              <input type="checkbox" :checked="modalidadEspecialistaM5" disabled/>
               <span>M5 - Mediana potencia (100-500kWp)</span>
             </div>
-            <div style="display: flex; align-items: center;">
-              <input type="checkbox" :checked="modalidadEspecialistaM6" style="margin-right: 8px;" disabled/>
+            <div class="item-checkbox">
+              <input type="checkbox" :checked="modalidadEspecialistaM6" disabled/>
               <span>M6 - Gran potencia (&gt;500kWp)</span>
             </div>
-            <div style="display: flex; align-items: center;">
-              <input type="checkbox" :checked="modalidadEspecialistaM7" style="margin-right: 8px;" disabled/>
+            <div class="item-checkbox">
+              <input type="checkbox" :checked="modalidadEspecialistaM7" disabled/>
               <span>M7 - Almacenamiento (15-100kWp)</span>
             </div>
-            <div style="display: flex; align-items: center;">
-              <input type="checkbox" :checked="modalidadEspecialistaM8" style="margin-right: 8px;" disabled/>
+            <div class="item-checkbox">
+              <input type="checkbox" :checked="modalidadEspecialistaM8" disabled/>
               <span>M8 - Almacenamiento mediano (100-500kWp)</span>
             </div>
-            <div style="display: flex; align-items: center;">
-              <input type="checkbox" :checked="modalidadEspecialistaM9" style="margin-right: 8px;" disabled/>
+            <div class="item-checkbox">
+              <input type="checkbox" :checked="modalidadEspecialistaM9" disabled/>
               <span>M9 - Almacenamiento gran escala (&gt;500kWp)</span>
             </div>
           </div>
@@ -1185,8 +1185,6 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 /* ========== GRIDS Y FILAS ========== */
 .fila-grid {
   display: grid;
-  gap: 0;
-  margin-bottom: 8px;
   border-bottom: 1px solid #000;
 }
 
@@ -1212,7 +1210,7 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 
 /* ========== CELDAS ========== */
 .celda {
-  padding: 8px;
+  padding: 3px;
 }
 
 .celda-izquierda {
@@ -1234,7 +1232,8 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 .etiqueta-grande {
   font-weight: bold;
   font-size: 11px;
-  margin-bottom: 8px;
+  border-bottom: 1px solid #000;
+  padding: 5px;
 }
 
 .valor {
@@ -1250,7 +1249,7 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 /* ========== SUBSECCIONES E1, E2, E3, etc. ========== */
 .subseccion {
   border-bottom: 1px solid #000;
-  padding: 8px;
+
 }
 
 .subseccion-titulo {
@@ -1271,10 +1270,11 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 .fila-checkbox {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0px 8px;
   font-weight: bold;
   font-size: 11px;
-  margin-bottom: 8px;
+  border-bottom: 1px solid #000;
+  padding: 5px;
 }
 
 .opciones-checkbox {
@@ -1465,6 +1465,30 @@ const tipoInstalacionSeleccionada = ref('Nueva')
   text-align: center;
   font-size: 9px;
   color: #666;
+}
+
+/* ========== GRID DE CHECKBOXES (Sección D) ========== */
+.grid-checkboxes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.item-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+}
+
+.item-checkbox input {
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.item-checkbox span {
+  line-height: 1.3;
 }
 
 /* ========== ESTILOS DE IMPRESIÓN ========== */
