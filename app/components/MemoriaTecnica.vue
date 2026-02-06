@@ -21,7 +21,7 @@
 
       <!-- SECCIÓN A: TITULAR -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span style="background-color: #FFA02A; padding: 2px 6px; border-radius: 3px; margin-right: 5px; color: white;">A</span> | TITULAR</div>
+        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">A</span> | TITULAR</div>
         
         <div class="fila-grid fila-2col">
           <div class="celda celda-izquierda">
@@ -79,7 +79,7 @@
 
       <!-- SECCIÓN B: EMPLAZAMIENTO -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span style="background-color: #FFA02A; padding: 2px 6px; border-radius: 3px; margin-right: 5px; color: white;">B</span> | EMPLAZAMIENTO DE LA INSTALACIÓN Y USO AL QUE SE DESTINA</div>
+        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">B</span> | EMPLAZAMIENTO DE LA INSTALACIÓN Y USO AL QUE SE DESTINA</div>
         
         <div class="cuerpo-seccion-borde">
           <div class="etiqueta">CALLE/AVENIDA:</div>
@@ -153,7 +153,7 @@
 
       <!-- SECCIÓN C: PERSONA QUE FIRMA -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span style="background-color: #FFA02A; padding: 2px 6px; border-radius: 3px; margin-right: 5px; color: white;">C</span> | IDENTIFICACIÓN DE LA PERSONA QUE FIRMA LA MTD</div>
+        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">C</span> | IDENTIFICACIÓN DE LA PERSONA QUE FIRMA LA MTD</div>
         
         <!-- Técnico Instalador Autorizado -->
         <div class="subseccion">
@@ -271,7 +271,7 @@
 
       <!-- SECCIÓN D: CATEGORÍA Y ESPECIALIDAD -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span style="background-color: #FFA02A; padding: 2px 6px; border-radius: 3px; margin-right: 5px; color: white;">D</span> | CATEGORÍA Y ESPECIALIDAD DEL INSTALADOR</div>
+        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">D</span> | CATEGORÍA Y ESPECIALIDAD DEL INSTALADOR</div>
         
         <!-- BÁSICA -->
         <div class="cuerpo-seccion" style="border-bottom: 1px solid #000;">
@@ -326,15 +326,15 @@
 
       <!-- SECCIÓN E: MEMORIA DESCRIPTIVA -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span style="background-color: #FFA02A; padding: 2px 6px; border-radius: 3px; margin-right: 5px; color: white;">E</span> | MEMORIA DESCRIPTIVA</div>
+        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">E</span> | MEMORIA DESCRIPTIVA</div>
         
         <!-- E1: INSTALACIÓN GENERADORA FOTOVOLTAICA AISLADA -->
         <div class="cuerpo-seccion">
-          <div class="titulo-subseccion-principal"><span style="background-color: #FFFDE7; padding: 2px 6px; border-radius: 3px; margin-right: 5px;">E1</span>. INSTALACIÓN GENERADORA FOTOVOLTAICA AISLADA</div>
+          <div class="titulo-subseccion-principal"><span class="subseccion-titulo-span">E1</span>. INSTALACIÓN GENERADORA FOTOVOLTAICA AISLADA</div>
           
           <!-- E1.1 Módulo Fotovoltaico -->
           <div class="subseccion">
-            <div class="subseccion-titulo">E1.1 MÓDULO FOTOVOLTAICO</div>
+            <div class="subseccion-titulo"><span class="subseccion-titulo-span">E1.1</span> MÓDULO FOTOVOLTAICO</div>
             <div class="fila-grid fila-2col">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">TECNOLOGÍA DE LA CÉLULA:</div>
@@ -359,7 +359,7 @@
 
           <!-- E1.2 Generador Fotovoltaico -->
           <div class="subseccion">
-            <div class="subseccion-titulo">E1.2 GENERADOR FOTOVOLTAICO</div>
+            <div class="subseccion-titulo"><span class="subseccion-titulo-span">E1.2</span> GENERADOR FOTOVOLTAICO</div>
             <div class="fila-grid fila-2col">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">POTENCIA PICO (Wp):</div>
@@ -404,7 +404,7 @@
 
           <!-- E1.3 Baterías -->
           <div class="subseccion">
-            <div class="subseccion-titulo">E1.3 BATERÍAS</div>
+            <div class="subseccion-titulo"><span class="subseccion-titulo-span" >E1.3</span> BATERÍAS</div>
             <div class="fila-grid fila-2col">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">MARCA Y MODELO:</div>
@@ -459,7 +459,7 @@
 
           <!-- E1.4 Regulador -->
           <div class="subseccion">
-            <div class="subseccion-titulo">E1.4 REGULADOR</div>
+            <div class="subseccion-titulo"><span class="subseccion-titulo-span" >E1.4</span> REGULADOR</div>
             <div class="fila-grid fila-2col">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">MARCA Y MODELO:</div>
@@ -484,7 +484,7 @@
 
           <!-- E1.5 Inversor -->
           <div class="subseccion">
-            <div class="subseccion-titulo">E1.5 INVERSOR</div>
+            <div class="subseccion-titulo"><span class="subseccion-titulo-span" >E1.5</span> INVERSOR</div>
             <div class="fila-grid fila-2col">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">MARCA Y MODELO:</div>
@@ -551,7 +551,7 @@
 
           <!-- E1.6 Otros -->
           <div class="subseccion">
-            <div class="subseccion-titulo">E1.6 OTROS</div>
+            <div class="subseccion-titulo"><span class="subseccion-titulo-span" >E1.6</span> OTROS</div>
             <div class="fila-grid fila-2col">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">CONVERTIDOR CC/CC:</div>
@@ -578,15 +578,15 @@
                 <div class="valor">{{ e1_potenciaGrupoAuxiliar }}</div>
               </div>
             </div>
-            <div class="subseccion" style="margin-top: 8px; border-bottom: 1px solid #000;">
+            <div class="subseccion" style="border-bottom: 1px solid #000;">
               <div class="etiqueta">OTROS EQUIPOS:</div>
               <div class="valor" style="font-size: 10px; white-space: pre-wrap;">{{ e1_otrosEquipos }}</div>
             </div>
           </div>
 
           <!-- E1.7 Información de la Demanda -->
-          <div class="subseccion" style="border-bottom: none;">
-            <div class="subseccion-titulo">E1.7 INFORMACIÓN DE LA DEMANDA</div>
+          <div class="subseccion subseccion-e1-7" style="border-top: 1px solid #000;">
+            <div class="subseccion-titulo"><span class="subseccion-titulo-span" >E1.7</span> INFORMACIÓN DE LA DEMANDA</div>
             <div class="fila-grid fila-2col" style="border: 1px solid #000; margin-bottom: 0;">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">POTENCIA MÁX DEMANDADA (W):</div>
@@ -600,53 +600,53 @@
             <div style="font-weight: bold; font-size: 10px; margin-bottom: 8px; margin-top: 8px;">ENERGÍA DIARIA MEDIA MENSUAL (Wh/día):</div>
             <div class="fila-grid fila-6col" style="border: 1px solid #000;">
               <div class="celda celda-encabezado celda-izquierda">
-                <div style="font-weight: bold; font-size: 9px;">ENE</div>
+                <div >ENE</div>
                 <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaEnero }}</div>
               </div>
               <div class="celda celda-encabezado celda-izquierda">
-                <div style="font-weight: bold; font-size: 9px;">FEB</div>
+                <div >FEB</div>
                 <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaFebrero }}</div>
               </div>
               <div class="celda celda-encabezado celda-izquierda">
-                <div style="font-weight: bold; font-size: 9px;">MAR</div>
+                <div >MAR</div>
                 <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaMarzo }}</div>
               </div>
               <div class="celda celda-encabezado celda-izquierda">
-                <div style="font-weight: bold; font-size: 9px;">ABR</div>
+                <div >ABR</div>
                 <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaAbril }}</div>
               </div>
               <div class="celda celda-encabezado celda-izquierda">
-                <div style="font-weight: bold; font-size: 9px;">MAY</div>
+                <div >MAY</div>
                 <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaMayo }}</div>
               </div>
               <div class="celda celda-encabezado">
-                <div style="font-weight: bold; font-size: 9px;">JUN</div>
+                <div >JUN</div>
                 <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaJunio }}</div>
               </div>
             </div>
             <div class="fila-grid fila-6col fila-sin-borde" style="border: 1px solid #000;">
               <div class="celda celda-encabezado celda-izquierda">
-                <div style="font-weight: bold; font-size: 9px;">JUL</div>
+                <div >JUL</div>
                 <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaJulio }}</div>
               </div>
               <div class="celda celda-encabezado celda-izquierda">
-                <div style="font-weight: bold; font-size: 9px;">AGO</div>
+                <div >AGO</div>
                 <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaAgosto }}</div>
               </div>
               <div class="celda celda-encabezado celda-izquierda">
-                <div style="font-weight: bold; font-size: 9px;">SEP</div>
+                <div >SEP</div>
                 <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaSeptiembre }}</div>
               </div>
               <div class="celda celda-encabezado celda-izquierda">
-                <div style="font-weight: bold; font-size: 9px;">OCT</div>
+                <div >OCT</div>
                 <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaOctubre }}</div>
               </div>
               <div class="celda celda-encabezado celda-izquierda">
-                <div style="font-weight: bold; font-size: 9px;">NOV</div>
+                <div >NOV</div>
                 <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaNoviembre }}</div>
               </div>
               <div class="celda celda-encabezado">
-                <div style="font-weight: bold; font-size: 9px;">DIC</div>
+                <div >DIC</div>
                 <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaDiciembre }}</div>
               </div>
             </div>
@@ -655,11 +655,11 @@
         
         <!-- E2: INSTALACIÓN GENERADORA FOTOVOLTAICA INTERCONECTADA CON ALMACENAMIENTO -->
         <div class="cuerpo-seccion">
-          <div class="titulo-subseccion-principal"><span style="background-color: #FFFDE7; padding: 2px 6px; border-radius: 3px; margin-right: 5px;">E2</span>. INSTALACIÓN GENERADORA FOTOVOLTAICA INTERCONECTADA CON ALMACENAMIENTO</div>
+          <div class="titulo-subseccion-principal"><span class="subseccion-titulo-span">E2</span>. INSTALACIÓN GENERADORA FOTOVOLTAICA INTERCONECTADA CON ALMACENAMIENTO</div>
           
           <!-- E2.1 Conexión a la Red -->
           <div class="subseccion-e2">
-            <div class="subseccion-titulo">E2.1 CONEXIÓN A LA RED</div>
+            <div class="subseccion-titulo"><span class="subseccion-titulo-span" >E2.1</span> CONEXIÓN A LA RED</div>
             <div class="fila-grid fila-2col fila-table-e2">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">POTENCIA NOMINAL TOTAL EN INVERSORES (kW):</div>
@@ -674,7 +674,7 @@
 
           <!-- E2.2 Módulo Fotovoltaico -->
           <div class="subseccion-e2">
-            <div class="subseccion-titulo">E2.2 MÓDULO FOTOVOLTAICO</div>
+            <div class="subseccion-titulo"><span class="subseccion-titulo-span" >E2.2</span> MÓDULO FOTOVOLTAICO</div>
             <div class="fila-grid fila-2col fila-table-e2">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">TECNOLOGÍA DE LA CÉLULA:</div>
@@ -699,7 +699,7 @@
 
           <!-- E2.3 Generador Fotovoltaico -->
           <div class="subseccion-e2">
-            <div class="subseccion-titulo">E2.3 GENERADOR FOTOVOLTAICO</div>
+            <div class="subseccion-titulo"><span class="subseccion-titulo-span" >E2.3</span> GENERADOR FOTOVOLTAICO</div>
             <div class="fila-grid fila-2col fila-table-e2">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">POTENCIA PICO (Wp):</div>
@@ -744,7 +744,7 @@
 
           <!-- E2.4 Inversor/es -->
           <div class="subseccion-e2">
-            <div class="subseccion-titulo">E2.4 INVERSOR/ES</div>
+            <div class="subseccion-titulo"><span class="subseccion-titulo-span" >E2.4</span> INVERSOR/ES</div>
             <div class="fila-grid fila-2col">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">MARCA Y MODELO:</div>
@@ -779,7 +779,7 @@
 
           <!-- E2.5 Baterías -->
           <div class="subseccion-e2">
-            <div class="subseccion-titulo">E2.5 BATERÍAS</div>
+            <div class="subseccion-titulo"><span class="subseccion-titulo-span" >E2.5</span> BATERÍAS</div>
             <div class="fila-grid fila-2col">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">MARCA Y MODELO:</div>
@@ -830,7 +830,7 @@
 
           <!-- E2.5 Protecciones Externas -->
           <div class="subseccion">
-            <div class="subseccion-titulo"><span style="background-color: #FFA02A; padding: 2px 6px; border-radius: 3px; margin-right: 5px; color: white;">E2.5</span> PROTECCIONES EXTERNAS</div>
+            <div class="subseccion-titulo"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">E2.5</span> PROTECCIONES EXTERNAS</div>
             <div class="cuerpo-subseccion">
               <div class="etiqueta">INTERRUPTOR GENERAL:</div>
             </div>
@@ -861,7 +861,7 @@
 
       <!-- SECCIÓN F: MEDIDAS DE PROTECCIÓN EMPLEADAS -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span style="background-color: #FFA02A; padding: 2px 6px; border-radius: 3px; margin-right: 5px; color: white;">F</span> | MEDIDAS DE PROTECCIÓN EMPLEADAS</div>
+        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">F</span> | MEDIDAS DE PROTECCIÓN EMPLEADAS</div>
         
         <div class="cuerpo-seccion">
           <table class="tabla-protecciones">
@@ -910,7 +910,7 @@
 
       <!-- SECCIÓN G: CARACTERÍSTICAS DE LAS LÍNEAS Y CIRCUITOS -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span style="background-color: #FFA02A; padding: 2px 6px; border-radius: 3px; margin-right: 5px; color: white;">G</span> | CARACTERÍSTICAS DE LAS LÍNEAS Y CIRCUITOS</div>
+        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">G</span> | CARACTERÍSTICAS DE LAS LÍNEAS Y CIRCUITOS</div>
         
         <div class="cuerpo-seccion" style="overflow-x: auto;">
           <table class="tabla-circuitos">
@@ -976,7 +976,7 @@
 
       <!-- SECCIÓN H: ESQUEMA UNIFILAR -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span style="background-color: #FFA02A; padding: 2px 6px; border-radius: 3px; margin-right: 5px; color: white;">H</span> | ESQUEMA UNIFILAR DE LA INSTALACIÓN (PROTECCIONES INCLUIDAS)</div>
+        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">H</span> | ESQUEMA UNIFILAR DE LA INSTALACIÓN (PROTECCIONES INCLUIDAS)</div>
         
         <div class="contenedor-esquema">
           <img v-if="esquemaUnifilar" :src="esquemaUnifilar" class="imagen-esquema" />
@@ -986,7 +986,7 @@
 
       <!-- SECCIÓN I: PLANO DE EMPLAZAMIENTO -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span style="background-color: #FFA02A; padding: 2px 6px; border-radius: 3px; margin-right: 5px; color: white;">I</span> | PLANO DE EMPLAZAMIENTO Y CROQUIS DE ACCESO</div>
+        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">I</span> | PLANO DE EMPLAZAMIENTO Y CROQUIS DE ACCESO</div>
         
         <div class="contenedor-esquema">
           <img v-if="planoEmplazamiento" :src="planoEmplazamiento" class="imagen-esquema" />
@@ -996,7 +996,7 @@
 
       <!-- PIE DE PÁGINA -->
       <div class="pie-pagina">
-        <div style="margin-bottom: 10px;">
+        <div style="margin-bottom: 5px;">
           <img src="/logo-solay.png" alt="Solay" style="height: 40px; margin: 0 auto;" />
         </div>
         <p style="margin: 5px 0;">Solay Fotovoltaica</p>
@@ -1238,23 +1238,23 @@ const tipoInstalacionSeleccionada = ref('Nueva')
   width: 210mm;
   margin: 0 auto;
   font-family: 'Arial', sans-serif;
-  color: #333;
+  color: #000;
   font-size: 11px;
   display: block;
 }
 
 .encabezado-documento-principal {
-  background-color: #f4b5a0;
+
   padding: 15px 20px;
   text-align: center;
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid var(--color-orange-medium-strong);
 }
 
 .titulo-encabezado {
   margin: 0;
   font-size: 16px;
   font-weight: bold;
-  color: #333;
+  color: #000;
 }
 
 .subtitulo-encabezado {
@@ -1263,32 +1263,29 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 }
 
 .contenedor-contenido {
-  padding: 20px;
+  padding: 10px;
 }
 
 .grid-expediente {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-bottom: 20px;
+  gap: 10px;
+  margin-bottom: 5px;
 }
 
 .caja-expediente {
   border: 1px solid #000;
-  padding: 8px;
+
 }
 
 .encabezado-caja {
-  background-color: #f4b5a0;
+  background-color: var(--color-orange-medium-strong);
   padding: 5px;
   font-weight: bold;
-  border-bottom: 1px solid #000;
-  margin-bottom: 8px;
 }
 
 .contenido-caja {
-  margin: 3px 0;
-  color: #d97860;
+  color: #000;
 }
 
 .cuerpo-seccion-borde {
@@ -1382,12 +1379,11 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 /* ========== CONTENEDORES PRINCIPALES ========== */
 .seccion {
   border: 2px solid #000;
-  margin-bottom: 15px;
 }
 
 .encabezado-seccion {
-  background-color: #f4b5a0;
-  padding: 8px;
+  background-color: var(--color-orange-medium-strong);
+  padding: 5px;
   font-weight: bold;
   border-bottom: 1px solid #000;
 }
@@ -1420,7 +1416,8 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 
 /* ========== CELDAS ========== */
 .celda {
-  padding: 3px;
+  padding: 1px 0px 0px 4px;
+  
 }
 
 .celda-izquierda {
@@ -1429,7 +1426,6 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 
 .celda-encabezado {
   text-align: center;
-  background-color: #f4b5a0;
 }
 
 /* ========== TIPOGRAFÍA Y CONTENIDO ========== */
@@ -1443,16 +1439,16 @@ const tipoInstalacionSeleccionada = ref('Nueva')
   font-weight: bold;
   font-size: 11px;
   border-bottom: 1px solid #000;
-  padding: 5px;
+  padding: 4px;
 }
 
 .valor {
-  color: #d97860;
+  color: #000;
   min-height: 20px;
 }
 
 .valor-grande {
-  color: #d97860;
+  color: #000;
   min-height: 40px;
 }
 
@@ -1465,16 +1461,25 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 .subseccion-titulo {
   font-weight: bold;
   border-bottom: 1px solid #000;
-  padding: 8px 5px;
+  padding: 7px 5px;
   background-color: #FFCC99;
-  color: white;
+  color: rgb(0, 0, 0);
+}
+
+/* Estilos para los spans de las letras (A, B, C, D, E, E1, E2, E1.1, etc.) */
+.subseccion-titulo-span {
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin-right: 5px;
+  color: #000;
+  font-weight: bold;
 }
 
 /* ========== TÍTULO DE SUBSECCIONES PRINCIPALES ========== */
 .titulo-subseccion-principal {
   font-weight: bold;
-  background-color: #f0f0f0;
-  padding: 8px 5px;
+  background-color: #ffb061;
+  padding: 7px 5px;
   border-bottom: 1px solid #000;
 }
 
@@ -1538,14 +1543,14 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 }
 
 .nota-legal {
-  padding: 8px;
+  padding: 3px;
   text-align: center;
   font-size: 9px;
-  color: #666;
+  color: #000;
 }
 
 .nota-legal p {
-  margin: 5px 0;
+  margin: 4px 0;
 }
 
 /* ========== ENCABEZADO GENERAL ========== */
@@ -1560,7 +1565,7 @@ const tipoInstalacionSeleccionada = ref('Nueva')
   margin: 0;
   font-size: 16px;
   font-weight: bold;
-  color: #333;
+  color: #000;
 }
 
 .encabezado-documento p {
@@ -1570,12 +1575,12 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 
 /* ========== CAMPOS ESPECIALES ========== */
 .campo-solo-lectura {
-  color: #d97860;
+  color: #000;
   font-weight: normal;
 }
 
 .campo-editable {
-  color: #d97860;
+  color: #000;
 }
 
 .tabla-contenedor {
@@ -1591,7 +1596,7 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 .tabla-contenedor th,
 .tabla-contenedor td {
   border: 1px solid #000;
-  padding: 5px;
+  padding: 4px;
   background-color: #f0f0f0;
 }
 
@@ -1609,7 +1614,7 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 .tabla-protecciones th,
 .tabla-protecciones td {
   border: 1px solid #000;
-  padding: 5px;
+  padding: 4px;
 }
 
 .tabla-protecciones th {
@@ -1618,8 +1623,8 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 }
 
 .otras-medidas-proteccion {
-  margin-top: 15px;
-  padding: 8px;
+  margin-top: 10px;
+  padding: 7px;
   background-color: #fff9f7;
   border: 1px solid #f4b5a0;
 }
@@ -1648,7 +1653,7 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 
 /* ========== CONTENEDORES DE ESQUEMAS (Secciones H, I) ========== */
 .contenedor-esquema {
-  border: 2px dashed #d97860;
+  border: 2px dashed #000;
   padding: 30px;
   text-align: center;
   background-color: #fff9f7;
@@ -1672,11 +1677,11 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 /* ========== PIE DE PÁGINA ========== */
 .pie-pagina {
   margin-top: 30px;
-  padding: 15px;
-  border-top: 2px solid #f4b5a0;
+  padding: 10px;
+  border-top: 2px solid var(--color-orange-medium-strong);
   text-align: center;
   font-size: 9px;
-  color: #666;
+  color: #000;
 }
 
 /* ========== GRID DE CHECKBOXES (Sección D) ========== */
@@ -1730,6 +1735,14 @@ const tipoInstalacionSeleccionada = ref('Nueva')
   .subseccion {
     page-break-inside: avoid;
     break-inside: avoid;
+  }
+  
+  /* Forzar salto de página antes de E1.7 para evitar cortes */
+  .subseccion-e1-7 {
+    page-break-inside: avoid;
+    break-inside: avoid;
+    page-break-before: always;
+    margin-top: 20px;
   }
   
   .subseccion-e2 {

@@ -1,0 +1,15 @@
+/* Color Variables */
+:root {
+  /* Orange - Accent Colors (Strong to Weak) */
+  --color-orange-strong: #FF8C00;
+  --color-orange-medium-strong: #FFA02A;
+  --color-orange-medium: #FFB84D;
+  --color-orange-medium-weak: #FFCC99;
+  --color-orange-weak: #FFFDE7;
+
+  /* Text Color */
+  --color-text-black: #000000;
+
+  /* Blue Royal */
+  --color-blue-royal: #4169E1;
+}

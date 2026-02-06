@@ -15,7 +15,7 @@
     <div v-if="showPreview" class="max-w-4xl mx-auto">
       <div class="flex gap-2 mb-4">
         <Boton 
-          @click="closePreview"
+          @click="goToIndex"
           variant="secondary"
         >
           ← Volver
@@ -45,7 +45,7 @@
     <!-- Vista Editar -->
     <div v-if="showEdit" class="max-w-4xl mx-auto">
       <Boton 
-        @click="closeEdit"
+        @click="goToIndex"
         variant="secondary"
         class="mb-4"
       >
@@ -66,6 +66,9 @@ import Boton from '../components/Boton.vue'
 import DocumentForm from '../components/DocumentForm.vue'
 import { useDocument } from '../composables/useDocument'
 import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const props = defineProps({
   config: {
@@ -107,5 +110,9 @@ onMounted(() => {
 const handleFormSubmit = (newData) => {
   formData.value = newData
   saveChanges()
+}
+
+const goToIndex = () => {
+  router.push('/')
 }
 </script>
