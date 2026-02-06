@@ -823,7 +823,7 @@
           </div>
 
           <!-- E2.6 Protecciones Externas -->
-          <div class="subseccion" style="border: 1px solid #000; padding: 8px;">
+          <div class="subseccion">
             <div class="subseccion-titulo">E2.6 PROTECCIONES EXTERNAS</div>
             <div class="fila-grid fila-2col fila-sin-borde">
               <div class="celda celda-izquierda">
@@ -1279,12 +1279,10 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 }
 
 .subseccion-e2 {
-  border: 1px solid #000;
-  padding: 8px;
+  border-bottom: 1px solid #000;
 }
 
 .fila-table-e2 {
-  border: 1px solid #000;
   margin-bottom: 0;
 }
 
@@ -1445,7 +1443,7 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 }
 
 .seccion-firma {
-  padding: 15px;
+
   text-align: center;
   border-top: 1px solid #000;
 }
