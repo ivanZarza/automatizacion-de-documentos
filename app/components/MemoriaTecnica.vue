@@ -155,12 +155,13 @@
       <div style="border: 2px solid #000; margin-bottom: 15px;">
         <div style="background-color: #f4b5a0; padding: 8px; font-weight: bold; border-bottom: 1px solid #000;">C | IDENTIFICACIÓN DE LA PERSONA QUE FIRMA LA MTD</div>
         
+        
         <!-- Técnico Instalador Autorizado -->
         <div style="border-bottom: 1px solid #000; padding: 8px;">
           <div style="font-weight: bold; font-size: 11px; margin-bottom: 8px;">MEMORIA REALIZADA POR INSTALADOR ELÉCTRICO AUTORIZADO:</div>
           
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
-            <div style="padding: 8px; border-right: 1px solid #000;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px;">
+            <div style="padding: 8px; border: 1px solid #000;">
               <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">NOMBRE:</div>
               <div style="color: #d97860;">{{ nombreTecnicoInstalador }}</div>
             </div>
@@ -1165,6 +1166,157 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 </script>
 
 <style scoped>
+/* ESTILOS GENERALES */
+.section-container {
+  border: 2px solid #000;
+  margin-bottom: 15px;
+}
+
+.section-header {
+  background-color: #f4b5a0;
+  padding: 8px;
+  font-weight: bold;
+  border-bottom: 1px solid #000;
+}
+
+.section-body {
+  padding: 8px;
+}
+
+/* CONTENEDORES DE FILAS CON GRIDS */
+.grid-row {
+  display: grid;
+  gap: 0;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #000;
+}
+
+.grid-row-2col {
+  grid-template-columns: 1fr 1fr;
+}
+
+.grid-row-3col {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-row-5col {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid-row-6col {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+/* CELDAS DE GRID */
+.grid-cell {
+  padding: 8px;
+}
+
+.grid-cell-left {
+  border-right: 1px solid #000;
+}
+
+.grid-cell-header {
+  text-align: center;
+  background-color: #f4b5a0;
+}
+
+/* TIPOGRAFÍA */
+.field-label {
+  font-weight: bold;
+  font-size: 10px;
+  margin-bottom: 3px;
+}
+
+.field-label-large {
+  font-weight: bold;
+  font-size: 11px;
+  margin-bottom: 8px;
+}
+
+.field-value {
+  color: #d97860;
+  min-height: 20px;
+}
+
+.field-value-large {
+  min-height: 40px;
+}
+
+/* SUBSECCIONES E1-E2 */
+.subsection {
+  border-bottom: 1px solid #000;
+  padding: 8px;
+  margin-bottom: 0;
+}
+
+.subsection-last {
+  border-bottom: none;
+}
+
+.subsection-title {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* ELEMENTOS ESPECIALES */
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  font-size: 11px;
+  margin-bottom: 8px;
+}
+
+.checkbox-options {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 5px;
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.checkbox-option input {
+  cursor: pointer;
+}
+
+.checkbox-option label {
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.signature-section {
+  padding: 15px;
+  text-align: center;
+  border-top: 1px solid #000;
+}
+
+.signature-date {
+  font-weight: bold;
+  font-size: 10px;
+  margin-bottom: 10px;
+}
+
+.signature-image {
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.signature-name {
+  font-weight: bold;
+  font-size: 10px;
+  border-top: 1px solid #000;
+  padding-top: 5px;
+}
+
 @media print {
   div[data-pdf-content] {
     width: 210mm;
