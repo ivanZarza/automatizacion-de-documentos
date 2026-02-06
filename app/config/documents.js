@@ -296,20 +296,8 @@ export const memoriaTecnicaConfig = {
     { name: 'maximoPicoPotenciaBateria', label: 'Máximo Pico de Potencia', placeholder: '17,28 Kw (durante 10s)', type: 'text' },
     // Sección G - Características de Líneas y Circuitos
     { name: 'potenciaBateriaInversor', label: 'Potencia Prevista - Batería a Inversor (kW)', placeholder: '10,24', type: 'text' },
-    { name: 'longitudBateriaInversor', label: 'Longitud - Batería a Inversor (m)', placeholder: '5', type: 'text' },
-    { name: 'materialBateriaInversor', label: 'Material/Sección - Batería a Inversor (mm²)', placeholder: '6', type: 'text' },
-    { name: 'intensidadBateriaInversor', label: 'Intensidad Admisible - Batería a Inversor (A)', placeholder: '49', type: 'text' },
-    { name: 'caidaTensionBateriaInversor', label: 'Caída Tensión - Batería a Inversor (%)', placeholder: '< 1,5 %', type: 'text' },
     { name: 'potenciaGeneradorInversorDirecto', label: 'Potencia Prevista - Generador a Inversor Directo (kW)', placeholder: '4,84', type: 'text' },
-    { name: 'longitudGeneradorInversorDirecto', label: 'Longitud - Generador a Inversor Directo (m)', placeholder: '10', type: 'text' },
-    { name: 'materialGeneradorInversorDirecto', label: 'Material/Sección - Generador a Inversor Directo (mm²)', placeholder: '6', type: 'text' },
-    { name: 'intensidadGeneradorInversorDirecto', label: 'Intensidad Admisible - Generador a Inversor Directo (A)', placeholder: '49', type: 'text' },
-    { name: 'caidaTensionGeneradorInversorDirecto', label: 'Caída Tensión - Generador a Inversor Directo (%)', placeholder: '< 1,5 %', type: 'text' },
     { name: 'potenciaSalidaInversorRed', label: 'Potencia Prevista - Salida Inversor a Red (kW)', placeholder: '5', type: 'text' },
-    { name: 'longitudSalidaInversorRed', label: 'Longitud - Salida Inversor a Red (m)', placeholder: '5', type: 'text' },
-    { name: 'materialSalidaInversorRed', label: 'Material/Sección - Salida Inversor a Red (mm²)', placeholder: '6', type: 'text' },
-    { name: 'intensidadSalidaInversorRed', label: 'Intensidad Admisible - Salida Inversor a Red (A)', placeholder: '44', type: 'text' },
-    { name: 'caidaTensionSalidaInversorRed', label: 'Caída Tensión - Salida Inversor a Red (%)', placeholder: '< 1,5 %', type: 'text' },
     // Sección H - Esquema Unifilar
     { name: 'esquemaUnifilar', label: 'Esquema Unifilar (Imagen)', placeholder: 'Selecciona una imagen', type: 'file', accept: 'image/*', fullWidth: true },
     // Sección I - Plano de Emplazamiento

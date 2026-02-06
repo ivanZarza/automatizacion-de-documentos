@@ -873,7 +873,7 @@
             <tr>
               <td>CONTACTOS DIRECTOS</td>
               <td class="campo-editable">{{ medidaContactosDirectos }}</td>
-              <td class="campo-editable">{{ parteInstalacionDirectos }}</td>
+              <td class="campo-editable"></td>
             </tr>
             <tr>
               <td>CONTACTOS INDIRECTOS</td>
