@@ -172,270 +172,277 @@
       <div style="border: 2px solid #000; margin-bottom: 15px;">
         <div style="background-color: #f4b5a0; padding: 8px; font-weight: bold;">E | MEMORIA DESCRIPTIVA</div>
         
-        <!-- E.1.1 Módulo Fotovoltaico -->
-        <div style="border-bottom: 1px solid #000; padding: 10px;">
-          <div style="font-weight: bold; background-color: #f0f0f0; padding: 5px; margin-bottom: 8px;">E.1.1 MÓDULO FOTOVOLTAICO</div>
+        <!-- E2: INSTALACIÓN GENERADORA FOTOVOLTAICA INTERCONECTADA CON ALMACENAMIENTO -->
+        <div style="padding: 10px;">
+          <div style="font-weight: bold; background-color: #f0f0f0; padding: 5px; margin-bottom: 10px;">E2. INSTALACIÓN GENERADORA FOTOVOLTAICA INTERCONECTADA CON ALMACENAMIENTO</div>
           
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-            <div>
-              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">POTENCIA PICO DEL MÓDULO (Wp):</div>
-              <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ potenciaPicoModulo }}</div>
-            </div>
-            <div>
-              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">MARCA Y MODELO DEL MÓDULO:</div>
-              <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ marcaModeloModulo }}</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- E.1.2 Generador Fotovoltaico -->
-        <div style="border-bottom: 1px solid #000; padding: 10px;">
-          <div style="font-weight: bold; background-color: #f0f0f0; padding: 5px; margin-bottom: 8px;">E.1.2 GENERADOR FOTOVOLTAICO</div>
-          
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
-            <div>
-              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN DE MÁXIMA POTENCIA DEL GENERADOR (V):</div>
-              <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ tensionMaximaPotenciaGenerador }}</div>
-            </div>
-            <div>
-              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">ORIENTACIONES DEL GENERADOR (Nº):</div>
-              <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ orientacionesGenerador }}</div>
-            </div>
-          </div>
-
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-            <div>
-              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TOTAL DE MÓDULOS:</div>
-              <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ totalModulos }}</div>
-            </div>
-            <div>
-              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">RAMAS EN PARALELO:</div>
-              <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ ramrasEnParalelo }}</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- E.1.3 Baterías -->
-        <div style="border-bottom: 1px solid #000; padding: 10px;">
-          <div style="font-weight: bold; background-color: #f0f0f0; padding: 5px; margin-bottom: 8px;">E.1.3 BATERÍAS</div>
-          
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
-            <div>
-              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TIPO DE BATERÍA:</div>
-              <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ tiposBateria }}</div>
-            </div>
-            <div>
-              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN DE LA BATERÍA (V):</div>
-              <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ tensionBateria }}</div>
-            </div>
-          </div>
-
-          <div style="margin-bottom: 8px;">
-            <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">CAPACIDAD DE LA BATERÍA (Ah):</div>
-            <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ capacidadBateria }}</div>
-          </div>
-
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-            <div>
-              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN NOMINAL BATERÍA (V):</div>
-              <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ tensionNominalBateria }}</div>
-            </div>
-            <div>
-              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN MÁXIMA ALCANZABLE (V):</div>
-              <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ tensionMaximaAlcanzableBateria }}</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- E.1.4 Regulador -->
-        <div style="border-bottom: 1px solid #000; padding: 10px;">
-          <div style="font-weight: bold; background-color: #f0f0f0; padding: 5px; margin-bottom: 8px;">E.1.4 REGULADOR</div>
-          
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-            <div>
-              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">MARCA Y MODELO:</div>
-              <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ marcaModeloRegulador }}</div>
-            </div>
-            <div>
-              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN DE CORTE (V):</div>
-              <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ tensionCorteRegulador }}</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- E.1.5 Inversor -->
-        <div style="border-bottom: 1px solid #000; padding: 10px;">
-          <div style="font-weight: bold; background-color: #f0f0f0; padding: 5px; margin-bottom: 8px;">E.1.5 INVERSOR</div>
-          
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
-            <div>
-              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">MARCA Y MODELO:</div>
-              <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ marcaModeloInversor }}</div>
-            </div>
-            <div>
-              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">POTENCIA NOMINAL (kVa):</div>
-              <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ potenciaNominalInversor }}</div>
-            </div>
-          </div>
-
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-            <div>
-              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN DE ENTRADA (V):</div>
-              <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ tensionEntradaInversor }}</div>
-            </div>
-            <div>
-              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN DE SALIDA (V):</div>
-              <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ tensionSalidaInversor }}</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- E.1.7 Información de la Demanda -->
-        <div style="border-bottom: 1px solid #000; padding: 10px;">
-          <div style="font-weight: bold; background-color: #f0f0f0; padding: 5px; margin-bottom: 8px;">E.1.7 INFORMACIÓN DE LA DEMANDA</div>
-          
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-            <div>
-              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">POTENCIA MÁXIMA DEMANDA (kWh):</div>
-              <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ potenciaMaximaDemanda }}</div>
-            </div>
-            <div>
-              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">ENERGÍA DIARIA MEDIA DEMANDA (kWh/día):</div>
-              <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ energiaDiariaDemanda }}</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- E.2 INFORMACIÓN DE LOS CIRCUITOS Y PROTECCIONES -->
-        <div style="padding: 10px; border-bottom: 1px solid #000;">
-          <div style="font-weight: bold; background-color: #f0f0f0; padding: 5px; margin-bottom: 10px;">E.2 INFORMACIÓN DE LOS CIRCUITOS Y PROTECCIONES</div>
-          
-          <!-- E.2.1 Circuito DC -->
-          <div style="margin-bottom: 10px; padding: 8px; border-left: 3px solid #d97860;">
-            <div style="font-weight: bold; font-size: 11px; margin-bottom: 8px;">E.2.1 CIRCUITO DE CORRIENTE CONTINUA (DC)</div>
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
-              <div>
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">SECCIÓN DEL CABLE DC (mm²):</div>
-                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ seccionCableDC }}</div>
-              </div>
-              <div>
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TIPO DE CABLE FOTOVOLTAICO:</div>
-                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ tipoCableFotovoltaico }}</div>
-              </div>
-            </div>
-
+          <!-- E2.1 Conexión a la Red -->
+          <div style="border-bottom: 1px solid #000; padding: 10px;">
+            <div style="font-weight: bold; margin-bottom: 8px;">E2.1 CONEXIÓN A LA RED</div>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
               <div>
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">PROTECCIÓN DC - TIPO:</div>
-                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ proteccionDCTipo }}</div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">POTENCIA NOMINAL TOTAL EN INVERSORES (kW):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ potenciaNominalInversores }}</div>
               </div>
               <div>
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">PROTECCIÓN DC - INTENSIDAD (A):</div>
-                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ proteccionDCIntensidad }}</div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TIPO:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ tipoConexionRed }}</div>
               </div>
             </div>
           </div>
 
-          <!-- E.2.2 Circuito AC -->
-          <div style="padding: 8px; border-left: 3px solid #d97860;">
-            <div style="font-weight: bold; font-size: 11px; margin-bottom: 8px;">E.2.2 CIRCUITO DE CORRIENTE ALTERNA (AC)</div>
-            
+          <!-- E2.2 Módulo Fotovoltaico -->
+          <div style="border-bottom: 1px solid #000; padding: 10px;">
+            <div style="font-weight: bold; margin-bottom: 8px;">E2.2 MÓDULO FOTOVOLTAICO</div>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
               <div>
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">SECCIÓN DEL CABLE AC (mm²):</div>
-                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ seccionCableAC }}</div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TECNOLOGÍA DE LA CÉLULA:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ tecnologiaCelulaModulo }}</div>
               </div>
               <div>
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TIPO DE CABLE (RZ, RV):</div>
-                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ tipoCableAC }}</div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">MARCA Y MODELO:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ marcaModeloModulo }}</div>
               </div>
             </div>
-
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
               <div>
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">PROTECCIÓN AC - TIPO:</div>
-                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ proteccionACTipo }}</div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">POTENCIA PICO (Wp):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ potenciaPicoModulo }}</div>
               </div>
               <div>
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">PROTECCIÓN AC - INTENSIDAD (A):</div>
-                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ proteccionACIntensidad }}</div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TONC (ºC):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ toncModulo }}</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- E2.3 Generador Fotovoltaico -->
+          <div style="border-bottom: 1px solid #000; padding: 10px;">
+            <div style="font-weight: bold; margin-bottom: 8px;">E2.3 GENERADOR FOTOVOLTAICO</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">POTENCIA PICO (Wp):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ potenciaPicoGenerador }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN MÁXIMA POTENCIA, Vpmp (V):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ tensionVpmpGenerador }}</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">INTENSIDAD MÁXIMA POTENCIA, Ipmp (A):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ intensidadIpmpGenerador }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">ORIENTACIÓN (º):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ orientacionGenerador }}</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">INCLINACIÓN RESPECTO A HORIZONTAL (º):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ inclinacionGenerador }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">Nº TOTAL DE MÓDULOS:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ totalModulos }}</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">Nº DE MÓDULOS EN SERIE POR RAMA:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ modulosEnSerie }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">Nº DE RAMAS EN PARALELO:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ ramrasEnParalelo }}</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- E2.4 Inversor/es -->
+          <div style="border-bottom: 1px solid #000; padding: 10px;">
+            <div style="font-weight: bold; margin-bottom: 8px;">E2.4 INVERSOR/ES</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">MARCA Y MODELO:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ marcaModeloInversor }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">POTENCIA AC NOMINAL (Kw):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ potenciaACInversor }}</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN NOMINAL AC, Vn (V):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ tensionNominalInversor }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">Vcc MÁXIMA (V):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ vccMaximaInversor }}</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">Vcc MÍNIMA (V):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ vccMinimaInversor }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">CONEXIÓN:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ tipoConexionInversor }}</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- E2.5 Baterías -->
+          <div style="border-bottom: 1px solid #000; padding: 10px;">
+            <div style="font-weight: bold; margin-bottom: 8px;">E2.5 BATERÍAS</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">MARCA Y MODELO:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ marcaModeloBateria }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TIPO DE BATERÍA:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ tipoBateria }}</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN NOMINAL (V):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ tensionNominalBateria }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">PROFUNDIDAD DE DESCARGA (%):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ profundidadDescargaBateria }}</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN MÁXIMA (V):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ tensionMaximaBateria }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN MÍNIMA (V):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ tensionMinimaBateria }}</div>
+              </div>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">ENERGÍA TOTAL (kWh):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ energiaTotalBateria }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">POTENCIA MÁXIMA SALIDA (kW):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ potenciaMaximaSalidaBateria }}</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- E2.6 Protecciones Externas -->
+          <div style="padding: 10px;">
+            <div style="font-weight: bold; margin-bottom: 8px;">E2.6 PROTECCIONES EXTERNAS</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">INTERRUPTOR GENERAL - In (A):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ intensidadInterruptorGeneral }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">PODER DE CORTE (kA):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ poderCorteInterruptor }}</div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- SECCIÓN F: PLANOS Y ESQUEMAS -->
+      <!-- SECCIÓN F: MEDIDAS DE PROTECCIÓN EMPLEADAS -->
       <div style="border: 2px solid #000; margin-bottom: 15px;">
-        <div style="background-color: #f4b5a0; padding: 8px; font-weight: bold;">F | PLANOS Y ESQUEMAS</div>
-        
-        <!-- Plano de Emplazamiento -->
-        <div style="border-bottom: 1px solid #000; padding: 15px;">
-          <div style="font-weight: bold; background-color: #f0f0f0; padding: 5px; margin-bottom: 10px; font-size: 11px;">F.1 PLANO DE EMPLAZAMIENTO</div>
-          <div style="color: #333; font-size: 10px; margin-bottom: 10px;">Fotografía aérea o plano del emplazamiento de la instalación:</div>
-          <div style="border: 2px dashed #d97860; padding: 30px; text-align: center; background-color: #fff9f7; min-height: 150px; display: flex; align-items: center; justify-content: center;">
-            <img v-if="planoEmplazamiento" :src="planoEmplazamiento" style="max-width: 100%; max-height: 150px; object-fit: contain;" />
-            <div v-else style="color: #999; font-size: 12px;">Imagen del plano de emplazamiento</div>
-          </div>
-        </div>
-
-        <!-- Esquema Unifilar -->
-        <div style="padding: 15px;">
-          <div style="font-weight: bold; background-color: #f0f0f0; padding: 5px; margin-bottom: 10px; font-size: 11px;">F.2 ESQUEMA UNIFILAR</div>
-          <div style="color: #333; font-size: 10px; margin-bottom: 10px;">Esquema eléctrico unifilar de la instalación:</div>
-          <div style="border: 2px dashed #d97860; padding: 30px; text-align: center; background-color: #fff9f7; min-height: 150px; display: flex; align-items: center; justify-content: center;">
-            <img v-if="esquemaUnifilar" :src="esquemaUnifilar" style="max-width: 100%; max-height: 150px; object-fit: contain;" />
-            <div v-else style="color: #999; font-size: 12px;">Esquema eléctrico unifilar</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- SECCIÓN G: DOCUMENTACIÓN TÉCNICA -->
-      <div style="border: 2px solid #000; margin-bottom: 15px;">
-        <div style="background-color: #f4b5a0; padding: 8px; font-weight: bold;">G | DOCUMENTACIÓN TÉCNICA Y CERTIFICADOS</div>
+        <div style="background-color: #f4b5a0; padding: 8px; font-weight: bold;">F | MEDIDAS DE PROTECCIÓN EMPLEADAS</div>
         
         <div style="padding: 10px;">
-          <div style="font-weight: bold; margin-bottom: 10px;">Documentación requerida adjunta:</div>
-          
-          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 11px;">
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <input type="checkbox" :checked="documentacionTecnica?.includes('certificados')" />
-              <span>Certificados de homologación de módulos fotovoltaicos</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <input type="checkbox" :checked="documentacionTecnica?.includes('inversor')" />
-              <span>Certificado de homologación del inversor</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <input type="checkbox" :checked="documentacionTecnica?.includes('regulador')" />
-              <span>Certificado de homologación del regulador (si aplica)</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <input type="checkbox" :checked="documentacionTecnica?.includes('bateria')" />
-              <span>Certificado de homologación de baterías (si aplica)</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 8px;">
-              <input type="checkbox" :checked="documentacionTecnica?.includes('seguridad')" />
-              <span>Certificado de conformidad y seguridad de la instalación</span>
-            </div>
-          </div>
+          <table style="width: 100%; border-collapse: collapse; font-size: 10px;">
+            <tr style="border: 1px solid #000;">
+              <th style="border: 1px solid #000; padding: 5px; background-color: #f0f0f0;">RIESGO / PROTECCIÓN</th>
+              <th style="border: 1px solid #000; padding: 5px; background-color: #f0f0f0;">TIPO DE MEDIDA</th>
+              <th style="border: 1px solid #000; padding: 5px; background-color: #f0f0f0;">PARTE DE LA INSTALACIÓN</th>
+            </tr>
+            <tr style="border: 1px solid #000;">
+              <td style="border: 1px solid #000; padding: 5px;">Contactos Directos</td>
+              <td style="border: 1px solid #000; padding: 5px; color: #d97860;">{{ medidaContactosDirectos }}</td>
+              <td style="border: 1px solid #000; padding: 5px; color: #d97860;">{{ parteInstalacionDirectos }}</td>
+            </tr>
+            <tr style="border: 1px solid #000;">
+              <td style="border: 1px solid #000; padding: 5px;">Contactos Indirectos</td>
+              <td style="border: 1px solid #000; padding: 5px; color: #d97860;">{{ medidaContactosIndirectos }}</td>
+              <td style="border: 1px solid #000; padding: 5px; color: #d97860;">{{ parteInstalacionIndirectos }}</td>
+            </tr>
+            <tr style="border: 1px solid #000;">
+              <td style="border: 1px solid #000; padding: 5px;">Sobretensiones</td>
+              <td style="border: 1px solid #000; padding: 5px; color: #d97860;">{{ medidaSobretensiones }}</td>
+              <td style="border: 1px solid #000; padding: 5px; color: #d97860;">{{ parteInstalacionSobretensiones }}</td>
+            </tr>
+          </table>
         </div>
       </div>
 
-      <!-- SECCIÓN H: NORMATIVA Y CONFORMIDAD -->
+      <!-- SECCIÓN G: CARACTERÍSTICAS DE LAS LÍNEAS Y CIRCUITOS -->
       <div style="border: 2px solid #000; margin-bottom: 15px;">
-        <div style="background-color: #f4b5a0; padding: 8px; font-weight: bold;">H | NORMATIVA Y CONFORMIDAD</div>
+        <div style="background-color: #f4b5a0; padding: 8px; font-weight: bold;">G | CARACTERÍSTICAS DE LAS LÍNEAS Y CIRCUITOS</div>
         
-        <div style="padding: 10px; font-size: 10px; line-height: 1.6;">
-          <p style="margin: 5px 0; font-weight: bold;">Esta instalación se ha realizado de conformidad con:</p>
-          <ul style="margin: 8px 0 0 20px; padding-left: 0;">
-            <li>Real Decreto 842/2002, de 2 de agosto, por el que se aprueba el Reglamento Electrotécnico para Baja Tensión (REBT)</li>
-            <li>UNE 20460-1 y UNE 20460-7-712: Instalaciones eléctricas de baja tensión</li>
-            <li>RD 1699/2003 para el procedimiento administrativo de conexión a red (si aplica)</li>
-            <li>Normativa específica aplicable en la comunidad autónoma correspondiente</li>
-            <li>Código Técnico de la Edificación (CTE) en vigor</li>
-          </ul>
+        <div style="padding: 10px; overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 9px;">
+            <tr style="border: 1px solid #000;">
+              <th style="border: 1px solid #000; padding: 4px; background-color: #f0f0f0;">CIRCUITO</th>
+              <th style="border: 1px solid #000; padding: 4px; background-color: #f0f0f0;">LONGITUD (m)</th>
+              <th style="border: 1px solid #000; padding: 4px; background-color: #f0f0f0;">MATERIAL/SECCIÓN (mm²)</th>
+              <th style="border: 1px solid #000; padding: 4px; background-color: #f0f0f0;">INTENSIDAD (A)</th>
+              <th style="border: 1px solid #000; padding: 4px; background-color: #f0f0f0;">CAÍDA TENSIÓN (%)</th>
+            </tr>
+            <tr style="border: 1px solid #000;">
+              <td style="border: 1px solid #000; padding: 4px;">Generador - Inversor</td>
+              <td style="border: 1px solid #000; padding: 4px; color: #d97860;">{{ longitudGeneradorInversor }}</td>
+              <td style="border: 1px solid #000; padding: 4px; color: #d97860;">{{ materialGeneradorInversor }}</td>
+              <td style="border: 1px solid #000; padding: 4px; color: #d97860;">{{ intensidadGeneradorInversor }}</td>
+              <td style="border: 1px solid #000; padding: 4px; color: #d97860;">{{ caidaTensionGeneradorInversor }}</td>
+            </tr>
+            <tr style="border: 1px solid #000;">
+              <td style="border: 1px solid #000; padding: 4px;">Batería - Inversor</td>
+              <td style="border: 1px solid #000; padding: 4px; color: #d97860;">{{ longitudBateriaInversor }}</td>
+              <td style="border: 1px solid #000; padding: 4px; color: #d97860;">{{ materialBateriaInversor }}</td>
+              <td style="border: 1px solid #000; padding: 4px; color: #d97860;">{{ intensidadBateriaInversor }}</td>
+              <td style="border: 1px solid #000; padding: 4px; color: #d97860;">{{ caidaTensionBateriaInversor }}</td>
+            </tr>
+            <tr style="border: 1px solid #000;">
+              <td style="border: 1px solid #000; padding: 4px;">Salida Inversor - Red</td>
+              <td style="border: 1px solid #000; padding: 4px; color: #d97860;">{{ longitudSalidaRed }}</td>
+              <td style="border: 1px solid #000; padding: 4px; color: #d97860;">{{ materialSalidaRed }}</td>
+              <td style="border: 1px solid #000; padding: 4px; color: #d97860;">{{ intensidadSalidaRed }}</td>
+              <td style="border: 1px solid #000; padding: 4px; color: #d97860;">{{ caidaTensionSalidaRed }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- SECCIÓN H: ESQUEMA UNIFILAR -->
+      <div style="border: 2px solid #000; margin-bottom: 15px;">
+        <div style="background-color: #f4b5a0; padding: 8px; font-weight: bold;">H | ESQUEMA UNIFILAR DE LA INSTALACIÓN (PROTECCIONES INCLUIDAS)</div>
+        
+        <div style="border: 2px dashed #d97860; padding: 30px; text-align: center; background-color: #fff9f7; min-height: 200px; display: flex; align-items: center; justify-content: center;">
+          <img v-if="esquemaUnifilar" :src="esquemaUnifilar" style="max-width: 100%; max-height: 200px; object-fit: contain;" />
+          <div v-else style="color: #999; font-size: 12px;">Esquema eléctrico unifilar de la instalación</div>
+        </div>
+      </div>
+
+      <!-- SECCIÓN I: PLANO DE EMPLAZAMIENTO -->
+      <div style="border: 2px solid #000; margin-bottom: 15px;">
+        <div style="background-color: #f4b5a0; padding: 8px; font-weight: bold;">I | PLANO DE EMPLAZAMIENTO Y CROQUIS DE ACCESO</div>
+        
+        <div style="border: 2px dashed #d97860; padding: 30px; text-align: center; background-color: #fff9f7; min-height: 200px; display: flex; align-items: center; justify-content: center;">
+          <img v-if="planoEmplazamiento" :src="planoEmplazamiento" style="max-width: 100%; max-height: 200px; object-fit: contain;" />
+          <div v-else style="color: #999; font-size: 12px;">Plano de emplazamiento y croquis de acceso</div>
         </div>
       </div>
 
@@ -478,40 +485,66 @@ defineProps({
   nombreFirma: String,
   noColegiado: String,
   telefonoFirma: String,
-  // Sección E
-  potenciaPicoModulo: String,
+  // Sección E - E2 Conexión a Red
+  potenciaNominalInversores: String,
+  tipoConexionRed: String,
+  // E2.2 Módulo Fotovoltaico
+  tecnologiaCelulaModulo: String,
   marcaModeloModulo: String,
-  tensionMaximaPotenciaGenerador: String,
-  orientacionesGenerador: String,
+  potenciaPicoModulo: String,
+  toncModulo: String,
+  // E2.3 Generador Fotovoltaico
+  potenciaPicoGenerador: String,
+  tensionVpmpGenerador: String,
+  intensidadIpmpGenerador: String,
+  orientacionGenerador: String,
+  inclinacionGenerador: String,
   totalModulos: String,
+  modulosEnSerie: String,
   ramrasEnParalelo: String,
-  tiposBateria: String,
-  tensionBateria: String,
-  capacidadBateria: String,
-  tensionNominalBateria: String,
-  tensionMaximaAlcanzableBateria: String,
-  marcaModeloRegulador: String,
-  tensionCorteRegulador: String,
+  // E2.4 Inversor
   marcaModeloInversor: String,
-  potenciaNominalInversor: String,
-  tensionEntradaInversor: String,
-  tensionSalidaInversor: String,
-  potenciaMaximaDemanda: String,
-  energiaDiariaDemanda: String,
-  // Sección E.2 - Circuitos y Protecciones
-  seccionCableDC: String,
-  tipoCableFotovoltaico: String,
-  proteccionDCTipo: String,
-  proteccionDCIntensidad: String,
-  seccionCableAC: String,
-  tipoCableAC: String,
-  proteccionACTipo: String,
-  proteccionACIntensidad: String,
-  // Sección F - Imágenes
-  planoEmplazamiento: String,
+  potenciaACInversor: String,
+  tensionNominalInversor: String,
+  vccMaximaInversor: String,
+  vccMinimaInversor: String,
+  tipoConexionInversor: String,
+  // E2.5 Baterías
+  marcaModeloBateria: String,
+  tipoBateria: String,
+  tensionNominalBateria: String,
+  profundidadDescargaBateria: String,
+  tensionMaximaBateria: String,
+  tensionMinimaBateria: String,
+  energiaTotalBateria: String,
+  potenciaMaximaSalidaBateria: String,
+  // E2.6 Protecciones Externas
+  intensidadInterruptorGeneral: String,
+  poderCorteInterruptor: String,
+  // Sección F - Medidas de Protección
+  medidaContactosDirectos: String,
+  parteInstalacionDirectos: String,
+  medidaContactosIndirectos: String,
+  parteInstalacionIndirectos: String,
+  medidaSobretensiones: String,
+  parteInstalacionSobretensiones: String,
+  // Sección G - Características de Líneas
+  longitudGeneradorInversor: String,
+  materialGeneradorInversor: String,
+  intensidadGeneradorInversor: String,
+  caidaTensionGeneradorInversor: String,
+  longitudBateriaInversor: String,
+  materialBateriaInversor: String,
+  intensidadBateriaInversor: String,
+  caidaTensionBateriaInversor: String,
+  longitudSalidaRed: String,
+  materialSalidaRed: String,
+  intensidadSalidaRed: String,
+  caidaTensionSalidaRed: String,
+  // Sección H - Esquema Unifilar
   esquemaUnifilar: String,
-  // Sección G - Documentación
-  documentacionTecnica: Array,
+  // Sección I - Plano de Emplazamiento
+  planoEmplazamiento: String,
   generatedDate: String
 })
 </script>
