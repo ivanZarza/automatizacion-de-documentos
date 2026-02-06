@@ -124,17 +124,30 @@
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid #000;">
           <div style="padding: 8px; border-right: 1px solid #000;">
             <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TIPO DE INSTALACIÓN:</div>
-            <div style="color: #d97860;">{{ tipoInstalacion }}</div>
+            <div style="color: #d97860;">Fotovoltaica conectada a red interior</div>
           </div>
           <div style="padding: 8px;">
             <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">USO A QUE SE DESTINA:</div>
-            <div style="color: #d97860;">{{ usoDestino }}</div>
+            <div style="color: #d97860;">Autoconsumo para vivienda</div>
           </div>
         </div>
 
         <div style="padding: 8px;">
-          <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">DETALLE DEL USO/DESTINO:</div>
-          <div style="color: #d97860;">{{ usoDestinoDetalle }}</div>
+          <div style="font-weight: bold; font-size: 10px; margin-bottom: 8px;">INSTALACIÓN:</div>
+          <div style="display: flex; gap: 20px; margin-bottom: 5px;">
+            <div style="display: flex; align-items: center; gap: 5px;">
+              <input type="checkbox" :checked="tipoInstalacionSeleccionada === 'Nueva'" @change="tipoInstalacionSeleccionada = 'Nueva'" style="cursor: pointer;">
+              <label style="cursor: pointer; font-size: 10px;">Nueva</label>
+            </div>
+            <div style="display: flex; align-items: center; gap: 5px;">
+              <input type="checkbox" :checked="tipoInstalacionSeleccionada === 'Ampliación'" @change="tipoInstalacionSeleccionada = 'Ampliación'" style="cursor: pointer;">
+              <label style="cursor: pointer; font-size: 10px;">Ampliación</label>
+            </div>
+            <div style="display: flex; align-items: center; gap: 5px;">
+              <input type="checkbox" :checked="tipoInstalacionSeleccionada === 'Modificación'" @change="tipoInstalacionSeleccionada = 'Modificación'" style="cursor: pointer;">
+              <label style="cursor: pointer; font-size: 10px;">Modificación</label>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1140,6 +1153,10 @@ defineProps({
     default: new Date().toLocaleDateString('es-ES')
   }
 })
+
+import { ref } from 'vue'
+
+const tipoInstalacionSeleccionada = ref('Nueva')
 </script>
 
 <style scoped>

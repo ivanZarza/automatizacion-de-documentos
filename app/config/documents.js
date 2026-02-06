@@ -65,7 +65,7 @@ export const memoriaTecnicaConfig = {
     correoElectronicoEmplazamiento: 'camaca959@gmail.com',
     tipoInstalacion: 'Fotovoltaica conectada a red interior',
     usoDestino: 'Nueva',
-    usoDestinoDetalle: 'Autoconsumo para vivienda',
+    tipoInstalacionSeleccionada: 'Nueva',
     // Sección C - PERSONA QUE FIRMA
     nombreTecnicoInstalador: 'Eduardo Rivera Cabezas',
     numeroCertificadoInstalador: '4654 COIIAOC',
@@ -254,9 +254,7 @@ export const memoriaTecnicaConfig = {
     { name: 'localidadEmplazamiento', label: 'Localidad (Emplazamiento)', placeholder: 'Sevilla', type: 'text' },
     { name: 'provinciaEmplazamiento', label: 'Provincia (Emplazamiento)', placeholder: 'Sevilla', type: 'text' },
     { name: 'correoElectronicoEmplazamiento', label: 'Correo Electrónico (Emplazamiento)', placeholder: 'Ej: camaca959@gmail.com', type: 'email', fullWidth: true },
-    { name: 'tipoInstalacion', label: 'Tipo de Instalación', placeholder: 'Fotovoltaica conectada a red interior', type: 'text', fullWidth: true },
-    { name: 'usoDestino', label: 'Uso a que se destina', placeholder: 'Nueva/Ampliación/Modificación', type: 'select', options: ['Nueva', 'Ampliación', 'Modificación'] },
-    { name: 'usoDestinoDetalle', label: 'Uso Destino (Detalle)', placeholder: 'Autoconsumo para vivienda', type: 'text', fullWidth: true },
+    { name: 'tipoInstalacionSeleccionada', label: 'Instalación', placeholder: 'Nueva/Ampliación/Modificación', type: 'select', options: ['Nueva', 'Ampliación', 'Modificación'] },
     // Sección C - Persona que Firma
     { name: 'nombreTecnicoInstalador', label: 'Nombre del Instalador Eléctrico Autorizado', placeholder: 'Eduardo Rivera Cabezas', type: 'text', fullWidth: true },
     { name: 'numeroCertificadoInstalador', label: 'Nº de Certificado de Cualificación Individual', placeholder: '4654 COIIAOC', type: 'text' },

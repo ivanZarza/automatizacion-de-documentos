@@ -128,7 +128,7 @@ p {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
     background: white;
-    min-height: 300mm;
+    min-height: 350mm;
     padding: 10mm; /* Asegurar consistencia con impresión */
   }
 }
