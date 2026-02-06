@@ -31,3 +31,5 @@ const documents = getAllDocuments()
     </div>
   </div>
 </template>
+
+<!-- reemplazo rutas estáticas si existieran -->

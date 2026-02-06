@@ -34,11 +34,11 @@ export const autorizacionRepresentacionConfig = {
 }
 
 export const memoriaTecnicaConfig = {
-  id: 'memoria-tecnica',
-  title: 'Memoria Técnica de Diseño - Instalaciones Fotovoltaicas',
+  id: 'mtd-instalacion-autoconsumo-monofasica-con-bateria',
+  title: '6.-  MTD (INSTALACION AUTOCONSUMO MONOFASICA CON BATERIA)',
   description: 'Documento técnico para instalaciones fotovoltaicas en baja tensión',
-  fileName: 'memoria-tecnica-fotovoltaica.pdf',
-  route: '/memoria-tecnica',
+  fileName: '6-MTD-INSTALACION-AUTOCONSUMO-MONOFASICA-CON-BATERIA.pdf',
+  route: '/mtd-instalacion-autoconsumo-monofasica-con-bateria',
   defaultData: {
     // Expediente
     numeroExpediente: '',
@@ -316,22 +316,38 @@ export const memoriaTecnicaConfig = {
  */
 export const documentConfigs = {
   autorizacionRepresentacion: autorizacionRepresentacionConfig,
-  memoriaTecnica: memoriaTecnicaConfig
+  mtdInstalacionAutoconsumoMonofasicaConBateria: memoriaTecnicaConfig,
+  // alias para compatibilidad hacia atrás
+  memoriaTecnica: memoriaTecnicaConfig,
+  'memoria-tecnica': memoriaTecnicaConfig
 }
 
 /**
  * Obtener configuración de un documento por ID
  */
 export const getDocumentConfig = (documentId) => {
-  return documentConfigs[documentId] || null
+  // Primero intentar por clave directa (para compatibilidad con aliases)
+  if (documentConfigs[documentId]) return documentConfigs[documentId]
+
+  // Si no existe, buscar por el campo `id` dentro de las configuraciones
+  const found = Object.values(documentConfigs).find(cfg => cfg.id === documentId)
+  return found || null
 }
 
 /**
  * Obtener lista de todos los documentos disponibles
+ * Devuelve una lista sin duplicados (se agrupan por `config.id`)
  */
 export const getAllDocuments = () => {
-  return Object.entries(documentConfigs).map(([key, config]) => ({
-    id: key,
-    ...config
-  }))
+  const seen = new Set()
+  const list = []
+
+  for (const cfg of Object.values(documentConfigs)) {
+    const uniqueId = cfg.id || cfg.route || cfg.fileName
+    if (seen.has(uniqueId)) continue
+    seen.add(uniqueId)
+    list.push({ id: uniqueId, ...cfg })
+  }
+
+  return list
 }

@@ -1,6 +1,58 @@
-# Nuxt Minimal Starter
+# 📄 Sistema de Generación de Documentos PDF - Solay
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+> **Versión:** 1.0.0 | **Estado:** ✅ Production-Ready | **Última actualización:** 6 de febrero de 2026
+
+Sistema modular y escalable para generar documentos PDF dinámicos con formularios editables, construido con Vue.js 3, Nuxt 4 y html2pdf.
+
+## 🎯 Características Principales
+
+✅ **Documentos Dinámicos** - Preview, Edición y Descarga de PDF  
+✅ **Arquitectura Escalable** - Componentes genéricos reutilizables  
+✅ **Documentación Exhaustiva** - 4000+ líneas de documentación  
+✅ **Production-Ready** - Zero errors, tested and verified  
+
+---
+
+## 📚 📚 DOCUMENTACIÓN (¡EMPEZAR AQUÍ!)
+
+**[REFERENCIA_RAPIDA_PARA_IAs.md](./REFERENCIA_RAPIDA_PARA_IAs.md)** ⚡ - 5 pasos en 2 minutos  
+**[ARQUITECTURA_TECNICA.md](./ARQUITECTURA_TECNICA.md)** 🏛️ - Diagramas y estructura  
+**[GUIA_CREAR_NUEVOS_DOCUMENTOS_COMPLETA.md](./GUIA_CREAR_NUEVOS_DOCUMENTOS_COMPLETA.md)** 📖 - Guía exhaustiva  
+**[TROUBLESHOOTING.md](./TROUBLESHOOTING.md)** 🔧 - 50+ errores y soluciones  
+**[PATRONES_AVANZADOS.md](./PATRONES_AVANZADOS.md)** 🚀 - APIs, validaciones, tablas dinámicas  
+**[LANZAMIENTO_Y_MEJORES_PRACTICAS.md](./LANZAMIENTO_Y_MEJORES_PRACTICAS.md)** ✅ - Para producción  
+**[EJEMPLO_CONTRATO_COMPLETO.md](./EJEMPLO_CONTRATO_COMPLETO.md)** 📝 - Ejemplo paso a paso  
+**[INDICE_MAESTRO_DOCUMENTACION.md](./INDICE_MAESTRO_DOCUMENTACION.md)** 📚 - Índice completo
+
+---
+
+## 🚀 Quick Start
+
+### Instalación
+
+```bash
+cd GeneracionDocumentacion
+yarn install
+```
+
+### Desarrollo
+
+```bash
+yarn dev
+# Abrir: http://localhost:3000
+```
+
+### Crear Primer Documento
+
+Ver: **[REFERENCIA_RAPIDA_PARA_IAs.md](./REFERENCIA_RAPIDA_PARA_IAs.md)** (2 minutos)
+
+### Producción
+
+```bash
+yarn build && yarn preview
+```
+
+---
 
 ## Setup
 

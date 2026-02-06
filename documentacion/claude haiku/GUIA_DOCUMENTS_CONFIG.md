@@ -68,21 +68,21 @@ export const miDocumentoConfig = {
 
 ```javascript
 export const memoriaTecnicaConfig = {
-  id: 'memoria-tecnica',
-  title: 'Memoria Técnica de Diseño - Instalaciones Fotovoltaicas',
+  id: 'mtd-instalacion-autoconsumo-monofasica-con-bateria',
+  title: '6.-  MTD (INSTALACION AUTOCONSUMO MONOFASICA CON BATERIA)',
   description: 'Documento técnico para instalaciones fotovoltaicas en baja tensión',
-  fileName: 'memoria-tecnica-fotovoltaica.pdf',
-  route: '/memoria-tecnica',
+  fileName: '6-MTD-INSTALACION-AUTOCONSUMO-MONOFASICA-CON-BATERIA.pdf',
+  route: '/mtd-instalacion-autoconsumo-monofasica-con-bateria',
   // ...
 }
 ```
 
 **¿Qué hace cada uno?**
-- `id`: Identificador único interno. Úsalo para referenciar este documento en el código
+- `id`: Identificador único interno. Úsalo para referenciar este documento en el código (ej: `getDocumentConfig('mtd-instalacion-autoconsumo-monofasica-con-bateria')`).
 - `title`: El nombre que ve el usuario en pantalla
 - `description`: Una breve descripción de qué es
 - `fileName`: Cómo se llamará el archivo PDF cuando el usuario lo descargue
-- `route`: La URL donde accedes a este documento (ej: http://localhost:3000/memoria-tecnica)
+- `route`: La URL donde accedes a este documento (ej: http://localhost:3000/mtd-instalacion-autoconsumo-monofasica-con-bateria)
 
 ---
 
@@ -209,7 +209,7 @@ Si pones `false`, desactivas esa funcionalidad.
 ## 🔄 Flujo de Datos: Cómo Todo Funciona Junto
 
 ```
-1. Usuario abre /memoria-tecnica
+1. Usuario abre /mtd-instalacion-autoconsumo-monofasica-con-bateria
    ↓
 2. La página carga `memoriaTecnicaConfig`
    ↓
@@ -223,7 +223,7 @@ Si pones `false`, desactivas esa funcionalidad.
    ↓
 7. Usuario hace clic en "Generar PDF"
    ↓
-8. Se descarga un archivo con `fileName: 'memoria-tecnica-fotovoltaica.pdf'`
+8. Se descarga un archivo con `fileName: '6-MTD-INSTALACION-AUTOCONSUMO-MONOFASICA-CON-BATERIA.pdf'`
 ```
 
 ---
@@ -321,7 +321,7 @@ console.log(memoriaTecnicaConfig.capabilities) // { canPreview: true, ... }
 ```javascript
 import { getDocumentConfig } from '@/config/documents'
 
-const config = getDocumentConfig('memoria-tecnica')
+const config = getDocumentConfig('mtd-instalacion-autoconsumo-monofasica-con-bateria')
 // Devuelve: memoriaTecnicaConfig
 ```
 
