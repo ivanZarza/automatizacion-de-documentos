@@ -156,10 +156,10 @@
         <div style="background-color: #f4b5a0; padding: 8px; font-weight: bold; border-bottom: 1px solid #000;">C | IDENTIFICACIÓN DE LA PERSONA QUE FIRMA LA MTD</div>
         
         <!-- Técnico Instalador Autorizado -->
-        <div style="padding: 8px; border-bottom: 1px solid #000;">
+        <div style="border-bottom: 1px solid #000; padding: 8px;">
           <div style="font-weight: bold; font-size: 11px; margin-bottom: 8px;">MEMORIA REALIZADA POR INSTALADOR ELÉCTRICO AUTORIZADO:</div>
           
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid #000;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
             <div style="padding: 8px; border-right: 1px solid #000;">
               <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">NOMBRE:</div>
               <div style="color: #d97860;">{{ nombreTecnicoInstalador }}</div>
@@ -170,7 +170,7 @@
             </div>
           </div>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid #000;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
             <div style="padding: 8px; border-right: 1px solid #000;">
               <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">Nº DE INSTALADOR ELÉCTRICO AUTORIZADO (empresa):</div>
               <div style="color: #d97860;">{{ numeroInstaladorEmpresa }}</div>
@@ -181,7 +181,7 @@
             </div>
           </div>
 
-          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-bottom: 1px solid #000;">
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
             <div style="padding: 8px; border-right: 1px solid #000;">
               <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">NÚMERO:</div>
               <div style="color: #d97860;">{{ numeroTecnico }}</div>
@@ -203,13 +203,13 @@
         </div>
 
         <!-- Técnico Competente -->
-        <div style="padding: 8px; border-bottom: 1px solid #000;">
+        <div style="border-bottom: 1px solid #000; padding: 8px;">
           <div style="display: flex; align-items: center; gap: 8px; font-weight: bold; font-size: 11px; margin-bottom: 8px;">
             <input type="checkbox" style="width: 14px; height: 14px; cursor: pointer;" />
             <span>MEMORIA REALIZADA POR TÉCNICO COMPETENTE:</span>
           </div>
           
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid #000;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
             <div style="padding: 8px; border-right: 1px solid #000; min-height: 40px;">
               <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">NOMBRE:</div>
               <div style="color: #d97860; min-height: 20px;">{{ nombreTecnicoCompetente }}</div>
@@ -220,7 +220,7 @@
             </div>
           </div>
 
-          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-bottom: 1px solid #000;">
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
             <div style="padding: 8px; border-right: 1px solid #000; min-height: 40px;">
               <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">NÚMERO:</div>
               <div style="color: #d97860; min-height: 20px;">{{ numeroTecnicoCompetente }}</div>
@@ -242,8 +242,8 @@
         </div>
 
         <!-- Colegio Oficial -->
-        <div style="padding: 8px; border-bottom: 1px solid #000;">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0;">
+        <div style="border-bottom: 1px solid #000; padding: 8px;">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid #000;">
             <div style="padding: 8px; border-right: 1px solid #000; min-height: 40px;">
               <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">COLEGIO OFICIAL:</div>
               <div style="color: #d97860; min-height: 20px;">{{ colegioOficial }}</div>
@@ -254,6 +254,7 @@
             </div>
           </div>
         </div>
+
 
         <!-- Firma y Fecha -->
         <div style="padding: 15px; text-align: center; border-top: 1px solid #000;">
@@ -587,7 +588,7 @@
           <!-- E1.7 Información de la Demanda -->
           <div style="padding: 8px;">
             <div style="font-weight: bold; margin-bottom: 8px;">E1.7 INFORMACIÓN DE LA DEMANDA</div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border: 1px solid #000;">
               <div style="padding: 8px; border-right: 1px solid #000;">
                 <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">POTENCIA MÁX DEMANDADA (W):</div>
                 <div style="color: #d97860;">{{ e1_potenciaMaximaDemanda }}</div>
@@ -598,7 +599,7 @@
               </div>
             </div>
             <div style="font-weight: bold; font-size: 10px; margin-bottom: 8px;">ENERGÍA DIARIA MEDIA MENSUAL (Wh/día):</div>
-            <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; border-bottom: 1px solid #000;">
+            <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; border: 1px solid #000;">
               <div style="text-align: center; padding: 8px; border-right: 1px solid #000;">
                 <div style="font-weight: bold; font-size: 9px; background-color: #f4b5a0;">ENE</div>
                 <div style="color: #d97860; font-size: 9px;">{{ e1_energiaDiariaEnero }}</div>
@@ -624,7 +625,7 @@
                 <div style="color: #d97860; font-size: 9px;">{{ e1_energiaDiariaJunio }}</div>
               </div>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 0;">
+            <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; border: 1px solid #000;">
               <div style="text-align: center; padding: 8px; border-right: 1px solid #000;">
                 <div style="font-weight: bold; font-size: 9px; background-color: #f4b5a0;">JUL</div>
                 <div style="color: #d97860; font-size: 9px;">{{ e1_energiaDiariaJulio }}</div>
@@ -658,9 +659,9 @@
           <div style="font-weight: bold; background-color: #f0f0f0; padding: 5px; margin-bottom: 10px;">E2. INSTALACIÓN GENERADORA FOTOVOLTAICA INTERCONECTADA CON ALMACENAMIENTO</div>
           
           <!-- E2.1 Conexión a la Red -->
-          <div style="border-bottom: 1px solid #000; padding: 8px;">
+          <div style="border: 1px solid #000; padding: 8px;">
             <div style="font-weight: bold; margin-bottom: 8px;">E2.1 CONEXIÓN A LA RED</div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid #000;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid #000;">
               <div style="padding: 8px; border-right: 1px solid #000;">
                 <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">POTENCIA NOMINAL TOTAL EN INVERSORES (kW):</div>
                 <div style="color: #d97860;">{{ potenciaNominalInversores }}</div>
@@ -673,9 +674,9 @@
           </div>
 
           <!-- E2.2 Módulo Fotovoltaico -->
-          <div style="border-bottom: 1px solid #000; padding: 8px;">
+          <div style="border: 1px solid #000; padding: 8px;">
             <div style="font-weight: bold; margin-bottom: 8px;">E2.2 MÓDULO FOTOVOLTAICO</div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border: 1px solid #000;">
               <div style="padding: 8px; border-right: 1px solid #000;">
                 <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TECNOLOGÍA DE LA CÉLULA:</div>
                 <div style="color: #d97860;">{{ tecnologiaCelulaModulo }}</div>
@@ -685,7 +686,7 @@
                 <div style="color: #d97860;">{{ marcaModeloModulo }}</div>
               </div>
             </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid #000;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid #000;">
               <div style="padding: 8px; border-right: 1px solid #000;">
                 <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">POTENCIA PICO (Wp):</div>
                 <div style="color: #d97860;">{{ potenciaPicoModulo }}</div>
@@ -697,10 +698,10 @@
             </div>
           </div>
 
-          <div style="border-bottom: 1px solid #000; padding: 8px;">
+          <div style="border: 1px solid #000; padding: 8px;">
             <div style="font-weight: bold; margin-bottom: 8px;">E2.3 GENERADOR FOTOVOLTAICO</div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border: 1px solid #000;">
+              <div style="padding: 8px; border: 1px solid #000;">
                 <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">POTENCIA PICO (Wp):</div>
                 <div style="color: #d97860;">{{ potenciaPicoGenerador }}</div>
               </div>
@@ -710,7 +711,7 @@
               </div>
             </div>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
+              <div style="padding: 8px; border: 1px solid #000;">
                 <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">INTENSIDAD MÁXIMA POTENCIA, Ipmp (A):</div>
                 <div style="color: #d97860;">{{ intensidadIpmpGenerador }}</div>
               </div>
@@ -720,7 +721,7 @@
               </div>
             </div>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
+              <div style="padding: 8px; border: 1px solid #000;">
                 <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">INCLINACIÓN RESPECTO A HORIZONTAL (º):</div>
                 <div style="color: #d97860;">{{ inclinacionGenerador }}</div>
               </div>
@@ -730,7 +731,7 @@
               </div>
             </div>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid #000;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
+              <div style="padding: 8px; border: 1px solid #000;">
                 <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">Nº DE MÓDULOS EN SERIE POR RAMA:</div>
                 <div style="color: #d97860;">{{ modulosEnSerie }}</div>
               </div>
@@ -745,7 +746,7 @@
           <div style="border-bottom: 1px solid #000; padding: 8px;">
             <div style="font-weight: bold; margin-bottom: 8px;">E2.4 INVERSOR/ES</div>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
+              <div style="padding: 8px; border: 1px solid #000;">
                 <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">MARCA Y MODELO:</div>
                 <div style="color: #d97860;">{{ marcaModeloInversor }}</div>
               </div>
@@ -755,7 +756,7 @@
               </div>
             </div>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
+              <div style="padding: 8px; border: 1px solid #000;">
                 <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN NOMINAL AC, Vn (V):</div>
                 <div style="color: #d97860;">{{ tensionNominalInversor }}</div>
               </div>
@@ -765,7 +766,7 @@
               </div>
             </div>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid #000;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
+              <div style="padding: 8px; border: 1px solid #000;">
                 <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">Vcc MÍNIMA (V):</div>
                 <div style="color: #d97860;">{{ vccMinimaInversor }}</div>
               </div>
@@ -780,7 +781,7 @@
           <div style="border-bottom: 1px solid #000; padding: 8px;">
             <div style="font-weight: bold; margin-bottom: 8px;">E2.5 BATERÍAS</div>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
+              <div style="padding: 8px; border: 1px solid #000;">
                 <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">MARCA Y MODELO:</div>
                 <div style="color: #d97860;">{{ marcaModeloBateria }}</div>
               </div>
