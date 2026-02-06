@@ -18,17 +18,6 @@
           <div style="margin: 3px 0; color: #d97860;">{{ numeroRegistro }}</div>
         </div>
       </div>
-      <!-- NÚMERO DE EXPEDIENTE Y REGISTRO -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
-        <div style="border: 1px solid #000; padding: 10px;">
-          <div style="background-color: #f4b5a0; padding: 5px; font-weight: bold; border-bottom: 1px solid #000; margin-bottom: 8px;">Nº EXPEDIENTE:</div>
-          <div style="margin: 3px 0; color: #d97860;">{{ numeroExpediente }}</div>
-        </div>
-        <div style="border: 1px solid #000; padding: 10px;">
-          <div style="background-color: #f4b5a0; padding: 5px; font-weight: bold; border-bottom: 1px solid #000; margin-bottom: 8px;">Nº REGISTRO DE LA INSTALACIÓN:</div>
-          <div style="margin: 3px 0; color: #d97860;">{{ numeroRegistro }}</div>
-        </div>
-      </div>
 
       <!-- SECCIÓN A: TITULAR -->
       <div style="border: 2px solid #000; margin-bottom: 15px;">
