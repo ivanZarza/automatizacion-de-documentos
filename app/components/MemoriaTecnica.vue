@@ -929,27 +929,27 @@
       </div>
 
       <!-- SECCIÓN H: ESQUEMA UNIFILAR -->
-      <div style="border: 2px solid #000; margin-bottom: 15px;">
-        <div style="background-color: #f4b5a0; padding: 8px; font-weight: bold;">H | ESQUEMA UNIFILAR DE LA INSTALACIÓN (PROTECCIONES INCLUIDAS)</div>
+      <div class="seccion">
+        <div class="encabezado-seccion">H | ESQUEMA UNIFILAR DE LA INSTALACIÓN (PROTECCIONES INCLUIDAS)</div>
         
-        <div style="border: 2px dashed #d97860; padding: 30px; text-align: center; background-color: #fff9f7; min-height: 200px; display: flex; align-items: center; justify-content: center;">
-          <img v-if="esquemaUnifilar" :src="esquemaUnifilar" style="max-width: 100%; max-height: 200px; object-fit: contain;" />
-          <div v-else style="color: #999; font-size: 12px;">Esquema eléctrico unifilar de la instalación</div>
+        <div class="contenedor-esquema">
+          <img v-if="esquemaUnifilar" :src="esquemaUnifilar" class="imagen-esquema" />
+          <div v-else class="placeholder-esquema">Esquema eléctrico unifilar de la instalación</div>
         </div>
       </div>
 
       <!-- SECCIÓN I: PLANO DE EMPLAZAMIENTO -->
-      <div style="border: 2px solid #000; margin-bottom: 15px;">
-        <div style="background-color: #f4b5a0; padding: 8px; font-weight: bold;">I | PLANO DE EMPLAZAMIENTO Y CROQUIS DE ACCESO</div>
+      <div class="seccion">
+        <div class="encabezado-seccion">I | PLANO DE EMPLAZAMIENTO Y CROQUIS DE ACCESO</div>
         
-        <div style="border: 2px dashed #d97860; padding: 30px; text-align: center; background-color: #fff9f7; min-height: 200px; display: flex; align-items: center; justify-content: center;">
-          <img v-if="planoEmplazamiento" :src="planoEmplazamiento" style="max-width: 100%; max-height: 200px; object-fit: contain;" />
-          <div v-else style="color: #999; font-size: 12px;">Plano de emplazamiento y croquis de acceso</div>
+        <div class="contenedor-esquema">
+          <img v-if="planoEmplazamiento" :src="planoEmplazamiento" class="imagen-esquema" />
+          <div v-else class="placeholder-esquema">Plano de emplazamiento y croquis de acceso</div>
         </div>
       </div>
 
       <!-- PIE DE PÁGINA -->
-      <div style="margin-top: 30px; padding: 15px; border-top: 2px solid #f4b5a0; text-align: center; font-size: 9px; color: #666;">
+      <div class="pie-pagina">
         <div style="margin-bottom: 10px;">
           <img src="/logo-solay.png" alt="Solay" style="height: 40px; margin: 0 auto;" />
         </div>
@@ -1423,6 +1423,39 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 .tabla-circuitos th {
   background-color: #f0f0f0;
   font-weight: bold;
+}
+
+/* ========== CONTENEDORES DE ESQUEMAS (Secciones H, I) ========== */
+.contenedor-esquema {
+  border: 2px dashed #d97860;
+  padding: 30px;
+  text-align: center;
+  background-color: #fff9f7;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagen-esquema {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+}
+
+.placeholder-esquema {
+  color: #999;
+  font-size: 12px;
+}
+
+/* ========== PIE DE PÁGINA ========== */
+.pie-pagina {
+  margin-top: 30px;
+  padding: 15px;
+  border-top: 2px solid #f4b5a0;
+  text-align: center;
+  font-size: 9px;
+  color: #666;
 }
 
 /* ========== ESTILOS DE IMPRESIÓN ========== */
