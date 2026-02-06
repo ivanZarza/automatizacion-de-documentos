@@ -248,9 +248,6 @@ export const memoriaTecnicaConfig = {
     // Sección B
     { name: 'emplazamientoCalle', label: 'Emplazamiento (Calle)', placeholder: 'Calle Prudencia', type: 'text', fullWidth: true },
     { name: 'numero', label: 'Número', placeholder: '44', type: 'text' },
-    { name: 'bloque', label: 'Bloque', placeholder: '-', type: 'text' },
-    { name: 'escalera', label: 'Escalera', placeholder: '-', type: 'text' },
-    { name: 'piso', label: 'Piso', placeholder: '-', type: 'text' },
     { name: 'localidadEmplazamiento', label: 'Localidad (Emplazamiento)', placeholder: 'Sevilla', type: 'text' },
     { name: 'provinciaEmplazamiento', label: 'Provincia (Emplazamiento)', placeholder: 'Sevilla', type: 'text' },
     { name: 'correoElectronicoEmplazamiento', label: 'Correo Electrónico (Emplazamiento)', placeholder: 'Ej: camaca959@gmail.com', type: 'email', fullWidth: true },
@@ -355,33 +352,19 @@ export const memoriaTecnicaConfig = {
     { name: 'potenciaNominalInversores', label: 'Potencia Nominal Total en Inversores (kW)', placeholder: '5', type: 'text' },
     { name: 'tipoConexionRed', label: 'Tipo de Conexión', placeholder: 'MONOFÁSICA/TRIFÁSICA', type: 'text' },
     // Sección E - E2.2 Módulo Fotovoltaico
-    { name: 'tecnologiaCelulaModulo', label: 'Tecnología de la Célula del Módulo FV', placeholder: 'Monocristalino -PERC- doble célula', type: 'text', fullWidth: true },
     { name: 'marcaModeloModulo', label: 'Marca y Modelo del Módulo FV', placeholder: 'Deye SUN-5K', type: 'text', fullWidth: true },
     { name: 'potenciaPicoModulo', label: 'Potencia Pico del Módulo FV (Wp)', placeholder: '605', type: 'text' },
-    { name: 'toncModulo', label: 'TONC (ºC)', placeholder: '45ºC', type: 'text' },
     // Sección E - E2.3 Generador Fotovoltaico
     { name: 'potenciaPicoGenerador', label: 'Potencia Pico del Generador FV (Wp)', placeholder: '4840', type: 'text' },
     { name: 'tensionVpmpGenerador', label: 'Tensión de Máxima Potencia, Vpmp (V)', placeholder: '372,40', type: 'text' },
-    { name: 'intensidadIpmpGenerador', label: 'Intensidad de Máxima Potencia, Ipmp (A)', placeholder: '10,84', type: 'text' },
     { name: 'orientacionGenerador', label: 'Orientación del Generador FV', placeholder: '-19,37º (SE)', type: 'text', fullWidth: true },
-    { name: 'inclinacionGenerador', label: 'Inclinación respecto a la Horizontal (º)', placeholder: '20º', type: 'text' },
     { name: 'totalModulos', label: 'Nº Total de Módulos', placeholder: '8', type: 'text' },
     { name: 'modulosEnSerie', label: 'Nº de Módulos en Serie por Rama', placeholder: '8', type: 'text' },
-    { name: 'ramrasEnParalelo', label: 'Nº de Ramas en Paralelo', placeholder: '1', type: 'text' },
     // Sección E - E2.4 Inversor
     { name: 'marcaModeloInversor', label: 'Marca y Modelo del Inversor', placeholder: 'Deye SUN-5K', type: 'text', fullWidth: true },
     { name: 'potenciaACInversor', label: 'Potencia AC Nominal (Kw)', placeholder: '5', type: 'text' },
-    { name: 'tensionNominalInversor', label: 'Tensión Nominal AC, Vn (V)', placeholder: '230 V', type: 'text' },
-    { name: 'vccMaximaInversor', label: 'Vcc MÁXIMA (V)', placeholder: '425', type: 'text' },
-    { name: 'vccMinimaInversor', label: 'Vcc MÍNIMA (V)', placeholder: '150', type: 'text' },
-    { name: 'tipoConexionInversor', label: 'Tipo de Conexión del Inversor', placeholder: 'MONOFÁSICA', type: 'text' },
     // Sección E - E2.5 Baterías
     { name: 'marcaModeloBateria', label: 'Marca y Modelo', placeholder: '2 MÓDULOS DEYE DE 5,12kWh', type: 'text', fullWidth: true },
-    { name: 'tipoBateria', label: 'Tipo de Batería', placeholder: 'Litio-Hierro Fosfato (LiFePO4)', type: 'text', fullWidth: true },
-    { name: 'tensionNominalBateria', label: 'Tensión Nominal de la Batería (V)', placeholder: '200V', type: 'text' },
-    { name: 'profundidadDescargaBateria', label: 'Profundidad de Descarga (%)', placeholder: '100%', type: 'text' },
-    { name: 'tensionMaximaBateria', label: 'Tensión Máxima Alcanzable por la Batería (V)', placeholder: '57,6V', type: 'text' },
-    { name: 'tensionMinimaBateria', label: 'Tensión Mínima Alcanzable por la Batería (V)', placeholder: '44,8V', type: 'text' },
     { name: 'energiaTotalBateria', label: 'Energía Total (kWh)', placeholder: '10,24 kWh', type: 'text' },
     { name: 'potenciaMaximaSalidaBateria', label: 'Potencia Máxima de Salida (kW)', placeholder: '10,24 kW', type: 'text' },
     // Sección E - E2.6 Protecciones Externas
