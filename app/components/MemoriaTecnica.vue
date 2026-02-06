@@ -312,8 +312,8 @@
       <div style="border: 2px solid #000; margin-bottom: 15px;">
         <div style="background-color: #f4b5a0; padding: 8px; font-weight: bold;">E | MEMORIA DESCRIPTIVA</div>
         
-        <!-- E1: INSTALACIÓN GENERADORA FOTOVOLTAICA AISLADA (Condicional) -->
-        <div v-if="e1_potenciaPicoGenerador || e1_marcaModeloBateria" style="padding: 10px;">
+        <!-- E1: INSTALACIÓN GENERADORA FOTOVOLTAICA AISLADA -->
+        <div style="padding: 10px;">
           <div style="font-weight: bold; background-color: #f0f0f0; padding: 5px; margin-bottom: 10px;">E1. INSTALACIÓN GENERADORA FOTOVOLTAICA AISLADA</div>
           
           <!-- E1.1 Módulo Fotovoltaico -->
