@@ -1,15 +1,33 @@
+<script setup>
+import { getAllDocuments } from '../config/documents'
+
+const documents = getAllDocuments()
+</script>
+
 <template>
   <div class="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-    <h1 class="text-3xl font-bold text-center my-8">Generación de Documentación</h1>
-    <div class="max-w-4xl mx-auto p-4 bg-white rounded shadow">
-      <p class="mb-4">Bienvenido a la aplicación de generación de documentación. Aquí puedes crear y gestionar tus documentos de manera fácil y rápida.</p>
-      <ul class="list-disc list-inside mb-4">
-        <li>Selecciona el tipo de documento que deseas generar.</li>
-        <li>Rellena los campos necesarios con la información requerida.</li>
-        <li>Descarga o comparte tu documento generado.</li>
-      </ul>
-      <p class="mb-4">¡Comienza a crear tus documentos ahora!</p>
-      <NuxtLink to="/autorizacion-representacion" class="text-blue-500 hover:underline">Generar Autorización de Representación</NuxtLink>
+    <h1 class="text-4xl font-bold text-center my-8 text-blue-600">Generación de Documentación</h1>
+    <div class="max-w-4xl mx-auto p-8 bg-white rounded-lg shadow-lg">
+      <p class="mb-6 text-lg text-gray-700">Bienvenido a la aplicación de generación de documentación. Aquí puedes crear y gestionar tus documentos de manera fácil y rápida.</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div v-for="doc in documents" :key="doc.id" class="p-6 border-2 border-blue-300 rounded-lg hover:shadow-lg transition">
+          <h2 class="text-2xl font-bold text-blue-600 mb-2">📋 {{ doc.title }}</h2>
+          <p class="text-gray-600 mb-4">{{ doc.description }}</p>
+          <NuxtLink 
+            :to="doc.route" 
+            class="inline-block px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition font-semibold"
+          >
+            Ir al documento →
+          </NuxtLink>
+        </div>
+      </div>
+
+      <div class="bg-blue-50 border-l-4 border-blue-600 p-4 rounded">
+        <p class="text-sm text-gray-600">
+          💡 Selecciona el tipo de documento que deseas generar, edita los datos necesarios y descarga tu documento en PDF.
+        </p>
+      </div>
     </div>
   </div>
 </template>
