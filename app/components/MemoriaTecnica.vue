@@ -325,329 +325,329 @@
       </div>
 
       <!-- SECCIÓN E: MEMORIA DESCRIPTIVA -->
-      <div style="border: 2px solid #000; margin-bottom: 15px;">
-        <div style="background-color: #f4b5a0; padding: 8px; font-weight: bold; border-bottom: 1px solid #000;">E | MEMORIA DESCRIPTIVA</div>
+      <div class="seccion">
+        <div class="encabezado-seccion">E | MEMORIA DESCRIPTIVA</div>
         
         <!-- E1: INSTALACIÓN GENERADORA FOTOVOLTAICA AISLADA -->
-        <div style="padding: 8px; border-bottom: 1px solid #000;">
+        <div class="cuerpo-seccion">
           <div style="font-weight: bold; background-color: #f0f0f0; padding: 5px; margin-bottom: 10px; border: 1px solid #000;">E1. INSTALACIÓN GENERADORA FOTOVOLTAICA AISLADA</div>
           
           <!-- E1.1 Módulo Fotovoltaico -->
-          <div style="border-bottom: 1px solid #000; padding: 8px;">
-            <div style="font-weight: bold; margin-bottom: 8px;">E1.1 MÓDULO FOTOVOLTAICO</div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TECNOLOGÍA DE LA CÉLULA:</div>
-                <div style="color: #d97860;">{{ e1_tecnologiaCelulaModulo }}</div>
+          <div class="subseccion">
+            <div class="subseccion-titulo">E1.1 MÓDULO FOTOVOLTAICO</div>
+            <div class="fila-grid fila-2col">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta">TECNOLOGÍA DE LA CÉLULA:</div>
+                <div class="valor">{{ e1_tecnologiaCelulaModulo }}</div>
               </div>
-              <div style="padding: 8px;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">MARCA Y MODELO:</div>
-                <div style="color: #d97860;">{{ e1_marcaModeloModulo }}</div>
+              <div class="celda">
+                <div class="etiqueta">MARCA Y MODELO:</div>
+                <div class="valor">{{ e1_marcaModeloModulo }}</div>
               </div>
             </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">POTENCIA PICO (Wp):</div>
-                <div style="color: #d97860;">{{ e1_potenciaPicoModulo }}</div>
+            <div class="fila-grid fila-2col fila-sin-borde">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta">POTENCIA PICO (Wp):</div>
+                <div class="valor">{{ e1_potenciaPicoModulo }}</div>
               </div>
-              <div style="padding: 8px;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TONC (ºC):</div>
-                <div style="color: #d97860;">{{ e1_toncModulo }}</div>
+              <div class="celda">
+                <div class="etiqueta">TONC (ºC):</div>
+                <div class="valor">{{ e1_toncModulo }}</div>
               </div>
             </div>
           </div>
 
           <!-- E1.2 Generador Fotovoltaico -->
-          <div style="border-bottom: 1px solid #000; padding: 8px;">
-            <div style="font-weight: bold; margin-bottom: 8px;">E1.2 GENERADOR FOTOVOLTAICO</div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">POTENCIA PICO (Wp):</div>
-                <div style="color: #d97860;">{{ e1_potenciaPicoGenerador }}</div>
+          <div class="subseccion">
+            <div class="subseccion-titulo">E1.2 GENERADOR FOTOVOLTAICO</div>
+            <div class="fila-grid fila-2col">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta">POTENCIA PICO (Wp):</div>
+                <div class="valor">{{ e1_potenciaPicoGenerador }}</div>
               </div>
-              <div style="padding: 8px;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">INTENSIDAD MÁXIMA POTENCIA, Ipmp (A):</div>
-                <div style="color: #d97860;">{{ e1_intensidadIpmpGenerador }}</div>
-              </div>
-            </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN MÁXIMA POTENCIA, Vpmp (V):</div>
-                <div style="color: #d97860;">{{ e1_tensionVpmpGenerador }}</div>
-              </div>
-              <div style="padding: 8px;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">ORIENTACIÓN:</div>
-                <div style="color: #d97860;">{{ e1_orientacionGenerador }}</div>
+              <div class="celda">
+                <div class="etiqueta">INTENSIDAD MÁXIMA POTENCIA, Ipmp (A):</div>
+                <div class="valor">{{ e1_intensidadIpmpGenerador }}</div>
               </div>
             </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">INCLINACIÓN (º):</div>
-                <div style="color: #d97860;">{{ e1_inclinacionGenerador }}</div>
+            <div class="fila-grid fila-2col">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta">TENSIÓN MÁXIMA POTENCIA, Vpmp (V):</div>
+                <div class="valor">{{ e1_tensionVpmpGenerador }}</div>
               </div>
-              <div style="padding: 8px;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">Nº TOTAL MÓDULOS:</div>
-                <div style="color: #d97860;">{{ e1_totalModulos }}</div>
+              <div class="celda">
+                <div class="etiqueta">ORIENTACIÓN:</div>
+                <div class="valor">{{ e1_orientacionGenerador }}</div>
               </div>
             </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">Nº MÓDULOS EN SERIE:</div>
-                <div style="color: #d97860;">{{ e1_modulosEnSerie }}</div>
+            <div class="fila-grid fila-2col">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta">INCLINACIÓN (º):</div>
+                <div class="valor">{{ e1_inclinacionGenerador }}</div>
               </div>
-              <div style="padding: 8px;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">Nº RAMAS EN PARALELO:</div>
-                <div style="color: #d97860;">{{ e1_ramasEnParalelo }}</div>
+              <div class="celda">
+                <div class="etiqueta">Nº TOTAL MÓDULOS:</div>
+                <div class="valor">{{ e1_totalModulos }}</div>
+              </div>
+            </div>
+            <div class="fila-grid fila-2col fila-sin-borde">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta">Nº MÓDULOS EN SERIE:</div>
+                <div class="valor">{{ e1_modulosEnSerie }}</div>
+              </div>
+              <div class="celda">
+                <div class="etiqueta">Nº RAMAS EN PARALELO:</div>
+                <div class="valor">{{ e1_ramasEnParalelo }}</div>
               </div>
             </div>
           </div>
 
           <!-- E1.3 Baterías -->
-          <div style="border-bottom: 1px solid #000; padding: 8px;">
-            <div style="font-weight: bold; margin-bottom: 8px;">E1.3 BATERÍAS</div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">MARCA Y MODELO:</div>
-                <div style="color: #d97860;">{{ e1_marcaModeloBateria }}</div>
+          <div class="subseccion">
+            <div class="subseccion-titulo">E1.3 BATERÍAS</div>
+            <div class="fila-grid fila-2col">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta">MARCA Y MODELO:</div>
+                <div class="valor">{{ e1_marcaModeloBateria }}</div>
               </div>
-              <div style="padding: 8px;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TIPO DE BATERÍA:</div>
-                <div style="color: #d97860;">{{ e1_tipoBateria }}</div>
-              </div>
-            </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TIPO DE PLACA:</div>
-                <div style="color: #d97860;">{{ e1_tipoPlacaBateria }}</div>
-              </div>
-              <div style="padding: 8px;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">C10 (Ah):</div>
-                <div style="color: #d97860;">{{ e1_c10Bateria }}</div>
+              <div class="celda">
+                <div class="etiqueta">TIPO DE BATERÍA:</div>
+                <div class="valor">{{ e1_tipoBateria }}</div>
               </div>
             </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">C100 (Ah):</div>
-                <div style="color: #d97860;">{{ e1_c100Bateria }}</div>
+            <div class="fila-grid fila-2col">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta">TIPO DE PLACA:</div>
+                <div class="valor">{{ e1_tipoPlacaBateria }}</div>
               </div>
-              <div style="padding: 8px;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN NOMINAL (V):</div>
-                <div style="color: #d97860;">{{ e1_tensionNominalBateria }}</div>
-              </div>
-            </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">PROFUNDIDAD DESCARGA:</div>
-                <div style="color: #d97860;">{{ e1_profundidadDescargaBateria }}</div>
-              </div>
-              <div style="padding: 8px;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN MÁXIMA (V):</div>
-                <div style="color: #d97860;">{{ e1_tensionMaximaBateria }}</div>
+              <div class="celda">
+                <div class="etiqueta">C10 (Ah):</div>
+                <div class="valor">{{ e1_c10Bateria }}</div>
               </div>
             </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN MÍNIMA (V):</div>
-                <div style="color: #d97860;">{{ e1_tensionMinimaBateria }}</div>
+            <div class="fila-grid fila-2col">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta">C100 (Ah):</div>
+                <div class="valor">{{ e1_c100Bateria }}</div>
               </div>
-              <div style="padding: 8px;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">INTENSIDAD MÁX CARGA (A):</div>
-                <div style="color: #d97860;">{{ e1_intensidadMaximaCargaBateria }}</div>
+              <div class="celda">
+                <div class="etiqueta">TENSIÓN NOMINAL (V):</div>
+                <div class="valor">{{ e1_tensionNominalBateria }}</div>
+              </div>
+            </div>
+            <div class="fila-grid fila-2col">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta">PROFUNDIDAD DESCARGA:</div>
+                <div class="valor">{{ e1_profundidadDescargaBateria }}</div>
+              </div>
+              <div class="celda">
+                <div class="etiqueta">TENSIÓN MÁXIMA (V):</div>
+                <div class="valor">{{ e1_tensionMaximaBateria }}</div>
+              </div>
+            </div>
+            <div class="fila-grid fila-2col fila-sin-borde">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta">TENSIÓN MÍNIMA (V):</div>
+                <div class="valor">{{ e1_tensionMinimaBateria }}</div>
+              </div>
+              <div class="celda">
+                <div class="etiqueta">INTENSIDAD MÁX CARGA (A):</div>
+                <div class="valor">{{ e1_intensidadMaximaCargaBateria }}</div>
               </div>
             </div>
           </div>
 
           <!-- E1.4 Regulador -->
-          <div style="border-bottom: 1px solid #000; padding: 8px;">
-            <div style="font-weight: bold; margin-bottom: 8px;">E1.4 REGULADOR</div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">MARCA Y MODELO:</div>
-                <div style="color: #d97860;">{{ e1_marcaModeloRegulador }}</div>
+          <div class="subseccion">
+            <div class="subseccion-titulo">E1.4 REGULADOR</div>
+            <div class="fila-grid fila-2col">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta">MARCA Y MODELO:</div>
+                <div class="valor">{{ e1_marcaModeloRegulador }}</div>
               </div>
-              <div style="padding: 8px;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">INTENSIDAD MÁXIMA (A):</div>
-                <div style="color: #d97860;">{{ e1_intensidadMaximaRegulador }}</div>
+              <div class="celda">
+                <div class="etiqueta">INTENSIDAD MÁXIMA (A):</div>
+                <div class="valor">{{ e1_intensidadMaximaRegulador }}</div>
               </div>
             </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN CORTE ALTA (V):</div>
-                <div style="color: #d97860;">{{ e1_tensionCorteAltaRegulador }}</div>
+            <div class="fila-grid fila-2col fila-sin-borde">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta">TENSIÓN CORTE ALTA (V):</div>
+                <div class="valor">{{ e1_tensionCorteAltaRegulador }}</div>
               </div>
-              <div style="padding: 8px;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN CORTE BAJA (V):</div>
-                <div style="color: #d97860;">{{ e1_tensionCorteBajaRegulador }}</div>
+              <div class="celda">
+                <div class="etiqueta">TENSIÓN CORTE BAJA (V):</div>
+                <div class="valor">{{ e1_tensionCorteBajaRegulador }}</div>
               </div>
             </div>
           </div>
 
           <!-- E1.5 Inversor -->
-          <div style="border-bottom: 1px solid #000; padding: 8px;">
-            <div style="font-weight: bold; margin-bottom: 8px;">E1.5 INVERSOR</div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">MARCA Y MODELO:</div>
-                <div style="color: #d97860;">{{ e1_marcaModeloInversor }}</div>
+          <div class="subseccion">
+            <div class="subseccion-titulo">E1.5 INVERSOR</div>
+            <div class="fila-grid fila-2col">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta">MARCA Y MODELO:</div>
+                <div class="valor">{{ e1_marcaModeloInversor }}</div>
               </div>
-              <div style="padding: 8px;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">POTENCIA NOMINAL (W):</div>
-                <div style="color: #d97860;">{{ e1_potenciaNominalInversor }}</div>
+              <div class="celda">
+                <div class="etiqueta">POTENCIA NOMINAL (W):</div>
+                <div class="valor">{{ e1_potenciaNominalInversor }}</div>
               </div>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
+            <div class="fila-grid fila-5col">
+              <div class="celda celda-izquierda">
                 <div style="font-weight: bold; font-size: 9px; margin-bottom: 3px;">REND 10%:</div>
-                <div style="color: #d97860;">{{ e1_rendimientoInversor10 }}</div>
+                <div class="valor">{{ e1_rendimientoInversor10 }}</div>
               </div>
-              <div style="padding: 8px; border-right: 1px solid #000;">
+              <div class="celda celda-izquierda">
                 <div style="font-weight: bold; font-size: 9px; margin-bottom: 3px;">REND 25%:</div>
-                <div style="color: #d97860;">{{ e1_rendimientoInversor25 }}</div>
+                <div class="valor">{{ e1_rendimientoInversor25 }}</div>
               </div>
-              <div style="padding: 8px; border-right: 1px solid #000;">
+              <div class="celda celda-izquierda">
                 <div style="font-weight: bold; font-size: 9px; margin-bottom: 3px;">REND 50%:</div>
-                <div style="color: #d97860;">{{ e1_rendimientoInversor50 }}</div>
+                <div class="valor">{{ e1_rendimientoInversor50 }}</div>
               </div>
-              <div style="padding: 8px; border-right: 1px solid #000;">
+              <div class="celda celda-izquierda">
                 <div style="font-weight: bold; font-size: 9px; margin-bottom: 3px;">REND 75%:</div>
-                <div style="color: #d97860;">{{ e1_rendimientoInversor75 }}</div>
+                <div class="valor">{{ e1_rendimientoInversor75 }}</div>
               </div>
-              <div style="padding: 8px;">
+              <div class="celda">
                 <div style="font-weight: bold; font-size: 9px; margin-bottom: 3px;">REND 100%:</div>
-                <div style="color: #d97860;">{{ e1_rendimientoInversor100 }}</div>
+                <div class="valor">{{ e1_rendimientoInversor100 }}</div>
               </div>
             </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">RELACIÓN TENSIÓN VCC/VCA:</div>
-                <div style="color: #d97860;">{{ e1_relacionTensionInversor }}</div>
+            <div class="fila-grid fila-2col">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta">RELACIÓN TENSIÓN VCC/VCA:</div>
+                <div class="valor">{{ e1_relacionTensionInversor }}</div>
               </div>
-              <div style="padding: 8px;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">FORMA ONDA SALIDA:</div>
-                <div style="color: #d97860;">{{ e1_formaOndaSalidaInversor }}</div>
-              </div>
-            </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">FRECUENCIA NOMINAL (Hz):</div>
-                <div style="color: #d97860;">{{ e1_frecuenciaNominalInversor }}</div>
-              </div>
-              <div style="padding: 8px;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN MÁX ENTRADA (V):</div>
-                <div style="color: #d97860;">{{ e1_tensionMaximaEntradaInversor }}</div>
+              <div class="celda">
+                <div class="etiqueta">FORMA ONDA SALIDA:</div>
+                <div class="valor">{{ e1_formaOndaSalidaInversor }}</div>
               </div>
             </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-bottom: 1px solid #000;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TENSIÓN SALIDA (V):</div>
-                <div style="color: #d97860;">{{ e1_tensionSalidaInversor }}</div>
+            <div class="fila-grid fila-2col">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta">FRECUENCIA NOMINAL (Hz):</div>
+                <div class="valor">{{ e1_frecuenciaNominalInversor }}</div>
               </div>
-              <div style="padding: 8px;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">CONSUMO EN VACÍO:</div>
-                <div style="color: #d97860;">{{ e1_consumoVacioInversor }}</div>
+              <div class="celda">
+                <div class="etiqueta">TENSIÓN MÁX ENTRADA (V):</div>
+                <div class="valor">{{ e1_tensionMaximaEntradaInversor }}</div>
+              </div>
+            </div>
+            <div class="fila-grid fila-2col fila-sin-borde">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta">TENSIÓN SALIDA (V):</div>
+                <div class="valor">{{ e1_tensionSalidaInversor }}</div>
+              </div>
+              <div class="celda">
+                <div class="etiqueta">CONSUMO EN VACÍO:</div>
+                <div class="valor">{{ e1_consumoVacioInversor }}</div>
               </div>
             </div>
           </div>
 
           <!-- E1.6 Otros -->
-          <div style="border-bottom: 1px solid #000; padding: 8px;">
-            <div style="font-weight: bold; margin-bottom: 8px;">E1.6 OTROS</div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">CONVERTIDOR CC/CC:</div>
-                <div style="color: #d97860;">{{ e1_convertidorCC_CC }}</div>
+          <div class="subseccion">
+            <div class="subseccion-titulo">E1.6 OTROS</div>
+            <div class="fila-grid fila-2col">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta">CONVERTIDOR CC/CC:</div>
+                <div class="valor">{{ e1_convertidorCC_CC }}</div>
               </div>
-              <div style="padding: 8px;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">REL TENSIÓN VCC1/VCC2:</div>
-                <div style="color: #d97860;">{{ e1_relacionTensionCC }}</div>
-              </div>
-            </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">VARIADOR FRECUENCIA:</div>
-                <div style="color: #d97860;">{{ e1_variadorFrecuencia }}</div>
-              </div>
-              <div style="padding: 8px;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">GRUPO AUXILIAR APOYO:</div>
-                <div style="color: #d97860;">{{ e1_grupoAuxiliarApoyo }}</div>
+              <div class="celda">
+                <div class="etiqueta">REL TENSIÓN VCC1/VCC2:</div>
+                <div class="valor">{{ e1_relacionTensionCC }}</div>
               </div>
             </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border-bottom: 1px solid #000;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">POTENCIA GRUPO AUX (W):</div>
-                <div style="color: #d97860;">{{ e1_potenciaGrupoAuxiliar }}</div>
+            <div class="fila-grid fila-2col">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta">VARIADOR FRECUENCIA:</div>
+                <div class="valor">{{ e1_variadorFrecuencia }}</div>
+              </div>
+              <div class="celda">
+                <div class="etiqueta">GRUPO AUXILIAR APOYO:</div>
+                <div class="valor">{{ e1_grupoAuxiliarApoyo }}</div>
               </div>
             </div>
-            <div style="padding: 8px; margin-top: 8px; border-bottom: 1px solid #000;">
-              <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">OTROS EQUIPOS:</div>
-              <div style="color: #d97860; font-size: 10px; white-space: pre-wrap;">{{ e1_otrosEquipos }}</div>
+            <div class="fila-grid fila-2col">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta">POTENCIA GRUPO AUX (W):</div>
+                <div class="valor">{{ e1_potenciaGrupoAuxiliar }}</div>
+              </div>
+            </div>
+            <div class="subseccion" style="margin-top: 8px; border-bottom: 1px solid #000;">
+              <div class="etiqueta">OTROS EQUIPOS:</div>
+              <div class="valor" style="font-size: 10px; white-space: pre-wrap;">{{ e1_otrosEquipos }}</div>
             </div>
           </div>
 
           <!-- E1.7 Información de la Demanda -->
-          <div style="padding: 8px;">
-            <div style="font-weight: bold; margin-bottom: 8px;">E1.7 INFORMACIÓN DE LA DEMANDA</div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 8px; border: 1px solid #000;">
-              <div style="padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">POTENCIA MÁX DEMANDADA (W):</div>
-                <div style="color: #d97860;">{{ e1_potenciaMaximaDemanda }}</div>
+          <div class="subseccion" style="border-bottom: none;">
+            <div class="subseccion-titulo">E1.7 INFORMACIÓN DE LA DEMANDA</div>
+            <div class="fila-grid fila-2col" style="border: 1px solid #000; margin-bottom: 0;">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta">POTENCIA MÁX DEMANDADA (W):</div>
+                <div class="valor">{{ e1_potenciaMaximaDemanda }}</div>
               </div>
-              <div style="padding: 8px;">
-                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">PERIODICIDAD:</div>
-                <div style="color: #d97860;">{{ e1_periodicidadDemanda }}</div>
-              </div>
-            </div>
-            <div style="font-weight: bold; font-size: 10px; margin-bottom: 8px;">ENERGÍA DIARIA MEDIA MENSUAL (Wh/día):</div>
-            <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; border: 1px solid #000;">
-              <div style="text-align: center; padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 9px; background-color: #f4b5a0;">ENE</div>
-                <div style="color: #d97860; font-size: 9px;">{{ e1_energiaDiariaEnero }}</div>
-              </div>
-              <div style="text-align: center; padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 9px; background-color: #f4b5a0;">FEB</div>
-                <div style="color: #d97860; font-size: 9px;">{{ e1_energiaDiariaFebrero }}</div>
-              </div>
-              <div style="text-align: center; padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 9px; background-color: #f4b5a0;">MAR</div>
-                <div style="color: #d97860; font-size: 9px;">{{ e1_energiaDiariaMarzo }}</div>
-              </div>
-              <div style="text-align: center; padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 9px; background-color: #f4b5a0;">ABR</div>
-                <div style="color: #d97860; font-size: 9px;">{{ e1_energiaDiariaAbril }}</div>
-              </div>
-              <div style="text-align: center; padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 9px; background-color: #f4b5a0;">MAY</div>
-                <div style="color: #d97860; font-size: 9px;">{{ e1_energiaDiariaMayo }}</div>
-              </div>
-              <div style="text-align: center; padding: 8px;">
-                <div style="font-weight: bold; font-size: 9px; background-color: #f4b5a0;">JUN</div>
-                <div style="color: #d97860; font-size: 9px;">{{ e1_energiaDiariaJunio }}</div>
+              <div class="celda">
+                <div class="etiqueta">PERIODICIDAD:</div>
+                <div class="valor">{{ e1_periodicidadDemanda }}</div>
               </div>
             </div>
-            <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; border: 1px solid #000;">
-              <div style="text-align: center; padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 9px; background-color: #f4b5a0;">JUL</div>
-                <div style="color: #d97860; font-size: 9px;">{{ e1_energiaDiariaJulio }}</div>
+            <div style="font-weight: bold; font-size: 10px; margin-bottom: 8px; margin-top: 8px;">ENERGÍA DIARIA MEDIA MENSUAL (Wh/día):</div>
+            <div class="fila-grid fila-6col" style="border: 1px solid #000;">
+              <div class="celda celda-encabezado celda-izquierda">
+                <div style="font-weight: bold; font-size: 9px;">ENE</div>
+                <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaEnero }}</div>
               </div>
-              <div style="text-align: center; padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 9px; background-color: #f4b5a0;">AGO</div>
-                <div style="color: #d97860; font-size: 9px;">{{ e1_energiaDiariaAgosto }}</div>
+              <div class="celda celda-encabezado celda-izquierda">
+                <div style="font-weight: bold; font-size: 9px;">FEB</div>
+                <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaFebrero }}</div>
               </div>
-              <div style="text-align: center; padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 9px; background-color: #f4b5a0;">SEP</div>
-                <div style="color: #d97860; font-size: 9px;">{{ e1_energiaDiariaSeptiembre }}</div>
+              <div class="celda celda-encabezado celda-izquierda">
+                <div style="font-weight: bold; font-size: 9px;">MAR</div>
+                <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaMarzo }}</div>
               </div>
-              <div style="text-align: center; padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 9px; background-color: #f4b5a0;">OCT</div>
-                <div style="color: #d97860; font-size: 9px;">{{ e1_energiaDiariaOctubre }}</div>
+              <div class="celda celda-encabezado celda-izquierda">
+                <div style="font-weight: bold; font-size: 9px;">ABR</div>
+                <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaAbril }}</div>
               </div>
-              <div style="text-align: center; padding: 8px; border-right: 1px solid #000;">
-                <div style="font-weight: bold; font-size: 9px; background-color: #f4b5a0;">NOV</div>
-                <div style="color: #d97860; font-size: 9px;">{{ e1_energiaDiariaNoviembre }}</div>
+              <div class="celda celda-encabezado celda-izquierda">
+                <div style="font-weight: bold; font-size: 9px;">MAY</div>
+                <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaMayo }}</div>
               </div>
-              <div style="text-align: center; padding: 8px;">
-                <div style="font-weight: bold; font-size: 9px; background-color: #f4b5a0;">DIC</div>
-                <div style="color: #d97860; font-size: 9px;">{{ e1_energiaDiariaDiciembre }}</div>
+              <div class="celda celda-encabezado">
+                <div style="font-weight: bold; font-size: 9px;">JUN</div>
+                <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaJunio }}</div>
+              </div>
+            </div>
+            <div class="fila-grid fila-6col fila-sin-borde" style="border: 1px solid #000;">
+              <div class="celda celda-encabezado celda-izquierda">
+                <div style="font-weight: bold; font-size: 9px;">JUL</div>
+                <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaJulio }}</div>
+              </div>
+              <div class="celda celda-encabezado celda-izquierda">
+                <div style="font-weight: bold; font-size: 9px;">AGO</div>
+                <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaAgosto }}</div>
+              </div>
+              <div class="celda celda-encabezado celda-izquierda">
+                <div style="font-weight: bold; font-size: 9px;">SEP</div>
+                <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaSeptiembre }}</div>
+              </div>
+              <div class="celda celda-encabezado celda-izquierda">
+                <div style="font-weight: bold; font-size: 9px;">OCT</div>
+                <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaOctubre }}</div>
+              </div>
+              <div class="celda celda-encabezado celda-izquierda">
+                <div style="font-weight: bold; font-size: 9px;">NOV</div>
+                <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaNoviembre }}</div>
+              </div>
+              <div class="celda celda-encabezado">
+                <div style="font-weight: bold; font-size: 9px;">DIC</div>
+                <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaDiciembre }}</div>
               </div>
             </div>
           </div>
