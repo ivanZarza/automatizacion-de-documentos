@@ -1,5 +1,5 @@
 <template>
-  <div data-pdf-content class="bg-white p-0" style="width: 210mm; height: 297mm; margin: 0 auto; font-family: 'Segoe UI', Arial, sans-serif; color: #333; font-size: 18px; display: flex; justify-content: center; align-items: center;">
+  <div data-pdf-content class="bg-white p-0" style="width: 210mm; margin: 0 auto; font-family: 'Segoe UI', Arial, sans-serif; color: #333; font-size: 18px; display: flex; justify-content: center; align-items: center; overflow: auto;">
     <div style="width: 90%;">
       <!-- Encabezado con Logo -->
       <div style="display: flex; justify-content: space-between; align-items: flex-start; padding: 20px 30px; border-bottom: 2px solid #0066cc;">
@@ -48,7 +48,7 @@
       </div>
 
       <!-- Pie de página -->
-      <div style="position: absolute; bottom: 20px; left: 30px; right: 30px; margin: 0 auto; width: calc(100% - 60px); padding: 0; border-top: 1px solid #0066cc; padding-top: 15px; text-align: center; font-size: 12px; color: #000;">
+      <div style="padding: 30px; border-top: 1px solid #0066cc; margin-top: 40px; text-align: center; font-size: 12px; color: #000;">
         <p style="margin: 3px 0 0 0;">Validez legal sujeta a regulaciones vigentes</p>
         <p style="margin: 3px 0 0 0;">www.solay.es</p>
         <p style="margin: 3px 0 0 0;">Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110 Sevilla.</p>

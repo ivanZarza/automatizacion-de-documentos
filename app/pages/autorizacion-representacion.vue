@@ -40,6 +40,12 @@ const {
   generatePDF
 } = useDocument(documentConfig)
 
+// Mostrar vista previa directamente al cargar la página
+onMounted(() => {
+  generatedDate.value = new Date().toLocaleDateString('es-ES')
+  previewDocument()
+})
+
 const formFields = [
   { name: 'autorizante', label: 'Nombre del Autorizante', placeholder: 'Ej: Guillermo Cruz Beltrán', type: 'text' },
   { name: 'dniAutorizante', label: 'DNI/NIF del Autorizante', placeholder: 'Ej: 31.335.276-F', type: 'text' },
@@ -58,23 +64,11 @@ const handleFormSubmit = (newData) => {
 }
 
 const generatedDate = ref('')
-
-onMounted(() => {
-  generatedDate.value = new Date().toLocaleDateString('es-ES')
-})
 </script>
 
 <template>
   <div class="min-h-screen bg-gray-50 p-4">
-    <!-- Modal -->
-    <DocumentModal 
-      :isOpen="showModal"
-      title="Autorización de Representación"
-      :options="getModalOptions()"
-      @close="closeModal"
-    />
-
-    <!-- Vista Principal -->
+    <!-- Vista Principal (sin modal) -->
     <div v-if="!showPreview && !showEdit" class="max-w-4xl mx-auto">
       <Boton 
         @click="previewDocument"
