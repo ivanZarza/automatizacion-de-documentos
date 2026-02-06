@@ -891,38 +891,38 @@
       </div>
 
       <!-- SECCIÓN G: CARACTERÍSTICAS DE LAS LÍNEAS Y CIRCUITOS -->
-      <div style="border: 2px solid #000; margin-bottom: 15px;">
-        <div style="background-color: #f4b5a0; padding: 8px; font-weight: bold;">G | CARACTERÍSTICAS DE LAS LÍNEAS Y CIRCUITOS</div>
+      <div class="seccion">
+        <div class="encabezado-seccion">G | CARACTERÍSTICAS DE LAS LÍNEAS Y CIRCUITOS</div>
         
-        <div style="padding: 8px; overflow-x: auto;">
-          <table style="width: 100%; border-collapse: collapse; font-size: 9px;">
-            <tr style="border: 1px solid #000;">
-              <th style="border: 1px solid #000; padding: 4px; background-color: #f0f0f0;">CIRCUITO</th>
-              <th style="border: 1px solid #000; padding: 4px; background-color: #f0f0f0;">LONGITUD (m)</th>
-              <th style="border: 1px solid #000; padding: 4px; background-color: #f0f0f0;">MATERIAL/SECCIÓN (mm²)</th>
-              <th style="border: 1px solid #000; padding: 4px; background-color: #f0f0f0;">INTENSIDAD (A)</th>
-              <th style="border: 1px solid #000; padding: 4px; background-color: #f0f0f0;">CAÍDA TENSIÓN (%)</th>
+        <div class="cuerpo-seccion" style="overflow-x: auto;">
+          <table class="tabla-circuitos">
+            <tr>
+              <th>CIRCUITO</th>
+              <th>LONGITUD (m)</th>
+              <th>MATERIAL/SECCIÓN (mm²)</th>
+              <th>INTENSIDAD (A)</th>
+              <th>CAÍDA TENSIÓN (%)</th>
             </tr>
-            <tr style="border: 1px solid #000;">
-              <td style="border: 1px solid #000; padding: 4px;">Generador - Inversor</td>
-              <td style="border: 1px solid #000; padding: 4px; color: #d97860;">{{ longitudGeneradorInversor }}</td>
-              <td style="border: 1px solid #000; padding: 4px; color: #d97860;">{{ materialGeneradorInversor }}</td>
-              <td style="border: 1px solid #000; padding: 4px; color: #d97860;">{{ intensidadGeneradorInversor }}</td>
-              <td style="border: 1px solid #000; padding: 4px; color: #d97860;">{{ caidaTensionGeneradorInversor }}</td>
+            <tr>
+              <td>Generador - Inversor</td>
+              <td class="campo-editable">{{ longitudGeneradorInversor }}</td>
+              <td class="campo-editable">{{ materialGeneradorInversor }}</td>
+              <td class="campo-editable">{{ intensidadGeneradorInversor }}</td>
+              <td class="campo-editable">{{ caidaTensionGeneradorInversor }}</td>
             </tr>
-            <tr style="border: 1px solid #000;">
-              <td style="border: 1px solid #000; padding: 4px;">Batería - Inversor</td>
-              <td style="border: 1px solid #000; padding: 4px; color: #d97860;">{{ longitudBateriaInversor }}</td>
-              <td style="border: 1px solid #000; padding: 4px; color: #d97860;">{{ materialBateriaInversor }}</td>
-              <td style="border: 1px solid #000; padding: 4px; color: #d97860;">{{ intensidadBateriaInversor }}</td>
-              <td style="border: 1px solid #000; padding: 4px; color: #d97860;">{{ caidaTensionBateriaInversor }}</td>
+            <tr>
+              <td>Batería - Inversor</td>
+              <td class="campo-editable">{{ longitudBateriaInversor }}</td>
+              <td class="campo-editable">{{ materialBateriaInversor }}</td>
+              <td class="campo-editable">{{ intensidadBateriaInversor }}</td>
+              <td class="campo-editable">{{ caidaTensionBateriaInversor }}</td>
             </tr>
-            <tr style="border: 1px solid #000;">
-              <td style="border: 1px solid #000; padding: 4px;">Salida Inversor - Red</td>
-              <td style="border: 1px solid #000; padding: 4px; color: #d97860;">{{ longitudSalidaRed }}</td>
-              <td style="border: 1px solid #000; padding: 4px; color: #d97860;">{{ materialSalidaRed }}</td>
-              <td style="border: 1px solid #000; padding: 4px; color: #d97860;">{{ intensidadSalidaRed }}</td>
-              <td style="border: 1px solid #000; padding: 4px; color: #d97860;">{{ caidaTensionSalidaRed }}</td>
+            <tr>
+              <td>Salida Inversor - Red</td>
+              <td class="campo-editable">{{ longitudSalidaRed }}</td>
+              <td class="campo-editable">{{ materialSalidaRed }}</td>
+              <td class="campo-editable">{{ intensidadSalidaRed }}</td>
+              <td class="campo-editable">{{ caidaTensionSalidaRed }}</td>
             </tr>
           </table>
         </div>
@@ -1401,6 +1401,28 @@ const tipoInstalacionSeleccionada = ref('Nueva')
   padding: 8px;
   background-color: #fff9f7;
   border: 1px solid #f4b5a0;
+}
+
+/* ========== TABLA DE CIRCUITOS (Sección G) ========== */
+.tabla-circuitos {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 9px;
+}
+
+.tabla-circuitos tr {
+  border: 1px solid #000;
+}
+
+.tabla-circuitos th,
+.tabla-circuitos td {
+  border: 1px solid #000;
+  padding: 4px;
+}
+
+.tabla-circuitos th {
+  background-color: #f0f0f0;
+  font-weight: bold;
 }
 
 /* ========== ESTILOS DE IMPRESIÓN ========== */
