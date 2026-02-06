@@ -21,7 +21,7 @@
 
       <!-- SECCIÓN A: TITULAR -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span style="background-color: #FFFACD; padding: 2px 6px; border-radius: 3px; margin-right: 5px;">A</span> | TITULAR</div>
+        <div class="encabezado-seccion"><span style="background-color: #FFA02A; padding: 2px 6px; border-radius: 3px; margin-right: 5px; color: white;">A</span> | TITULAR</div>
         
         <div class="fila-grid fila-2col">
           <div class="celda celda-izquierda">
@@ -79,7 +79,7 @@
 
       <!-- SECCIÓN B: EMPLAZAMIENTO -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span style="background-color: #FFFACD; padding: 2px 6px; border-radius: 3px; margin-right: 5px;">B</span> | EMPLAZAMIENTO DE LA INSTALACIÓN Y USO AL QUE SE DESTINA</div>
+        <div class="encabezado-seccion"><span style="background-color: #FFA02A; padding: 2px 6px; border-radius: 3px; margin-right: 5px; color: white;">B</span> | EMPLAZAMIENTO DE LA INSTALACIÓN Y USO AL QUE SE DESTINA</div>
         
         <div class="cuerpo-seccion-borde">
           <div class="etiqueta">CALLE/AVENIDA:</div>
@@ -153,7 +153,7 @@
 
       <!-- SECCIÓN C: PERSONA QUE FIRMA -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span style="background-color: #FFFACD; padding: 2px 6px; border-radius: 3px; margin-right: 5px;">C</span> | IDENTIFICACIÓN DE LA PERSONA QUE FIRMA LA MTD</div>
+        <div class="encabezado-seccion"><span style="background-color: #FFA02A; padding: 2px 6px; border-radius: 3px; margin-right: 5px; color: white;">C</span> | IDENTIFICACIÓN DE LA PERSONA QUE FIRMA LA MTD</div>
         
         <!-- Técnico Instalador Autorizado -->
         <div class="subseccion">
@@ -271,7 +271,7 @@
 
       <!-- SECCIÓN D: CATEGORÍA Y ESPECIALIDAD -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span style="background-color: #FFFACD; padding: 2px 6px; border-radius: 3px; margin-right: 5px;">D</span> | CATEGORÍA Y ESPECIALIDAD DEL INSTALADOR</div>
+        <div class="encabezado-seccion"><span style="background-color: #FFA02A; padding: 2px 6px; border-radius: 3px; margin-right: 5px; color: white;">D</span> | CATEGORÍA Y ESPECIALIDAD DEL INSTALADOR</div>
         
         <!-- BÁSICA -->
         <div class="cuerpo-seccion" style="border-bottom: 1px solid #000;">
@@ -326,7 +326,7 @@
 
       <!-- SECCIÓN E: MEMORIA DESCRIPTIVA -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span style="background-color: #FFFACD; padding: 2px 6px; border-radius: 3px; margin-right: 5px;">E</span> | MEMORIA DESCRIPTIVA</div>
+        <div class="encabezado-seccion"><span style="background-color: #FFA02A; padding: 2px 6px; border-radius: 3px; margin-right: 5px; color: white;">E</span> | MEMORIA DESCRIPTIVA</div>
         
         <!-- E1: INSTALACIÓN GENERADORA FOTOVOLTAICA AISLADA -->
         <div class="cuerpo-seccion">
@@ -830,7 +830,7 @@
 
           <!-- E2.5 Protecciones Externas -->
           <div class="subseccion">
-            <div class="subseccion-titulo"><span style="color: white; font-weight: bold;">E2.5</span> PROTECCIONES EXTERNAS</div>
+            <div class="subseccion-titulo"><span style="background-color: #FFA02A; padding: 2px 6px; border-radius: 3px; margin-right: 5px; color: white;">E2.5</span> PROTECCIONES EXTERNAS</div>
             <div class="cuerpo-subseccion">
               <div class="etiqueta">INTERRUPTOR GENERAL:</div>
             </div>
@@ -861,7 +861,7 @@
 
       <!-- SECCIÓN F: MEDIDAS DE PROTECCIÓN EMPLEADAS -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span style="color: white; font-weight: bold;">F</span> | MEDIDAS DE PROTECCIÓN EMPLEADAS</div>
+        <div class="encabezado-seccion"><span style="background-color: #FFA02A; padding: 2px 6px; border-radius: 3px; margin-right: 5px; color: white;">F</span> | MEDIDAS DE PROTECCIÓN EMPLEADAS</div>
         
         <div class="cuerpo-seccion">
           <table class="tabla-protecciones">
@@ -910,7 +910,7 @@
 
       <!-- SECCIÓN G: CARACTERÍSTICAS DE LAS LÍNEAS Y CIRCUITOS -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span style="color: white; font-weight: bold;">G</span> | CARACTERÍSTICAS DE LAS LÍNEAS Y CIRCUITOS</div>
+        <div class="encabezado-seccion"><span style="background-color: #FFA02A; padding: 2px 6px; border-radius: 3px; margin-right: 5px; color: white;">G</span> | CARACTERÍSTICAS DE LAS LÍNEAS Y CIRCUITOS</div>
         
         <div class="cuerpo-seccion" style="overflow-x: auto;">
           <table class="tabla-circuitos">
@@ -976,7 +976,7 @@
 
       <!-- SECCIÓN H: ESQUEMA UNIFILAR -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span style="color: white; font-weight: bold;">H</span> | ESQUEMA UNIFILAR DE LA INSTALACIÓN (PROTECCIONES INCLUIDAS)</div>
+        <div class="encabezado-seccion"><span style="background-color: #FFA02A; padding: 2px 6px; border-radius: 3px; margin-right: 5px; color: white;">H</span> | ESQUEMA UNIFILAR DE LA INSTALACIÓN (PROTECCIONES INCLUIDAS)</div>
         
         <div class="contenedor-esquema">
           <img v-if="esquemaUnifilar" :src="esquemaUnifilar" class="imagen-esquema" />
@@ -986,7 +986,7 @@
 
       <!-- SECCIÓN I: PLANO DE EMPLAZAMIENTO -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span style="color: white; font-weight: bold;">I</span> | PLANO DE EMPLAZAMIENTO Y CROQUIS DE ACCESO</div>
+        <div class="encabezado-seccion"><span style="background-color: #FFA02A; padding: 2px 6px; border-radius: 3px; margin-right: 5px; color: white;">I</span> | PLANO DE EMPLAZAMIENTO Y CROQUIS DE ACCESO</div>
         
         <div class="contenedor-esquema">
           <img v-if="planoEmplazamiento" :src="planoEmplazamiento" class="imagen-esquema" />
@@ -1466,6 +1466,8 @@ const tipoInstalacionSeleccionada = ref('Nueva')
   font-weight: bold;
   border-bottom: 1px solid #000;
   padding: 8px 5px;
+  background-color: #FFCC99;
+  color: white;
 }
 
 /* ========== TÍTULO DE SUBSECCIONES PRINCIPALES ========== */
