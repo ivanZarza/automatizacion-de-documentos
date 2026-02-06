@@ -90,6 +90,15 @@ export const memoriaTecnicaConfig = {
     // E.1.7 Información de la Demanda
     potenciaMaximaDemanda: '10.24 kWh',
     energiaDiariaDemanda: '10.24 kWh',
+    // E.2 - Circuitos y Protecciones
+    seccionCableDC: '6 mm²',
+    tipoCableFotovoltaico: 'PV1F 1000V',
+    proteccionDCTipo: 'Fusible',
+    proteccionDCIntensidad: '25 A',
+    seccionCableAC: '6 mm²',
+    tipoCableAC: 'RZ 0,6/1 kV',
+    proteccionACTipo: 'Magnetotérmico',
+    proteccionACIntensidad: '16 A',
     // Sección F - Planos y Esquemas
     planoEmplazamiento: '',
     esquemaUnifilar: '',
@@ -141,6 +150,15 @@ export const memoriaTecnicaConfig = {
     { name: 'tensionSalidaInversor', label: 'Tensión de Salida del Inversor (V)', placeholder: '230V', type: 'text' },
     { name: 'potenciaMaximaDemanda', label: 'Potencia Máxima Demandada (kWh)', placeholder: '10.24 kWh', type: 'text' },
     { name: 'energiaDiariaDemanda', label: 'Energía Diaria Media Demandada (kWh/día)', placeholder: '10.24 kWh', type: 'text' },
+    // Sección E.2 - Circuitos y Protecciones
+    { name: 'seccionCableDC', label: 'Sección del Cable DC (mm²)', placeholder: '6 mm²', type: 'text' },
+    { name: 'tipoCableFotovoltaico', label: 'Tipo de Cable Fotovoltaico', placeholder: 'PV1F 1000V', type: 'text', fullWidth: true },
+    { name: 'proteccionDCTipo', label: 'Protección DC - Tipo', placeholder: 'Fusible', type: 'text' },
+    { name: 'proteccionDCIntensidad', label: 'Protección DC - Intensidad (A)', placeholder: '25 A', type: 'text' },
+    { name: 'seccionCableAC', label: 'Sección del Cable AC (mm²)', placeholder: '6 mm²', type: 'text' },
+    { name: 'tipoCableAC', label: 'Tipo de Cable AC (RZ, RV)', placeholder: 'RZ 0,6/1 kV', type: 'text', fullWidth: true },
+    { name: 'proteccionACTipo', label: 'Protección AC - Tipo', placeholder: 'Magnetotérmico', type: 'text' },
+    { name: 'proteccionACIntensidad', label: 'Protección AC - Intensidad (A)', placeholder: '16 A', type: 'text' },
     // Sección F - Planos y Esquemas
     { name: 'planoEmplazamiento', label: 'Plano de Emplazamiento (Imagen)', placeholder: 'Selecciona una imagen', type: 'file', accept: 'image/*', fullWidth: true },
     { name: 'esquemaUnifilar', label: 'Esquema Unifilar (Imagen)', placeholder: 'Selecciona una imagen', type: 'file', accept: 'image/*', fullWidth: true }

@@ -316,6 +316,65 @@
             </div>
           </div>
         </div>
+
+        <!-- E.2 INFORMACIÓN DE LOS CIRCUITOS Y PROTECCIONES -->
+        <div style="padding: 10px; border-bottom: 1px solid #000;">
+          <div style="font-weight: bold; background-color: #f0f0f0; padding: 5px; margin-bottom: 10px;">E.2 INFORMACIÓN DE LOS CIRCUITOS Y PROTECCIONES</div>
+          
+          <!-- E.2.1 Circuito DC -->
+          <div style="margin-bottom: 10px; padding: 8px; border-left: 3px solid #d97860;">
+            <div style="font-weight: bold; font-size: 11px; margin-bottom: 8px;">E.2.1 CIRCUITO DE CORRIENTE CONTINUA (DC)</div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">SECCIÓN DEL CABLE DC (mm²):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ seccionCableDC }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TIPO DE CABLE FOTOVOLTAICO:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ tipoCableFotovoltaico }}</div>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">PROTECCIÓN DC - TIPO:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ proteccionDCTipo }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">PROTECCIÓN DC - INTENSIDAD (A):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ proteccionDCIntensidad }}</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- E.2.2 Circuito AC -->
+          <div style="padding: 8px; border-left: 3px solid #d97860;">
+            <div style="font-weight: bold; font-size: 11px; margin-bottom: 8px;">E.2.2 CIRCUITO DE CORRIENTE ALTERNA (AC)</div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 8px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">SECCIÓN DEL CABLE AC (mm²):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ seccionCableAC }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TIPO DE CABLE (RZ, RV):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ tipoCableAC }}</div>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">PROTECCIÓN AC - TIPO:</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ proteccionACTipo }}</div>
+              </div>
+              <div>
+                <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">PROTECCIÓN AC - INTENSIDAD (A):</div>
+                <div style="color: #d97860; padding: 5px; background-color: #fff9f7;">{{ proteccionACIntensidad }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- SECCIÓN F: PLANOS Y ESQUEMAS -->
@@ -450,6 +509,15 @@ defineProps({
   tensionSalidaInversor: String,
   potenciaMaximaDemanda: String,
   energiaDiariaDemanda: String,
+  // Sección E.2 - Circuitos y Protecciones
+  seccionCableDC: String,
+  tipoCableFotovoltaico: String,
+  proteccionDCTipo: String,
+  proteccionDCIntensidad: String,
+  seccionCableAC: String,
+  tipoCableAC: String,
+  proteccionACTipo: String,
+  proteccionACIntensidad: String,
   // Sección F - Imágenes
   planoEmplazamiento: String,
   esquemaUnifilar: String,
