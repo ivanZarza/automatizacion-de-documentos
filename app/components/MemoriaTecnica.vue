@@ -21,7 +21,7 @@
 
       <!-- SECCIÓN A: TITULAR -->
       <div class="seccion">
-        <div class="encabezado-seccion">A | TITULAR</div>
+        <div class="encabezado-seccion"><span style="background-color: #FFFACD; padding: 2px 6px; border-radius: 3px; margin-right: 5px;">A</span> | TITULAR</div>
         
         <div class="fila-grid fila-2col">
           <div class="celda celda-izquierda">
@@ -79,7 +79,7 @@
 
       <!-- SECCIÓN B: EMPLAZAMIENTO -->
       <div class="seccion">
-        <div class="encabezado-seccion">B | EMPLAZAMIENTO DE LA INSTALACIÓN Y USO AL QUE SE DESTINA</div>
+        <div class="encabezado-seccion"><span style="background-color: #FFFACD; padding: 2px 6px; border-radius: 3px; margin-right: 5px;">B</span> | EMPLAZAMIENTO DE LA INSTALACIÓN Y USO AL QUE SE DESTINA</div>
         
         <div class="cuerpo-seccion-borde">
           <div class="etiqueta">CALLE/AVENIDA:</div>
@@ -153,7 +153,7 @@
 
       <!-- SECCIÓN C: PERSONA QUE FIRMA -->
       <div class="seccion">
-        <div class="encabezado-seccion">C | IDENTIFICACIÓN DE LA PERSONA QUE FIRMA LA MTD</div>
+        <div class="encabezado-seccion"><span style="background-color: #FFFACD; padding: 2px 6px; border-radius: 3px; margin-right: 5px;">C</span> | IDENTIFICACIÓN DE LA PERSONA QUE FIRMA LA MTD</div>
         
         <!-- Técnico Instalador Autorizado -->
         <div class="subseccion">
@@ -271,7 +271,7 @@
 
       <!-- SECCIÓN D: CATEGORÍA Y ESPECIALIDAD -->
       <div class="seccion">
-        <div class="encabezado-seccion">D | CATEGORÍA Y ESPECIALIDAD DEL INSTALADOR</div>
+        <div class="encabezado-seccion"><span style="background-color: #FFFACD; padding: 2px 6px; border-radius: 3px; margin-right: 5px;">D</span> | CATEGORÍA Y ESPECIALIDAD DEL INSTALADOR</div>
         
         <!-- BÁSICA -->
         <div class="cuerpo-seccion" style="border-bottom: 1px solid #000;">
@@ -326,11 +326,11 @@
 
       <!-- SECCIÓN E: MEMORIA DESCRIPTIVA -->
       <div class="seccion">
-        <div class="encabezado-seccion">E | MEMORIA DESCRIPTIVA</div>
+        <div class="encabezado-seccion"><span style="background-color: #FFFACD; padding: 2px 6px; border-radius: 3px; margin-right: 5px;">E</span> | MEMORIA DESCRIPTIVA</div>
         
         <!-- E1: INSTALACIÓN GENERADORA FOTOVOLTAICA AISLADA -->
         <div class="cuerpo-seccion">
-          <div class="titulo-subseccion-principal">E1. INSTALACIÓN GENERADORA FOTOVOLTAICA AISLADA</div>
+          <div class="titulo-subseccion-principal"><span style="background-color: #FFFDE7; padding: 2px 6px; border-radius: 3px; margin-right: 5px;">E1</span>. INSTALACIÓN GENERADORA FOTOVOLTAICA AISLADA</div>
           
           <!-- E1.1 Módulo Fotovoltaico -->
           <div class="subseccion">
@@ -655,7 +655,7 @@
         
         <!-- E2: INSTALACIÓN GENERADORA FOTOVOLTAICA INTERCONECTADA CON ALMACENAMIENTO -->
         <div class="cuerpo-seccion">
-          <div class="titulo-subseccion-principal">E2. INSTALACIÓN GENERADORA FOTOVOLTAICA INTERCONECTADA CON ALMACENAMIENTO</div>
+          <div class="titulo-subseccion-principal"><span style="background-color: #FFFDE7; padding: 2px 6px; border-radius: 3px; margin-right: 5px;">E2</span>. INSTALACIÓN GENERADORA FOTOVOLTAICA INTERCONECTADA CON ALMACENAMIENTO</div>
           
           <!-- E2.1 Conexión a la Red -->
           <div class="subseccion-e2">
@@ -841,7 +841,7 @@
 
       <!-- SECCIÓN F: MEDIDAS DE PROTECCIÓN EMPLEADAS -->
       <div class="seccion">
-        <div class="encabezado-seccion">F | MEDIDAS DE PROTECCIÓN EMPLEADAS</div>
+        <div class="encabezado-seccion"><span style="background-color: #FFFACD; padding: 2px 6px; border-radius: 3px; margin-right: 5px;">F</span> | MEDIDAS DE PROTECCIÓN EMPLEADAS</div>
         
         <div class="cuerpo-seccion">
           <table class="tabla-protecciones">
@@ -892,7 +892,7 @@
 
       <!-- SECCIÓN G: CARACTERÍSTICAS DE LAS LÍNEAS Y CIRCUITOS -->
       <div class="seccion">
-        <div class="encabezado-seccion">G | CARACTERÍSTICAS DE LAS LÍNEAS Y CIRCUITOS</div>
+        <div class="encabezado-seccion"><span style="background-color: #FFFACD; padding: 2px 6px; border-radius: 3px; margin-right: 5px;">G</span> | CARACTERÍSTICAS DE LAS LÍNEAS Y CIRCUITOS</div>
         
         <div class="cuerpo-seccion" style="overflow-x: auto;">
           <table class="tabla-circuitos">
@@ -930,7 +930,7 @@
 
       <!-- SECCIÓN H: ESQUEMA UNIFILAR -->
       <div class="seccion">
-        <div class="encabezado-seccion">H | ESQUEMA UNIFILAR DE LA INSTALACIÓN (PROTECCIONES INCLUIDAS)</div>
+        <div class="encabezado-seccion"><span style="background-color: #FFFACD; padding: 2px 6px; border-radius: 3px; margin-right: 5px;">H</span> | ESQUEMA UNIFILAR DE LA INSTALACIÓN (PROTECCIONES INCLUIDAS)</div>
         
         <div class="contenedor-esquema">
           <img v-if="esquemaUnifilar" :src="esquemaUnifilar" class="imagen-esquema" />
@@ -940,7 +940,7 @@
 
       <!-- SECCIÓN I: PLANO DE EMPLAZAMIENTO -->
       <div class="seccion">
-        <div class="encabezado-seccion">I | PLANO DE EMPLAZAMIENTO Y CROQUIS DE ACCESO</div>
+        <div class="encabezado-seccion"><span style="background-color: #FFFACD; padding: 2px 6px; border-radius: 3px; margin-right: 5px;">I</span> | PLANO DE EMPLAZAMIENTO Y CROQUIS DE ACCESO</div>
         
         <div class="contenedor-esquema">
           <img v-if="planoEmplazamiento" :src="planoEmplazamiento" class="imagen-esquema" />
@@ -1642,8 +1642,54 @@ const tipoInstalacionSeleccionada = ref('Nueva')
     margin: 0;
     padding: 0;
   }
+  
   button {
     display: none;
+  }
+  
+  /* Forzar impresión de colores */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  /* Evitar que se corten las secciones entre páginas */
+  .seccion {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  .subseccion {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  .subseccion-e2 {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  .fila-grid {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  .tabla-protecciones,
+  .tabla-circuitos {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  .contenedor-esquema {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  
+  /* Permitir saltos de página antes de secciones principales */
+  .encabezado-seccion {
+    page-break-before: auto;
+    orphans: 3;
+    widows: 3;
   }
 }
 </style>
