@@ -330,7 +330,7 @@
         
         <!-- E1: INSTALACIÓN GENERADORA FOTOVOLTAICA AISLADA -->
         <div class="cuerpo-seccion">
-          <div style="font-weight: bold; background-color: #f0f0f0; padding: 5px; margin-bottom: 10px; border: 1px solid #000;">E1. INSTALACIÓN GENERADORA FOTOVOLTAICA AISLADA</div>
+          <div class="titulo-subseccion-principal">E1. INSTALACIÓN GENERADORA FOTOVOLTAICA AISLADA</div>
           
           <!-- E1.1 Módulo Fotovoltaico -->
           <div class="subseccion">
@@ -655,7 +655,7 @@
         
         <!-- E2: INSTALACIÓN GENERADORA FOTOVOLTAICA INTERCONECTADA CON ALMACENAMIENTO -->
         <div class="cuerpo-seccion">
-          <div style="font-weight: bold; background-color: #f0f0f0; padding: 5px; margin-bottom: 10px; border: 1px solid #000;">E2. INSTALACIÓN GENERADORA FOTOVOLTAICA INTERCONECTADA CON ALMACENAMIENTO</div>
+          <div class="titulo-subseccion-principal">E2. INSTALACIÓN GENERADORA FOTOVOLTAICA INTERCONECTADA CON ALMACENAMIENTO</div>
           
           <!-- E2.1 Conexión a la Red -->
           <div class="subseccion" style="border: 1px solid #000; padding: 8px;">
@@ -1256,6 +1256,15 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 .subseccion-titulo {
   font-weight: bold;
   margin-bottom: 8px;
+}
+
+/* ========== TÍTULO DE SUBSECCIONES PRINCIPALES ========== */
+.titulo-subseccion-principal {
+  font-weight: bold;
+  background-color: #f0f0f0;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #000;
 }
 
 /* ========== ELEMENTOS ESPECIALES ========== */
