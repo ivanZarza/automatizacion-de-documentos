@@ -820,19 +820,39 @@
                 <div class="valor">{{ potenciaMaximaSalidaBateria }}</div>
               </div>
             </div>
+            <div class="fila-grid fila-sin-borde">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta">MÁXIMO PICO DE POTENCIA:</div>
+                <div class="valor">{{ maximoPicoPotenciaBateria }}</div>
+              </div>
+            </div>
           </div>
 
-          <!-- E2.6 Protecciones Externas -->
+          <!-- E2.5 Protecciones Externas -->
           <div class="subseccion">
-            <div class="subseccion-titulo">E2.6 PROTECCIONES EXTERNAS</div>
-            <div class="fila-grid fila-2col fila-sin-borde">
+            <div class="subseccion-titulo"><span style="color: white; font-weight: bold;">E2.5</span> PROTECCIONES EXTERNAS</div>
+            <div class="cuerpo-subseccion">
+              <div class="etiqueta">INTERRUPTOR GENERAL:</div>
+            </div>
+            <div class="fila-grid fila-2col">
               <div class="celda celda-izquierda">
-                <div class="etiqueta">INTERRUPTOR GENERAL - In (A):</div>
+                <div class="etiqueta etiqueta-pequena">INTENSIDAD NOMINAL DEL INTERRUPTOR GENERAL, In (A):</div>
                 <div class="valor">{{ intensidadInterruptorGeneral }}</div>
               </div>
               <div class="celda">
-                <div class="etiqueta">PODER DE CORTE (kA):</div>
+                <div class="etiqueta etiqueta-pequena">PODER DE CORTE DEL INTERRUPTOR GENERAL (kA):</div>
                 <div class="valor">{{ poderCorteInterruptor }}</div>
+              </div>
+            </div>
+            <div class="fila-grid fila-sin-borde">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta">PROTECCIÓN DE MÁXIMA Y MÍNIMA FRECUENCIA (51 Y 49 Hz) Y DE MÁXIMA Y MÍNIMA TENSIÓN (1,1 Y 0,85 Um) (SI/NO) (*):</div>
+                <div class="valor">{{ proteccionFrecuenciaTension }}</div>
+              </div>
+            </div>
+            <div class="fila-grid fila-sin-borde">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta etiqueta-pequena">(*) Cumplimentar sólo si las protecciones no se encuentran en el interior del inversor</div>
               </div>
             </div>
           </div>
@@ -841,88 +861,114 @@
 
       <!-- SECCIÓN F: MEDIDAS DE PROTECCIÓN EMPLEADAS -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span style="background-color: #FFFACD; padding: 2px 6px; border-radius: 3px; margin-right: 5px;">F</span> | MEDIDAS DE PROTECCIÓN EMPLEADAS</div>
+        <div class="encabezado-seccion"><span style="color: white; font-weight: bold;">F</span> | MEDIDAS DE PROTECCIÓN EMPLEADAS</div>
         
         <div class="cuerpo-seccion">
           <table class="tabla-protecciones">
             <tr>
-              <th>RIESGO / PROTECCIÓN</th>
+              <th>MEDIDAS DE PROTECCIÓN EMPLEADAS CONTRA:</th>
               <th>TIPO DE MEDIDA</th>
               <th>PARTE DE LA INSTALACIÓN</th>
             </tr>
             <tr>
-              <td>Contactos Directos</td>
+              <td>CONTACTOS DIRECTOS</td>
               <td class="campo-editable">{{ medidaContactosDirectos }}</td>
               <td class="campo-editable">{{ parteInstalacionDirectos }}</td>
             </tr>
             <tr>
-              <td>Contactos Indirectos</td>
+              <td>CONTACTOS INDIRECTOS</td>
               <td class="campo-editable">{{ medidaContactosIndirectos }}</td>
               <td class="campo-editable">{{ parteInstalacionIndirectos }}</td>
             </tr>
             <tr>
-              <td>Sobretensiones</td>
-              <td class="campo-editable">{{ medidaSobretensiones }}</td>
-              <td class="campo-editable">{{ parteInstalacionSobretensiones }}</td>
-            </tr>
-            <tr v-if="medidaPuntoCaliente">
-              <td>Efecto Punto Caliente (3 Diodos Bypass)</td>
+              <td>EFECTO DEL PUNTO CALIENTE</td>
               <td class="campo-editable">{{ medidaPuntoCaliente }}</td>
               <td class="campo-editable">{{ parteInstalacionPuntoCaliente }}</td>
             </tr>
-            <tr v-if="medidaExplosion">
-              <td>Riesgo de Explosión</td>
+            <tr>
+              <td>SOBRETENSIONES</td>
+              <td class="campo-editable">{{ medidaSobretensiones }}</td>
+              <td class="campo-editable">{{ parteInstalacionSobretensiones }}</td>
+            </tr>
+            <tr>
+              <td>RIESGO DE EXPLOSIÓN (en instalaciones fotovoltaicas aisladas con baterías)</td>
               <td class="campo-editable">{{ medidaExplosion }}</td>
               <td class="campo-editable">{{ parteInstalacionExplosion }}</td>
             </tr>
-            <tr v-if="medidaCorrosion">
-              <td>Riesgo de Corrosión</td>
+            <tr>
+              <td>RIESGO DE CORROSIÓN (en instalaciones fotovoltaicas aisladas con baterías)</td>
               <td class="campo-editable">{{ medidaCorrosion }}</td>
               <td class="campo-editable">{{ parteInstalacionCorrosion }}</td>
             </tr>
+            <tr>
+              <td>OTRAS (indicar cuales)</td>
+              <td class="campo-editable" colspan="2">{{ otrasProtecciones }}</td>
+            </tr>
           </table>
-
-          <!-- Otras Protecciones -->
-          <div v-if="otrasProtecciones" class="otras-medidas-proteccion">
-            <div class="etiqueta">OTRAS MEDIDAS DE PROTECCIÓN:</div>
-            <div class="valor" style="font-size: 10px; line-height: 1.5;">{{ otrasProtecciones }}</div>
-          </div>
         </div>
       </div>
 
       <!-- SECCIÓN G: CARACTERÍSTICAS DE LAS LÍNEAS Y CIRCUITOS -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span style="background-color: #FFFACD; padding: 2px 6px; border-radius: 3px; margin-right: 5px;">G</span> | CARACTERÍSTICAS DE LAS LÍNEAS Y CIRCUITOS</div>
+        <div class="encabezado-seccion"><span style="color: white; font-weight: bold;">G</span> | CARACTERÍSTICAS DE LAS LÍNEAS Y CIRCUITOS</div>
         
         <div class="cuerpo-seccion" style="overflow-x: auto;">
           <table class="tabla-circuitos">
             <tr>
-              <th>CIRCUITO</th>
+              <th>PARTE DE LA INSTALACIÓN</th>
+              <th>POTENCIA PREVISTA (kW)</th>
               <th>LONGITUD (m)</th>
-              <th>MATERIAL/SECCIÓN (mm²)</th>
-              <th>INTENSIDAD (A)</th>
-              <th>CAÍDA TENSIÓN (%)</th>
+              <th>MATERIAL CONDUCTOR/SECCIÓN (mm²)</th>
+              <th>INTENSIDAD ADMISIBLE (A)</th>
+              <th>CAÍDA DE TENSIÓN (%)</th>
             </tr>
             <tr>
-              <td>Generador - Inversor</td>
-              <td class="campo-editable">{{ longitudGeneradorInversor }}</td>
-              <td class="campo-editable">{{ materialGeneradorInversor }}</td>
-              <td class="campo-editable">{{ intensidadGeneradorInversor }}</td>
-              <td class="campo-editable">{{ caidaTensionGeneradorInversor }}</td>
+              <td>Generador Fotovoltaico - Entrada al Regulador</td>
+              <td class="campo-editable">{{ potenciaGeneradorRegulador }}</td>
+              <td class="campo-editable">{{ longitudGeneradorRegulador }}</td>
+              <td class="campo-editable">{{ materialGeneradorRegulador }}</td>
+              <td class="campo-editable">{{ intensidadGeneradorRegulador }}</td>
+              <td class="campo-editable">{{ caidaTensionGeneradorRegulador }}</td>
             </tr>
             <tr>
-              <td>Batería - Inversor</td>
+              <td>Bornas del Regulador - Terminales de la Batería</td>
+              <td class="campo-editable">{{ potenciaReguladorBateria }}</td>
+              <td class="campo-editable">{{ longitudReguladorBateria }}</td>
+              <td class="campo-editable">{{ materialReguladorBateria }}</td>
+              <td class="campo-editable">{{ intensidadReguladorBateria }}</td>
+              <td class="campo-editable">{{ caidaTensionReguladorBateria }}</td>
+            </tr>
+            <tr>
+              <td>Salida del Regulador - Terminales del Inversor</td>
+              <td class="campo-editable">{{ potenciaSalidaRegulador }}</td>
+              <td class="campo-editable">{{ longitudSalidaRegulador }}</td>
+              <td class="campo-editable">{{ materialSalidaRegulador }}</td>
+              <td class="campo-editable">{{ intensidadSalidaRegulador }}</td>
+              <td class="campo-editable">{{ caidaTensionSalidaRegulador }}</td>
+            </tr>
+            <tr>
+              <td>Terminales de la Batería - Terminales del Inversor (cuando van directamente conectados)</td>
+              <td class="campo-editable">{{ potenciaBateriaInversor }}</td>
               <td class="campo-editable">{{ longitudBateriaInversor }}</td>
               <td class="campo-editable">{{ materialBateriaInversor }}</td>
               <td class="campo-editable">{{ intensidadBateriaInversor }}</td>
               <td class="campo-editable">{{ caidaTensionBateriaInversor }}</td>
             </tr>
             <tr>
-              <td>Salida Inversor - Red</td>
-              <td class="campo-editable">{{ longitudSalidaRed }}</td>
-              <td class="campo-editable">{{ materialSalidaRed }}</td>
-              <td class="campo-editable">{{ intensidadSalidaRed }}</td>
-              <td class="campo-editable">{{ caidaTensionSalidaRed }}</td>
+              <td>Generador Fotovoltaico - Terminales del Inversor (cuando van directamente conectados)</td>
+              <td class="campo-editable">{{ potenciaGeneradorInversorDirecto }}</td>
+              <td class="campo-editable">{{ longitudGeneradorInversorDirecto }}</td>
+              <td class="campo-editable">{{ materialGeneradorInversorDirecto }}</td>
+              <td class="campo-editable">{{ intensidadGeneradorInversorDirecto }}</td>
+              <td class="campo-editable">{{ caidaTensionGeneradorInversorDirecto }}</td>
+            </tr>
+            <tr>
+              <td>Salida del Inversor - Red Eléctrica (en instalaciones interconectadas)</td>
+              <td class="campo-editable">{{ potenciaSalidaInversorRed }}</td>
+              <td class="campo-editable">{{ longitudSalidaInversorRed }}</td>
+              <td class="campo-editable">{{ materialSalidaInversorRed }}</td>
+              <td class="campo-editable">{{ intensidadSalidaInversorRed }}</td>
+              <td class="campo-editable">{{ caidaTensionSalidaInversorRed }}</td>
             </tr>
           </table>
         </div>
@@ -930,7 +976,7 @@
 
       <!-- SECCIÓN H: ESQUEMA UNIFILAR -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span style="background-color: #FFFACD; padding: 2px 6px; border-radius: 3px; margin-right: 5px;">H</span> | ESQUEMA UNIFILAR DE LA INSTALACIÓN (PROTECCIONES INCLUIDAS)</div>
+        <div class="encabezado-seccion"><span style="color: white; font-weight: bold;">H</span> | ESQUEMA UNIFILAR DE LA INSTALACIÓN (PROTECCIONES INCLUIDAS)</div>
         
         <div class="contenedor-esquema">
           <img v-if="esquemaUnifilar" :src="esquemaUnifilar" class="imagen-esquema" />
@@ -940,7 +986,7 @@
 
       <!-- SECCIÓN I: PLANO DE EMPLAZAMIENTO -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span style="background-color: #FFFACD; padding: 2px 6px; border-radius: 3px; margin-right: 5px;">I</span> | PLANO DE EMPLAZAMIENTO Y CROQUIS DE ACCESO</div>
+        <div class="encabezado-seccion"><span style="color: white; font-weight: bold;">I</span> | PLANO DE EMPLAZAMIENTO Y CROQUIS DE ACCESO</div>
         
         <div class="contenedor-esquema">
           <img v-if="planoEmplazamiento" :src="planoEmplazamiento" class="imagen-esquema" />
@@ -1118,9 +1164,11 @@ defineProps({
   tensionMinimaBateria: String,
   energiaTotalBateria: String,
   potenciaMaximaSalidaBateria: String,
-  // E2.6
+  maximoPicoPotenciaBateria: String,
+  // E2.5.1 Protecciones Externas
   intensidadInterruptorGeneral: String,
   poderCorteInterruptor: String,
+  proteccionFrecuenciaTension: String,
   // Sección F: MEDIDAS DE PROTECCIÓN
   medidaContactosDirectos: String,
   parteInstalacionDirectos: String,
@@ -1136,18 +1184,36 @@ defineProps({
   parteInstalacionCorrosion: String,
   otrasProtecciones: String,
   // Sección G: LÍNEAS Y CIRCUITOS
-  longitudGeneradorInversor: String,
-  materialGeneradorInversor: String,
-  intensidadGeneradorInversor: String,
-  caidaTensionGeneradorInversor: String,
+  potenciaGeneradorRegulador: String,
+  longitudGeneradorRegulador: String,
+  materialGeneradorRegulador: String,
+  intensidadGeneradorRegulador: String,
+  caidaTensionGeneradorRegulador: String,
+  potenciaReguladorBateria: String,
+  longitudReguladorBateria: String,
+  materialReguladorBateria: String,
+  intensidadReguladorBateria: String,
+  caidaTensionReguladorBateria: String,
+  potenciaSalidaRegulador: String,
+  longitudSalidaRegulador: String,
+  materialSalidaRegulador: String,
+  intensidadSalidaRegulador: String,
+  caidaTensionSalidaRegulador: String,
+  potenciaBateriaInversor: String,
   longitudBateriaInversor: String,
   materialBateriaInversor: String,
   intensidadBateriaInversor: String,
   caidaTensionBateriaInversor: String,
-  longitudSalidaRed: String,
-  materialSalidaRed: String,
-  intensidadSalidaRed: String,
-  caidaTensionSalidaRed: String,
+  potenciaGeneradorInversorDirecto: String,
+  longitudGeneradorInversorDirecto: String,
+  materialGeneradorInversorDirecto: String,
+  intensidadGeneradorInversorDirecto: String,
+  caidaTensionGeneradorInversorDirecto: String,
+  potenciaSalidaInversorRed: String,
+  longitudSalidaInversorRed: String,
+  materialSalidaInversorRed: String,
+  intensidadSalidaInversorRed: String,
+  caidaTensionSalidaInversorRed: String,
   // Sección H: ESQUEMA UNIFILAR
   esquemaUnifilar: String,
   // Sección I: PLANO EMPLAZAMIENTO
