@@ -1,21 +1,21 @@
 <template>
-  <div data-pdf-content class="bg-white p-0" style="width: 210mm; margin: 0 auto; font-family: 'Arial', sans-serif; color: #333; font-size: 11px; display: block;">
+  <div data-pdf-content class="contenedor-principal">
     <!-- ENCABEZADO -->
-    <div style="background-color: #f4b5a0; padding: 15px 20px; text-align: center; border-bottom: 2px solid #000;">
-      <h1 style="margin: 0; font-size: 16px; font-weight: bold; color: #333;">MEMORIA TÉCNICA DE DISEÑO</h1>
-      <p style="margin: 5px 0 0 0; font-size: 11px;">INSTALACIONES FOTOVOLTAICAS EN BAJA TENSIÓN</p>
+    <div class="encabezado-documento-principal">
+      <h1 class="titulo-encabezado">MEMORIA TÉCNICA DE DISEÑO</h1>
+      <p class="subtitulo-encabezado">INSTALACIONES FOTOVOLTAICAS EN BAJA TENSIÓN</p>
     </div>
 
-    <div style="padding: 20px;">
+    <div class="contenedor-contenido">
       <!-- NÚMERO DE EXPEDIENTE Y REGISTRO -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
-        <div style="border: 1px solid #000; padding: 8px;">
-          <div style="background-color: #f4b5a0; padding: 5px; font-weight: bold; border-bottom: 1px solid #000; margin-bottom: 8px;">Nº EXPEDIENTE:</div>
-          <div style="margin: 3px 0; color: #d97860;">{{ numeroExpediente }}</div>
+      <div class="grid-expediente">
+        <div class="caja-expediente">
+          <div class="encabezado-caja">Nº EXPEDIENTE:</div>
+          <div class="contenido-caja">{{ numeroExpediente }}</div>
         </div>
-        <div style="border: 1px solid #000; padding: 8px;">
-          <div style="background-color: #f4b5a0; padding: 5px; font-weight: bold; border-bottom: 1px solid #000; margin-bottom: 8px;">Nº REGISTRO DE LA INSTALACIÓN:</div>
-          <div style="margin: 3px 0; color: #d97860;">{{ numeroRegistro }}</div>
+        <div class="caja-expediente">
+          <div class="encabezado-caja">Nº REGISTRO DE LA INSTALACIÓN:</div>
+          <div class="contenido-caja">{{ numeroRegistro }}</div>
         </div>
       </div>
 
@@ -34,7 +34,7 @@
           </div>
         </div>
 
-        <div class="cuerpo-seccion" style="border-bottom: 1px solid #000;">
+        <div class="cuerpo-seccion-borde">
           <div class="etiqueta">DOMICILIO:</div>
           <div class="valor">{{ domicilio }}</div>
         </div>
@@ -57,7 +57,7 @@
         <div class="fila-grid fila-2col">
           <div class="celda celda-izquierda">
             <div class="etiqueta">CORREO ELECTRÓNICO:</div>
-            <div class="valor" style="font-size: 10px;">{{ correoElectronico }}</div>
+            <div class="valor valor-pequeno">{{ correoElectronico }}</div>
           </div>
           <div class="celda">
             <div class="etiqueta">TELÉFONO:</div>
@@ -81,26 +81,26 @@
       <div class="seccion">
         <div class="encabezado-seccion">B | EMPLAZAMIENTO DE LA INSTALACIÓN Y USO AL QUE SE DESTINA</div>
         
-        <div class="cuerpo-seccion" style="border-bottom: 1px solid #000;">
+        <div class="cuerpo-seccion-borde">
           <div class="etiqueta">CALLE/AVENIDA:</div>
           <div class="valor">{{ emplazamientoCalle }}</div>
         </div>
 
         <div class="fila-grid fila-5col">
           <div class="celda celda-izquierda">
-            <div class="etiqueta" style="font-size: 9px;">NÚMERO:</div>
+            <div class="etiqueta etiqueta-pequena">NÚMERO:</div>
             <div class="valor">{{ numero }}</div>
           </div>
           <div class="celda celda-izquierda">
-            <div class="etiqueta" style="font-size: 9px;">BLOQUE:</div>
+            <div class="etiqueta etiqueta-pequena">BLOQUE:</div>
             <div class="valor">{{ bloque }}</div>
           </div>
           <div class="celda celda-izquierda">
-            <div class="etiqueta" style="font-size: 9px;">ESCALERA:</div>
+            <div class="etiqueta etiqueta-pequena">ESCALERA:</div>
             <div class="valor">{{ escalera }}</div>
           </div>
           <div class="celda celda-izquierda">
-            <div class="etiqueta" style="font-size: 9px;">PISO:</div>
+            <div class="etiqueta etiqueta-pequena">PISO:</div>
             <div class="valor">{{ piso }}</div>
           </div>
         </div>
@@ -116,9 +116,9 @@
           </div>
         </div>
 
-        <div class="cuerpo-seccion" style="border-bottom: 1px solid #000;">
+        <div class="cuerpo-seccion-borde">
           <div class="etiqueta">CORREO ELECTRÓNICO EMPLAZAMIENTO:</div>
-          <div class="valor" style="font-size: 10px;">{{ correoElectronicoEmplazamiento }}</div>
+          <div class="valor valor-pequeno">{{ correoElectronicoEmplazamiento }}</div>
         </div>
 
         <div class="fila-grid fila-2col">
@@ -497,23 +497,23 @@
             </div>
             <div class="fila-grid fila-5col">
               <div class="celda celda-izquierda">
-                <div style="font-weight: bold; font-size: 9px; margin-bottom: 3px;">REND 10%:</div>
+                <div class="etiqueta-rendimiento">REND 10%:</div>
                 <div class="valor">{{ e1_rendimientoInversor10 }}</div>
               </div>
               <div class="celda celda-izquierda">
-                <div style="font-weight: bold; font-size: 9px; margin-bottom: 3px;">REND 25%:</div>
+                <div class="etiqueta-rendimiento">REND 25%:</div>
                 <div class="valor">{{ e1_rendimientoInversor25 }}</div>
               </div>
               <div class="celda celda-izquierda">
-                <div style="font-weight: bold; font-size: 9px; margin-bottom: 3px;">REND 50%:</div>
+                <div class="etiqueta-rendimiento">REND 50%:</div>
                 <div class="valor">{{ e1_rendimientoInversor50 }}</div>
               </div>
               <div class="celda celda-izquierda">
-                <div style="font-weight: bold; font-size: 9px; margin-bottom: 3px;">REND 75%:</div>
+                <div class="etiqueta-rendimiento">REND 75%:</div>
                 <div class="valor">{{ e1_rendimientoInversor75 }}</div>
               </div>
               <div class="celda">
-                <div style="font-weight: bold; font-size: 9px; margin-bottom: 3px;">REND 100%:</div>
+                <div class="etiqueta-rendimiento">REND 100%:</div>
                 <div class="valor">{{ e1_rendimientoInversor100 }}</div>
               </div>
             </div>
@@ -658,9 +658,9 @@
           <div class="titulo-subseccion-principal">E2. INSTALACIÓN GENERADORA FOTOVOLTAICA INTERCONECTADA CON ALMACENAMIENTO</div>
           
           <!-- E2.1 Conexión a la Red -->
-          <div class="subseccion" style="border: 1px solid #000; padding: 8px;">
+          <div class="subseccion-e2">
             <div class="subseccion-titulo">E2.1 CONEXIÓN A LA RED</div>
-            <div class="fila-grid fila-2col fila-sin-borde" style="border: 1px solid #000; margin-bottom: 0;">
+            <div class="fila-grid fila-2col fila-table-e2">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">POTENCIA NOMINAL TOTAL EN INVERSORES (kW):</div>
                 <div class="valor">{{ potenciaNominalInversores }}</div>
@@ -673,9 +673,9 @@
           </div>
 
           <!-- E2.2 Módulo Fotovoltaico -->
-          <div class="subseccion" style="border: 1px solid #000; padding: 8px;">
+          <div class="subseccion-e2">
             <div class="subseccion-titulo">E2.2 MÓDULO FOTOVOLTAICO</div>
-            <div class="fila-grid fila-2col" style="border: 1px solid #000; margin-bottom: 0;">
+            <div class="fila-grid fila-2col fila-table-e2">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">TECNOLOGÍA DE LA CÉLULA:</div>
                 <div class="valor">{{ tecnologiaCelulaModulo }}</div>
@@ -685,7 +685,7 @@
                 <div class="valor">{{ marcaModeloModulo }}</div>
               </div>
             </div>
-            <div class="fila-grid fila-2col fila-sin-borde" style="border: 1px solid #000;">
+            <div class="fila-grid fila-2col fila-sin-borde fila-table-e2">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">POTENCIA PICO (Wp):</div>
                 <div class="valor">{{ potenciaPicoModulo }}</div>
@@ -698,9 +698,9 @@
           </div>
 
           <!-- E2.3 Generador Fotovoltaico -->
-          <div class="subseccion" style="border: 1px solid #000; padding: 8px;">
+          <div class="subseccion-e2">
             <div class="subseccion-titulo">E2.3 GENERADOR FOTOVOLTAICO</div>
-            <div class="fila-grid fila-2col" style="border: 1px solid #000; margin-bottom: 0;">
+            <div class="fila-grid fila-2col fila-table-e2">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">POTENCIA PICO (Wp):</div>
                 <div class="valor">{{ potenciaPicoGenerador }}</div>
@@ -743,7 +743,7 @@
           </div>
 
           <!-- E2.4 Inversor/es -->
-          <div class="subseccion" style="border: 1px solid #000; padding: 8px;">
+          <div class="subseccion-e2">
             <div class="subseccion-titulo">E2.4 INVERSOR/ES</div>
             <div class="fila-grid fila-2col">
               <div class="celda celda-izquierda">
@@ -778,7 +778,7 @@
           </div>
 
           <!-- E2.5 Baterías -->
-          <div class="subseccion" style="border: 1px solid #000; padding: 8px;">
+          <div class="subseccion-e2">
             <div class="subseccion-titulo">E2.5 BATERÍAS</div>
             <div class="fila-grid fila-2col">
               <div class="celda celda-izquierda">
@@ -1166,6 +1166,156 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 
 <style scoped>
 /* ========== CONTENEDORES PRINCIPALES ========== */
+.contenedor-principal {
+  background-color: white;
+  padding: 0;
+  width: 210mm;
+  margin: 0 auto;
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  font-size: 11px;
+  display: block;
+}
+
+.encabezado-documento-principal {
+  background-color: #f4b5a0;
+  padding: 15px 20px;
+  text-align: center;
+  border-bottom: 2px solid #000;
+}
+
+.titulo-encabezado {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.subtitulo-encabezado {
+  margin: 5px 0 0 0;
+  font-size: 11px;
+}
+
+.contenedor-contenido {
+  padding: 20px;
+}
+
+.grid-expediente {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.caja-expediente {
+  border: 1px solid #000;
+  padding: 8px;
+}
+
+.encabezado-caja {
+  background-color: #f4b5a0;
+  padding: 5px;
+  font-weight: bold;
+  border-bottom: 1px solid #000;
+  margin-bottom: 8px;
+}
+
+.contenido-caja {
+  margin: 3px 0;
+  color: #d97860;
+}
+
+.cuerpo-seccion-borde {
+  border-bottom: 1px solid #000;
+}
+
+.valor-pequeno {
+  font-size: 10px;
+}
+
+.etiqueta-pequena {
+  font-size: 9px;
+}
+
+.etiqueta-rendimiento {
+  font-weight: bold;
+  font-size: 9px;
+  margin-bottom: 3px;
+}
+
+.subseccion-otros-equipos {
+  margin-top: 8px;
+  border-bottom: 1px solid #000;
+}
+
+.valor-otros-equipos {
+  font-size: 10px;
+  white-space: pre-wrap;
+}
+
+.subseccion-sin-borde {
+  border-bottom: none;
+}
+
+.fila-table-border {
+  border: 1px solid #000;
+  margin-bottom: 0;
+}
+
+.etiqueta-tabla-energia {
+  font-weight: bold;
+  font-size: 10px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.etiqueta-pequena-tabla {
+  font-weight: bold;
+  font-size: 9px;
+}
+
+.valor-pequeño-tabla {
+  font-size: 9px;
+}
+
+.subseccion-e2 {
+  border: 1px solid #000;
+  padding: 8px;
+}
+
+.fila-table-e2 {
+  border: 1px solid #000;
+  margin-bottom: 0;
+}
+
+.cuerpo-seccion-scroll {
+  overflow-x: auto;
+}
+
+.logo-pie {
+  margin-bottom: 10px;
+}
+
+.img-logo {
+  height: 40px;
+  margin: 0 auto;
+}
+
+.texto-pie-principal {
+  margin: 5px 0;
+}
+
+.texto-pie-secundario {
+  margin: 3px 0;
+  font-size: 8px;
+}
+
+.valor-otras-protecciones {
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+/* ========== CONTENEDORES PRINCIPALES ========== */
 .seccion {
   border: 2px solid #000;
   margin-bottom: 15px;
@@ -1176,10 +1326,6 @@ const tipoInstalacionSeleccionada = ref('Nueva')
   padding: 8px;
   font-weight: bold;
   border-bottom: 1px solid #000;
-}
-
-.cuerpo-seccion {
-  padding: 8px;
 }
 
 /* ========== GRIDS Y FILAS ========== */
@@ -1254,16 +1400,16 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 
 .subseccion-titulo {
   font-weight: bold;
-  margin-bottom: 8px;
+  border-bottom: 1px solid #000;
+  padding: 8px 5px;
 }
 
 /* ========== TÍTULO DE SUBSECCIONES PRINCIPALES ========== */
 .titulo-subseccion-principal {
   font-weight: bold;
   background-color: #f0f0f0;
-  padding: 5px;
-  margin-bottom: 10px;
-  border: 1px solid #000;
+  padding: 8px 5px;
+  border-bottom: 1px solid #000;
 }
 
 /* ========== ELEMENTOS ESPECIALES ========== */
@@ -1472,7 +1618,6 @@ const tipoInstalacionSeleccionada = ref('Nueva')
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
-  margin-bottom: 8px;
 }
 
 .item-checkbox {
