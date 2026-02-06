@@ -840,52 +840,52 @@
       </div>
 
       <!-- SECCIÓN F: MEDIDAS DE PROTECCIÓN EMPLEADAS -->
-      <div style="border: 2px solid #000; margin-bottom: 15px;">
-        <div style="background-color: #f4b5a0; padding: 8px; font-weight: bold;">F | MEDIDAS DE PROTECCIÓN EMPLEADAS</div>
+      <div class="seccion">
+        <div class="encabezado-seccion">F | MEDIDAS DE PROTECCIÓN EMPLEADAS</div>
         
-        <div style="padding: 8px;">
-          <table style="width: 100%; border-collapse: collapse; font-size: 10px;">
-            <tr style="border: 1px solid #000;">
-              <th style="border: 1px solid #000; padding: 5px; background-color: #f0f0f0;">RIESGO / PROTECCIÓN</th>
-              <th style="border: 1px solid #000; padding: 5px; background-color: #f0f0f0;">TIPO DE MEDIDA</th>
-              <th style="border: 1px solid #000; padding: 5px; background-color: #f0f0f0;">PARTE DE LA INSTALACIÓN</th>
+        <div class="cuerpo-seccion">
+          <table class="tabla-protecciones">
+            <tr>
+              <th>RIESGO / PROTECCIÓN</th>
+              <th>TIPO DE MEDIDA</th>
+              <th>PARTE DE LA INSTALACIÓN</th>
             </tr>
-            <tr style="border: 1px solid #000;">
-              <td style="border: 1px solid #000; padding: 5px;">Contactos Directos</td>
-              <td style="border: 1px solid #000; padding: 5px; color: #d97860;">{{ medidaContactosDirectos }}</td>
-              <td style="border: 1px solid #000; padding: 5px; color: #d97860;">{{ parteInstalacionDirectos }}</td>
+            <tr>
+              <td>Contactos Directos</td>
+              <td class="campo-editable">{{ medidaContactosDirectos }}</td>
+              <td class="campo-editable">{{ parteInstalacionDirectos }}</td>
             </tr>
-            <tr style="border: 1px solid #000;">
-              <td style="border: 1px solid #000; padding: 5px;">Contactos Indirectos</td>
-              <td style="border: 1px solid #000; padding: 5px; color: #d97860;">{{ medidaContactosIndirectos }}</td>
-              <td style="border: 1px solid #000; padding: 5px; color: #d97860;">{{ parteInstalacionIndirectos }}</td>
+            <tr>
+              <td>Contactos Indirectos</td>
+              <td class="campo-editable">{{ medidaContactosIndirectos }}</td>
+              <td class="campo-editable">{{ parteInstalacionIndirectos }}</td>
             </tr>
-            <tr style="border: 1px solid #000;">
-              <td style="border: 1px solid #000; padding: 5px;">Sobretensiones</td>
-              <td style="border: 1px solid #000; padding: 5px; color: #d97860;">{{ medidaSobretensiones }}</td>
-              <td style="border: 1px solid #000; padding: 5px; color: #d97860;">{{ parteInstalacionSobretensiones }}</td>
+            <tr>
+              <td>Sobretensiones</td>
+              <td class="campo-editable">{{ medidaSobretensiones }}</td>
+              <td class="campo-editable">{{ parteInstalacionSobretensiones }}</td>
             </tr>
-            <tr v-if="medidaPuntoCaliente" style="border: 1px solid #000;">
-              <td style="border: 1px solid #000; padding: 5px;">Efecto Punto Caliente (3 Diodos Bypass)</td>
-              <td style="border: 1px solid #000; padding: 5px; color: #d97860;">{{ medidaPuntoCaliente }}</td>
-              <td style="border: 1px solid #000; padding: 5px; color: #d97860;">{{ parteInstalacionPuntoCaliente }}</td>
+            <tr v-if="medidaPuntoCaliente">
+              <td>Efecto Punto Caliente (3 Diodos Bypass)</td>
+              <td class="campo-editable">{{ medidaPuntoCaliente }}</td>
+              <td class="campo-editable">{{ parteInstalacionPuntoCaliente }}</td>
             </tr>
-            <tr v-if="medidaExplosion" style="border: 1px solid #000;">
-              <td style="border: 1px solid #000; padding: 5px;">Riesgo de Explosión</td>
-              <td style="border: 1px solid #000; padding: 5px; color: #d97860;">{{ medidaExplosion }}</td>
-              <td style="border: 1px solid #000; padding: 5px; color: #d97860;">{{ parteInstalacionExplosion }}</td>
+            <tr v-if="medidaExplosion">
+              <td>Riesgo de Explosión</td>
+              <td class="campo-editable">{{ medidaExplosion }}</td>
+              <td class="campo-editable">{{ parteInstalacionExplosion }}</td>
             </tr>
-            <tr v-if="medidaCorrosion" style="border: 1px solid #000;">
-              <td style="border: 1px solid #000; padding: 5px;">Riesgo de Corrosión</td>
-              <td style="border: 1px solid #000; padding: 5px; color: #d97860;">{{ medidaCorrosion }}</td>
-              <td style="border: 1px solid #000; padding: 5px; color: #d97860;">{{ parteInstalacionCorrosion }}</td>
+            <tr v-if="medidaCorrosion">
+              <td>Riesgo de Corrosión</td>
+              <td class="campo-editable">{{ medidaCorrosion }}</td>
+              <td class="campo-editable">{{ parteInstalacionCorrosion }}</td>
             </tr>
           </table>
 
           <!-- Otras Protecciones -->
-          <div v-if="otrasProtecciones" style="margin-top: 15px; padding: 8px; background-color: #fff9f7; border: 1px solid #f4b5a0;">
-            <div style="font-weight: bold; font-size: 10px; margin-bottom: 5px;">OTRAS MEDIDAS DE PROTECCIÓN:</div>
-            <div style="color: #d97860; font-size: 10px; line-height: 1.5;">{{ otrasProtecciones }}</div>
+          <div v-if="otrasProtecciones" class="otras-medidas-proteccion">
+            <div class="etiqueta">OTRAS MEDIDAS DE PROTECCIÓN:</div>
+            <div class="valor" style="font-size: 10px; line-height: 1.5;">{{ otrasProtecciones }}</div>
           </div>
         </div>
       </div>
@@ -1372,6 +1372,35 @@ const tipoInstalacionSeleccionada = ref('Nueva')
   border: 1px solid #000;
   padding: 5px;
   background-color: #f0f0f0;
+}
+
+/* ========== TABLA DE PROTECCIONES (Sección F) ========== */
+.tabla-protecciones {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 10px;
+}
+
+.tabla-protecciones tr {
+  border: 1px solid #000;
+}
+
+.tabla-protecciones th,
+.tabla-protecciones td {
+  border: 1px solid #000;
+  padding: 5px;
+}
+
+.tabla-protecciones th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.otras-medidas-proteccion {
+  margin-top: 15px;
+  padding: 8px;
+  background-color: #fff9f7;
+  border: 1px solid #f4b5a0;
 }
 
 /* ========== ESTILOS DE IMPRESIÓN ========== */
