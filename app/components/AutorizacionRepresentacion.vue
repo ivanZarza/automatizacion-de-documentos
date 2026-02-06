@@ -30,7 +30,7 @@
           </p>
         </div>
 
-        <p style="text-align: center; font-weight: bold; margin: 20px 0 30px 0; font-size: 14px;">En Puerto Real, a {{ fecha }}</p>
+        <p style="text-align: center; font-weight: bold; margin: 40px 0 100px 0; font-size: 14px;">En Puerto Real, a {{ fecha }}</p>
 
         <!-- Firmas lado a lado compacto -->
         <div style="display: flex; justify-content: space-between; gap: 40px; margin-top: auto;">
@@ -97,14 +97,18 @@ p {
   }
 
   div[data-pdf-content] {
-    font-size: 18px !important; /* Aumentar más el tamaño de letra */
+    font-size: 18px !important; /* Mantener tamaño de letra */
     width: 210mm !important;
     height: 297mm !important;
     box-shadow: none !important;
     margin: 0 !important;
-    padding: 0 !important;
-    page-break-after: always;
+    padding: 10mm !important; /* Reducir padding para evitar desbordamiento */
+    page-break-after: avoid; /* Evitar saltos de página innecesarios */
     background: white !important;
+  }
+
+  div[data-pdf-content] > div {
+    height: auto !important; /* Asegurar que el contenido se ajuste dinámicamente */
   }
 
   button {
@@ -119,12 +123,13 @@ p {
 
 @media screen {
   div[data-pdf-content] {
-    font-size: 18px; /* Aumentar más el tamaño de letra */
+    font-size: 20px; /* Mantener tamaño de letra */
     max-width: 210mm;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
     background: white;
-    min-height: 297mm;
+    min-height: 300mm;
+    padding: 10mm; /* Asegurar consistencia con impresión */
   }
 }
 </style>
