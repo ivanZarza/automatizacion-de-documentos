@@ -60,10 +60,6 @@ export const memoriaTecnicaConfig = {
     localidadEmplazamiento: 'Sevilla',
     provinciaEmplazamiento: 'Sevilla',
     usoDestino: 'Nueva',
-    // Sección C - PERSONA QUE FIRMA
-    nombreFirma: 'Eduardo Rivera Cabezas',
-    noColegiado: '4654 COIIAOC',
-    telefonoFirma: '629 118 196',
     // Sección E - E2 INSTALACIÓN GENERADORA FOTOVOLTAICA INTERCONECTADA CON ALMACENAMIENTO
     // E2.1 Conexión a la Red
     potenciaNominalInversores: '5',
@@ -147,10 +143,6 @@ export const memoriaTecnicaConfig = {
     { name: 'localidadEmplazamiento', label: 'Localidad (Emplazamiento)', placeholder: 'Sevilla', type: 'text' },
     { name: 'provinciaEmplazamiento', label: 'Provincia (Emplazamiento)', placeholder: 'Sevilla', type: 'text' },
     { name: 'usoDestino', label: 'Uso a que se destina', placeholder: 'Nueva/Ampliación/Modificación', type: 'select', options: ['Nueva', 'Ampliación', 'Modificación'] },
-    // Sección C
-    { name: 'nombreFirma', label: 'Nombre (Técnico Firmante)', placeholder: 'Eduardo Rivera Cabezas', type: 'text', fullWidth: true },
-    { name: 'noColegiado', label: 'Nº de Certificado de Cualificación Individual', placeholder: '4654 COIIAOC', type: 'text' },
-    { name: 'telefonoFirma', label: 'Teléfono (Técnico)', placeholder: '629 118 196', type: 'tel' },
     // Sección E - E2.1 Conexión a la Red
     { name: 'potenciaNominalInversores', label: 'Potencia Nominal Total en Inversores (kW)', placeholder: '5', type: 'text' },
     { name: 'tipoConexionRed', label: 'Tipo de Conexión', placeholder: 'MONOFÁSICA/TRIFÁSICA', type: 'text' },

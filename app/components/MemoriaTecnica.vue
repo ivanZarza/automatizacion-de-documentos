@@ -123,19 +123,19 @@
       <div style="border: 2px solid #000; margin-bottom: 15px;">
         <div style="background-color: #f4b5a0; padding: 8px; font-weight: bold; border-bottom: 1px solid #000;">C | IDENTIFICACIÓN DE LA PERSONA QUE FIRMA LA MTD</div>
         
-        <div style="padding: 8px; border-bottom: 1px solid #000;">
+        <div style="padding: 8px; border-bottom: 1px solid #000; background-color: #f9f9f9;">
           <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">MEMORIA REALIZADA POR INSTALADOR ELÉCTRICO AUTORIZADO:</div>
-          <div style="color: #d97860;">{{ nombreFirma }}</div>
+          <div style="color: #333; font-weight: 500;">Eduardo Rivera Cabezas</div>
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0;">
-          <div style="padding: 8px; border-right: 1px solid #000; border-bottom: 1px solid #000;">
-            <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">Nº DE COLEGIADO:</div>
-            <div style="color: #d97860;">{{ noColegiado }}</div>
+          <div style="padding: 8px; border-right: 1px solid #000; border-bottom: 1px solid #000; background-color: #f9f9f9;">
+            <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">Nº DE CERTIFICADO DE CUALIFICACIÓN INDIVIDUAL:</div>
+            <div style="color: #333; font-weight: 500;">4654 COIIAOC</div>
           </div>
-          <div style="padding: 8px; border-bottom: 1px solid #000;">
+          <div style="padding: 8px; border-bottom: 1px solid #000; background-color: #f9f9f9;">
             <div style="font-weight: bold; font-size: 10px; margin-bottom: 3px;">TELÉFONO:</div>
-            <div style="color: #d97860;">{{ telefonoFirma }}</div>
+            <div style="color: #333; font-weight: 500;">629 118 196</div>
           </div>
         </div>
 
@@ -481,71 +481,10 @@ defineProps({
   localidadEmplazamiento: String,
   provinciaEmplazamiento: String,
   usoDestino: String,
-  // Sección C
-  nombreFirma: String,
-  noColegiado: String,
-  telefonoFirma: String,
   // Sección E - E2 Conexión a Red
   potenciaNominalInversores: String,
   tipoConexionRed: String,
-  // E2.2 Módulo Fotovoltaico
-  tecnologiaCelulaModulo: String,
-  marcaModeloModulo: String,
-  potenciaPicoModulo: String,
-  toncModulo: String,
-  // E2.3 Generador Fotovoltaico
-  potenciaPicoGenerador: String,
-  tensionVpmpGenerador: String,
-  intensidadIpmpGenerador: String,
-  orientacionGenerador: String,
-  inclinacionGenerador: String,
-  totalModulos: String,
-  modulosEnSerie: String,
-  ramrasEnParalelo: String,
-  // E2.4 Inversor
-  marcaModeloInversor: String,
-  potenciaACInversor: String,
-  tensionNominalInversor: String,
-  vccMaximaInversor: String,
-  vccMinimaInversor: String,
-  tipoConexionInversor: String,
-  // E2.5 Baterías
-  marcaModeloBateria: String,
-  tipoBateria: String,
-  tensionNominalBateria: String,
-  profundidadDescargaBateria: String,
-  tensionMaximaBateria: String,
-  tensionMinimaBateria: String,
-  energiaTotalBateria: String,
-  potenciaMaximaSalidaBateria: String,
-  // E2.6 Protecciones Externas
-  intensidadInterruptorGeneral: String,
-  poderCorteInterruptor: String,
-  // Sección F - Medidas de Protección
-  medidaContactosDirectos: String,
-  parteInstalacionDirectos: String,
-  medidaContactosIndirectos: String,
-  parteInstalacionIndirectos: String,
-  medidaSobretensiones: String,
-  parteInstalacionSobretensiones: String,
-  // Sección G - Características de Líneas
-  longitudGeneradorInversor: String,
-  materialGeneradorInversor: String,
-  intensidadGeneradorInversor: String,
-  caidaTensionGeneradorInversor: String,
-  longitudBateriaInversor: String,
-  materialBateriaInversor: String,
-  intensidadBateriaInversor: String,
-  caidaTensionBateriaInversor: String,
-  longitudSalidaRed: String,
-  materialSalidaRed: String,
-  intensidadSalidaRed: String,
-  caidaTensionSalidaRed: String,
-  // Sección H - Esquema Unifilar
-  esquemaUnifilar: String,
-  // Sección I - Plano de Emplazamiento
-  planoEmplazamiento: String,
-  generatedDate: String
+  // ...existing code...
 })
 </script>
 
