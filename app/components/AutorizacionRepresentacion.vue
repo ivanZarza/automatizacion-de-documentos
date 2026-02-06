@@ -1,58 +1,59 @@
 <template>
-  <div data-pdf-content class="bg-white p-0" style="width: 210mm; margin: 0 auto; font-family: 'Segoe UI', Arial, sans-serif; color: #333; font-size: 18px; display: flex; justify-content: center; align-items: center; overflow: auto;">
-    <div style="width: 90%;">
+  <div data-pdf-content style="width: 210mm; height: 297mm; margin: 0 auto; padding: 0; background-color: white; font-family: 'Segoe UI', Arial, sans-serif; color: #333; font-size: 15px; display: flex; flex-direction: column;">
+    <!-- Contenedor principal con márgenes A4 -->
+    <div style="flex: 1; display: flex; flex-direction: column; padding: 20mm;">
+      
       <!-- Encabezado con Logo -->
-      <div style="display: flex; justify-content: space-between; align-items: flex-start; padding: 20px 30px; border-bottom: 2px solid #0066cc;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; padding: 12px 0; border-bottom: 2px solid #0066cc; margin-bottom: 20px;">
         <div style="flex: 1;">
-          <h1 style="margin: 0; font-size: 26px; font-weight: bold; color: #0066cc; text-align: center;">AUTORIZACIÓN DE REPRESENTACIÓN</h1>
-          <p style="margin: 5px 0 0 0; font-size: 14px; color: #666; text-align: center;">Documento válido para trámites administrativos</p>
+          <h1 style="margin: 0; font-size: 22px; font-weight: bold; color: #0066cc; text-align: center;">AUTORIZACIÓN DE REPRESENTACIÓN</h1>
+          <p style="margin: 2px 0 0 0; font-size: 12px; color: #666; text-align: center;">Documento válido para trámites administrativos</p>
         </div>
-        <img src="/logo-solay.png" alt="Logo Solay" style="width: 110px; height: auto; margin-left: 10px;" />
+        <img src="/logo-solay.png" alt="Logo Solay" style="width: 80px; height: auto; margin-left: 15px; flex-shrink: 0;" />
       </div>
 
       <!-- Contenido Principal -->
-      <div style="padding: 40px 30px; line-height: 1.9; font-size: 18px;">
-        <p style="margin: 0 0 20px 0; text-align: justify;">
+      <div style="line-height: 1.8; font-size: 15px; flex: 1; display: flex; flex-direction: column;">
+        <p style="margin: 0 0 15px 0; text-align: justify;">
           Yo, <strong>{{ autorizante }}</strong>, con DNI/NIF <strong>{{ dniAutorizante }}</strong>, y con domicilio en <strong>{{ domicilioAutorizante }}</strong>, actuando en nombre propio,
         </p>
 
-        <h2 style="text-align: center; font-size: 20px; font-weight: bold; color: #0066cc; margin: 30px 0; padding: 18px 0; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;">AUTORIZO A</h2>
+        <h2 style="text-align: center; font-size: 16px; font-weight: bold; color: #0066cc; margin: 15px 0; padding: 10px 0; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;">AUTORIZO A</h2>
 
-        <p style="margin: 20px 0; text-align: justify;">
-          <strong>{{ representante }}</strong>, con DNI/NIF <strong>{{ dniRepresentante }}</strong>, y con domicilio en <strong>{{ domicilioRepresentante }}</strong>, ante <strong>{{ organismo }}</strong>, para realizar en mi nombre las gestiones de <strong>{{ gestiones }}</strong>.
+        <p style="margin: 15px 0; text-align: justify;">
+          <strong>{{ representante }}</strong>, con DNI/NIF <strong>{{ dniRepresentante }}</strong>, ante <strong>{{ organismo }}</strong>, para realizar en mi nombre las gestiones de <strong>{{ gestiones }}</strong>.
         </p>
 
-        <div style="background-color: #f0f4ff; border-left: 4px solid #0066cc; padding: 18px; margin: 25px 0; font-size: 17px;">
+        <div style="background-color: #f0f4ff; border-left: 4px solid #0066cc; padding: 12px; margin: 15px 0; font-size: 14px;">
           <p style="margin: 0;">
-            <strong>VALIDEZ:</strong> Esta autorización es válida desde la fecha de su firma hasta que sea revocada expresamente por el autorizante. El autorizado podrá actuar en todas las cuestiones administrativas relacionadas con la gestión indicada.
+            <strong>VALIDEZ:</strong> Esta autorización es válida desde su firma hasta que sea revocada expresamente.
           </p>
         </div>
 
-        <p style="text-align: center; font-weight: bold; margin: 35px 0 60px 0; font-size: 17px;">En Puerto Real, a {{ fecha }}</p>
+        <p style="text-align: center; font-weight: bold; margin: 20px 0 30px 0; font-size: 14px;">En Puerto Real, a {{ fecha }}</p>
 
         <!-- Firmas lado a lado compacto -->
-        <div style="display: flex; justify-content: space-between; gap: 40px; margin-top: 60px;">
+        <div style="display: flex; justify-content: space-between; gap: 40px; margin-top: auto;">
           <div style="flex: 1; text-align: center;">
-            <div style="border-bottom: 1px solid #000; height: 60px; margin-bottom: 20px;"></div>
-            <p style="margin: 5px 0; font-weight: bold; font-size: 17px;">FIRMA DEL AUTORIZANTE</p>
-            <p style="margin: 3px 0; font-size: 16px; color: #666;">{{ autorizante }}</p>
+            <div style="border-bottom: 1px solid #000; height: 50px; margin-bottom: 10px;"></div>
+            <p style="margin: 5px 0; font-weight: bold; font-size: 13px;">FIRMA DEL AUTORIZANTE</p>
+            <p style="margin: 2px 0; font-size: 12px; color: #666;">{{ autorizante }}</p>
           </div>
           <div style="flex: 1; text-align: center;">
-            <div style="border-bottom: 1px solid #000; height: 60px; margin-bottom: 20px; display: flex; align-items: flex-start; justify-content: center;">
-              <img src="/firma-solay.png" alt="Firma" style="height: 100px; object-fit: contain; margin-top: -50px;" />
+            <div style="border-bottom: 1px solid #000; height: 50px; margin-bottom: 10px; display: flex; align-items: flex-start; justify-content: center;">
+              <img src="/firma-solay.png" alt="Firma" style="height: 55px; object-fit: contain; margin-top: -25px;" />
             </div>
-            <p style="margin: 5px 0; font-weight: bold; font-size: 17px;">FIRMA DEL REPRESENTANTE</p>
-            <p style="margin: 3px 0; font-size: 16px; color: #666;">{{ representante }}</p>
+            <p style="margin: 5px 0; font-weight: bold; font-size: 13px;">FIRMA DEL REPRESENTANTE</p>
+            <p style="margin: 2px 0; font-size: 12px; color: #666;">{{ representante }}</p>
           </div>
         </div>
       </div>
 
       <!-- Pie de página -->
-      <div style="padding: 30px; border-top: 1px solid #0066cc; margin-top: 40px; text-align: center; font-size: 12px; color: #000;">
-        <p style="margin: 3px 0 0 0;">Validez legal sujeta a regulaciones vigentes</p>
-        <p style="margin: 3px 0 0 0;">www.solay.es</p>
-        <p style="margin: 3px 0 0 0;">Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110 Sevilla.</p>
-        <p style="margin: 3px 0 0 0;">Página 1</p>
+      <div style="padding: 12px 0; border-top: 1px solid #0066cc; margin-top: 20px; text-align: center; font-size: 10px; color: #000;">
+        <p style="margin: 2px 0;">Validez legal sujeta a regulaciones vigentes</p>
+        <p style="margin: 1px 0;">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+        <p style="margin: 1px 0;">Página 1</p>
       </div>
     </div>
   </div>
@@ -86,15 +87,39 @@ const hideButtonsOnPrint = () => {
 
 <style scoped>
 @media print {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
   div[data-pdf-content] {
-    width: 210mm;
-    height: 297mm;
-    box-shadow: none;
+    width: 210mm !important;
+    height: 297mm !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    page-break-after: always;
+    background: white !important;
+  }
+  
+  button {
+    display: none !important;
+  }
+  
+  body {
     margin: 0;
     padding: 0;
   }
-  button {
-    display: none;
+}
+
+@media screen {
+  div[data-pdf-content] {
+    max-width: 210mm;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    background: white;
+    min-height: 297mm;
   }
 }
 </style>
