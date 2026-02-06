@@ -4,12 +4,12 @@
     <div style="flex: 1; display: flex; flex-direction: column; padding: 20mm;">
       
       <!-- Encabezado con Logo -->
-      <div style="display: flex; justify-content: space-between; align-items: flex-start; padding: 12px 0; border-bottom: 2px solid #0066cc; margin-bottom: 20px;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; padding: 18px 0; border-bottom: 2px solid #0066cc; margin-bottom: 27px;">
         <div style="flex: 1;">
-          <h1 style="margin: 0; font-size: 22px; font-weight: bold; color: #0066cc; text-align: center;">AUTORIZACIÓN DE REPRESENTACIÓN</h1>
-          <p style="margin: 2px 0 0 0; font-size: 12px; color: #666; text-align: center;">Documento válido para trámites administrativos</p>
+          <h1 style="margin: 0; font-size: 26px; font-weight: bold; color: #0066cc; text-align: center;">AUTORIZACIÓN DE REPRESENTACIÓN</h1>
+          <p style="margin: 2px 0 0 0; font-size: 16px; color: #666; text-align: center;">Documento válido para trámites administrativos</p>
         </div>
-        <img src="/logo-solay.png" alt="Logo Solay" style="width: 80px; height: auto; margin-left: 15px; flex-shrink: 0;" />
+        <img src="/logo-solay.png" alt="Logo Solay" style="width: 120px; height: auto; margin-left: 15px; flex-shrink: 0;" />
       </div>
 
       <!-- Contenido Principal -->
@@ -18,7 +18,7 @@
           Yo, <strong>{{ autorizante }}</strong>, con DNI/NIF <strong>{{ dniAutorizante }}</strong>, y con domicilio en <strong>{{ domicilioAutorizante }}</strong>, actuando en nombre propio,
         </p>
 
-        <h2 style="text-align: center; font-size: 16px; font-weight: bold; color: #0066cc; margin: 15px 0; padding: 10px 0; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;">AUTORIZO A</h2>
+        <h2 style="text-align: center; font-size: 20px; font-weight: bold; color: #0066cc; margin: 15px 0; padding: 10px 0; border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;">AUTORIZO A</h2>
 
         <p style="margin: 15px 0; text-align: justify;">
           <strong>{{ representante }}</strong>, con DNI/NIF <strong>{{ dniRepresentante }}</strong>, ante <strong>{{ organismo }}</strong>, para realizar en mi nombre las gestiones de <strong>{{ gestiones }}</strong>.
@@ -36,15 +36,15 @@
         <div style="display: flex; justify-content: space-between; gap: 40px; margin-top: auto;">
           <div style="flex: 1; text-align: center;">
             <div style="border-bottom: 1px solid #000; height: 50px; margin-bottom: 10px;"></div>
-            <p style="margin: 5px 0; font-weight: bold; font-size: 13px;">FIRMA DEL AUTORIZANTE</p>
-            <p style="margin: 2px 0; font-size: 12px; color: #666;">{{ autorizante }}</p>
+            <p style="margin: 5px 0; font-weight: bold; font-size: 18px;">FIRMA DEL AUTORIZANTE</p>
+            <p style="margin: 2px 0; font-size: 14px; color: #666;">{{ autorizante }}</p>
           </div>
           <div style="flex: 1; text-align: center;">
             <div style="border-bottom: 1px solid #000; height: 50px; margin-bottom: 10px; display: flex; align-items: flex-start; justify-content: center;">
-              <img src="/firma-solay.png" alt="Firma" style="height: 55px; object-fit: contain; margin-top: -25px;" />
+              <img src="/firma-solay.png" alt="Firma" style="height: 120px; object-fit: contain; margin-top: -75px;" />
             </div>
-            <p style="margin: 5px 0; font-weight: bold; font-size: 13px;">FIRMA DEL REPRESENTANTE</p>
-            <p style="margin: 2px 0; font-size: 12px; color: #666;">{{ representante }}</p>
+            <p style="margin: 5px 0; font-weight: bold; font-size: 18px;">FIRMA DEL REPRESENTANTE</p>
+            <p style="margin: 2px 0; font-size: 14px; color: #666;">{{ representante }}</p>
           </div>
         </div>
       </div>
@@ -86,14 +86,18 @@ const hideButtonsOnPrint = () => {
 </script>
 
 <style scoped>
+p {
+  font-size: 16px;
+}
 @media print {
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-  
+
   div[data-pdf-content] {
+    font-size: 18px !important; /* Aumentar más el tamaño de letra */
     width: 210mm !important;
     height: 297mm !important;
     box-shadow: none !important;
@@ -102,11 +106,11 @@ const hideButtonsOnPrint = () => {
     page-break-after: always;
     background: white !important;
   }
-  
+
   button {
     display: none !important;
   }
-  
+
   body {
     margin: 0;
     padding: 0;
@@ -115,6 +119,7 @@ const hideButtonsOnPrint = () => {
 
 @media screen {
   div[data-pdf-content] {
+    font-size: 18px; /* Aumentar más el tamaño de letra */
     max-width: 210mm;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
