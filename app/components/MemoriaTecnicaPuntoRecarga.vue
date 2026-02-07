@@ -20,7 +20,7 @@
       </div>
 
       <!-- SECCIÓN A: TITULAR -->
-      <div class="seccion">
+      <div class="seccion" style="border-top: 1px solid #000;">
         <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">A</span> | TITULAR</div>
         
         <div class="fila-grid fila-2col">
@@ -252,7 +252,7 @@
 
         <!-- E.2 INFRAESTRUCTURA DE RECARGA -->
         <div class="subseccion">
-          <div class="subseccion-titulo"><span class="subseccion-titulo-span">E.2</span> INFRAESTRUCTURA DE RECARGA</div>
+          <div class="subseccion-titulo" style="border-top: 1px solid #000;"><span class="subseccion-titulo-span">E.2</span> INFRAESTRUCTURA DE RECARGA</div>
           <div class="fila-grid fila-2col">
             <div class="celda celda-izquierda">
               <div class="etiqueta">NÚMERO DE PUNTOS DE CARGA:</div>
@@ -429,14 +429,12 @@ const planoEmplazamiento = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.plan
   background-color: #fff;
   font-family: Arial, sans-serif;
   color: #000;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   overflow-x: hidden;
 }
 
 /* ========== ENCABEZADO DEL DOCUMENTO ========== */
 .encabezado-documento-principal {
-  background-color: #f4b5a0;
-  padding: 15px 20px;
+  padding: 12px 20px;
   text-align: center;
   border-bottom: 2px solid #000;
 }
@@ -456,20 +454,21 @@ const planoEmplazamiento = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.plan
 
 /* ========== CONTENEDOR DE CONTENIDO ========== */
 .contenedor-contenido {
-  padding: 10px 0;
+  padding: 12px 20px;
 }
 
 /* ========== GRID DE EXPEDIENTE Y REGISTRO ========== */
 .grid-expediente {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  border-bottom: 1px solid #000;
+  border: 1px solid #000;
+  margin-bottom: 5px;
 }
 
 .caja-expediente {
-  padding: 5px;
+  padding: 3px;
   border-right: 1px solid #000;
-  text-align: left;
+  text-align: center;
 }
 
 .caja-expediente:last-child {
@@ -490,13 +489,15 @@ const planoEmplazamiento = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.plan
 
 /* ========== SECCIONES PRINCIPALES ========== */
 .seccion {
-  border-bottom: 1px solid #000;
+  border-width: 0 1px 1px 1px;
+  border-style: solid;
+  border-color: #000;
 }
 
 .encabezado-seccion {
   font-weight: bold;
-  background-color: #ffb061;
-  padding: 7px 5px;
+  background-color: var(--color-orange-medium-strong);
+  padding: 5px 5px;
   border-bottom: 1px solid #000;
   display: flex;
   align-items: center;
@@ -554,7 +555,7 @@ const planoEmplazamiento = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.plan
 .etiqueta {
   font-weight: bold;
   font-size: 10px;
-  margin-bottom: 3px;
+  margin-bottom: 1px;
 }
 
 .etiqueta-pequena {
@@ -565,7 +566,7 @@ const planoEmplazamiento = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.plan
   font-weight: bold;
   font-size: 11px;
   border-bottom: 1px solid #000;
-  padding: 4px;
+  padding: 3px;
 }
 
 .valor {
@@ -585,13 +586,13 @@ const planoEmplazamiento = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.plan
 
 /* ========== SUBSECCIONES E1, E2, E3, etc. ========== */
 .subseccion {
-  border-bottom: 1px solid #000;
+  border-bottom: 0 solid #000;
 }
 
 .subseccion-titulo {
   font-weight: bold;
   border-bottom: 1px solid #000;
-  padding: 7px 5px;
+  padding: 5px 5px;
   background-color: #FFCC99;
   color: rgb(0, 0, 0);
   font-size: 11px;
@@ -601,7 +602,7 @@ const planoEmplazamiento = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.plan
 .titulo-subseccion-principal {
   font-weight: bold;
   background-color: #ffb061;
-  padding: 7px 5px;
+  padding: 5px 5px;
   border-bottom: 1px solid #000;
 }
 
@@ -613,13 +614,13 @@ const planoEmplazamiento = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.plan
   font-weight: bold;
   font-size: 11px;
   border-bottom: 1px solid #000;
-  padding: 5px;
+  padding: 4px;
 }
 
 .opciones-checkbox {
   display: flex;
   gap: 20px;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 }
 
 .opcion-checkbox {
@@ -648,7 +649,7 @@ const planoEmplazamiento = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.plan
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 5px;
+  padding: 3px;
   border-bottom: 1px solid #000;
   font-size: 10px;
 }
@@ -666,12 +667,11 @@ const planoEmplazamiento = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.plan
 }
 
 .cuerpo-seccion {
-  padding: 5px;
-  border-bottom: 1px solid #000;
+  padding: 4px;
 }
 
 .cuerpo-seccion-borde {
-  padding: 5px;
+  padding: 4px;
   border-bottom: 1px solid #000;
 }
 
@@ -764,7 +764,7 @@ const planoEmplazamiento = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.plan
 
 .otras-medidas-proteccion {
   margin-top: 10px;
-  padding: 7px;
+  padding: 5px;
   background-color: #fff9f7;
   border: 1px solid #f4b5a0;
 }
@@ -772,9 +772,9 @@ const planoEmplazamiento = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.plan
 .texto-protecciones {
   font-size: 10px;
   color: #000;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
   font-weight: bold;
-  padding: 5px;
+  padding: 3px;
 }
 
 .lista-protecciones {
@@ -785,7 +785,7 @@ const planoEmplazamiento = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.plan
 }
 
 .lista-protecciones li {
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 }
 
 /* ========== TABLA DE CIRCUITOS (Sección G) ========== */
@@ -813,10 +813,9 @@ const planoEmplazamiento = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.plan
 /* ========== CONTENEDORES DE ESQUEMAS (Secciones H, I) ========== */
 .contenedor-esquema {
   border: 2px dashed #000;
-  padding: 30px;
   text-align: center;
   background-color: #fff9f7;
-  min-height: 200px;
+  min-height: 240px;
   display: flex;
   align-items: center;
   justify-content: center;
