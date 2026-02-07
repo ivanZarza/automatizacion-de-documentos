@@ -865,45 +865,49 @@
         
         <div class="cuerpo-seccion">
           <table class="tabla-protecciones">
-            <tr>
-              <th>MEDIDAS DE PROTECCIÓN EMPLEADAS CONTRA:</th>
-              <th>TIPO DE MEDIDA</th>
-              <th>PARTE DE LA INSTALACIÓN</th>
-            </tr>
-            <tr>
-              <td>CONTACTOS DIRECTOS</td>
-              <td class="campo-editable">{{ medidaContactosDirectos }}</td>
-              <td class="campo-editable"></td>
-            </tr>
-            <tr>
-              <td>CONTACTOS INDIRECTOS</td>
-              <td class="campo-editable">{{ medidaContactosIndirectos }}</td>
-              <td class="campo-editable">{{ parteInstalacionIndirectos }}</td>
-            </tr>
-            <tr>
-              <td>EFECTO DEL PUNTO CALIENTE</td>
-              <td class="campo-editable">{{ medidaPuntoCaliente }}</td>
-              <td class="campo-editable">{{ parteInstalacionPuntoCaliente }}</td>
-            </tr>
-            <tr>
-              <td>SOBRETENSIONES</td>
-              <td class="campo-editable">{{ medidaSobretensiones }}</td>
-              <td class="campo-editable">{{ parteInstalacionSobretensiones }}</td>
-            </tr>
-            <tr>
-              <td>RIESGO DE EXPLOSIÓN (en instalaciones fotovoltaicas aisladas con baterías)</td>
-              <td class="campo-editable">{{ medidaExplosion }}</td>
-              <td class="campo-editable">{{ parteInstalacionExplosion }}</td>
-            </tr>
-            <tr>
-              <td>RIESGO DE CORROSIÓN (en instalaciones fotovoltaicas aisladas con baterías)</td>
-              <td class="campo-editable">{{ medidaCorrosion }}</td>
-              <td class="campo-editable">{{ parteInstalacionCorrosion }}</td>
-            </tr>
-            <tr>
-              <td>OTRAS (indicar cuales)</td>
-              <td class="campo-editable" colspan="2">{{ otrasProtecciones }}</td>
-            </tr>
+            <thead>
+              <tr>
+                <th>MEDIDAS DE PROTECCIÓN EMPLEADAS CONTRA:</th>
+                <th>TIPO DE MEDIDA</th>
+                <th>PARTE DE LA INSTALACIÓN</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>CONTACTOS DIRECTOS</td>
+                <td class="campo-editable">{{ medidaContactosDirectos }}</td>
+                <td class="campo-editable"></td>
+              </tr>
+              <tr>
+                <td>CONTACTOS INDIRECTOS</td>
+                <td class="campo-editable">{{ medidaContactosIndirectos }}</td>
+                <td class="campo-editable">{{ parteInstalacionIndirectos }}</td>
+              </tr>
+              <tr>
+                <td>EFECTO DEL PUNTO CALIENTE</td>
+                <td class="campo-editable">{{ medidaPuntoCaliente }}</td>
+                <td class="campo-editable">{{ parteInstalacionPuntoCaliente }}</td>
+              </tr>
+              <tr>
+                <td>SOBRETENSIONES</td>
+                <td class="campo-editable">{{ medidaSobretensiones }}</td>
+                <td class="campo-editable">{{ parteInstalacionSobretensiones }}</td>
+              </tr>
+              <tr>
+                <td>RIESGO DE EXPLOSIÓN (en instalaciones fotovoltaicas aisladas con baterías)</td>
+                <td class="campo-editable">{{ medidaExplosion }}</td>
+                <td class="campo-editable">{{ parteInstalacionExplosion }}</td>
+              </tr>
+              <tr>
+                <td>RIESGO DE CORROSIÓN (en instalaciones fotovoltaicas aisladas con baterías)</td>
+                <td class="campo-editable">{{ medidaCorrosion }}</td>
+                <td class="campo-editable">{{ parteInstalacionCorrosion }}</td>
+              </tr>
+              <tr>
+                <td>OTRAS (indicar cuales)</td>
+                <td class="campo-editable" colspan="2">{{ otrasProtecciones }}</td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </div>
@@ -914,62 +918,66 @@
         
         <div class="cuerpo-seccion" style="overflow-x: auto;">
           <table class="tabla-circuitos">
-            <tr>
-              <th>PARTE DE LA INSTALACIÓN</th>
-              <th>POTENCIA PREVISTA (kW)</th>
-              <th>LONGITUD (m)</th>
-              <th>MATERIAL CONDUCTOR/SECCIÓN (mm²)</th>
-              <th>INTENSIDAD ADMISIBLE (A)</th>
-              <th>CAÍDA DE TENSIÓN (%)</th>
-            </tr>
-            <tr>
-              <td>Generador Fotovoltaico - Entrada al Regulador</td>
-              <td class="campo-editable">{{ potenciaGeneradorRegulador }}</td>
-              <td class="campo-editable">{{ longitudGeneradorRegulador }}</td>
-              <td class="campo-editable">{{ materialGeneradorRegulador }}</td>
-              <td class="campo-editable">{{ intensidadGeneradorRegulador }}</td>
-              <td class="campo-editable">{{ caidaTensionGeneradorRegulador }}</td>
-            </tr>
-            <tr>
-              <td>Bornas del Regulador - Terminales de la Batería</td>
-              <td class="campo-editable">{{ potenciaReguladorBateria }}</td>
-              <td class="campo-editable">{{ longitudReguladorBateria }}</td>
-              <td class="campo-editable">{{ materialReguladorBateria }}</td>
-              <td class="campo-editable">{{ intensidadReguladorBateria }}</td>
-              <td class="campo-editable">{{ caidaTensionReguladorBateria }}</td>
-            </tr>
-            <tr>
-              <td>Salida del Regulador - Terminales del Inversor</td>
-              <td class="campo-editable">{{ potenciaSalidaRegulador }}</td>
-              <td class="campo-editable">{{ longitudSalidaRegulador }}</td>
-              <td class="campo-editable">{{ materialSalidaRegulador }}</td>
-              <td class="campo-editable">{{ intensidadSalidaRegulador }}</td>
-              <td class="campo-editable">{{ caidaTensionSalidaRegulador }}</td>
-            </tr>
-            <tr>
-              <td>Terminales de la Batería - Terminales del Inversor (cuando van directamente conectados)</td>
-              <td class="campo-editable">{{ potenciaBateriaInversor }}</td>
-              <td class="campo-editable">{{ longitudBateriaInversor }}</td>
-              <td class="campo-editable">{{ materialBateriaInversor }}</td>
-              <td class="campo-editable">{{ intensidadBateriaInversor }}</td>
-              <td class="campo-editable">{{ caidaTensionBateriaInversor }}</td>
-            </tr>
-            <tr>
-              <td>Generador Fotovoltaico - Terminales del Inversor (cuando van directamente conectados)</td>
-              <td class="campo-editable">{{ potenciaGeneradorInversorDirecto }}</td>
-              <td class="campo-editable">{{ longitudGeneradorInversorDirecto }}</td>
-              <td class="campo-editable">{{ materialGeneradorInversorDirecto }}</td>
-              <td class="campo-editable">{{ intensidadGeneradorInversorDirecto }}</td>
-              <td class="campo-editable">{{ caidaTensionGeneradorInversorDirecto }}</td>
-            </tr>
-            <tr>
-              <td>Salida del Inversor - Red Eléctrica (en instalaciones interconectadas)</td>
-              <td class="campo-editable">{{ potenciaSalidaInversorRed }}</td>
-              <td class="campo-editable">{{ longitudSalidaInversorRed }}</td>
-              <td class="campo-editable">{{ materialSalidaInversorRed }}</td>
-              <td class="campo-editable">{{ intensidadSalidaInversorRed }}</td>
-              <td class="campo-editable">{{ caidaTensionSalidaInversorRed }}</td>
-            </tr>
+            <thead>
+              <tr>
+                <th>PARTE DE LA INSTALACIÓN</th>
+                <th>POTENCIA PREVISTA (kW)</th>
+                <th>LONGITUD (m)</th>
+                <th>MATERIAL CONDUCTOR/SECCIÓN (mm²)</th>
+                <th>INTENSIDAD ADMISIBLE (A)</th>
+                <th>CAÍDA DE TENSIÓN (%)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Generador Fotovoltaico - Entrada al Regulador</td>
+                <td class="campo-editable">{{ potenciaGeneradorRegulador }}</td>
+                <td class="campo-editable">{{ longitudGeneradorRegulador }}</td>
+                <td class="campo-editable">{{ materialGeneradorRegulador }}</td>
+                <td class="campo-editable">{{ intensidadGeneradorRegulador }}</td>
+                <td class="campo-editable">{{ caidaTensionGeneradorRegulador }}</td>
+              </tr>
+              <tr>
+                <td>Bornas del Regulador - Terminales de la Batería</td>
+                <td class="campo-editable">{{ potenciaReguladorBateria }}</td>
+                <td class="campo-editable">{{ longitudReguladorBateria }}</td>
+                <td class="campo-editable">{{ materialReguladorBateria }}</td>
+                <td class="campo-editable">{{ intensidadReguladorBateria }}</td>
+                <td class="campo-editable">{{ caidaTensionReguladorBateria }}</td>
+              </tr>
+              <tr>
+                <td>Salida del Regulador - Terminales del Inversor</td>
+                <td class="campo-editable">{{ potenciaSalidaRegulador }}</td>
+                <td class="campo-editable">{{ longitudSalidaRegulador }}</td>
+                <td class="campo-editable">{{ materialSalidaRegulador }}</td>
+                <td class="campo-editable">{{ intensidadSalidaRegulador }}</td>
+                <td class="campo-editable">{{ caidaTensionSalidaRegulador }}</td>
+              </tr>
+              <tr>
+                <td>Terminales de la Batería - Terminales del Inversor (cuando van directamente conectados)</td>
+                <td class="campo-editable">{{ potenciaBateriaInversor }}</td>
+                <td class="campo-editable">{{ longitudBateriaInversor }}</td>
+                <td class="campo-editable">{{ materialBateriaInversor }}</td>
+                <td class="campo-editable">{{ intensidadBateriaInversor }}</td>
+                <td class="campo-editable">{{ caidaTensionBateriaInversor }}</td>
+              </tr>
+              <tr>
+                <td>Generador Fotovoltaico - Terminales del Inversor (cuando van directamente conectados)</td>
+                <td class="campo-editable">{{ potenciaGeneradorInversorDirecto }}</td>
+                <td class="campo-editable">{{ longitudGeneradorInversorDirecto }}</td>
+                <td class="campo-editable">{{ materialGeneradorInversorDirecto }}</td>
+                <td class="campo-editable">{{ intensidadGeneradorInversorDirecto }}</td>
+                <td class="campo-editable">{{ caidaTensionGeneradorInversorDirecto }}</td>
+              </tr>
+              <tr>
+                <td>Salida del Inversor - Red Eléctrica (en instalaciones interconectadas)</td>
+                <td class="campo-editable">{{ potenciaSalidaInversorRed }}</td>
+                <td class="campo-editable">{{ longitudSalidaInversorRed }}</td>
+                <td class="campo-editable">{{ materialSalidaInversorRed }}</td>
+                <td class="campo-editable">{{ intensidadSalidaInversorRed }}</td>
+                <td class="campo-editable">{{ caidaTensionSalidaInversorRed }}</td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </div>
