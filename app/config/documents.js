@@ -35,7 +35,7 @@ export const autorizacionRepresentacionConfig = {
 
 export const memoriaTecnicaConfig = {
   id: 'mtd-instalacion-autoconsumo-monofasica-con-bateria',
-  title: '6.-  MTD (INSTALACION AUTOCONSUMO MONOFASICA CON BATERIA)',
+  title: 'Memoria Técnica de Instalación de Autoconsumo Monofásica con Batería',
   description: 'Documento técnico para instalaciones fotovoltaicas en baja tensión',
   fileName: '6-MTD-INSTALACION-AUTOCONSUMO-MONOFASICA-CON-BATERIA.pdf',
   route: '/mtd-instalacion-autoconsumo-monofasica-con-bateria',
@@ -312,7 +312,7 @@ export const memoriaTecnicaConfig = {
 
 export const memoriaInstalacionAisladaConBateriaConfig = {
   id: 'mtd-instalacion-aislada-con-bateria',
-  title: 'MTD (INSTALACION AISLADA CON BATERIA)',
+  title: 'Memoria Técnica de Instalación Aislada con Batería',
   description: 'Documento técnico para instalaciones fotovoltaicas aisladas con almacenamiento',
   fileName: 'mtd-instalacion-aislada-con-bateria.pdf',
   route: '/mtd-instalacion-aislada-con-bateria',
