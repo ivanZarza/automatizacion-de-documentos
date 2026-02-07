@@ -588,6 +588,15 @@ export const memoriaInstalacionAisladaConBateriaConfig = {
 }
 
 /**
+ * Objeto que contiene todas las configuraciones de documentos
+ */
+const documentConfigs = {
+  'autorizacion-representacion': autorizacionRepresentacionConfig,
+  'mtd-instalacion-autoconsumo-monofasica-con-bateria': memoriaTecnicaConfig,
+  'mtd-instalacion-aislada-con-bateria': memoriaInstalacionAisladaConBateriaConfig
+}
+
+/**
  * Obtener configuración de un documento por ID
  */
 export const getDocumentConfig = (documentId) => {
