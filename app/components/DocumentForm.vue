@@ -11,8 +11,7 @@
             <input 
               v-if="field.type === 'text' || field.type === 'email' || field.type === 'tel'"
               v-model="formData[field.name]"
-              :type="field.type"
-              :placeholder="field.placeholder"
+              v-bind="field"
               class="w-full text-lg border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
             />
 
