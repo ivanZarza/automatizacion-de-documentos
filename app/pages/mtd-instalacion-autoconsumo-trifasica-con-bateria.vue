@@ -14,3 +14,11 @@ import MemoriaTecnica from '../components/MemoriaTecnica.vue'
 
 const config = memoriaTecnicaTrifasicaConBateriaConfig
 </script>
+
+<style scoped>
+@media print {
+  h1 {
+    display: none;
+  }
+}
+</style>

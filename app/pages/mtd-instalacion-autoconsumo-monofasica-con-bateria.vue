@@ -5,9 +5,19 @@ import { memoriaTecnicaConfig } from '../config/documents'
 </script>
 
 <template>
-  <h1>Memoria Técnica de Instalación Autoconsumo Monofásica con Batería</h1>
-  <DocumentPage 
-    :config="memoriaTecnicaConfig"
-    :documentComponent="MemoriaTecnica"
-  />
+  <div>
+    <h1>Memoria Técnica de Instalación Autoconsumo Monofásica con Batería</h1>
+    <DocumentPage 
+      :config="memoriaTecnicaConfig"
+      :documentComponent="MemoriaTecnica"
+    />
+  </div>
 </template>
+
+<style scoped>
+@media print {
+  h1 {
+    display: none;
+  }
+}
+</style>
