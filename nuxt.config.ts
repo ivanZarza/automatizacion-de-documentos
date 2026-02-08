@@ -5,11 +5,6 @@ export default defineNuxtConfig({
   css: [
     '../app/styles/variables.css'
   ],
-  nitro: {
-    prerender: {
-      crawlLinks: true
-    }
-  },
   app: {
     head: {
       title: 'Generación de Documentación - Solay',
