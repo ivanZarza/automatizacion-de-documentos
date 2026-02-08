@@ -133,7 +133,7 @@
         </div>
 
         <div class="cuerpo-seccion">
-          <div class="etiqueta-grande">INSTALACIÓN:</div>
+          <div class="etiqueta-grande" style="border-bottom: none">INSTALACIÓN:</div>
           <div class="opciones-checkbox">
             <div class="opcion-checkbox">
               <input type="checkbox" :checked="tipoInstalacionSeleccionada === 'Nueva'" @change="tipoInstalacionSeleccionada = 'Nueva'">
@@ -203,7 +203,7 @@
         <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">D</span> | MODALIDADES DE INSTALACIÓN</div>
         
         <div class="cuerpo-seccion">
-          <div class="etiqueta-grande">MODALIDADES BÁSICAS:</div>
+          <div class="etiqueta-grande" style="border-bottom: none;">MODALIDADES BÁSICAS:</div>
           <div class="grid-modalidades">
             <div class="modalidad-item">
               <input type="checkbox" v-model="modalidadBasicaM1" id="m1">
@@ -642,15 +642,12 @@ const planoEmplazamiento = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.plan
 .grid-modalidades {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 8px;
-}
+  gap: 4px;}
 
 .modalidad-item {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 3px;
-  border-bottom: 1px solid #000;
+  gap: 4px;
   font-size: 10px;
 }
 
@@ -667,11 +664,10 @@ const planoEmplazamiento = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.plan
 }
 
 .cuerpo-seccion {
-  padding: 4px;
+  padding: 0px;
 }
 
 .cuerpo-seccion-borde {
-  padding: 4px;
   border-bottom: 1px solid #000;
 }
 
