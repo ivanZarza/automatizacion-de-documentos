@@ -466,7 +466,6 @@ const planoEmplazamiento = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.plan
 }
 
 .caja-expediente {
-  padding: 3px;
   border-right: 1px solid #000;
   text-align: center;
 }
@@ -476,9 +475,11 @@ const planoEmplazamiento = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.plan
 }
 
 .encabezado-caja {
+  background-color: var(--color-orange-medium-strong);
   font-weight: bold;
   font-size: 10px;
-  margin-bottom: 3px;
+    padding: 5px;
+
 }
 
 .contenido-caja {

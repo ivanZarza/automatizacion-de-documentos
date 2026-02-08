@@ -6,6 +6,8 @@
       <p class="subtitulo-encabezado">INSTALACIONES FOTOVOLTAICAS EN BAJA TENSIÓN</p>
     </div>
 
+    
+
     <div class="contenedor-contenido">
       <!-- NÚMERO DE EXPEDIENTE Y REGISTRO -->
       <div class="grid-expediente">
@@ -1253,9 +1255,9 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 
 .encabezado-documento-principal {
 
-  padding: 15px 20px;
+  padding: 0px 15px 15px 15px;
   text-align: center;
-  border-bottom: 2px solid var(--color-orange-medium-strong);
+  border-bottom: 2px solid #000;
 }
 
 .titulo-encabezado {
@@ -1277,14 +1279,10 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 .grid-expediente {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
   margin-bottom: 5px;
 }
 
-.caja-expediente {
-  border: 1px solid #000;
 
-}
 
 .encabezado-caja {
   background-color: var(--color-orange-medium-strong);
@@ -1297,6 +1295,7 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 }
 
 .cuerpo-seccion-borde {
+  padding: 1px 5px;
   border-bottom: 1px solid #000;
 }
 
@@ -1452,7 +1451,7 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 
 .valor {
   color: #000;
-  min-height: 20px;
+  min-height: 17px;
 }
 
 .valor-grande {
@@ -1781,4 +1780,34 @@ const tipoInstalacionSeleccionada = ref('Nueva')
     widows: 3;
   }
 }
+
+/*Añadido estilos para el grid de expediente y las cajas dentro del mismo */
+.grid-expediente {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid #000;
+  margin-bottom: 5px;
+}
+
+.caja-expediente {
+  border-right: 1px solid #000;
+  text-align: center;
+}
+
+.caja-expediente:last-child {
+  border-right: none;
+}
+
+.encabezado-caja {
+  font-weight: bold;
+  font-size: 10px;
+  margin-bottom: 3px;
+}
+
+.contenido-caja {
+  font-size: 11px;
+  color: #000;
+  min-height: 20px;
+}
+
 </style>
