@@ -114,7 +114,7 @@ const hideButtonsOnPrint = () => {
   justify-content: space-between;
   align-items: flex-start;
   padding: 18px 0;
-  border-bottom: 2px solid var(--color-blue-royal);
+  border-bottom: 2px solid #0066cc;
   margin-bottom: 27px;
 }
 
@@ -126,14 +126,14 @@ const hideButtonsOnPrint = () => {
   margin: 0;
   font-size: 24px;
   font-weight: bold;
-  color: var(--color-orange-medium-strong);
+  color: #ff9900;
   text-align: center;
 }
 
 .subtitulo {
   margin: 2px 0 0 0;
   font-size: 16px;
-  color: var(--color-orange-medium-strong);
+  color: #666;
   text-align: center;
 }
 
@@ -162,7 +162,7 @@ const hideButtonsOnPrint = () => {
   text-align: center;
   font-size: 18px;
   font-weight: bold;
-  color: var(--color-blue-royal);
+  color: #0066cc;
   margin: 15px 0;
   padding: 10px 0;
   border-top: 1px solid #ccc;
@@ -176,8 +176,8 @@ const hideButtonsOnPrint = () => {
 
 /* ========== CAJA VALIDEZ ========== */
 .caja-validez {
-  background-color: var(--color-orange-weak);
-  border-left: 4px solid var(--color-orange-medium-strong);
+  background-color: #ffe5b4;
+  border-left: 4px solid #ff9900;
   padding: 12px;
   margin: 15px 0;
   font-size: 16px;
@@ -244,7 +244,7 @@ const hideButtonsOnPrint = () => {
 /* ========== PIE DE PÁGINA ========== */
 .pie-pagina {
   padding: 12px 0;
-  border-top: 1px solid var(--color-blue-royal);
+  border-top: 1px solid #0066cc;
   margin-top: 20px;
   text-align: center;
   font-size: 12px;
@@ -267,13 +267,29 @@ p {
     box-sizing: border-box;
   }
 
+  .contenedor-pdf {
+    width: 210mm !important;
+    height: 297mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+  }
+
+  .contenedor-principal {
+    width: 210mm !important;
+    min-height: 297mm !important;
+    padding: 20mm !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+  }
+
   div[data-pdf-content] {
-    font-size: 18px !important;
+    font-size: 16px !important;
     width: 210mm !important;
     height: 297mm !important;
     box-shadow: none !important;
     margin: 0 !important;
-    padding: 10mm !important;
+    padding: 0 !important;
     page-break-after: avoid;
     background: white !important;
   }

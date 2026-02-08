@@ -63,6 +63,94 @@ export const declaracionHabilitacionProfesionalConfig = {
   }
 }
 
+export const certificadoCoplanarTejaConfig = {
+  id: 'certificado-coplanar-teja',
+  title: 'Certificado de Solidez y Seguridad de la Cubierta - Coplanar Teja',
+  description: 'Documento de certificación de solidez y seguridad para instalaciones fotovoltaicas en cubierta de teja coplanar',
+  fileName: 'certificado-coplanar-teja.pdf',
+  route: '/certificado-coplanar-teja',
+  defaultData: {
+    direccion: 'Calle Dolores',
+    numero: '14',
+    otrosDatosDireccion: 'Es:1 Pl:00 Pt:01',
+    codigoPostal: '11401',
+    localidad: 'Jerez de la Frontera',
+    referenciaCatastral: '5631707QA5653B0001SG',
+    numModulos: '3',
+    potencia: '535 Wp',
+    peso: '29.00 kg',
+    modelo: 'JAM72S30 535/MR',
+    ciudadFirma: 'Jerez de la Frontera',
+    fecha: '16 de Octubre de 2025',
+    imagen1: null,
+    imagen4: null
+  },
+  fields: [
+    { name: 'direccion', label: 'Dirección de la Vivienda', placeholder: 'Ej: Calle Dolores', type: 'text' },
+    { name: 'numero', label: 'Número', placeholder: 'Ej: 14', type: 'text' },
+    { name: 'otrosDatosDireccion', label: 'Otros Datos (Es/Pl/Pt)', placeholder: 'Ej: Es:1 Pl:00 Pt:01', type: 'text' },
+    { name: 'codigoPostal', label: 'Código Postal', placeholder: 'Ej: 11401', type: 'text' },
+    { name: 'localidad', label: 'Localidad', placeholder: 'Ej: Jerez de la Frontera', type: 'text' },
+    { name: 'referenciaCatastral', label: 'Referencia Catastral', placeholder: 'Ej: 5631707QA5653B0001SG', type: 'text', fullWidth: true },
+    { name: 'numModulos', label: 'Número de Módulos', placeholder: 'Ej: 3', type: 'text' },
+    { name: 'potencia', label: 'Potencia Eléctrica', placeholder: 'Ej: 535 Wp', type: 'text' },
+    { name: 'peso', label: 'Peso por Módulo', placeholder: 'Ej: 29.00 kg', type: 'text' },
+    { name: 'modelo', label: 'Modelo', placeholder: 'Ej: JAM72S30 535/MR', type: 'text', fullWidth: true },
+    { name: 'imagen1', label: 'Imagen 1 - Sistema de perfilería (Página 2)', placeholder: 'Selecciona una imagen', type: 'file', fullWidth: true },
+    { name: 'imagen4', label: 'Imagen 2 - Estructura completa de instalación (Página 2)', placeholder: 'Selecciona una imagen', type: 'file', fullWidth: true },
+    { name: 'ciudadFirma', label: 'Ciudad de Firma', placeholder: 'Ej: Jerez de la Frontera', type: 'text' },
+    { name: 'fecha', label: 'Fecha del Documento', placeholder: 'DD de Mes de YYYY', type: 'date' }
+  ],
+  capabilities: {
+    canPreview: true,
+    canEdit: true,
+    canGeneratePDF: true
+  }
+}
+
+export const certificadoCubiertaPlanAaporticadaConfig = {
+  id: 'certificado-cubierta-plan-aaporticada',
+  title: 'Certificado de Solidez y Seguridad de la Cubierta - Plana Aportícada',
+  description: 'Documento de certificación de solidez y seguridad para instalaciones fotovoltaicas en cubierta plana con estructura aportícada',
+  fileName: 'certificado-cubierta-plan-aaporticada.pdf',
+  route: '/certificado-cubierta-plan-aaporticada',
+  defaultData: {
+    direccion: 'Calle Dolores',
+    numero: '14',
+    otrosDatosDireccion: 'Es:1 Pl:00 Pt:01',
+    codigoPostal: '11401',
+    localidad: 'Jerez de la Frontera',
+    referenciaCatastral: '5631707QA56538000SG',
+    numModulos: '3',
+    potencia: '535 Wp',
+    peso: '29.00 kg',
+    modelo: 'JAM72S30 535/MR',
+    ciudadFirma: 'Jerez de la Frontera',
+    fecha: '16 de Octubre de 2025',
+    imagen1: null
+  },
+  fields: [
+    { name: 'direccion', label: 'Dirección de la Vivienda', placeholder: 'Ej: Calle Dolores', type: 'text' },
+    { name: 'numero', label: 'Número', placeholder: 'Ej: 14', type: 'text' },
+    { name: 'otrosDatosDireccion', label: 'Otros Datos (Es/Pl/Pt)', placeholder: 'Ej: Es:1 Pl:00 Pt:01', type: 'text' },
+    { name: 'codigoPostal', label: 'Código Postal', placeholder: 'Ej: 11401', type: 'text' },
+    { name: 'localidad', label: 'Localidad', placeholder: 'Ej: Jerez de la Frontera', type: 'text' },
+    { name: 'referenciaCatastral', label: 'Referencia Catastral', placeholder: 'Ej: 5631707QA56538000SG', type: 'text', fullWidth: true },
+    { name: 'numModulos', label: 'Número de Módulos', placeholder: 'Ej: 3', type: 'text' },
+    { name: 'potencia', label: 'Potencia Eléctrica', placeholder: 'Ej: 535 Wp', type: 'text' },
+    { name: 'peso', label: 'Peso por Módulo', placeholder: 'Ej: 29.00 kg', type: 'text' },
+    { name: 'modelo', label: 'Modelo', placeholder: 'Ej: JAM72S30 535/MR', type: 'text', fullWidth: true },
+    { name: 'ciudadFirma', label: 'Ciudad de Firma', placeholder: 'Ej: Jerez de la Frontera', type: 'text' },
+    { name: 'fecha', label: 'Fecha del Documento', placeholder: 'DD de Mes de YYYY', type: 'text', fullWidth: true },
+    { name: 'imagen1', label: 'Imagen - Sistema de estructura aportícada (Página 2)', placeholder: 'Selecciona una imagen', type: 'file', fullWidth: true }
+  ],
+  capabilities: {
+    canPreview: true,
+    canEdit: true,
+    canGeneratePDF: true
+  }
+}
+
 export const memoriaTecnicaConfig = {
   id: 'mtd-instalacion-autoconsumo-monofasica-con-bateria',
   title: 'Memoria Técnica de Instalación de Autoconsumo Monofásica con Batería',
@@ -1162,6 +1250,8 @@ export const memoriaTecnicaPuntoRecargaConfig = {
 const documentConfigs = {
   'autorizacion-representacion': autorizacionRepresentacionConfig,
   'declaracion-habilitacion-profesional': declaracionHabilitacionProfesionalConfig,
+  'certificado-coplanar-teja': certificadoCoplanarTejaConfig,
+  'certificado-cubierta-plan-aaporticada': certificadoCubiertaPlanAaporticadaConfig,
   'mtd-instalacion-autoconsumo-monofasica-con-bateria': memoriaTecnicaConfig,
   'mtd-instalacion-aislada-con-bateria': memoriaInstalacionAisladaConBateriaConfig,
   'mtd-instalacion-autoconsumo-trifasica-con-bateria': memoriaTecnicaTrifasicaConBateriaConfig,
