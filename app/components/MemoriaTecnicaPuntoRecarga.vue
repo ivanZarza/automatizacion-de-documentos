@@ -235,7 +235,7 @@
             </div>
           </div>
 
-          <div class="cuerpo-seccion" style="border-bottom: none;">
+          <div class="cuerpo-seccion" style="border-bottom: 1px solid;">
             <div class="etiqueta">TELÉFONO:</div>
             <div class="valor valor-grande">{{ telefonoTecnicoCompetente }}</div>
           </div>
@@ -243,7 +243,7 @@
 
         <!-- Colegio Oficial -->
         <div class="subseccion" style="border-bottom: none;">
-          <div class="fila-grid fila-2col fila-sin-borde">
+          <div class="fila-grid fila-2col ">
             <div class="celda celda-izquierda valor-grande">
               <div class="etiqueta">COLEGIO OFICIAL:</div>
               <div class="valor valor-grande">{{ colegioOficial }}</div>
@@ -277,15 +277,15 @@
           <div class="etiqueta-grande" style="border-bottom: none;">MODALIDADES BÁSICAS:</div>
           <div class="grid-modalidades">
             <div class="modalidad-item">
-              <input type="checkbox" v-model="modalidadBasicaM1" id="m1">
+              <input type="checkbox" :checked="modalidadBasicaM1" id="m1">
               <label for="m1">M1. Instalaciones de potencia instalada ≤ 10 kW</label>
             </div>
             <div class="modalidad-item">
-              <input type="checkbox" v-model="modalidadBasicaM2" id="m2">
+              <input type="checkbox" :checked="modalidadBasicaM2" id="m2">
               <label for="m2">M2. Instalaciones de potencia instalada entre 10 < P ≤ 50 kW</label>
             </div>
             <div class="modalidad-item">
-              <input type="checkbox" v-model="modalidadBasicaM3" id="m3">
+              <input type="checkbox" :checked="modalidadBasicaM3" id="m3">
               <label for="m3">M3. Instalaciones de potencia instalada > 50 kW</label>
             </div>
           </div>
@@ -427,77 +427,83 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { memoriaTecnicaPuntoRecargaConfig } from '../app/config/documents.js'
-
-// Datos reactivos
-const numeroExpediente = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.numeroExpediente)
-const numeroRegistro = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.numeroRegistro)
-const apellidosNombre = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.apellidosNombre)
-const nifCif = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.nifCif)
-const domicilio = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.domicilio)
-const codigoPostal = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.codigoPostal)
-const localidad = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.localidad)
-const provincia = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.provincia)
-const correoElectronico = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.correoElectronico)
-const telefono = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.telefono)
-const representante = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.representante)
-const dniRepresentante = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.dniRepresentante)
-const emplazamientoCalle = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.emplazamientoCalle)
-const numero = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.numero)
-const bloque = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.bloque)
-const escalera = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.escalera)
-const piso = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.piso)
-const localidadEmplazamiento = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.localidadEmplazamiento)
-const provinciaEmplazamiento = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.provinciaEmplazamiento)
-const correoElectronicoEmplazamiento = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.correoElectronicoEmplazamiento)
-const tipoInstalacionSeleccionada = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.tipoInstalacionSeleccionada)
-const nombreTecnicoInstalador = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.nombreTecnicoInstalador)
-const numeroCertificadoInstalador = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.numeroCertificadoInstalador)
-const numeroInstaladorEmpresa = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.numeroInstaladorEmpresa)
-const domicilioTecnico = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.domicilioTecnico)
-const numeroTecnico = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.numeroTecnico)
-const localidadTecnico = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.localidadTecnico)
-const codigoPostalTecnico = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.codigoPostalTecnico)
-const telefonoTecnico = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.telefonoTecnico)
-const nombreTecnicoCompetente = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.nombreTecnicoCompetente)
-const domicilioTecnicoCompetente = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.domicilioTecnicoCompetente)
-const numeroTecnicoCompetente = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.numeroTecnicoCompetente)
-const localidadTecnicoCompetente = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.localidadTecnicoCompetente)
-const codigoPostalTecnicoCompetente = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.codigoPostalTecnicoCompetente)
-const telefonoTecnicoCompetente = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.telefonoTecnicoCompetente)
-const colegioOficial = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.colegioOficial)
-const numeroColegiado = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.numeroColegiado)
-const modalidadBasicaM1 = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.modalidadBasicaM1)
-const modalidadBasicaM2 = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.modalidadBasicaM2)
-const modalidadBasicaM3 = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.modalidadBasicaM3)
-const cargadorMarca = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.cargadorMarca)
-const cargadorModelo = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.cargadorModelo)
-const cargadorNumeroCapacidad = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.cargadorNumeroCapacidad)
-const cargadorTipoCable = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.cargadorTipoCable)
-const numeroPuntosRecarga = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.numeroPuntosRecarga)
-const monofasica = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.monofasica)
-const trifasica = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.trifasica)
-const potenciaInstalada = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.potenciaInstalada)
-const potenciaPrevisita = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.potenciaPrevisita)
-const tipoInstalacionRecarga = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.tipoInstalacionRecarga)
-const modoCarga = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.modoCarga)
-const tipoConector = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.tipoConector)
-const interruptorGeneralAmperaje = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.interruptorGeneralAmperaje)
-const interruptorDiferencialAmperaje = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.interruptorDiferencialAmperaje)
-const interruptorDiferencialSensibilidad = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.interruptorDiferencialSensibilidad)
-const descargadorSobretensiones = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.descargadorSobretensiones)
-const puestaATierra = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.puestaATierra)
-const potenciaPrevistaCuadroPrincipal = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.potenciaPrevistaCuadroPrincipal)
-const longitudCuadroPrincipal = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.longitudCuadroPrincipal)
-const materialConductor = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.materialConductor)
-const intensidadAdmisible = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.intensidadAdmisible)
-const caidaTension = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.caidaTension)
-const esquemaUnifilar = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.esquemaUnifilar)
-const planoEmplazamiento = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.planoEmplazamiento)
-
-// Fecha generada
-const generatedDate = ref(new Date().toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' }))
+defineProps({
+  // Expediente
+  numeroExpediente: String,
+  numeroRegistro: String,
+  // Sección A: TITULAR
+  apellidosNombre: String,
+  nifCif: String,
+  domicilio: String,
+  codigoPostal: String,
+  localidad: String,
+  provincia: String,
+  correoElectronico: String,
+  telefono: String,
+  representante: String,
+  dniRepresentante: String,
+  // Sección B: EMPLAZAMIENTO
+  emplazamientoCalle: String,
+  numero: String,
+  bloque: String,
+  escalera: String,
+  piso: String,
+  localidadEmplazamiento: String,
+  provinciaEmplazamiento: String,
+  correoElectronicoEmplazamiento: String,
+  tipoInstalacionSeleccionada: String,
+  // Sección C: TÉCNICO FIRMANTE
+  nombreTecnicoInstalador: String,
+  numeroCertificadoInstalador: String,
+  numeroInstaladorEmpresa: String,
+  domicilioTecnico: String,
+  numeroTecnico: String,
+  localidadTecnico: String,
+  codigoPostalTecnico: String,
+  telefonoTecnico: String,
+  nombreTecnicoCompetente: String,
+  domicilioTecnicoCompetente: String,
+  numeroTecnicoCompetente: String,
+  localidadTecnicoCompetente: String,
+  codigoPostalTecnicoCompetente: String,
+  telefonoTecnicoCompetente: String,
+  colegioOficial: String,
+  numeroColegiado: String,
+  // Sección D: MODALIDADES
+  modalidadBasicaM1: Boolean,
+  modalidadBasicaM2: Boolean,
+  modalidadBasicaM3: Boolean,
+  // Sección E: CARGADOR
+  cargadorMarca: String,
+  cargadorModelo: String,
+  cargadorNumeroCapacidad: String,
+  cargadorTipoCable: String,
+  // Sección E: INFRAESTRUCTURA
+  numeroPuntosRecarga: String,
+  monofasica: Boolean,
+  trifasica: Boolean,
+  potenciaInstalada: String,
+  potenciaPrevisita: String,
+  tipoInstalacionRecarga: String,
+  modoCarga: String,
+  tipoConector: String,
+  // Sección E: PROTECCIONES
+  interruptorGeneralAmperaje: String,
+  interruptorDiferencialAmperaje: String,
+  interruptorDiferencialSensibilidad: String,
+  descargadorSobretensiones: String,
+  puestaATierra: String,
+  // Sección F: LÍNEAS Y CIRCUITOS
+  potenciaPrevistaCuadroPrincipal: String,
+  longitudCuadroPrincipal: String,
+  materialConductor: String,
+  intensidadAdmisible: String,
+  caidaTension: String,
+  // Sección G y H: ESQUEMAS
+  esquemaUnifilar: String,
+  planoEmplazamiento: String,
+  generatedDate: String
+})
 </script>
 
 <style scoped>
@@ -654,7 +660,7 @@ const generatedDate = ref(new Date().toLocaleDateString('es-ES', { day: '2-digit
 
 .valor {
   color: #000;
-  min-height: 20px;
+  min-height: 17px;
   font-size: 10px;
 }
 
@@ -664,7 +670,7 @@ const generatedDate = ref(new Date().toLocaleDateString('es-ES', { day: '2-digit
 
 .valor-grande {
   color: #000;
-  min-height: 40px;
+  min-height: 17px;
 }
 
 /* ========== SUBSECCIONES E1, E2, E3, etc. ========== */
@@ -756,8 +762,6 @@ const generatedDate = ref(new Date().toLocaleDateString('es-ES', { day: '2-digit
 
 .seccion-firma {
   text-align: center;
-  border-top: 1px solid #000;
-  margin-top: 20px;
   padding-top: 15px;
 }
 

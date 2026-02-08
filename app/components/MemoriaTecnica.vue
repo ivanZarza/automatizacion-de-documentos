@@ -1571,9 +1571,7 @@ const tipoInstalacionSeleccionada = ref("Nueva");
   color: #000;
 }
 
-.cuerpo-seccion {
-  padding: 1px 0px 0px 4px;
-}
+
 
 .cuerpo-seccion-borde {
   padding: 1px 5px;
