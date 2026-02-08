@@ -3,10 +3,10 @@
     <!-- ENCABEZADO -->
     <div class="encabezado-documento-principal">
       <h1 class="titulo-encabezado">MEMORIA TÉCNICA DE DISEÑO</h1>
-      <p class="subtitulo-encabezado">INSTALACIONES FOTOVOLTAICAS EN BAJA TENSIÓN</p>
+      <p class="subtitulo-encabezado">
+        INSTALACIONES FOTOVOLTAICAS EN BAJA TENSIÓN
+      </p>
     </div>
-
-    
 
     <div class="contenedor-contenido">
       <!-- NÚMERO DE EXPEDIENTE Y REGISTRO -->
@@ -23,8 +23,13 @@
 
       <!-- SECCIÓN A: TITULAR -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">A</span> | TITULAR</div>
-        
+        <div class="encabezado-seccion">
+          <span class="subseccion-titulo-span" style="background-color: #ffa02a"
+            >A</span
+          >
+          | TITULAR
+        </div>
+
         <div class="fila-grid fila-2col">
           <div class="celda celda-izquierda">
             <div class="etiqueta">APELLIDOS Y NOMBRE/RAZÓN SOCIAL:</div>
@@ -81,8 +86,13 @@
 
       <!-- SECCIÓN B: EMPLAZAMIENTO -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">B</span> | EMPLAZAMIENTO DE LA INSTALACIÓN Y USO AL QUE SE DESTINA</div>
-        
+        <div class="encabezado-seccion">
+          <span class="subseccion-titulo-span" style="background-color: #ffa02a"
+            >B</span
+          >
+          | EMPLAZAMIENTO DE LA INSTALACIÓN Y USO AL QUE SE DESTINA
+        </div>
+
         <div class="cuerpo-seccion-borde">
           <div class="etiqueta">CALLE/AVENIDA:</div>
           <div class="valor">{{ emplazamientoCalle }}</div>
@@ -120,7 +130,9 @@
 
         <div class="cuerpo-seccion-borde">
           <div class="etiqueta">CORREO ELECTRÓNICO EMPLAZAMIENTO:</div>
-          <div class="valor valor-pequeno">{{ correoElectronicoEmplazamiento }}</div>
+          <div class="valor valor-pequeno">
+            {{ correoElectronicoEmplazamiento }}
+          </div>
         </div>
 
         <div class="fila-grid fila-2col">
@@ -138,15 +150,27 @@
           <div class="etiqueta-grande">INSTALACIÓN:</div>
           <div class="opciones-checkbox">
             <div class="opcion-checkbox">
-              <input type="checkbox" :checked="tipoInstalacionSeleccionada === 'Nueva'" @change="tipoInstalacionSeleccionada = 'Nueva'">
+              <input
+                type="checkbox"
+                :checked="tipoInstalacionSeleccionada === 'Nueva'"
+                @change="tipoInstalacionSeleccionada = 'Nueva'"
+              />
               <label>Nueva</label>
             </div>
             <div class="opcion-checkbox">
-              <input type="checkbox" :checked="tipoInstalacionSeleccionada === 'Ampliación'" @change="tipoInstalacionSeleccionada = 'Ampliación'">
+              <input
+                type="checkbox"
+                :checked="tipoInstalacionSeleccionada === 'Ampliación'"
+                @change="tipoInstalacionSeleccionada = 'Ampliación'"
+              />
               <label>Ampliación</label>
             </div>
             <div class="opcion-checkbox">
-              <input type="checkbox" :checked="tipoInstalacionSeleccionada === 'Modificación'" @change="tipoInstalacionSeleccionada = 'Modificación'">
+              <input
+                type="checkbox"
+                :checked="tipoInstalacionSeleccionada === 'Modificación'"
+                @change="tipoInstalacionSeleccionada = 'Modificación'"
+              />
               <label>Modificación</label>
             </div>
           </div>
@@ -155,26 +179,37 @@
 
       <!-- SECCIÓN C: PERSONA QUE FIRMA -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">C</span> | IDENTIFICACIÓN DE LA PERSONA QUE FIRMA LA MTD</div>
-        
+        <div class="encabezado-seccion">
+          <span class="subseccion-titulo-span" style="background-color: #ffa02a"
+            >C</span
+          >
+          | IDENTIFICACIÓN DE LA PERSONA QUE FIRMA LA MTD
+        </div>
+
         <!-- Técnico Instalador Autorizado -->
         <div class="subseccion">
-          <div class="etiqueta-grande">MEMORIA REALIZADA POR INSTALADOR ELÉCTRICO AUTORIZADO:</div>
-          
+          <div class="etiqueta-grande">
+            MEMORIA REALIZADA POR INSTALADOR ELÉCTRICO AUTORIZADO:
+          </div>
+
           <div class="fila-grid fila-2col">
             <div class="celda celda-izquierda">
               <div class="etiqueta">NOMBRE:</div>
               <div class="valor">{{ nombreTecnicoInstalador }}</div>
             </div>
             <div class="celda">
-              <div class="etiqueta">Nº DE CERTIFICADO DE CUALIFICACIÓN INDIVIDUAL:</div>
+              <div class="etiqueta">
+                Nº DE CERTIFICADO DE CUALIFICACIÓN INDIVIDUAL:
+              </div>
               <div class="valor">{{ numeroCertificadoInstalador }}</div>
             </div>
           </div>
 
           <div class="fila-grid fila-2col">
             <div class="celda celda-izquierda">
-              <div class="etiqueta">Nº DE INSTALADOR ELÉCTRICO AUTORIZADO (empresa):</div>
+              <div class="etiqueta">
+                Nº DE INSTALADOR ELÉCTRICO AUTORIZADO (empresa):
+              </div>
               <div class="valor">{{ numeroInstaladorEmpresa }}</div>
             </div>
             <div class="celda">
@@ -207,44 +242,59 @@
         <!-- Técnico Competente -->
         <div class="subseccion">
           <div class="fila-checkbox">
-            <input type="checkbox" style="width: 14px; height: 14px; cursor: pointer;">
+            <input
+              type="checkbox"
+              style="width: 14px; height: 14px; cursor: pointer"
+            />
             <span>MEMORIA REALIZADA POR TÉCNICO COMPETENTE:</span>
           </div>
-          
+
           <div class="fila-grid fila-2col">
             <div class="celda celda-izquierda valor-grande">
               <div class="etiqueta">NOMBRE:</div>
-              <div class="valor valor-grande">{{ nombreTecnicoCompetente }}</div>
+              <div class="valor valor-grande">
+                {{ nombreTecnicoCompetente }}
+              </div>
             </div>
             <div class="celda valor-grande">
               <div class="etiqueta">DOMICILIO (calle o plaza):</div>
-              <div class="valor valor-grande">{{ domicilioTecnicoCompetente }}</div>
+              <div class="valor valor-grande">
+                {{ domicilioTecnicoCompetente }}
+              </div>
             </div>
           </div>
 
           <div class="fila-grid fila-3col">
             <div class="celda celda-izquierda valor-grande">
               <div class="etiqueta">NÚMERO:</div>
-              <div class="valor valor-grande">{{ numeroTecnicoCompetente }}</div>
+              <div class="valor valor-grande">
+                {{ numeroTecnicoCompetente }}
+              </div>
             </div>
             <div class="celda celda-izquierda valor-grande">
               <div class="etiqueta">LOCALIDAD:</div>
-              <div class="valor valor-grande">{{ localidadTecnicoCompetente }}</div>
+              <div class="valor valor-grande">
+                {{ localidadTecnicoCompetente }}
+              </div>
             </div>
             <div class="celda valor-grande">
               <div class="etiqueta">C.P.:</div>
-              <div class="valor valor-grande">{{ codigoPostalTecnicoCompetente }}</div>
+              <div class="valor valor-grande">
+                {{ codigoPostalTecnicoCompetente }}
+              </div>
             </div>
           </div>
 
-          <div class="cuerpo-seccion" style="border-bottom: none;">
+          <div class="cuerpo-seccion" style="border-bottom: none">
             <div class="etiqueta">TELÉFONO:</div>
-            <div class="valor valor-grande">{{ telefonoTecnicoCompetente }}</div>
+            <div class="valor valor-grande">
+              {{ telefonoTecnicoCompetente }}
+            </div>
           </div>
         </div>
 
         <!-- Colegio Oficial -->
-        <div class="subseccion" style="border-bottom: none;">
+        <div class="subseccion" style="border-bottom: none">
           <div class="fila-grid fila-2col fila-sin-borde">
             <div class="celda celda-izquierda valor-grande">
               <div class="etiqueta">COLEGIO OFICIAL:</div>
@@ -261,34 +311,48 @@
         <div class="seccion-firma">
           <div class="fecha-firma">En Sevilla a {{ generatedDate }}</div>
           <div class="imagen-firma">
-            <img src="/firma-solay.png" alt="Firma" style="height: 60px; object-fit: contain;" />
+            <img
+              src="/firma-solay.png"
+              alt="Firma"
+              style="height: 60px; object-fit: contain"
+            />
           </div>
-          <div class="nombre-firmante">Firma del Instalador Autorizado / Técnico Titulado</div>
+          <div class="nombre-firmante">
+            Firma del Instalador Autorizado / Técnico Titulado
+          </div>
         </div>
 
         <div class="nota-legal">
-          <p>(Cuando la MTD sea firmado por Técnico Titulado vendrá sellada por el Colegio Oficial)</p>
+          <p>
+            (Cuando la MTD sea firmado por Técnico Titulado vendrá sellada por
+            el Colegio Oficial)
+          </p>
         </div>
       </div>
 
       <!-- SECCIÓN D: CATEGORÍA Y ESPECIALIDAD -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">D</span> | CATEGORÍA Y ESPECIALIDAD DEL INSTALADOR</div>
-        
+        <div class="encabezado-seccion">
+          <span class="subseccion-titulo-span" style="background-color: #ffa02a"
+            >D</span
+          >
+          | CATEGORÍA Y ESPECIALIDAD DEL INSTALADOR
+        </div>
+
         <!-- BÁSICA -->
-        <div class="cuerpo-seccion" style="border-bottom: 1px solid #000;">
+        <div class="cuerpo-seccion" style="border-bottom: 1px solid #000">
           <div class="etiqueta-grande">CATEGORÍA BÁSICA:</div>
           <div class="grid-checkboxes">
             <div class="item-checkbox">
-              <input type="checkbox" :checked="modalidadBasicaM1" disabled/>
+              <input type="checkbox" :checked="modalidadBasicaM1" disabled />
               <span>M1 - Instalaciones en viviendas (hasta 10kWp)</span>
             </div>
             <div class="item-checkbox">
-              <input type="checkbox" :checked="modalidadBasicaM2" disabled/>
+              <input type="checkbox" :checked="modalidadBasicaM2" disabled />
               <span>M2 - Instalaciones en pequeño comercio (hasta 15kWp)</span>
             </div>
             <div class="item-checkbox">
-              <input type="checkbox" :checked="modalidadBasicaM3" disabled/>
+              <input type="checkbox" :checked="modalidadBasicaM3" disabled />
               <span>M3 - Instalaciones con almacenamiento (hasta 10kWp)</span>
             </div>
           </div>
@@ -299,27 +363,51 @@
           <div class="etiqueta-grande">CATEGORÍA ESPECIALISTA:</div>
           <div class="grid-checkboxes">
             <div class="item-checkbox">
-              <input type="checkbox" :checked="modalidadEspecialistaM4" disabled/>
+              <input
+                type="checkbox"
+                :checked="modalidadEspecialistaM4"
+                disabled
+              />
               <span>M4 - Pequeña potencia (15-100kWp)</span>
             </div>
             <div class="item-checkbox">
-              <input type="checkbox" :checked="modalidadEspecialistaM5" disabled/>
+              <input
+                type="checkbox"
+                :checked="modalidadEspecialistaM5"
+                disabled
+              />
               <span>M5 - Mediana potencia (100-500kWp)</span>
             </div>
             <div class="item-checkbox">
-              <input type="checkbox" :checked="modalidadEspecialistaM6" disabled/>
+              <input
+                type="checkbox"
+                :checked="modalidadEspecialistaM6"
+                disabled
+              />
               <span>M6 - Gran potencia (&gt;500kWp)</span>
             </div>
             <div class="item-checkbox">
-              <input type="checkbox" :checked="modalidadEspecialistaM7" disabled/>
+              <input
+                type="checkbox"
+                :checked="modalidadEspecialistaM7"
+                disabled
+              />
               <span>M7 - Almacenamiento (15-100kWp)</span>
             </div>
             <div class="item-checkbox">
-              <input type="checkbox" :checked="modalidadEspecialistaM8" disabled/>
+              <input
+                type="checkbox"
+                :checked="modalidadEspecialistaM8"
+                disabled
+              />
               <span>M8 - Almacenamiento mediano (100-500kWp)</span>
             </div>
             <div class="item-checkbox">
-              <input type="checkbox" :checked="modalidadEspecialistaM9" disabled/>
+              <input
+                type="checkbox"
+                :checked="modalidadEspecialistaM9"
+                disabled
+              />
               <span>M9 - Almacenamiento gran escala (&gt;500kWp)</span>
             </div>
           </div>
@@ -328,15 +416,26 @@
 
       <!-- SECCIÓN E: MEMORIA DESCRIPTIVA -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">E</span> | MEMORIA DESCRIPTIVA</div>
-        
+        <div class="encabezado-seccion">
+          <span class="subseccion-titulo-span" style="background-color: #ffa02a"
+            >E</span
+          >
+          | MEMORIA DESCRIPTIVA
+        </div>
+
         <!-- E1: INSTALACIÓN GENERADORA FOTOVOLTAICA AISLADA -->
         <div class="cuerpo-seccion">
-          <div class="titulo-subseccion-principal"><span class="subseccion-titulo-span">E1</span>. INSTALACIÓN GENERADORA FOTOVOLTAICA AISLADA</div>
-          
+          <div class="titulo-subseccion-principal">
+            <span class="subseccion-titulo-span">E1</span>. INSTALACIÓN
+            GENERADORA FOTOVOLTAICA AISLADA
+          </div>
+
           <!-- E1.1 Módulo Fotovoltaico -->
           <div class="subseccion">
-            <div class="subseccion-titulo"><span class="subseccion-titulo-span">E1.1</span> MÓDULO FOTOVOLTAICO</div>
+            <div class="subseccion-titulo">
+              <span class="subseccion-titulo-span">E1.1</span> MÓDULO
+              FOTOVOLTAICO
+            </div>
             <div class="fila-grid fila-2col">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">TECNOLOGÍA DE LA CÉLULA:</div>
@@ -361,14 +460,19 @@
 
           <!-- E1.2 Generador Fotovoltaico -->
           <div class="subseccion">
-            <div class="subseccion-titulo"><span class="subseccion-titulo-span">E1.2</span> GENERADOR FOTOVOLTAICO</div>
+            <div class="subseccion-titulo">
+              <span class="subseccion-titulo-span">E1.2</span> GENERADOR
+              FOTOVOLTAICO
+            </div>
             <div class="fila-grid fila-2col">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">POTENCIA PICO (Wp):</div>
                 <div class="valor">{{ e1_potenciaPicoGenerador }}</div>
               </div>
               <div class="celda">
-                <div class="etiqueta">INTENSIDAD MÁXIMA POTENCIA, Ipmp (A):</div>
+                <div class="etiqueta">
+                  INTENSIDAD MÁXIMA POTENCIA, Ipmp (A):
+                </div>
                 <div class="valor">{{ e1_intensidadIpmpGenerador }}</div>
               </div>
             </div>
@@ -406,7 +510,9 @@
 
           <!-- E1.3 Baterías -->
           <div class="subseccion">
-            <div class="subseccion-titulo"><span class="subseccion-titulo-span" >E1.3</span> BATERÍAS</div>
+            <div class="subseccion-titulo">
+              <span class="subseccion-titulo-span">E1.3</span> BATERÍAS
+            </div>
             <div class="fila-grid fila-2col">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">MARCA Y MODELO:</div>
@@ -461,7 +567,9 @@
 
           <!-- E1.4 Regulador -->
           <div class="subseccion">
-            <div class="subseccion-titulo"><span class="subseccion-titulo-span" >E1.4</span> REGULADOR</div>
+            <div class="subseccion-titulo">
+              <span class="subseccion-titulo-span">E1.4</span> REGULADOR
+            </div>
             <div class="fila-grid fila-2col">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">MARCA Y MODELO:</div>
@@ -486,7 +594,9 @@
 
           <!-- E1.5 Inversor -->
           <div class="subseccion">
-            <div class="subseccion-titulo"><span class="subseccion-titulo-span" >E1.5</span> INVERSOR</div>
+            <div class="subseccion-titulo">
+              <span class="subseccion-titulo-span">E1.5</span> INVERSOR
+            </div>
             <div class="fila-grid fila-2col">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">MARCA Y MODELO:</div>
@@ -553,7 +663,9 @@
 
           <!-- E1.6 Otros -->
           <div class="subseccion">
-            <div class="subseccion-titulo"><span class="subseccion-titulo-span" >E1.6</span> OTROS</div>
+            <div class="subseccion-titulo">
+              <span class="subseccion-titulo-span">E1.6</span> OTROS
+            </div>
             <div class="fila-grid fila-2col">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">CONVERTIDOR CC/CC:</div>
@@ -580,16 +692,27 @@
                 <div class="valor">{{ e1_potenciaGrupoAuxiliar }}</div>
               </div>
             </div>
-            <div class="subseccion" style="border-bottom: 1px solid #000;">
+            <div class="subseccion" style="border-bottom: 1px solid #000">
               <div class="etiqueta">OTROS EQUIPOS:</div>
-              <div class="valor" style="font-size: 10px; white-space: pre-wrap;">{{ e1_otrosEquipos }}</div>
+              <div class="valor" style="font-size: 10px; white-space: pre-wrap">
+                {{ e1_otrosEquipos }}
+              </div>
             </div>
           </div>
 
           <!-- E1.7 Información de la Demanda -->
-          <div class="subseccion subseccion-e1-7" style="border-top: 1px solid #000;">
-            <div class="subseccion-titulo"><span class="subseccion-titulo-span" >E1.7</span> INFORMACIÓN DE LA DEMANDA</div>
-            <div class="fila-grid fila-2col" style="border: 1px solid #000; margin-bottom: 0;">
+          <div
+            class="subseccion subseccion-e1-7"
+            style="border-top: 1px solid #000"
+          >
+            <div class="subseccion-titulo">
+              <span class="subseccion-titulo-span">E1.7</span> INFORMACIÓN DE LA
+              DEMANDA
+            </div>
+            <div
+              class="fila-grid fila-2col"
+              style="border: 1px solid #000; margin-bottom: 0"
+            >
               <div class="celda celda-izquierda">
                 <div class="etiqueta">POTENCIA MÁX DEMANDADA (W):</div>
                 <div class="valor">{{ e1_potenciaMaximaDemanda }}</div>
@@ -599,72 +722,115 @@
                 <div class="valor">{{ e1_periodicidadDemanda }}</div>
               </div>
             </div>
-            <div style="font-weight: bold; font-size: 10px; margin-bottom: 8px; margin-top: 8px;">ENERGÍA DIARIA MEDIA MENSUAL (Wh/día):</div>
-            <div class="fila-grid fila-6col" style="border: 1px solid #000;">
+            <div
+              style="
+                font-weight: bold;
+                font-size: 10px;
+                margin-bottom: 8px;
+                margin-top: 8px;
+              "
+            >
+              ENERGÍA DIARIA MEDIA MENSUAL (Wh/día):
+            </div>
+            <div class="fila-grid fila-6col" style="border: 1px solid #000">
               <div class="celda celda-encabezado celda-izquierda">
-                <div >ENE</div>
-                <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaEnero }}</div>
+                <div>ENE</div>
+                <div class="valor" style="font-size: 9px">
+                  {{ e1_energiaDiariaEnero }}
+                </div>
               </div>
               <div class="celda celda-encabezado celda-izquierda">
-                <div >FEB</div>
-                <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaFebrero }}</div>
+                <div>FEB</div>
+                <div class="valor" style="font-size: 9px">
+                  {{ e1_energiaDiariaFebrero }}
+                </div>
               </div>
               <div class="celda celda-encabezado celda-izquierda">
-                <div >MAR</div>
-                <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaMarzo }}</div>
+                <div>MAR</div>
+                <div class="valor" style="font-size: 9px">
+                  {{ e1_energiaDiariaMarzo }}
+                </div>
               </div>
               <div class="celda celda-encabezado celda-izquierda">
-                <div >ABR</div>
-                <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaAbril }}</div>
+                <div>ABR</div>
+                <div class="valor" style="font-size: 9px">
+                  {{ e1_energiaDiariaAbril }}
+                </div>
               </div>
               <div class="celda celda-encabezado celda-izquierda">
-                <div >MAY</div>
-                <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaMayo }}</div>
+                <div>MAY</div>
+                <div class="valor" style="font-size: 9px">
+                  {{ e1_energiaDiariaMayo }}
+                </div>
               </div>
               <div class="celda celda-encabezado">
-                <div >JUN</div>
-                <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaJunio }}</div>
+                <div>JUN</div>
+                <div class="valor" style="font-size: 9px">
+                  {{ e1_energiaDiariaJunio }}
+                </div>
               </div>
             </div>
-            <div class="fila-grid fila-6col fila-sin-borde" style="border: 1px solid #000;">
+            <div
+              class="fila-grid fila-6col fila-sin-borde"
+              style="border: 1px solid #000"
+            >
               <div class="celda celda-encabezado celda-izquierda">
-                <div >JUL</div>
-                <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaJulio }}</div>
+                <div>JUL</div>
+                <div class="valor" style="font-size: 9px">
+                  {{ e1_energiaDiariaJulio }}
+                </div>
               </div>
               <div class="celda celda-encabezado celda-izquierda">
-                <div >AGO</div>
-                <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaAgosto }}</div>
+                <div>AGO</div>
+                <div class="valor" style="font-size: 9px">
+                  {{ e1_energiaDiariaAgosto }}
+                </div>
               </div>
               <div class="celda celda-encabezado celda-izquierda">
-                <div >SEP</div>
-                <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaSeptiembre }}</div>
+                <div>SEP</div>
+                <div class="valor" style="font-size: 9px">
+                  {{ e1_energiaDiariaSeptiembre }}
+                </div>
               </div>
               <div class="celda celda-encabezado celda-izquierda">
-                <div >OCT</div>
-                <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaOctubre }}</div>
+                <div>OCT</div>
+                <div class="valor" style="font-size: 9px">
+                  {{ e1_energiaDiariaOctubre }}
+                </div>
               </div>
               <div class="celda celda-encabezado celda-izquierda">
-                <div >NOV</div>
-                <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaNoviembre }}</div>
+                <div>NOV</div>
+                <div class="valor" style="font-size: 9px">
+                  {{ e1_energiaDiariaNoviembre }}
+                </div>
               </div>
               <div class="celda celda-encabezado">
-                <div >DIC</div>
-                <div class="valor" style="font-size: 9px;">{{ e1_energiaDiariaDiciembre }}</div>
+                <div>DIC</div>
+                <div class="valor" style="font-size: 9px">
+                  {{ e1_energiaDiariaDiciembre }}
+                </div>
               </div>
             </div>
           </div>
         </div>
-        
+
         <!-- E2: INSTALACIÓN GENERADORA FOTOVOLTAICA INTERCONECTADA CON ALMACENAMIENTO -->
         <div class="cuerpo-seccion">
-          <div class="titulo-subseccion-principal"><span class="subseccion-titulo-span">E2</span>. INSTALACIÓN GENERADORA FOTOVOLTAICA INTERCONECTADA CON ALMACENAMIENTO</div>
-          
+          <div class="titulo-subseccion-principal">
+            <span class="subseccion-titulo-span">E2</span>. INSTALACIÓN
+            GENERADORA FOTOVOLTAICA INTERCONECTADA CON ALMACENAMIENTO
+          </div>
+
           <!-- E2.1 Conexión a la Red -->
           <div class="subseccion-e2">
-            <div class="subseccion-titulo"><span class="subseccion-titulo-span" >E2.1</span> CONEXIÓN A LA RED</div>
+            <div class="subseccion-titulo">
+              <span class="subseccion-titulo-span">E2.1</span> CONEXIÓN A LA RED
+            </div>
             <div class="fila-grid fila-2col fila-table-e2">
               <div class="celda celda-izquierda">
-                <div class="etiqueta">POTENCIA NOMINAL TOTAL EN INVERSORES (kW):</div>
+                <div class="etiqueta">
+                  POTENCIA NOMINAL TOTAL EN INVERSORES (kW):
+                </div>
                 <div class="valor">{{ potenciaNominalInversores }}</div>
               </div>
               <div class="celda">
@@ -676,7 +842,10 @@
 
           <!-- E2.2 Módulo Fotovoltaico -->
           <div class="subseccion-e2">
-            <div class="subseccion-titulo"><span class="subseccion-titulo-span" >E2.2</span> MÓDULO FOTOVOLTAICO</div>
+            <div class="subseccion-titulo">
+              <span class="subseccion-titulo-span">E2.2</span> MÓDULO
+              FOTOVOLTAICO
+            </div>
             <div class="fila-grid fila-2col fila-table-e2">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">TECNOLOGÍA DE LA CÉLULA:</div>
@@ -701,7 +870,10 @@
 
           <!-- E2.3 Generador Fotovoltaico -->
           <div class="subseccion-e2">
-            <div class="subseccion-titulo"><span class="subseccion-titulo-span" >E2.3</span> GENERADOR FOTOVOLTAICO</div>
+            <div class="subseccion-titulo">
+              <span class="subseccion-titulo-span">E2.3</span> GENERADOR
+              FOTOVOLTAICO
+            </div>
             <div class="fila-grid fila-2col fila-table-e2">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">POTENCIA PICO (Wp):</div>
@@ -714,7 +886,9 @@
             </div>
             <div class="fila-grid fila-2col">
               <div class="celda celda-izquierda">
-                <div class="etiqueta">INTENSIDAD MÁXIMA POTENCIA, Ipmp (A):</div>
+                <div class="etiqueta">
+                  INTENSIDAD MÁXIMA POTENCIA, Ipmp (A):
+                </div>
                 <div class="valor">{{ intensidadIpmpGenerador }}</div>
               </div>
               <div class="celda">
@@ -724,7 +898,9 @@
             </div>
             <div class="fila-grid fila-2col">
               <div class="celda celda-izquierda">
-                <div class="etiqueta">INCLINACIÓN RESPECTO A HORIZONTAL (º):</div>
+                <div class="etiqueta">
+                  INCLINACIÓN RESPECTO A HORIZONTAL (º):
+                </div>
                 <div class="valor">{{ inclinacionGenerador }}</div>
               </div>
               <div class="celda">
@@ -746,7 +922,9 @@
 
           <!-- E2.4 Inversor/es -->
           <div class="subseccion-e2">
-            <div class="subseccion-titulo"><span class="subseccion-titulo-span" >E2.4</span> INVERSOR/ES</div>
+            <div class="subseccion-titulo">
+              <span class="subseccion-titulo-span">E2.4</span> INVERSOR/ES
+            </div>
             <div class="fila-grid fila-2col">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">MARCA Y MODELO:</div>
@@ -781,7 +959,9 @@
 
           <!-- E2.5 Baterías -->
           <div class="subseccion-e2">
-            <div class="subseccion-titulo"><span class="subseccion-titulo-span" >E2.5</span> BATERÍAS</div>
+            <div class="subseccion-titulo">
+              <span class="subseccion-titulo-span">E2.5</span> BATERÍAS
+            </div>
             <div class="fila-grid fila-2col">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">MARCA Y MODELO:</div>
@@ -832,29 +1012,46 @@
 
           <!-- E2.5 Protecciones Externas -->
           <div class="subseccion">
-            <div class="subseccion-titulo"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">E2.5</span> PROTECCIONES EXTERNAS</div>
+            <div class="subseccion-titulo">
+              <span
+                class="subseccion-titulo-span"
+                style="background-color: #ffa02a"
+                >E2.5</span
+              >
+              PROTECCIONES EXTERNAS
+            </div>
             <div class="cuerpo-subseccion">
               <div class="etiqueta">INTERRUPTOR GENERAL:</div>
             </div>
             <div class="fila-grid fila-2col">
               <div class="celda celda-izquierda">
-                <div class="etiqueta etiqueta-pequena">INTENSIDAD NOMINAL DEL INTERRUPTOR GENERAL, In (A):</div>
+                <div class="etiqueta etiqueta-pequena">
+                  INTENSIDAD NOMINAL DEL INTERRUPTOR GENERAL, In (A):
+                </div>
                 <div class="valor">{{ intensidadInterruptorGeneral }}</div>
               </div>
               <div class="celda">
-                <div class="etiqueta etiqueta-pequena">PODER DE CORTE DEL INTERRUPTOR GENERAL (kA):</div>
+                <div class="etiqueta etiqueta-pequena">
+                  PODER DE CORTE DEL INTERRUPTOR GENERAL (kA):
+                </div>
                 <div class="valor">{{ poderCorteInterruptor }}</div>
               </div>
             </div>
             <div class="fila-grid fila-sin-borde">
               <div class="celda celda-izquierda">
-                <div class="etiqueta">PROTECCIÓN DE MÁXIMA Y MÍNIMA FRECUENCIA (51 Y 49 Hz) Y DE MÁXIMA Y MÍNIMA TENSIÓN (1,1 Y 0,85 Um) (SI/NO) (*):</div>
+                <div class="etiqueta">
+                  PROTECCIÓN DE MÁXIMA Y MÍNIMA FRECUENCIA (51 Y 49 Hz) Y DE
+                  MÁXIMA Y MÍNIMA TENSIÓN (1,1 Y 0,85 Um) (SI/NO) (*):
+                </div>
                 <div class="valor">{{ proteccionFrecuenciaTension }}</div>
               </div>
             </div>
             <div class="fila-grid fila-sin-borde">
               <div class="celda celda-izquierda">
-                <div class="etiqueta etiqueta-pequena">(*) Cumplimentar sólo si las protecciones no se encuentran en el interior del inversor</div>
+                <div class="etiqueta etiqueta-pequena">
+                  (*) Cumplimentar sólo si las protecciones no se encuentran en
+                  el interior del inversor
+                </div>
               </div>
             </div>
           </div>
@@ -863,8 +1060,13 @@
 
       <!-- SECCIÓN F: MEDIDAS DE PROTECCIÓN EMPLEADAS -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">F</span> | MEDIDAS DE PROTECCIÓN EMPLEADAS</div>
-        
+        <div class="encabezado-seccion">
+          <span class="subseccion-titulo-span" style="background-color: #ffa02a"
+            >F</span
+          >
+          | MEDIDAS DE PROTECCIÓN EMPLEADAS
+        </div>
+
         <div class="cuerpo-seccion">
           <table class="tabla-protecciones">
             <thead>
@@ -888,26 +1090,38 @@
               <tr>
                 <td>EFECTO DEL PUNTO CALIENTE</td>
                 <td class="campo-editable">{{ medidaPuntoCaliente }}</td>
-                <td class="campo-editable">{{ parteInstalacionPuntoCaliente }}</td>
+                <td class="campo-editable">
+                  {{ parteInstalacionPuntoCaliente }}
+                </td>
               </tr>
               <tr>
                 <td>SOBRETENSIONES</td>
                 <td class="campo-editable">{{ medidaSobretensiones }}</td>
-                <td class="campo-editable">{{ parteInstalacionSobretensiones }}</td>
+                <td class="campo-editable">
+                  {{ parteInstalacionSobretensiones }}
+                </td>
               </tr>
               <tr>
-                <td>RIESGO DE EXPLOSIÓN (en instalaciones fotovoltaicas aisladas con baterías)</td>
+                <td>
+                  RIESGO DE EXPLOSIÓN (en instalaciones fotovoltaicas aisladas
+                  con baterías)
+                </td>
                 <td class="campo-editable">{{ medidaExplosion }}</td>
                 <td class="campo-editable">{{ parteInstalacionExplosion }}</td>
               </tr>
               <tr>
-                <td>RIESGO DE CORROSIÓN (en instalaciones fotovoltaicas aisladas con baterías)</td>
+                <td>
+                  RIESGO DE CORROSIÓN (en instalaciones fotovoltaicas aisladas
+                  con baterías)
+                </td>
                 <td class="campo-editable">{{ medidaCorrosion }}</td>
                 <td class="campo-editable">{{ parteInstalacionCorrosion }}</td>
               </tr>
               <tr>
                 <td>OTRAS (indicar cuales)</td>
-                <td class="campo-editable" colspan="2">{{ otrasProtecciones }}</td>
+                <td class="campo-editable" colspan="2">
+                  {{ otrasProtecciones }}
+                </td>
               </tr>
             </tbody>
           </table>
@@ -916,9 +1130,14 @@
 
       <!-- SECCIÓN G: CARACTERÍSTICAS DE LAS LÍNEAS Y CIRCUITOS -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">G</span> | CARACTERÍSTICAS DE LAS LÍNEAS Y CIRCUITOS</div>
-        
-        <div class="cuerpo-seccion" style="overflow-x: auto;">
+        <div class="encabezado-seccion">
+          <span class="subseccion-titulo-span" style="background-color: #ffa02a"
+            >G</span
+          >
+          | CARACTERÍSTICAS DE LAS LÍNEAS Y CIRCUITOS
+        </div>
+
+        <div class="cuerpo-seccion" style="overflow-x: auto">
           <table class="tabla-circuitos">
             <thead>
               <tr>
@@ -936,8 +1155,12 @@
                 <td class="campo-editable">{{ potenciaGeneradorRegulador }}</td>
                 <td class="campo-editable">{{ longitudGeneradorRegulador }}</td>
                 <td class="campo-editable">{{ materialGeneradorRegulador }}</td>
-                <td class="campo-editable">{{ intensidadGeneradorRegulador }}</td>
-                <td class="campo-editable">{{ caidaTensionGeneradorRegulador }}</td>
+                <td class="campo-editable">
+                  {{ intensidadGeneradorRegulador }}
+                </td>
+                <td class="campo-editable">
+                  {{ caidaTensionGeneradorRegulador }}
+                </td>
               </tr>
               <tr>
                 <td>Bornas del Regulador - Terminales de la Batería</td>
@@ -945,7 +1168,9 @@
                 <td class="campo-editable">{{ longitudReguladorBateria }}</td>
                 <td class="campo-editable">{{ materialReguladorBateria }}</td>
                 <td class="campo-editable">{{ intensidadReguladorBateria }}</td>
-                <td class="campo-editable">{{ caidaTensionReguladorBateria }}</td>
+                <td class="campo-editable">
+                  {{ caidaTensionReguladorBateria }}
+                </td>
               </tr>
               <tr>
                 <td>Salida del Regulador - Terminales del Inversor</td>
@@ -953,31 +1178,58 @@
                 <td class="campo-editable">{{ longitudSalidaRegulador }}</td>
                 <td class="campo-editable">{{ materialSalidaRegulador }}</td>
                 <td class="campo-editable">{{ intensidadSalidaRegulador }}</td>
-                <td class="campo-editable">{{ caidaTensionSalidaRegulador }}</td>
+                <td class="campo-editable">
+                  {{ caidaTensionSalidaRegulador }}
+                </td>
               </tr>
               <tr>
-                <td>Terminales de la Batería - Terminales del Inversor (cuando van directamente conectados)</td>
+                <td>
+                  Terminales de la Batería - Terminales del Inversor (cuando van
+                  directamente conectados)
+                </td>
                 <td class="campo-editable">{{ potenciaBateriaInversor }}</td>
                 <td class="campo-editable">{{ longitudBateriaInversor }}</td>
                 <td class="campo-editable">{{ materialBateriaInversor }}</td>
                 <td class="campo-editable">{{ intensidadBateriaInversor }}</td>
-                <td class="campo-editable">{{ caidaTensionBateriaInversor }}</td>
+                <td class="campo-editable">
+                  {{ caidaTensionBateriaInversor }}
+                </td>
               </tr>
               <tr>
-                <td>Generador Fotovoltaico - Terminales del Inversor (cuando van directamente conectados)</td>
-                <td class="campo-editable">{{ potenciaGeneradorInversorDirecto }}</td>
-                <td class="campo-editable">{{ longitudGeneradorInversorDirecto }}</td>
-                <td class="campo-editable">{{ materialGeneradorInversorDirecto }}</td>
-                <td class="campo-editable">{{ intensidadGeneradorInversorDirecto }}</td>
-                <td class="campo-editable">{{ caidaTensionGeneradorInversorDirecto }}</td>
+                <td>
+                  Generador Fotovoltaico - Terminales del Inversor (cuando van
+                  directamente conectados)
+                </td>
+                <td class="campo-editable">
+                  {{ potenciaGeneradorInversorDirecto }}
+                </td>
+                <td class="campo-editable">
+                  {{ longitudGeneradorInversorDirecto }}
+                </td>
+                <td class="campo-editable">
+                  {{ materialGeneradorInversorDirecto }}
+                </td>
+                <td class="campo-editable">
+                  {{ intensidadGeneradorInversorDirecto }}
+                </td>
+                <td class="campo-editable">
+                  {{ caidaTensionGeneradorInversorDirecto }}
+                </td>
               </tr>
               <tr>
-                <td>Salida del Inversor - Red Eléctrica (en instalaciones interconectadas)</td>
+                <td>
+                  Salida del Inversor - Red Eléctrica (en instalaciones
+                  interconectadas)
+                </td>
                 <td class="campo-editable">{{ potenciaSalidaInversorRed }}</td>
                 <td class="campo-editable">{{ longitudSalidaInversorRed }}</td>
                 <td class="campo-editable">{{ materialSalidaInversorRed }}</td>
-                <td class="campo-editable">{{ intensidadSalidaInversorRed }}</td>
-                <td class="campo-editable">{{ caidaTensionSalidaInversorRed }}</td>
+                <td class="campo-editable">
+                  {{ intensidadSalidaInversorRed }}
+                </td>
+                <td class="campo-editable">
+                  {{ caidaTensionSalidaInversorRed }}
+                </td>
               </tr>
             </tbody>
           </table>
@@ -986,32 +1238,60 @@
 
       <!-- SECCIÓN H: ESQUEMA UNIFILAR -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">H</span> | ESQUEMA UNIFILAR DE LA INSTALACIÓN (PROTECCIONES INCLUIDAS)</div>
-        
+        <div class="encabezado-seccion">
+          <span class="subseccion-titulo-span" style="background-color: #ffa02a"
+            >H</span
+          >
+          | ESQUEMA UNIFILAR DE LA INSTALACIÓN (PROTECCIONES INCLUIDAS)
+        </div>
+
         <div class="contenedor-esquema">
-          <img v-if="esquemaUnifilar" :src="esquemaUnifilar" class="imagen-esquema" />
-          <div v-else class="placeholder-esquema">Esquema eléctrico unifilar de la instalación</div>
+          <img
+            v-if="esquemaUnifilar"
+            :src="esquemaUnifilar"
+            class="imagen-esquema"
+          />
+          <div v-else class="placeholder-esquema">
+            Esquema eléctrico unifilar de la instalación
+          </div>
         </div>
       </div>
 
       <!-- SECCIÓN I: PLANO DE EMPLAZAMIENTO -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">I</span> | PLANO DE EMPLAZAMIENTO Y CROQUIS DE ACCESO</div>
-        
+        <div class="encabezado-seccion">
+          <span class="subseccion-titulo-span" style="background-color: #ffa02a"
+            >I</span
+          >
+          | PLANO DE EMPLAZAMIENTO Y CROQUIS DE ACCESO
+        </div>
+
         <div class="contenedor-esquema">
-          <img v-if="planoEmplazamiento" :src="planoEmplazamiento" class="imagen-esquema" />
-          <div v-else class="placeholder-esquema">Plano de emplazamiento y croquis de acceso</div>
+          <img
+            v-if="planoEmplazamiento"
+            :src="planoEmplazamiento"
+            class="imagen-esquema"
+          />
+          <div v-else class="placeholder-esquema">
+            Plano de emplazamiento y croquis de acceso
+          </div>
         </div>
       </div>
 
       <!-- PIE DE PÁGINA -->
       <div class="pie-pagina">
-        <div style="margin-bottom: 5px;">
-          <img src="/logo-solay.png" alt="Solay" style="height: 40px; margin: 0 auto;" />
+        <div style="margin-bottom: 5px">
+          <img
+            src="/logo-solay.png"
+            alt="Solay"
+            style="height: 40px; margin: 0 auto"
+          />
         </div>
-        <p style="margin: 5px 0;">Solay Fotovoltaica</p>
-        <p style="margin: 3px 0; font-size: 8px;">C/ Bonaventura, 3 • 41600 Sanlúcar la Mayor (Sevilla)</p>
-        <p style="margin: 3px 0; font-size: 8px;">Página 1</p>
+        <p style="margin: 5px 0">Solay Fotovoltaica</p>
+        <p style="margin: 3px 0; font-size: 8px">
+          C/ Bonaventura, 3 • 41600 Sanlúcar la Mayor (Sevilla)
+        </p>
+        <p style="margin: 3px 0; font-size: 8px">Página 1</p>
       </div>
     </div>
   </div>
@@ -1231,13 +1511,13 @@ defineProps({
   // Generado
   generatedDate: {
     type: String,
-    default: new Date().toLocaleDateString('es-ES')
-  }
-})
+    default: new Date().toLocaleDateString("es-ES"),
+  },
+});
 
-import { ref } from 'vue'
+import { ref } from "vue";
 
-const tipoInstalacionSeleccionada = ref('Nueva')
+const tipoInstalacionSeleccionada = ref("Nueva");
 </script>
 
 <style scoped>
@@ -1247,14 +1527,13 @@ const tipoInstalacionSeleccionada = ref('Nueva')
   padding: 0;
   width: 210mm;
   margin: 0 auto;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   color: #000;
   font-size: 11px;
   display: block;
 }
 
 .encabezado-documento-principal {
-
   padding: 0px 15px 15px 15px;
   text-align: center;
   border-bottom: 2px solid #000;
@@ -1282,8 +1561,6 @@ const tipoInstalacionSeleccionada = ref('Nueva')
   margin-bottom: 5px;
 }
 
-
-
 .encabezado-caja {
   background-color: var(--color-orange-medium-strong);
   padding: 5px;
@@ -1292,6 +1569,10 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 
 .contenido-caja {
   color: #000;
+}
+
+.cuerpo-seccion {
+  padding: 1px 0px 0px 4px;
 }
 
 .cuerpo-seccion-borde {
@@ -1424,7 +1705,6 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 /* ========== CELDAS ========== */
 .celda {
   padding: 1px 0px 0px 4px;
-  
 }
 
 .celda-izquierda {
@@ -1456,20 +1736,19 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 
 .valor-grande {
   color: #000;
-  min-height: 40px;
+  min-height: 17px;
 }
 
 /* ========== SUBSECCIONES E1, E2, E3, etc. ========== */
 .subseccion {
   border-bottom: 1px solid #000;
-
 }
 
 .subseccion-titulo {
   font-weight: bold;
   border-bottom: 1px solid #000;
   padding: 7px 5px;
-  background-color: #FFCC99;
+  background-color: #ffcc99;
   color: rgb(0, 0, 0);
 }
 
@@ -1523,7 +1802,6 @@ const tipoInstalacionSeleccionada = ref('Nueva')
 }
 
 .seccion-firma {
-
   text-align: center;
   border-top: 1px solid #000;
 }
@@ -1722,28 +2000,28 @@ const tipoInstalacionSeleccionada = ref('Nueva')
     margin: 0;
     padding: 0;
   }
-  
+
   button {
     display: none;
   }
-  
+
   /* Forzar impresión de colores */
   * {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
-  
+
   /* Evitar que se corten las secciones entre páginas */
   .seccion {
     page-break-inside: avoid;
     break-inside: avoid;
   }
-  
+
   .subseccion {
     page-break-inside: avoid;
     break-inside: avoid;
   }
-  
+
   /* Forzar salto de página antes de E1.7 para evitar cortes */
   .subseccion-e1-7 {
     page-break-inside: avoid;
@@ -1751,28 +2029,28 @@ const tipoInstalacionSeleccionada = ref('Nueva')
     page-break-before: always;
     margin-top: 20px;
   }
-  
+
   .subseccion-e2 {
     page-break-inside: avoid;
     break-inside: avoid;
   }
-  
+
   .fila-grid {
     page-break-inside: avoid;
     break-inside: avoid;
   }
-  
+
   .tabla-protecciones,
   .tabla-circuitos {
     page-break-inside: avoid;
     break-inside: avoid;
   }
-  
+
   .contenedor-esquema {
     page-break-inside: avoid;
     break-inside: avoid;
   }
-  
+
   /* Permitir saltos de página antes de secciones principales */
   .encabezado-seccion {
     page-break-before: auto;
@@ -1809,5 +2087,4 @@ const tipoInstalacionSeleccionada = ref('Nueva')
   color: #000;
   min-height: 20px;
 }
-
 </style>

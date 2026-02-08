@@ -153,48 +153,119 @@
 
       <!-- SECCIÓN C: PERSONA QUE FIRMA -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">C</span> | PERSONA QUE FIRMA EL PRESENTE PROYECTO</div>
+        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">C</span> | IDENTIFICACIÓN DE LA PERSONA QUE FIRMA LA MTD</div>
         
-        <div class="fila-grid fila-2col">
-          <div class="celda celda-izquierda">
-            <div class="etiqueta">NOMBRE TÉCNICO INSTALADOR:</div>
-            <div class="valor">{{ nombreTecnicoInstalador }}</div>
+        <!-- Técnico Instalador Autorizado -->
+        <div class="subseccion">
+          <div class="etiqueta-grande">MEMORIA REALIZADA POR INSTALADOR ELÉCTRICO AUTORIZADO:</div>
+          
+          <div class="fila-grid fila-2col">
+            <div class="celda celda-izquierda">
+              <div class="etiqueta">NOMBRE:</div>
+              <div class="valor">{{ nombreTecnicoInstalador }}</div>
+            </div>
+            <div class="celda">
+              <div class="etiqueta">Nº DE CERTIFICADO DE CUALIFICACIÓN INDIVIDUAL:</div>
+              <div class="valor">{{ numeroCertificadoInstalador }}</div>
+            </div>
           </div>
-          <div class="celda">
-            <div class="etiqueta">NÚMERO CERTIFICADO INSTALADOR:</div>
-            <div class="valor valor-pequeno">{{ numeroCertificadoInstalador }}</div>
-          </div>
-        </div>
 
-        <div class="cuerpo-seccion-borde">
-          <div class="etiqueta">NÚMERO INSTALADOR EMPRESA:</div>
-          <div class="valor">{{ numeroInstaladorEmpresa }}</div>
-        </div>
+          <div class="fila-grid fila-2col">
+            <div class="celda celda-izquierda">
+              <div class="etiqueta">Nº DE INSTALADOR ELÉCTRICO AUTORIZADO (empresa):</div>
+              <div class="valor">{{ numeroInstaladorEmpresa }}</div>
+            </div>
+            <div class="celda">
+              <div class="etiqueta">DOMICILIO (calle o plaza):</div>
+              <div class="valor">{{ domicilioTecnico }}</div>
+            </div>
+          </div>
 
-        <div class="fila-grid fila-3col">
-          <div class="celda celda-izquierda">
-            <div class="etiqueta etiqueta-pequena">DOMICILIO:</div>
-            <div class="valor">{{ domicilioTecnico }}</div>
+          <div class="fila-grid fila-3col">
+            <div class="celda celda-izquierda">
+              <div class="etiqueta">NÚMERO:</div>
+              <div class="valor">{{ numeroTecnico }}</div>
+            </div>
+            <div class="celda celda-izquierda">
+              <div class="etiqueta">LOCALIDAD:</div>
+              <div class="valor">{{ localidadTecnico }}</div>
+            </div>
+            <div class="celda">
+              <div class="etiqueta">C.P.:</div>
+              <div class="valor">{{ codigoPostalTecnico }}</div>
+            </div>
           </div>
-          <div class="celda celda-izquierda">
-            <div class="etiqueta etiqueta-pequena">NÚMERO:</div>
-            <div class="valor">{{ numeroTecnico }}</div>
-          </div>
-          <div class="celda">
-            <div class="etiqueta etiqueta-pequena">LOCALIDAD:</div>
-            <div class="valor">{{ localidadTecnico }}</div>
-          </div>
-        </div>
 
-        <div class="fila-grid fila-2col fila-sin-borde">
-          <div class="celda celda-izquierda">
-            <div class="etiqueta">CÓDIGO POSTAL:</div>
-            <div class="valor">{{ codigoPostalTecnico }}</div>
-          </div>
-          <div class="celda">
+          <div class="cuerpo-seccion">
             <div class="etiqueta">TELÉFONO:</div>
             <div class="valor">{{ telefonoTecnico }}</div>
           </div>
+        </div>
+
+        <!-- Técnico Competente -->
+        <div class="subseccion">
+          <div class="fila-checkbox">
+            <input type="checkbox" style="width: 14px; height: 14px; cursor: pointer;">
+            <span>MEMORIA REALIZADA POR TÉCNICO COMPETENTE:</span>
+          </div>
+          
+          <div class="fila-grid fila-2col">
+            <div class="celda celda-izquierda valor-grande">
+              <div class="etiqueta">NOMBRE:</div>
+              <div class="valor valor-grande">{{ nombreTecnicoCompetente }}</div>
+            </div>
+            <div class="celda valor-grande">
+              <div class="etiqueta">DOMICILIO (calle o plaza):</div>
+              <div class="valor valor-grande">{{ domicilioTecnicoCompetente }}</div>
+            </div>
+          </div>
+
+          <div class="fila-grid fila-3col">
+            <div class="celda celda-izquierda valor-grande">
+              <div class="etiqueta">NÚMERO:</div>
+              <div class="valor valor-grande">{{ numeroTecnicoCompetente }}</div>
+            </div>
+            <div class="celda celda-izquierda valor-grande">
+              <div class="etiqueta">LOCALIDAD:</div>
+              <div class="valor valor-grande">{{ localidadTecnicoCompetente }}</div>
+            </div>
+            <div class="celda valor-grande">
+              <div class="etiqueta">C.P.:</div>
+              <div class="valor valor-grande">{{ codigoPostalTecnicoCompetente }}</div>
+            </div>
+          </div>
+
+          <div class="cuerpo-seccion" style="border-bottom: none;">
+            <div class="etiqueta">TELÉFONO:</div>
+            <div class="valor valor-grande">{{ telefonoTecnicoCompetente }}</div>
+          </div>
+        </div>
+
+        <!-- Colegio Oficial -->
+        <div class="subseccion" style="border-bottom: none;">
+          <div class="fila-grid fila-2col fila-sin-borde">
+            <div class="celda celda-izquierda valor-grande">
+              <div class="etiqueta">COLEGIO OFICIAL:</div>
+              <div class="valor valor-grande">{{ colegioOficial }}</div>
+            </div>
+            <div class="celda valor-grande">
+              <div class="etiqueta">Nº DE COLEGIADO:</div>
+              <div class="valor valor-grande">{{ numeroColegiado }}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Firma y Fecha -->
+        <div class="seccion-firma">
+          <div class="fecha-firma">En Sevilla a {{ generatedDate }}</div>
+          <div class="imagen-firma">
+            <img src="/firma-solay.png" alt="Firma" style="height: 60px; object-fit: contain;" />
+          </div>
+          <div class="nombre-firmante">Firma del Instalador Autorizado / Técnico Titulado</div>
+        </div>
+
+        <div class="nota-legal">
+          <p>(Cuando la MTD sea firmado por Técnico Titulado vendrá sellada por el Colegio Oficial)</p>
         </div>
       </div>
 
@@ -389,6 +460,14 @@ const numeroTecnico = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.numeroTec
 const localidadTecnico = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.localidadTecnico)
 const codigoPostalTecnico = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.codigoPostalTecnico)
 const telefonoTecnico = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.telefonoTecnico)
+const nombreTecnicoCompetente = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.nombreTecnicoCompetente)
+const domicilioTecnicoCompetente = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.domicilioTecnicoCompetente)
+const numeroTecnicoCompetente = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.numeroTecnicoCompetente)
+const localidadTecnicoCompetente = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.localidadTecnicoCompetente)
+const codigoPostalTecnicoCompetente = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.codigoPostalTecnicoCompetente)
+const telefonoTecnicoCompetente = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.telefonoTecnicoCompetente)
+const colegioOficial = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.colegioOficial)
+const numeroColegiado = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.numeroColegiado)
 const modalidadBasicaM1 = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.modalidadBasicaM1)
 const modalidadBasicaM2 = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.modalidadBasicaM2)
 const modalidadBasicaM3 = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.modalidadBasicaM3)
@@ -416,6 +495,9 @@ const intensidadAdmisible = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.int
 const caidaTension = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.caidaTension)
 const esquemaUnifilar = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.esquemaUnifilar)
 const planoEmplazamiento = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.planoEmplazamiento)
+
+// Fecha generada
+const generatedDate = ref(new Date().toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' }))
 </script>
 
 <style scoped>
@@ -675,6 +757,8 @@ const planoEmplazamiento = ref(memoriaTecnicaPuntoRecargaConfig.defaultData.plan
 .seccion-firma {
   text-align: center;
   border-top: 1px solid #000;
+  margin-top: 20px;
+  padding-top: 15px;
 }
 
 .fecha-firma {
