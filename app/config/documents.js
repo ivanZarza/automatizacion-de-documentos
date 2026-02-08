@@ -33,6 +33,36 @@ export const autorizacionRepresentacionConfig = {
   }
 }
 
+export const declaracionHabilitacionProfesionalConfig = {
+  id: 'declaracion-habilitacion-profesional',
+  title: 'Declaración Responsable de Habilitación Profesional',
+  description: 'Documento de declaración de habilitación profesional para colegiados',
+  fileName: 'declaracion-habilitacion-profesional.pdf',
+  route: '/declaracion-habilitacion-profesional',
+  defaultData: {
+    nombreProfesional: 'Eduardo Rivera Cabezas',
+    nifProfesional: '28.818.007-L',
+    profesionTitulo: 'Ingeniero Industrial',
+    numeroColegiado: '4654',
+    nombreColegio: 'Colegio Oficial de Ingenieros Industriales de Andalucía Occidental',
+    domicilioProfesional: 'Calle El Peñón 5',
+    codigoPostalProfesional: '41940',
+    localidadProfesional: 'Tomares',
+    provinciaProfesional: 'Sevilla',
+    ciudadFirma: 'Jerez de la Frontera',
+    fecha: '16/10/2025'
+  },
+  fields: [
+    { name: 'ciudadFirma', label: 'Ciudad de Firma', placeholder: 'Ej: Jerez de la Frontera', type: 'text' },
+    { name: 'fecha', label: 'Fecha del Documento', placeholder: 'DD/MM/YYYY', type: 'date' }
+  ],
+  capabilities: {
+    canPreview: true,
+    canEdit: true,
+    canGeneratePDF: true
+  }
+}
+
 export const memoriaTecnicaConfig = {
   id: 'mtd-instalacion-autoconsumo-monofasica-con-bateria',
   title: 'Memoria Técnica de Instalación de Autoconsumo Monofásica con Batería',
@@ -1131,6 +1161,7 @@ export const memoriaTecnicaPuntoRecargaConfig = {
  */
 const documentConfigs = {
   'autorizacion-representacion': autorizacionRepresentacionConfig,
+  'declaracion-habilitacion-profesional': declaracionHabilitacionProfesionalConfig,
   'mtd-instalacion-autoconsumo-monofasica-con-bateria': memoriaTecnicaConfig,
   'mtd-instalacion-aislada-con-bateria': memoriaInstalacionAisladaConBateriaConfig,
   'mtd-instalacion-autoconsumo-trifasica-con-bateria': memoriaTecnicaTrifasicaConBateriaConfig,

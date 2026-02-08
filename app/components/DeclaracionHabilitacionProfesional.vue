@@ -6,53 +6,70 @@
       <!-- Encabezado con Logo -->
       <div class="encabezado">
         <div class="encabezado-contenido">
-          <h1 class="titulo-principal">AUTORIZACIÓN DE REPRESENTACIÓN</h1>
-          <p class="subtitulo">Documento válido para trámites administrativos</p>
+          <h1 class="titulo-principal">DECLARACIÓN RESPONSABLE</h1>
+          <h3 class="titulo-secundario">DE HABILITACIÓN PROFESIONAL</h3>
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
       </div>
 
       <!-- Contenido Principal -->
       <div class="contenido-principal">
+        <!-- PÁRRAFO INTRODUCTORIO -->
         <p class="parrafo-intro">
-          Yo, <strong>{{ autorizante }}</strong>, con DNI/NIF <strong>{{ dniAutorizante }}</strong>, y con domicilio en <strong>{{ domicilioAutorizante }}</strong>, actuando en nombre propio,
+          Por la presente, 
+          <span class="texto-fijo">{{ datosProfesional.nombreProfesional }}</span>, 
+          con NIF 
+          <span class="texto-fijo">{{ datosProfesional.nifProfesional }}</span>, 
+          <span class="texto-fijo">{{ datosProfesional.profesionTitulo }}</span> 
+          colegiado número 
+          <span class="texto-fijo">{{ datosProfesional.numeroColegiado }}</span> 
+          en el 
+          <span class="texto-fijo">{{ datosProfesional.nombreColegio }}</span>, 
+          y con domicilio en 
+          <span class="texto-fijo">{{ datosProfesional.domicilioProfesional }}</span> - 
+          <span class="texto-fijo">{{ datosProfesional.codigoPostalProfesional }}</span>, 
+          localidad de 
+          <span class="texto-fijo">{{ datosProfesional.localidadProfesional }}</span>, 
+          provincia de 
+          <span class="texto-fijo">{{ datosProfesional.provinciaProfesional }}</span>
         </p>
 
-        <h2 class="titulo-autorizo">AUTORIZO A</h2>
-
-        <p class="parrafo-autorizacion">
-          <strong>{{ representante }}</strong>, con DNI/NIF <strong>{{ dniRepresentante }}</strong>, ante <strong>{{ organismo }}</strong>, para realizar en mi nombre las gestiones de <strong>{{ gestiones }}</strong>.
+        <!-- DECLARA -->
+        <h2 class="titulo-declara">DECLARA</h2>
+        
+        <p class="parrafo-declara">
+          Poseer la titulación de 
+          <span class="texto-fijo">{{ datosProfesional.profesionTitulo }}</span>, 
+          colegiado en el 
+          <span class="texto-fijo">{{ datosProfesional.nombreColegio }}</span> 
+          con número de colegiado 
+          <span class="texto-fijo">{{ datosProfesional.numeroColegiado }}</span> 
+          y estar habilitado para el ejercicio de la profesión.
         </p>
 
-        <div class="caja-validez">
-          <p class="texto-validez">
-            <strong>VALIDEZ:</strong> Esta autorización es válida desde su firma hasta que sea revocada expresamente.
-          </p>
-        </div>
+        <!-- FECHA Y LUGAR -->
+        <p class="parrafo-fecha">
+          En 
+          <span class="texto-editable">{{ ciudadFirma }}</span>, 
+          a 
+          <span class="texto-editable">{{ fecha }}</span>.
+        </p>
 
-        <p class="parrafo-fecha">En Puerto Real, a {{ fecha }}</p>
-
-        <!-- Firmas lado a lado compacto -->
+        <!-- FIRMA -->
         <div class="contenedor-firmas">
-          <div class="firma-bloque">
-            <div class="linea-firma"></div>
-            <p class="etiqueta-firma">FIRMA DEL AUTORIZANTE</p>
-            <p class="nombre-firma">{{ autorizante }}</p>
-          </div>
           <div class="firma-bloque">
             <div class="linea-firma-imagen">
               <img src="/firma-solay.png" alt="Firma" class="imagen-firma" />
             </div>
-            <p class="etiqueta-firma">FIRMA DEL REPRESENTANTE</p>
-            <p class="nombre-firma">{{ representante }}</p>
+            <p class="etiqueta-firma">FIRMA</p>
           </div>
         </div>
       </div>
 
       <!-- Pie de página -->
       <div class="pie-pagina">
-        <p class="texto-pie">Validez legal sujeta a regulaciones vigentes</p>
-        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+        <p class="texto-pie">www.solay.es</p>
+        <p class="texto-pie">Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110 Sevilla.</p>
         <p class="texto-pie">Página 1</p>
       </div>
     </div>
@@ -60,32 +77,29 @@
 </template>
 
 <script setup>
-defineProps({
-  autorizante: String,
-  dniAutorizante: String,
-  domicilioAutorizante: String,
-  representante: String,
-  dniRepresentante: String,
-  domicilioRepresentante: String,
-  organismo: String,
-  gestiones: String,
-  fecha: String,
-  generatedDate: {
-    type: String,
-    default: ''
-  }
-})
-
-// Ocultar botones al imprimir
-const hideButtonsOnPrint = () => {
-  const buttons = document.querySelectorAll('button');
-  buttons.forEach(button => button.style.display = 'none');
-  window.print();
-  buttons.forEach(button => button.style.display = '');
+// Datos fijos del profesional
+const datosProfesional = {
+  nombreProfesional: 'Eduardo Rivera Cabezas',
+  nifProfesional: '28.818.007-L',
+  profesionTitulo: 'Ingeniero Industrial',
+  numeroColegiado: '4654',
+  nombreColegio: 'Colegio Oficial de Ingenieros Industriales de Andalucía Occidental',
+  domicilioProfesional: 'Calle El Peñón 5',
+  codigoPostalProfesional: '41940',
+  localidadProfesional: 'Tomares',
+  provinciaProfesional: 'Sevilla'
 }
+
+// Props editables (solo fecha y ciudad de firma)
+defineProps({
+  ciudadFirma: String,
+  fecha: String
+})
 </script>
 
 <style scoped>
+@import '../styles/variables.css';
+
 /* ========== CONTENEDOR PDF ========== */
 .contenedor-pdf {
   width: 210mm;
@@ -106,6 +120,7 @@ const hideButtonsOnPrint = () => {
   display: flex;
   flex-direction: column;
   padding: 20mm;
+  margin-top: 30px;
 }
 
 /* ========== ENCABEZADO ========== */
@@ -124,15 +139,16 @@ const hideButtonsOnPrint = () => {
 
 .titulo-principal {
   margin: 0;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: bold;
   color: var(--color-orange-medium-strong);
   text-align: center;
 }
 
-.subtitulo {
-  margin: 2px 0 0 0;
-  font-size: 16px;
+.titulo-secundario {
+  margin: 5px 0 0 0;
+  font-size: 18px;
+  font-weight: bold;
   color: var(--color-orange-medium-strong);
   text-align: center;
 }
@@ -151,67 +167,61 @@ const hideButtonsOnPrint = () => {
   flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 50px 0px;
 }
 
+/* ========== PÁRRAFOS ========== */
 .parrafo-intro {
-  margin: 0 0 15px 0;
+  margin: 0 0 25px 0;
   text-align: justify;
 }
 
-.titulo-autorizo {
+.parrafo-declara {
+  margin: 20px 0 25px 0;
+  text-align: justify;
+}
+
+.parrafo-fecha {
+  text-align: center;
+  font-weight: bold;
+  margin: 50px 0 70px 0;
+  font-size: 15px;
+}
+
+/* ========== TÍTULOS ========== */
+.titulo-declara {
   text-align: center;
   font-size: 18px;
   font-weight: bold;
   color: var(--color-blue-royal);
-  margin: 15px 0;
+  margin: 20px 0;
   padding: 10px 0;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
 }
 
-.parrafo-autorizacion {
-  margin: 15px 0;
-  text-align: justify;
+/* ========== TEXTO ========== */
+.texto-fijo {
+  color: #000;
+  font-weight: normal;
 }
 
-/* ========== CAJA VALIDEZ ========== */
-.caja-validez {
-  background-color: var(--color-orange-weak);
-  border-left: 4px solid var(--color-orange-medium-strong);
-  padding: 12px;
-  margin: 15px 0;
-  font-size: 16px;
-}
-
-.texto-validez {
-  margin: 0;
-}
-
-/* ========== FECHA ========== */
-.parrafo-fecha {
-  text-align: center;
+.texto-editable {
+  color: #000;
   font-weight: bold;
-  margin: 40px 0 60px 0;
-  font-size: 15px;
 }
 
 /* ========== FIRMAS ========== */
 .contenedor-firmas {
   display: flex;
-  justify-content: space-between;
-  gap: 40px;
+  justify-content: center;
   margin-top: auto;
+  padding-top: 30px;
 }
 
 .firma-bloque {
-  flex: 1;
   text-align: center;
-}
-
-.linea-firma {
-  border-bottom: 1px solid #000;
-  height: 60px;
-  margin-bottom: 10px;
+  width: 200px;
 }
 
 .linea-firma-imagen {
@@ -230,15 +240,9 @@ const hideButtonsOnPrint = () => {
 }
 
 .etiqueta-firma {
-  margin: 5px 0;
+  margin: 0;
   font-weight: bold;
   font-size: 14px;
-}
-
-.nombre-firma {
-  margin: 2px 0;
-  font-size: 13px;
-  color: #666;
 }
 
 /* ========== PIE DE PÁGINA ========== */
@@ -247,8 +251,8 @@ const hideButtonsOnPrint = () => {
   border-top: 1px solid var(--color-blue-royal);
   margin-top: 20px;
   text-align: center;
-  font-size: 12px;
-  color: #000;
+  font-size: 11px;
+  color: #666;
 }
 
 .texto-pie {
@@ -256,10 +260,6 @@ const hideButtonsOnPrint = () => {
 }
 
 /* ========== MEDIA QUERIES ========== */
-p {
-  font-size: 16px;
-}
-
 @media print {
   * {
     margin: 0;
@@ -268,12 +268,12 @@ p {
   }
 
   div[data-pdf-content] {
-    font-size: 18px !important;
+    font-size: 14px !important;
     width: 210mm !important;
     height: 297mm !important;
     box-shadow: none !important;
     margin: 0 !important;
-    padding: 10mm !important;
+    padding: 20mm !important;
     page-break-after: avoid;
     background: white !important;
   }
@@ -294,7 +294,7 @@ p {
 
 @media screen {
   div[data-pdf-content] {
-    font-size: 20px;
+    font-size: 16px;
     max-width: 210mm;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
