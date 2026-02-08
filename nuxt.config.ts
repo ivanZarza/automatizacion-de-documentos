@@ -4,5 +4,20 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: [
     '../app/styles/variables.css'
-  ]
+  ],
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      routes: ['/sitemap.xml']
+    }
+  },
+  app: {
+    head: {
+      title: 'Generación de Documentación - Solay',
+      meta: [
+        { name: 'description', content: 'Sistema de generación de documentación profesional' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+      ]
+    }
+  }
 })
