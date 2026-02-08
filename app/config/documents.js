@@ -1244,12 +1244,46 @@ export const memoriaTecnicaPuntoRecargaConfig = {
   }
 }
 
+export const declaracionNoGeneracionRcdsConfig = {
+  id: 'declaracion-no-generacion-rcds',
+  title: 'Declaración Responsable de No Generación de RCDs',
+  description: 'Declaración de no generación de residuos de construcción y demolición',
+  fileName: 'declaracion-no-generacion-rcds.pdf',
+  route: '/declaracion-no-generacion-rcds',
+  defaultData: {
+    direccion: 'Calle Dolores',
+    numero: '14',
+    otrosDatos: 'Es:1 Pl:00 Pl:01',
+    codigoPostal: '11401',
+    referenciaCatastral: '5637900UP3563S0001DQ',
+    municipio: 'Jerez de la Frontera',
+    ciudadFirma: 'Jerez de la Frontera',
+    fecha: '16/10/2025'
+  },
+  fields: [
+    { name: 'direccion', label: 'Dirección', placeholder: 'Ej: Calle Dolores', type: 'text', fullWidth: true },
+    { name: 'numero', label: 'Número', placeholder: 'Ej: 14', type: 'text' },
+    { name: 'otrosDatos', label: 'Otros Datos (Escalera, Piso, etc.)', placeholder: 'Ej: Es:1 Pl:00 Pl:01', type: 'text' },
+    { name: 'codigoPostal', label: 'Código Postal', placeholder: 'Ej: 11401', type: 'text' },
+    { name: 'referenciaCatastral', label: 'Referencia Catastral', placeholder: 'Ej: 5637900UP3563S0001DQ', type: 'text', fullWidth: true },
+    { name: 'municipio', label: 'Municipio', placeholder: 'Ej: Jerez de la Frontera', type: 'text', fullWidth: true },
+    { name: 'ciudadFirma', label: 'Ciudad de Firma', placeholder: 'Ej: Jerez de la Frontera', type: 'text' },
+    { name: 'fecha', label: 'Fecha', placeholder: 'DD/MM/YYYY', type: 'date' }
+  ],
+  capabilities: {
+    canPreview: true,
+    canEdit: true,
+    canGeneratePDF: true
+  }
+}
+
 /**
  * Objeto que contiene todas las configuraciones de documentos
  */
 const documentConfigs = {
   'autorizacion-representacion': autorizacionRepresentacionConfig,
   'declaracion-habilitacion-profesional': declaracionHabilitacionProfesionalConfig,
+  'declaracion-no-generacion-rcds': declaracionNoGeneracionRcdsConfig,
   'certificado-coplanar-teja': certificadoCoplanarTejaConfig,
   'certificado-cubierta-plan-aaporticada': certificadoCubiertaPlanAaporticadaConfig,
   'mtd-instalacion-autoconsumo-monofasica-con-bateria': memoriaTecnicaConfig,

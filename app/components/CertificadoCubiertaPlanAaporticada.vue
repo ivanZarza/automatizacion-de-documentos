@@ -317,7 +317,7 @@ defineProps({
 }
 
 .logo-footer-img {
-  width: 100px;
+  width: 150px;
   height: auto;
 }
 
