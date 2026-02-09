@@ -41,10 +41,6 @@ export const declaracionHabilitacionProfesionalConfig = {
     ciudadFirma: 'Jerez de la Frontera',
     fecha: '16/10/2025'
   },
-  fields: [
-    { name: 'ciudadFirma', label: 'Ciudad de Firma', placeholder: 'Ej: Jerez de la Frontera', type: 'text' },
-    { name: 'fecha', label: 'Fecha del Documento', placeholder: 'DD/MM/YYYY', type: 'date' }
-  ],
   capabilities: {
     canPreview: true,
     canEdit: true,
