@@ -1107,16 +1107,6 @@ export const declaracionNoGeneracionRcdsConfig = {
     ciudadFirma: '',
     fecha: ''
   },
-  fields: [
-    { name: 'direccion', label: 'Dirección', placeholder: 'Ej: Calle Dolores', type: 'text', fullWidth: true },
-    { name: 'numero', label: 'Número', placeholder: 'Ej: 14', type: 'text' },
-    { name: 'otrosDatos', label: 'Otros Datos (Escalera, Piso, etc.)', placeholder: 'Ej: Es:1 Pl:00 Pl:01', type: 'text' },
-    { name: 'codigoPostal', label: 'Código Postal', placeholder: 'Ej: 11401', type: 'text' },
-    { name: 'referenciaCatastral', label: 'Referencia Catastral', placeholder: 'Ej: 5637900UP3563S0001DQ', type: 'text', fullWidth: true },
-    { name: 'municipio', label: 'Municipio', placeholder: 'Ej: Jerez de la Frontera', type: 'text', fullWidth: true },
-    { name: 'ciudadFirma', label: 'Ciudad de Firma', placeholder: 'Ej: Jerez de la Frontera', type: 'text' },
-    { name: 'fecha', label: 'Fecha', placeholder: 'DD/MM/YYYY', type: 'date' }
-  ],
   capabilities: {
     canPreview: true,
     canEdit: true,
