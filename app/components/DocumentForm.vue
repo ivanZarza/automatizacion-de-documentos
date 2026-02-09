@@ -1,63 +1,67 @@
 <template>
-  <div class="bg-white p-10 rounded-lg shadow-lg flex justify-center items-center" style="max-width: 800px; margin: 0 auto; font-family: 'Segoe UI', Arial, sans-serif; border: 2px solid #0066cc;">
-    <div style="width: 100%;">
-      <h2 class="text-4xl font-bold mb-8 text-blue-600 text-center border-b-2 border-gray-300 pb-4">{{ title }}</h2>
-      <form @submit.prevent="submit" class="space-y-8">
-        <div class="grid gap-8" :class="{ 'grid-cols-2': columns === 2, 'grid-cols-1': columns === 1 }">
-          <div v-for="field in filterEditableFields()" :key="field.name" :class="{ 'col-span-full': field.fullWidth }">
-            <label class="block text-lg font-semibold mb-4 text-gray-800">{{ field.label }}</label>
-            
-            <!-- Input Text -->
-            <input 
-              v-if="field.type === 'text' || field.type === 'email' || field.type === 'tel'"
-              v-model="formData[field.name]"
-              :type="field.type"
-              :placeholder="field.placeholder"
-              class="w-full text-lg border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
-            />
-
-            <!-- Input Date -->
-            <input 
-              v-else-if="field.type === 'date'"
-              v-model="formData[field.name]"
-              type="date"
-              class="w-full text-lg border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
-            />
-
-            <!-- Textarea -->
-            <textarea 
-              v-else-if="field.type === 'textarea'"
-              v-model="formData[field.name]"
-              :placeholder="field.placeholder"
-              :rows="field.rows || 4"
-              class="w-full text-lg border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
-            ></textarea>
-
-            <!-- Select -->
-            <select 
-              v-else-if="field.type === 'select'"
-              v-model="formData[field.name]"
-              class="w-full text-lg border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
-            >
-              <option value="">{{ field.placeholder }}</option>
-              <option v-for="option in field.options" :key="option" :value="option">
-                {{ option }}
-              </option>
-            </select>
-
-            <!-- File Input -->
-            <div v-else-if="field.type === 'file'" class="space-y-3">
+  <div class="form-container">
+    <div class="form-wrapper">
+      <h2 class="form-title">{{ title }}</h2>
+      <form @submit.prevent="submit" class="form-content">
+        <!-- Agrupar campos por sección -->
+        <div v-for="(groupedFields, sectionLetter) in groupedFieldsBySection" :key="sectionLetter" class="section-container" :data-section="sectionLetter">
+          <h3 class="section-title">Sección {{ sectionLetter }}</h3>
+          <div class="fields-grid">
+            <div v-for="field in groupedFields" :key="field.name" class="field-wrapper">
+              <label class="field-label">{{ field.label }}</label>
+              
+              <!-- Input Text -->
               <input 
-                :key="field.name"
-                type="file"
-                :accept="field.accept || '*'"
-                class="w-full text-lg border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
-                @change="handleFileUpload($event, field.name)"
+                v-if="field.type === 'text' || field.type === 'email' || field.type === 'tel'"
+                v-model="formData[field.name]"
+                :type="field.type"
+                :placeholder="field.placeholder"
+                class="field-input"
               />
-              <div v-if="formData[field.name]" class="mt-3 p-3 bg-blue-50 rounded-lg border border-blue-200">
-                <p class="text-sm text-gray-700">Archivo seleccionado:</p>
-                <img v-if="field.accept?.includes('image')" :src="formData[field.name]" style="max-width: 300px; max-height: 150px; object-fit: contain; border-radius: 4px;" />
-                <p v-else class="text-sm text-blue-600 break-all">{{ extractFileName(formData[field.name]) }}</p>
+
+              <!-- Input Date -->
+              <input 
+                v-else-if="field.type === 'date'"
+                v-model="formData[field.name]"
+                type="date"
+                class="field-input"
+              />
+
+              <!-- Textarea -->
+              <textarea 
+                v-else-if="field.type === 'textarea'"
+                v-model="formData[field.name]"
+                :placeholder="field.placeholder"
+                :rows="field.rows || 3"
+                class="field-input field-textarea"
+              ></textarea>
+
+              <!-- Select -->
+              <select 
+                v-else-if="field.type === 'select'"
+                v-model="formData[field.name]"
+                class="field-input"
+              >
+                <option value="">{{ field.placeholder }}</option>
+                <option v-for="option in field.options" :key="option" :value="option">
+                  {{ option }}
+                </option>
+              </select>
+
+              <!-- File Input -->
+              <div v-else-if="field.type === 'file'" class="file-wrapper">
+                <input 
+                  :key="field.name"
+                  type="file"
+                  :accept="field.accept || '*'"
+                  class="field-input"
+                  @change="handleFileUpload($event, field.name)"
+                />
+                <div v-if="formData[field.name]" class="file-preview">
+                  <p class="file-preview-text">Archivo seleccionado:</p>
+                  <img v-if="field.accept?.includes('image')" :src="formData[field.name]" class="file-preview-image" />
+                  <p v-else class="file-preview-name">{{ extractFileName(formData[field.name]) }}</p>
+                </div>
               </div>
             </div>
           </div>
@@ -66,7 +70,7 @@
         <Boton 
           type="submit" 
           variant="success" 
-          :class="''"
+          class="form-submit"
         >
           {{ submitButtonText }}
         </Boton>
@@ -76,7 +80,7 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
+import { ref, watch, computed } from 'vue'
 import Boton from './Boton.vue'
 
 const props = defineProps({
@@ -87,16 +91,6 @@ const props = defineProps({
   fields: {
     type: Array,
     required: true
-    // Formato esperado:
-    // {
-    //   name: 'autorizante',
-    //   label: 'Nombre del Autorizante',
-    //   placeholder: 'Ej: Juan Pérez García',
-    //   type: 'text', // text, email, tel, date, textarea, select
-    //   fullWidth: false,
-    //   rows: 3, // para textarea
-    //   options: [] // para select
-    // }
   },
   editableFieldNames: {
     type: Array,
@@ -145,7 +139,6 @@ const handleFileUpload = (event, fieldName) => {
   if (file) {
     const reader = new FileReader()
     reader.onload = (e) => {
-      // Guardar el contenido del archivo como data URL
       formData.value[fieldName] = e.target.result
     }
     reader.readAsDataURL(file)
@@ -161,12 +154,80 @@ const extractFileName = (dataUrl) => {
 
 const filterEditableFields = () => {
   if (props.editableFieldNames.length === 0) {
-    // Si no se especifican campos editables, mostrar todos
     return props.fields
   }
-  // Solo mostrar campos que estén en la lista de editables
   return props.fields.filter(field => props.editableFieldNames.includes(field.name))
 }
+
+// Colores suaves por sección
+const sectionColorMap = {
+  'A': '#E8F4F8',
+  'B': '#E8F8E8',
+  'C': '#FFF4E8',
+  'D': '#F8E8F8',
+  'E': '#FFE8F0',
+  'E1': '#FFE8F0',
+  'E2': '#FFF0E8',
+  'F': '#FFE8E8',
+  'G': '#E8F0FF',
+  'H': '#FFFFF0',
+  'I': '#F0E8FF'
+}
+
+const sectionLineColorMap = {
+  'A': '#2E7D95',
+  'B': '#2E952E',
+  'C': '#D97706',
+  'D': '#8B5A8B',
+  'E': '#D97706',
+  'E1': '#D97706',
+  'E2': '#CC7722',
+  'F': '#DC2626',
+  'G': '#0369A1',
+  'H': '#B8860B',
+  'I': '#7C3AED'
+}
+
+const getSectionColor = (section) => {
+  return sectionLineColorMap[section] || '#666'
+}
+
+const groupedFieldsBySection = computed(() => {
+  const grouped = {}
+  const editable = filterEditableFields()
+  
+  editable.forEach(field => {
+    let section = 'Otros'
+    
+    // Detectar sección por prefijo del nombre
+    if (field.name.startsWith('e1_')) section = 'E1'
+    else if (field.name.startsWith('e2_')) section = 'E2'
+    else if (field.name.startsWith('apellidos') || field.name.startsWith('nif') || field.name === 'correoElectronico' || field.name === 'telefono' || field.name === 'representante' || field.name === 'dniRepresentante' || field.name === 'domicilio' || field.name === 'localidad' || field.name === 'provincia' || field.name === 'codigoPostal') section = 'A'
+    else if (field.name.startsWith('emplazamiento') || (field.name === 'numero' && !field.name.includes('Tecnico')) || field.name === 'bloque' || field.name === 'escalera' || field.name === 'piso') section = 'B'
+    else if (field.name.startsWith('nombreTecnico') || field.name.startsWith('numeroCertificado') || field.name.startsWith('numeroInstalador') || field.name.startsWith('domicilioTecnico') || field.name.startsWith('localidadTecnico') || field.name.startsWith('telefonoTecnico') || field.name.startsWith('codigoPostalTecnico') || field.name.startsWith('numeroTecnico')) section = 'C'
+    else if (field.name.startsWith('modalidad')) section = 'D'
+    else if (field.name.startsWith('medida') || field.name.startsWith('parteInstalacion')) section = 'F'
+    else if (field.name.startsWith('potencia') || field.name.startsWith('longitud') || field.name.startsWith('material') || field.name.startsWith('intensidad') || field.name.startsWith('caida')) section = 'G'
+    else if (field.name.startsWith('esquema')) section = 'H'
+    else if (field.name.startsWith('plano')) section = 'I'
+    
+    if (!grouped[section]) {
+      grouped[section] = []
+    }
+    grouped[section].push(field)
+  })
+  
+  // Ordenar secciones
+  const sortOrder = ['A', 'B', 'C', 'D', 'E', 'E1', 'E2', 'F', 'G', 'H', 'I', 'Otros']
+  const sorted = {}
+  sortOrder.forEach(key => {
+    if (grouped[key]) {
+      sorted[key] = grouped[key]
+    }
+  })
+  
+  return sorted
+})
 
 const submit = () => {
   emit('submit', formData.value)
@@ -174,24 +235,253 @@ const submit = () => {
 </script>
 
 <style scoped>
-form {
+.form-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #ffffff;
+}
+
+.form-wrapper {
+  width: 100%;
+}
+
+.form-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.form-content {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  gap: 24px;
+}
+
+.section-container {
+  background-color: #f9fafb;
+  border-left: 4px solid #3b82f6;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 16px;
+  margin-top: 0;
+  display: flex;
   align-items: center;
+  gap: 8px;
 }
 
-label {
-  text-align: left;
-  color: #333;
-  margin-bottom: 10px;
+.section-title::before {
+  content: attr(data-section);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #e0e7ff;
+  color: #3b82f6;
+  font-size: 12px;
+  font-weight: 700;
 }
 
-input, textarea, select {
-  font-size: 18px;
-  background-color: #f9f9ff;
+.fields-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
 }
 
-input:focus, textarea:focus, select:focus {
+.fields-grid > .field-wrapper:nth-child(odd):last-child {
+  grid-column: 1 / 2;
+}
+
+.field-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 4px;
+}
+
+.field-input,
+.field-textarea {
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #1f2937;
   background-color: #ffffff;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.field-input:focus,
+.field-textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  background-color: #f0f9ff;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.field-input::placeholder,
+.field-textarea::placeholder {
+  color: #9ca3af;
+}
+
+.field-textarea {
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
+}
+
+.file-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.file-input-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  background-color: #eff6ff;
+  border: 2px dashed #93c5fd;
+  border-radius: 6px;
+  color: #1e40af;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.file-input-label:hover {
+  background-color: #e0f2fe;
+  border-color: #0284c7;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.file-preview {
+  padding: 8px;
+  background-color: #f3f4f6;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.file-preview-image {
+  max-width: 100%;
+  max-height: 150px;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.form-submit {
+  margin-top: 24px;
+  padding: 12px 24px;
+  background-color: #3b82f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.form-submit:hover {
+  background-color: #2563eb;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.form-submit:active {
+  background-color: #1d4ed8;
+}
+
+/* Colores suaves para cada sección */
+.section-container[data-section="A"] {
+  background-color: #f0f9ff;
+  border-left-color: #2e7d95;
+}
+
+.section-container[data-section="B"] {
+  background-color: #f0fdf4;
+  border-left-color: #2e952e;
+}
+
+.section-container[data-section="C"] {
+  background-color: #fffbf0;
+  border-left-color: #d97706;
+}
+
+.section-container[data-section="D"] {
+  background-color: #faf5ff;
+  border-left-color: #8b5a8b;
+}
+
+.section-container[data-section="E"],
+.section-container[data-section="E1"],
+.section-container[data-section="E2"] {
+  background-color: #fdf2f8;
+  border-left-color: #d97706;
+}
+
+.section-container[data-section="F"] {
+  background-color: #fef2f2;
+  border-left-color: #dc2626;
+}
+
+.section-container[data-section="G"] {
+  background-color: #f0f9ff;
+  border-left-color: #0369a1;
+}
+
+.section-container[data-section="H"] {
+  background-color: #fffef2;
+  border-left-color: #b8860b;
+}
+
+.section-container[data-section="I"] {
+  background-color: #faf5ff;
+  border-left-color: #7c3aed;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .fields-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-title {
+    font-size: 20px;
+  }
+
+  .form-container {
+    padding: 12px;
+  }
+
+  .section-container {
+    padding: 16px;
+  }
 }
 </style>
