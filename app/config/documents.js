@@ -545,7 +545,6 @@ export const memoriaInstalacionAisladaConBateriaConfig = {
     // Sección I - Plano de Emplazamiento
     planoEmplazamiento: ''
   },
-  fields: [...memoriaTecnicaConfig.fields],
   capabilities: {
     canPreview: true,
     canEdit: true,
