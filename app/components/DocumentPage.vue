@@ -65,6 +65,7 @@
 import Boton from '../components/Boton.vue'
 import DocumentForm from '../components/DocumentForm.vue'
 import { useDocument } from '../composables/useDocument'
+import { getMergedDocumentData } from '../utils/mergeFormData'
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -81,9 +82,12 @@ const props = defineProps({
   }
 })
 
+// Fusionar datos maestros con defaults del documento
+const mergedDefaultData = getMergedDocumentData(props.config)
+
 // Preparar configuración para useDocument
 const documentConfig = {
-  defaultData: props.config.defaultData,
+  defaultData: mergedDefaultData,
   fileName: props.config.fileName,
   ...props.config.capabilities
 }
