@@ -989,7 +989,6 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
     // Sección I - Plano de Emplazamiento
     planoEmplazamiento: ''
   },
-  fields: [...memoriaTecnicaConfig.fields],
   capabilities: { ...memoriaTecnicaConfig.capabilities }
 }
 
