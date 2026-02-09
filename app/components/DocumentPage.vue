@@ -66,7 +66,7 @@ import Boton from '../components/Boton.vue'
 import DocumentForm from '../components/DocumentForm.vue'
 import { useDocument } from '../composables/useDocument'
 import { getMergedDocumentData } from '../utils/mergeFormData'
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
@@ -82,41 +82,44 @@ const props = defineProps({
   }
 })
 
-// Cargar datos fusionados en onMounted, NO en setup
-const mergedDefaultData = ref({})
-
-// Configuración dinámica que se actualiza cuando mergedDefaultData cambia
-const documentConfig = computed(() => ({
-  defaultData: mergedDefaultData.value,
-  fileName: props.config.fileName,
-  ...props.config.capabilities
-}))
-
-const { 
-  showPreview, 
-  showEdit, 
-  formData, 
-  previewDocument,
-  editDocument,
-  closePreview,
-  closeEdit,
-  saveChanges,
-  generatePDF
-} = useDocument(documentConfig.value)
-
+// Estados locales
+const showPreview = ref(false)
+const showEdit = ref(false)
+const formData = ref({})
 const generatedDate = ref('')
 
 onMounted(() => {
   // Aquí es donde cargamos los datos fusionados
   // Pinia ya está inicializado en este punto
-  mergedDefaultData.value = getMergedDocumentData(props.config)
+  const mergedData = getMergedDocumentData(props.config)
   
-  // Actualizar formData con los datos fusionados
-  formData.value = { ...mergedDefaultData.value }
+  // Inicializar formData con los datos fusionados
+  formData.value = { ...mergedData }
   
   generatedDate.value = new Date().toLocaleDateString('es-ES')
-  previewDocument()
+  showPreview.value = true
 })
+
+const previewDocument = () => {
+  showPreview.value = true
+  showEdit.value = false
+}
+
+const editDocument = () => {
+  showEdit.value = true
+  showPreview.value = false
+}
+
+const saveChanges = () => {
+  showPreview.value = true
+  showEdit.value = false
+}
+
+const generatePDF = async () => {
+  // Lógica para generar PDF
+  const { generatePDF: generatePDFUtil } = useDocument({ defaultData: formData.value })
+  await generatePDFUtil()
+}
 
 const handleFormSubmit = (newData) => {
   formData.value = newData
