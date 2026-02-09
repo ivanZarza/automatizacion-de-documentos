@@ -70,22 +70,6 @@ export const certificadoCoplanarTejaConfig = {
     imagen1: null,
     imagen4: null
   },
-  fields: [
-    { name: 'direccion', label: 'Dirección de la Vivienda', placeholder: 'Ej: Calle Dolores', type: 'text' },
-    { name: 'numero', label: 'Número', placeholder: 'Ej: 14', type: 'text' },
-    { name: 'otrosDatosDireccion', label: 'Otros Datos (Es/Pl/Pt)', placeholder: 'Ej: Es:1 Pl:00 Pt:01', type: 'text' },
-    { name: 'codigoPostal', label: 'Código Postal', placeholder: 'Ej: 11401', type: 'text' },
-    { name: 'localidad', label: 'Localidad', placeholder: 'Ej: Jerez de la Frontera', type: 'text' },
-    { name: 'referenciaCatastral', label: 'Referencia Catastral', placeholder: 'Ej: 5631707QA5653B0001SG', type: 'text', fullWidth: true },
-    { name: 'numModulos', label: 'Número de Módulos', placeholder: 'Ej: 3', type: 'text' },
-    { name: 'potencia', label: 'Potencia Eléctrica', placeholder: 'Ej: 535 Wp', type: 'text' },
-    { name: 'peso', label: 'Peso por Módulo', placeholder: 'Ej: 29.00 kg', type: 'text' },
-    { name: 'modelo', label: 'Modelo', placeholder: 'Ej: JAM72S30 535/MR', type: 'text', fullWidth: true },
-    { name: 'imagen1', label: 'Imagen 1 - Sistema de perfilería (Página 2)', placeholder: 'Selecciona una imagen', type: 'file', fullWidth: true },
-    { name: 'imagen4', label: 'Imagen 2 - Estructura completa de instalación (Página 2)', placeholder: 'Selecciona una imagen', type: 'file', fullWidth: true },
-    { name: 'ciudadFirma', label: 'Ciudad de Firma', placeholder: 'Ej: Jerez de la Frontera', type: 'text' },
-    { name: 'fecha', label: 'Fecha del Documento', placeholder: 'DD de Mes de YYYY', type: 'date' }
-  ],
   capabilities: {
     canPreview: true,
     canEdit: true,
