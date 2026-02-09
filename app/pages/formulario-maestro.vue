@@ -19,7 +19,13 @@
     </div>
 
     <!-- Botón para volver -->
-    <div class="flex justify-center mt-8">
+    <div class="flex justify-center gap-4 mt-8">
+      <Boton 
+        @click="llenarDatosEjemplo"
+        variant="primary"
+      >
+        📋 Llenar Datos de Ejemplo
+      </Boton>
       <Boton 
         @click="goToIndex"
         variant="secondary"
@@ -37,6 +43,7 @@ import DocumentForm from '../components/DocumentForm.vue'
 import Boton from '../components/Boton.vue'
 import { masterFormFields, getMasterFormDefaultData } from '../config/masterFormFields'
 import { useFormStore } from '../stores/formStore'
+import { datosEjemploCompletos } from '../utils/datosEjemplo'
 
 const router = useRouter()
 const formStore = useFormStore()
@@ -45,7 +52,10 @@ const formStore = useFormStore()
 const formData = ref({})
 
 onMounted(() => {
-  // Si hay datos guardados en Pinia, usarlos; si no, usar valores por defecto
+  // Cargar datos del localStorage
+  formStore.loadFromLocalStorage()
+  
+  // Si hay datos guardados en Pinia/localStorage, usarlos; si no, usar valores por defecto
   if (formStore.hasData) {
     formData.value = { ...formStore.getFormData() }
   } else {
@@ -55,9 +65,16 @@ onMounted(() => {
 
 const handleFormSubmit = (newData) => {
   formData.value = newData
-  // Los datos se guardan automáticamente en Pinia gracias a DocumentForm
+  // Guardar datos en Pinia (que a su vez guardará en localStorage)
+  formStore.setFormData(newData)
   // Redirigir a página de selección de documento
   router.push('/seleccionar-documento')
+}
+
+const llenarDatosEjemplo = () => {
+  formData.value = { ...datosEjemploCompletos }
+  // Guardar también en localStorage
+  formStore.saveToLocalStorage()
 }
 
 const goToIndex = () => {

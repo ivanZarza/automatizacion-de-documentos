@@ -120,6 +120,22 @@ watch(() => props.initialData, (newData) => {
   formData.value = { ...newData }
 }, { deep: true })
 
+// Guardar automáticamente en localStorage cada vez que cambian los datos
+const saveFormDataToLocalStorage = () => {
+  if (typeof window !== 'undefined') {
+    try {
+      localStorage.setItem('formDataMaestro', JSON.stringify(formData.value))
+    } catch (e) {
+      console.error('Error saving form data to localStorage:', e)
+    }
+  }
+}
+
+// Watch para guardar automáticamente
+watch(() => formData.value, () => {
+  saveFormDataToLocalStorage()
+}, { deep: true })
+
 const handleFileUpload = (event, fieldName) => {
   const file = event.target.files[0]
   if (file) {

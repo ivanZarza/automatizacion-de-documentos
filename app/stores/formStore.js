@@ -8,10 +8,37 @@ export const useFormStore = defineStore('form', () => {
   // Estado: almacena si hay un formulario activo
   const isFormSubmitted = ref(false)
 
+  // Cargar datos del localStorage al inicializar
+  const loadFromLocalStorage = () => {
+    if (typeof window !== 'undefined') {
+      try {
+        const saved = localStorage.getItem('formDataMaestro')
+        if (saved) {
+          formData.value = JSON.parse(saved)
+          isFormSubmitted.value = true
+        }
+      } catch (e) {
+        console.error('Error loading form data from localStorage:', e)
+      }
+    }
+  }
+
+  // Guardar datos en localStorage
+  const saveToLocalStorage = () => {
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.setItem('formDataMaestro', JSON.stringify(formData.value))
+      } catch (e) {
+        console.error('Error saving form data to localStorage:', e)
+      }
+    }
+  }
+
   // Acción: guardar datos del formulario
   const setFormData = (data) => {
     formData.value = { ...data }
     isFormSubmitted.value = true
+    saveToLocalStorage()
   }
 
   // Acción: obtener datos del formulario
@@ -23,6 +50,13 @@ export const useFormStore = defineStore('form', () => {
   const clearFormData = () => {
     formData.value = {}
     isFormSubmitted.value = false
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.removeItem('formDataMaestro')
+      } catch (e) {
+        console.error('Error removing form data from localStorage:', e)
+      }
+    }
   }
 
   // Acción: obtener un campo específico
@@ -42,6 +76,8 @@ export const useFormStore = defineStore('form', () => {
     setFormData,
     getFormData,
     clearFormData,
-    getField
+    getField,
+    loadFromLocalStorage,
+    saveToLocalStorage
   }
 })
