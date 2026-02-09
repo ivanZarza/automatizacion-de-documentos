@@ -322,59 +322,6 @@ export const memoriaTecnicaConfig = {
     // Sección I - Plano de Emplazamiento
     planoEmplazamiento: ''
   },
-  fields: [
-    // Expediente
-    { name: 'numeroExpediente', label: 'Número de Expediente', placeholder: 'Ej: EXP-2025-001', type: 'text' },
-    { name: 'numeroRegistro', label: 'Número de Registro de la Instalación', placeholder: 'Ej: REG-2025-001', type: 'text' },
-    // Sección A
-    { name: 'apellidosNombre', label: 'Apellidos y Nombre/Razón Social', placeholder: 'Ej: Mateos Campos, Carmen', type: 'text', fullWidth: true },
-    { name: 'nifCif', label: 'NIF/CIF', placeholder: 'Ej: 28.664.984-S', type: 'text' },
-    { name: 'domicilio', label: 'Domicilio', placeholder: 'Ej: Calle Prudencia, Nº 44', type: 'text', fullWidth: true },
-    { name: 'codigoPostal', label: 'Código Postal (CP)', placeholder: '41.720', type: 'text' },
-    { name: 'localidad', label: 'Localidad', placeholder: 'Ej: Sevilla', type: 'text' },
-    { name: 'provincia', label: 'Provincia', placeholder: 'Ej: Sevilla', type: 'text' },
-    { name: 'correoElectronico', label: 'Correo Electrónico', placeholder: 'Ej: camaca959@gmail.com', type: 'email', fullWidth: true },
-    { name: 'telefono', label: 'Teléfono', placeholder: 'Ej: 622930583', type: 'tel' },
-    { name: 'representante', label: 'Representante (si procede)', placeholder: 'Nombre del representante', type: 'text', fullWidth: true },
-    { name: 'dniRepresentante', label: 'DNI del Representante', placeholder: 'Ej: 12.345.678-A', type: 'text' },
-    // Sección B
-    { name: 'emplazamientoCalle', label: 'Emplazamiento (Calle)', placeholder: 'Calle Prudencia', type: 'text', fullWidth: true },
-    { name: 'numero', label: 'Número', placeholder: '44', type: 'text' },
-    { name: 'localidadEmplazamiento', label: 'Localidad (Emplazamiento)', placeholder: 'Sevilla', type: 'text' },
-    { name: 'provinciaEmplazamiento', label: 'Provincia (Emplazamiento)', placeholder: 'Sevilla', type: 'text' },
-    { name: 'correoElectronicoEmplazamiento', label: 'Correo Electrónico (Emplazamiento)', placeholder: 'Ej: camaca959@gmail.com', type: 'email', fullWidth: true },
-    { name: 'tipoInstalacionSeleccionada', label: 'Instalación', placeholder: 'Nueva/Ampliación/Modificación', type: 'select', options: ['Nueva', 'Ampliación', 'Modificación'] },
-    // Sección D - Modalidades
-    // Sección E - E2: INSTALACIÓN GENERADORA FOTOVOLTAICA INTERCONECTADA CON ALMACENAMIENTO
-    // E2.1 Conexión a la Red
-    { name: 'potenciaNominalInversores', label: 'Potencia Nominal Total en Inversores (kW)', placeholder: '5', type: 'text' },
-    { name: 'tipoConexionRed', label: 'Tipo de Conexión', placeholder: 'MONOFÁSICA/TRIFÁSICA', type: 'text' },
-    // Sección E - E2.2 Módulo Fotovoltaico
-    { name: 'marcaModeloModulo', label: 'Marca y Modelo del Módulo FV', placeholder: 'Deye SUN-5K', type: 'text', fullWidth: true },
-    { name: 'potenciaPicoModulo', label: 'Potencia Pico del Módulo FV (Wp)', placeholder: '605', type: 'text' },
-    // Sección E - E2.3 Generador Fotovoltaico
-    { name: 'potenciaPicoGenerador', label: 'Potencia Pico del Generador FV (Wp)', placeholder: '4840', type: 'text' },
-    { name: 'tensionVpmpGenerador', label: 'Tensión de Máxima Potencia, Vpmp (V)', placeholder: '372,40', type: 'text' },
-    { name: 'orientacionGenerador', label: 'Orientación del Generador FV', placeholder: '-19,37º (SE)', type: 'text', fullWidth: true },
-    { name: 'totalModulos', label: 'Nº Total de Módulos', placeholder: '8', type: 'text' },
-    { name: 'modulosEnSerie', label: 'Nº de Módulos en Serie por Rama', placeholder: '8', type: 'text' },
-    // Sección E - E2.4 Inversor
-    { name: 'marcaModeloInversor', label: 'Marca y Modelo del Inversor', placeholder: 'Deye SUN-5K', type: 'text', fullWidth: true },
-    { name: 'potenciaACInversor', label: 'Potencia AC Nominal (Kw)', placeholder: '5', type: 'text' },
-    // Sección E - E2.5 Baterías
-    { name: 'marcaModeloBateria', label: 'Marca y Modelo', placeholder: '2 MÓDULOS DEYE DE 5,12kWh', type: 'text', fullWidth: true },
-    { name: 'energiaTotalBateria', label: 'Energía Total (kWh)', placeholder: '10,24 kWh', type: 'text' },
-    { name: 'potenciaMaximaSalidaBateria', label: 'Potencia Máxima de Salida (kW)', placeholder: '10,24 kW', type: 'text' },
-    { name: 'maximoPicoPotenciaBateria', label: 'Máximo Pico de Potencia', placeholder: '17,28 Kw (durante 10s)', type: 'text' },
-    // Sección G - Características de Líneas y Circuitos
-    { name: 'potenciaBateriaInversor', label: 'Potencia Prevista - Batería a Inversor (kW)', placeholder: '10,24', type: 'text' },
-    { name: 'potenciaGeneradorInversorDirecto', label: 'Potencia Prevista - Generador a Inversor Directo (kW)', placeholder: '4,84', type: 'text' },
-    { name: 'potenciaSalidaInversorRed', label: 'Potencia Prevista - Salida Inversor a Red (kW)', placeholder: '5', type: 'text' },
-    // Sección H - Esquema Unifilar
-    { name: 'esquemaUnifilar', label: 'Esquema Unifilar (Imagen)', placeholder: 'Selecciona una imagen', type: 'file', accept: 'image/*', fullWidth: true },
-    // Sección I - Plano de Emplazamiento
-    { name: 'planoEmplazamiento', label: 'Plano de Emplazamiento (Imagen)', placeholder: 'Selecciona una imagen', type: 'file', accept: 'image/*', fullWidth: true }
-  ],
   capabilities: {
     canPreview: true,
     canEdit: true,
