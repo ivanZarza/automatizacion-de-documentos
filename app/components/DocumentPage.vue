@@ -54,6 +54,7 @@
       <DocumentForm 
         :title="`Editar ${config.title}`"
         :fields="config.fields"
+        :editableFieldNames="editableFields"
         :initialData="formData"
         @submit="handleFormSubmit"
       />
@@ -66,6 +67,7 @@ import Boton from '../components/Boton.vue'
 import DocumentForm from '../components/DocumentForm.vue'
 import { useDocument } from '../composables/useDocument'
 import { getMergedDocumentData } from '../utils/mergeFormData'
+import { getEditableFields } from '../config/editableFields'
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -87,6 +89,7 @@ const showPreview = ref(false)
 const showEdit = ref(false)
 const formData = ref({})
 const generatedDate = ref('')
+const editableFields = ref([])
 
 onMounted(() => {
   // Aquí es donde cargamos los datos fusionados
@@ -95,6 +98,9 @@ onMounted(() => {
   
   // Inicializar formData con los datos fusionados
   formData.value = { ...mergedData }
+  
+  // Obtener lista de campos editables para este documento
+  editableFields.value = getEditableFields(props.config.id)
   
   generatedDate.value = new Date().toLocaleDateString('es-ES')
   showPreview.value = true

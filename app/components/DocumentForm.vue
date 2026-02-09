@@ -4,7 +4,7 @@
       <h2 class="text-4xl font-bold mb-8 text-blue-600 text-center border-b-2 border-gray-300 pb-4">{{ title }}</h2>
       <form @submit.prevent="submit" class="space-y-8">
         <div class="grid gap-8" :class="{ 'grid-cols-2': columns === 2, 'grid-cols-1': columns === 1 }">
-          <div v-for="field in fields" :key="field.name" :class="{ 'col-span-full': field.fullWidth }">
+          <div v-for="field in filterEditableFields()" :key="field.name" :class="{ 'col-span-full': field.fullWidth }">
             <label class="block text-lg font-semibold mb-4 text-gray-800">{{ field.label }}</label>
             
             <!-- Input Text -->
@@ -86,7 +86,7 @@ const props = defineProps({
   },
   fields: {
     type: Array,
-    required: true,
+    required: true
     // Formato esperado:
     // {
     //   name: 'autorizante',
@@ -97,6 +97,10 @@ const props = defineProps({
     //   rows: 3, // para textarea
     //   options: [] // para select
     // }
+  },
+  editableFieldNames: {
+    type: Array,
+    default: () => []
   },
   initialData: {
     type: Object,
@@ -153,6 +157,15 @@ const extractFileName = (dataUrl) => {
     return 'Imagen cargada'
   }
   return dataUrl
+}
+
+const filterEditableFields = () => {
+  if (props.editableFieldNames.length === 0) {
+    // Si no se especifican campos editables, mostrar todos
+    return props.fields
+  }
+  // Solo mostrar campos que estén en la lista de editables
+  return props.fields.filter(field => props.editableFieldNames.includes(field.name))
 }
 
 const submit = () => {
