@@ -41,14 +41,25 @@ export const mergeMasterDataWithDocument = (documentConfig) => {
  */
 export const filterDataForDocument = (documentConfig, mergedData) => {
   const documentDefaults = documentConfig.defaultData || {}
+  const fieldMapping = documentConfig.fieldMapping || {}
   const filtered = {}
   
   // Para cada campo en el documento:
-  // 1. Si existe en maestro Y no está vacío → usa maestro
-  // 2. Si existe en maestro pero está vacío → usa default
-  // 3. Si no existe en maestro → usa default
+  // 1. Si existe mapeo, buscar el valor en el campo mapeado
+  // 2. Si existe en maestro Y no está vacío → usa maestro
+  // 3. Si existe en maestro pero está vacío → usa default
+  // 4. Si no existe en maestro → usa default
   Object.keys(documentDefaults).forEach(key => {
-    const masterValue = mergedData[key]
+    let masterValue
+    
+    // Si existe un mapeo para este campo, usar el campo mapeado
+    if (fieldMapping[key]) {
+      masterValue = mergedData[fieldMapping[key]]
+    } else {
+      // Si no hay mapeo, buscar directamente en mergedData
+      masterValue = mergedData[key]
+    }
+    
     const defaultValue = documentDefaults[key]
     
     // Si el maestro tiene valor (no vacío, no null, no undefined)

@@ -15,6 +15,11 @@ export const autorizacionRepresentacionConfig = {
     gestiones: 'SOLICITUD DE LICENCIA DE OBRA MENOR CON DECLARACIÓN RESPONSABLE O AUTORIZACIÓN URBANÍSTICA',
     fecha: '18/11/2025'
   },
+  fieldMapping: {
+    autorizante: 'apellidosNombre',
+    dniAutorizante: 'nifCif',
+    domicilioAutorizante: 'domicilio'
+  },
   capabilities: {
     canPreview: true,
     canEdit: true,
