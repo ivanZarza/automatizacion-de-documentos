@@ -131,21 +131,12 @@
 
 <script setup>
 import { useRouter } from 'vue-router'
-import { useFormStore } from '../stores/formStore'
 import { getDocumentConfig } from '../config/documents'
 import Boton from '../components/Boton.vue'
 
 const router = useRouter()
-const formStore = useFormStore()
 
 const selectDocument = (documentId) => {
-  // Verificar que haya datos maestros
-  if (!formStore.hasData) {
-    alert('Por favor, completa primero el formulario maestro')
-    router.push('/formulario-maestro')
-    return
-  }
-
   // Obtener configuración del documento
   const documentConfig = getDocumentConfig(documentId)
   if (!documentConfig) {
