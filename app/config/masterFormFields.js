@@ -17,6 +17,18 @@ export const masterFormFields = [
     placeholder: 'Ej: REG-2025-001', 
     type: 'text' 
   },
+  { 
+    name: 'ciudadFirma', 
+    label: 'Ciudad de Firma', 
+    placeholder: 'Ej: Sevilla', 
+    type: 'text' 
+  },
+  { 
+    name: 'fecha', 
+    label: 'Fecha', 
+    placeholder: 'Ej: 16/10/2025', 
+    type: 'date' 
+  },
 
   // ========== SECCIÓN A: TITULAR ==========
   { 
@@ -150,6 +162,13 @@ export const masterFormFields = [
     name: 'usoDestino', 
     label: 'Uso y Destino', 
     placeholder: 'Ej: Autoconsumo para vivienda', 
+    type: 'text',
+    fullWidth: true
+  },
+  { 
+    name: 'referenciaCatastral', 
+    label: 'Referencia Catastral', 
+    placeholder: 'Ej: 4127805SG0000200000CT', 
     type: 'text',
     fullWidth: true
   },

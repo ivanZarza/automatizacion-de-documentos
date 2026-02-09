@@ -29,7 +29,8 @@ export const autorizacionRepresentacionConfig = {
   fieldMapping: {
     autorizante: 'apellidosNombre',
     dniAutorizante: 'nifCif',
-    domicilioAutorizante: 'domicilio'
+    domicilioAutorizante: 'domicilio',
+    fecha: 'fecha'
   },
   capabilities: {
     canPreview: true,
@@ -69,6 +70,10 @@ export const declaracionHabilitacionProfesionalConfig = {
     provinciaProfesional: 'Sevilla',
     ciudadFirma: 'Jerez de la Frontera',
     fecha: '16/10/2025'
+  },
+  fieldMapping: {
+    ciudadFirma: 'ciudadFirma',
+    fecha: 'fecha'
   },
   capabilities: {
     canPreview: true,
@@ -115,6 +120,14 @@ export const certificadoCoplanarTejaConfig = {
     imagen1: null,
     imagen4: null
   },
+  fieldMapping: {
+    direccion: 'emplazamientoCalle',
+    numero: 'numero',
+    codigoPostal: 'codigoPostal',
+    localidad: 'localidadEmplazamiento',
+    ciudadFirma: 'ciudadFirma',
+    fecha: 'fecha'
+  },
   capabilities: {
     canPreview: true,
     canEdit: true,
@@ -157,6 +170,14 @@ export const certificadoCubiertaPlanAaporticadaConfig = {
     ciudadFirma: '',
     fecha: '',
     imagen1: null
+  },
+  fieldMapping: {
+    direccion: 'emplazamientoCalle',
+    numero: 'numero',
+    codigoPostal: 'codigoPostal',
+    localidad: 'localidadEmplazamiento',
+    ciudadFirma: 'ciudadFirma',
+    fecha: 'fecha'
   },
   capabilities: {
     canPreview: true,
@@ -382,6 +403,9 @@ export const memoriaTecnicaConfig = {
     // Sección I - Plano de Emplazamiento
     planoEmplazamiento: ''
   },
+  fieldMapping: {
+    // No hay mappings necesarios ya que MemoriaTecnica usa los mismos nombres que el formulario maestro
+  },
   capabilities: {
     canPreview: true,
     canEdit: true,
@@ -605,6 +629,9 @@ export const memoriaInstalacionAisladaConBateriaConfig = {
     // Sección I - Plano de Emplazamiento
     planoEmplazamiento: ''
   },
+  fieldMapping: {
+    // No hay mappings necesarios ya que MemoriaTecnica usa los mismos nombres que el formulario maestro
+  },
   capabilities: {
     canPreview: true,
     canEdit: true,
@@ -629,7 +656,7 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
     codigoPostal: '',
     localidad: '',
     provincia: '',
-    memoriaTecnicaAisladaSinBateriaConfigcorreoElectronico: '',
+    correoElectronico: '',
     telefono: '',
     representante: '',
     dniRepresentante: '',
@@ -644,7 +671,7 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
     correoElectronicoEmplazamiento: '',
     tipoInstalacion: 'Fotovoltaica conectada a red interior',
     usoDestino: 'Autoconsumo para vivienda',
-    memoriaTecnicaAisladaSinBateriaConfigtipoInstalacionSeleccionada: '',
+    tipoInstalacionSeleccionada: '',
     // Sección C - PERSONA QUE FIRMA
     nombreTecnicoInstalador: 'Eduardo Rivera Cabezas',
     numeroCertificadoInstalador: '4654 COIIAOC',
@@ -828,6 +855,9 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
     esquemaUnifilar: '',
     // Sección I - Plano de Emplazamiento
     planoEmplazamiento: ''
+  },
+  fieldMapping: {
+    // No hay mappings necesarios ya que MemoriaTecnica usa los mismos nombres que el formulario maestro
   },
   capabilities: { ...memoriaTecnicaConfig.capabilities }
 }
@@ -1049,6 +1079,9 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
     // Sección I - Plano de Emplazamiento
     planoEmplazamiento: ''
   },
+  fieldMapping: {
+    // No hay mappings necesarios ya que MemoriaTecnica usa los mismos nombres que el formulario maestro
+  },
   capabilities: { ...memoriaTecnicaConfig.capabilities }
 }
 
@@ -1144,6 +1177,9 @@ export const memoriaTecnicaPuntoRecargaConfig = {
     // Sección H - Plano de Emplazamiento
     planoEmplazamiento: ''
   },
+  fieldMapping: {
+    // No hay mappings necesarios ya que MemoriaTecnica usa los mismos nombres que el formulario maestro
+  },
   capabilities: {
     canPreview: true,
     canEdit: true,
@@ -1181,7 +1217,10 @@ export const declaracionNoGeneracionRcdsConfig = {
     direccion: 'emplazamientoCalle',
     numero: 'numero',
     codigoPostal: 'codigoPostal',
-    municipio: 'localidadEmplazamiento'
+    municipio: 'localidadEmplazamiento',
+    referenciaCatastral: 'referenciaCatastral',
+    ciudadFirma: 'ciudadFirma',
+    fecha: 'fecha'
   },
   capabilities: {
     canPreview: true,
