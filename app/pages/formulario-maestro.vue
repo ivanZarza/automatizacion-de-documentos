@@ -21,12 +21,6 @@
     <!-- Botón para volver -->
     <div class="flex justify-center gap-4 mt-8">
       <Boton 
-        @click="llenarDatosEjemplo"
-        variant="primary"
-      >
-        📋 Llenar Datos de Ejemplo
-      </Boton>
-      <Boton 
         @click="goToIndex"
         variant="secondary"
       >
@@ -43,7 +37,6 @@ import DocumentForm from '../components/DocumentForm.vue'
 import Boton from '../components/Boton.vue'
 import { masterFormFields, getMasterFormDefaultData } from '../config/masterFormFields'
 import { useFormStore } from '../stores/formStore'
-import { datosEjemploCompletos } from '../utils/datosEjemplo'
 
 const router = useRouter()
 const formStore = useFormStore()
@@ -69,12 +62,6 @@ const handleFormSubmit = (newData) => {
   formStore.setFormData(newData)
   // Redirigir a página de selección de documento
   router.push('/seleccionar-documento')
-}
-
-const llenarDatosEjemplo = () => {
-  formData.value = { ...datosEjemploCompletos }
-  // Guardar también en localStorage
-  formStore.saveToLocalStorage()
 }
 
 const goToIndex = () => {
