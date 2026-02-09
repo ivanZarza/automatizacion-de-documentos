@@ -18,13 +18,13 @@
       />
     </div>
 
-    <!-- Botón para volver -->
-    <div class="flex justify-center gap-4 mt-8">
+    <!-- Botón Sticky para volver -->
+    <div class="sticky-back-button">
       <Boton 
         @click="goToIndex"
         variant="secondary"
       >
-        ← Volver al Inicio
+        ← Volver
       </Boton>
     </div>
   </div>
@@ -70,4 +70,10 @@ const goToIndex = () => {
 </script>
 
 <style scoped>
+.sticky-back-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
 </style>

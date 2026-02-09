@@ -11,15 +11,20 @@
       </Boton>
     </div>
 
+    <!-- Botón Sticky de Volver -->
+    <div class="sticky-back-button">
+      <Boton 
+        @click="goToIndex"
+        variant="secondary"
+        class="w-full"
+      >
+        ← Inicio
+      </Boton>
+    </div>
+
     <!-- Vista Previa -->
     <div v-if="showPreview" class="max-w-4xl mx-auto">
       <div class="flex gap-2 mb-4">
-        <Boton 
-          @click="goToIndex"
-          variant="secondary"
-        >
-          ← Volver
-        </Boton>
         <Boton 
           @click="editDocument"
           variant="secondary"
@@ -44,13 +49,6 @@
 
     <!-- Vista Editar -->
     <div v-if="showEdit" class="max-w-4xl mx-auto">
-      <Boton 
-        @click="goToIndex"
-        variant="secondary"
-        class="mb-4"
-      >
-        ← Volver
-      </Boton>
       <DocumentForm 
         :title="`Editar ${config.title}`"
         :fields="config.fields"
@@ -136,3 +134,14 @@ const goToIndex = () => {
   router.push('/')
 }
 </script>
+
+<style scoped>
+.sticky-back-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: auto;
+  max-width: 150px;
+}
+</style>

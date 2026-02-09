@@ -111,19 +111,21 @@
       </div>
     </div>
 
-    <!-- Botones de Acción -->
-    <div class="max-w-6xl mx-auto flex gap-4 justify-center">
+    <!-- Botones Sticky de Acción -->
+    <div class="sticky-buttons">
       <Boton 
         @click="goBack"
         variant="secondary"
+        class="sticky-button"
       >
-        ← Editar Datos Maestros
+        ← Editar Datos
       </Boton>
       <Boton 
         @click="goToIndex"
         variant="secondary"
+        class="sticky-button"
       >
-        ← Volver al Inicio
+        ← Inicio
       </Boton>
     </div>
   </div>
@@ -159,4 +161,17 @@ const goToIndex = () => {
 </script>
 
 <style scoped>
+.sticky-buttons {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.sticky-button {
+  min-width: 140px;
+}
 </style>
