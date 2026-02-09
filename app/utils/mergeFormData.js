@@ -34,6 +34,7 @@ export const mergeMasterDataWithDocument = (documentConfig) => {
 
 /**
  * Obtener solo los campos que el documento necesita (evita contaminar con campos extra)
+ * Opción A: Fusiona maestro + defaults, maestro sobrescribe pero solo si tiene valor
  * @param {Object} documentConfig - La configuración del documento
  * @param {Object} mergedData - Los datos fusionados
  * @returns {Object} Solo los campos que existen en defaultData del documento
@@ -42,9 +43,21 @@ export const filterDataForDocument = (documentConfig, mergedData) => {
   const documentDefaults = documentConfig.defaultData || {}
   const filtered = {}
   
-  // Solo incluir campos que existen en la configuración del documento
+  // Para cada campo en el documento:
+  // 1. Si existe en maestro Y no está vacío → usa maestro
+  // 2. Si existe en maestro pero está vacío → usa default
+  // 3. Si no existe en maestro → usa default
   Object.keys(documentDefaults).forEach(key => {
-    filtered[key] = mergedData[key] !== undefined ? mergedData[key] : documentDefaults[key]
+    const masterValue = mergedData[key]
+    const defaultValue = documentDefaults[key]
+    
+    // Si el maestro tiene valor (no vacío, no null, no undefined)
+    if (masterValue !== undefined && masterValue !== null && masterValue !== '') {
+      filtered[key] = masterValue
+    } else {
+      // Si no, usa el valor por defecto
+      filtered[key] = defaultValue
+    }
   })
   
   return filtered
