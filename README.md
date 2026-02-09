@@ -15,14 +15,21 @@ Sistema modular y escalable para generar documentos PDF dinámicos con formulari
 
 ## 📚 📚 DOCUMENTACIÓN (¡EMPEZAR AQUÍ!)
 
-**[REFERENCIA_RAPIDA_PARA_IAs.md](./REFERENCIA_RAPIDA_PARA_IAs.md)** ⚡ - 5 pasos en 2 minutos  
-**[ARQUITECTURA_TECNICA.md](./ARQUITECTURA_TECNICA.md)** 🏛️ - Diagramas y estructura  
-**[GUIA_CREAR_NUEVOS_DOCUMENTOS_COMPLETA.md](./GUIA_CREAR_NUEVOS_DOCUMENTOS_COMPLETA.md)** 📖 - Guía exhaustiva  
-**[TROUBLESHOOTING.md](./TROUBLESHOOTING.md)** 🔧 - 50+ errores y soluciones  
-**[PATRONES_AVANZADOS.md](./PATRONES_AVANZADOS.md)** 🚀 - APIs, validaciones, tablas dinámicas  
-**[LANZAMIENTO_Y_MEJORES_PRACTICAS.md](./LANZAMIENTO_Y_MEJORES_PRACTICAS.md)** ✅ - Para producción  
-**[EJEMPLO_CONTRATO_COMPLETO.md](./EJEMPLO_CONTRATO_COMPLETO.md)** 📝 - Ejemplo paso a paso  
-**[INDICE_MAESTRO_DOCUMENTACION.md](./INDICE_MAESTRO_DOCUMENTACION.md)** 📚 - Índice completo
+### 🎯 Punto de entrada recomendado
+**[📍 INDICE_MAESTRO.md](./documentacion/INDICE_MAESTRO.md)** - Hub central con toda la navegación
+
+### ✅ Guías Prácticas (Para usuarios)
+- **[CHECKLIST_NUEVO_DOCUMENTO.md](./documentacion/CHECKLIST_NUEVO_DOCUMENTO.md)** � - Paso a paso para agregar documentos
+- **[GUIA_FORMULARIO_MAESTRO.md](./documentacion/GUIA_FORMULARIO_MAESTRO.md)** � - Cómo usar el formulario maestro
+- **[TROUBLESHOOTING_ACTUALIZADO.md](./documentacion/TROUBLESHOOTING_ACTUALIZADO.md)** � - Resolución de problemas
+
+### 🔍 Referencias Técnicas (Para arquitectos)
+- **[REFERENCIA_DOCUMENTOS.md](./documentacion/REFERENCIA_DOCUMENTOS.md)** 📚 - Catálogo de 10 documentos
+- **[ARQUITECTURA_PINIA.md](./documentacion/ARQUITECTURA_PINIA.md)** 🏛️ - Sistema de estado
+- **[AUDITORIA_DOCUMENTACION.md](./documentacion/AUDITORIA_DOCUMENTACION.md)** 📊 - Auditoría completa
+
+### � Componentes & API
+- **[documentacion/](./documentacion/)** - Documentación de componentes individuales
 
 ---
 
