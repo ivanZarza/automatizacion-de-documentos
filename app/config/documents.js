@@ -1177,6 +1177,12 @@ export const declaracionNoGeneracionRcdsConfig = {
     ciudadFirma: '',
     fecha: ''
   },
+  fieldMapping: {
+    direccion: 'emplazamientoCalle',
+    numero: 'numero',
+    codigoPostal: 'codigoPostal',
+    municipio: 'localidadEmplazamiento'
+  },
   capabilities: {
     canPreview: true,
     canEdit: true,
