@@ -66,7 +66,7 @@ import Boton from '../components/Boton.vue'
 import DocumentForm from '../components/DocumentForm.vue'
 import { useDocument } from '../composables/useDocument'
 import { getMergedDocumentData } from '../utils/mergeFormData'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
@@ -82,15 +82,15 @@ const props = defineProps({
   }
 })
 
-// Fusionar datos maestros con defaults del documento
-const mergedDefaultData = getMergedDocumentData(props.config)
+// Cargar datos fusionados en onMounted, NO en setup
+const mergedDefaultData = ref({})
 
-// Preparar configuración para useDocument
-const documentConfig = {
-  defaultData: mergedDefaultData,
+// Configuración dinámica que se actualiza cuando mergedDefaultData cambia
+const documentConfig = computed(() => ({
+  defaultData: mergedDefaultData.value,
   fileName: props.config.fileName,
   ...props.config.capabilities
-}
+}))
 
 const { 
   showPreview, 
@@ -102,11 +102,18 @@ const {
   closeEdit,
   saveChanges,
   generatePDF
-} = useDocument(documentConfig)
+} = useDocument(documentConfig.value)
 
 const generatedDate = ref('')
 
 onMounted(() => {
+  // Aquí es donde cargamos los datos fusionados
+  // Pinia ya está inicializado en este punto
+  mergedDefaultData.value = getMergedDocumentData(props.config)
+  
+  // Actualizar formData con los datos fusionados
+  formData.value = { ...mergedDefaultData.value }
+  
   generatedDate.value = new Date().toLocaleDateString('es-ES')
   previewDocument()
 })
