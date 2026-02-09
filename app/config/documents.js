@@ -44,6 +44,19 @@ export const declaracionHabilitacionProfesionalConfig = {
   description: 'Documento de declaración de habilitación profesional para colegiados',
   fileName: 'declaracion-habilitacion-profesional.pdf',
   route: '/declaracion-habilitacion-profesional',
+  fields: [
+    { name: 'nombreProfesional', label: 'Nombre del Profesional', type: 'text', fullWidth: true },
+    { name: 'nifProfesional', label: 'NIF del Profesional', type: 'text' },
+    { name: 'profesionTitulo', label: 'Título Profesional', type: 'text', fullWidth: true },
+    { name: 'numeroColegiado', label: 'Número de Colegiado', type: 'text' },
+    { name: 'nombreColegio', label: 'Nombre del Colegio', type: 'text', fullWidth: true },
+    { name: 'domicilioProfesional', label: 'Domicilio Profesional', type: 'text', fullWidth: true },
+    { name: 'codigoPostalProfesional', label: 'Código Postal', type: 'text' },
+    { name: 'localidadProfesional', label: 'Localidad', type: 'text' },
+    { name: 'provinciaProfesional', label: 'Provincia', type: 'text' },
+    { name: 'ciudadFirma', label: 'Ciudad de Firma', type: 'text' },
+    { name: 'fecha', label: 'Fecha', type: 'date' }
+  ],
   defaultData: {
     nombreProfesional: 'Eduardo Rivera Cabezas',
     nifProfesional: '28.818.007-L',
@@ -70,6 +83,22 @@ export const certificadoCoplanarTejaConfig = {
   description: 'Documento de certificación de solidez y seguridad para instalaciones fotovoltaicas en cubierta de teja coplanar',
   fileName: 'certificado-coplanar-teja.pdf',
   route: '/certificado-coplanar-teja',
+  fields: [
+    { name: 'direccion', label: 'Dirección', type: 'text', fullWidth: true },
+    { name: 'numero', label: 'Número', type: 'text' },
+    { name: 'otrosDatosDireccion', label: 'Otros Datos de Dirección', type: 'text' },
+    { name: 'codigoPostal', label: 'Código Postal', type: 'text' },
+    { name: 'localidad', label: 'Localidad', type: 'text' },
+    { name: 'referenciaCatastral', label: 'Referencia Catastral', type: 'text', fullWidth: true },
+    { name: 'numModulos', label: 'Número de Módulos', type: 'text' },
+    { name: 'potencia', label: 'Potencia', type: 'text' },
+    { name: 'peso', label: 'Peso', type: 'text' },
+    { name: 'modelo', label: 'Modelo', type: 'text' },
+    { name: 'ciudadFirma', label: 'Ciudad de Firma', type: 'text' },
+    { name: 'fecha', label: 'Fecha', type: 'date' },
+    { name: 'imagen1', label: 'Imagen 1', type: 'file', accept: 'image/*' },
+    { name: 'imagen4', label: 'Imagen 4', type: 'file', accept: 'image/*' }
+  ],
   defaultData: {
     direccion: ' ',
     numero: '',
@@ -99,6 +128,21 @@ export const certificadoCubiertaPlanAaporticadaConfig = {
   description: 'Documento de certificación de solidez y seguridad para instalaciones fotovoltaicas en cubierta plana con estructura aportícada',
   fileName: 'certificado-cubierta-plan-aaporticada.pdf',
   route: '/certificado-cubierta-plan-aaporticada',
+  fields: [
+    { name: 'direccion', label: 'Dirección', type: 'text', fullWidth: true },
+    { name: 'numero', label: 'Número', type: 'text' },
+    { name: 'otrosDatosDireccion', label: 'Otros Datos de Dirección', type: 'text' },
+    { name: 'codigoPostal', label: 'Código Postal', type: 'text' },
+    { name: 'localidad', label: 'Localidad', type: 'text' },
+    { name: 'referenciaCatastral', label: 'Referencia Catastral', type: 'text', fullWidth: true },
+    { name: 'numModulos', label: 'Número de Módulos', type: 'text' },
+    { name: 'potencia', label: 'Potencia', type: 'text' },
+    { name: 'peso', label: 'Peso', type: 'text' },
+    { name: 'modelo', label: 'Modelo', type: 'text' },
+    { name: 'ciudadFirma', label: 'Ciudad de Firma', type: 'text' },
+    { name: 'fecha', label: 'Fecha', type: 'date' },
+    { name: 'imagen1', label: 'Imagen 1', type: 'file', accept: 'image/*' }
+  ],
   defaultData: {
     direccion: '',
     numero: '',
@@ -1113,6 +1157,16 @@ export const declaracionNoGeneracionRcdsConfig = {
   description: 'Declaración de no generación de residuos de construcción y demolición',
   fileName: 'declaracion-no-generacion-rcds.pdf',
   route: '/declaracion-no-generacion-rcds',
+  fields: [
+    { name: 'direccion', label: 'Dirección', type: 'text', fullWidth: true },
+    { name: 'numero', label: 'Número', type: 'text' },
+    { name: 'otrosDatos', label: 'Otros Datos', type: 'text', fullWidth: true },
+    { name: 'codigoPostal', label: 'Código Postal', type: 'text' },
+    { name: 'referenciaCatastral', label: 'Referencia Catastral', type: 'text', fullWidth: true },
+    { name: 'municipio', label: 'Municipio', type: 'text' },
+    { name: 'ciudadFirma', label: 'Ciudad de Firma', type: 'text' },
+    { name: 'fecha', label: 'Fecha', type: 'date' }
+  ],
   defaultData: {
     direccion: '',
     numero: '',
