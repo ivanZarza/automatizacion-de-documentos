@@ -4,6 +4,17 @@ export const autorizacionRepresentacionConfig = {
   description: 'Documento válido para trámites administrativos',
   fileName: 'autorizacion-representacion.pdf',
   route: '/autorizacion-representacion',
+  fields: [
+    { name: 'autorizante', label: 'Nombre del Autorizante', type: 'text', fullWidth: true },
+    { name: 'dniAutorizante', label: 'DNI/NIF del Autorizante', type: 'text' },
+    { name: 'domicilioAutorizante', label: 'Domicilio del Autorizante', type: 'text', fullWidth: true },
+    { name: 'representante', label: 'Representante', type: 'text', fullWidth: true },
+    { name: 'dniRepresentante', label: 'DNI/NIF del Representante', type: 'text' },
+    { name: 'domicilioRepresentante', label: 'Domicilio del Representante', type: 'text', fullWidth: true },
+    { name: 'organismo', label: 'Organismo', type: 'text', fullWidth: true },
+    { name: 'gestiones', label: 'Gestiones a Realizar', type: 'textarea', rows: 3, fullWidth: true },
+    { name: 'fecha', label: 'Fecha', type: 'date' }
+  ],
   defaultData: {
     autorizante: '',
     dniAutorizante: '',
