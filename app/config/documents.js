@@ -1084,56 +1084,6 @@ export const memoriaTecnicaPuntoRecargaConfig = {
     // Sección H - Plano de Emplazamiento
     planoEmplazamiento: ''
   },
-  fields: [
-    // Expediente
-    { name: 'numeroExpediente', label: 'Número de Expediente', placeholder: 'Ej: EXP-2025-001', type: 'text' },
-    { name: 'numeroRegistro', label: 'Número de Registro de la Instalación', placeholder: 'Ej: REG-2025-001', type: 'text' },
-    // Sección A
-    { name: 'apellidosNombre', label: 'Apellidos y Nombre/Razón Social', placeholder: 'Ej: Mateos Campos, Carmen', type: 'text', fullWidth: true },
-    { name: 'nifCif', label: 'NIF/CIF', placeholder: 'Ej: 28.664.984-S', type: 'text' },
-    { name: 'domicilio', label: 'Domicilio', placeholder: 'Ej: Calle Prudencia, Nº 44', type: 'text', fullWidth: true },
-    { name: 'codigoPostal', label: 'Código Postal (CP)', placeholder: '41.720', type: 'text' },
-    { name: 'localidad', label: 'Localidad', placeholder: 'Ej: Sevilla', type: 'text' },
-    { name: 'provincia', label: 'Provincia', placeholder: 'Ej: Sevilla', type: 'text' },
-    { name: 'correoElectronico', label: 'Correo Electrónico', placeholder: 'Ej: correo@ejemplo.com', type: 'email', fullWidth: true },
-    { name: 'telefono', label: 'Teléfono', placeholder: 'Ej: 622930583', type: 'tel' },
-    { name: 'representante', label: 'Representante (si procede)', placeholder: 'Nombre del representante', type: 'text', fullWidth: true },
-    { name: 'dniRepresentante', label: 'DNI del Representante', placeholder: 'Ej: 12.345.678-A', type: 'text' },
-    // Sección B
-    { name: 'emplazamientoCalle', label: 'Emplazamiento (Calle)', placeholder: 'Calle Prudencia', type: 'text', fullWidth: true },
-    { name: 'numero', label: 'Número', placeholder: '44', type: 'text' },
-    { name: 'localidadEmplazamiento', label: 'Localidad (Emplazamiento)', placeholder: 'Sevilla', type: 'text' },
-    { name: 'provinciaEmplazamiento', label: 'Provincia (Emplazamiento)', placeholder: 'Sevilla', type: 'text' },
-    { name: 'correoElectronicoEmplazamiento', label: 'Correo Electrónico (Emplazamiento)', placeholder: 'Ej: correo@ejemplo.com', type: 'email', fullWidth: true },
-    { name: 'tipoInstalacionSeleccionada', label: 'Instalación', placeholder: 'Nueva/Ampliación/Modificación', type: 'select', options: ['Nueva', 'Ampliación', 'Modificación'] },
-    // Sección E - E.1 CARGADOR
-    { name: 'cargadorMarca', label: 'Marca del Cargador', placeholder: 'Ej: SMA EV', type: 'text', fullWidth: true },
-    { name: 'cargadorModelo', label: 'Modelo del Cargador', placeholder: 'Ej: CHARGER 22', type: 'text', fullWidth: true },
-    { name: 'cargadorNumeroCapacidad', label: 'Número/Capacidad de la Conexión', placeholder: 'Ej: 1/Trifásica', type: 'text' },
-    { name: 'cargadorTipoCable', label: 'Tipo de Cable', placeholder: 'Ej: Manguera fija', type: 'text' },
-    // Sección E - E.2 INFRAESTRUCTURA DE RECARGA
-    { name: 'numeroPuntosRecarga', label: 'Número de Puntos de Carga', placeholder: '1', type: 'text' },
-    { name: 'potenciaInstalada', label: 'Potencia Instalada Total (kW)', placeholder: '22', type: 'text' },
-    { name: 'potenciaPrevisita', label: 'Potencia Prevista Total (kW)', placeholder: '22', type: 'text' },
-    { name: 'tipoInstalacionRecarga', label: 'Tipo de Instalación', placeholder: 'INTERIOR/EXTERIOR', type: 'text' },
-    { name: 'modoCarga', label: 'Modo de Carga', placeholder: 'Modo 3 (IEC 61851-)', type: 'text' },
-    { name: 'tipoConector', label: 'Tipo de Conector', placeholder: '2', type: 'text' },
-    // Sección E - E.3 CUADRO DE MANDO Y PROTECCIÓN
-    { name: 'interruptorGeneralAmperaje', label: 'Interruptor General Magnetotérmico (A)', placeholder: '32', type: 'text' },
-    { name: 'interruptorDiferencialAmperaje', label: 'Interruptor Diferencial (A)', placeholder: '40', type: 'text' },
-    { name: 'interruptorDiferencialSensibilidad', label: 'Sensibilidad (mA)', placeholder: '30', type: 'text' },
-    { name: 'descargadorSobretensiones', label: 'Descargador de Sobretensiones', placeholder: 'Sí/No', type: 'text' },
-    { name: 'puestaATierra', label: 'Puesta a Tierra', placeholder: 'Descripción', type: 'textarea', rows: 3, fullWidth: true },
-    // Sección F - CARACTERÍSTICAS DE LÍNEAS Y CIRCUITOS
-    { name: 'potenciaPrevistaCuadroPrincipal', label: 'Potencia Prevista Cuadro Principal (kW)', placeholder: '22', type: 'text' },
-    { name: 'longitudCuadroPrincipal', label: 'Longitud (m)', placeholder: '10', type: 'text' },
-    { name: 'materialConductor', label: 'Material Conductor/Sección (mm²)', placeholder: '6', type: 'text' },
-    { name: 'intensidadAdmisible', label: 'Intensidad Admisible (A)', placeholder: '49', type: 'text' },
-    { name: 'caidaTension', label: 'Caída de Tensión (%)', placeholder: '< 1,5 %', type: 'text' },
-    // Sección G y H
-    { name: 'esquemaUnifilar', label: 'Esquema Unifilar (Imagen)', placeholder: 'Selecciona una imagen', type: 'file', accept: 'image/*', fullWidth: true },
-    { name: 'planoEmplazamiento', label: 'Plano de Emplazamiento (Imagen)', placeholder: 'Selecciona una imagen', type: 'file', accept: 'image/*', fullWidth: true }
-  ],
   capabilities: {
     canPreview: true,
     canEdit: true,
