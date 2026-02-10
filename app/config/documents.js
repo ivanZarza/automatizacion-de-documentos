@@ -1229,6 +1229,84 @@ export const declaracionNoGeneracionRcdsConfig = {
   }
 }
 
+export const planosPlanosSituacionEmplazamientoCubiertaConfig = {
+  id: 'planos-situacion-emplazamiento-cubierta',
+  title: 'Planos de Situación, Emplazamiento y Cubierta',
+  description: 'Documento con planos de ubicación, emplazamiento y disposición de módulos fotovoltaicos',
+  fileName: 'planos-situacion-emplazamiento-cubierta.pdf',
+  route: '/planos-situacion-emplazamiento-cubierta',
+  fields: [
+    { name: 'pse_promotor', label: 'Promotor/Titular', type: 'text', fullWidth: true },
+    { name: 'pse_nif', label: 'NIF/CIF', type: 'text' },
+    { name: 'pse_direccion', label: 'Dirección', type: 'text', fullWidth: true },
+    { name: 'pse_numero', label: 'Número', type: 'text' },
+    { name: 'pse_localidad', label: 'Localidad', type: 'text' },
+    { name: 'pse_codigoPostal', label: 'Código Postal', type: 'text' },
+    { name: 'pse_provincia', label: 'Provincia', type: 'text' },
+    { name: 'pse_referenciaCatastral', label: 'Referencia Catastral', type: 'text', fullWidth: true },
+    { name: 'pse_potenciaKw', label: 'Potencia (kW)', type: 'text' },
+    { name: 'pse_tipoInstalacion', label: 'Tipo de Instalación', type: 'text' },
+    { name: 'pse_potenciaPicoGenerador', label: 'Potencia Pico Generador (Wp)', type: 'text' },
+    { name: 'pse_totalModulos', label: 'Total de Módulos', type: 'text' },
+    { name: 'pse_potenciaModulos', label: 'Potencia por Módulo (Wp)', type: 'text' },
+    { name: 'pse_disposicionModulos', label: 'Disposición de Módulos', type: 'text' },
+    { name: 'pse_fecha', label: 'Fecha', type: 'date' },
+    { name: 'pse_autorProyecto', label: 'Técnico Responsable', type: 'text', fullWidth: true },
+    { name: 'pse_tituloDescriptivo', label: 'Título Descriptivo del Proyecto', type: 'textarea', fullWidth: true },
+    { name: 'pse_tipo', label: 'Tipo de Instalación', type: 'text', fullWidth: true },
+    { name: 'pse_potencia', label: 'Potencia (kW)', type: 'text' },
+    { name: 'pse_descripcion', label: 'Descripción del Proyecto', type: 'textarea', fullWidth: true }
+  ],
+  defaultData: {
+    pse_promotor: '',
+    pse_nif: '',
+    pse_direccion: '',
+    pse_numero: '',
+    pse_localidad: '',
+    pse_codigoPostal: '',
+    pse_provincia: '',
+    pse_referenciaCatastral: '',
+    pse_potenciaKw: '',
+    pse_tipoInstalacion: '',
+    pse_potenciaPicoGenerador: '',
+    pse_totalModulos: '',
+    pse_potenciaModulos: '',
+    pse_disposicionModulos: '',
+    pse_fecha: '',
+    pse_autorProyecto: 'Eduardo Rivera Cabezas',
+    pse_tituloDescriptivo: 'Instalación Solar Fotovoltaica',
+    pse_tipo: '',
+    pse_potencia: '',
+    pse_descripcion: ''
+  },
+  fieldMapping: {
+    pse_promotor: 'apellidosNombre',
+    pse_nif: 'nifCif',
+    pse_direccion: 'emplazamientoCalle',
+    pse_numero: 'numero',
+    pse_localidad: 'localidadEmplazamiento',
+    pse_codigoPostal: 'codigoPostal',
+    pse_provincia: 'provinciaEmplazamiento',
+    pse_referenciaCatastral: 'referenciaCatastral',
+    pse_potenciaKw: 'potenciaKw',
+    pse_tipoInstalacion: 'tipoInstalacionSeleccionada',
+    pse_potenciaPicoGenerador: 'potenciaPicoGenerador',
+    pse_totalModulos: 'totalModulos',
+    pse_potenciaModulos: 'potenciaModulos',
+    pse_disposicionModulos: 'disposicionModulos',
+    pse_fecha: 'fecha',
+    pse_autorProyecto: 'nombreTecnicoCompetente',
+    pse_tipo: 'otros_tipoInstalacion',
+    pse_potencia: 'e2_potenciaNominalInversores',
+    pse_descripcion: 'otros_descripcionProyecto'
+  },
+  capabilities: {
+    canPreview: true,
+    canEdit: true,
+    canGeneratePDF: true
+  }
+}
+
 /**
  * Objeto que contiene todas las configuraciones de documentos
  */
@@ -1242,7 +1320,8 @@ const documentConfigs = {
   'mtd-instalacion-aislada-con-bateria': memoriaInstalacionAisladaConBateriaConfig,
   'mtd-instalacion-autoconsumo-trifasica-con-bateria': memoriaTecnicaTrifasicaConBateriaConfig,
   'mtd-instalacion-autoconsumo-sin-bateria': memoriaTecnicaAutoconsumoSinBateriaConfig,
-  'mtd-instalacion-puntos-recarga': memoriaTecnicaPuntoRecargaConfig
+  'mtd-instalacion-puntos-recarga': memoriaTecnicaPuntoRecargaConfig,
+  'planos-situacion-emplazamiento-cubierta': planosPlanosSituacionEmplazamientoCubiertaConfig
 }
 
 /**

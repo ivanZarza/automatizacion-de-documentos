@@ -686,6 +686,29 @@ export const editableFieldsByDocument = {
     'municipio',
     'ciudadFirma',
     'fecha'
+  ],
+
+  'planos-situacion-emplazamiento-cubierta': [
+    'pse_promotor',
+    'pse_nif',
+    'pse_direccion',
+    'pse_numero',
+    'pse_localidad',
+    'pse_codigoPostal',
+    'pse_provincia',
+    'pse_referenciaCatastral',
+    'pse_potenciaKw',
+    'pse_tipoInstalacion',
+    'pse_potenciaPicoGenerador',
+    'pse_totalModulos',
+    'pse_potenciaModulos',
+    'pse_disposicionModulos',
+    'pse_fecha',
+    'pse_autorProyecto',
+    'pse_tituloDescriptivo',
+    'pse_tipo',
+    'pse_potencia',
+    'pse_descripcion'
   ]
 }
 

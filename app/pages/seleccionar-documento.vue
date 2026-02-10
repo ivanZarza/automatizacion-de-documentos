@@ -108,6 +108,16 @@
           <p class="text-gray-600 text-sm mb-4">Declaración responsable de no generación de residuos de construcción</p>
           <Boton variant="primary" class="w-full">Generar →</Boton>
         </div>
+
+        <!-- Tarjeta: Planos de Situación, Emplazamiento y Cubierta -->
+        <div 
+          class="bg-white rounded-lg shadow-md p-6 border-l-4 border-red-600 cursor-pointer hover:shadow-lg transition-shadow"
+          @click="selectDocument('planos-situacion-emplazamiento-cubierta')"
+        >
+          <h3 class="text-xl font-bold text-gray-800 mb-2">Planos de Situación, Emplazamiento y Cubierta</h3>
+          <p class="text-gray-600 text-sm mb-4">Documento con planos de ubicación y disposición de módulos fotovoltaicos</p>
+          <Boton variant="primary" class="w-full">Generar →</Boton>
+        </div>
       </div>
     </div>
 

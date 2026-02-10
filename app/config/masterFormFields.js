@@ -529,6 +529,10 @@ export const masterFormFields = [
   // ========== SECCIÓN I: PLANO DE EMPLAZAMIENTO ==========
   { name: 'i_planoEmplazamiento', label: 'PLANO DE EMPLAZAMIENTO (Archivo)', type: 'file', accept: 'image/*,.pdf', subsection: 'I', fullWidth: true },
 
+  // ========== SECCIÓN OTROS: DESCRIPCIÓN DEL PROYECTO ==========
+  { name: 'otros_tipoInstalacion', label: 'Tipo de Instalación (ej: Instalación Solar Fotovoltaica)', type: 'text', fullWidth: true },
+  { name: 'otros_descripcionProyecto', label: 'Descripción del Proyecto (ej: para Autoconsumo Individual con Excedentes...)', type: 'textarea', fullWidth: true },
+
   // ========== SECCIÓN OTROS: FOTOS ADICIONALES ==========
   { name: 'otros_foto1', label: 'FOTO ADICIONAL 1', type: 'file', accept: 'image/*,.pdf', fullWidth: true },
   { name: 'otros_foto2', label: 'FOTO ADICIONAL 2', type: 'file', accept: 'image/*,.pdf', fullWidth: true },
