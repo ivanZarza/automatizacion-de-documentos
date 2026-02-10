@@ -328,7 +328,11 @@ function getSubsectionLabel(subsection) {
     'E2.3': 'E2.3 - Generador Fotovoltaico',
     'E2.4': 'E2.4 - Inversor',
     'E2.5': 'E2.5 - Baterías',
-    'E2.5.1': 'E2.5.1 - Protecciones Externas'
+    'E2.5.1': 'E2.5.1 - Protecciones Externas',
+    'F': 'F - Medidas de Protección',
+    'G': 'G - Características de Líneas y Circuitos',
+    'H': 'H - Esquema Unifilar',
+    'I': 'I - Plano de Emplazamiento'
   }
   return labels[subsection] || subsection
 }
