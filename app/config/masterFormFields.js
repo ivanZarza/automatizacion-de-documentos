@@ -522,6 +522,11 @@ export const masterFormFields = [
 
   // ========== SECCIÓN I: PLANO DE EMPLAZAMIENTO ==========
   { name: 'i_planoEmplazamiento', label: 'PLANO DE EMPLAZAMIENTO (Archivo)', type: 'file', accept: 'image/*,.pdf', subsection: 'I', fullWidth: true },
+
+  // ========== SECCIÓN OTROS: FOTOS ADICIONALES ==========
+  { name: 'otros_foto1', label: 'FOTO ADICIONAL 1', type: 'file', accept: 'image/*,.pdf', fullWidth: true },
+  { name: 'otros_foto2', label: 'FOTO ADICIONAL 2', type: 'file', accept: 'image/*,.pdf', fullWidth: true },
+  { name: 'otros_foto3', label: 'FOTO ADICIONAL 3', type: 'file', accept: 'image/*,.pdf', fullWidth: true },
 ]
 
 export const getMasterFormDefaultData = () => {
