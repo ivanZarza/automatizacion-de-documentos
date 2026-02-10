@@ -54,15 +54,24 @@
 
                   <!-- File Input -->
                   <div v-else-if="field.type === 'file'" class="file-wrapper">
+                    <label :for="field.name" class="file-input-label">
+                      <svg class="file-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                      </svg>
+                      <span>{{ formData[field.name] ? 'Cambiar archivo' : 'Seleccionar archivo' }}</span>
+                    </label>
                     <input 
+                      :id="field.name"
                       :key="field.name"
                       type="file"
                       :accept="field.accept || '*'"
-                      class="field-input"
+                      class="file-input-hidden"
                       @change="handleFileUpload($event, field.name)"
                     />
                     <div v-if="formData[field.name]" class="file-preview">
-                      <p class="file-preview-text">Archivo seleccionado:</p>
+                      <p class="file-preview-text">✓ Archivo seleccionado:</p>
                       <img v-if="field.accept?.includes('image')" :src="formData[field.name]" class="file-preview-image" />
                       <p v-else class="file-preview-name">{{ extractFileName(formData[field.name]) }}</p>
                     </div>
@@ -116,15 +125,24 @@
 
                 <!-- File Input -->
                 <div v-else-if="field.type === 'file'" class="file-wrapper">
+                  <label :for="'file-' + field.name" class="file-input-label">
+                    <svg class="file-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="17 8 12 3 7 8"></polyline>
+                      <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <span>{{ formData[field.name] ? 'Cambiar archivo' : 'Seleccionar archivo' }}</span>
+                  </label>
                   <input 
+                    :id="'file-' + field.name"
                     :key="field.name"
                     type="file"
                     :accept="field.accept || '*'"
-                    class="field-input"
+                    class="file-input-hidden"
                     @change="handleFileUpload($event, field.name)"
                   />
                   <div v-if="formData[field.name]" class="file-preview">
-                    <p class="file-preview-text">Archivo seleccionado:</p>
+                    <p class="file-preview-text">✓ Archivo seleccionado:</p>
                     <img v-if="field.accept?.includes('image')" :src="formData[field.name]" class="file-preview-image" />
                     <p v-else class="file-preview-name">{{ extractFileName(formData[field.name]) }}</p>
                   </div>
@@ -457,46 +475,68 @@ function getSubsectionLabel(subsection) {
 .file-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
 }
 
 .file-input-label {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 14px;
-  background-color: #eff6ff;
-  border: 2px dashed #93c5fd;
-  border-radius: 6px;
+  gap: 8px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border: 2px dashed #3b82f6;
+  border-radius: 8px;
   color: #1e40af;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 14px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .file-input-label:hover {
-  background-color: #e0f2fe;
-  border-color: #0284c7;
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  border-color: #1e3a8a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
 }
 
-input[type="file"] {
+.file-icon {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+}
+
+.file-input-hidden {
   display: none;
 }
 
 .file-preview {
-  padding: 8px;
-  background-color: #f3f4f6;
-  border-radius: 4px;
-  font-size: 12px;
-  color: #6b7280;
+  padding: 12px;
+  background-color: #f0fdf4;
+  border-left: 4px solid #16a34a;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #166534;
+}
+
+.file-preview-text {
+  margin: 0 0 8px 0;
+  font-weight: 500;
 }
 
 .file-preview-image {
   max-width: 100%;
-  max-height: 150px;
+  max-height: 200px;
   border-radius: 4px;
   margin-top: 8px;
+  border: 1px solid #dcfce7;
+}
+
+.file-preview-name {
+  margin: 0;
+  word-break: break-all;
+  font-family: 'Courier New', monospace;
 }
 
 .form-submit {
