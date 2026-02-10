@@ -1276,7 +1276,10 @@ export const planosPlanosSituacionEmplazamientoCubiertaConfig = {
     pse_autorProyecto: 'nombreTecnicoCompetente',
     pse_tipo: 'otros_tipoInstalacion',
     pse_potencia: 'e2_potenciaNominalInversores',
-    pse_descripcion: 'otros_descripcionProyecto'
+    pse_descripcion: 'otros_descripcionProyecto',
+    pse_imagenSituacion: 'otros_imagenPlanoSituacion',
+    pse_imagenEmplazamiento: 'otros_imagenPlanoEmplazamiento',
+    pse_imagenCubierta: 'otros_imagenPlanoCubierta'
   },
   capabilities: {
     canPreview: true,

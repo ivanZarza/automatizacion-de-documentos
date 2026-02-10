@@ -113,7 +113,8 @@
 
             <!-- Imagen a la derecha (placeholder) -->
             <div class="imagen-plano">
-              <div class="placeholder-imagen">
+              <img v-if="formattedData.imagenSituacion" :src="formattedData.imagenSituacion" alt="Plano de Situación" class="imagen-contenido" />
+              <div v-else class="placeholder-imagen">
                 [MAPA DE SITUACIÓN]
               </div>
             </div>
@@ -159,7 +160,8 @@
 
             <!-- Imagen a la derecha (placeholder) -->
             <div class="imagen-plano">
-              <div class="placeholder-imagen">
+              <img v-if="formattedData.imagenEmplazamiento" :src="formattedData.imagenEmplazamiento" alt="Plano de Emplazamiento" class="imagen-contenido" />
+              <div v-else class="placeholder-imagen">
                 [FOTO AÉREA/PLANO]
               </div>
             </div>
@@ -205,7 +207,8 @@
 
             <!-- Imagen a la derecha (placeholder) -->
             <div class="imagen-plano">
-              <div class="placeholder-imagen">
+              <img v-if="formattedData.imagenCubierta" :src="formattedData.imagenCubierta" alt="Plano de Cubierta" class="imagen-contenido" />
+              <div v-else class="placeholder-imagen">
                 [FOTO DE CUBIERTA]
               </div>
             </div>
@@ -257,6 +260,9 @@ const props = defineProps({
   pse_tipo: String,
   pse_potencia: String,
   pse_descripcion: String,
+  pse_imagenSituacion: String,
+  pse_imagenEmplazamiento: String,
+  pse_imagenCubierta: String,
   logos: {
     type: Object,
     default: () => ({})
@@ -284,7 +290,10 @@ const formattedData = computed(() => ({
   tituloDescriptivo: props.pse_tituloDescriptivo || 'Instalación Solar Fotovoltaica',
   pse_tipo: props.pse_tipo || 'Instalación Solar Fotovoltaica',
   pse_potencia: props.pse_potencia || '0 kW',
-  pse_descripcion: props.pse_descripcion || 'para Autoconsumo'
+  pse_descripcion: props.pse_descripcion || 'para Autoconsumo',
+  imagenSituacion: props.pse_imagenSituacion || null,
+  imagenEmplazamiento: props.pse_imagenEmplazamiento || null,
+  imagenCubierta: props.pse_imagenCubierta || null
 }))
 </script>
 
@@ -544,6 +553,13 @@ const formattedData = computed(() => ({
   color: #999;
   font-size: 14px;
   font-weight: bold;
+}
+
+.imagen-contenido {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 5px;
 }
 
 /* ========== LOGOS Y CERTIFICACIONES ========== */

@@ -538,6 +538,32 @@ export const masterFormFields = [
   { name: 'otros_foto2', label: 'FOTO ADICIONAL 2', type: 'file', accept: 'image/*,.pdf', fullWidth: true },
   { name: 'otros_foto3', label: 'FOTO ADICIONAL 3', type: 'file', accept: 'image/*,.pdf', fullWidth: true },
   { name: 'otros_foto4', label: 'FOTO ADICIONAL 4', type: 'file', accept: 'image/*,.pdf', fullWidth: true },
+  
+  // ========== SECCIÓN OTROS: IMÁGENES DE PLANOS CON DESCRIPCIONES ==========
+  { 
+    name: 'otros_imagenPlanoSituacion', 
+    label: 'PLANO DE SITUACIÓN', 
+    type: 'file', 
+    accept: 'image/*,.pdf', 
+    description: 'Plano de situación geográfica de la instalación.', 
+    fullWidth: true 
+  },
+  { 
+    name: 'otros_imagenPlanoEmplazamiento', 
+    label: 'PLANO DE EMPLAZAMIENTO', 
+    type: 'file', 
+    accept: 'image/*,.pdf', 
+    description: 'Plano de emplazamiento de la instalación.', 
+    fullWidth: true 
+  },
+  { 
+    name: 'otros_imagenPlanoCubierta', 
+    label: 'PLANO DE CUBIERTA', 
+    type: 'file', 
+    accept: 'image/*,.pdf', 
+    description: 'Plano de detalle de la instalación fotovoltaica en cubierta.', 
+    fullWidth: true 
+  },
 ]
 
 export const getMasterFormDefaultData = () => {
