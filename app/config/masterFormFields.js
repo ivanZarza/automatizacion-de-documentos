@@ -325,386 +325,78 @@ export const masterFormFields = [
 
   // ========== SECCIÓN E1: INSTALACIÓN AISLADA ==========
   // E1.1 Módulo Fotovoltaico
-  { 
-    name: 'e1_tecnologiaCelulaModulo', 
-    label: 'Tecnología de Célula del Módulo', 
-    placeholder: 'Ej: Monocristalino', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_marcaModeloModulo', 
-    label: 'Marca y Modelo del Módulo', 
-    placeholder: 'Ej: JAM72S30 535/MR', 
-    type: 'text',
-    fullWidth: true
-  },
-  { 
-    name: 'e1_potenciaPicoModulo', 
-    label: 'Potencia Pico del Módulo (Wp)', 
-    placeholder: 'Ej: 535', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_toncModulo', 
-    label: 'Temperatura Operacional (TONC)', 
-    placeholder: 'Ej: 45ºC', 
-    type: 'text' 
-  },
+  { name: 'e1_tecnologiaCelulaModulo', label: 'TECNOLOGÍA DE LA CÉLULA', placeholder: 'Ej: Monocristalino', type: 'text', subsection: 'E1.1' },
+  { name: 'e1_marcaModeloModulo', label: 'MARCA Y MODELO', placeholder: 'Ej: JAM72S30 535/MR', type: 'text', subsection: 'E1.1', fullWidth: true },
+  { name: 'e1_potenciaPicoModulo', label: 'POTENCIA PICO (Wp)', placeholder: 'Ej: 535', type: 'text', subsection: 'E1.1' },
+  { name: 'e1_toncModulo', label: 'TONC (ºC)', placeholder: 'Ej: 45', type: 'text', subsection: 'E1.1' },
 
   // E1.2 Generador Fotovoltaico
-  { 
-    name: 'e1_potenciaPicoGenerador', 
-    label: 'Potencia Pico del Generador (kWp)', 
-    placeholder: 'Ej: 5.35', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_intensidadIpmpGenerador', 
-    label: 'Intensidad Impp del Generador (A)', 
-    placeholder: 'Ej: 10.84', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_tensionVpmpGenerador', 
-    label: 'Tensión Vmpp del Generador (V)', 
-    placeholder: 'Ej: 493', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_orientacionGenerador', 
-    label: 'Orientación del Generador', 
-    placeholder: 'Ej: Sur', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_inclinacionGenerador', 
-    label: 'Inclinación del Generador (º)', 
-    placeholder: 'Ej: 30', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_totalModulos', 
-    label: 'Total de Módulos', 
-    placeholder: 'Ej: 10', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_modulosEnSerie', 
-    label: 'Módulos en Serie', 
-    placeholder: 'Ej: 10', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_ramasEnParalelo', 
-    label: 'Ramas en Paralelo', 
-    placeholder: 'Ej: 1', 
-    type: 'text' 
-  },
+  { name: 'e1_potenciaPicoGenerador', label: 'POTENCIA PICO (Wp)', placeholder: 'Ej: 5350', type: 'text', subsection: 'E1.2' },
+  { name: 'e1_intensidadIpmpGenerador', label: 'INTENSIDAD MÁXIMA POTENCIA, Ipmp (A)', placeholder: 'Ej: 10.84', type: 'text', subsection: 'E1.2' },
+  { name: 'e1_tensionVpmpGenerador', label: 'TENSIÓN MÁXIMA POTENCIA, Vpmp (V)', placeholder: 'Ej: 493', type: 'text', subsection: 'E1.2' },
+  { name: 'e1_orientacionGenerador', label: 'ORIENTACIÓN', placeholder: 'Ej: Sur', type: 'text', subsection: 'E1.2' },
+  { name: 'e1_inclinacionGenerador', label: 'INCLINACIÓN (º)', placeholder: 'Ej: 30', type: 'text', subsection: 'E1.2' },
+  { name: 'e1_totalModulos', label: 'Nº TOTAL MÓDULOS', placeholder: 'Ej: 10', type: 'text', subsection: 'E1.2' },
+  { name: 'e1_modulosEnSerie', label: 'Nº MÓDULOS EN SERIE', placeholder: 'Ej: 10', type: 'text', subsection: 'E1.2' },
+  { name: 'e1_ramasEnParalelo', label: 'Nº RAMAS EN PARALELO', placeholder: 'Ej: 1', type: 'text', subsection: 'E1.2' },
 
   // E1.3 Baterías
-  { 
-    name: 'e1_marcaModeloBateria', 
-    label: 'Marca y Modelo de la Batería', 
-    placeholder: 'Ej: LG Chem RESU', 
-    type: 'text',
-    fullWidth: true
-  },
-  { 
-    name: 'e1_tipoBateria', 
-    label: 'Tipo de Batería', 
-    placeholder: 'Ej: Litio-Hierro Fosfato', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_tipoPlacaBateria', 
-    label: 'Tipo de Placa de la Batería', 
-    placeholder: 'Ej: OPzS', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_c10Bateria', 
-    label: 'Capacidad C10 (Ah)', 
-    placeholder: 'Ej: 2300', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_c100Bateria', 
-    label: 'Capacidad C100 (Ah)', 
-    placeholder: 'Ej: 2500', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_tensionNominalBateria', 
-    label: 'Tensión Nominal de la Batería (V)', 
-    placeholder: 'Ej: 48', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_profundidadDescargaBateria', 
-    label: 'Profundidad de Descarga (%)', 
-    placeholder: 'Ej: 80', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_tensionMaximaBateria', 
-    label: 'Tensión Máxima de la Batería (V)', 
-    placeholder: 'Ej: 57.6', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_tensionMinimaBateria', 
-    label: 'Tensión Mínima de la Batería (V)', 
-    placeholder: 'Ej: 44.8', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_intensidadMaximaCargaBateria', 
-    label: 'Intensidad Máxima de Carga (A)', 
-    placeholder: 'Ej: 100', 
-    type: 'text' 
-  },
+  { name: 'e1_marcaModeloBateria', label: 'MARCA Y MODELO', placeholder: 'Ej: LG Chem RESU', type: 'text', subsection: 'E1.3', fullWidth: true },
+  { name: 'e1_tipoBateria', label: 'TIPO DE BATERÍA', placeholder: 'Ej: Litio-Hierro Fosfato', type: 'text', subsection: 'E1.3' },
+  { name: 'e1_tipoPlacaBateria', label: 'TIPO DE PLACA', placeholder: 'Ej: OPzS', type: 'text', subsection: 'E1.3' },
+  { name: 'e1_c10Bateria', label: 'C10 (Ah)', placeholder: 'Ej: 2300', type: 'text', subsection: 'E1.3' },
+  { name: 'e1_c100Bateria', label: 'C100 (Ah)', placeholder: 'Ej: 2500', type: 'text', subsection: 'E1.3' },
+  { name: 'e1_tensionNominalBateria', label: 'TENSIÓN NOMINAL (V)', placeholder: 'Ej: 48', type: 'text', subsection: 'E1.3' },
+  { name: 'e1_profundidadDescargaBateria', label: 'PROFUNDIDAD DESCARGA', placeholder: 'Ej: 80', type: 'text', subsection: 'E1.3' },
+  { name: 'e1_tensionMaximaBateria', label: 'TENSIÓN MÁXIMA (V)', placeholder: 'Ej: 57.6', type: 'text', subsection: 'E1.3' },
+  { name: 'e1_tensionMinimaBateria', label: 'TENSIÓN MÍNIMA (V)', placeholder: 'Ej: 44.8', type: 'text', subsection: 'E1.3' },
+  { name: 'e1_intensidadMaximaCargaBateria', label: 'INTENSIDAD MÁX CARGA (A)', placeholder: 'Ej: 100', type: 'text', subsection: 'E1.3' },
 
   // E1.4 Regulador
-  { 
-    name: 'e1_marcaModeloRegulador', 
-    label: 'Marca y Modelo del Regulador', 
-    placeholder: 'Ej: Victron SmartSolar', 
-    type: 'text',
-    fullWidth: true
-  },
-  { 
-    name: 'e1_intensidadMaximaRegulador', 
-    label: 'Intensidad Máxima del Regulador (A)', 
-    placeholder: 'Ej: 100', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_tensionCorteAltaRegulador', 
-    label: 'Tensión de Corte Alta (V)', 
-    placeholder: 'Ej: 57.6', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_tensionCorteBajaRegulador', 
-    label: 'Tensión de Corte Baja (V)', 
-    placeholder: 'Ej: 44.8', 
-    type: 'text' 
-  },
+  { name: 'e1_marcaModeloRegulador', label: 'MARCA Y MODELO', placeholder: 'Ej: Victron SmartSolar', type: 'text', subsection: 'E1.4', fullWidth: true },
+  { name: 'e1_intensidadMaximaRegulador', label: 'INTENSIDAD MÁXIMA (A)', placeholder: 'Ej: 100', type: 'text', subsection: 'E1.4' },
+  { name: 'e1_tensionCorteAltaRegulador', label: 'TENSIÓN CORTE ALTA (V)', placeholder: 'Ej: 57.6', type: 'text', subsection: 'E1.4' },
+  { name: 'e1_tensionCorteBajaRegulador', label: 'TENSIÓN CORTE BAJA (V)', placeholder: 'Ej: 44.8', type: 'text', subsection: 'E1.4' },
 
   // E1.5 Inversor
-  { 
-    name: 'e1_marcaModeloInversor', 
-    label: 'Marca y Modelo del Inversor', 
-    placeholder: 'Ej: Victron MultiPlus', 
-    type: 'text',
-    fullWidth: true
-  },
-  { 
-    name: 'e1_potenciaNominalInversor', 
-    label: 'Potencia Nominal del Inversor (W)', 
-    placeholder: 'Ej: 3000', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_rendimientoInversor10', 
-    label: 'Rendimiento al 10% (%)', 
-    placeholder: 'Ej: 85', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_rendimientoInversor25', 
-    label: 'Rendimiento al 25% (%)', 
-    placeholder: 'Ej: 90', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_rendimientoInversor50', 
-    label: 'Rendimiento al 50% (%)', 
-    placeholder: 'Ej: 93', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_rendimientoInversor75', 
-    label: 'Rendimiento al 75% (%)', 
-    placeholder: 'Ej: 92', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_rendimientoInversor100', 
-    label: 'Rendimiento al 100% (%)', 
-    placeholder: 'Ej: 91', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_relacionTensionInversor', 
-    label: 'Relación de Tensión del Inversor', 
-    placeholder: 'Ej: 48V→230V', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_formaOndaSalidaInversor', 
-    label: 'Forma de Onda de Salida', 
-    placeholder: 'Ej: Senoidal Pura', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_frecuenciaNominalInversor', 
-    label: 'Frecuencia Nominal (Hz)', 
-    placeholder: 'Ej: 50', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_tensionMaximaEntradaInversor', 
-    label: 'Tensión Máxima de Entrada (V)', 
-    placeholder: 'Ej: 65', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_tensionSalidaInversor', 
-    label: 'Tensión de Salida (V)', 
-    placeholder: 'Ej: 230', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_consumoVacioInversor', 
-    label: 'Consumo en Vacío (W)', 
-    placeholder: 'Ej: 50', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_seguidorPuntoMaximaPotencia', 
-    label: 'Seguidor del Punto de Máxima Potencia', 
-    placeholder: 'Ej: Sí', 
-    type: 'text' 
-  },
+  { name: 'e1_marcaModeloInversor', label: 'MARCA Y MODELO', placeholder: 'Ej: Victron MultiPlus', type: 'text', subsection: 'E1.5', fullWidth: true },
+  { name: 'e1_potenciaNominalInversor', label: 'POTENCIA NOMINAL (W)', placeholder: 'Ej: 3000', type: 'text', subsection: 'E1.5' },
+  { name: 'e1_rendimientoInversor10', label: 'REND 10%', placeholder: 'Ej: 85', type: 'text', subsection: 'E1.5' },
+  { name: 'e1_rendimientoInversor25', label: 'REND 25%', placeholder: 'Ej: 90', type: 'text', subsection: 'E1.5' },
+  { name: 'e1_rendimientoInversor50', label: 'REND 50%', placeholder: 'Ej: 93', type: 'text', subsection: 'E1.5' },
+  { name: 'e1_rendimientoInversor75', label: 'REND 75%', placeholder: 'Ej: 92', type: 'text', subsection: 'E1.5' },
+  { name: 'e1_rendimientoInversor100', label: 'REND 100%', placeholder: 'Ej: 91', type: 'text', subsection: 'E1.5' },
+  { name: 'e1_relacionTensionInversor', label: 'RELACIÓN TENSIÓN VCC/VCA', placeholder: 'Ej: 48V→230V', type: 'text', subsection: 'E1.5' },
+  { name: 'e1_formaOndaSalidaInversor', label: 'FORMA ONDA SALIDA', placeholder: 'Ej: Senoidal Pura', type: 'text', subsection: 'E1.5' },
+  { name: 'e1_frecuenciaNominalInversor', label: 'FRECUENCIA NOMINAL (Hz)', placeholder: 'Ej: 50', type: 'text', subsection: 'E1.5' },
+  { name: 'e1_tensionMaximaEntradaInversor', label: 'TENSIÓN MÁX ENTRADA (V)', placeholder: 'Ej: 65', type: 'text', subsection: 'E1.5' },
+  { name: 'e1_tensionSalidaInversor', label: 'TENSIÓN SALIDA (V)', placeholder: 'Ej: 230', type: 'text', subsection: 'E1.5' },
+  { name: 'e1_consumoVacioInversor', label: 'CONSUMO EN VACÍO', placeholder: 'Ej: 50', type: 'text', subsection: 'E1.5' },
 
   // E1.6 Otros
-  { 
-    name: 'e1_convertidorCC_CC', 
-    label: 'Convertidor CC-CC (si aplica)', 
-    placeholder: 'Opcional', 
-    type: 'text',
-    fullWidth: true
-  },
-  { 
-    name: 'e1_relacionTensionCC', 
-    label: 'Relación de Tensión CC', 
-    placeholder: 'Opcional', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_variadorFrecuencia', 
-    label: 'Variador de Frecuencia (si aplica)', 
-    placeholder: 'Opcional', 
-    type: 'text',
-    fullWidth: true
-  },
-  { 
-    name: 'e1_grupoAuxiliarApoyo', 
-    label: 'Grupo Auxiliar de Apoyo', 
-    placeholder: 'Opcional', 
-    type: 'text',
-    fullWidth: true
-  },
-  { 
-    name: 'e1_potenciaGrupoAuxiliar', 
-    label: 'Potencia del Grupo Auxiliar (W)', 
-    placeholder: 'Opcional', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_otrosEquipos', 
-    label: 'Otros Equipos', 
-    placeholder: 'Opcional', 
-    type: 'textarea',
-    fullWidth: true
-  },
+  { name: 'e1_convertidorCC_CC', label: 'CONVERTIDOR CC/CC', placeholder: 'Opcional', type: 'text', subsection: 'E1.6', fullWidth: true },
+  { name: 'e1_relacionTensionCC', label: 'REL TENSIÓN VCC1/VCC2', placeholder: 'Opcional', type: 'text', subsection: 'E1.6' },
+  { name: 'e1_variadorFrecuencia', label: 'VARIADOR FRECUENCIA', placeholder: 'Opcional', type: 'text', subsection: 'E1.6', fullWidth: true },
+  { name: 'e1_grupoAuxiliarApoyo', label: 'GRUPO AUXILIAR APOYO', placeholder: 'Opcional', type: 'text', subsection: 'E1.6', fullWidth: true },
+  { name: 'e1_potenciaGrupoAuxiliar', label: 'POTENCIA GRUPO AUX (W)', placeholder: 'Opcional', type: 'text', subsection: 'E1.6' },
+  { name: 'e1_otrosEquipos', label: 'OTROS EQUIPOS', placeholder: 'Opcional', type: 'textarea', subsection: 'E1.6', fullWidth: true },
 
   // E1.7 Información de la Demanda
-  { 
-    name: 'e1_potenciaMaximaDemanda', 
-    label: 'Potencia Máxima Demandada (W)', 
-    placeholder: 'Ej: 3000', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_periodicidadDemanda', 
-    label: 'Periodicidad de la Demanda', 
-    placeholder: 'Ej: Diaria', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_energiaDiariaEnero', 
-    label: 'Energía Diaria Enero (kWh)', 
-    placeholder: 'Ej: 15.5', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_energiaDiariaFebrero', 
-    label: 'Energía Diaria Febrero (kWh)', 
-    placeholder: 'Ej: 16.2', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_energiaDiariaMarzo', 
-    label: 'Energía Diaria Marzo (kWh)', 
-    placeholder: 'Ej: 18.5', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_energiaDiariaAbril', 
-    label: 'Energía Diaria Abril (kWh)', 
-    placeholder: 'Ej: 20.1', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_energiaDiariaMayo', 
-    label: 'Energía Diaria Mayo (kWh)', 
-    placeholder: 'Ej: 22.3', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_energiaDiariaJunio', 
-    label: 'Energía Diaria Junio (kWh)', 
-    placeholder: 'Ej: 23.8', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_energiaDiariaJulio', 
-    label: 'Energía Diaria Julio (kWh)', 
-    placeholder: 'Ej: 24.5', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_energiaDiariaAgosto', 
-    label: 'Energía Diaria Agosto (kWh)', 
-    placeholder: 'Ej: 24.1', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_energiaDiariaSeptiembre', 
-    label: 'Energía Diaria Septiembre (kWh)', 
-    placeholder: 'Ej: 21.5', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_energiaDiariaOctubre', 
-    label: 'Energía Diaria Octubre (kWh)', 
-    placeholder: 'Ej: 18.9', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_energiaDiariaNoviembre', 
-    label: 'Energía Diaria Noviembre (kWh)', 
-    placeholder: 'Ej: 16.3', 
-    type: 'text' 
-  },
-  { 
-    name: 'e1_energiaDiariaDiciembre', 
-    label: 'Energía Diaria Diciembre (kWh)', 
-    placeholder: 'Ej: 14.8', 
-    type: 'text' 
-  },
+  { name: 'e1_potenciaMaximaDemanda', label: 'POTENCIA MÁX DEMANDADA (W)', placeholder: 'Ej: 3000', type: 'text', subsection: 'E1.7' },
+  { name: 'e1_periodicidadDemanda', label: 'PERIODICIDAD', placeholder: 'Ej: Diaria', type: 'text', subsection: 'E1.7' },
+  { name: 'e1_energiaDiariaMediaMensual', label: 'ENERGÍA DIARIA MEDIA MENSUAL (Wh/día)', placeholder: 'Ej: 15500', type: 'text', subsection: 'E1.7' },
+  { name: 'e1_energiaDiariaEnero', label: 'ENE', placeholder: 'Ej: 15.5', type: 'text', subsection: 'E1.7' },
+  { name: 'e1_energiaDiariaFebrero', label: 'FEB', placeholder: 'Ej: 16.2', type: 'text', subsection: 'E1.7' },
+  { name: 'e1_energiaDiariaMarzo', label: 'MAR', placeholder: 'Ej: 18.5', type: 'text', subsection: 'E1.7' },
+  { name: 'e1_energiaDiariaAbril', label: 'ABR', placeholder: 'Ej: 20.1', type: 'text', subsection: 'E1.7' },
+  { name: 'e1_energiaDiariaMayo', label: 'MAY', placeholder: 'Ej: 22.3', type: 'text', subsection: 'E1.7' },
+  { name: 'e1_energiaDiariaJunio', label: 'JUN', placeholder: 'Ej: 23.8', type: 'text', subsection: 'E1.7' },
+  { name: 'e1_energiaDiariaJulio', label: 'JUL', placeholder: 'Ej: 24.5', type: 'text', subsection: 'E1.7' },
+  { name: 'e1_energiaDiariaAgosto', label: 'AGO', placeholder: 'Ej: 24.1', type: 'text', subsection: 'E1.7' },
+  { name: 'e1_energiaDiariaSeptiembre', label: 'SEP', placeholder: 'Ej: 21.5', type: 'text', subsection: 'E1.7' },
+  { name: 'e1_energiaDiariaOctubre', label: 'OCT', placeholder: 'Ej: 18.9', type: 'text', subsection: 'E1.7' },
+  { name: 'e1_energiaDiariaNoviembre', label: 'NOV', placeholder: 'Ej: 16.3', type: 'text', subsection: 'E1.7' },
+  { name: 'e1_energiaDiariaDiciembre', label: 'DIC', placeholder: 'Ej: 14.8', type: 'text', subsection: 'E1.7' },
 
   // ========== SECCIÓN E2: INSTALACIÓN INTERCONECTADA ==========
   // E2.1 Conexión a la Red

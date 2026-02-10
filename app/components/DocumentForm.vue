@@ -3,68 +3,135 @@
     <div class="form-wrapper">
       <h2 class="form-title">{{ title }}</h2>
       <form @submit.prevent="submit" class="form-content">
-        <!-- Agrupar campos por sección -->
+        <!-- Agrupar campos por sección y subsección -->
         <div v-for="(groupedFields, sectionLetter) in groupedFieldsBySection" :key="sectionLetter" class="section-container" :data-section="sectionLetter">
           <h3 class="section-title">Sección {{ sectionLetter }}</h3>
-          <div class="fields-grid">
-            <div v-for="field in groupedFields" :key="field.name" class="field-wrapper">
-              <label class="field-label">{{ field.label }}</label>
-              
-              <!-- Input Text -->
-              <input 
-                v-if="field.type === 'text' || field.type === 'email' || field.type === 'tel'"
-                v-model="formData[field.name]"
-                :type="field.type"
-                :placeholder="field.placeholder"
-                class="field-input"
-              />
+          <!-- Agrupar por subsección si es E1 o E2 -->
+          <template v-if="sectionLetter === 'E1' || sectionLetter === 'E2'">
+            <div v-for="(subFields, subsection) in groupFieldsBySubsection(groupedFields)" :key="subsection" class="subsection-container">
+              <h4 class="subsection-title">{{ getSubsectionLabel(subsection) }}</h4>
+              <div class="fields-grid">
+                <div v-for="field in subFields" :key="field.name" class="field-wrapper">
+                  <label class="field-label">{{ field.label }}</label>
+                  
+                  <!-- Input Text -->
+                  <input 
+                    v-if="field.type === 'text' || field.type === 'email' || field.type === 'tel'"
+                    v-model="formData[field.name]"
+                    :type="field.type"
+                    :placeholder="field.placeholder"
+                    class="field-input"
+                  />
 
-              <!-- Input Date -->
-              <input 
-                v-else-if="field.type === 'date'"
-                v-model="formData[field.name]"
-                type="date"
-                class="field-input"
-              />
+                  <!-- Input Date -->
+                  <input 
+                    v-else-if="field.type === 'date'"
+                    v-model="formData[field.name]"
+                    type="date"
+                    class="field-input"
+                  />
 
-              <!-- Textarea -->
-              <textarea 
-                v-else-if="field.type === 'textarea'"
-                v-model="formData[field.name]"
-                :placeholder="field.placeholder"
-                :rows="field.rows || 3"
-                class="field-input field-textarea"
-              ></textarea>
+                  <!-- Textarea -->
+                  <textarea 
+                    v-else-if="field.type === 'textarea'"
+                    v-model="formData[field.name]"
+                    :placeholder="field.placeholder"
+                    :rows="field.rows || 3"
+                    class="field-input field-textarea"
+                  ></textarea>
 
-              <!-- Select -->
-              <select 
-                v-else-if="field.type === 'select'"
-                v-model="formData[field.name]"
-                class="field-input"
-              >
-                <option value="">{{ field.placeholder }}</option>
-                <option v-for="option in field.options" :key="option" :value="option">
-                  {{ option }}
-                </option>
-              </select>
+                  <!-- Select -->
+                  <select 
+                    v-else-if="field.type === 'select'"
+                    v-model="formData[field.name]"
+                    class="field-input"
+                  >
+                    <option value="">{{ field.placeholder }}</option>
+                    <option v-for="option in field.options" :key="option" :value="option">
+                      {{ option }}
+                    </option>
+                  </select>
 
-              <!-- File Input -->
-              <div v-else-if="field.type === 'file'" class="file-wrapper">
-                <input 
-                  :key="field.name"
-                  type="file"
-                  :accept="field.accept || '*'"
-                  class="field-input"
-                  @change="handleFileUpload($event, field.name)"
-                />
-                <div v-if="formData[field.name]" class="file-preview">
-                  <p class="file-preview-text">Archivo seleccionado:</p>
-                  <img v-if="field.accept?.includes('image')" :src="formData[field.name]" class="file-preview-image" />
-                  <p v-else class="file-preview-name">{{ extractFileName(formData[field.name]) }}</p>
+                  <!-- File Input -->
+                  <div v-else-if="field.type === 'file'" class="file-wrapper">
+                    <input 
+                      :key="field.name"
+                      type="file"
+                      :accept="field.accept || '*'"
+                      class="field-input"
+                      @change="handleFileUpload($event, field.name)"
+                    />
+                    <div v-if="formData[field.name]" class="file-preview">
+                      <p class="file-preview-text">Archivo seleccionado:</p>
+                      <img v-if="field.accept?.includes('image')" :src="formData[field.name]" class="file-preview-image" />
+                      <p v-else class="file-preview-name">{{ extractFileName(formData[field.name]) }}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          </template>
+          <template v-else>
+            <div class="fields-grid">
+              <div v-for="field in groupedFields" :key="field.name" class="field-wrapper">
+                <label class="field-label">{{ field.label }}</label>
+                
+                <!-- Input Text -->
+                <input 
+                  v-if="field.type === 'text' || field.type === 'email' || field.type === 'tel'"
+                  v-model="formData[field.name]"
+                  :type="field.type"
+                  :placeholder="field.placeholder"
+                  class="field-input"
+                />
+
+                <!-- Input Date -->
+                <input 
+                  v-else-if="field.type === 'date'"
+                  v-model="formData[field.name]"
+                  type="date"
+                  class="field-input"
+                />
+
+                <!-- Textarea -->
+                <textarea 
+                  v-else-if="field.type === 'textarea'"
+                  v-model="formData[field.name]"
+                  :placeholder="field.placeholder"
+                  :rows="field.rows || 3"
+                  class="field-input field-textarea"
+                ></textarea>
+
+                <!-- Select -->
+                <select 
+                  v-else-if="field.type === 'select'"
+                  v-model="formData[field.name]"
+                  class="field-input"
+                >
+                  <option value="">{{ field.placeholder }}</option>
+                  <option v-for="option in field.options" :key="option" :value="option">
+                    {{ option }}
+                  </option>
+                </select>
+
+                <!-- File Input -->
+                <div v-else-if="field.type === 'file'" class="file-wrapper">
+                  <input 
+                    :key="field.name"
+                    type="file"
+                    :accept="field.accept || '*'"
+                    class="field-input"
+                    @change="handleFileUpload($event, field.name)"
+                  />
+                  <div v-if="formData[field.name]" class="file-preview">
+                    <p class="file-preview-text">Archivo seleccionado:</p>
+                    <img v-if="field.accept?.includes('image')" :src="formData[field.name]" class="file-preview-image" />
+                    <p v-else class="file-preview-name">{{ extractFileName(formData[field.name]) }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
         </div>
 
         <Boton 
@@ -235,6 +302,36 @@ const fieldsToRender = computed(() => {
   if (!props.editableFieldNames || props.editableFieldNames.length === 0) return source
   return source.filter(f => props.editableFieldNames.includes(f.name))
 })
+
+// Agrupar campos por subsección
+function groupFieldsBySubsection(fields) {
+  const grouped = {}
+  fields.forEach(field => {
+    const subsection = field.subsection || 'Sin subsección'
+    if (!grouped[subsection]) grouped[subsection] = []
+    grouped[subsection].push(field)
+  })
+  return grouped
+}
+// Etiquetas de subsección
+function getSubsectionLabel(subsection) {
+  const labels = {
+    'E1.1': 'E1.1 - Módulo Fotovoltaico',
+    'E1.2': 'E1.2 - Generador Fotovoltaico',
+    'E1.3': 'E1.3 - Baterías',
+    'E1.4': 'E1.4 - Regulador',
+    'E1.5': 'E1.5 - Inversor',
+    'E1.6': 'E1.6 - Otros',
+    'E1.7': 'E1.7 - Información de la Demanda',
+    'E2.1': 'E2.1 - Conexión a la Red',
+    'E2.2': 'E2.2 - Módulo Fotovoltaico',
+    'E2.3': 'E2.3 - Generador Fotovoltaico',
+    'E2.4': 'E2.4 - Inversor',
+    'E2.5': 'E2.5 - Baterías',
+    'E2.5.1': 'E2.5.1 - Protecciones Externas'
+  }
+  return labels[subsection] || subsection
+}
 </script>
 
 <style scoped>
@@ -467,6 +564,21 @@ input[type="file"] {
 .section-container[data-section="I"] {
   background-color: #faf5ff;
   border-left-color: #7c3aed;
+}
+
+.subsection-container {
+  background: #f0f0f0;
+  border-left: 3px solid #8b5a8b;
+  margin-bottom: 18px;
+  padding: 12px 18px;
+  border-radius: 6px;
+}
+
+.subsection-title {
+  font-size: 14px;
+  font-weight: bold;
+  color: #8b5a8b;
+  margin-bottom: 10px;
 }
 
 /* Responsive */
