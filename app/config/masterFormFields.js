@@ -141,6 +141,12 @@ export const masterFormFields = [
     type: 'text' 
   },
   { 
+    name: 'codigoPostalEmplazamiento', 
+    label: 'Código Postal del Emplazamiento', 
+    placeholder: 'Ej: 41001', 
+    type: 'text' 
+  },
+  { 
     name: 'correoElectronicoEmplazamiento', 
     label: 'Correo Electrónico del Emplazamiento', 
     placeholder: 'Ej: emplazamiento@correo.com', 
