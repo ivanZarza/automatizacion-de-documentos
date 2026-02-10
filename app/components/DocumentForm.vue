@@ -6,8 +6,8 @@
         <!-- Agrupar campos por sección y subsección -->
         <div v-for="(groupedFields, sectionLetter) in groupedFieldsBySection" :key="sectionLetter" class="section-container" :data-section="sectionLetter">
           <h3 class="section-title">Sección {{ sectionLetter }}</h3>
-          <!-- Agrupar por subsección si es E1 o E2 -->
-          <template v-if="sectionLetter === 'E1' || sectionLetter === 'E2'">
+          <!-- Agrupar por subsección si es E1, E2, F, G, H, o I -->
+          <template v-if="['E1', 'E2', 'F', 'G', 'H', 'I'].includes(sectionLetter)">
             <div v-for="(subFields, subsection) in groupFieldsBySubsection(groupedFields)" :key="subsection" class="subsection-container">
               <h4 class="subsection-title">{{ getSubsectionLabel(subsection) }}</h4>
               <div class="fields-grid">
@@ -264,14 +264,14 @@ const groupedFieldsBySection = computed(() => {
     // Detectar sección por prefijo del nombre
     if (field.name.startsWith('e1_')) section = 'E1'
     else if (field.name.startsWith('e2_')) section = 'E2'
+    else if (field.name.startsWith('f_')) section = 'F'
+    else if (field.name.startsWith('g_')) section = 'G'
+    else if (field.name.startsWith('h_')) section = 'H'
+    else if (field.name.startsWith('i_')) section = 'I'
     else if (field.name.startsWith('apellidos') || field.name.startsWith('nif') || field.name === 'correoElectronico' || field.name === 'telefono' || field.name === 'representante' || field.name === 'dniRepresentante' || field.name === 'domicilio' || field.name === 'localidad' || field.name === 'provincia' || field.name === 'codigoPostal') section = 'A'
     else if (field.name.startsWith('emplazamiento') || (field.name === 'numero' && !field.name.includes('Tecnico')) || field.name === 'bloque' || field.name === 'escalera' || field.name === 'piso' || field.name === 'localidadEmplazamiento' || field.name === 'provinciaEmplazamiento' || field.name === 'correoElectronicoEmplazamiento' || field.name === 'referenciaCatastral' || field.name === 'tipoInstalacion' || field.name === 'usoDestino') section = 'B'
     else if (field.name.startsWith('nombreTecnico') || field.name.startsWith('numeroCertificado') || field.name.startsWith('numeroInstalador') || field.name.startsWith('domicilioTecnico') || field.name.startsWith('localidadTecnico') || field.name.startsWith('telefonoTecnico') || field.name.startsWith('codigoPostalTecnico') || field.name.startsWith('numeroTecnico')) section = 'C'
     else if (field.name.startsWith('modalidad')) section = 'D'
-    else if (field.name.startsWith('medida') || field.name.startsWith('parteInstalacion')) section = 'F'
-    else if (field.name.startsWith('potencia') || field.name.startsWith('longitud') || field.name.startsWith('material') || field.name.startsWith('intensidad') || field.name.startsWith('caida')) section = 'G'
-    else if (field.name.startsWith('esquema')) section = 'H'
-    else if (field.name.startsWith('plano')) section = 'I'
     
     if (!grouped[section]) {
       grouped[section] = []

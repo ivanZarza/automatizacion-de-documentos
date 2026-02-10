@@ -400,506 +400,130 @@ export const masterFormFields = [
 
   // ========== SECCIÓN E2: INSTALACIÓN INTERCONECTADA ==========
   // E2.1 Conexión a la Red
-  { 
-    name: 'potenciaNominalInversores', 
-    label: 'Potencia Nominal de Inversores (kW)', 
-    placeholder: 'Ej: 5.5', 
-    type: 'text' 
-  },
-  { 
-    name: 'tipoConexionRed', 
-    label: 'Tipo de Conexión a Red', 
-    placeholder: 'Ej: Monofásica / Trifásica', 
-    type: 'select',
-    options: ['Monofásica', 'Trifásica']
-  },
+  { name: 'e2_potenciaNominalInversores', label: 'POTENCIA NOMINAL TOTAL EN INVERSORES (kW)', placeholder: 'Ej: 5.5', type: 'text', subsection: 'E2.1' },
+  { name: 'e2_tipoConexionRed', label: 'TIPO', placeholder: 'Ej: Monofásica / Trifásica', type: 'select', options: ['Monofásica', 'Trifásica'], subsection: 'E2.1' },
 
   // E2.2 Módulo Fotovoltaico
-  { 
-    name: 'tecnologiaCelulaModulo', 
-    label: 'Tecnología de Célula del Módulo', 
-    placeholder: 'Ej: Monocristalino -PERC-', 
-    type: 'text' 
-  },
-  { 
-    name: 'marcaModeloModulo', 
-    label: 'Marca y Modelo del Módulo', 
-    placeholder: 'Ej: JAM72S30 535/MR', 
-    type: 'text',
-    fullWidth: true
-  },
-  { 
-    name: 'potenciaPicoModulo', 
-    label: 'Potencia Pico del Módulo (Wp)', 
-    placeholder: 'Ej: 535', 
-    type: 'text' 
-  },
-  { 
-    name: 'toncModulo', 
-    label: 'Temperatura Operacional TONC (ºC)', 
-    placeholder: 'Ej: 45', 
-    type: 'text' 
-  },
+  { name: 'e2_tecnologiaCelulaModulo', label: 'TECNOLOGÍA DE LA CÉLULA', placeholder: 'Ej: Monocristalino -PERC-', type: 'text', subsection: 'E2.2' },
+  { name: 'e2_marcaModeloModulo', label: 'MARCA Y MODELO', placeholder: 'Ej: JA Solar JAM72S30 450/MR', type: 'text', subsection: 'E2.2', fullWidth: true },
+  { name: 'e2_potenciaPicoModulo', label: 'POTENCIA PICO (Wp)', placeholder: 'Ej: 450', type: 'text', subsection: 'E2.2' },
+  { name: 'e2_toncModulo', label: 'TONC (ºC)', placeholder: 'Ej: 45', type: 'text', subsection: 'E2.2' },
 
   // E2.3 Generador Fotovoltaico
-  { 
-    name: 'potenciaPicoGenerador', 
-    label: 'Potencia Pico del Generador (kWp)', 
-    placeholder: 'Ej: 5.35', 
-    type: 'text' 
-  },
-  { 
-    name: 'tensionVpmpGenerador', 
-    label: 'Tensión Vmpp del Generador (V)', 
-    placeholder: 'Ej: 493', 
-    type: 'text' 
-  },
-  { 
-    name: 'intensidadIpmpGenerador', 
-    label: 'Intensidad Impp del Generador (A)', 
-    placeholder: 'Ej: 10.84', 
-    type: 'text' 
-  },
-  { 
-    name: 'orientacionGenerador', 
-    label: 'Orientación del Generador', 
-    placeholder: 'Ej: Sur', 
-    type: 'text' 
-  },
-  { 
-    name: 'inclinacionGenerador', 
-    label: 'Inclinación del Generador (º)', 
-    placeholder: 'Ej: 30', 
-    type: 'text' 
-  },
-  { 
-    name: 'totalModulos', 
-    label: 'Total de Módulos', 
-    placeholder: 'Ej: 10', 
-    type: 'text' 
-  },
-  { 
-    name: 'modulosEnSerie', 
-    label: 'Módulos en Serie', 
-    placeholder: 'Ej: 10', 
-    type: 'text' 
-  },
-  { 
-    name: 'ramasEnParalelo', 
-    label: 'Ramas en Paralelo', 
-    placeholder: 'Ej: 1', 
-    type: 'text' 
-  },
+  { name: 'e2_potenciaPicoGenerador', label: 'POTENCIA PICO (Wp)', placeholder: 'Ej: 4500', type: 'text', subsection: 'E2.3' },
+  { name: 'e2_intensidadIpmpGenerador', label: 'INTENSIDAD MÁXIMA POTENCIA, Ipmp (A)', placeholder: 'Ej: 10', type: 'text', subsection: 'E2.3' },
+  { name: 'e2_tensionVpmpGenerador', label: 'TENSIÓN MÁXIMA POTENCIA, Vpmp (V)', placeholder: 'Ej: 400', type: 'text', subsection: 'E2.3' },
+  { name: 'e2_orientacionGenerador', label: 'ORIENTACIÓN', placeholder: 'Ej: Sur', type: 'text', subsection: 'E2.3' },
+  { name: 'e2_inclinacionGenerador', label: 'INCLINACIÓN (º)', placeholder: 'Ej: 30', type: 'text', subsection: 'E2.3' },
+  { name: 'e2_totalModulos', label: 'Nº TOTAL MÓDULOS', placeholder: 'Ej: 10', type: 'text', subsection: 'E2.3' },
+  { name: 'e2_modulosEnSerie', label: 'Nº MÓDULOS EN SERIE', placeholder: 'Ej: 10', type: 'text', subsection: 'E2.3' },
+  { name: 'e2_ramasEnParalelo', label: 'Nº RAMAS EN PARALELO', placeholder: 'Ej: 1', type: 'text', subsection: 'E2.3' },
 
   // E2.4 Inversor
-  { 
-    name: 'marcaModeloInversor', 
-    label: 'Marca y Modelo del Inversor', 
-    placeholder: 'Ej: Victron MultiPlus', 
-    type: 'text',
-    fullWidth: true
-  },
-  { 
-    name: 'potenciaACInversor', 
-    label: 'Potencia AC del Inversor (W)', 
-    placeholder: 'Ej: 5500', 
-    type: 'text' 
-  },
-  { 
-    name: 'tensionNominalInversor', 
-    label: 'Tensión Nominal del Inversor (V)', 
-    placeholder: 'Ej: 230', 
-    type: 'text' 
-  },
-  { 
-    name: 'vccMaximaInversor', 
-    label: 'VCC Máxima del Inversor (V)', 
-    placeholder: 'Ej: 425', 
-    type: 'text' 
-  },
-  { 
-    name: 'vccMinimaInversor', 
-    label: 'VCC Mínima del Inversor (V)', 
-    placeholder: 'Ej: 150', 
-    type: 'text' 
-  },
-  { 
-    name: 'tipoConexionInversor', 
-    label: 'Tipo de Conexión del Inversor', 
-    placeholder: 'Ej: Monofásica', 
-    type: 'select',
-    options: ['Monofásica', 'Trifásica']
-  },
+  { name: 'e2_marcaModeloInversor', label: 'MARCA Y MODELO', placeholder: 'Ej: Fronius Symo', type: 'text', subsection: 'E2.4', fullWidth: true },
+  { name: 'e2_potenciaNominalInversor', label: 'POTENCIA NOMINAL (W)', placeholder: 'Ej: 5000', type: 'text', subsection: 'E2.4' },
+  { name: 'e2_rendimientoInversor10', label: 'REND 10%', placeholder: 'Ej: 85', type: 'text', subsection: 'E2.4' },
+  { name: 'e2_rendimientoInversor25', label: 'REND 25%', placeholder: 'Ej: 90', type: 'text', subsection: 'E2.4' },
+  { name: 'e2_rendimientoInversor50', label: 'REND 50%', placeholder: 'Ej: 93', type: 'text', subsection: 'E2.4' },
+  { name: 'e2_rendimientoInversor75', label: 'REND 75%', placeholder: 'Ej: 92', type: 'text', subsection: 'E2.4' },
+  { name: 'e2_rendimientoInversor100', label: 'REND 100%', placeholder: 'Ej: 91', type: 'text', subsection: 'E2.4' },
+  { name: 'e2_relacionTensionInversor', label: 'RELACIÓN TENSIÓN VCC/VCA', placeholder: 'Ej: 230V/400V', type: 'text', subsection: 'E2.4' },
+  { name: 'e2_formaOndaSalidaInversor', label: 'FORMA ONDA SALIDA', placeholder: 'Ej: Senoidal Pura', type: 'text', subsection: 'E2.4' },
+  { name: 'e2_frecuenciaNominalInversor', label: 'FRECUENCIA NOMINAL (Hz)', placeholder: 'Ej: 50', type: 'text', subsection: 'E2.4' },
+  { name: 'e2_tensionMaximaEntradaInversor', label: 'TENSIÓN MÁX ENTRADA (V)', placeholder: 'Ej: 65', type: 'text', subsection: 'E2.4' },
+  { name: 'e2_tensionSalidaInversor', label: 'TENSIÓN SALIDA (V)', placeholder: 'Ej: 400', type: 'text', subsection: 'E2.4' },
+  { name: 'e2_consumoVacioInversor', label: 'CONSUMO EN VACÍO', placeholder: 'Ej: 50', type: 'text', subsection: 'E2.4' },
 
-  // E2.5 Baterías
-  { 
-    name: 'marcaModeloBateria', 
-    label: 'Marca y Modelo de la Batería', 
-    placeholder: 'Ej: LG Chem RESU', 
-    type: 'text',
-    fullWidth: true
-  },
-  { 
-    name: 'tipoBateria', 
-    label: 'Tipo de Batería', 
-    placeholder: 'Ej: Litio-Hierro Fosfato (LiFePO4)', 
-    type: 'text' 
-  },
-  { 
-    name: 'tensionNominalBateria', 
-    label: 'Tensión Nominal de la Batería (V)', 
-    placeholder: 'Ej: 200', 
-    type: 'text' 
-  },
-  { 
-    name: 'profundidadDescargaBateria', 
-    label: 'Profundidad de Descarga (%)', 
-    placeholder: 'Ej: 100', 
-    type: 'text' 
-  },
-  { 
-    name: 'tensionMaximaBateria', 
-    label: 'Tensión Máxima de la Batería (V)', 
-    placeholder: 'Ej: 57.6', 
-    type: 'text' 
-  },
-  { 
-    name: 'tensionMinimaBateria', 
-    label: 'Tensión Mínima de la Batería (V)', 
-    placeholder: 'Ej: 44.8', 
-    type: 'text' 
-  },
-  { 
-    name: 'energiaTotalBateria', 
-    label: 'Energía Total de la Batería (kWh)', 
-    placeholder: 'Ej: 13.8', 
-    type: 'text' 
-  },
-  { 
-    name: 'potenciaMaximaSalidaBateria', 
-    label: 'Potencia Máxima de Salida (W)', 
-    placeholder: 'Ej: 5000', 
-    type: 'text' 
-  },
-  { 
-    name: 'maximoPicoPotenciaBateria', 
-    label: 'Máximo Pico de Potencia (W)', 
-    placeholder: 'Ej: 6000', 
-    type: 'text' 
-  },
+  // E2.5 Otros
+  { name: 'e2_convertidorCC_CC', label: 'CONVERTIDOR CC/CC', placeholder: 'Opcional', type: 'text', subsection: 'E2.5', fullWidth: true },
+  { name: 'e2_relacionTensionCC', label: 'REL TENSIÓN VCC1/VCC2', placeholder: 'Opcional', type: 'text', subsection: 'E2.5' },
+  { name: 'e2_variadorFrecuencia', label: 'VARIADOR FRECUENCIA', placeholder: 'Opcional', type: 'text', subsection: 'E2.5', fullWidth: true },
+  { name: 'e2_grupoAuxiliarApoyo', label: 'GRUPO AUXILIAR APOYO', placeholder: 'Opcional', type: 'text', subsection: 'E2.5', fullWidth: true },
+  { name: 'e2_potenciaGrupoAuxiliar', label: 'POTENCIA GRUPO AUX (W)', placeholder: 'Opcional', type: 'text', subsection: 'E2.5' },
+  { name: 'e2_otrosEquipos', label: 'OTROS EQUIPOS', placeholder: 'Opcional', type: 'textarea', subsection: 'E2.5', fullWidth: true },
 
-  // E2.5.1 Protecciones Externas
-  { 
-    name: 'intensidadInterruptorGeneral', 
-    label: 'Intensidad Interruptor General (A)', 
-    placeholder: 'Ej: 25', 
-    type: 'text' 
-  },
-  { 
-    name: 'poderCorteInterruptor', 
-    label: 'Poder de Corte del Interruptor (kA)', 
-    placeholder: 'Ej: 6', 
-    type: 'text' 
-  },
-  { 
-    name: 'proteccionFrecuenciaTension', 
-    label: 'Protección de Frecuencia/Tensión', 
-    placeholder: 'Especificar protecciones', 
-    type: 'textarea',
-    fullWidth: true
-  },
+  // E2.6 Información de la Demanda
+  { name: 'e2_potenciaMaximaDemanda', label: 'POTENCIA MÁX DEMANDADA (W)', placeholder: 'Ej: 5000', type: 'text', subsection: 'E2.6' },
+  { name: 'e2_periodicidadDemanda', label: 'PERIODICIDAD', placeholder: 'Ej: Diaria', type: 'text', subsection: 'E2.6' },
+  { name: 'e2_energiaDiariaMediaMensual', label: 'ENERGÍA DIARIA MEDIA MENSUAL (Wh/día)', placeholder: 'Ej: 15500', type: 'text', subsection: 'E2.6' },
+  { name: 'e2_energiaDiariaEnero', label: 'ENE', placeholder: 'Ej: 15.5', type: 'text', subsection: 'E2.6' },
+  { name: 'e2_energiaDiariaFebrero', label: 'FEB', placeholder: 'Ej: 16.2', type: 'text', subsection: 'E2.6' },
+  { name: 'e2_energiaDiariaMarzo', label: 'MAR', placeholder: 'Ej: 18.5', type: 'text', subsection: 'E2.6' },
+  { name: 'e2_energiaDiariaAbril', label: 'ABR', placeholder: 'Ej: 20.1', type: 'text', subsection: 'E2.6' },
+  { name: 'e2_energiaDiariaMayo', label: 'MAY', placeholder: 'Ej: 22.3', type: 'text', subsection: 'E2.6' },
+  { name: 'e2_energiaDiariaJunio', label: 'JUN', placeholder: 'Ej: 23.8', type: 'text', subsection: 'E2.6' },
+  { name: 'e2_energiaDiariaJulio', label: 'JUL', placeholder: 'Ej: 24.5', type: 'text', subsection: 'E2.6' },
+  { name: 'e2_energiaDiariaAgosto', label: 'AGO', placeholder: 'Ej: 24.1', type: 'text', subsection: 'E2.6' },
+  { name: 'e2_energiaDiariaSeptiembre', label: 'SEP', placeholder: 'Ej: 21.5', type: 'text', subsection: 'E2.6' },
+  { name: 'e2_energiaDiariaOctubre', label: 'OCT', placeholder: 'Ej: 18.9', type: 'text', subsection: 'E2.6' },
+  { name: 'e2_energiaDiariaNoviembre', label: 'NOV', placeholder: 'Ej: 16.3', type: 'text', subsection: 'E2.6' },
+  { name: 'e2_energiaDiariaDiciembre', label: 'DIC', placeholder: 'Ej: 14.8', type: 'text', subsection: 'E2.6' },
 
-  // ========== SECCIÓN F: MEDIDAS DE PROTECCIÓN ==========
-  { 
-    name: 'medidaContactosDirectos', 
-    label: 'Medida para Contactos Directos', 
-    placeholder: 'Ej: Conductores aislados y canaletas', 
-    type: 'text',
-    fullWidth: true
-  },
-  { 
-    name: 'parteInstalacionDirectos', 
-    label: 'Parte de Instalación (Contactos Directos)', 
-    placeholder: 'Ej: CGMP', 
-    type: 'text' 
-  },
-  { 
-    name: 'medidaContactosIndirectos', 
-    label: 'Medida para Contactos Indirectos', 
-    placeholder: 'Ej: Interruptor diferencial', 
-    type: 'text',
-    fullWidth: true
-  },
-  { 
-    name: 'parteInstalacionIndirectos', 
-    label: 'Parte de Instalación (Contactos Indirectos)', 
-    placeholder: 'Ej: CGMP', 
-    type: 'text' 
-  },
-  { 
-    name: 'medidaSobretensiones', 
-    label: 'Medida para Sobretensiones', 
-    placeholder: 'Ej: Descargador', 
-    type: 'text',
-    fullWidth: true
-  },
-  { 
-    name: 'parteInstalacionSobretensiones', 
-    label: 'Parte de Instalación (Sobretensiones)', 
-    placeholder: 'Ej: CGMP', 
-    type: 'text' 
-  },
-  { 
-    name: 'medidaPuntoCaliente', 
-    label: 'Medida para Puntos Calientes', 
-    placeholder: 'Ej: 3 Diodos bypass', 
-    type: 'text',
-    fullWidth: true
-  },
-  { 
-    name: 'parteInstalacionPuntoCaliente', 
-    label: 'Parte de Instalación (Puntos Calientes)', 
-    placeholder: 'Ej: Módulo FV', 
-    type: 'text' 
-  },
-  { 
-    name: 'medidaExplosion', 
-    label: 'Medida para Riesgo de Explosión', 
-    placeholder: 'Opcional', 
-    type: 'text',
-    fullWidth: true
-  },
-  { 
-    name: 'parteInstalacionExplosion', 
-    label: 'Parte de Instalación (Explosión)', 
-    placeholder: 'Opcional', 
-    type: 'text' 
-  },
-  { 
-    name: 'medidaCorrosion', 
-    label: 'Medida para Corrosión', 
-    placeholder: 'Opcional', 
-    type: 'text',
-    fullWidth: true
-  },
-  { 
-    name: 'parteInstalacionCorrosion', 
-    label: 'Parte de Instalación (Corrosión)', 
-    placeholder: 'Opcional', 
-    type: 'text' 
-  },
-  { 
-    name: 'otrasProtecciones', 
-    label: 'Otras Protecciones', 
-    placeholder: 'Especificar si hay otras protecciones', 
-    type: 'textarea',
-    fullWidth: true
-  },
+  // ========== SECCIÓN F: MEDIDAS DE PROTECCIÓN EMPLEADAS ==========
+  { name: 'f_medidaContactoDirecto', label: 'CONTACTOS DIRECTOS - Tipo de Medida', placeholder: 'Ej: Conductores aislados y canaletas', type: 'text', subsection: 'F' },
+  { name: 'f_parteContactoDirecto', label: 'CONTACTOS DIRECTOS - Parte de la Instalación', placeholder: 'Ej: CGMP', type: 'text', subsection: 'F' },
+  
+  { name: 'f_medidaContactoIndirecto', label: 'CONTACTOS INDIRECTOS - Tipo de Medida', placeholder: 'Ej: Interruptor diferencial', type: 'text', subsection: 'F' },
+  { name: 'f_parteContactoIndirecto', label: 'CONTACTOS INDIRECTOS - Parte de la Instalación', placeholder: 'Ej: CGMP', type: 'text', subsection: 'F' },
+  
+  { name: 'f_medidaPuntoCaliente', label: 'EFECTO DEL PUNTO CALIENTE - Tipo de Medida', placeholder: 'Ej: 3 Diodos bypass', type: 'text', subsection: 'F' },
+  { name: 'f_partePuntoCaliente', label: 'EFECTO DEL PUNTO CALIENTE - Parte de la Instalación', placeholder: 'Ej: Módulo FV', type: 'text', subsection: 'F' },
+  
+  { name: 'f_medidaSobretensiones', label: 'SOBRETENSIONES - Tipo de Medida', placeholder: 'Ej: Descargador', type: 'text', subsection: 'F' },
+  { name: 'f_parteSobretensiones', label: 'SOBRETENSIONES - Parte de la Instalación', placeholder: 'Ej: CGMP', type: 'text', subsection: 'F' },
+  
+  { name: 'f_medidaExplosion', label: 'RIESGO DE EXPLOSIÓN - Tipo de Medida', placeholder: 'Opcional (solo aisladas con baterías)', type: 'text', subsection: 'F' },
+  { name: 'f_parteExplosion', label: 'RIESGO DE EXPLOSIÓN - Parte de la Instalación', placeholder: 'Opcional', type: 'text', subsection: 'F' },
+  
+  { name: 'f_medidaCorrosion', label: 'RIESGO DE CORROSIÓN - Tipo de Medida', placeholder: 'Opcional (solo aisladas con baterías)', type: 'text', subsection: 'F' },
+  { name: 'f_parteCorrosion', label: 'RIESGO DE CORROSIÓN - Parte de la Instalación', placeholder: 'Opcional', type: 'text', subsection: 'F' },
+  
+  { name: 'f_otrasProtecciones', label: 'OTRAS MEDIDAS', placeholder: 'Indicar cuales', type: 'textarea', subsection: 'F', fullWidth: true },
 
   // ========== SECCIÓN G: CARACTERÍSTICAS DE LÍNEAS Y CIRCUITOS ==========
-  { 
-    name: 'potenciaGeneradorRegulador', 
-    label: 'Potencia Línea Generador-Regulador (W)', 
-    placeholder: 'Ej: 5350', 
-    type: 'text' 
-  },
-  { 
-    name: 'longitudGeneradorRegulador', 
-    label: 'Longitud Línea Generador-Regulador (m)', 
-    placeholder: 'Ej: 15', 
-    type: 'text' 
-  },
-  { 
-    name: 'materialGeneradorRegulador', 
-    label: 'Sección de Cable Generador-Regulador (mm²)', 
-    placeholder: 'Ej: 10', 
-    type: 'text' 
-  },
-  { 
-    name: 'intensidadGeneradorRegulador', 
-    label: 'Intensidad Línea Generador-Regulador (A)', 
-    placeholder: 'Ej: 10.84', 
-    type: 'text' 
-  },
-  { 
-    name: 'caidaTensionGeneradorRegulador', 
-    label: 'Caída de Tensión Generador-Regulador (%)', 
-    placeholder: 'Ej: 1.2', 
-    type: 'text' 
-  },
-  { 
-    name: 'potenciaReguladorBateria', 
-    label: 'Potencia Línea Regulador-Batería (W)', 
-    placeholder: 'Ej: 5350', 
-    type: 'text' 
-  },
-  { 
-    name: 'longitudReguladorBateria', 
-    label: 'Longitud Línea Regulador-Batería (m)', 
-    placeholder: 'Ej: 5', 
-    type: 'text' 
-  },
-  { 
-    name: 'materialReguladorBateria', 
-    label: 'Sección de Cable Regulador-Batería (mm²)', 
-    placeholder: 'Ej: 16', 
-    type: 'text' 
-  },
-  { 
-    name: 'intensidadReguladorBateria', 
-    label: 'Intensidad Línea Regulador-Batería (A)', 
-    placeholder: 'Ej: 110', 
-    type: 'text' 
-  },
-  { 
-    name: 'caidaTensionReguladorBateria', 
-    label: 'Caída de Tensión Regulador-Batería (%)', 
-    placeholder: 'Ej: 0.8', 
-    type: 'text' 
-  },
-  { 
-    name: 'potenciaSalidaRegulador', 
-    label: 'Potencia Línea Salida Regulador (W)', 
-    placeholder: 'Ej: 5350', 
-    type: 'text' 
-  },
-  { 
-    name: 'longitudSalidaRegulador', 
-    label: 'Longitud Línea Salida Regulador (m)', 
-    placeholder: 'Ej: 10', 
-    type: 'text' 
-  },
-  { 
-    name: 'materialSalidaRegulador', 
-    label: 'Sección de Cable Salida Regulador (mm²)', 
-    placeholder: 'Ej: 10', 
-    type: 'text' 
-  },
-  { 
-    name: 'intensidadSalidaRegulador', 
-    label: 'Intensidad Línea Salida Regulador (A)', 
-    placeholder: 'Ej: 110', 
-    type: 'text' 
-  },
-  { 
-    name: 'caidaTensionSalidaRegulador', 
-    label: 'Caída de Tensión Salida Regulador (%)', 
-    placeholder: 'Ej: 1.0', 
-    type: 'text' 
-  },
-  { 
-    name: 'potenciaBateriaInversor', 
-    label: 'Potencia Línea Batería-Inversor (W)', 
-    placeholder: 'Ej: 3000', 
-    type: 'text' 
-  },
-  { 
-    name: 'longitudBateriaInversor', 
-    label: 'Longitud Línea Batería-Inversor (m)', 
-    placeholder: 'Ej: 5', 
-    type: 'text' 
-  },
-  { 
-    name: 'materialBateriaInversor', 
-    label: 'Sección de Cable Batería-Inversor (mm²)', 
-    placeholder: 'Ej: 6', 
-    type: 'text' 
-  },
-  { 
-    name: 'intensidadBateriaInversor', 
-    label: 'Intensidad Línea Batería-Inversor (A)', 
-    placeholder: 'Ej: 49', 
-    type: 'text' 
-  },
-  { 
-    name: 'caidaTensionBateriaInversor', 
-    label: 'Caída de Tensión Batería-Inversor (%)', 
-    placeholder: 'Ej: < 1,5', 
-    type: 'text' 
-  },
-  { 
-    name: 'potenciaGeneradorInversorDirecto', 
-    label: 'Potencia Línea Generador-Inversor (W)', 
-    placeholder: 'Ej: 5350', 
-    type: 'text' 
-  },
-  { 
-    name: 'longitudGeneradorInversorDirecto', 
-    label: 'Longitud Línea Generador-Inversor (m)', 
-    placeholder: 'Ej: 10', 
-    type: 'text' 
-  },
-  { 
-    name: 'materialGeneradorInversorDirecto', 
-    label: 'Sección de Cable Generador-Inversor (mm²)', 
-    placeholder: 'Ej: 6', 
-    type: 'text' 
-  },
-  { 
-    name: 'intensidadGeneradorInversorDirecto', 
-    label: 'Intensidad Línea Generador-Inversor (A)', 
-    placeholder: 'Ej: 49', 
-    type: 'text' 
-  },
-  { 
-    name: 'caidaTensionGeneradorInversorDirecto', 
-    label: 'Caída de Tensión Generador-Inversor (%)', 
-    placeholder: 'Ej: < 1,5', 
-    type: 'text' 
-  },
-  { 
-    name: 'potenciaSalidaInversorRed', 
-    label: 'Potencia Línea Salida Inversor-Red (W)', 
-    placeholder: 'Ej: 3000', 
-    type: 'text' 
-  },
-  { 
-    name: 'longitudSalidaInversorRed', 
-    label: 'Longitud Línea Salida Inversor-Red (m)', 
-    placeholder: 'Ej: 5', 
-    type: 'text' 
-  },
-  { 
-    name: 'materialSalidaInversorRed', 
-    label: 'Sección de Cable Salida Inversor-Red (mm²)', 
-    placeholder: 'Ej: 6', 
-    type: 'text' 
-  },
-  { 
-    name: 'intensidadSalidaInversorRed', 
-    label: 'Intensidad Línea Salida Inversor-Red (A)', 
-    placeholder: 'Ej: 44', 
-    type: 'text' 
-  },
-  { 
-    name: 'caidaTensionSalidaInversorRed', 
-    label: 'Caída de Tensión Salida Inversor-Red (%)', 
-    placeholder: 'Ej: < 1,5', 
-    type: 'text' 
-  },
+  { name: 'g_generadorReguladorPotencia', label: 'Generador FV-Regulador: Potencia (kW)', placeholder: 'Ej: 5.35', type: 'text', subsection: 'G' },
+  { name: 'g_generadorReguladorLongitud', label: 'Generador FV-Regulador: Longitud (m)', placeholder: 'Ej: 15', type: 'text', subsection: 'G' },
+  { name: 'g_generadorReguladorSeccion', label: 'Generador FV-Regulador: Material/Sección (mm²)', placeholder: 'Ej: 10', type: 'text', subsection: 'G' },
+  { name: 'g_generadorReguladorIntensidad', label: 'Generador FV-Regulador: Intensidad Admisible (A)', placeholder: 'Ej: 10.84', type: 'text', subsection: 'G' },
+  { name: 'g_generadorReguladorCaidaTension', label: 'Generador FV-Regulador: Caída de Tensión (%)', placeholder: 'Ej: 1.2', type: 'text', subsection: 'G' },
+  
+  { name: 'g_reguladorBateriaPotencia', label: 'Regulador-Batería: Potencia (kW)', placeholder: 'Ej: 5.35', type: 'text', subsection: 'G' },
+  { name: 'g_reguladorBateriaLongitud', label: 'Regulador-Batería: Longitud (m)', placeholder: 'Ej: 5', type: 'text', subsection: 'G' },
+  { name: 'g_reguladorBateriaSeccion', label: 'Regulador-Batería: Material/Sección (mm²)', placeholder: 'Ej: 6', type: 'text', subsection: 'G' },
+  { name: 'g_reguladorBateriaIntensidad', label: 'Regulador-Batería: Intensidad Admisible (A)', placeholder: 'Ej: 49', type: 'text', subsection: 'G' },
+  { name: 'g_reguladorBateriaCaidaTension', label: 'Regulador-Batería: Caída de Tensión (%)', placeholder: 'Ej: < 1.5', type: 'text', subsection: 'G' },
+  
+  { name: 'g_reguladorInversorPotencia', label: 'Regulador-Inversor: Potencia (kW)', placeholder: 'Ej: 3000', type: 'text', subsection: 'G' },
+  { name: 'g_reguladorInversorLongitud', label: 'Regulador-Inversor: Longitud (m)', placeholder: 'Ej: 5', type: 'text', subsection: 'G' },
+  { name: 'g_reguladorInversorSeccion', label: 'Regulador-Inversor: Material/Sección (mm²)', placeholder: 'Ej: 6', type: 'text', subsection: 'G' },
+  { name: 'g_reguladorInversorIntensidad', label: 'Regulador-Inversor: Intensidad Admisible (A)', placeholder: 'Ej: 49', type: 'text', subsection: 'G' },
+  { name: 'g_reguladorInversorCaidaTension', label: 'Regulador-Inversor: Caída de Tensión (%)', placeholder: 'Ej: < 1.5', type: 'text', subsection: 'G' },
+  
+  { name: 'g_bateriaDiRectaInversorPotencia', label: 'Batería-Inversor (directo): Potencia (kW)', placeholder: 'Ej: 3000', type: 'text', subsection: 'G' },
+  { name: 'g_bateriaDiRectaInversorLongitud', label: 'Batería-Inversor (directo): Longitud (m)', placeholder: 'Ej: 5', type: 'text', subsection: 'G' },
+  { name: 'g_bateriaDiRectaInversorSeccion', label: 'Batería-Inversor (directo): Material/Sección (mm²)', placeholder: 'Ej: 6', type: 'text', subsection: 'G' },
+  { name: 'g_bateriaDiRectaInversorIntensidad', label: 'Batería-Inversor (directo): Intensidad Admisible (A)', placeholder: 'Ej: 49', type: 'text', subsection: 'G' },
+  { name: 'g_bateriaDiRectaInversorCaidaTension', label: 'Batería-Inversor (directo): Caída de Tensión (%)', placeholder: 'Ej: < 1.5', type: 'text', subsection: 'G' },
+  
+  { name: 'g_generadorDirectoInversorPotencia', label: 'Generador-Inversor (directo): Potencia (kW)', placeholder: 'Ej: 5.35', type: 'text', subsection: 'G' },
+  { name: 'g_generadorDirectoInversorLongitud', label: 'Generador-Inversor (directo): Longitud (m)', placeholder: 'Ej: 10', type: 'text', subsection: 'G' },
+  { name: 'g_generadorDirectoInversorSeccion', label: 'Generador-Inversor (directo): Material/Sección (mm²)', placeholder: 'Ej: 6', type: 'text', subsection: 'G' },
+  { name: 'g_generadorDirectoInversorIntensidad', label: 'Generador-Inversor (directo): Intensidad Admisible (A)', placeholder: 'Ej: 49', type: 'text', subsection: 'G' },
+  { name: 'g_generadorDirectoInversorCaidaTension', label: 'Generador-Inversor (directo): Caída de Tensión (%)', placeholder: 'Ej: < 1.5', type: 'text', subsection: 'G' },
+  
+  { name: 'g_inversorRedPotencia', label: 'Inversor-Red (interconectadas): Potencia (kW)', placeholder: 'Ej: 3000', type: 'text', subsection: 'G' },
+  { name: 'g_inversorRedLongitud', label: 'Inversor-Red (interconectadas): Longitud (m)', placeholder: 'Ej: 5', type: 'text', subsection: 'G' },
+  { name: 'g_inversorRedSeccion', label: 'Inversor-Red (interconectadas): Material/Sección (mm²)', placeholder: 'Ej: 6', type: 'text', subsection: 'G' },
+  { name: 'g_inversorRedIntensidad', label: 'Inversor-Red (interconectadas): Intensidad Admisible (A)', placeholder: 'Ej: 44', type: 'text', subsection: 'G' },
+  { name: 'g_inversorRedCaidaTension', label: 'Inversor-Red (interconectadas): Caída de Tensión (%)', placeholder: 'Ej: < 1.5', type: 'text', subsection: 'G' },
 
   // ========== SECCIÓN H: ESQUEMA UNIFILAR ==========
-  { 
-    name: 'esquemaUnifilar', 
-    label: 'Esquema Unifilar (Archivo)', 
-    type: 'file',
-    accept: 'image/*,.pdf',
-    fullWidth: true
-  },
+  { name: 'h_esquemaUnifilar', label: 'ESQUEMA UNIFILAR (Archivo)', type: 'file', accept: 'image/*,.pdf', subsection: 'H', fullWidth: true },
 
   // ========== SECCIÓN I: PLANO DE EMPLAZAMIENTO ==========
-  { 
-    name: 'planoEmplazamiento', 
-    label: 'Plano de Emplazamiento (Archivo)', 
-    type: 'file',
-    accept: 'image/*,.pdf',
-    fullWidth: true
-  }
+  { name: 'i_planoEmplazamiento', label: 'PLANO DE EMPLAZAMIENTO (Archivo)', type: 'file', accept: 'image/*,.pdf', subsection: 'I', fullWidth: true },
 ]
 
-/**
- * Extraer los defaultData del masterFormFields
- */
 export const getMasterFormDefaultData = () => {
   const defaultData = {}
   masterFormFields.forEach(field => {
