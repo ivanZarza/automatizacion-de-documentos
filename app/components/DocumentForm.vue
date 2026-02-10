@@ -82,20 +82,15 @@
 <script setup>
 import { ref, watch, computed } from 'vue'
 import Boton from './Boton.vue'
+import { masterFormFields } from '../config/masterFormFields'
 
 const props = defineProps({
   title: {
     type: String,
     default: 'Editar Documento'
   },
-  fields: {
-    type: Array,
-    required: true
-  },
-  editableFieldNames: {
-    type: Array,
-    default: () => []
-  },
+  fields: { type: Array, default: () => [] },
+  editableFieldNames: { type: Array, default: () => [] },
   initialData: {
     type: Object,
     required: true
@@ -203,7 +198,7 @@ const groupedFieldsBySection = computed(() => {
     if (field.name.startsWith('e1_')) section = 'E1'
     else if (field.name.startsWith('e2_')) section = 'E2'
     else if (field.name.startsWith('apellidos') || field.name.startsWith('nif') || field.name === 'correoElectronico' || field.name === 'telefono' || field.name === 'representante' || field.name === 'dniRepresentante' || field.name === 'domicilio' || field.name === 'localidad' || field.name === 'provincia' || field.name === 'codigoPostal') section = 'A'
-    else if (field.name.startsWith('emplazamiento') || (field.name === 'numero' && !field.name.includes('Tecnico')) || field.name === 'bloque' || field.name === 'escalera' || field.name === 'piso') section = 'B'
+    else if (field.name.startsWith('emplazamiento') || (field.name === 'numero' && !field.name.includes('Tecnico')) || field.name === 'bloque' || field.name === 'escalera' || field.name === 'piso' || field.name === 'localidadEmplazamiento' || field.name === 'provinciaEmplazamiento' || field.name === 'correoElectronicoEmplazamiento' || field.name === 'referenciaCatastral' || field.name === 'tipoInstalacion' || field.name === 'usoDestino') section = 'B'
     else if (field.name.startsWith('nombreTecnico') || field.name.startsWith('numeroCertificado') || field.name.startsWith('numeroInstalador') || field.name.startsWith('domicilioTecnico') || field.name.startsWith('localidadTecnico') || field.name.startsWith('telefonoTecnico') || field.name.startsWith('codigoPostalTecnico') || field.name.startsWith('numeroTecnico')) section = 'C'
     else if (field.name.startsWith('modalidad')) section = 'D'
     else if (field.name.startsWith('medida') || field.name.startsWith('parteInstalacion')) section = 'F'
@@ -232,6 +227,14 @@ const groupedFieldsBySection = computed(() => {
 const submit = () => {
   emit('submit', formData.value)
 }
+
+// Usar props.fields si llegan; si no, usar masterFormFields (respeta el orden)
+// Si editableFieldNames está presente, filtrar para mostrar solo esos campos
+const fieldsToRender = computed(() => {
+  const source = (props.fields && props.fields.length) ? props.fields : masterFormFields
+  if (!props.editableFieldNames || props.editableFieldNames.length === 0) return source
+  return source.filter(f => props.editableFieldNames.includes(f.name))
+})
 </script>
 
 <style scoped>
