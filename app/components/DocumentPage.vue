@@ -26,6 +26,7 @@
     <div v-if="showPreview" class="max-w-4xl mx-auto">
       <div class="flex gap-2 mb-4">
         <Boton 
+          v-if="config.fields && config.fields.length > 0"
           @click="editDocument"
           variant="secondary"
         >
@@ -48,7 +49,7 @@
     </div>
 
     <!-- Vista Editar -->
-    <div v-if="showEdit" class="max-w-4xl mx-auto">
+    <div v-if="showEdit && config.fields && config.fields.length > 0" class="max-w-4xl mx-auto">
       <DocumentForm 
         :title="`Editar ${config.title}`"
         :fields="config.fields"

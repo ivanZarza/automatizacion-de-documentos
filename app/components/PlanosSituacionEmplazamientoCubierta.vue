@@ -81,74 +81,132 @@
 
         <!-- PLANO DE SITUACIÓN Y EMPLAZAMIENTO -->
         <div class="seccion-plano">
-          <h2 class="titulo-seccion">PLANO DE SITUACIÓN Y EMPLAZAMIENTO</h2>
+          <h2 class="titulo-seccion">Plano de Situación</h2>
           
-          <div class="dos-columnas">
-            <div class="columna">
-              <div class="info-bloque">
-                <h3>Ubicación Geográfica</h3>
-                <p><strong>Provincia:</strong> {{ formattedData.provincia }}</p>
-                <p><strong>Localidad:</strong> {{ formattedData.localidad }}</p>
-                <p><strong>Calle:</strong> {{ formattedData.direccion }}</p>
-                <p><strong>Número:</strong> {{ formattedData.numero }}</p>
-                <p><strong>Código Postal:</strong> {{ formattedData.codigoPostal }}</p>
-                <p><strong>Ref. Catastral:</strong> {{ formattedData.referenciaCatastral }}</p>
+          <div class="contenedor-plano-situacion">
+            <!-- Datos a la izquierda -->
+            <div class="datos-plano">
+              <div class="dato-bloque">
+                <p class="dato-titulo">Plano de situación geográfica de la instalación.</p>
+              </div>
+              
+              <div class="dato-bloque">
+                <p class="dato-label"><strong>Datos Generales:</strong></p>
+                <p class="dato-item"><span class="dato-label-inline">E2 - Instalación Generadora Fotovoltaica</span></p>
+              </div>
+              
+              <div class="dato-bloque">
+                <p class="dato-label"><strong>Provincia:</strong></p>
+                <p class="dato-item">{{ formattedData.provincia }}</p>
+              </div>
+              
+              <div class="dato-bloque">
+                <p class="dato-label"><strong>Localidad:</strong></p>
+                <p class="dato-item">{{ formattedData.localidad }}</p>
+              </div>
+              
+              <div class="dato-bloque">
+                <p class="dato-label"><strong>Referencia Catastral</strong></p>
+                <p class="dato-item">{{ formattedData.referenciaCatastral }}</p>
               </div>
             </div>
 
-            <div class="columna">
-              <div class="info-bloque">
-                <h3>Características de la Instalación</h3>
-                <p><strong>Tipo:</strong> {{ formattedData.tipoInstalacion }}</p>
-                <p><strong>Potencia Total:</strong> {{ formattedData.potenciaKw }} kW</p>
-                <p><strong>Potencia Pico:</strong> {{ formattedData.potenciaPicoGenerador }} Wp</p>
-                <p><strong>Nº Módulos:</strong> {{ formattedData.totalModulos }}</p>
-                <p><strong>Potencia/Módulo:</strong> {{ formattedData.potenciaModulos }} Wp</p>
-                <p><strong>Disposición:</strong> {{ formattedData.disposicionModulos }}</p>
+            <!-- Imagen a la derecha (placeholder) -->
+            <div class="imagen-plano">
+              <div class="placeholder-imagen">
+                [MAPA DE SITUACIÓN]
               </div>
             </div>
-          </div>
-
-          <div class="nota-plano">
-            <p><em>En este apartado debería incluirse el plano de situación geográfica y emplazamiento detallado de la instalación</em></p>
           </div>
         </div>
 
-        <!-- PLANO DE CUBIERTA Y RESUMEN TÉCNICO -->
-        <div class="seccion-cubierta">
-          <h2 class="titulo-seccion">PLANO DE CUBIERTA Y RESUMEN TÉCNICO</h2>
+        <!-- PLANO DE EMPLAZAMIENTO -->
+        <div class="seccion-plano">
+          <h2 class="titulo-seccion">Plano de Emplazamiento</h2>
           
-          <div class="dos-columnas">
-            <div class="columna">
-              <div class="info-bloque">
-                <h3>Disposición de Módulos</h3>
-                <p><strong>Tipo de Disposición:</strong> {{ formattedData.disposicionModulos }}</p>
-                <p><strong>Total de Módulos:</strong> {{ formattedData.totalModulos }}</p>
-                <p><strong>Potencia Unitaria:</strong> {{ formattedData.potenciaModulos }} Wp</p>
-                <p><strong>Potencia Total:</strong> {{ formattedData.potenciaPicoGenerador }} Wp</p>
-                <p><strong>Orientación:</strong> Sur (estándar)</p>
-                <p><strong>Inclinación:</strong> 30° (estándar)</p>
+          <div class="contenedor-plano-situacion">
+            <!-- Datos a la izquierda -->
+            <div class="datos-plano">
+              <div class="dato-bloque">
+                <p class="dato-titulo">Plano de emplazamiento de la instalación.</p>
               </div>
-
-              <div class="nota-plano">
-                <p><em>En este apartado debería incluirse el plano de cubierta con la disposición exacta de los módulos</em></p>
+              
+              <div class="dato-bloque">
+                <p class="dato-label"><strong>Dirección:</strong></p>
+                <p class="dato-item" style="color: #ff6633;">{{ formattedData.direccion }}</p>
+              </div>
+              
+              <div class="dato-bloque">
+                <p class="dato-label"><strong>Número:</strong></p>
+                <p class="dato-item" style="color: #ff6633;">{{ formattedData.numero }}</p>
+              </div>
+              
+              <div class="dato-bloque">
+                <p class="dato-label"><strong>Código Postal:</strong></p>
+                <p class="dato-item" style="color: #ff6633;">{{ formattedData.codigoPostal }}</p>
+              </div>
+              
+              <div class="dato-bloque">
+                <p class="dato-label"><strong>Provincia:</strong></p>
+                <p class="dato-item">{{ formattedData.provincia }}</p>
+              </div>
+              
+              <div class="dato-bloque">
+                <p class="dato-label"><strong>Localidad:</strong></p>
+                <p class="dato-item">{{ formattedData.localidad }}</p>
               </div>
             </div>
 
-            <div class="columna">
-              <div class="info-bloque">
-                <h3>Resumen del Proyecto</h3>
-                <p><strong>Titular:</strong> {{ formattedData.promotor }}</p>
-                <p><strong>Localización:</strong> {{ formattedData.localidad }}, {{ formattedData.provincia }}</p>
-                <p><strong>Dirección:</strong> {{ formattedData.direccion }}, {{ formattedData.numero }}</p>
-                <p><strong>Ref. Catastral:</strong> {{ formattedData.referenciaCatastral }}</p>
-                <p><strong>Potencia Instalada:</strong> {{ formattedData.potenciaKw }} kW</p>
+            <!-- Imagen a la derecha (placeholder) -->
+            <div class="imagen-plano">
+              <div class="placeholder-imagen">
+                [FOTO AÉREA/PLANO]
               </div>
+            </div>
+          </div>
+        </div>
 
-              <div class="info-bloque">
-                <h3>Técnico Responsable</h3>
-                <p><strong>Nombre:</strong> {{ formattedData.autorProyecto }}</p>
-                <p><strong>Fecha:</strong> {{ formattedData.fecha }}</p>
+        <!-- PLANO DE CUBIERTA -->
+        <div class="seccion-plano">
+          <h2 class="titulo-seccion">Plano de Cubierta</h2>
+          
+          <div class="contenedor-plano-situacion">
+            <!-- Datos a la izquierda -->
+            <div class="datos-plano">
+              <div class="dato-bloque">
+                <p class="dato-titulo">Plano de detalle de la instalación fotovoltaica en cubierta.</p>
+              </div>
+              
+              <div class="dato-bloque">
+                <p class="dato-label"><strong>Total nº de módulos:</strong></p>
+                <p class="dato-item" style="color: #ff6633;">{{ formattedData.totalModulos }}</p>
+              </div>
+              
+              <div class="dato-bloque">
+                <p class="dato-label"><strong>Potencia de los módulos (Wp):</strong></p>
+                <p class="dato-item" style="color: #ff6633;">{{ formattedData.potenciaModulos }}</p>
+              </div>
+              
+              <div class="dato-bloque">
+                <p class="dato-label"><strong>Potencia pico del generador (Wp):</strong></p>
+                <p class="dato-item" style="color: #ff6633;">{{ formattedData.potenciaPicoGenerador }}</p>
+              </div>
+              
+              <div class="dato-bloque">
+                <p class="dato-label"><strong>Disposición de los módulos:</strong></p>
+                <p class="dato-item" style="color: #ff6633;">{{ formattedData.disposicionModulos }}</p>
+              </div>
+              
+              <div class="dato-bloque">
+                <p class="dato-label"><strong>Dirección:</strong></p>
+                <p class="dato-item">{{ formattedData.provincia }}</p>
+              </div>
+            </div>
+
+            <!-- Imagen a la derecha (placeholder) -->
+            <div class="imagen-plano">
+              <div class="placeholder-imagen">
+                [FOTO DE CUBIERTA]
               </div>
             </div>
           </div>
@@ -253,7 +311,7 @@ const formattedData = computed(() => ({
   display: flex;
   flex-direction: column;
   padding: 20mm;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 /* ========== ENCABEZADO ========== */
@@ -296,7 +354,7 @@ const formattedData = computed(() => ({
 /* ========== TÍTULO DESCRIPTIVO ========== */
 .titulo-descriptivo {
   padding: 12px 15px;
-  margin: 15px 0;
+  margin: 30px 0;
   border-radius: 4px;
   text-align: center;
 }
@@ -331,7 +389,7 @@ const formattedData = computed(() => ({
 .seccion-datos,
 .seccion-plano,
 .seccion-cubierta {
-  margin-bottom: 15px;
+  margin-bottom: 13px;
 }
 
 /* ========== TÍTULOS DE SECCIÓN ========== */
@@ -350,8 +408,8 @@ const formattedData = computed(() => ({
 .tabla-datos {
   width: 100%;
   border-collapse: collapse;
-  margin: 12px 0;
-  font-size: 13px;
+  margin: 8px 0;
+  font-size: 12px;
 }
 
 .tabla-datos tr:nth-child(even) {
@@ -359,7 +417,7 @@ const formattedData = computed(() => ({
 }
 
 .tabla-datos td {
-  padding: 8px;
+  padding: 6px;
   border: 1px solid #ddd;
 }
 
@@ -423,10 +481,75 @@ const formattedData = computed(() => ({
   margin: 0;
 }
 
+/* ========== PLANO DE SITUACIÓN ========== */
+.seccion-plano {
+  margin: 8px 0;
+}
+
+.contenedor-plano-situacion {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin: 8px 0;
+}
+
+.datos-plano {
+  flex: 0 0 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 12px;
+}
+
+.dato-bloque {
+  margin-bottom: 5px;
+}
+
+.dato-titulo {
+  font-style: italic;
+  color: #0066cc;
+  margin: 0 0 5px 0;
+  font-size: 12px;
+}
+
+.dato-label {
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.dato-label-inline {
+  color: #0066cc;
+  font-weight: normal;
+}
+
+.dato-item {
+  margin: 3px 0 0 0;
+  color: #333;
+  line-height: 1.3;
+}
+
+.imagen-plano {
+  flex: 1;
+  background-color: #f0f0f0;
+  border: 2px solid #ddd;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder-imagen {
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+  font-weight: bold;
+}
+
 /* ========== LOGOS Y CERTIFICACIONES ========== */
 .seccion-logos {
-  margin: 20px 0;
-  padding: 15px 0;
+  margin: 40px 0;
+  padding: 8px 0;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
 }
@@ -435,7 +558,7 @@ const formattedData = computed(() => ({
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   flex-wrap: nowrap;
   width: 100%;
 }
@@ -451,7 +574,7 @@ const formattedData = computed(() => ({
 .logo-certificacion {
   max-width: 100%;
   height: auto;
-  max-height: 100px;
+  max-height: 80px;
   object-fit: contain;
 }
 
@@ -459,8 +582,8 @@ const formattedData = computed(() => ({
 .contenedor-firmas {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
-  padding-top: 20px;
+  margin-top: 20px;
+  padding-top: 15px;
 }
 
 .firma-bloque {
@@ -470,37 +593,37 @@ const formattedData = computed(() => ({
 
 .linea-firma-imagen {
   border-bottom: 1px solid #000;
-  height: 60px;
-  margin-bottom: 10px;
+  height: 50px;
+  margin-bottom: 8px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
 }
 
 .imagen-firma {
-  height: 80px;
+  height: 70px;
   object-fit: contain;
-  margin-top: -50px;
+  margin-top: -45px;
 }
 
 .etiqueta-firma {
   margin: 0;
   font-weight: bold;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 /* ========== PIE DE PÁGINA ========== */
 .pie-pagina {
-  padding: 12px 0;
+  padding: 10px 0;
   border-top: 1px solid #0066cc;
-  margin-top: 20px;
+  margin-top: 15px;
   text-align: center;
-  font-size: 11px;
+  font-size: 10px;
   color: #666;
 }
 
 .texto-pie {
-  margin: 2px 0;
+  margin: 1px 0;
 }
 
 /* ========== MEDIA QUERIES ========== */
