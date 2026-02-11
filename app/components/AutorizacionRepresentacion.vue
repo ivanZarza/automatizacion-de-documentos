@@ -15,13 +15,13 @@
       <!-- Contenido Principal -->
       <div class="contenido-principal">
         <p class="parrafo-intro">
-          Yo, <strong>{{ autorizante }}</strong>, con DNI/NIF <strong>{{ dniAutorizante }}</strong>, y con domicilio en <strong>{{ domicilioAutorizante }}</strong>, actuando en nombre propio,
+          Yo, <strong>{{ autorizante }}</strong>, con DNI/NIF <strong>{{ dniAutorizante }}</strong>, y con domicilio en <strong>{{ domicilioAutorizante }}</strong>, localidad <strong>{{ localidad }}</strong>, provincia de <strong>{{ provincia }}</strong>, actuando en nombre propio,
         </p>
 
         <h2 class="titulo-autorizo">AUTORIZO A</h2>
 
         <p class="parrafo-autorizacion">
-          <strong>{{ representante }}</strong>, con DNI/NIF <strong>{{ dniRepresentante }}</strong>, ante <strong>{{ organismo }}</strong>, para realizar en mi nombre las gestiones de <strong>{{ gestiones }}</strong>.
+          <strong>{{ representante }}</strong>, con DNI/NIF <strong>{{ dniRepresentante }}</strong>, y con domicilio en <strong>{{ domicilioRepresentante }}</strong>, localidad Sevilla, provincia de Sevilla, ante el <strong>{{ organismo }}</strong>, para realizar en mi nombre las gestiones de <strong>{{ gestiones }}</strong>.
         </p>
 
         <div class="caja-validez">
@@ -30,7 +30,7 @@
           </p>
         </div>
 
-        <p class="parrafo-fecha">En Puerto Real, a {{ fecha }}</p>
+        <p class="parrafo-fecha">En {{ localidad }} a {{ fecha }}</p>
 
         <!-- Firmas lado a lado compacto -->
         <div class="contenedor-firmas">
@@ -70,6 +70,8 @@ defineProps({
   organismo: String,
   gestiones: String,
   fecha: String,
+  localidad: String,
+  provincia: String,
   generatedDate: {
     type: String,
     default: ''

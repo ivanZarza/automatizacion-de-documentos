@@ -8,6 +8,8 @@ export const autorizacionRepresentacionConfig = {
     { name: 'autorizante', label: 'Nombre del Autorizante', type: 'text', fullWidth: true },
     { name: 'dniAutorizante', label: 'DNI/NIF del Autorizante', type: 'text' },
     { name: 'domicilioAutorizante', label: 'Domicilio del Autorizante', type: 'text', fullWidth: true },
+    { name: 'localidad', label: 'Localidad', type: 'text' },
+    { name: 'provincia', label: 'Provincia', type: 'text' },
     { name: 'representante', label: 'Representante', type: 'text', fullWidth: true },
     { name: 'dniRepresentante', label: 'DNI/NIF del Representante', type: 'text' },
     { name: 'domicilioRepresentante', label: 'Domicilio del Representante', type: 'text', fullWidth: true },
@@ -19,10 +21,12 @@ export const autorizacionRepresentacionConfig = {
     autorizante: '',
     dniAutorizante: '',
     domicilioAutorizante: '',
+    localidad: '',
+    provincia: '',
     representante: 'Solay Ingenieros, S.L.',
     dniRepresentante: 'B09848912',
     domicilioRepresentante: 'Calle Ebro, 35 – 41012, Sevilla, Sevilla',
-    organismo: 'Ayuntamiento de Puerto Real (Cádiz)',
+    organismo: '',
     gestiones: 'SOLICITUD DE LICENCIA DE OBRA MENOR CON DECLARACIÓN RESPONSABLE O AUTORIZACIÓN URBANÍSTICA',
     fecha: '18/11/2025'
   },
@@ -30,6 +34,8 @@ export const autorizacionRepresentacionConfig = {
     autorizante: 'apellidosNombre',
     dniAutorizante: 'nifCif',
     domicilioAutorizante: 'domicilio',
+    localidad: 'localidad',
+    provincia: 'provincia',
     fecha: 'fecha'
   },
   capabilities: {
