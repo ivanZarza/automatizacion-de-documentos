@@ -4,7 +4,7 @@
     <div class="contenedor-principal">
       <div class="encabezado">
         <div class="encabezado-contenido">
-          <h3 class="titulo-secundario">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA<br />AUTOCONSUMO FOTOVOLTAICO<br />CHAPA GRECADA - <span class="texto-azul">APORTICADA</span></h3>
+          <h3 class="titulo-secundario">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA<br />AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE PARAMENTO VERTICAL</h3>
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
       </div>
@@ -17,16 +17,17 @@
         <h2 class="titulo-certificado">CERTIFICO</h2>
 
         <p class="parrafo-tecnico">
-          que el estado de la cubierta sita en <span class="texto-rojo">{{ direccion }}, número {{ numero }} ({{ localidad }}) – código postal {{ codigoPostal }}, localidad de {{ localidad }}, provincia de {{ provincia }}, referencia Catastral {{ referenciaCatastral }}</span>, es el adecuado para soportar de forma sólida y segura el generador fotovoltaico para Autoconsumo que se tiene previsto instalar, a la vista de la inspección ocular realizada in situ, de la revisión del proyecto constructivo de la misma, y de la disposición sobre la cubierta de los módulos fotovoltaicos.
+          que el estado del paramento vertical de la vivienda sita en <span class="texto-rojo">{{ direccion }}, {{ localidad }}, {{ codigoPostal }}, {{ provincia }}</span>, con referencia catastral <span class="texto-rojo">{{ referenciaCatastral }}</span>, es el adecuado para soportar de forma sólida y segura el generador fotovoltaico para Autoconsumo que se tiene previsto instalar, a la vista de la inspección ocular realizada in situ, de la revisión del proyecto constructivo de la misma, y de la disposición de los módulos fotovoltaicos sobre el paramento.
         </p>
 
         <p class="parrafo-tecnico">
-          El generador fotovoltaico ha sido dimensionado mediante Memoria Técnica de Diseño según requiera la reglamentación, y está compuesto por <span class="texto-rojo">{{ cantidadModulos }} módulos fotovoltaicos de {{ potenciaModulos }} Wp de potencia eléctrica y {{ pesoModulo }} kg de peso cada uno</span>, del <span class="texto-rojo">fabricante {{ fabricanteYModelo }}</span>.
+          El generador fotovoltaico ha sido dimensionado mediante Memoria Técnica de Diseño según requiera la reglamentación, y está compuesto por <span class="texto-rojo">{{ cantidadModulos }}</span> módulos fotovoltaicos de <span class="texto-rojo">{{ potenciaModulos }}</span> Wp de potencia eléctrica y {{ pesoModulo }} kg de peso cada uno, del fabricante <span class="texto-rojo">{{ fabricante }} y modelo {{ modeloPanel }}</span>.
         </p>
 
         <p class="parrafo-tecnico">
-          La estructura de soporte de dichos módulos fotovoltaicos es de <span class="texto-rojo">perfilería de aluminio ligero del modelo TIV de la empresa SUNFER ESTRUCTURAS, S.L.</span>, especializada en soportes para generadores fotovoltaicos con Certificado de Garantía y Marcado CE de sus productos (se ajustan en la Memoria Técnica de Diseño, así como la Ficha Técnica y Plano de Montaje).
+          La estructura de soporte para instalación sobre paramento vertical será de perfilería metálica diseñada según el procedimiento del fabricante, con anclajes y fijaciones adecuados para montaje en paramento vertical.
         </p>
+
       </div>
 
       <div class="pie-pagina">
@@ -36,32 +37,38 @@
       </div>
     </div>
 
-    <!-- PÁGINA 2: ESTRUCTURA SOPORTE PARA CHAPA GRECADA APORTICADA -->
+    <!-- PÁGINA 2: ESTRUCTURA / IMÁGENES -->
     <div class="contenedor-principal">
       <div class="encabezado">
         <div class="encabezado-contenido">
-          <h3 class="titulo-secundario">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA<br />AUTOCONSUMO FOTOVOLTAICO<br />CHAPA GRECADA - <span class="texto-azul">APORTICADA</span></h3>
+          <h3 class="titulo-secundario">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA<br />AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE PARAMENTO VERTICAL</h3>
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
       </div>
 
       <div class="contenido-principal">
-        <!-- Espacio para imagen -->
-        <div class="contenedor-imagen-grande">
-          <img v-if="imagen1" :src="imagen1" class="imagen-pdf-grande" />
-          <span v-else>[Imagen: Estructura Soporte para Chapa Grecada Aporticada]</span>
+        <!-- Espacio para imagenes: una grande y una secundaria -->
+        <div class="contenedor-dos-imagenes">
+          <div class="espacio-imagen-lado">
+            <img v-if="imagen1" :src="imagen1" class="imagen-pdf-lado" />
+            <span v-else>[Imagen 1: Vista paramento vertical]</span>
+          </div>
+          <div class="espacio-imagen-lado">
+            <img v-if="imagen2" :src="imagen2" class="imagen-pdf-lado" />
+            <span v-else>[Imagen 2: Detalle anclajes/perfilería]</span>
+          </div>
         </div>
 
         <p class="parrafo-estructura">
-          Dicha <span class="texto-azul">ESTRUCTURA SOPORTE PARA CHAPA GRECADA APORTICADA</span> según procedimiento del fabricante, sólidamente fijadas a la <span class="texto-azul">perfilería</span> de aluminio mediante <span class="texto-azul">tornillería</span> de acero inoxidable; todo ello según los procedimientos de instalación establecidos en la ficha técnica del producto, guardando las distancias previstas entre las perforaciones y respetando los pares de apriete de la <span class="texto-azul">tornillería</span>.
+          Dicha estructura de soporte será anclada al <span class="texto-azul">PARAMENTO VERTICAL</span> según procedimiento del fabricante, y será sólidamente fijada a la perfilería de aluminio/metálica mediante tornillería de acero inoxidable, todo ello según los procedimientos de instalación establecidos en la ficha técnica del producto.
         </p>
 
         <p class="parrafo-estructura">
-          La <span class="texto-azul">perfilería</span> de aluminio será unida sólidamente a los módulos fotovoltaicos mediante elementos de presión y fijación con <span class="texto-azul">tornillo</span> a las distancias y pares de apriete marcados por el fabricante.
+          Las varillas/anclajes serán fijadas al paramento mediante taco químico o anclaje mecánico según la naturaleza del soporte, guardando las distancias previstas entre las perforaciones y respetando los pares de apriete marcados por el fabricante.
         </p>
 
         <p class="parrafo-estructura">
-          El estado de la cubierta es el adecuado para soportar de forma sólida y segura el generador fotovoltaico para <span class="texto-azul">Autoconsumo</span> que se tiene previsto instalar, conforme a lo previsto en el presente certificado, con acuerdo a vista de la inspección ocular realizada <span class="texto-azul">in situ</span>, de la revisión del proyecto constructivo de la misma, y de la disposición sobre la cubierta de los módulos fotovoltaicos. La mencionada <span class="texto-azul">Memoria Técnica de Diseño</span> ha sido redactada por mí como técnico competente.
+          La mencionada <span class="texto-azul">Memoria Técnica de Diseño</span> ha sido redactada por mí como técnico competente.
         </p>
       </div>
 
@@ -76,18 +83,25 @@
     <div class="contenedor-principal">
       <div class="encabezado">
         <div class="encabezado-contenido">
-          <h3 class="titulo-secundario">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA<br />AUTOCONSUMO FOTOVOLTAICO<br />CHAPA GRECADA - <span class="texto-azul">APORTICADA</span></h3>
+          <h3 class="titulo-secundario">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA<br />AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE PARAMENTO VERTICAL</h3>
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
       </div>
 
       <div class="contenido-principal">
+        <p class="parrafo-tecnico">
+          <strong>Eduardo Rivera Cabezas</strong><br />
+          67030856<br />
+          <span class="texto-rojo">{{ emailIngeniero }}</span><br />
+          Calle El Peñón 5 – 41940 – Tomares – Sevilla
+        </p>
+
         <div class="contenedor-logo-centro">
           <img src="/firma-solay.png" alt="Firma Solay" class="firma-solay" />
         </div>
 
         <p class="parrafo-fecha">
-          En <span class="texto-rojo">{{ localidadFirma }}, a {{ fechaFirma }}</span>.
+          En {{ localidadFirma }}, a <span class="texto-rojo">{{ fechaFirma }}</span>.
         </p>
       </div>
 
@@ -105,17 +119,18 @@ defineProps({
   imagen1: String,
   imagen2: String,
   direccion: String,
-  numero: String,
   localidad: String,
   codigoPostal: String,
+  provincia: String,
   referenciaCatastral: String,
   cantidadModulos: String,
   potenciaModulos: String,
   pesoModulo: String,
-  fabricanteYModelo: String,
-  localidadFirma: String,
+  fabricante: String,
+  modeloPanel: String,
+  emailIngeniero: String,
   fechaFirma: String,
-  provincia: String
+  localidadFirma: String
 })
 </script>
 
@@ -227,7 +242,7 @@ defineProps({
   margin: 80px 0;
 }
 
-.firma-solay {
+.logo-centro {
   width: 150px;
   height: auto;
   border: 1px solid #ccc;
@@ -244,16 +259,32 @@ defineProps({
   text-transform: uppercase;
 }
 
-/* ========== CONTENEDOR IMAGEN GRANDE ========== */
-.contenedor-imagen-grande {
+/* ========== CONTENEDOR DOS IMÁGENES ========== */
+.contenedor-dos-imagenes {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  gap: 20px;
   margin: 20px 0;
-  border: 1px solid #ccc;
-  background-color: #f9f9f9;
-  min-height: 300px;
+  justify-content: center;
 }
+
+.espacio-imagen-lado {
+  width: 45%;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  background-color: #f9f9f9;
+}
+
+.imagen-pdf-lado {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ========== ESPACIO IMAGEN GRANDE ========== */
+
 
 .imagen-pdf-grande {
   width: 80%;
@@ -328,18 +359,22 @@ defineProps({
 
   .contenido-principal {
     width: 100%;
-    gap: 10px;
+    padding: 0;
+    margin: 0;
   }
 
   .parrafo-tecnico,
-  .parrafo-estructura {
-    margin: 5px 0;
-    font-size: 14px;
+  .parrafo-estructura,
+  .parrafo-fecha {
+    margin: 12px 0;
+    padding: 0;
+    width: 100%;
   }
 
   .pie-pagina {
-    margin-top: 10px;
-    font-size: 10px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
 }
 </style>

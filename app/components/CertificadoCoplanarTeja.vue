@@ -18,7 +18,7 @@
         <h2 class="titulo-declara">CERTIFICO</h2>
 
         <p class="parrafo-certifico">
-          que el estado de la cubierta de teja de la vivienda sita en <span class="texto-editable">{{ direccion }}</span>, número <span class="texto-editable">{{ numero }}</span> <span class="texto-editable">{{ otrosDatosDireccion }}</span> – código postal <span class="texto-editable">{{ codigoPostal }}</span>, localidad de <span class="texto-editable">{{ localidad }}</span>, provincia de Cádiz, con Referencia Catastral <span class="texto-editable">{{ referenciaCatastral }}</span>, es el adecuado para soportar de forma sólida y segura el generador fotovoltaico para <span class="texto-azul">Autoconsumo</span> que se tiene previsto instalar, a la vista de la inspección ocular realizada <span class="texto-azul">in situ</span>, de la revisión del proyecto constructivo de la misma, y de la disposición sobre la cubierta de los módulos fotovoltaicos.
+          que el estado de la cubierta de teja de la vivienda sita en <span class="texto-editable">{{ direccion }}</span>, número <span class="texto-editable">{{ numero }}</span> <span class="texto-editable">{{ otrosDatosDireccion }}</span> – código postal <span class="texto-editable">{{ codigoPostal }}</span>, localidad de <span class="texto-editable">{{ localidad }}</span>, provincia de {{ provincia }}, con Referencia Catastral <span class="texto-editable">{{ referenciaCatastral }}</span>, es el adecuado para soportar de forma sólida y segura el generador fotovoltaico para <span class="texto-azul">Autoconsumo</span> que se tiene previsto instalar, a la vista de la inspección ocular realizada <span class="texto-azul">in situ</span>, de la revisión del proyecto constructivo de la misma, y de la disposición sobre la cubierta de los módulos fotovoltaicos.
         </p>
 
         <p class="parrafo-datos">
@@ -146,7 +146,8 @@ defineProps({
   ciudadFirma: String,
   fecha: String,
   imagen1: String,
-  imagen4: String
+  imagen4: String,
+  provincia: String
 })
 </script>
 

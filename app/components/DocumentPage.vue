@@ -2,13 +2,21 @@
   <div class="min-h-screen bg-gray-50 p-4">
     <!-- Vista Principal -->
     <div v-if="!showPreview && !showEdit" class="max-w-4xl mx-auto">
-      <Boton 
-        @click="previewDocument"
-        variant="primary"
-        class="inline-flex items-center"
-      >
-        📋 {{ config.title }}
-      </Boton>
+      <div class="flex items-center gap-3">
+        <Boton 
+          @click="previewDocument"
+          variant="primary"
+          class="inline-flex items-center"
+        >
+          📋 {{ config.title }}
+        </Boton>
+        <Boton
+          @click="goToMasterForm"
+          variant="secondary"
+        >
+          🧾 Formulario Maestro
+        </Boton>
+      </div>
     </div>
 
     <!-- Botón Sticky de Volver -->
@@ -19,6 +27,13 @@
         class="w-full"
       >
         ← Inicio
+      </Boton>
+      <Boton
+        @click="goToMasterForm"
+        variant="secondary"
+        class="w-full mt-2"
+      >
+        🧾 Formulario Maestro
       </Boton>
     </div>
 
@@ -133,6 +148,10 @@ const handleFormSubmit = (newData) => {
 
 const goToIndex = () => {
   router.push('/')
+}
+
+const goToMasterForm = () => {
+  router.push('/formulario-maestro')
 }
 </script>
 
