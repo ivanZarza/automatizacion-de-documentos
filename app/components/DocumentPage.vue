@@ -39,17 +39,20 @@
 
     <!-- Vista Previa -->
     <div v-if="showPreview" class="max-w-4xl mx-auto">
-      <div class="flex gap-2 mb-4">
+      <!-- Botones Sticky (Editar y PDF) -->
+      <div class="sticky-pdf-buttons">
         <Boton 
           v-if="config.fields && config.fields.length > 0"
           @click="editDocument"
           variant="secondary"
+          class="sticky-pdf-button"
         >
           ✏️ Editar
         </Boton>
         <Boton 
           @click="generatePDF"
           variant="success"
+          class="sticky-pdf-button"
         >
           📄 PDF
         </Boton>
@@ -163,5 +166,19 @@ const goToMasterForm = () => {
   z-index: 1000;
   width: auto;
   max-width: 150px;
+}
+
+.sticky-pdf-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.sticky-pdf-button {
+  min-width: 140px;
 }
 </style>

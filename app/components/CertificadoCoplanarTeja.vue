@@ -118,7 +118,7 @@
         </p>
 
         <div class="logo-footer">
-          <img src="/logo-solay.png" alt="Logo Solay Footer" class="logo-footer-img" />
+          <img src="/firma-solay.png" alt="Logo Solay Footer" class="logo-footer-img" />
         </div>
       </div>
 
@@ -231,19 +231,19 @@ defineProps({
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 50px 0px;
+  gap: 25px 0px;
 }
 
 /* ========== PÁRRAFOS ========== */
 .parrafo-intro {
-  margin: 0 0 25px 0;
+  margin: 0 0 10px 0;
   text-align: justify;
 }
 
 .parrafo-certifico,
 .parrafo-datos,
 .parrafo-estructura {
-  margin: 20px 0 25px 0;
+  margin: 5px 0;
   text-align: justify;
 }
 
@@ -254,7 +254,7 @@ defineProps({
 .parrafo-fecha {
   text-align: center;
   font-weight: bold;
-  margin: 50px 0 70px 0;
+  margin: 15px 0;
   font-size: 15px;
 }
 
@@ -371,8 +371,8 @@ defineProps({
 .contenedor-firmas {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .firma-bloque {
@@ -391,12 +391,12 @@ defineProps({
 .logo-footer {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
-  margin-bottom: 10px;
+  margin-top: 10px;
+
 }
 
 .logo-footer-img {
-  width: 100px;
+  width: 150px;
   height: auto;
 }
 
