@@ -28,14 +28,7 @@
           La estructura de soporte de dichos módulos fotovoltaicos es de perfilería de aluminio del modelo WH15 y de la empresa SUNFER ESTRUCTURAS, S.L., especializada en soportes para generadores fotovoltaicos con Certificado de Garantía y Marcado CE de sus productos.
         </p>
 
-        <p class="parrafo-tecnico">
-          En la siguiente imagen podemos visualizar el sistema de perfilería empleado:
-        </p>
 
-        <div class="espacio-imagen-grande">
-          <img v-if="imagen3" :src="imagen3" class="imagen-pdf-grande" />
-          <span v-else>[Imagen 3: Sistema de perfilería empleado]</span>
-        </div>
       </div>
 
       <div class="pie-pagina">
@@ -113,7 +106,7 @@
         </p>
 
         <div class="contenedor-logo-centro">
-          <img src="/logo-solay.png" alt="Logo Solay" class="logo-centro" />
+          <img src="/firma-solay.png" alt="Firma Solay" class="firma-solay" />
         </div>
 
         <p class="parrafo-fecha">
@@ -170,7 +163,7 @@ defineProps({
   align-items: flex-start;
   padding: 18px 0;
   border-bottom: 2px solid #0066cc;
-  margin-bottom: 27px;
+  margin-bottom: 50px;
 }
 
 .encabezado-contenido {
@@ -179,14 +172,14 @@ defineProps({
 
 .titulo-secundario {
   margin: 0;
-  font-size: 14px;
+  font-size: 19px;
   font-weight: bold;
   color: #333;
   line-height: 1.4;
 }
 
 .logo {
-  width: 100px;
+  width: 150px;
   height: auto;
   margin-left: 20px;
 }
@@ -203,23 +196,23 @@ defineProps({
 
 /* ========== PÁRRAFOS ========== */
 .parrafo-tecnico {
-  margin: 0;
+    margin: 20px 0 60px 0;
   text-align: justify;
-  font-size: 13px;
+  font-size: 20px;
   line-height: 1.5;
 }
 
 .parrafo-estructura {
-  margin: 0;
+    margin: 20px 0 ;
   text-align: justify;
-  font-size: 13px;
+  font-size: 20px;
   line-height: 1.5;
 }
 
 .parrafo-fecha {
   text-align: center;
   font-size: 14px;
-  margin: 30px 0;
+  margin: 60px 0;
   font-weight: bold;
 }
 
@@ -238,7 +231,7 @@ defineProps({
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 40px 0;
+  margin: 80px 0;
 }
 
 .logo-centro {
@@ -251,7 +244,7 @@ defineProps({
 /* ========== TÍTULO CERTIFICO ========== */
 .titulo-certificado {
   text-align: center;
-  font-size: 18px;
+  font-size: 25px;
   font-weight: bold;
   color: #333;
   margin: 20px 0;
@@ -283,15 +276,7 @@ defineProps({
 }
 
 /* ========== ESPACIO IMAGEN GRANDE ========== */
-.espacio-imagen-grande {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #ccc;
-  background-color: #f9f9f9;
-  min-height: 250px;
-  margin: 20px 0;
-}
+
 
 .imagen-pdf-grande {
   width: 80%;
