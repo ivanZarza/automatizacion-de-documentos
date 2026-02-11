@@ -125,7 +125,6 @@
       <div class="pie-pagina">
         <p class="texto-pie">www.solay.es</p>
         <p class="texto-pie">Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110 Sevilla.</p>
-        <p class="texto-pie">Página 3</p>
       </div>
     </div>
   </div>
@@ -172,8 +171,8 @@ defineProps({
 .contenedor-principal {
   width: 210mm;
   height: 297mm;
-  margin: 0 auto 24px auto;
-  padding: 20mm;
+  margin: 0 auto 0px auto;
+  padding: 10mm;
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -231,7 +230,7 @@ defineProps({
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 25px 0px;
+  gap: 15px 0px;
 }
 
 /* ========== PÁRRAFOS ========== */
@@ -371,10 +370,8 @@ defineProps({
 .contenedor-firmas {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px;
 }
-
 .firma-bloque {
   text-align: center;
   width: 220px;
@@ -391,20 +388,20 @@ defineProps({
 .logo-footer {
   display: flex;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 5px;
 
 }
 
 .logo-footer-img {
-  width: 150px;
+  width: 100px;
   height: auto;
 }
 
 /* ========== PIE DE PÁGINA ========== */
 .pie-pagina {
-  padding: 12px 0;
+  padding: 7px 0;
   border-top: 1px solid #0066cc;
-  margin-top: 20px;
+  margin-top: 5px;
   text-align: center;
   font-size: 11px;
   color: #666;

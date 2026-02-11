@@ -247,7 +247,7 @@ defineProps({
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 80px 0;
+  margin: 40px 0;
 }
 
 .logo-centro {
