@@ -529,11 +529,11 @@ export const masterFormFields = [
   { name: 'otros_descripcionProyecto', label: 'Descripción del Proyecto (ej: para Autoconsumo Individual con Excedentes...)', type: 'textarea', fullWidth: true },
 
   // ========== SECCIÓN OTROS: FOTOS ADICIONALES ==========
-  { name: 'otros_foto1', label: 'FOTO ADICIONAL 1', type: 'file', accept: 'image/*,.pdf', fullWidth: true },
-  { name: 'otros_foto2', label: 'FOTO ADICIONAL 2', type: 'file', accept: 'image/*,.pdf', fullWidth: true },
-  { name: 'otros_foto3', label: 'FOTO ADICIONAL 3', type: 'file', accept: 'image/*,.pdf', fullWidth: true },
-  { name: 'otros_foto4', label: 'FOTO ADICIONAL 4', type: 'file', accept: 'image/*,.pdf', fullWidth: true },
-  
+  { name: 'otros_foto1', label: 'FOTO CERTIFICADO 1', type: 'file', accept: 'image/*,.pdf', fullWidth: true },
+  { name: 'otros_foto2', label: 'FOTO CERTIFICADO 2', type: 'file', accept: 'image/*,.pdf', fullWidth: true },
+  { name: 'otros_foto3', label: 'FOTO CERTIFICADO 3', type: 'file', accept: 'image/*,.pdf', fullWidth: true },
+  { name: 'otros_foto4', label: 'FOTO CERTIFICADO 4', type: 'file', accept: 'image/*,.pdf', fullWidth: true },
+
   // ========== SECCIÓN OTROS: IMÁGENES DE PLANOS CON DESCRIPCIONES ==========
   { 
     name: 'otros_imagenPlanoSituacion', 

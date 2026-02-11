@@ -109,8 +109,8 @@ export const certificadoCoplanarTejaConfig = {
     { name: 'modelo', label: 'Modelo', type: 'text' },
     { name: 'ciudadFirma', label: 'Ciudad de Firma', type: 'text' },
     { name: 'fecha', label: 'Fecha', type: 'date' },
-    { name: 'imagen1', label: 'Imagen 1', type: 'file', accept: 'image/*' },
-    { name: 'imagen4', label: 'Imagen 4', type: 'file', accept: 'image/*' }
+    { name: 'foto1', label: 'Foto Certificado 1', type: 'file', accept: 'image/*,.pdf' },
+    { name: 'foto2', label: 'Foto Certificado 2', type: 'file', accept: 'image/*,.pdf' }
   ],
   defaultData: {
     direccion: ' ',
@@ -127,8 +127,8 @@ export const certificadoCoplanarTejaConfig = {
     modelo: '',
     ciudadFirma: '',
     fecha: '',
-    imagen1: null,
-    imagen4: null
+    foto1: null,
+    foto2: null
   },
   fieldMapping: {
     direccion: 'emplazamientoCalle',
@@ -136,9 +136,13 @@ export const certificadoCoplanarTejaConfig = {
     codigoPostal: 'codigoPostal',
     localidad: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',
+    numModulos: 'e2_totalModulos',
+    potencia: 'e2_potenciaPicoModulo',
     marcaModelo: 'e2_marcaModeloModulo',
     ciudadFirma: 'ciudadFirma',
-    fecha: 'fecha'
+    fecha: 'fecha',
+    foto1: 'otros_foto1',
+    foto2: 'otros_foto2'
   },
   capabilities: {
     canPreview: true,
@@ -164,13 +168,15 @@ export const certificadoCubiertaPlanAaporticadaConfig = {
     { name: 'numModulos', label: 'Número de Módulos', type: 'text' },
     { name: 'potencia', label: 'Potencia', type: 'text' },
     { name: 'peso', label: 'Peso', type: 'text' },
+    { name: 'marcaModelo', label: 'Marca y Modelo', type: 'text', fullWidth: true },
     { name: 'modelo', label: 'Modelo', type: 'text' },
     { name: 'ciudadFirma', label: 'Ciudad de Firma', type: 'text' },
     { name: 'fecha', label: 'Fecha', type: 'date' },
-    { name: 'imagen1', label: 'Imagen 1', type: 'file', accept: 'image/*' }
+    { name: 'foto1', label: 'Foto Certificado 1', type: 'file', accept: 'image/*,.pdf' },
+    { name: 'foto2', label: 'Foto Certificado 2', type: 'file', accept: 'image/*,.pdf' }
   ],
   defaultData: {
-    direccion: '',
+    direccion: ' ',
     numero: '',
     otrosDatosDireccion: '',
     codigoPostal: '',
@@ -180,10 +186,12 @@ export const certificadoCubiertaPlanAaporticadaConfig = {
     numModulos: '',
     potencia: '',
     peso: '',
+    marcaModelo: '',
     modelo: '',
     ciudadFirma: '',
     fecha: '',
-    imagen1: null
+    foto1: null,
+    foto2: null
   },
   fieldMapping: {
     direccion: 'emplazamientoCalle',
@@ -191,8 +199,13 @@ export const certificadoCubiertaPlanAaporticadaConfig = {
     codigoPostal: 'codigoPostal',
     localidad: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',
+    numModulos: 'e2_totalModulos',
+    potencia: 'e2_potenciaPicoModulo',
+    marcaModelo: 'e2_marcaModeloModulo',
     ciudadFirma: 'ciudadFirma',
-    fecha: 'fecha'
+    fecha: 'fecha',
+    foto1: 'otros_foto1',
+    foto2: 'otros_foto2'
   },
   capabilities: {
     canPreview: true,
@@ -221,8 +234,8 @@ export const certificadoAporticadaTejConfig = {
     { name: 'emailIngeniero', label: 'Email del Ingeniero', type: 'text' },
     { name: 'fechaFirma', label: 'Fecha de Firma', type: 'text' },
     { name: 'localidadFirma', label: 'Localidad de Firma', type: 'text' },
-    { name: 'imagen1', label: 'Imagen 1 - Estructura Aporticada', type: 'file' },
-    { name: 'imagen2', label: 'Imagen 2 - Componentes', type: 'file' }
+    { name: 'foto1', label: 'Foto Certificado 1', type: 'file', accept: 'image/*,.pdf' },
+    { name: 'foto2', label: 'Foto Certificado 2', type: 'file', accept: 'image/*,.pdf' }
   ],
   defaultData: {
     direccion: 'Calle de la Rosa, número 11, Facinas',
@@ -238,8 +251,8 @@ export const certificadoAporticadaTejConfig = {
     emailIngeniero: 'rivera@solay.es',
     fechaFirma: '10 de Febrero de 2026',
     localidadFirma: 'Tarifa',
-    imagen1: '',
-    imagen2: ''
+    foto1: '',
+    foto2: ''
   },
   fieldMapping: {
     direccion: 'direccion',
@@ -255,8 +268,8 @@ export const certificadoAporticadaTejConfig = {
     emailIngeniero: 'emailIngeniero',
     fechaFirma: 'fechaFirma',
     localidadFirma: 'localidadFirma',
-    imagen1: 'imagen1',
-    imagen2: 'imagen2'
+    foto1: 'otros_foto1',
+    foto2: 'otros_foto2'
   },
   capabilities: {
     canPreview: true,
@@ -284,8 +297,8 @@ export const certificadoChapasGrecadasAporticadaConfig = {
     { name: 'fabricanteYModelo', label: 'Fabricante y Modelo', type: 'text', fullWidth: true },
     { name: 'localidadFirma', label: 'Localidad de Firma', type: 'text' },
     { name: 'fechaFirma', label: 'Fecha de Firma', type: 'text' },
-    { name: 'imagen1', label: 'Imagen - Estructura Aporticada', type: 'file' },
-    { name: 'imagen2', label: 'Imagen 2 (Opcional)', type: 'file' }
+    { name: 'foto1', label: 'Foto Certificado 1', type: 'file', accept: 'image/*,.pdf' },
+    { name: 'foto2', label: 'Foto Certificado 2', type: 'file', accept: 'image/*,.pdf' }
   ],
   defaultData: {
     direccion: 'Calle de la Rosa',
@@ -300,8 +313,8 @@ export const certificadoChapasGrecadasAporticadaConfig = {
     fabricanteYModelo: 'Longi Solar y modelo LR7-72HVH-640M',
     localidadFirma: 'Tarifa',
     fechaFirma: '10 de Febrero de 2026',
-    imagen1: '',
-    imagen2: ''
+    foto1: '',
+    foto2: ''
   },
   fieldMapping: {
     direccion: 'direccion',
@@ -316,8 +329,8 @@ export const certificadoChapasGrecadasAporticadaConfig = {
     fabricanteYModelo: 'fabricanteYModelo',
     localidadFirma: 'localidadFirma',
     fechaFirma: 'fechaFirma',
-    imagen1: 'imagen1',
-    imagen2: 'imagen2'
+    foto1: 'otros_foto1',
+    foto2: 'otros_foto2'
   },
   capabilities: {
     canPreview: true,
@@ -347,8 +360,8 @@ export const certificadoParamentoVerticalConfig = {
     { name: 'modeloPanel', label: 'Modelo de Panel', type: 'text' },
     { name: 'fechaFirma', label: 'Fecha de Firma', type: 'text' },
     { name: 'localidadFirma', label: 'Localidad de Firma', type: 'text' },
-    { name: 'imagen1', label: 'Imagen 1 - Vista paramento', type: 'file', accept: 'image/*' },
-    { name: 'imagen2', label: 'Imagen 2 - Detalle anclajes', type: 'file', accept: 'image/*' }
+    { name: 'foto1', label: 'Foto Certificado 1', type: 'file', accept: 'image/*,.pdf' },
+    { name: 'foto2', label: 'Foto Certificado 2', type: 'file', accept: 'image/*,.pdf' }
   ],
   defaultData: {
     direccion: '',
@@ -365,8 +378,8 @@ export const certificadoParamentoVerticalConfig = {
     modeloPanel: '',
     fechaFirma: '',
     localidadFirma: '',
-    imagen1: null,
-    imagen2: null
+    foto1: null,
+    foto2: null
   },
   fieldMapping: {
     direccion: 'direccion',
@@ -382,8 +395,8 @@ export const certificadoParamentoVerticalConfig = {
     modeloPanel: 'modeloPanel',
     fechaFirma: 'fechaFirma',
     localidadFirma: 'localidadFirma',
-    imagen1: 'imagen1',
-    imagen2: 'imagen2'
+    foto1: 'otros_foto1',
+    foto2: 'otros_foto2'
   },
   capabilities: {
     canPreview: true,
@@ -414,8 +427,8 @@ export const certificadoPergolaAporticadaConfig = {
     { name: 'cubiertaTipo', label: 'Cubierta / del suelo', type: 'text' },
     { name: 'fechaFirma', label: 'Fecha de Firma', type: 'text' },
     { name: 'localidadFirma', label: 'Localidad de Firma', type: 'text' },
-    { name: 'imagen1', label: 'Imagen 1 - Vista pérgola', type: 'file', accept: 'image/*' },
-    { name: 'imagen2', label: 'Imagen 2 - Detalle anclajes', type: 'file', accept: 'image/*' }
+    { name: 'foto1', label: 'Foto Certificado 1', type: 'file', accept: 'image/*,.pdf' },
+    { name: 'foto2', label: 'Foto Certificado 2', type: 'file', accept: 'image/*,.pdf' }
   ],
   defaultData: {
     direccion: '',
@@ -433,8 +446,8 @@ export const certificadoPergolaAporticadaConfig = {
     cubiertaTipo: '',
     fechaFirma: '',
     localidadFirma: '',
-    imagen1: null,
-    imagen2: null
+    foto1: null,
+    foto2: null
   },
   fieldMapping: {
     direccion: 'direccion',
@@ -451,8 +464,8 @@ export const certificadoPergolaAporticadaConfig = {
     cubiertaTipo: 'cubiertaTipo',
     fechaFirma: 'fechaFirma',
     localidadFirma: 'localidadFirma',
-    imagen1: 'imagen1',
-    imagen2: 'imagen2'
+    foto1: 'otros_foto1',
+    foto2: 'otros_foto2'
   },
   capabilities: {
     canPreview: true,

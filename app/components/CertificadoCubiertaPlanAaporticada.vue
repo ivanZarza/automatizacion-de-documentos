@@ -22,7 +22,7 @@
         </p>
 
         <p class="parrafo-datos">
-          El generador fotovoltaico ha sido dimensionado mediante Memoria Técnica de Diseño según requiere la reglamentación, y está compuesto por <span class="texto-editable">{{ numModulos }}</span> módulos fotovoltaicos de <span class="texto-editable">{{ potencia }}</span> de potencia eléctrica y <span class="texto-editable">{{ peso }}</span> de peso cada uno, del fabricante <span class="texto-azul">ja Solar</span> y modelo <span class="texto-editable">{{ modelo }}</span>.
+          El generador fotovoltaico ha sido dimensionado mediante Memoria Técnica de Diseño según requiere la reglamentación, y está compuesto por <span class="texto-editable">{{ numModulos }}</span> módulos fotovoltaicos de <span class="texto-editable">{{ potencia }}</span> Wp de potencia eléctrica y <span class="texto-editable">{{ peso }}</span> de peso cada uno, del fabricante y modelo <span class="texto-editable">{{ marcaModelo }}</span>.
         </p>
 
         <p class="parrafo-estructura">
@@ -54,7 +54,7 @@
       <div class="contenido-principal">
         <!-- Espacio para imagen única - Página 2 -->
         <div class="contenedor-imagen-pagina2">
-          <img v-if="imagen1" :src="imagen1" class="imagen-pdf-pagina2" />
+          <img v-if="foto1" :src="foto1" class="imagen-pdf-pagina2" />
           <span v-else>[Imagen: Sistema de estructura aportícada para cubierta plana]</span>
         </div>
 
@@ -136,10 +136,12 @@ defineProps({
   numModulos: String,
   potencia: String,
   peso: String,
+  marcaModelo: String,
   modelo: String,
   ciudadFirma: String,
   fecha: String,
-  imagen1: String,
+  foto1: String,
+  foto2: String,
   provincia: String
 })
 </script>

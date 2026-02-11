@@ -22,7 +22,7 @@
         </p>
 
         <p class="parrafo-datos">
-          El generador fotovoltaico ha sido dimensionado mediante Memoria Técnica de Diseño según requiere la reglamentación, y está compuesto por <span class="texto-editable">{{ numModulos }}</span> módulos fotovoltaicos de <span class="texto-editable">{{ potencia }}</span> de potencia eléctrica y <span class="texto-editable">{{ peso }}</span> de peso cada uno, del fabricante y modelo <span class="texto-editable">{{ marcaModelo }}</span> con Certificado de Garantía y Marcado CE de sus productos.
+          El generador fotovoltaico ha sido dimensionado mediante Memoria Técnica de Diseño según requiere la reglamentación, y está compuesto por <span class="texto-editable">{{ numModulos }}</span> módulos fotovoltaicos de <span class="texto-editable">{{ potencia }}</span> Wp de potencia eléctrica y <span class="texto-editable">{{ peso }}</span> de peso cada uno, del fabricante y modelo <span class="texto-editable">{{ marcaModelo }}</span> con Certificado de Garantía y Marcado CE de sus productos.
         </p>
 
         <p class="parrafo-estructura">
@@ -55,11 +55,11 @@
         <!-- Espacio para dos imágenes - Página 2 -->
         <div class="contenedor-dos-imagenes">
           <div class="espacio-imagen-lado">
-            <img v-if="imagen1" :src="imagen1" class="imagen-pdf-lado" />
+            <img v-if="foto1" :src="foto1" class="imagen-pdf-lado" />
             <span v-else>[Imagen 1: Sistema de perfilería - Paneles solares sobre teja]</span>
           </div>
           <div class="espacio-imagen-lado">
-            <img v-if="imagen4" :src="imagen4" class="imagen-pdf-lado" />
+            <img v-if="foto2" :src="foto2" class="imagen-pdf-lado" />
             <span v-else>[Imagen 2: Estructura completa de instalación]</span>
           </div>
         </div>
@@ -146,8 +146,8 @@ defineProps({
   modelo: String,
   ciudadFirma: String,
   fecha: String,
-  imagen1: String,
-  imagen4: String,
+  foto1: String,
+  foto2: String,
   provincia: String
 })
 </script>
