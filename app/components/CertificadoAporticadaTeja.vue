@@ -17,11 +17,11 @@
         <h2 class="titulo-certificado">CERTIFICO</h2>
 
         <p class="parrafo-tecnico">
-          que el estado de la cubierta de teja de la vivienda sita en <span class="texto-rojo">Calle de la Rosa, número 11, Facinas, 11380, Tarifa, Cádiz</span>, referencia Catastral <span class="texto-rojo">7433302TF5073S0001EH</span>, es el adecuado para soportar de forma sólida y segura el generador fotovoltaico para Autoconsumo que se tiene previsto instalar, a la vista de la inspección ocular realizada in situ, de la revisión del proyecto constructivo de la misma, y de la disposición sobre la cubierta de los módulos fotovoltaicos.
+          que el estado de la cubierta de teja de la vivienda sita en <span class="texto-rojo">{{ direccion }}, {{ localidad }}, {{ codigoPostal }}, {{ provincia }}</span>, referencia Catastral <span class="texto-rojo">{{ referenciaCatastral }}</span>, es el adecuado para soportar de forma sólida y segura el generador fotovoltaico para Autoconsumo que se tiene previsto instalar, a la vista de la inspección ocular realizada in situ, de la revisión del proyecto constructivo de la misma, y de la disposición sobre la cubierta de los módulos fotovoltaicos.
         </p>
 
         <p class="parrafo-tecnico">
-          El generador fotovoltaico ha sido dimensionado mediante Memoria Técnica de Diseño según requiera la reglamentación, y está compuesto por <span class="texto-rojo">6</span> módulos fotovoltaicos de <span class="texto-rojo">640</span> Wp de potencia eléctrica y 28.00 kg de peso cada uno, del fabricante <span class="texto-rojo">Longi Solar y modelo LR7-72HVH-640M</span>.
+          El generador fotovoltaico ha sido dimensionado mediante Memoria Técnica de Diseño según requiera la reglamentación, y está compuesto por <span class="texto-rojo">{{ cantidadModulos }}</span> módulos fotovoltaicos de <span class="texto-rojo">{{ potenciaModulos }}</span> Wp de potencia eléctrica y {{ pesoModulo }} kg de peso cada uno, del fabricante <span class="texto-rojo">{{ fabricante }} y modelo {{ modeloPanel }}</span>.
         </p>
 
         <p class="parrafo-tecnico">
@@ -101,7 +101,7 @@
         <p class="parrafo-tecnico">
           <strong>Eduardo Rivera Cabezas</strong><br />
           67030856<br />
-          <span class="texto-rojo">rivera@solay.es</span><br />
+          <span class="texto-rojo">{{ emailIngeniero }}</span><br />
           Calle El Peñón 5 – 41940 – Tomares – Sevilla
         </p>
 
@@ -110,7 +110,7 @@
         </div>
 
         <p class="parrafo-fecha">
-          En Tarifa, a <span class="texto-rojo">10 de Febrero de 2026.</span>
+          En {{ localidadFirma }}, a <span class="texto-rojo">{{ fechaFirma }}</span>.
         </p>
       </div>
 
@@ -127,15 +127,28 @@
 defineProps({
   imagen1: String,
   imagen2: String,
-  imagen3: String
+  imagen3: String,
+  direccion: String,
+  localidad: String,
+  codigoPostal: String,
+  provincia: String,
+  referenciaCatastral: String,
+  cantidadModulos: String,
+  potenciaModulos: String,
+  pesoModulo: String,
+  fabricante: String,
+  modeloPanel: String,
+  emailIngeniero: String,
+  fechaFirma: String,
+  localidadFirma: String
 })
 </script>
 
 <style scoped>
 /* ========== CONTENEDOR PDF ========== */
 .contenedor-pdf {
-  width: 210mm;
-  height: 297mm;
+  width: 100%;
+  max-width: 210mm;
   margin: 0 auto;
   padding: 0;
   background-color: white;
@@ -148,22 +161,25 @@ defineProps({
 
 /* ========== CONTENEDOR PRINCIPAL ========== */
 .contenedor-principal {
-  width: 210mm;
-  height: 297mm;
+  width: 100%;
+  max-width: 210mm;
   display: flex;
   flex-direction: column;
   padding: 20mm;
-  margin: 0;
+  margin: 0 auto;
+  page-break-after: always;
 }
 
 /* ========== ENCABEZADO ========== */
 .encabezado {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   padding: 18px 0;
   border-bottom: 2px solid #0066cc;
   margin-bottom: 50px;
+  width: 100%;
+  gap: 30px;
 }
 
 .encabezado-contenido {
@@ -192,20 +208,22 @@ defineProps({
   line-height: 1.6;
   font-size: 15px;
   gap: 15px;
+  width: 100%;
+  overflow-wrap: break-word;
 }
 
 /* ========== PÁRRAFOS ========== */
 .parrafo-tecnico {
-    margin: 20px 0 60px 0;
-  text-align: justify;
-  font-size: 20px;
+  margin: 20px 0 20px 0;
+  text-align: center;
+  font-size: 15px;
   line-height: 1.5;
 }
 
 .parrafo-estructura {
-    margin: 20px 0 ;
+  margin: 10px 0 ;
   text-align: justify;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 1.5;
 }
 
@@ -301,5 +319,72 @@ defineProps({
 .texto-pie a {
   color: #0066cc;
   text-decoration: none;
+}
+
+/* ========== MEDIA QUERY PRINT ========== */
+@media print {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    width: 210mm;
+  }
+
+  .contenedor-pdf {
+    width: 210mm;
+    margin: 0;
+    padding: 0;
+    page-break-after: avoid;
+  }
+
+  .contenedor-principal {
+    width: 210mm;
+    height: 297mm;
+    padding: 20mm;
+    margin: 0;
+    page-break-after: always;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .encabezado {
+    width: 100%;
+    margin: 0;
+    padding: 0 0 18px 0;
+  }
+
+  .encabezado-contenido {
+    flex: 1;
+  }
+
+  .logo {
+    width: 120px;
+    height: auto;
+  }
+
+  .contenido-principal {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .parrafo-tecnico,
+  .parrafo-estructura,
+  .parrafo-fecha {
+    margin: 12px 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .pie-pagina {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
 }
 </style>

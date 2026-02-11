@@ -186,6 +186,70 @@ export const certificadoCubiertaPlanAaporticadaConfig = {
   }
 }
 
+export const certificadoAporticadaTejConfig = {
+  id: 'certificado-aporticada-teja',
+  title: 'Certificado de Solidez y Seguridad - Aporticada Teja',
+  description: 'Certificado de solidez y seguridad de la cubierta para instalación aporticada sobre teja',
+  fileName: 'certificado-aporticada-teja.pdf',
+  route: '/certificado-aporticada-teja',
+  fields: [
+    { name: 'direccion', label: 'Dirección', type: 'text', fullWidth: true },
+    { name: 'localidad', label: 'Localidad', type: 'text' },
+    { name: 'codigoPostal', label: 'Código Postal', type: 'text' },
+    { name: 'provincia', label: 'Provincia', type: 'text' },
+    { name: 'referenciaCatastral', label: 'Referencia Catastral', type: 'text', fullWidth: true },
+    { name: 'cantidadModulos', label: 'Cantidad de Módulos', type: 'text' },
+    { name: 'potenciaModulos', label: 'Potencia de Módulos (Wp)', type: 'text' },
+    { name: 'pesoModulo', label: 'Peso por Módulo (kg)', type: 'text' },
+    { name: 'fabricante', label: 'Fabricante de Módulos', type: 'text', fullWidth: true },
+    { name: 'modeloPanel', label: 'Modelo de Panel', type: 'text', fullWidth: true },
+    { name: 'emailIngeniero', label: 'Email del Ingeniero', type: 'text' },
+    { name: 'fechaFirma', label: 'Fecha de Firma', type: 'text' },
+    { name: 'localidadFirma', label: 'Localidad de Firma', type: 'text' },
+    { name: 'imagen1', label: 'Imagen 1 - Estructura Aporticada', type: 'file' },
+    { name: 'imagen2', label: 'Imagen 2 - Componentes', type: 'file' }
+  ],
+  defaultData: {
+    direccion: 'Calle de la Rosa, número 11, Facinas',
+    localidad: 'Tarifa',
+    codigoPostal: '11380',
+    provincia: 'Cádiz',
+    referenciaCatastral: '7433302TF5073S0001EH',
+    cantidadModulos: '6',
+    potenciaModulos: '640',
+    pesoModulo: '28.00',
+    fabricante: 'Longi Solar',
+    modeloPanel: 'LR7-72HVH-640M',
+    emailIngeniero: 'rivera@solay.es',
+    fechaFirma: '10 de Febrero de 2026',
+    localidadFirma: 'Tarifa',
+    imagen1: '',
+    imagen2: ''
+  },
+  fieldMapping: {
+    direccion: 'direccion',
+    localidad: 'localidad',
+    codigoPostal: 'codigoPostal',
+    provincia: 'provincia',
+    referenciaCatastral: 'referenciaCatastral',
+    cantidadModulos: 'cantidadModulos',
+    potenciaModulos: 'potenciaModulos',
+    pesoModulo: 'pesoModulo',
+    fabricante: 'fabricante',
+    modeloPanel: 'modeloPanel',
+    emailIngeniero: 'emailIngeniero',
+    fechaFirma: 'fechaFirma',
+    localidadFirma: 'localidadFirma',
+    imagen1: 'imagen1',
+    imagen2: 'imagen2'
+  },
+  capabilities: {
+    canPreview: true,
+    canEdit: true,
+    canGeneratePDF: true
+  }
+}
+
 export const memoriaTecnicaConfig = {
   id: 'mtd-instalacion-autoconsumo-monofasica-con-bateria',
   title: 'Memoria Técnica de Instalación de Autoconsumo Monofásica con Batería',
@@ -1288,26 +1352,6 @@ export const planosPlanosSituacionEmplazamientoCubiertaConfig = {
   }
 }
 
-export const certificadoAporticadaTejConfig = {
-  id: 'certificado-aporticada-teja',
-  title: 'Certificado de Solidez y Seguridad - Aporticada Teja',
-  description: 'Certificado de solidez y seguridad de la cubierta para instalación aporticada sobre teja',
-  fileName: 'certificado-aporticada-teja.pdf',
-  route: '/certificado-aporticada-teja',
-  fields: [],
-  defaultData: {
-    imagen1: '',
-    imagen2: '',
-    imagen3: ''
-  },
-  fieldMapping: {},
-  capabilities: {
-    canPreview: true,
-    canEdit: false,
-    canGeneratePDF: true
-  }
-}
-
 /**
  * Objeto que contiene todas las configuraciones de documentos
  */
@@ -1317,13 +1361,13 @@ const documentConfigs = {
   'declaracion-no-generacion-rcds': declaracionNoGeneracionRcdsConfig,
   'certificado-coplanar-teja': certificadoCoplanarTejaConfig,
   'certificado-cubierta-plan-aaporticada': certificadoCubiertaPlanAaporticadaConfig,
+  'certificado-aporticada-teja': certificadoAporticadaTejConfig,
   'mtd-instalacion-autoconsumo-monofasica-con-bateria': memoriaTecnicaConfig,
   'mtd-instalacion-aislada-con-bateria': memoriaInstalacionAisladaConBateriaConfig,
   'mtd-instalacion-autoconsumo-trifasica-con-bateria': memoriaTecnicaTrifasicaConBateriaConfig,
   'mtd-instalacion-autoconsumo-sin-bateria': memoriaTecnicaAutoconsumoSinBateriaConfig,
   'mtd-instalacion-puntos-recarga': memoriaTecnicaPuntoRecargaConfig,
-  'planos-situacion-emplazamiento-cubierta': planosPlanosSituacionEmplazamientoCubiertaConfig,
-  'certificado-aporticada-teja': certificadoAporticadaTejConfig
+  'planos-situacion-emplazamiento-cubierta': planosPlanosSituacionEmplazamientoCubiertaConfig
 }
 
 /**
