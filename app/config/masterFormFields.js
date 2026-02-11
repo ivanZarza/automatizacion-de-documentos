@@ -428,11 +428,6 @@ export const masterFormFields = [
   // E2.4 Inversor
   { name: 'e2_marcaModeloInversor', label: 'MARCA Y MODELO', placeholder: 'Ej: Fronius Symo', type: 'text', subsection: 'E2.4', fullWidth: true },
   { name: 'e2_potenciaNominalInversor', label: 'POTENCIA NOMINAL (W)', placeholder: 'Ej: 5000', type: 'text', subsection: 'E2.4' },
-  { name: 'e2_rendimientoInversor10', label: 'REND 10%', placeholder: 'Ej: 85', type: 'text', subsection: 'E2.4' },
-  { name: 'e2_rendimientoInversor25', label: 'REND 25%', placeholder: 'Ej: 90', type: 'text', subsection: 'E2.4' },
-  { name: 'e2_rendimientoInversor50', label: 'REND 50%', placeholder: 'Ej: 93', type: 'text', subsection: 'E2.4' },
-  { name: 'e2_rendimientoInversor75', label: 'REND 75%', placeholder: 'Ej: 92', type: 'text', subsection: 'E2.4' },
-  { name: 'e2_rendimientoInversor100', label: 'REND 100%', placeholder: 'Ej: 91', type: 'text', subsection: 'E2.4' },
   { name: 'e2_relacionTensionInversor', label: 'RELACIÓN TENSIÓN VCC/VCA', placeholder: 'Ej: 230V/400V', type: 'text', subsection: 'E2.4' },
   { name: 'e2_formaOndaSalidaInversor', label: 'FORMA ONDA SALIDA', placeholder: 'Ej: Senoidal Pura', type: 'text', subsection: 'E2.4' },
   { name: 'e2_frecuenciaNominalInversor', label: 'FRECUENCIA NOMINAL (Hz)', placeholder: 'Ej: 50', type: 'text', subsection: 'E2.4' },

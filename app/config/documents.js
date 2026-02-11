@@ -670,7 +670,24 @@ export const memoriaTecnicaConfig = {
     planoEmplazamiento: ''
   },
   fieldMapping: {
-    // No hay mappings necesarios ya que MemoriaTecnica usa los mismos nombres que el formulario maestro
+    // E2.1 - Conexión a la Red
+    potenciaNominalInversores: 'e2_potenciaNominalInversores',
+    tipoConexionRed: 'e2_tipoConexionRed',
+    // E2.2 - Módulo Fotovoltaico
+    tecnologiaCelulaModulo: 'e2_tecnologiaCelulaModulo',
+    marcaModeloModulo: 'e2_marcaModeloModulo',
+    potenciaPicoModulo: 'e2_potenciaPicoModulo',
+    toncModulo: 'e2_toncModulo',
+    // E2.3 - Generador Fotovoltaico
+    potenciaPicoGenerador: 'e2_potenciaPicoGenerador',
+    tensionVpmpGenerador: 'e2_tensionVpmpGenerador',
+    orientacionGenerador: 'e2_orientacionGenerador',
+    inclinacionGenerador: 'e2_inclinacionGenerador',
+    totalModulos: 'e2_totalModulos',
+    modulosEnSerie: 'e2_modulosEnSerie',
+    // E2.4 - Inversor E2
+    marcaModeloInversor: 'e2_marcaModeloInversor',
+    potenciaACInversor: 'e2_potenciaNominalInversor'
   },
   capabilities: {
     canPreview: true,
