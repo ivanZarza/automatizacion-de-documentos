@@ -482,42 +482,42 @@ export const masterFormFields = [
   { name: 'f_otrasProtecciones', label: 'OTRAS MEDIDAS', placeholder: 'Indicar cuales', type: 'textarea', subsection: 'F', fullWidth: true },
 
   // ========== SECCIÓN G: CARACTERÍSTICAS DE LÍNEAS Y CIRCUITOS ==========
-  { name: 'g_generadorReguladorPotencia', label: 'Generador FV-Regulador: Potencia (kW)', placeholder: 'Ej: 5.35', type: 'text', subsection: 'G' },
+/*   { name: 'g_generadorReguladorPotencia', label: 'Generador FV-Regulador: Potencia (kW)', placeholder: 'Ej: 5.35', type: 'text', subsection: 'G' },
   { name: 'g_generadorReguladorLongitud', label: 'Generador FV-Regulador: Longitud (m)', placeholder: 'Ej: 15', type: 'text', subsection: 'G' },
   { name: 'g_generadorReguladorSeccion', label: 'Generador FV-Regulador: Material/Sección (mm²)', placeholder: 'Ej: 10', type: 'text', subsection: 'G' },
   { name: 'g_generadorReguladorIntensidad', label: 'Generador FV-Regulador: Intensidad Admisible (A)', placeholder: 'Ej: 10.84', type: 'text', subsection: 'G' },
   { name: 'g_generadorReguladorCaidaTension', label: 'Generador FV-Regulador: Caída de Tensión (%)', placeholder: 'Ej: 1.2', type: 'text', subsection: 'G' },
-  
-  { name: 'g_reguladorBateriaPotencia', label: 'Regulador-Batería: Potencia (kW)', placeholder: 'Ej: 5.35', type: 'text', subsection: 'G' },
+ */  
+  /* { name: 'g_reguladorBateriaPotencia', label: 'Regulador-Batería: Potencia (kW)', placeholder: 'Ej: 5.35', type: 'text', subsection: 'G' },
   { name: 'g_reguladorBateriaLongitud', label: 'Regulador-Batería: Longitud (m)', placeholder: 'Ej: 5', type: 'text', subsection: 'G' },
   { name: 'g_reguladorBateriaSeccion', label: 'Regulador-Batería: Material/Sección (mm²)', placeholder: 'Ej: 6', type: 'text', subsection: 'G' },
   { name: 'g_reguladorBateriaIntensidad', label: 'Regulador-Batería: Intensidad Admisible (A)', placeholder: 'Ej: 49', type: 'text', subsection: 'G' },
   { name: 'g_reguladorBateriaCaidaTension', label: 'Regulador-Batería: Caída de Tensión (%)', placeholder: 'Ej: < 1.5', type: 'text', subsection: 'G' },
-  
-  { name: 'g_reguladorInversorPotencia', label: 'Regulador-Inversor: Potencia (kW)', placeholder: 'Ej: 3000', type: 'text', subsection: 'G' },
+   */
+ /*  { name: 'g_reguladorInversorPotencia', label: 'Regulador-Inversor: Potencia (kW)', placeholder: 'Ej: 3000', type: 'text', subsection: 'G' },
   { name: 'g_reguladorInversorLongitud', label: 'Regulador-Inversor: Longitud (m)', placeholder: 'Ej: 5', type: 'text', subsection: 'G' },
   { name: 'g_reguladorInversorSeccion', label: 'Regulador-Inversor: Material/Sección (mm²)', placeholder: 'Ej: 6', type: 'text', subsection: 'G' },
   { name: 'g_reguladorInversorIntensidad', label: 'Regulador-Inversor: Intensidad Admisible (A)', placeholder: 'Ej: 49', type: 'text', subsection: 'G' },
   { name: 'g_reguladorInversorCaidaTension', label: 'Regulador-Inversor: Caída de Tensión (%)', placeholder: 'Ej: < 1.5', type: 'text', subsection: 'G' },
-  
+   */
   { name: 'g_bateriaDiRectaInversorPotencia', label: 'Batería-Inversor (directo): Potencia (kW)', placeholder: 'Ej: 3000', type: 'text', subsection: 'G' },
-  { name: 'g_bateriaDiRectaInversorLongitud', label: 'Batería-Inversor (directo): Longitud (m)', placeholder: 'Ej: 5', type: 'text', subsection: 'G' },
+/*   { name: 'g_bateriaDiRectaInversorLongitud', label: 'Batería-Inversor (directo): Longitud (m)', placeholder: 'Ej: 5', type: 'text', subsection: 'G' },
   { name: 'g_bateriaDiRectaInversorSeccion', label: 'Batería-Inversor (directo): Material/Sección (mm²)', placeholder: 'Ej: 6', type: 'text', subsection: 'G' },
   { name: 'g_bateriaDiRectaInversorIntensidad', label: 'Batería-Inversor (directo): Intensidad Admisible (A)', placeholder: 'Ej: 49', type: 'text', subsection: 'G' },
   { name: 'g_bateriaDiRectaInversorCaidaTension', label: 'Batería-Inversor (directo): Caída de Tensión (%)', placeholder: 'Ej: < 1.5', type: 'text', subsection: 'G' },
-  
+   */
   { name: 'g_generadorDirectoInversorPotencia', label: 'Generador-Inversor (directo): Potencia (kW)', placeholder: 'Ej: 5.35', type: 'text', subsection: 'G' },
-  { name: 'g_generadorDirectoInversorLongitud', label: 'Generador-Inversor (directo): Longitud (m)', placeholder: 'Ej: 10', type: 'text', subsection: 'G' },
+ /*  { name: 'g_generadorDirectoInversorLongitud', label: 'Generador-Inversor (directo): Longitud (m)', placeholder: 'Ej: 10', type: 'text', subsection: 'G' },
   { name: 'g_generadorDirectoInversorSeccion', label: 'Generador-Inversor (directo): Material/Sección (mm²)', placeholder: 'Ej: 6', type: 'text', subsection: 'G' },
   { name: 'g_generadorDirectoInversorIntensidad', label: 'Generador-Inversor (directo): Intensidad Admisible (A)', placeholder: 'Ej: 49', type: 'text', subsection: 'G' },
   { name: 'g_generadorDirectoInversorCaidaTension', label: 'Generador-Inversor (directo): Caída de Tensión (%)', placeholder: 'Ej: < 1.5', type: 'text', subsection: 'G' },
-  
+   */
   { name: 'g_inversorRedPotencia', label: 'Inversor-Red (interconectadas): Potencia (kW)', placeholder: 'Ej: 3000', type: 'text', subsection: 'G' },
-  { name: 'g_inversorRedLongitud', label: 'Inversor-Red (interconectadas): Longitud (m)', placeholder: 'Ej: 5', type: 'text', subsection: 'G' },
+ /*  { name: 'g_inversorRedLongitud', label: 'Inversor-Red (interconectadas): Longitud (m)', placeholder: 'Ej: 5', type: 'text', subsection: 'G' },
   { name: 'g_inversorRedSeccion', label: 'Inversor-Red (interconectadas): Material/Sección (mm²)', placeholder: 'Ej: 6', type: 'text', subsection: 'G' },
   { name: 'g_inversorRedIntensidad', label: 'Inversor-Red (interconectadas): Intensidad Admisible (A)', placeholder: 'Ej: 44', type: 'text', subsection: 'G' },
   { name: 'g_inversorRedCaidaTension', label: 'Inversor-Red (interconectadas): Caída de Tensión (%)', placeholder: 'Ej: < 1.5', type: 'text', subsection: 'G' },
-
+ */
   // ========== SECCIÓN H: ESQUEMA UNIFILAR ==========
   { name: 'h_esquemaUnifilar', label: 'ESQUEMA UNIFILAR (Archivo)', type: 'file', accept: 'image/*,.pdf', subsection: 'H', fullWidth: true },
 
