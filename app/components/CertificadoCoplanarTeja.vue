@@ -22,7 +22,7 @@
         </p>
 
         <p class="parrafo-datos">
-          El generador fotovoltaico ha sido dimensionado mediante Memoria Técnica de Diseño según requiere la reglamentación, y está compuesto por <span class="texto-editable">{{ numModulos }}</span> módulos fotovoltaicos de <span class="texto-editable">{{ potencia }}</span> de potencia eléctrica y <span class="texto-editable">{{ peso }}</span> de peso cada uno, del fabricante <span class="texto-azul">ja Solar</span> y modelo <span class="texto-editable">{{ modelo }}</span>.
+          El generador fotovoltaico ha sido dimensionado mediante Memoria Técnica de Diseño según requiere la reglamentación, y está compuesto por <span class="texto-editable">{{ numModulos }}</span> módulos fotovoltaicos de <span class="texto-editable">{{ potencia }}</span> de potencia eléctrica y <span class="texto-editable">{{ peso }}</span> de peso cada uno, del fabricante y modelo <span class="texto-editable">{{ marcaModelo }}</span> con Certificado de Garantía y Marcado CE de sus productos.
         </p>
 
         <p class="parrafo-estructura">
@@ -142,6 +142,7 @@ defineProps({
   numModulos: String,
   potencia: String,
   peso: String,
+  marcaModelo: String,
   modelo: String,
   ciudadFirma: String,
   fecha: String,

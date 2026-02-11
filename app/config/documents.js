@@ -105,6 +105,7 @@ export const certificadoCoplanarTejaConfig = {
     { name: 'numModulos', label: 'Número de Módulos', type: 'text' },
     { name: 'potencia', label: 'Potencia', type: 'text' },
     { name: 'peso', label: 'Peso', type: 'text' },
+    { name: 'marcaModelo', label: 'Marca y Modelo', type: 'text', fullWidth: true },
     { name: 'modelo', label: 'Modelo', type: 'text' },
     { name: 'ciudadFirma', label: 'Ciudad de Firma', type: 'text' },
     { name: 'fecha', label: 'Fecha', type: 'date' },
@@ -122,6 +123,7 @@ export const certificadoCoplanarTejaConfig = {
     numModulos: '',
     potencia: '',
     peso: '',
+    marcaModelo: '',
     modelo: '',
     ciudadFirma: '',
     fecha: '',
@@ -134,6 +136,7 @@ export const certificadoCoplanarTejaConfig = {
     codigoPostal: 'codigoPostal',
     localidad: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',
+    marcaModelo: 'e2_marcaModeloModulo',
     ciudadFirma: 'ciudadFirma',
     fecha: 'fecha'
   },
@@ -1591,6 +1594,7 @@ export const declaracionNoGeneracionRcdsConfig = {
     { name: 'codigoPostal', label: 'Código Postal', type: 'text' },
     { name: 'referenciaCatastral', label: 'Referencia Catastral', type: 'text', fullWidth: true },
     { name: 'municipio', label: 'Municipio', type: 'text' },
+    { name: 'provincia', label: 'Provincia', type: 'text' },
     { name: 'ciudadFirma', label: 'Ciudad de Firma', type: 'text' },
     { name: 'fecha', label: 'Fecha', type: 'date' }
   ],
@@ -1601,6 +1605,7 @@ export const declaracionNoGeneracionRcdsConfig = {
     codigoPostal: '',
     referenciaCatastral: '',
     municipio: '',
+    provincia: '',
     ciudadFirma: '',
     fecha: ''
   },
@@ -1609,6 +1614,7 @@ export const declaracionNoGeneracionRcdsConfig = {
     numero: 'numero',
     codigoPostal: 'codigoPostal',
     municipio: 'localidadEmplazamiento',
+    provincia: 'provinciaEmplazamiento',
     referenciaCatastral: 'referenciaCatastral',
     ciudadFirma: 'ciudadFirma',
     fecha: 'fecha'

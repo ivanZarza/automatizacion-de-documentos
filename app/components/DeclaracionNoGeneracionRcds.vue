@@ -20,7 +20,7 @@
         <h2 class="titulo-declara">DECLARA QUE</h2>
 
         <p class="parrafo-declaracion">
-          La instalación fotovoltaica a realizar en <strong>{{ direccion }}</strong>, número <strong>{{ numero }}</strong> <strong>{{ otrosDatos }}</strong> – código postal <strong>{{ codigoPostal }}</strong>, con Referencia Catastral <strong>{{ referenciaCatastral }}</strong>, en el término municipal de <strong>{{ municipio }}</strong>, provincia de Cádiz:
+          La instalación fotovoltaica a realizar en <strong>{{ direccion }}</strong>, número <strong>{{ numero }}</strong> <strong>{{ otrosDatos }}</strong> – código postal <strong>{{ codigoPostal }}</strong>, con Referencia Catastral <strong>{{ referenciaCatastral }}</strong>, en el término municipal de <strong>{{ municipio }}</strong>, provincia de <strong>{{ provincia }}</strong>:
         </p>
 
         <div class="lista-declaracion">
@@ -70,6 +70,7 @@ defineProps({
   codigoPostal: String,
   referenciaCatastral: String,
   municipio: String,
+  provincia: String,
   ciudadFirma: String,
   fecha: String
 })
