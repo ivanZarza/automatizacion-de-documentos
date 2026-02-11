@@ -1288,6 +1288,26 @@ export const planosPlanosSituacionEmplazamientoCubiertaConfig = {
   }
 }
 
+export const certificadoAporticadaTejConfig = {
+  id: 'certificado-aporticada-teja',
+  title: 'Certificado de Solidez y Seguridad - Aporticada Teja',
+  description: 'Certificado de solidez y seguridad de la cubierta para instalación aporticada sobre teja',
+  fileName: 'certificado-aporticada-teja.pdf',
+  route: '/certificado-aporticada-teja',
+  fields: [],
+  defaultData: {
+    imagen1: '',
+    imagen2: '',
+    imagen3: ''
+  },
+  fieldMapping: {},
+  capabilities: {
+    canPreview: true,
+    canEdit: false,
+    canGeneratePDF: true
+  }
+}
+
 /**
  * Objeto que contiene todas las configuraciones de documentos
  */
@@ -1302,7 +1322,8 @@ const documentConfigs = {
   'mtd-instalacion-autoconsumo-trifasica-con-bateria': memoriaTecnicaTrifasicaConBateriaConfig,
   'mtd-instalacion-autoconsumo-sin-bateria': memoriaTecnicaAutoconsumoSinBateriaConfig,
   'mtd-instalacion-puntos-recarga': memoriaTecnicaPuntoRecargaConfig,
-  'planos-situacion-emplazamiento-cubierta': planosPlanosSituacionEmplazamientoCubiertaConfig
+  'planos-situacion-emplazamiento-cubierta': planosPlanosSituacionEmplazamientoCubiertaConfig,
+  'certificado-aporticada-teja': certificadoAporticadaTejConfig
 }
 
 /**
