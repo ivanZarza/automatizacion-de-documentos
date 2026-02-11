@@ -383,6 +383,75 @@ export const certificadoParamentoVerticalConfig = {
   }
 }
 
+export const certificadoPergolaAporticadaConfig = {
+  id: 'certificado-pergola-aporticada',
+  title: 'Certificado de Solidez y Seguridad de la Cubierta - Pérgola Aporticada',
+  description: 'Documento de certificación de solidez y seguridad para instalaciones fotovoltaicas sobre pérgola aporticada',
+  fileName: 'certificado-pergola-aporticada.pdf',
+  route: '/certificado-pergola-aporticada',
+  fields: [
+    { name: 'direccion', label: 'Dirección', type: 'text', fullWidth: true },
+    { name: 'numero', label: 'Número', type: 'text' },
+    { name: 'otrosDatosDireccion', label: 'Otros Datos de Dirección', type: 'text' },
+    { name: 'codigoPostal', label: 'Código Postal', type: 'text' },
+    { name: 'localidad', label: 'Localidad', type: 'text' },
+    { name: 'provincia', label: 'Provincia', type: 'text' },
+    { name: 'referenciaCatastral', label: 'Referencia Catastral', type: 'text', fullWidth: true },
+    { name: 'cantidadModulos', label: 'Cantidad de Módulos', type: 'text' },
+    { name: 'potenciaModulos', label: 'Potencia de Módulos (Wp)', type: 'text' },
+    { name: 'modeloPanel', label: 'Modelo de Panel', type: 'text' },
+    { name: 'orientacion', label: 'Orientación', type: 'text' },
+    { name: 'inclinacion', label: 'Inclinación', type: 'text' },
+    { name: 'cubiertaTipo', label: 'Cubierta / del suelo', type: 'text' },
+    { name: 'fechaFirma', label: 'Fecha de Firma', type: 'text' },
+    { name: 'localidadFirma', label: 'Localidad de Firma', type: 'text' },
+    { name: 'imagen1', label: 'Imagen 1 - Vista pérgola', type: 'file', accept: 'image/*' },
+    { name: 'imagen2', label: 'Imagen 2 - Detalle anclajes', type: 'file', accept: 'image/*' }
+  ],
+  defaultData: {
+    direccion: '',
+    numero: '',
+    otrosDatosDireccion: '',
+    codigoPostal: '',
+    localidad: '',
+    provincia: '',
+    referenciaCatastral: '',
+    cantidadModulos: '',
+    potenciaModulos: '',
+    modeloPanel: '',
+    orientacion: '',
+    inclinacion: '',
+    cubiertaTipo: '',
+    fechaFirma: '',
+    localidadFirma: '',
+    imagen1: null,
+    imagen2: null
+  },
+  fieldMapping: {
+    direccion: 'direccion',
+    numero: 'numero',
+    codigoPostal: 'codigoPostal',
+    localidad: 'localidad',
+    provincia: 'provincia',
+    referenciaCatastral: 'referenciaCatastral',
+    cantidadModulos: 'cantidadModulos',
+    potenciaModulos: 'potenciaModulos',
+    modeloPanel: 'modeloPanel',
+    orientacion: 'orientacion',
+    inclinacion: 'inclinacion',
+    cubiertaTipo: 'cubiertaTipo',
+    fechaFirma: 'fechaFirma',
+    localidadFirma: 'localidadFirma',
+    imagen1: 'imagen1',
+    imagen2: 'imagen2'
+  },
+  capabilities: {
+    canPreview: true,
+    canEdit: true,
+    canGeneratePDF: true
+  }
+}
+
 export const memoriaTecnicaConfig = {
   id: 'mtd-instalacion-autoconsumo-monofasica-con-bateria',
   title: 'Memoria Técnica de Instalación de Autoconsumo Monofásica con Batería',
@@ -1491,6 +1560,7 @@ const documentConfigs = {
   'certificado-aporticada-teja': certificadoAporticadaTejConfig,
   'certificado-paramento-vertical': certificadoParamentoVerticalConfig,
   'certificado-chapas-grecadas-aporticada': certificadoChapasGrecadasAporticadaConfig,
+  'certificado-pergola-aporticada': certificadoPergolaAporticadaConfig,
   'mtd-instalacion-autoconsumo-monofasica-con-bateria': memoriaTecnicaConfig,
   'mtd-instalacion-aislada-con-bateria': memoriaInstalacionAisladaConBateriaConfig,
   'mtd-instalacion-autoconsumo-trifasica-con-bateria': memoriaTecnicaTrifasicaConBateriaConfig,
