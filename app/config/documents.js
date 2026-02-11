@@ -250,6 +250,64 @@ export const certificadoAporticadaTejConfig = {
   }
 }
 
+export const certificadoChapasGrecadasAporticadaConfig = {
+  id: 'certificado-chapas-grecadas-aporticada',
+  title: 'Certificado de Solidez y Seguridad - Chapas Grecadas Aporticada',
+  description: 'Certificado de solidez y seguridad de la cubierta para instalación aporticada sobre chapas grecadas',
+  fileName: 'certificado-chapas-grecadas-aporticada.pdf',
+  route: '/certificado-chapas-grecadas-aporticada',
+  fields: [
+    { name: 'direccion', label: 'Dirección', type: 'text', fullWidth: true },
+    { name: 'numero', label: 'Número', type: 'text' },
+    { name: 'localidad', label: 'Localidad', type: 'text' },
+    { name: 'codigoPostal', label: 'Código Postal', type: 'text' },
+    { name: 'referenciaCatastral', label: 'Referencia Catastral', type: 'text', fullWidth: true },
+    { name: 'cantidadModulos', label: 'Cantidad de Módulos', type: 'text' },
+    { name: 'potenciaModulos', label: 'Potencia de Módulos (Wp)', type: 'text' },
+    { name: 'pesoModulo', label: 'Peso por Módulo (kg)', type: 'text' },
+    { name: 'fabricanteYModelo', label: 'Fabricante y Modelo', type: 'text', fullWidth: true },
+    { name: 'localidadFirma', label: 'Localidad de Firma', type: 'text' },
+    { name: 'fechaFirma', label: 'Fecha de Firma', type: 'text' },
+    { name: 'imagen1', label: 'Imagen - Estructura Aporticada', type: 'file' },
+    { name: 'imagen2', label: 'Imagen 2 (Opcional)', type: 'file' }
+  ],
+  defaultData: {
+    direccion: 'Calle de la Rosa',
+    numero: '11',
+    localidad: 'Tarifa',
+    codigoPostal: '11380',
+    referenciaCatastral: '7433302TF5073S0001EH',
+    cantidadModulos: '6',
+    potenciaModulos: '640',
+    pesoModulo: '28.00',
+    fabricanteYModelo: 'Longi Solar y modelo LR7-72HVH-640M',
+    localidadFirma: 'Tarifa',
+    fechaFirma: '10 de Febrero de 2026',
+    imagen1: '',
+    imagen2: ''
+  },
+  fieldMapping: {
+    direccion: 'direccion',
+    numero: 'numero',
+    localidad: 'localidad',
+    codigoPostal: 'codigoPostal',
+    referenciaCatastral: 'referenciaCatastral',
+    cantidadModulos: 'cantidadModulos',
+    potenciaModulos: 'potenciaModulos',
+    pesoModulo: 'pesoModulo',
+    fabricanteYModelo: 'fabricanteYModelo',
+    localidadFirma: 'localidadFirma',
+    fechaFirma: 'fechaFirma',
+    imagen1: 'imagen1',
+    imagen2: 'imagen2'
+  },
+  capabilities: {
+    canPreview: true,
+    canEdit: true,
+    canGeneratePDF: true
+  }
+}
+
 export const memoriaTecnicaConfig = {
   id: 'mtd-instalacion-autoconsumo-monofasica-con-bateria',
   title: 'Memoria Técnica de Instalación de Autoconsumo Monofásica con Batería',
@@ -1362,6 +1420,7 @@ const documentConfigs = {
   'certificado-coplanar-teja': certificadoCoplanarTejaConfig,
   'certificado-cubierta-plan-aaporticada': certificadoCubiertaPlanAaporticadaConfig,
   'certificado-aporticada-teja': certificadoAporticadaTejConfig,
+  'certificado-chapas-grecadas-aporticada': certificadoChapasGrecadasAporticadaConfig,
   'mtd-instalacion-autoconsumo-monofasica-con-bateria': memoriaTecnicaConfig,
   'mtd-instalacion-aislada-con-bateria': memoriaInstalacionAisladaConBateriaConfig,
   'mtd-instalacion-autoconsumo-trifasica-con-bateria': memoriaTecnicaTrifasicaConBateriaConfig,
