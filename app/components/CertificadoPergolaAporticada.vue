@@ -22,7 +22,7 @@
         </p>
 
         <p class="parrafo-datos">
-          El generador fotovoltaico ha sido dimensionado mediante Memoria Técnica de Diseño según requiere la reglamentación, y está compuesto por <span class="texto-editable">{{ cantidadModulos }}</span> módulos fotovoltaicos de <span class="texto-editable">{{ potenciaModulos }}</span> Wp de potencia eléctrica cada uno, y modelo <span class="texto-editable">{{ modeloPanel }}</span>.
+          El generador fotovoltaico ha sido dimensionado mediante Memoria Técnica de Diseño según requiere la reglamentación, y está compuesto por <span class="texto-editable">{{ numModulos }}</span> módulos fotovoltaicos de <span class="texto-editable">{{ potencia }}</span> Wp de potencia eléctrica cada uno, del fabricante y modelo <span class="texto-editable">{{ marcaModelo }}</span>.
         </p>
 
         <p class="parrafo-estructura">
@@ -51,11 +51,11 @@
       <div class="contenido-principal">
         <div class="contenedor-dos-imagenes">
           <div class="espacio-imagen-lado">
-            <img v-if="imagen1" :src="imagen1" class="imagen-pdf-lado" />
+            <img v-if="foto1" :src="foto1" class="imagen-pdf-lado" />
             <span v-else>[Imagen 1: Vista pérgola]</span>
           </div>
           <div class="espacio-imagen-lado">
-            <img v-if="imagen2" :src="imagen2" class="imagen-pdf-lado" />
+            <img v-if="foto2" :src="foto2" class="imagen-pdf-lado" />
             <span v-else>[Imagen 2: Detalle anclajes/perfilería]</span>
           </div>
         </div>
@@ -94,7 +94,7 @@
         <p class="parrafo-estructura">
           <strong>Eduardo Rivera Cabezas</strong><br />
           67030856<br />
-          <span class="texto-azul">erivera@solay.es</span><br />
+          rivera@solay.es<br />
           Calle El Peñón 5 – 41940 – Tomares – Sevilla
         </p>
 
@@ -103,7 +103,7 @@
         </div>
 
         <p class="parrafo-fecha">
-          En <span class="texto-editable">{{ localidadFirma }}</span>, a <span class="texto-editable">{{ fechaFirma }}</span>.
+          En <span class="texto-editable">{{ ciudadFirma }}</span>, a <span class="texto-editable">{{ fecha }}</span>.
         </p>
       </div>
 
@@ -118,23 +118,23 @@
 
 <script setup>
 defineProps({
-  imagen1: String,
-  imagen2: String,
+  foto1: String,
+  foto2: String,
   direccion: String,
   numero: String,
-  otrosDatosDireccion: String,
   codigoPostal: String,
   localidad: String,
   provincia: String,
   referenciaCatastral: String,
-  cantidadModulos: String,
-  potenciaModulos: String,
-  modeloPanel: String,
+  numModulos: String,
+  potencia: String,
+  peso: String,
+  marcaModelo: String,
   orientacion: String,
   inclinacion: String,
   cubiertaTipo: String,
-  fechaFirma: String,
-  localidadFirma: String
+  ciudadFirma: String,
+  fecha: String
 })
 </script>
 

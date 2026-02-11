@@ -21,7 +21,7 @@
         </p>
 
         <p class="parrafo-tecnico">
-          El generador fotovoltaico ha sido dimensionado mediante Memoria Técnica de Diseño según requiera la reglamentación, y está compuesto por <span class="texto-rojo">{{ cantidadModulos }} módulos fotovoltaicos de {{ potenciaModulos }} Wp de potencia eléctrica y {{ pesoModulo }} kg de peso cada uno</span>, del <span class="texto-rojo">fabricante {{ fabricanteYModelo }}</span>.
+          El generador fotovoltaico ha sido dimensionado mediante Memoria Técnica de Diseño según requiera la reglamentación, y está compuesto por <span class="texto-rojo">{{ numModulos }} módulos fotovoltaicos de {{ potencia }} Wp de potencia eléctrica y 28.00 kg de peso cada uno</span>, del <span class="texto-rojo">fabricante {{ marcaModelo }}</span>.
         </p>
 
         <p class="parrafo-tecnico">
@@ -48,7 +48,7 @@
       <div class="contenido-principal">
         <!-- Espacio para imagen -->
         <div class="contenedor-imagen-grande">
-          <img v-if="imagen1" :src="imagen1" class="imagen-pdf-grande" />
+          <img v-if="foto1" :src="foto1" class="imagen-pdf-grande" />
           <span v-else>[Imagen: Estructura Soporte para Chapa Grecada Aporticada]</span>
         </div>
 
@@ -87,7 +87,7 @@
         </div>
 
         <p class="parrafo-fecha">
-          En <span class="texto-rojo">{{ localidadFirma }}, a {{ fechaFirma }}</span>.
+          En <span class="texto-rojo">{{ ciudadFirma }}, a {{ fecha }}</span>.
         </p>
       </div>
 
@@ -102,20 +102,20 @@
 
 <script setup>
 defineProps({
-  imagen1: String,
-  imagen2: String,
+  foto1: String,
+  foto2: String,
   direccion: String,
   numero: String,
   localidad: String,
   codigoPostal: String,
+  provincia: String,
   referenciaCatastral: String,
-  cantidadModulos: String,
-  potenciaModulos: String,
-  pesoModulo: String,
-  fabricanteYModelo: String,
-  localidadFirma: String,
-  fechaFirma: String,
-  provincia: String
+  numModulos: String,
+  potencia: String,
+  peso: String,
+  marcaModelo: String,
+  ciudadFirma: String,
+  fecha: String
 })
 </script>
 
