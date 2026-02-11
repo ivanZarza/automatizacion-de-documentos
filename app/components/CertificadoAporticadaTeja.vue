@@ -21,7 +21,7 @@
         </p>
 
         <p class="parrafo-tecnico">
-          El generador fotovoltaico ha sido dimensionado mediante Memoria Técnica de Diseño según requiera la reglamentación, y está compuesto por <span class="texto-rojo">{{ cantidadModulos }}</span> módulos fotovoltaicos de <span class="texto-rojo">{{ potenciaModulos }}</span> Wp de potencia eléctrica y {{ pesoModulo }} kg de peso cada uno, del fabricante <span class="texto-rojo">{{ fabricante }} y modelo {{ modeloPanel }}</span>.
+          El generador fotovoltaico ha sido dimensionado mediante Memoria Técnica de Diseño según requiera la reglamentación, y está compuesto por <span class="texto-rojo">{{ numModulos }}</span> módulos fotovoltaicos de <span class="texto-rojo">{{ potencia }}</span> Wp de potencia eléctrica y {{ peso }} kg de peso cada uno, del fabricante <span class="texto-rojo">{{ marcaModelo }}</span>.
         </p>
 
         <p class="parrafo-tecnico">
@@ -51,11 +51,11 @@
         <!-- Espacio para dos imágenes -->
         <div class="contenedor-dos-imagenes">
           <div class="espacio-imagen-lado">
-            <img v-if="imagen1" :src="imagen1" class="imagen-pdf-lado" />
+            <img v-if="foto1" :src="foto1" class="imagen-pdf-lado" />
             <span v-else>[Imagen 1: Estructura aporticada - Paneles solares]</span>
           </div>
           <div class="espacio-imagen-lado">
-            <img v-if="imagen2" :src="imagen2" class="imagen-pdf-lado" />
+            <img v-if="foto2" :src="foto2" class="imagen-pdf-lado" />
             <span v-else>[Imagen 2: Componentes de instalación]</span>
           </div>
         </div>
@@ -101,7 +101,7 @@
         <p class="parrafo-tecnico">
           <strong>Eduardo Rivera Cabezas</strong><br />
           67030856<br />
-          <span class="texto-rojo">{{ emailIngeniero }}</span><br />
+          rivera@solay.es<br />
           Calle El Peñón 5 – 41940 – Tomares – Sevilla
         </p>
 
@@ -110,7 +110,7 @@
         </div>
 
         <p class="parrafo-fecha">
-          En {{ localidadFirma }}, a <span class="texto-rojo">{{ fechaFirma }}</span>.
+          En {{ ciudadFirma }}, a <span class="texto-rojo">{{ fecha }}</span>.
         </p>
       </div>
 
@@ -125,22 +125,20 @@
 
 <script setup>
 defineProps({
-  imagen1: String,
-  imagen2: String,
-  imagen3: String,
+  foto1: String,
+  foto2: String,
   direccion: String,
+  numero: String,
   localidad: String,
   codigoPostal: String,
   provincia: String,
   referenciaCatastral: String,
-  cantidadModulos: String,
-  potenciaModulos: String,
-  pesoModulo: String,
-  fabricante: String,
-  modeloPanel: String,
-  emailIngeniero: String,
-  fechaFirma: String,
-  localidadFirma: String
+  numModulos: String,
+  potencia: String,
+  peso: String,
+  marcaModelo: String,
+  ciudadFirma: String,
+  fecha: String
 })
 </script>
 
