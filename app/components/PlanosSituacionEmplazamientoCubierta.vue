@@ -29,32 +29,34 @@
           <h2 class="titulo-seccion">DATOS DEL PROYECTO</h2>
           
           <table class="tabla-datos">
-            <tr>
-              <td class="label">Titular:</td>
-              <td class="valor">{{ formattedData.promotor }}</td>
-              <td class="label">NIF/CIF:</td>
-              <td class="valor">{{ formattedData.nif }}</td>
-            </tr>
-            <tr>
-              <td class="label">Dirección:</td>
-              <td class="valor" colspan="3">{{ formattedData.direccion }}, {{ formattedData.numero }}</td>
-            </tr>
-            <tr>
-              <td class="label">Localidad:</td>
-              <td class="valor">{{ formattedData.localidad }}</td>
-              <td class="label">Código Postal:</td>
-              <td class="valor">{{ formattedData.codigoPostal }}</td>
-            </tr>
-            <tr>
-              <td class="label">Referencia Catastral:</td>
-              <td class="valor" colspan="3">{{ formattedData.referenciaCatastral }}</td>
-            </tr>
-            <tr>
-              <td class="label">Potencia:</td>
-              <td class="valor">{{ formattedData.potenciaKw }} kW</td>
-              <td class="label">Tipo Instalación:</td>
-              <td class="valor">{{ formattedData.tipoInstalacion }}</td>
-            </tr>
+            <tbody>
+              <tr>
+                <td class="label">Titular:</td>
+                <td class="valor">{{ formattedData.promotor }}</td>
+                <td class="label">NIF/CIF:</td>
+                <td class="valor">{{ formattedData.nif }}</td>
+              </tr>
+              <tr>
+                <td class="label">Dirección:</td>
+                <td class="valor" colspan="3">{{ formattedData.direccion }}, {{ formattedData.numero }}</td>
+              </tr>
+              <tr>
+                <td class="label">Localidad:</td>
+                <td class="valor">{{ formattedData.localidad }}</td>
+                <td class="label">Código Postal:</td>
+                <td class="valor">{{ formattedData.codigoPostal }}</td>
+              </tr>
+              <tr>
+                <td class="label">Referencia Catastral:</td>
+                <td class="valor" colspan="3">{{ formattedData.referenciaCatastral }}</td>
+              </tr>
+              <tr>
+                <td class="label">Potencia:</td>
+                <td class="valor">{{ formattedData.potenciaKw }} kW</td>
+                <td class="label">Tipo Instalación:</td>
+                <td class="valor">{{ formattedData.tipoInstalacion }}</td>
+              </tr>
+            </tbody>
           </table>
         </div>
 
