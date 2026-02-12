@@ -1654,7 +1654,10 @@ export const planosPlanosSituacionEmplazamientoCubiertaConfig = {
     pse_tituloDescriptivo: 'Instalación Solar Fotovoltaica',
     pse_tipo: '',
     pse_potencia: '',
-    pse_descripcion: ''
+    pse_descripcion: '',
+    pse_imagenSituacion: '',
+    pse_imagenEmplazamiento: '',
+    pse_imagenCubierta: ''
   },
   fieldMapping: {
     pse_promotor: 'apellidosNombre',
