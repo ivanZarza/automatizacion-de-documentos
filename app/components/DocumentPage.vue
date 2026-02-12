@@ -85,6 +85,7 @@ import DocumentForm from '../components/DocumentForm.vue'
 import { useDocument } from '../composables/useDocument'
 import { getMergedDocumentData } from '../utils/mergeFormData'
 import { getEditableFields } from '../config/editableFields'
+import { loadFromStorage, updateStoragePartially } from '../utils/storageManager'
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -109,8 +110,10 @@ const generatedDate = ref('')
 const editableFields = ref([])
 
 onMounted(() => {
-  // Aquí es donde cargamos los datos fusionados
-  // Pinia ya está inicializado en este punto
+  // Cargar datos de localStorage (base de datos central)
+  const masterData = loadFromStorage()
+  
+  // Fusionar con configuración del documento
   const mergedData = getMergedDocumentData(props.config)
   
   // Inicializar formData con los datos fusionados
@@ -153,6 +156,10 @@ const handleFormSubmit = (newData) => {
     }
   })
   formData.value = mergedData
+  
+  // Guardar en localStorage (base de datos central)
+  updateStoragePartially(mergedData)
+  
   saveChanges()
 }
 

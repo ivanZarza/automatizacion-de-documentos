@@ -2,12 +2,12 @@
  * Utilidad para fusionar datos del formulario maestro con datos específicos del documento
  * 
  * El flujo es:
- * 1. Usuario completa formulario maestro → datos guardados en Pinia
+ * 1. Usuario completa formulario maestro → datos guardados en localStorage
  * 2. Usuario selecciona documento → esta función merge los datos
  * 3. Documento recibe: {defaultData de documento, ...datos maestros}
  */
 
-import { useFormStore } from '../stores/formStore'
+import { loadFromStorage } from './storageManager'
 
 /**
  * Fusionar datos maestros con configuración del documento
@@ -15,10 +15,8 @@ import { useFormStore } from '../stores/formStore'
  * @returns {Object} Datos fusionados listos para pasar al componente de documento
  */
 export const mergeMasterDataWithDocument = (documentConfig) => {
-  const formStore = useFormStore()
-  
-  // Obtener datos maestros del store
-  const masterData = formStore.hasData ? formStore.getFormData() : {}
+  // Obtener datos maestros de localStorage
+  const masterData = loadFromStorage()
   
   // Obtener datos por defecto del documento
   const documentDefaults = documentConfig.defaultData || {}

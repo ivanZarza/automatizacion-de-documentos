@@ -36,21 +36,20 @@ import { useRouter } from 'vue-router'
 import DocumentForm from '../components/DocumentForm.vue'
 import Boton from '../components/Boton.vue'
 import { masterFormFields, getMasterFormDefaultData } from '../config/masterFormFields'
-import { useFormStore } from '../stores/formStore'
+import { loadFromStorage, saveToStorage } from '../utils/storageManager'
 
 const router = useRouter()
-const formStore = useFormStore()
 
 // Inicializar formData
 const formData = ref({})
 
 onMounted(() => {
-  // Cargar datos del localStorage
-  formStore.loadFromLocalStorage()
+  // Cargar datos del localStorage (base de datos central)
+  const savedData = loadFromStorage()
   
-  // Si hay datos guardados en Pinia/localStorage, usarlos; si no, usar valores por defecto
-  if (formStore.hasData) {
-    formData.value = { ...formStore.getFormData() }
+  // Si hay datos guardados en localStorage, usarlos; si no, usar valores por defecto
+  if (savedData && Object.keys(savedData).length > 0) {
+    formData.value = { ...savedData }
   } else {
     formData.value = getMasterFormDefaultData()
   }
@@ -58,8 +57,10 @@ onMounted(() => {
 
 const handleFormSubmit = (newData) => {
   formData.value = newData
-  // Guardar datos en Pinia (que a su vez guardará en localStorage)
-  formStore.setFormData(newData)
+  
+  // Guardar datos en localStorage (base de datos central)
+  saveToStorage(newData)
+  
   // Redirigir a página de selección de documento
   router.push('/seleccionar-documento')
 }
