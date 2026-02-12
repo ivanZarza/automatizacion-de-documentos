@@ -38,17 +38,19 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useRouter } from 'vue-router'
 import DocumentForm from '../components/DocumentForm.vue'
 import Boton from '../components/Boton.vue'
 import { masterFormFields, getMasterFormDefaultData } from '../config/masterFormFields'
 import { loadFromStorage, saveToStorage, clearStorage } from '../utils/storageManager'
+import { onStorageChange } from '../utils/storageEvents'
 
 const router = useRouter()
 
 // Inicializar formData
 const formData = ref({})
+let unsubscribe = null
 
 /**
  * Función para cargar datos del localStorage
@@ -69,35 +71,18 @@ onMounted(() => {
   // Cargar datos la primera vez
   loadMasterData()
   
-  // Detectar cambios en localStorage (cuando vuelves del documento)
-  // El storage event se dispara cuando cambias desde otra pestaña/ventana
-  // Pero para la misma pestaña, usamos un interval
-  const checkInterval = setInterval(() => {
-    const currentStorageData = loadFromStorage()
-    if (currentStorageData && Object.keys(currentStorageData).length > 0) {
-      // Comparar si cambió algo
-      const currentFormDataKeys = Object.keys(formData.value)
-      const storageKeys = Object.keys(currentStorageData)
-      
-      // Si cambiaron las claves o valores, actualizar
-      let hasChanges = false
-      if (currentFormDataKeys.length !== storageKeys.length) {
-        hasChanges = true
-      } else {
-        hasChanges = currentFormDataKeys.some(
-          key => formData.value[key] !== currentStorageData[key]
-        )
-      }
-      
-      if (hasChanges) {
-        console.log('🔄 localStorage cambió, actualizando formulario')
-        formData.value = { ...currentStorageData }
-      }
-    }
-  }, 500) // Verificar cada 500ms
-  
-  // Limpiar intervalo al desmontar
-  return () => clearInterval(checkInterval)
+  // Suscribirse a cambios en localStorage
+  unsubscribe = onStorageChange((newData) => {
+    console.log('🔄 localStorage cambió desde otro componente, actualizando formulario')
+    formData.value = { ...newData }
+  })
+})
+
+onBeforeUnmount(() => {
+  // Desuscribirse cuando se desmonta el componente
+  if (unsubscribe) {
+    unsubscribe()
+  }
 })
 
 const handleFormSubmit = (newData) => {

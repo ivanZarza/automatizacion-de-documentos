@@ -3,6 +3,8 @@
  * Proporciona funciones para guardar, cargar y gestionar datos en localStorage
  */
 
+import { notifyStorageChange } from './storageEvents'
+
 const STORAGE_KEY_MAESTRO = 'formDataMaestro'
 
 /**
@@ -12,6 +14,8 @@ const STORAGE_KEY_MAESTRO = 'formDataMaestro'
 export const saveToStorage = (data) => {
   try {
     localStorage.setItem(STORAGE_KEY_MAESTRO, JSON.stringify(data))
+    // Notificar a los listeners
+    notifyStorageChange(data)
   } catch (error) {
     console.error('Error guardando en localStorage:', error)
   }
@@ -40,7 +44,9 @@ export const updateStoragePartially = (newData) => {
   try {
     const currentData = loadFromStorage()
     const mergedData = { ...currentData, ...newData }
-    saveToStorage(mergedData)
+    localStorage.setItem(STORAGE_KEY_MAESTRO, JSON.stringify(mergedData))
+    // Notificar a los listeners
+    notifyStorageChange(mergedData)
     return mergedData
   } catch (error) {
     console.error('Error actualizando localStorage:', error)
