@@ -240,7 +240,7 @@
         </div>
 
         <!-- Técnico Competente -->
-        <div class="subseccion">
+        <!-- <div class="subseccion">
           <div class="fila-checkbox">
             <input
               type="checkbox"
@@ -293,7 +293,7 @@
           </div>
         </div>
 
-        <!-- Colegio Oficial -->
+        <!-- Colegio Oficial 
         <div class="subseccion" style="border-bottom: none">
           <div class="fila-grid fila-2col fila-sin-borde">
             <div class="celda celda-izquierda valor-grande">
@@ -305,7 +305,7 @@
               <div class="valor valor-grande">{{ numeroColegiado }}</div>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <!-- Firma y Fecha -->
         <div class="seccion-firma">
@@ -414,7 +414,7 @@
         </div>
       </div>
 
-      <!-- SECCIÓN E: MEMORIA DESCRIPTIVA -->
+      <!-- <!-- SECCIÓN E: MEMORIA DESCRIPTIVA -->
       <div class="seccion">
         <div class="encabezado-seccion">
           <span class="subseccion-titulo-span" style="background-color: #ffa02a"
@@ -423,14 +423,14 @@
           | MEMORIA DESCRIPTIVA
         </div>
 
-        <!-- E1: INSTALACIÓN GENERADORA FOTOVOLTAICA AISLADA -->
+        <!-- E1: INSTALACIÓN GENERADORA FOTOVOLTAICA AISLADA 
         <div class="cuerpo-seccion">
           <div class="titulo-subseccion-principal">
             <span class="subseccion-titulo-span">E1</span>. INSTALACIÓN
             GENERADORA FOTOVOLTAICA AISLADA
           </div>
-
-          <!-- E1.1 Módulo Fotovoltaico -->
+-->
+          <!-- E1.1 Módulo Fotovoltaico 
           <div class="subseccion">
             <div class="subseccion-titulo">
               <span class="subseccion-titulo-span">E1.1</span> MÓDULO
@@ -457,8 +457,8 @@
               </div>
             </div>
           </div>
-
-          <!-- E1.2 Generador Fotovoltaico -->
+ -->
+          <!-- E1.2 Generador Fotovoltaico
           <div class="subseccion">
             <div class="subseccion-titulo">
               <span class="subseccion-titulo-span">E1.2</span> GENERADOR
@@ -507,8 +507,8 @@
               </div>
             </div>
           </div>
-
-          <!-- E1.3 Baterías -->
+-->
+          <!-- E1.3 Baterías 
           <div class="subseccion">
             <div class="subseccion-titulo">
               <span class="subseccion-titulo-span">E1.3</span> BATERÍAS
@@ -564,8 +564,8 @@
               </div>
             </div>
           </div>
-
-          <!-- E1.4 Regulador -->
+ -->
+          <!-- E1.4 Regulador
           <div class="subseccion">
             <div class="subseccion-titulo">
               <span class="subseccion-titulo-span">E1.4</span> REGULADOR
@@ -591,8 +591,8 @@
               </div>
             </div>
           </div>
-
-          <!-- E1.5 Inversor -->
+-->
+          <!-- E1.5 Inversor 
           <div class="subseccion">
             <div class="subseccion-titulo">
               <span class="subseccion-titulo-span">E1.5</span> INVERSOR
@@ -660,8 +660,8 @@
               </div>
             </div>
           </div>
-
-          <!-- E1.6 Otros -->
+-->
+          <!-- E1.6 Otros 
           <div class="subseccion">
             <div class="subseccion-titulo">
               <span class="subseccion-titulo-span">E1.6</span> OTROS
@@ -699,8 +699,8 @@
               </div>
             </div>
           </div>
-
-          <!-- E1.7 Información de la Demanda -->
+-->
+          <!-- E1.7 Información de la Demanda 
           <div
             class="subseccion subseccion-e1-7"
             style="border-top: 1px solid #000"
@@ -813,7 +813,7 @@
             </div>
           </div>
         </div>
-
+ -->
         <!-- E2: INSTALACIÓN GENERADORA FOTOVOLTAICA INTERCONECTADA CON ALMACENAMIENTO -->
         <div class="cuerpo-seccion">
           <div class="titulo-subseccion-principal">

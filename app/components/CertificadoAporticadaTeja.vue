@@ -51,11 +51,11 @@
         <!-- Espacio para dos imágenes -->
         <div class="contenedor-dos-imagenes">
           <div class="espacio-imagen-lado">
-            <img v-if="foto1" :src="foto1" class="imagen-pdf-lado" />
+            <img v-if="foto1" :src="'/fotos-certificados/INSTALACIÓN SOBRE TEJA, APORTICADA.png'" class="imagen-pdf-lado" />
             <span v-else>[Imagen 1: Estructura aporticada - Paneles solares]</span>
           </div>
           <div class="espacio-imagen-lado">
-            <img v-if="foto2" :src="foto2" class="imagen-pdf-lado" />
+            <img v-if="foto2" :src="'/fotos-certificados/INSTALACIÓN SOBRE TEJA, APORTICADA.png'" class="imagen-pdf-lado" />
             <span v-else>[Imagen 2: Componentes de instalación]</span>
           </div>
         </div>

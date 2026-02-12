@@ -618,11 +618,11 @@ export const memoriaTecnicaConfig = {
     tipoConexionInversor: '',
     // E2.5 Baterías
     marcaModeloBateria: '',
-    tipoBateria: 'Litio-Hierro Fosfato (LiFePO4)',
-    tensionNominalBateria: '200V',
-    profundidadDescargaBateria: '100%',
-    tensionMaximaBateria: '57,6V',
-    tensionMinimaBateria: '44,8V',
+    tipoBateria: '',
+    tensionNominalBateria: '',
+    profundidadDescargaBateria: '',
+    tensionMaximaBateria: '',
+    tensionMinimaBateria: '',
     energiaTotalBateria: '',
     potenciaMaximaSalidaBateria: '',
     maximoPicoPotenciaBateria: '',
@@ -699,6 +699,20 @@ export const memoriaTecnicaConfig = {
     // E2.4 - Inversor E2
     marcaModeloInversor: 'e2_marcaModeloInversor',
     potenciaACInversor: 'e2_potenciaNominalInversor',
+    tensionNominalInversor: 'e2_relacionTensionInversor',
+    vccMaximaInversor: 'e2_formaOndaSalidaInversor',
+    vccMinimaInversor: 'e2_frecuenciaNominalInversor',
+    tipoConexionInversor: 'e2_tensionMaximaEntradaInversor',
+    // E2.5 - Grupo Auxiliar
+    marcaModeloBateria: 'e2_marcaModelo',
+    tipoBateria: 'e2_tipoDeBateria',
+    tensionNominalBateria: 'e2_tensionNominal',
+    profundidadDescargaBateria: 'e2_profundidadDescarga',
+    tensionMaximaBateria: 'e2_tensionMaxima',
+    tensionMinimaBateria: 'e2_tensionMinima',
+    energiaTotalBateria: 'e2_energiaTotal',
+    potenciaMaximaSalidaBateria: 'e2_potenciaMaximaSalida',
+    maximoPicoPotenciaBateria: 'e2_maximoPicoDePotencia',
     // G - Características de Líneas y Circuitos
     potenciaBateriaInversor: 'g_bateriaDiRectaInversorPotencia',
     potenciaGeneradorInversorDirecto: 'g_generadorDirectoInversorPotencia',
@@ -862,19 +876,19 @@ export const memoriaInstalacionAisladaConBateriaConfig = {
     modulosEnSerie: '',
     ramasEnParalelo: '1',
     // E2.4 Inversor
-    marcaModeloInversor: '',
-    potenciaACInversor: '',
-    tensionNominalInversor: '230 V',
-    vccMaximaInversor: '425',
-    vccMinimaInversor: '150',
-    tipoConexionInversor: 'MONOFÁSICA',
+    marcaModeloInversor: 'e2_marcaModeloInversor',
+    potenciaACInversor: 'e2_potenciaNominalInversor',
+    tensionNominalInversor: 'e2_relacionTensionInversor',
+    vccMaximaInversor: 'e2_formaOndaSalidaInversor',
+    vccMinimaInversor: 'e2_frecuenciaNominalInversor',
+    tipoConexionInversor: 'e2_tensionMaximaEntradaInversor',
     // E2.5 Baterías
     marcaModeloBateria: '',
-    tipoBateria: 'Litio-Hierro Fosfato (LiFePO4)',
-    tensionNominalBateria: '200V',
-    profundidadDescargaBateria: '100%',
-    tensionMaximaBateria: '57,6V',
-    tensionMinimaBateria: '44,8V',
+    tipoBateria: '',
+    tensionNominalBateria: '',
+    profundidadDescargaBateria: '',
+    tensionMaximaBateria: '',
+    tensionMinimaBateria: '',
     energiaTotalBateria: '',
     potenciaMaximaSalidaBateria: '',
     maximoPicoPotenciaBateria: '',
@@ -950,6 +964,20 @@ export const memoriaInstalacionAisladaConBateriaConfig = {
     // E2.4 - Inversor E2
     marcaModeloInversor: 'e2_marcaModeloInversor',
     potenciaACInversor: 'e2_potenciaNominalInversor',
+    tensionNominalInversor: 'e2_relacionTensionInversor',
+    vccMaximaInversor: 'e2_formaOndaSalidaInversor',
+    vccMinimaInversor: 'e2_frecuenciaNominalInversor',
+    tipoConexionInversor: 'e2_tensionMaximaEntradaInversor',
+    // E2.5 - Grupo Auxiliar
+    marcaModeloBateria: 'e2_marcaModelo',
+    tipoBateria: 'e2_tipoDeBateria',
+    tensionNominalBateria: 'e2_tensionNominal',
+    profundidadDescargaBateria: 'e2_profundidadDescarga',
+    tensionMaximaBateria: 'e2_tensionMaxima',
+    tensionMinimaBateria: 'e2_tensionMinima',
+    energiaTotalBateria: 'e2_energiaTotal',
+    potenciaMaximaSalidaBateria: 'e2_potenciaMaximaSalida',
+    maximoPicoPotenciaBateria: 'e2_maximoPicoDePotencia',
     // G - Características de Líneas y Circuitos
     potenciaBateriaInversor: 'g_bateriaDiRectaInversorPotencia',
     potenciaGeneradorInversorDirecto: 'g_generadorDirectoInversorPotencia',
@@ -957,7 +985,8 @@ export const memoriaInstalacionAisladaConBateriaConfig = {
     // H - Esquema Unifilar
     esquemaUnifilar: 'h_esquemaUnifilar',
     // I - Plano de Emplazamiento
-    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento'},
+    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento'
+  },
   capabilities: {
     canPreview: true,
     canEdit: true,
@@ -1114,17 +1143,17 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
     // E2.4 Inversor
     marcaModeloInversor: '',
     potenciaACInversor: '',
-    tensionNominalInversor: '400 V',
-    vccMaximaInversor: '1100',
-    vccMinimaInversor: '140',
-    tipoConexionInversor: 'trifásica',
+    tensionNominalInversor: '',
+    vccMaximaInversor: '',
+    vccMinimaInversor: '',
+    tipoConexionInversor: '',
     // E2.5 Baterías
     marcaModeloBateria: '',
-    tipoBateria: 'Litio-Hierro Fosfato (LiFePO4)',
-    tensionNominalBateria: '450V',
-    profundidadDescargaBateria: '100%',
-    tensionMaximaBateria: '980V',
-    tensionMinimaBateria: '600V',
+    tipoBateria: '',
+    tensionNominalBateria: '',
+    profundidadDescargaBateria: '',
+    tensionMaximaBateria: '',
+    tensionMinimaBateria: '',
     energiaTotalBateria: '',
     potenciaMaximaSalidaBateria: '',
     maximoPicoPotenciaBateria: '',
@@ -1201,6 +1230,20 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
     // E2.4 - Inversor E2
     marcaModeloInversor: 'e2_marcaModeloInversor',
     potenciaACInversor: 'e2_potenciaNominalInversor',
+    tensionNominalInversor: 'e2_relacionTensionInversor',
+    vccMaximaInversor: 'e2_formaOndaSalidaInversor',
+    vccMinimaInversor: 'e2_frecuenciaNominalInversor',
+    tipoConexionInversor: 'e2_tensionMaximaEntradaInversor',
+    // E2.5 - Baterias
+    marcaModeloBateria: 'e2_marcaModelo',
+    tipoBateria: 'e2_tipoDeBateria',
+    tensionNominalBateria: 'e2_tensionNominal',
+    profundidadDescargaBateria: 'e2_profundidadDescarga',
+    tensionMaximaBateria: 'e2_tensionMaxima',
+    tensionMinimaBateria: 'e2_tensionMinima',
+    energiaTotalBateria: 'e2_energiaTotal',
+    potenciaMaximaSalidaBateria: 'e2_potenciaMaximaSalida',
+    maximoPicoPotenciaBateria: 'e2_maximoPicoDePotencia',
     // G - Características de Líneas y Circuitos
     potenciaBateriaInversor: 'g_bateriaDiRectaInversorPotencia',
     potenciaGeneradorInversorDirecto: 'g_generadorDirectoInversorPotencia',
@@ -1362,17 +1405,17 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
     // E2.4 Inversor
     marcaModeloInversor: '',
     potenciaACInversor: '',
-    tensionNominalInversor: '400 V',
-    vccMaximaInversor: '1100',
-    vccMinimaInversor: '140',
-    tipoConexionInversor: 'trifásica',
+    tensionNominalInversor: '',
+    vccMaximaInversor: '',
+    vccMinimaInversor: '',
+    tipoConexionInversor: '',
     // E2.5 Baterías
     marcaModeloBateria: '',
-    tipoBateria: 'Litio-Hierro Fosfato (LiFePO4)',
-    tensionNominalBateria: '450V',
-    profundidadDescargaBateria: '100%',
-    tensionMaximaBateria: '980V',
-    tensionMinimaBateria: '600V',
+    tipoBateria: '',
+    tensionNominalBateria: '',
+    profundidadDescargaBateria: '',
+    tensionMaximaBateria: '',
+    tensionMinimaBateria: '',
     energiaTotalBateria: '',
     potenciaMaximaSalidaBateria: '',
     maximoPicoPotenciaBateria: '',
@@ -1449,6 +1492,21 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
     // E2.4 - Inversor E2
     marcaModeloInversor: 'e2_marcaModeloInversor',
     potenciaACInversor: 'e2_potenciaNominalInversor',
+    tensionNominalInversor: 'e2_relacionTensionInversor',
+    vccMaximaInversor: 'e2_formaOndaSalidaInversor',
+    vccMinimaInversor: 'e2_frecuenciaNominalInversor',
+    tipoConexionInversor: 'e2_tensionMaximaEntradaInversor',
+// E2.5 - Baterias
+marcaModeloBateria: 'e2_marcaModelo',
+tipoBateria: 'e2_tipoDeBateria',
+tensionNominalBateria: 'e2_tensionNominal',
+profundidadDescargaBateria: 'e2_profundidadDescarga',
+tensionMaximaBateria: 'e2_tensionMaxima',
+tensionMinimaBateria: 'e2_tensionMinima',
+energiaTotalBateria: 'e2_energiaTotal',
+potenciaMaximaSalidaBateria: 'e2_potenciaMaximaSalida',
+maximoPicoPotenciaBateria: 'e2_maximoPicoDePotencia',
+
     // G - Características de Líneas y Circuitos
     potenciaBateriaInversor: 'g_bateriaDiRectaInversorPotencia',
     potenciaGeneradorInversorDirecto: 'g_generadorDirectoInversorPotencia',
@@ -1637,7 +1695,7 @@ export const planosPlanosSituacionEmplazamientoCubiertaConfig = {
     // Datos del Promotor
     { name: 'pse_promotor', label: 'Titular / Promotor', type: 'text', fullWidth: true },
     { name: 'pse_nif', label: 'NIF/CIF', type: 'text' },
-    
+
     // Ubicación
     { name: 'pse_direccion', label: 'Dirección', type: 'text', fullWidth: true },
     { name: 'pse_numero', label: 'Número', type: 'text' },
@@ -1645,7 +1703,7 @@ export const planosPlanosSituacionEmplazamientoCubiertaConfig = {
     { name: 'pse_localidad', label: 'Localidad', type: 'text' },
     { name: 'pse_provincia', label: 'Provincia', type: 'text' },
     { name: 'pse_referenciaCatastral', label: 'Referencia Catastral', type: 'text', fullWidth: true },
-    
+
     // Datos Técnicos
     { name: 'pse_potenciaKw', label: 'Potencia (kW)', type: 'text' },
     { name: 'pse_tipoInstalacion', label: 'Tipo de Instalación', type: 'text', fullWidth: true },
@@ -1653,17 +1711,17 @@ export const planosPlanosSituacionEmplazamientoCubiertaConfig = {
     { name: 'pse_totalModulos', label: 'Total de Módulos', type: 'text' },
     { name: 'pse_potenciaModulos', label: 'Potencia de Módulos (Wp)', type: 'text' },
     { name: 'pse_disposicionModulos', label: 'Disposición de Módulos', type: 'text', fullWidth: true },
-    
+
     // Descripción Proyecto
     { name: 'pse_tipo', label: 'Tipo de Instalación (ej: Instalación Solar Fotovoltaica)', type: 'text', fullWidth: true },
     { name: 'pse_potencia', label: 'Potencia Nominal (ej: 3.6 kW)', type: 'text' },
     { name: 'pse_descripcion', label: 'Descripción del Proyecto (ej: para Autoconsumo Individual)', type: 'textarea', fullWidth: true },
-    
+
     // Imágenes de Planos
     { name: 'pse_imagenSituacion', label: 'PLANO DE SITUACIÓN', type: 'file', accept: 'image/*,.pdf', description: 'Plano de situación geográfica de la instalación.', fullWidth: true },
     { name: 'pse_imagenEmplazamiento', label: 'PLANO DE EMPLAZAMIENTO', type: 'file', accept: 'image/*,.pdf', description: 'Plano de emplazamiento de la instalación.', fullWidth: true },
     { name: 'pse_imagenCubierta', label: 'PLANO DE CUBIERTA', type: 'file', accept: 'image/*,.pdf', description: 'Plano de detalle de la instalación fotovoltaica en cubierta.', fullWidth: true },
-    
+
     // Otros datos
     { name: 'pse_fecha', label: 'Fecha', type: 'date' },
     { name: 'pse_autorProyecto', label: 'Autor del Proyecto', type: 'text', fullWidth: true },
