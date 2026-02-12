@@ -18,13 +18,20 @@
       />
     </div>
 
-    <!-- Botón Sticky para volver -->
-    <div class="sticky-back-button">
+    <!-- Botones Sticky -->
+    <div class="sticky-buttons">
       <Boton 
         @click="goToIndex"
         variant="secondary"
       >
         ← Volver
+      </Boton>
+      <Boton 
+        @click="clearAllData"
+        variant="danger"
+        class="mt-2"
+      >
+        🗑️ Borrar Todos los Datos
       </Boton>
     </div>
   </div>
@@ -36,7 +43,7 @@ import { useRouter } from 'vue-router'
 import DocumentForm from '../components/DocumentForm.vue'
 import Boton from '../components/Boton.vue'
 import { masterFormFields, getMasterFormDefaultData } from '../config/masterFormFields'
-import { loadFromStorage, saveToStorage } from '../utils/storageManager'
+import { loadFromStorage, saveToStorage, clearStorage } from '../utils/storageManager'
 
 const router = useRouter()
 
@@ -65,16 +72,47 @@ const handleFormSubmit = (newData) => {
   router.push('/seleccionar-documento')
 }
 
+const clearAllData = () => {
+  // Confirmación con mensaje claro
+  const confirmed = confirm(
+    '⚠️ ATENCIÓN: Estás a punto de borrar TODOS los datos guardados.\n\n' +
+    'Esta acción:\n' +
+    '• Elimina todos los datos del formulario maestro\n' +
+    '• Elimina todos los datos de los documentos\n' +
+    '• NO se puede deshacer\n\n' +
+    '¿Estás seguro de que deseas continuar?'
+  )
+  
+  if (confirmed) {
+    // Limpiar localStorage
+    clearStorage()
+    
+    // Reiniciar formulario con valores por defecto
+    formData.value = getMasterFormDefaultData()
+    
+    // Mostrar mensaje de confirmación
+    alert('✓ Todos los datos han sido borrados correctamente.')
+  }
+}
+
 const goToIndex = () => {
   router.push('/')
 }
 </script>
 
 <style scoped>
-.sticky-back-button {
+.sticky-buttons {
   position: fixed;
   top: 20px;
   right: 20px;
   z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 150px;
+}
+
+.mt-2 {
+  margin-top: 8px;
 }
 </style>
