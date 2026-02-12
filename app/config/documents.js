@@ -706,7 +706,7 @@ export const memoriaTecnicaConfig = {
     // H - Esquema Unifilar
     esquemaUnifilar: 'h_esquemaUnifilar',
     // I - Plano de Emplazamiento
-    planoEmplazamiento: 'i_planoEmplazamiento'
+    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento'
   },
   capabilities: {
     canPreview: true,
@@ -957,8 +957,7 @@ export const memoriaInstalacionAisladaConBateriaConfig = {
     // H - Esquema Unifilar
     esquemaUnifilar: 'h_esquemaUnifilar',
     // I - Plano de Emplazamiento
-    planoEmplazamiento: 'i_planoEmplazamiento'
-  },
+    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento'},
   capabilities: {
     canPreview: true,
     canEdit: true,
@@ -1209,7 +1208,7 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
     // H - Esquema Unifilar
     esquemaUnifilar: 'h_esquemaUnifilar',
     // I - Plano de Emplazamiento
-    planoEmplazamiento: 'i_planoEmplazamiento'
+    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento'
   },
   capabilities: { ...memoriaTecnicaConfig.capabilities }
 }
@@ -1457,7 +1456,7 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
     // H - Esquema Unifilar
     esquemaUnifilar: 'h_esquemaUnifilar',
     // I - Plano de Emplazamiento
-    planoEmplazamiento: 'i_planoEmplazamiento'
+    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento'
   },
   capabilities: { ...memoriaTecnicaConfig.capabilities }
 }
@@ -1574,7 +1573,7 @@ export const memoriaTecnicaPuntoRecargaConfig = {
     // H - Esquema Unifilar
     esquemaUnifilar: 'h_esquemaUnifilar',
     // I - Plano de Emplazamiento
-    planoEmplazamiento: 'i_planoEmplazamiento'
+    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento'
   },
   capabilities: {
     canPreview: true,

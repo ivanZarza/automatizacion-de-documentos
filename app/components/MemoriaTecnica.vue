@@ -1937,7 +1937,7 @@ const tipoInstalacionSeleccionada = ref("Nueva");
 /* ========== CONTENEDORES DE ESQUEMAS (Secciones H, I) ========== */
 .contenedor-esquema {
   border: 2px dashed #000;
-  padding: 30px;
+  padding: 0;
   text-align: center;
   background-color: #fff9f7;
   min-height: 200px;
@@ -1948,7 +1948,7 @@ const tipoInstalacionSeleccionada = ref("Nueva");
 
 .imagen-esquema {
   max-width: 100%;
-  max-height: 200px;
+  max-height: 300px;
   object-fit: contain;
 }
 
