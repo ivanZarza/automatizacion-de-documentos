@@ -43,8 +43,8 @@ export const editableFieldsByDocument = {
     'modelo',
     'ciudadFirma',
     'fecha',
-    'imagen1',
-    'imagen4'
+    'foto1',
+    'foto2'
   ],
 
   'certificado-cubierta-plan-aaporticada': [
@@ -60,7 +60,8 @@ export const editableFieldsByDocument = {
     'modelo',
     'ciudadFirma',
     'fecha',
-    'imagen1'
+    'foto1',
+    'foto2'
   ],
 
   'mtd-instalacion-autoconsumo-monofasica-con-bateria': [
@@ -688,6 +689,74 @@ export const editableFieldsByDocument = {
     'fecha'
   ],
 
+  'certificado-aporticada-teja': [
+    'direccion',
+    'numero',
+    'codigoPostal',
+    'localidad',
+    'provincia',
+    'referenciaCatastral',
+    'numModulos',
+    'potencia',
+    'peso',
+    'marcaModelo',
+    'ciudadFirma',
+    'fecha',
+    'foto1',
+    'foto2'
+  ],
+
+  'certificado-chapas-grecadas-aporticada': [
+    'direccion',
+    'numero',
+    'codigoPostal',
+    'localidad',
+    'provincia',
+    'referenciaCatastral',
+    'numModulos',
+    'potencia',
+    'peso',
+    'marcaModelo',
+    'ciudadFirma',
+    'fecha',
+    'foto1',
+    'foto2'
+  ],
+
+  'certificado-paramento-vertical': [
+    'direccion',
+    'numero',
+    'codigoPostal',
+    'localidad',
+    'provincia',
+    'referenciaCatastral',
+    'numModulos',
+    'potencia',
+    'peso',
+    'marcaModelo',
+    'ciudadFirma',
+    'fecha',
+    'foto1',
+    'foto2'
+  ],
+
+  'certificado-pergola-aporticada': [
+    'direccion',
+    'numero',
+    'codigoPostal',
+    'localidad',
+    'provincia',
+    'referenciaCatastral',
+    'numModulos',
+    'potencia',
+    'peso',
+    'marcaModelo',
+    'ciudadFirma',
+    'fecha',
+    'foto1',
+    'foto2'
+  ],
+
   'planos-situacion-emplazamiento-cubierta': [
     'pse_promotor',
     'pse_nif',
@@ -708,7 +777,10 @@ export const editableFieldsByDocument = {
     'pse_tituloDescriptivo',
     'pse_tipo',
     'pse_potencia',
-    'pse_descripcion'
+    'pse_descripcion',
+    'pse_imagenSituacion',
+    'pse_imagenEmplazamiento',
+    'pse_imagenCubierta'
   ]
 }
 

@@ -86,8 +86,7 @@ import { useDocument } from '../composables/useDocument'
 import { getMergedDocumentData } from '../utils/mergeFormData'
 import { getEditableFields } from '../config/editableFields'
 import { loadFromStorage, updateStoragePartially } from '../utils/storageManager'
-import { onStorageChange } from '../utils/storageEvents'
-import { ref, onMounted, onBeforeUnmount, watch } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
@@ -109,7 +108,6 @@ const showEdit = ref(false)
 const formData = ref({})
 const generatedDate = ref('')
 const editableFields = ref([])
-let unsubscribeStorage = null
 
 onMounted(() => {
   // Cargar datos de localStorage (base de datos central)
@@ -126,19 +124,6 @@ onMounted(() => {
   
   generatedDate.value = new Date().toLocaleDateString('es-ES')
   showPreview.value = true
-  
-  // Suscribirse a cambios en localStorage
-  unsubscribeStorage = onStorageChange(() => {
-    const updatedMergedData = getMergedDocumentData(props.config)
-    formData.value = { ...updatedMergedData }
-  })
-})
-
-onBeforeUnmount(() => {
-  // Desuscribirse de cambios en localStorage
-  if (unsubscribeStorage) {
-    unsubscribeStorage()
-  }
 })
 
 const previewDocument = () => {

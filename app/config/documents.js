@@ -1634,6 +1634,41 @@ export const planosPlanosSituacionEmplazamientoCubiertaConfig = {
   description: 'Documento con planos de ubicación, emplazamiento y disposición de módulos fotovoltaicos',
   fileName: 'planos-situacion-emplazamiento-cubierta.pdf',
   route: '/planos-situacion-emplazamiento-cubierta',
+  fields: [
+    // Datos del Promotor
+    { name: 'pse_promotor', label: 'Titular / Promotor', type: 'text', fullWidth: true },
+    { name: 'pse_nif', label: 'NIF/CIF', type: 'text' },
+    
+    // Ubicación
+    { name: 'pse_direccion', label: 'Dirección', type: 'text', fullWidth: true },
+    { name: 'pse_numero', label: 'Número', type: 'text' },
+    { name: 'pse_codigoPostal', label: 'Código Postal', type: 'text' },
+    { name: 'pse_localidad', label: 'Localidad', type: 'text' },
+    { name: 'pse_provincia', label: 'Provincia', type: 'text' },
+    { name: 'pse_referenciaCatastral', label: 'Referencia Catastral', type: 'text', fullWidth: true },
+    
+    // Datos Técnicos
+    { name: 'pse_potenciaKw', label: 'Potencia (kW)', type: 'text' },
+    { name: 'pse_tipoInstalacion', label: 'Tipo de Instalación', type: 'text', fullWidth: true },
+    { name: 'pse_potenciaPicoGenerador', label: 'Potencia Pico del Generador (Wp)', type: 'text' },
+    { name: 'pse_totalModulos', label: 'Total de Módulos', type: 'text' },
+    { name: 'pse_potenciaModulos', label: 'Potencia de Módulos (Wp)', type: 'text' },
+    { name: 'pse_disposicionModulos', label: 'Disposición de Módulos', type: 'text', fullWidth: true },
+    
+    // Descripción Proyecto
+    { name: 'pse_tipo', label: 'Tipo de Instalación (ej: Instalación Solar Fotovoltaica)', type: 'text', fullWidth: true },
+    { name: 'pse_potencia', label: 'Potencia Nominal (ej: 3.6 kW)', type: 'text' },
+    { name: 'pse_descripcion', label: 'Descripción del Proyecto (ej: para Autoconsumo Individual)', type: 'textarea', fullWidth: true },
+    
+    // Imágenes de Planos
+    { name: 'pse_imagenSituacion', label: 'PLANO DE SITUACIÓN', type: 'file', accept: 'image/*,.pdf', description: 'Plano de situación geográfica de la instalación.', fullWidth: true },
+    { name: 'pse_imagenEmplazamiento', label: 'PLANO DE EMPLAZAMIENTO', type: 'file', accept: 'image/*,.pdf', description: 'Plano de emplazamiento de la instalación.', fullWidth: true },
+    { name: 'pse_imagenCubierta', label: 'PLANO DE CUBIERTA', type: 'file', accept: 'image/*,.pdf', description: 'Plano de detalle de la instalación fotovoltaica en cubierta.', fullWidth: true },
+    
+    // Otros datos
+    { name: 'pse_fecha', label: 'Fecha', type: 'date' },
+    { name: 'pse_autorProyecto', label: 'Autor del Proyecto', type: 'text', fullWidth: true },
+  ],
   defaultData: {
     pse_promotor: '',
     pse_nif: '',

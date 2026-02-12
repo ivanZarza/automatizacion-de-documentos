@@ -601,7 +601,7 @@ const formattedData = computed(() => ({
   display: flex;
   justify-content: center;
   margin-top: 20px;
-  padding-top: 15px;
+  padding-top: 120px;
 }
 
 .firma-bloque {
