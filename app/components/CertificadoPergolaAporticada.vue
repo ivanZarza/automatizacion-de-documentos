@@ -230,7 +230,7 @@ defineProps({
 .parrafo-datos,
 .parrafo-estructura {
   margin: 20px 0 25px 0;
-  text-align: justify;
+  text-align: center;
 }
 
 .parrafo-imagen {
@@ -308,6 +308,12 @@ defineProps({
 .texto-pie a {
   color: #0066cc;
   text-decoration: none;
+}
+
+.contenedor-logo-centro {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
 }
 
 /* ========== MEDIA QUERY PRINT ========== */

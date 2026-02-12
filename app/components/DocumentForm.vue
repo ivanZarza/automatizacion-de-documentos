@@ -310,7 +310,13 @@ const groupedFieldsBySection = computed(() => {
 })
 
 const submit = () => {
-  emit('submit', formData.value)
+  // Filtrar solo campos con valor (evitar contaminar el maestro con vacíos)
+  const filteredData = Object.fromEntries(
+    Object.entries(formData.value).filter(([_, value]) => 
+      value !== '' && value !== null && value !== undefined
+    )
+  )
+  emit('submit', filteredData)
 }
 
 // Usar props.fields si llegan; si no, usar masterFormFields (respeta el orden)

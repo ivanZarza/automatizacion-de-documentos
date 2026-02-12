@@ -145,7 +145,14 @@ const generatePDF = async () => {
 }
 
 const handleFormSubmit = (newData) => {
-  formData.value = newData
+  // Merge inteligente: mantener datos anteriores + actualizar solo con valores
+  const mergedData = { ...formData.value }
+  Object.entries(newData).forEach(([key, value]) => {
+    if (value !== '' && value !== null && value !== undefined) {
+      mergedData[key] = value
+    }
+  })
+  formData.value = mergedData
   saveChanges()
 }
 
