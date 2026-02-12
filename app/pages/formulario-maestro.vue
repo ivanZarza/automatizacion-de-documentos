@@ -59,6 +59,7 @@ const loadMasterData = () => {
   // Si hay datos guardados en localStorage, usarlos; si no, usar valores por defecto
   if (savedData && Object.keys(savedData).length > 0) {
     formData.value = { ...savedData }
+    console.log('📥 Datos cargados del localStorage:', formData.value)
   } else {
     formData.value = getMasterFormDefaultData()
   }
@@ -89,6 +90,7 @@ onMounted(() => {
       }
       
       if (hasChanges) {
+        console.log('🔄 localStorage cambió, actualizando formulario')
         formData.value = { ...currentStorageData }
       }
     }

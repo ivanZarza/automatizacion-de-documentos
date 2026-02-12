@@ -158,6 +158,8 @@ const handleFormSubmit = (newData) => {
   formData.value = mergedData
   
   // Guardar en localStorage (base de datos central)
+  // Importante: Guardamos TODOS los datos porque algunos vienen del maestro
+  // y necesitamos mantenerlos para que se sincronicen
   updateStoragePartially(mergedData)
   
   saveChanges()
