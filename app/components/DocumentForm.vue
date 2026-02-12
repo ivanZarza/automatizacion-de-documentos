@@ -4,8 +4,21 @@
       <h2 class="form-title">{{ title }}</h2>
       <form @submit.prevent="submit" class="form-content">
         <!-- Agrupar campos por sección y subsección -->
-        <div v-for="(groupedFields, sectionLetter) in groupedFieldsBySection" :key="sectionLetter" class="section-container" :data-section="sectionLetter">
-          <h3 class="section-title">Sección {{ sectionLetter }}</h3>
+        <div v-for="(groupedFields, sectionLetter) in groupedFieldsBySection" :key="sectionLetter" class="section-container" :data-section="sectionLetter" :style="{ borderLeftColor: getSectionColor(sectionLetter) }">
+          <!-- Header Desplegable de Sección -->
+          <div 
+            class="section-header"
+            @click="toggleSection(sectionLetter)"
+            :style="{ backgroundColor: sectionColorMap[sectionLetter] }"
+          >
+            <span class="section-toggle-icon" :class="{ 'is-open': expandedSections[sectionLetter] }">
+              ●
+            </span>
+            <h3 class="section-title">Sección {{ sectionLetter }}</h3>
+          </div>
+          
+          <!-- Contenido Desplegable -->
+          <div v-if="expandedSections[sectionLetter]" class="section-content">
           <!-- Agrupar por subsección si es E1, E2, F, G, H, o I -->
           <template v-if="['E1', 'E2', 'F', 'G', 'H', 'I'].includes(sectionLetter)">
             <div v-for="(subFields, subsection) in groupFieldsBySubsection(groupedFields)" :key="subsection" class="subsection-container">
@@ -150,6 +163,7 @@
               </div>
             </div>
           </template>
+          </div>
         </div>
 
         <Boton 
@@ -193,6 +207,11 @@ const props = defineProps({
 const emit = defineEmits(['submit'])
 
 const formData = ref({ ...props.initialData })
+const expandedSections = ref({})
+
+const toggleSection = (sectionLetter) => {
+  expandedSections.value[sectionLetter] = !expandedSections.value[sectionLetter]
+}
 
 watch(() => props.initialData, (newData) => {
   formData.value = { ...newData }
@@ -309,6 +328,15 @@ const groupedFieldsBySection = computed(() => {
   return sorted
 })
 
+// Inicializar todas las secciones como expandidas cuando se calcula groupedFieldsBySection
+watch(() => Object.keys(groupedFieldsBySection.value), (sections) => {
+  sections.forEach(section => {
+    if (expandedSections.value[section] === undefined) {
+      expandedSections.value[section] = true
+    }
+  })
+}, { immediate: true })
+
 const submit = () => {
   // Filtrar solo campos con valor (evitar contaminar el maestro con vacíos)
   const filteredData = Object.fromEntries(
@@ -395,19 +423,63 @@ function getSubsectionLabel(subsection) {
   background-color: #f9fafb;
   border-left: 4px solid #3b82f6;
   border-radius: 8px;
-  padding: 20px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.section-header:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.section-toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  font-size: 18px;
+  color: #374151;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
+
+.section-toggle-icon.is-open {
+  transform: rotate(90deg);
+}
+
+.section-content {
+  padding: 20px;
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .section-title {
   font-size: 16px;
   font-weight: 600;
   color: #374151;
-  margin-bottom: 16px;
+  margin-bottom: 0;
   margin-top: 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
 }
 
 .section-title::before {
