@@ -1864,7 +1864,11 @@ export const getAllDocuments = () => {
     const uniqueId = cfg.id || cfg.route || cfg.fileName
     if (seen.has(uniqueId)) continue
     seen.add(uniqueId)
-    list.push({ id: uniqueId, ...cfg })
+    list.push({
+      id: uniqueId,
+      ...cfg,
+      category: 'proyecto' // Todos los documentos son de proyecto
+    })
   }
 
   return list
