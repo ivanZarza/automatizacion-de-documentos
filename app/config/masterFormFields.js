@@ -23,13 +23,14 @@ export const masterFormFields = [
     placeholder: 'Ej: Sevilla', 
     type: 'text' 
   },
+  */
   { 
     name: 'fecha', 
     label: 'Fecha', 
     placeholder: 'Ej: 16/10/2025', 
     type: 'date' 
   },
-
+/*
   // ========== SECCIÓN A: TITULAR ==========
   { 
     name: 'apellidosNombre', 
@@ -95,8 +96,15 @@ export const masterFormFields = [
     placeholder: 'Ej: B12345678', 
     type: 'text' 
   }, */
+  
 
   // ========== SECCIÓN B: EMPLAZAMIENTO ==========
+    { 
+    name: 'telefono', 
+    label: 'Teléfono', 
+    placeholder: 'Ej: 954 123 456', 
+    type: 'tel' 
+  },
   {
     name: 'emplazamientoCalle',
     label: 'Calle del Emplazamiento',

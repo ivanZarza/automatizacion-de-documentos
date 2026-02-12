@@ -33,8 +33,8 @@ export const autorizacionRepresentacionConfig = {
   fieldMapping: {
     autorizante: 'apellidosNombre',
     dniAutorizante: 'nifCif',
-    domicilioAutorizante: 'domicilio',
-    localidad: 'localidad',
+    domicilioAutorizante: 'emplazamientoCalle',
+    localidad: 'localidadEmplazamiento',
     provincia: 'provincia',
     fecha: 'fecha'
   },
@@ -78,7 +78,7 @@ export const declaracionHabilitacionProfesionalConfig = {
     fecha: '16/10/2025'
   },
   fieldMapping: {
-    ciudadFirma: 'ciudadFirma',
+    ciudadFirma: 'localidadEmplazamiento',
     fecha: 'fecha'
   },
   capabilities: {
@@ -133,11 +133,12 @@ export const certificadoCoplanarTejaConfig = {
   fieldMapping: {
     direccion: 'emplazamientoCalle',
     numero: 'numero',
-    codigoPostal: 'codigoPostal',
+    codigoPostal: 'codigoPostalEmplazamiento',
     localidad: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',
     numModulos: 'e2_totalModulos',
     potencia: 'e2_potenciaPicoModulo',
+    peso: 'peso',
     marcaModelo: 'e2_marcaModeloModulo',
     ciudadFirma: 'ciudadFirma',
     fecha: 'fecha',
@@ -196,11 +197,12 @@ export const certificadoCubiertaPlanAaporticadaConfig = {
   fieldMapping: {
     direccion: 'emplazamientoCalle',
     numero: 'numero',
-    codigoPostal: 'codigoPostal',
+    codigoPostal: 'codigoPostalEmplazamiento',
     localidad: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',
     numModulos: 'e2_totalModulos',
     potencia: 'e2_potenciaPicoModulo',
+    peso: 'peso',
     marcaModelo: 'e2_marcaModeloModulo',
     ciudadFirma: 'ciudadFirma',
     fecha: 'fecha',
@@ -255,11 +257,12 @@ export const certificadoAporticadaTejConfig = {
   fieldMapping: {
     direccion: 'emplazamientoCalle',
     numero: 'numero',
-    codigoPostal: 'codigoPostal',
+    codigoPostal: 'codigoPostalEmplazamiento',
     localidad: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',
     numModulos: 'e2_totalModulos',
     potencia: 'e2_potenciaPicoModulo',
+    peso: 'peso',
     marcaModelo: 'e2_marcaModeloModulo',
     ciudadFirma: 'ciudadFirma',
     fecha: 'fecha',
@@ -314,7 +317,7 @@ export const certificadoChapasGrecadasAporticadaConfig = {
   fieldMapping: {
     direccion: 'emplazamientoCalle',
     numero: 'numero',
-    codigoPostal: 'codigoPostal',
+    codigoPostal: 'codigoPostalEmplazamiento',
     localidad: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',
     numModulos: 'e2_totalModulos',
@@ -374,7 +377,7 @@ export const certificadoParamentoVerticalConfig = {
   fieldMapping: {
     direccion: 'emplazamientoCalle',
     numero: 'numero',
-    codigoPostal: 'codigoPostal',
+    codigoPostal: 'codigoPostalEmplazamiento',
     localidad: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',
     numModulos: 'e2_totalModulos',
@@ -440,7 +443,7 @@ export const certificadoPergolaAporticadaConfig = {
   fieldMapping: {
     direccion: 'emplazamientoCalle',
     numero: 'numero',
-    codigoPostal: 'codigoPostal',
+    codigoPostal: 'codigoPostalEmplazamiento',
     localidad: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',
     referenciaCatastral: 'referenciaCatastral',
@@ -451,7 +454,7 @@ export const certificadoPergolaAporticadaConfig = {
     orientacion: 'orientacion',
     inclinacion: 'inclinacion',
     cubiertaTipo: 'cubiertaTipo',
-    ciudadFirma: 'ciudadFirma',
+    ciudadFirma: 'localidadEmplazamiento',
     fecha: 'fecha',
     foto1: 'otros_foto1',
     foto2: 'otros_foto2'
@@ -681,6 +684,12 @@ export const memoriaTecnicaConfig = {
     planoEmplazamiento: ''
   },
   fieldMapping: {
+    domicilio: 'emplazamientoCalle',
+    codigoPostal: 'codigoPostalEmplazamiento',
+    localidad: 'localidadEmplazamiento',
+    provincia: 'provinciaEmplazamiento',
+    correoElectronico: 'correoElectronicoEmplazamiento',
+    telefono: 'telefono',
     // E2.1 - Conexión a la Red
     potenciaNominalInversores: 'e2_potenciaNominalInversores',
     tipoConexionRed: 'e2_tipoConexionRed',
@@ -946,6 +955,13 @@ export const memoriaInstalacionAisladaConBateriaConfig = {
     planoEmplazamiento: ''
   },
   fieldMapping: {
+    // Sección A - TITULAR
+    domicilio: 'emplazamientoCalle',
+    codigoPostal: 'codigoPostalEmplazamiento',
+    localidad: 'localidadEmplazamiento',
+    provincia: 'provinciaEmplazamiento',
+    correoElectronico: 'correoElectronicoEmplazamiento',
+    telefono: 'telefono',
     // E2.1 - Conexión a la Red
     potenciaNominalInversores: 'e2_potenciaNominalInversores',
     tipoConexionRed: 'e2_tipoConexionRed',
@@ -1212,6 +1228,13 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
     planoEmplazamiento: ''
   },
   fieldMapping: {
+    // Sección A - TITULAR
+    domicilio: 'emplazamientoCalle',
+    codigoPostal: 'codigoPostalEmplazamiento',
+    localidad: 'localidadEmplazamiento',
+    provincia: 'provinciaEmplazamiento',
+    correoElectronico: 'correoElectronicoEmplazamiento',
+    telefono: 'telefono',
     // E2.1 - Conexión a la Red
     potenciaNominalInversores: 'e2_potenciaNominalInversores',
     tipoConexionRed: 'e2_tipoConexionRed',
@@ -1474,6 +1497,13 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
     planoEmplazamiento: ''
   },
   fieldMapping: {
+    // Sección A - TITULAR
+    domicilio: 'emplazamientoCalle',
+    codigoPostal: 'codigoPostalEmplazamiento',
+    localidad: 'localidadEmplazamiento',
+    provincia: 'provinciaEmplazamiento',
+    correoElectronico: 'correoElectronicoEmplazamiento',
+    telefono: 'telefono',
     // E2.1 - Conexión a la Red
     potenciaNominalInversores: 'e2_potenciaNominalInversores',
     tipoConexionRed: 'e2_tipoConexionRed',
@@ -1496,16 +1526,16 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
     vccMaximaInversor: 'e2_formaOndaSalidaInversor',
     vccMinimaInversor: 'e2_frecuenciaNominalInversor',
     tipoConexionInversor: 'e2_tensionMaximaEntradaInversor',
-// E2.5 - Baterias
-marcaModeloBateria: 'e2_marcaModelo',
-tipoBateria: 'e2_tipoDeBateria',
-tensionNominalBateria: 'e2_tensionNominal',
-profundidadDescargaBateria: 'e2_profundidadDescarga',
-tensionMaximaBateria: 'e2_tensionMaxima',
-tensionMinimaBateria: 'e2_tensionMinima',
-energiaTotalBateria: 'e2_energiaTotal',
-potenciaMaximaSalidaBateria: 'e2_potenciaMaximaSalida',
-maximoPicoPotenciaBateria: 'e2_maximoPicoDePotencia',
+    // E2.5 - Baterias
+    marcaModeloBateria: 'e2_marcaModelo',
+    tipoBateria: 'e2_tipoDeBateria',
+    tensionNominalBateria: 'e2_tensionNominal',
+    profundidadDescargaBateria: 'e2_profundidadDescarga',
+    tensionMaximaBateria: 'e2_tensionMaxima',
+    tensionMinimaBateria: 'e2_tensionMinima',
+    energiaTotalBateria: 'e2_energiaTotal',
+    potenciaMaximaSalidaBateria: 'e2_potenciaMaximaSalida',
+    maximoPicoPotenciaBateria: 'e2_maximoPicoDePotencia',
 
     // G - Características de Líneas y Circuitos
     potenciaBateriaInversor: 'g_bateriaDiRectaInversorPotencia',
@@ -1606,6 +1636,13 @@ export const memoriaTecnicaPuntoRecargaConfig = {
     planoEmplazamiento: ''
   },
   fieldMapping: {
+    // Sección A - TITULAR
+    domicilio: 'emplazamientoCalle',
+    codigoPostal: 'codigoPostalEmplazamiento',
+    localidad: 'localidadEmplazamiento',
+    provincia: 'provinciaEmplazamiento',
+    correoElectronico: 'correoElectronicoEmplazamiento',
+    telefono: 'telefono',
     // E2.1 - Conexión a la Red
     potenciaNominalInversores: 'e2_potenciaNominalInversores',
     tipoConexionRed: 'e2_tipoConexionRed',
@@ -1671,7 +1708,7 @@ export const declaracionNoGeneracionRcdsConfig = {
   fieldMapping: {
     direccion: 'emplazamientoCalle',
     numero: 'numero',
-    codigoPostal: 'codigoPostal',
+    codigoPostal: 'codigoPostalEmplazamiento',
     municipio: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',
     referenciaCatastral: 'referenciaCatastral',
