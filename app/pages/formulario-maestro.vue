@@ -38,7 +38,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import DocumentForm from '../components/DocumentForm.vue'
 import Boton from '../components/Boton.vue'
@@ -50,8 +50,10 @@ const router = useRouter()
 // Inicializar formData
 const formData = ref({})
 
-onMounted(() => {
-  // Cargar datos del localStorage (base de datos central)
+/**
+ * Función para cargar datos del localStorage
+ */
+const loadMasterData = () => {
   const savedData = loadFromStorage()
   
   // Si hay datos guardados en localStorage, usarlos; si no, usar valores por defecto
@@ -60,6 +62,40 @@ onMounted(() => {
   } else {
     formData.value = getMasterFormDefaultData()
   }
+}
+
+onMounted(() => {
+  // Cargar datos la primera vez
+  loadMasterData()
+  
+  // Detectar cambios en localStorage (cuando vuelves del documento)
+  // El storage event se dispara cuando cambias desde otra pestaña/ventana
+  // Pero para la misma pestaña, usamos un interval
+  const checkInterval = setInterval(() => {
+    const currentStorageData = loadFromStorage()
+    if (currentStorageData && Object.keys(currentStorageData).length > 0) {
+      // Comparar si cambió algo
+      const currentFormDataKeys = Object.keys(formData.value)
+      const storageKeys = Object.keys(currentStorageData)
+      
+      // Si cambiaron las claves o valores, actualizar
+      let hasChanges = false
+      if (currentFormDataKeys.length !== storageKeys.length) {
+        hasChanges = true
+      } else {
+        hasChanges = currentFormDataKeys.some(
+          key => formData.value[key] !== currentStorageData[key]
+        )
+      }
+      
+      if (hasChanges) {
+        formData.value = { ...currentStorageData }
+      }
+    }
+  }, 500) // Verificar cada 500ms
+  
+  // Limpiar intervalo al desmontar
+  return () => clearInterval(checkInterval)
 })
 
 const handleFormSubmit = (newData) => {
