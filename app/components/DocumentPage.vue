@@ -87,9 +87,10 @@ import { getMergedDocumentData } from '../utils/mergeFormData'
 import { getEditableFields } from '../config/editableFields'
 import { loadFromStorage, updateStoragePartially } from '../utils/storageManager'
 import { ref, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 
 const router = useRouter()
+const route = useRoute()
 
 const props = defineProps({
   config: {
@@ -123,7 +124,15 @@ onMounted(() => {
   editableFields.value = getEditableFields(props.config.id)
   
   generatedDate.value = new Date().toLocaleDateString('es-ES')
-  showPreview.value = true
+  
+  // Detectar si viene del query parameter edit=true
+  if (route.query.edit === 'true') {
+    showEdit.value = true
+    showPreview.value = false
+  } else {
+    showPreview.value = true
+    showEdit.value = false
+  }
 })
 
 const previewDocument = () => {
@@ -196,5 +205,25 @@ const goToMasterForm = () => {
 
 .sticky-pdf-button {
   min-width: 140px;
+}
+
+/* Estilos para impresión */
+@media print {
+  .sticky-back-button {
+    display: none !important;
+  }
+  
+  .sticky-pdf-buttons {
+    display: none !important;
+  }
+  
+  /* Ocultar todos los botones y controles durante la impresión */
+  .min-h-screen {
+    padding: 0 !important;
+  }
+  
+  body {
+    background: white !important;
+  }
 }
 </style>
