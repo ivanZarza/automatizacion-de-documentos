@@ -55,12 +55,10 @@
         <!-- Espacio para dos imágenes - Página 2 -->
         <div class="contenedor-dos-imagenes">
           <div class="espacio-imagen-lado">
-            <img v-if="foto1" :src="foto1" class="imagen-pdf-lado" />
-            <span v-else>[Imagen 1: Sistema de perfilería - Paneles solares sobre teja]</span>
+            <img :src="'/fotos-certificados/teja-complanaria-1.png'" class="imagen-pdf-lado" />
           </div>
           <div class="espacio-imagen-lado">
-            <img v-if="foto2" :src="foto2" class="imagen-pdf-lado" />
-            <span v-else>[Imagen 2: Estructura completa de instalación]</span>
+            <img :src="'/fotos-certificados/teja-coplanaria-2.png'" class="imagen-pdf-lado" />
           </div>
         </div>
 
@@ -330,7 +328,6 @@ defineProps({
 .espacio-imagen-lado {
   flex: 1;
   min-height: 200px;
-  border: 2px solid #0066cc;
   display: flex;
   align-items: center;
   justify-content: center;

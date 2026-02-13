@@ -50,12 +50,7 @@
         <!-- Espacio para imagenes: una grande y una secundaria -->
         <div class="contenedor-dos-imagenes">
           <div class="espacio-imagen-lado">
-            <img v-if="foto1" :src="foto1" class="imagen-pdf-lado" />
-            <span v-else>[Imagen 1: Vista paramento vertical]</span>
-          </div>
-          <div class="espacio-imagen-lado">
-            <img v-if="foto2" :src="foto2" class="imagen-pdf-lado" />
-            <span v-else>[Imagen 2: Detalle anclajes/perfilería]</span>
+            <img :src="'/fotos-certificados/paramento-vertical.png'" class="imagen-pdf-lado" />
           </div>
         </div>
 

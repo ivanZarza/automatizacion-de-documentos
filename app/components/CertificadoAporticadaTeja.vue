@@ -51,15 +51,9 @@
         <!-- Espacio para dos imágenes -->
         <div class="contenedor-dos-imagenes">
           <div class="espacio-imagen-lado">
-            <img v-if="foto1" :src="'/fotos-certificados/INSTALACIÓN SOBRE TEJA, APORTICADA.png'" class="imagen-pdf-lado" />
-            <span v-else>[Imagen 1: Estructura aporticada - Paneles solares]</span>
+            <img :src="'/fotos-certificados/teja-aporticada.png'" class="imagen-pdf-lado" />
           </div>
-          <div class="espacio-imagen-lado">
-            <img v-if="foto2" :src="'/fotos-certificados/INSTALACIÓN SOBRE TEJA, APORTICADA.png'" class="imagen-pdf-lado" />
-            <span v-else>[Imagen 2: Componentes de instalación]</span>
           </div>
-        </div>
-
         <p class="parrafo-estructura">
           Dicha <span class="texto-azul">ESTRUCTURA APORTICADA</span> será fijada a la cubierta inclinada de teja mediante <span class="texto-azul">varillas roscadas</span> (según procedimiento del fabricante), sólidamente fijadas a la <span class="texto-azul">perfilería</span> de aluminio mediante <span class="texto-azul">tornillería</span> de acero inoxidable.
         </p>
@@ -277,7 +271,6 @@ defineProps({
 
 .espacio-imagen-lado {
   width: 45%;
-  border: 1px solid #ccc;
   display: flex;
   align-items: center;
   justify-content: center;

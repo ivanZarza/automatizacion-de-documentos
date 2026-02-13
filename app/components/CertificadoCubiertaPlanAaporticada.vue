@@ -54,8 +54,7 @@
       <div class="contenido-principal">
         <!-- Espacio para imagen única - Página 2 -->
         <div class="contenedor-imagen-pagina2">
-          <img v-if="foto1" :src="foto1" class="imagen-pdf-pagina2" />
-          <span v-else>[Imagen: Sistema de estructura aportícada para cubierta plana]</span>
+          <img :src="'/fotos-certificados/cubierta-plana-aporticada.png'" class="imagen-pdf-pagina2" />
         </div>
 
         <p class="parrafo-estructura">
@@ -75,11 +74,11 @@
         </p>
       </div>
 
-      <div class="pie-pagina">
+<!--       <div class="pie-pagina">
         <p class="texto-pie">www.solay.es</p>
         <p class="texto-pie">Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110 Sevilla.</p>
         <p class="texto-pie">Página 2</p>
-      </div>
+      </div> -->
     </div>
 
     <!-- ===================== PÁGINA 3 ===================== -->
@@ -223,7 +222,6 @@ defineProps({
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 50px 0px;
 }
 
 /* ========== PÁRRAFOS ========== */
@@ -235,7 +233,7 @@ defineProps({
 .parrafo-certifico,
 .parrafo-datos,
 .parrafo-estructura {
-  margin: 20px 0 25px 0;
+  margin: 10px 0 10px 0;
   text-align: justify;
 }
 
@@ -278,10 +276,9 @@ defineProps({
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid #0066cc;
   background-color: #f5f5f5;
   margin: 20px 0;
-  min-height: 300px;
+  min-height: 200px;
   overflow: hidden;
 }
 

@@ -62,10 +62,7 @@
       <div class="contenido-principal">
         <!-- Espacio para imagen -->
         <div class="contenedor-imagen-grande">
-          <img v-if="foto1" :src="foto1" class="imagen-pdf-grande" />
-          <span v-else
-            >[Imagen: Estructura Soporte para Chapa Grecada Aporticada]</span
-          >
+          <img  :src="'/fotos-certificados/grecada-coplanaria.png'" class="imagen-pdf-grande" />
         </div>
 
         <div class="pie-pagina">
