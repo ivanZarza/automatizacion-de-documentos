@@ -206,24 +206,4 @@ const goToMasterForm = () => {
 .sticky-pdf-button {
   min-width: 140px;
 }
-
-/* Estilos para impresión */
-@media print {
-  .sticky-back-button {
-    display: none !important;
-  }
-  
-  .sticky-pdf-buttons {
-    display: none !important;
-  }
-  
-  /* Ocultar todos los botones y controles durante la impresión */
-  .min-h-screen {
-    padding: 0 !important;
-  }
-  
-  body {
-    background: white !important;
-  }
-}
 </style>
