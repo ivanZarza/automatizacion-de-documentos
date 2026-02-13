@@ -1819,6 +1819,23 @@ export const planosPlanosSituacionEmplazamientoCubiertaConfig = {
   }
 }
 
+export const zCertificadoBRConfig = {
+  id: 'z-certificado-br',
+  title: 'Certificado de Instalación Eléctrica de Baja Tensión',
+  description: 'Plantilla base para legalización con bloques preparados para posicionar variables sobre formulario.',
+  fileName: 'z-certificado-br.pdf',
+  route: '/z-certificado-br',
+  fields: [],
+  defaultData: {},
+  fieldMapping: {},
+  capabilities: {
+    canPreview: true,
+    canEdit: true,
+    canGeneratePDF: true
+  },
+  category: 'legalizacion'
+}
+
 /**
  * Objeto que contiene todas las configuraciones de documentos
  */
@@ -1837,7 +1854,8 @@ const documentConfigs = {
   'mtd-instalacion-autoconsumo-trifasica-con-bateria': memoriaTecnicaTrifasicaConBateriaConfig,
   'mtd-instalacion-autoconsumo-sin-bateria': memoriaTecnicaAutoconsumoSinBateriaConfig,
   'mtd-instalacion-puntos-recarga': memoriaTecnicaPuntoRecargaConfig,
-  'planos-situacion-emplazamiento-cubierta': planosPlanosSituacionEmplazamientoCubiertaConfig
+  'planos-situacion-emplazamiento-cubierta': planosPlanosSituacionEmplazamientoCubiertaConfig,
+  'z-certificado-br': zCertificadoBRConfig
 }
 
 /**
@@ -1867,7 +1885,7 @@ export const getAllDocuments = () => {
     list.push({
       id: uniqueId,
       ...cfg,
-      category: 'proyecto' // Todos los documentos son de proyecto
+      category: cfg.category || 'proyecto'
     })
   }
 
