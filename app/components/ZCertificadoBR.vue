@@ -22,14 +22,179 @@ const debug = ref(true);
 // Array simple de etiquetas (un solo objeto por ahora)
 const etiquetas = ref([
   {
-    name: "registro_serie",
-    x: 11,
-    y: 14,
+    name: "registro_instalacion",
+    x: 90,
+    y: 31,
     w: 20,
     h: 6,
-    fontSize: 7.1,
+    fontSize: 15,
     align: "center",
-    value: "B",
+    value: "123456",
+  },
+  {
+    name: "nombre",
+    x: 13,
+    y: 64,
+    h: 6,
+    w: 20,
+    h: 6,
+    fontSize: 7.5,
+    align: "right",
+    value: "Ivan Zarza Estevez",
+  },
+  {
+    name: "nif",
+    x: 140,
+    y: 64,
+    h: 6,
+    w: 20,
+    h: 6,
+    fontSize: 7.5,
+    align: "right",
+    value: "12345678Z",
+  },
+  {
+    name: "domicilio",
+    x: 13,
+    y: 71,
+    h: 6,
+    w: 20,
+    h: 6,
+    fontSize: 7.5,
+    align: "right",
+    value: "Ivan Zarza Estevez",
+  },
+  {
+    name: "cp",
+    x: 139,
+    y: 71,
+    h: 6,
+    w: 20,
+    h: 6,
+    fontSize: 7.5,
+    align: "right",
+    value: "28001",
+  },
+  {
+    name: "Localidad",
+    x: 13,
+    y: 78,
+    h: 6,
+    w: 20,
+    h: 6,
+    fontSize: 7.5,
+    align: "right",
+    value: "Calle de la hermosa portal 2 depto 3",
+  },
+  {
+    name: "provincia",
+    x: 83,
+    y: 78,
+    h: 6,
+    w: 20,
+    h: 6,
+    fontSize: 7.5,
+    align: "right",
+    value: "SEVILLA",
+  },
+  {
+    name: "correo_electronico",
+    x: 102,
+    y: 78,
+    h: 6,
+    w: 20,
+    h: 6,
+    fontSize: 7.5,
+    align: "right",
+    value: "hxdfgghdfjfhjcxcvxcv",
+  },
+  {
+    name: "telefono",
+    x: 153,
+    y: 78,
+    h: 6,
+    w: 20,
+    h: 6,
+    fontSize: 7.5,
+    align: "right",
+    value: "1236547898",
+  },
+  {
+    name: "emplazamiento",
+    x: 13,
+    y: 89,
+    h: 6,
+    w: 20,
+    h: 6,
+    fontSize: 7.5,
+    align: "right",
+    value: "Calle de la hermosa portal 2 depto 3",
+  },
+  {
+    name: "emplazamientoNumero",
+    x: 117,
+    y: 89,
+    h: 6,
+    w: 20,
+    h: 6,
+    fontSize: 7.5,
+    align: "right",
+    value: "43567",
+  },
+  {
+    name: "emplazamientoBloque",
+    x: 130,
+    y: 89,
+    h: 6,
+    w: 20,
+    h: 6,
+    fontSize: 7.5,
+    align: "right",
+    value: "43567",
+  },
+	  {
+    name: "emplazamientoPortal",
+    x: 142,
+    y: 89,
+    h: 6,
+    w: 20,
+    h: 6,
+    fontSize: 7.5,
+    align: "right",
+    value: "43567",
+  },
+		  {
+    name: "emplazamientoEscalera",
+    x: 154,
+    y: 89,
+    h: 6,
+    w: 20,
+    h: 6,
+    fontSize: 7.5,
+    align: "right",
+    value: "43567",
+  },
+			  {
+    name: "emplazamientoPiso",
+    x: 167,
+    y: 89,
+    h: 6,
+    w: 20,
+    h: 6,
+    fontSize: 7.5,
+    align: "right",
+    value: "43567",
+  },
+				  {
+    name: "emplazamientoPuerta",
+    x: 179,
+    y: 89,
+    h: 6,
+    w: 20,
+    h: 6,
+    fontSize: 7.5,
+    align: "right",
+    value: "43567",
   },
 ]);
 
@@ -37,24 +202,21 @@ const estiloEtiqueta = (e) => ({
   position: "absolute",
   left: `${e.x}mm`,
   top: `${e.y}mm`,
-  width: `${e.w}mm`,
+  /* permitimos que la etiqueta crezca hacia la derecha manteniendo un ancho mínimo */
+  minWidth: `${e.w}mm`,
+  width: "auto",
   height: `${e.h}mm`,
   fontSize: `${e.fontSize}pt`,
-  display: "flex",
-  alignItems: "center",
-  justifyContent:
-    e.align === "center"
-      ? "center"
-      : e.align === "right"
-        ? "flex-end"
-        : "flex-start",
+  display: "inline-block",
+  verticalAlign: "middle",
+  /* Forzar crecimiento hacia la derecha: texto siempre LTR y alineado a la izquierda */
+  direction: "ltr",
+  textAlign: "left",
   padding: "0 1mm",
   boxSizing: "border-box",
   whiteSpace: "nowrap",
-  overflow: "hidden",
-  textOverflow: "ellipsis",
+  overflow: "visible",
 });
-
 </script>
 
 <!-- Overlay renderer: etiquetas posicionadas por coordenadas -->
@@ -77,7 +239,7 @@ const estiloEtiqueta = (e) => ({
   position: relative;
   box-sizing: border-box;
   background-color: #fff;
-  background-image: url("/documentos-oficiales/pruebaBT.jpg");
+  background-image: url("/documentos-oficiales/cie-blanco.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 110% 100%;
@@ -85,10 +247,7 @@ const estiloEtiqueta = (e) => ({
   font-family: Arial, sans-serif;
   font-size: 7.1pt;
   line-height: 1.15;
-
 }
-
-
 
 [data-field] {
   color: #0a2668;
