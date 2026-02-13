@@ -196,6 +196,17 @@ const etiquetas = ref([
     align: "right",
     value: "43567",
   },
+					  {
+    name: "emplazamientoPuerta",
+    x: 11,
+    y: 95,
+    h: 6,
+    w: 20,
+    h: 6,
+    fontSize: 7.5,
+    align: "right",
+    value: "43567",
+  },
 ]);
 
 const estiloEtiqueta = (e) => ({
