@@ -9,12 +9,21 @@
       >
         {{ et.value }}
       </span>
+      <!-- Marcadores condicionales (X) -->
+      <span
+        v-for="m in marcadores"
+        :key="`marker-${m.name}`"
+        class="overlay-marker"
+        :style="estiloMarcador(m)"
+      >
+        X
+      </span>
     </article>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 
 // Toggle para mostrar guías en pantalla (no se imprime)
 const debug = ref(true);
@@ -152,7 +161,7 @@ const etiquetas = ref([
     align: "right",
     value: "43567",
   },
-	  {
+  {
     name: "emplazamientoPortal",
     x: 142,
     y: 89,
@@ -163,7 +172,7 @@ const etiquetas = ref([
     align: "right",
     value: "43567",
   },
-		  {
+  {
     name: "emplazamientoEscalera",
     x: 154,
     y: 89,
@@ -174,7 +183,7 @@ const etiquetas = ref([
     align: "right",
     value: "43567",
   },
-			  {
+  {
     name: "emplazamientoPiso",
     x: 167,
     y: 89,
@@ -185,7 +194,7 @@ const etiquetas = ref([
     align: "right",
     value: "43567",
   },
-				  {
+  {
     name: "emplazamientoPuerta",
     x: 179,
     y: 89,
@@ -196,8 +205,8 @@ const etiquetas = ref([
     align: "right",
     value: "43567",
   },
-					  {
-    name: "emplazamientoPuerta",
+  {
+    name: "emplazamientoLocalidad",
     x: 11,
     y: 95,
     h: 6,
@@ -206,6 +215,129 @@ const etiquetas = ref([
     fontSize: 7.5,
     align: "right",
     value: "43567",
+  },
+  {
+    name: "emplazamientoProvincia",
+    x: 95,
+    y: 95,
+    h: 6,
+    w: 20,
+    h: 2.3,
+    fontSize: 7.5,
+    align: "right",
+    value: "Sevilla",
+    background: "white",
+  },
+  {
+    name: "emplazamientoCodigoPostal",
+    x: 155,
+    y: 95,
+    h: 6,
+    w: 20,
+    h: 2.3,
+    fontSize: 7.5,
+    align: "right",
+    value: "Sevilla",
+    background: "white",
+  },
+  {
+    name: "UsoAlQueSeDestinaEmplazamiento",
+    x: 91,
+    y: 101,
+    h: 6,
+    w: 20,
+    h: 2.3,
+    fontSize: 7.5,
+    align: "right",
+    value: "UsoAlQueSeDestina",
+  },
+  {
+    name: "Superficie",
+    x: 179,
+    y: 101,
+    h: 6,
+    w: 20,
+    h: 2.3,
+    fontSize: 7.5,
+    align: "right",
+    value: "33444",
+  },
+  {
+    name: "instalacionTipo",
+    x: 0,
+    y: 0,
+    h: 6,
+    w: 20,
+    h: 2.3,
+    fontSize: 10,
+    align: "right",
+    value: "modificacion", // valor real debe venir del formulario ('nueva'|'ampliacion'|'modificacion')
+    // Mapeo de coordenadas por opción — condicional 'dentro del objeto'
+    markers: {
+      nueva: { x: 36.55, y: 107.7 },
+      ampliacion: { x: 60.3, y: 107.7 },
+      modificacion: { x: 86.5, y: 107.7 },
+    },
+  },
+  {
+    name: "cups",
+    x: 109,
+    y: 106,
+    h: 6,
+    w: 20,
+    h: 2.3,
+    fontSize: 7.5,
+    align: "right",
+    value: "33444",
+  },
+  {
+    name: "potenciaPrevista",
+    x: 60,
+    y: 133,
+    h: 6,
+    w: 20,
+    h: 2.3,
+    fontSize: 7.5,
+    align: "right",
+    value: "33444",
+  },
+  {
+    name: "instalacionTipo",
+    x: 0,
+    y: 0,
+    h: 6,
+    w: 20,
+    h: 2.3,
+    fontSize: 10,
+    align: "right",
+    value: "monofasico", // valor real debe venir del formulario ('nueva'|'ampliacion'|'modificacion')
+    // Mapeo de coordenadas por opción — condicional 'dentro del objeto'
+    markers: {
+      monofasico: { x: 39.7, y: 152.6 },
+      trifasico: { x: 60, y: 152.6 },
+    },
+  },
+    {
+    name: "potenciaPrevista",
+    x: 85,
+    y: 155,
+    h: 6,
+    w: 20,
+    h: 2.3,
+    fontSize: 7.5,
+    align: "right",
+    value: "33444",
+  },
+      {
+    name: "potenciaPrevista",
+    x: 35,
+    y: 161,
+    h: 6,
+    w: 20,
+    h: 2.3,
+    fontSize: 7.5,
+    align: "right",
+    value: "33444",
   },
 ]);
 
@@ -227,6 +359,32 @@ const estiloEtiqueta = (e) => ({
   boxSizing: "border-box",
   whiteSpace: "nowrap",
   overflow: "visible",
+  background: `${e.background}`,
+});
+
+// Computed que genera marcadores (coordenadas) según el valor y los
+// mapeos `markers` definidos en cada etiqueta.
+const marcadores = computed(() =>
+  etiquetas.value
+    .map((e) => {
+      if (!e.markers) return null;
+      const val = e.value && String(e.value).trim();
+      const coord = e.markers[val] || null;
+      if (!coord) return null;
+      return { name: e.name, x: coord.x, y: coord.y };
+    })
+    .filter(Boolean),
+);
+
+const estiloMarcador = (m) => ({
+  position: "absolute",
+  left: `${m.x}mm`,
+  top: `${m.y}mm`,
+  fontSize: `10pt`,
+  color: "#000",
+  fontWeight: 700,
+  transform: "translate(-50%,-50%)",
+  pointerEvents: "none",
 });
 </script>
 
@@ -268,6 +426,13 @@ const estiloEtiqueta = (e) => ({
 
 [data-field]:empty::before {
   content: " ";
+}
+
+.overlay-marker {
+  position: absolute;
+  line-height: 1;
+  font-family: Arial, sans-serif;
+  pointer-events: none;
 }
 
 @page {
