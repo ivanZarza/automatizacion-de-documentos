@@ -74,7 +74,7 @@
 				<div class="grid-2 compacta">
 					<div class="campo" data-field="tipo_edificacion">Tipo de instalación (3)</div>
 					<div class="campo" data-field="superficie">Superficie (m²)</div>
-				</div>
+				</div> 
 
 				<div class="campo" data-field="generador">G.3. Generadoras y convertidores: Producción de Energía Eléctrica</div>
 			</section>
