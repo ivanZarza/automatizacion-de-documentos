@@ -346,10 +346,10 @@ const etiquetas = ref([
     h: 2.3,
     fontSize: 10,
     align: "right",
-    value: "monofasico", // valor real debe venir del formulario ('monofasico'|'trifasico')
+    value: "", // valor real debe venir del formulario ('monofásica'|'trifásica')
     markers: {
-      monofasico: { x: 39.7, y: 152.6 },
-      trifasico: { x: 60, y: 152.6 },
+      Monofásica: { x: 39.7, y: 152.6 },
+      Trifásica: { x: 60, y: 152.6 },
     },
   },
     {
@@ -463,9 +463,9 @@ watch(
 
 const etiquetasConValores = computed(() => etiquetas.value);
 
-// Computed que oculta el texto cuando el valor es 'monofasico' o 'modificacion'
+// Computed que oculta el texto cuando el valor es 'monofásica' o 'modificacion'
 const etiquetasVisibles = computed(() => {
-  const ocultar = new Set(["monofasico", "modificacion"]);
+  const ocultar = new Set(["monofásica","trifásica", "modificacion", "nueva", "ampliacion"]);
   return etiquetasConValores.value.map((e) => {
     const val = e.value && String(e.value).trim().toLowerCase();
     return {
