@@ -113,9 +113,12 @@ const editableFields = ref([])
 onMounted(() => {
   // Cargar datos de localStorage (base de datos central)
   const masterData = loadFromStorage()
+  console.log('[DocumentPage] Master data from localStorage:', masterData)
   
   // Fusionar con configuración del documento
   const mergedData = getMergedDocumentData(props.config)
+  console.log('[DocumentPage] Merged data (master + document defaults):', mergedData)
+  console.log('[DocumentPage] Document config:', props.config.id)
   
   // Inicializar formData con los datos fusionados
   formData.value = { ...mergedData }
@@ -157,6 +160,8 @@ const generatePDF = async () => {
 }
 
 const handleFormSubmit = (newData) => {
+  console.log('[DocumentPage] Form submitted with data:', newData)
+  
   // Merge inteligente: mantener datos anteriores + actualizar solo con valores
   const mergedData = { ...formData.value }
   Object.entries(newData).forEach(([key, value]) => {
@@ -165,11 +170,13 @@ const handleFormSubmit = (newData) => {
     }
   })
   formData.value = mergedData
+  console.log('[DocumentPage] Merged data saved to component state:', mergedData)
   
   // Guardar en localStorage (base de datos central)
   // Importante: Guardamos TODOS los datos porque algunos vienen del maestro
   // y necesitamos mantenerlos para que se sincronicen
   updateStoragePartially(mergedData)
+  console.log('[DocumentPage] Data persisted to localStorage')
   
   saveChanges()
 }

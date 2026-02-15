@@ -162,7 +162,7 @@ export const masterFormFields = [
     fullWidth: true
   },
   {
-    name: 'tipoInstalacion',
+    name: 'instalacionTipo',
     label: 'Tipo de Instalación',
     placeholder: 'Seleccionar tipo...',
     type: 'select',
@@ -568,6 +568,9 @@ export const masterFormFields = [
   { name: 'otros_foto3', label: 'FOTO CERTIFICADO 3', type: 'file', accept: 'image/*,.pdf', fullWidth: true },
   { name: 'otros_foto4', label: 'FOTO CERTIFICADO 4', type: 'file', accept: 'image/*,.pdf', fullWidth: true },
  */
+  // ========== SECCIÓN OTROS: REGISTRO INSTALACIÓN ==========
+
+
   // ========== SECCIÓN OTROS: IMÁGENES DE PLANOS CON DESCRIPCIONES ==========
   {
     name: 'otros_imagenPlanoSituacion',
@@ -612,11 +615,11 @@ export const masterFormFields = [
     subsection: 'LEGALIZACION'
   },
   {
-    name: 'registro',
-    label: 'Registro instalación',
-    placeholder: 'Ej: REG-2025-001',
+    name: 'registro_instalacion',
+    label: 'Registro Instalación',
+    placeholder: 'Ej: REG-2025-001-PRINCIPAL',
     type: 'text',
-    subsection: 'LEGALIZACION'
+    fullWidth: true
   },
   {
     name: 'instalacion',
@@ -656,9 +659,9 @@ export const masterFormFields = [
     subsection: 'LEGALIZACION'
   },
   {
-    name: 'proteccionesDiferenciales',
-    label: 'Protecciones diferenciales Instaladas',
-    placeholder: 'Ej: Sí / No',
+    name: 'intensidadNominal',
+    label: 'Intensidad nominal',
+    placeholder: 'Ej: 30A / 63A',
     type: 'text',
     subsection: 'LEGALIZACION'
   },
@@ -668,6 +671,33 @@ export const masterFormFields = [
     placeholder: 'Ej: 30',
     type: 'text',
     subsection: 'LEGALIZACION'
+  },
+  {
+    name: 'directorDeObra',
+    label: 'Director de Obra',
+    placeholder: 'Ej: Juan García López',
+    type: 'text',
+    subsection: 'LEGALIZACION'
+  },
+
+  // ========== SECCIÓN: FECHA ==========
+  {
+    name: 'dia',
+    label: 'Día',
+    placeholder: 'Ej: 15',
+    type: 'text'
+  },
+  {
+    name: 'mes',
+    label: 'Mes',
+    placeholder: 'Ej: 02',
+    type: 'text'
+  },
+  {
+    name: 'anio',
+    label: 'Año',
+    placeholder: 'Ej: 2026',
+    type: 'text'
   }
 ]
 

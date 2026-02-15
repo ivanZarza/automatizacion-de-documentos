@@ -182,6 +182,7 @@
 import { ref, watch, computed } from 'vue'
 import Boton from './Boton.vue'
 import { masterFormFields } from '../config/masterFormFields'
+import { updateStoragePartially } from '../utils/storageManager'
 
 const props = defineProps({
   title: {
@@ -218,19 +219,31 @@ watch(() => props.initialData, (newData) => {
 }, { deep: true })
 
 // Guardar automáticamente en localStorage cada vez que cambian los datos
+// Usa updateStoragePartially para hacer merge (no sobrescribe todo)
 const saveFormDataToLocalStorage = () => {
   if (typeof window !== 'undefined') {
     try {
-      localStorage.setItem('formDataMaestro', JSON.stringify(formData.value))
+      // Solo guardar campos con valor para no contaminar el storage
+      const fieldsToSave = Object.fromEntries(
+        Object.entries(formData.value).filter(([_, value]) => 
+          value !== '' && value !== null && value !== undefined
+        )
+      )
+      updateStoragePartially(fieldsToSave)
+      console.log('[DocumentForm] Auto-saved to localStorage:', fieldsToSave)
     } catch (e) {
-      console.error('Error saving form data to localStorage:', e)
+      console.error('[DocumentForm] Error saving form data to localStorage:', e)
     }
   }
 }
 
-// Watch para guardar automáticamente
+// Watch para guardar automáticamente (con debounce)
+let saveTimeout
 watch(() => formData.value, () => {
-  saveFormDataToLocalStorage()
+  clearTimeout(saveTimeout)
+  saveTimeout = setTimeout(() => {
+    saveFormDataToLocalStorage()
+  }, 500) // Esperar 500ms de inactividad antes de guardar
 }, { deep: true })
 
 const handleFileUpload = (event, fieldName) => {
@@ -384,7 +397,8 @@ function getSubsectionLabel(subsection) {
     'F': 'F - Medidas de Protección',
     'G': 'G - Características de Líneas y Circuitos',
     'H': 'H - Esquema Unifilar',
-    'I': 'I - Plano de Emplazamiento'
+    'I': 'I - Plano de Emplazamiento',
+    'LEGALIZACION': 'LEGALIZACIÓN'
   }
   return labels[subsection] || subsection
 }
