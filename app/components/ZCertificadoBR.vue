@@ -30,6 +30,7 @@ import { ref, computed, watch } from "vue";
 // desajustes con el `fieldMapping`.
 const props = defineProps({
   registro_instalacion: { type: [String, Number], default: '' },
+  registro: { type: [String, Number], default: '' },
   nombre: { type: String, default: '' },
   nif: { type: String, default: '' },
   domicilio: { type: String, default: '' },
@@ -54,6 +55,10 @@ const props = defineProps({
   fase: { type: String, default: '' },
   potenciaPrevista: { type: String, default: '' },
   Superficie: { type: String, default: '' },
+  tensionSuministro: { type: String, default: '' },
+  empresaDistribuidora: { type: String, default: '' },
+  proteccionesDiferenciales: { type: String, default: '' },
+  sensibilidadDiferencial: { type: String, default: '' },
   observaciones: { type: String, default: '' },
   dia: { type: String, default: '' },
   mes: { type: String, default: '' },
@@ -75,6 +80,16 @@ const etiquetas = ref([
     h: 6,
     fontSize: 15,
     align: "center",
+    value: "",
+  },
+  {
+    name: "registro",
+    x: 35,
+    y: 31,
+    w: 20,
+    h: 6,
+    fontSize: 7.5,
+    align: "right",
     value: "",
   },
   {
@@ -354,7 +369,7 @@ const etiquetas = ref([
   },
     {
     name: "tensionSuministro",
-    x: 85,
+    x: 75,
     y: 155,
     h: 6,
     w: 20,
@@ -373,6 +388,28 @@ const etiquetas = ref([
     fontSize: 7.5,
     align: "right",
     value: "33444",
+  },
+    {
+    name: "proteccionesDiferenciales",
+    x: 11,
+    y: 172,
+    h: 6,
+    w: 20,
+    h: 2.3,
+    fontSize: 7.5,
+    align: "right",
+    value: "",
+  },
+  {
+    name: "sensibilidadDiferencial",
+    x: 50,
+    y: 172,
+    h: 6,
+    w: 20,
+    h: 2.3,
+    fontSize: 7.5,
+    align: "right",
+    value: "",
   },
   {
     name: "observaciones",
@@ -418,6 +455,7 @@ const etiquetas = ref([
     align: "right",
     value: "anio",
   },
+
 ]);
 
 const estiloEtiqueta = (e) => ({
