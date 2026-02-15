@@ -2,12 +2,12 @@
   <div class="print-wrapper">
     <article class="pagina-br">
       <span
-        v-for="et in etiquetas"
+        v-for="et in etiquetasVisibles"
         :key="et.name"
         class="overlay-field"
         :style="estiloEtiqueta(et)"
       >
-        {{ et.value }}
+        {{ et.displayValue }}
       </span>
       <!-- Marcadores condicionales (X) -->
       <span
@@ -310,8 +310,7 @@ const etiquetas = ref([
     h: 2.3,
     fontSize: 10,
     align: "right",
-    value: "monofasico", // valor real debe venir del formulario ('nueva'|'ampliacion'|'modificacion')
-    // Mapeo de coordenadas por opción — condicional 'dentro del objeto'
+    value: "monofasico", // valor real debe venir del formulario ('monofasico'|'trifasico')
     markers: {
       monofasico: { x: 39.7, y: 152.6 },
       trifasico: { x: 60, y: 152.6 },
@@ -339,6 +338,50 @@ const etiquetas = ref([
     align: "right",
     value: "33444",
   },
+  {
+    name: "observaciones",
+    x: 11,
+    y: 220,
+    h: 6,
+    w: 20,
+    h: 2.3,
+    fontSize: 7.5,
+    align: "right",
+    value: "Observaciones varias sobre la instalación",
+  },
+  {
+    name: "dia",
+    x: 100,
+    y: 232,
+    h: 6,
+    w: 20,
+    h: 2.3,
+    fontSize: 7.5,
+    align: "right",
+    value: "dia",
+  },
+  {
+    name: "mes",
+    x: 120,
+    y: 232,
+    h: 6,
+    w: 20,
+    h: 2.3,
+    fontSize: 7.5,
+    align: "right",
+    value: "mes",
+  },
+  {
+    name: "anio",
+    x: 160,
+    y: 232,
+    h: 6,
+    w: 20,
+    h: 2.3,
+    fontSize: 7.5,
+    align: "right",
+    value: "anio",
+  },
 ]);
 
 const estiloEtiqueta = (e) => ({
@@ -364,6 +407,18 @@ const estiloEtiqueta = (e) => ({
 
 // Computed que genera marcadores (coordenadas) según el valor y los
 // mapeos `markers` definidos en cada etiqueta.
+// Computed que oculta el texto cuando el valor es 'monofasico' o 'modificacion'
+const etiquetasVisibles = computed(() => {
+  const ocultar = new Set(["monofasico", "modificacion"]);
+  return etiquetas.value.map((e) => {
+    const val = e.value && String(e.value).trim().toLowerCase();
+    return {
+      ...e,
+      displayValue: ocultar.has(val) ? "" : e.value,
+    };
+  });
+});
+
 const marcadores = computed(() =>
   etiquetas.value
     .map((e) => {
