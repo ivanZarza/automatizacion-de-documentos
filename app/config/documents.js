@@ -1948,6 +1948,155 @@ export const zCertificadoBRConfig = {
 }
 
 /**
+ * AUTORIZACIÓN PARA PRESENTAR LA COMUNICACIÓN DE PUESTA EN FUNCIONAMIENTO
+ * Documento multi-página (3 páginas) - Junta de Andalucía ANEXO III
+ */
+export const autorizacionComunicacionConfig = {
+  id: 'autorizacion-comunicacion',
+  title: 'Autorización para Comunicación de Puesta en Funcionamiento',
+  description: 'Formulario ANEXO III - Junta de Andalucía. Autorización para presentar la comunicación de puesta en funcionamiento de establecimientos o instalaciones industriales.',
+  fileName: 'autorización-comunicación.pdf',
+  route: '/autorizacion-comunicacion',
+  pages: 3,
+  fields: [
+    // SECCIÓN 1
+    { name: 'apellidosNombre', label: 'Apellidos y Nombre', type: 'text', page: 1 },
+    { name: 'nifCif', label: 'NIF/CIF', type: 'text', page: 1 },
+    { name: 'razonSocial', label: 'Razón Social', type: 'text', page: 1, optional: true },
+    { name: 'calidad', label: 'Actúa en Calidad de', type: 'select', options: ['Propietario', 'Instalador', 'Responsable técnico'], page: 1 },
+    // SECCIÓN 2
+    { name: 'tipoVia', label: 'Tipo de Vía', type: 'select', options: ['Calle', 'Avenida', 'Plaza', 'Paseo', 'Camino'], page: 1 },
+    { name: 'nombreVia', label: 'Nombre de la Vía', type: 'text', page: 1 },
+    { name: 'numero', label: 'Número', type: 'text', page: 1 },
+    { name: 'bloque', label: 'Bloque', type: 'text', page: 1, optional: true },
+    { name: 'portal', label: 'Portal', type: 'text', page: 1, optional: true },
+    { name: 'escalera', label: 'Escalera', type: 'text', page: 1, optional: true },
+    { name: 'planta', label: 'Planta', type: 'text', page: 1, optional: true },
+    { name: 'puerta', label: 'Puerta', type: 'text', page: 1, optional: true },
+    { name: 'codigoPostal', label: 'Código Postal', type: 'text', page: 1 },
+    { name: 'municipio', label: 'Municipio', type: 'text', page: 1 },
+    { name: 'provincia', label: 'Provincia', type: 'text', page: 1 },
+    { name: 'pais', label: 'País', type: 'text', page: 1 },
+    { name: 'telefonoFijo', label: 'Teléfono Fijo', type: 'tel', page: 1, optional: true },
+    { name: 'telefonoMovil', label: 'Teléfono Móvil', type: 'tel', page: 1, optional: true },
+    { name: 'correoElectronico', label: 'Correo Electrónico', type: 'email', page: 1 },
+    // SECCIÓN 3
+    { name: 'denominacionEstablecimiento', label: 'Denominación', type: 'text', page: 1 },
+    { name: 'domicilioEstablecimiento', label: 'Domicilio', type: 'text', page: 1 },
+    { name: 'localidadEstablecimiento', label: 'Localidad', type: 'text', page: 1 },
+    { name: 'provinciaEstablecimiento', label: 'Provincia', type: 'text', page: 1 },
+    { name: 'codigoPostalEstablecimiento', label: 'Código Postal', type: 'text', page: 1 },
+    { name: 'instalacion1', label: 'Instalación 1', type: 'text', page: 1, optional: true },
+    { name: 'instalacion2', label: 'Instalación 2', type: 'text', page: 1, optional: true },
+    { name: 'instalacion3', label: 'Instalación 3', type: 'text', page: 1, optional: true },
+    { name: 'instalacion4', label: 'Instalación 4', type: 'text', page: 1, optional: true },
+    { name: 'instalacion5', label: 'Instalación 5', type: 'text', page: 1, optional: true },
+    { name: 'instalacion6', label: 'Instalación 6', type: 'text', page: 1, optional: true },
+    // SECCIÓN 4
+    { name: 'figura', label: 'Figura', type: 'select', options: ['Técnico competente', 'Instalador habilitado', 'Responsable técnico'], page: 2 },
+    { name: 'apellidosNombrePersona', label: 'Apellidos y Nombre', type: 'text', page: 2 },
+    { name: 'dniNiePersona', label: 'DNI/NIE', type: 'text', page: 2 },
+    // SECCIÓN 5
+    { name: 'lugarFirma', label: 'Lugar de Firma', type: 'text', page: 2 },
+    { name: 'diaFirma', label: 'Día', type: 'text', page: 2 },
+    { name: 'mesFirma', label: 'Mes', type: 'text', page: 2 },
+    { name: 'anioFirma', label: 'Año', type: 'text', page: 2 },
+    { name: 'representante', label: 'Representante/Autorizado', type: 'text', page: 2 },
+    { name: 'codigoDirectorio', label: 'Código Directorio', type: 'text', page: 2, optional: true }
+  ],
+  defaultData: {
+    apellidosNombre: '',
+    nifCif: '',
+    razonSocial: '',
+    calidad: '',
+    tipoVia: '',
+    nombreVia: '',
+    numero: '',
+    bloque: '',
+    portal: '',
+    escalera: '',
+    planta: '',
+    puerta: '',
+    codigoPostal: '',
+    municipio: '',
+    provincia: '',
+    pais: '',
+    telefonoFijo: '',
+    telefonoMovil: '',
+    correoElectronico: '',
+    denominacionEstablecimiento: '',
+    domicilioEstablecimiento: '',
+    localidadEstablecimiento: '',
+    provinciaEstablecimiento: '',
+    codigoPostalEstablecimiento: '',
+    instalacion1: '',
+    instalacion2: '',
+    instalacion3: '',
+    instalacion4: '',
+    instalacion5: '',
+    instalacion6: '',
+    figura: '',
+    apellidosNombrePersona: '',
+    dniNiePersona: '',
+    lugarFirma: '',
+    diaFirma: '',
+    mesFirma: '',
+    anioFirma: '',
+    representante: '',
+    codigoDirectorio: ''
+  },
+  fieldMapping: {
+    // Los campos mapean 1:1 - será necesario ajustar según masterFormFields
+    apellidosNombre: 'apellidosNombre',
+    nifCif: 'nifCif',
+    razonSocial: 'razonSocial',
+    calidad: 'calidad',
+    tipoVia: 'tipoVia',
+    nombreVia: 'nombreVia',
+    numero: 'numero',
+    bloque: 'bloque',
+    portal: 'portal',
+    escalera: 'escalera',
+    planta: 'planta',
+    puerta: 'puerta',
+    codigoPostal: 'codigoPostal',
+    municipio: 'municipio',
+    provincia: 'provincia',
+    pais: 'pais',
+    telefonoFijo: 'telefonoFijo',
+    telefonoMovil: 'telefonoMovil',
+    correoElectronico: 'correoElectronico',
+    denominacionEstablecimiento: 'denominacionEstablecimiento',
+    domicilioEstablecimiento: 'domicilioEstablecimiento',
+    localidadEstablecimiento: 'localidadEstablecimiento',
+    provinciaEstablecimiento: 'provinciaEstablecimiento',
+    codigoPostalEstablecimiento: 'codigoPostalEstablecimiento',
+    instalacion1: 'instalacion1',
+    instalacion2: 'instalacion2',
+    instalacion3: 'instalacion3',
+    instalacion4: 'instalacion4',
+    instalacion5: 'instalacion5',
+    instalacion6: 'instalacion6',
+    figura: 'figura',
+    apellidosNombrePersona: 'apellidosNombrePersona',
+    dniNiePersona: 'dniNiePersona',
+    lugarFirma: 'lugarFirma',
+    diaFirma: 'diaFirma',
+    mesFirma: 'mesFirma',
+    anioFirma: 'anioFirma',
+    representante: 'representante',
+    codigoDirectorio: 'codigoDirectorio'
+  },
+  capabilities: {
+    canPreview: true,
+    canEdit: true,
+    canGeneratePDF: true,
+    multiPage: true
+  },
+  category: 'legalizacion'
+}
+
+/**
  * Objeto que contiene todas las configuraciones de documentos
  */
 const documentConfigs = {
@@ -1966,7 +2115,8 @@ const documentConfigs = {
   'mtd-instalacion-autoconsumo-sin-bateria': memoriaTecnicaAutoconsumoSinBateriaConfig,
   'mtd-instalacion-puntos-recarga': memoriaTecnicaPuntoRecargaConfig,
   'planos-situacion-emplazamiento-cubierta': planosPlanosSituacionEmplazamientoCubiertaConfig,
-  'z-certificado-br': zCertificadoBRConfig
+  'z-certificado-br': zCertificadoBRConfig,
+  'autorizacion-comunicacion': autorizacionComunicacionConfig
 }
 
 /**
