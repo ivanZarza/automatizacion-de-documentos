@@ -10,40 +10,7 @@ export const masterFormFields = [
     label: 'Número de Expediente', 
     placeholder: 'Ej: EXP-2025-001', 
 
-  // ========== SECCIÓN: SECCION ==========
-  // Campos añadidos según petición: `cups`, `superficie`, `registro`,
-  // `observaciones` (pendiente: valor frase a definir).
-  {
-    name: 'cups',
-    label: 'CUPS',
-    placeholder: 'Ej: ES123456789012345678',
-    type: 'text',
-    fullWidth: true
-  },
-  {
-    name: 'superficie',
-    label: 'Superficie (m²)',
-    placeholder: 'Ej: 45',
-    type: 'text'
-  },
-  {
-    name: 'registro',
-    label: 'Registro instalación',
-    placeholder: 'Ej: REG-2025-001',
-    type: 'text'
-  },
-  {
-    name: 'observaciones',
-    label: 'Observaciones (pendiente)',
-    placeholder: 'PENDIENTE: valor a definir',
-    type: 'select',
-    options: [
-      'bateria',
-      'sin bateria'
-    ]
-  },
-    type: 'text' 
-  },
+  
   { 
     name: 'numeroRegistro', 
     label: 'Número de Registro', 
@@ -626,6 +593,82 @@ export const masterFormFields = [
     description: 'Plano de detalle de la instalación fotovoltaica en cubierta.',
     fullWidth: true
   },
+
+  // ========== SECCIÓN: LEGALIZACION ==========
+  // Campos de legalización: súministro, distribuidora, protecciones
+  {
+    name: 'cups',
+    label: 'CUPS',
+    placeholder: 'Ej: ES123456789012345678',
+    type: 'text',
+    fullWidth: true,
+    subsection: 'LEGALIZACION'
+  },
+  {
+    name: 'superficie',
+    label: 'Superficie (m²)',
+    placeholder: 'Ej: 45',
+    type: 'text',
+    subsection: 'LEGALIZACION'
+  },
+  {
+    name: 'registro',
+    label: 'Registro instalación',
+    placeholder: 'Ej: REG-2025-001',
+    type: 'text',
+    subsection: 'LEGALIZACION'
+  },
+  {
+    name: 'instalacion',
+    label: 'Tipo de Instalación',
+    placeholder: 'Seleccionar tipo...',
+    type: 'select',
+    options: [
+      'nueva',
+      'ampliacion',
+      'modificacion'
+    ],
+    subsection: 'LEGALIZACION'
+  },
+  {
+    name: 'observaciones',
+    label: 'Observaciones',
+    placeholder: 'Selecciona una opción',
+    type: 'select',
+    options: [
+      'Se trata de una instalación de generación para autoconsumo FV de B.T.con baterias conectado a la red con excedentes acogido a compensación',
+      'Se trata de una instalación de generación para autoconsumo FV de B.T. conectado a la red con excedentes acogido a compensación'
+    ],
+    subsection: 'LEGALIZACION'
+  },
+  {
+    name: 'tensionSuministro',
+    label: 'Tensión suministro',
+    placeholder: 'Ej: 230V / 400V',
+    type: 'text',
+    subsection: 'LEGALIZACION'
+  },
+  {
+    name: 'empresaDistribuidora',
+    label: 'Empresa Distribuidora',
+    placeholder: 'Ej: Endesa, Iberdrola',
+    type: 'text',
+    subsection: 'LEGALIZACION'
+  },
+  {
+    name: 'proteccionesDiferenciales',
+    label: 'Protecciones diferenciales Instaladas',
+    placeholder: 'Ej: Sí / No',
+    type: 'text',
+    subsection: 'LEGALIZACION'
+  },
+  {
+    name: 'sensibilidadDiferencial',
+    label: 'Sensibilidad (mA)',
+    placeholder: 'Ej: 30',
+    type: 'text',
+    subsection: 'LEGALIZACION'
+  }
 ]
 
 export const getMasterFormDefaultData = () => {

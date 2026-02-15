@@ -353,7 +353,7 @@ const etiquetas = ref([
     },
   },
     {
-    name: "potenciaPrevista",
+    name: "tensionSuministro",
     x: 85,
     y: 155,
     h: 6,
@@ -364,7 +364,7 @@ const etiquetas = ref([
     value: "33444",
   },
       {
-    name: "potenciaPrevista",
+    name: "empresaDistribuidora",
     x: 35,
     y: 161,
     h: 6,
