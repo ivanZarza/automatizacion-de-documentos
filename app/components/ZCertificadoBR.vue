@@ -26,6 +26,8 @@
 import { ref, computed, watch } from "vue";
 
 // Props individuales — igual que el resto de componentes del proyecto.
+// Incluimos aquí todas las claves que aparecen en `etiquetas` para evitar
+// desajustes con el `fieldMapping`.
 const props = defineProps({
   registro_instalacion: { type: [String, Number], default: '' },
   nombre: { type: String, default: '' },
@@ -37,12 +39,25 @@ const props = defineProps({
   correo_electronico: { type: String, default: '' },
   telefono: { type: String, default: '' },
   emplazamiento: { type: String, default: '' },
+  emplazamientoNumero: { type: String, default: '' },
+  emplazamientoBloque: { type: String, default: '' },
+  emplazamientoPortal: { type: String, default: '' },
+  emplazamientoEscalera: { type: String, default: '' },
+  emplazamientoPiso: { type: String, default: '' },
+  emplazamientoPuerta: { type: String, default: '' },
+  emplazamientoLocalidad: { type: String, default: '' },
+  emplazamientoProvincia: { type: String, default: '' },
+  emplazamientoCodigoPostal: { type: String, default: '' },
+  UsoAlQueSeDestinaEmplazamiento: { type: String, default: '' },
   cups: { type: String, default: '' },
   instalacionTipo: { type: String, default: '' },
   fase: { type: String, default: '' },
   potenciaPrevista: { type: String, default: '' },
   Superficie: { type: String, default: '' },
   observaciones: { type: String, default: '' },
+  dia: { type: String, default: '' },
+  mes: { type: String, default: '' },
+  anio: { type: String, default: '' },
   fecha: { type: String, default: '' },
   generatedDate: { type: String, default: '' }
 });
@@ -429,6 +444,7 @@ const estiloEtiqueta = (e) => ({
 // Mezcla de valores: prioridad -> props.values -> config.defaultData -> valor embebido
 // Además sincronizamos `etiquetas` para que contenga los valores pasados por props.
 // Esto facilita la inspección y evita tener que usar sólo computeds en otras partes.
+// Observamos `props.values` (objeto) para rellenar `etiquetas.value`.
 watch(
   () => Object.fromEntries(Object.keys(props).map((k) => [k, props[k]])),
   (newVals) => {
