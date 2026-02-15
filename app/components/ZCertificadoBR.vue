@@ -23,7 +23,29 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, watch } from "vue";
+
+// Props individuales — igual que el resto de componentes del proyecto.
+const props = defineProps({
+  registro_instalacion: { type: [String, Number], default: '' },
+  nombre: { type: String, default: '' },
+  nif: { type: String, default: '' },
+  domicilio: { type: String, default: '' },
+  cp: { type: String, default: '' },
+  localidad: { type: String, default: '' },
+  provincia: { type: String, default: '' },
+  correo_electronico: { type: String, default: '' },
+  telefono: { type: String, default: '' },
+  emplazamiento: { type: String, default: '' },
+  cups: { type: String, default: '' },
+  instalacionTipo: { type: String, default: '' },
+  fase: { type: String, default: '' },
+  potenciaPrevista: { type: String, default: '' },
+  Superficie: { type: String, default: '' },
+  observaciones: { type: String, default: '' },
+  fecha: { type: String, default: '' },
+  generatedDate: { type: String, default: '' }
+});
 
 // Toggle para mostrar guías en pantalla (no se imprime)
 const debug = ref(true);
@@ -405,12 +427,31 @@ const estiloEtiqueta = (e) => ({
   background: `${e.background}`,
 });
 
-// Computed que genera marcadores (coordenadas) según el valor y los
-// mapeos `markers` definidos en cada etiqueta.
+// Mezcla de valores: prioridad -> props.values -> config.defaultData -> valor embebido
+// Además sincronizamos `etiquetas` para que contenga los valores pasados por props.
+// Esto facilita la inspección y evita tener que usar sólo computeds en otras partes.
+watch(
+  () => Object.fromEntries(Object.keys(props).map((k) => [k, props[k]])),
+  (newVals) => {
+    etiquetas.value = etiquetas.value.map((e) => {
+      const key = e.name;
+      const propVal = newVals[key];
+      const finalValue = propVal !== undefined && propVal !== null && String(propVal) !== '' ? propVal : '';
+      return {
+        ...e,
+        value: finalValue,
+      };
+    });
+  },
+  { deep: true, immediate: true },
+);
+
+const etiquetasConValores = computed(() => etiquetas.value);
+
 // Computed que oculta el texto cuando el valor es 'monofasico' o 'modificacion'
 const etiquetasVisibles = computed(() => {
   const ocultar = new Set(["monofasico", "modificacion"]);
-  return etiquetas.value.map((e) => {
+  return etiquetasConValores.value.map((e) => {
     const val = e.value && String(e.value).trim().toLowerCase();
     return {
       ...e,
@@ -419,12 +460,13 @@ const etiquetasVisibles = computed(() => {
   });
 });
 
+// Marcadores: se calculan sobre las etiquetas ya resueltas
 const marcadores = computed(() =>
-  etiquetas.value
+  etiquetasConValores.value
     .map((e) => {
       if (!e.markers) return null;
       const val = e.value && String(e.value).trim();
-      const coord = e.markers[val] || null;
+      const coord = e.markers && e.markers[val] ? e.markers[val] : null;
       if (!coord) return null;
       return { name: e.name, x: coord.x, y: coord.y };
     })
