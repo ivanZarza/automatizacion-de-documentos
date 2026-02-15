@@ -120,7 +120,7 @@ export const masterFormFields = [
   },
   {
     name: 'bloque',
-    label: 'Bloque (si aplica)',
+    label: 'Bloque',
     placeholder: 'Ej: A',
     type: 'text'
   },

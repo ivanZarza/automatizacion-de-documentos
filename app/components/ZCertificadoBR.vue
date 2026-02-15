@@ -60,7 +60,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 15,
     align: "center",
-    value: "123456",
+    value: "",
   },
   {
     name: "nombre",
@@ -71,7 +71,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 7.5,
     align: "right",
-    value: "Ivan Zarza Estevez",
+    value: "",
   },
   {
     name: "nif",
@@ -82,7 +82,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 7.5,
     align: "right",
-    value: "12345678Z",
+    value: "",
   },
   {
     name: "domicilio",
@@ -93,7 +93,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 7.5,
     align: "right",
-    value: "Ivan Zarza Estevez",
+    value: "",
   },
   {
     name: "cp",
@@ -107,7 +107,7 @@ const etiquetas = ref([
     value: "28001",
   },
   {
-    name: "Localidad",
+    name: "localidad",
     x: 13,
     y: 78,
     h: 6,
@@ -115,7 +115,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 7.5,
     align: "right",
-    value: "Calle de la hermosa portal 2 depto 3",
+    value: "",
   },
   {
     name: "provincia",
@@ -126,7 +126,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 7.5,
     align: "right",
-    value: "SEVILLA",
+    value: "",
   },
   {
     name: "correo_electronico",
@@ -137,7 +137,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 7.5,
     align: "right",
-    value: "hxdfgghdfjfhjcxcvxcv",
+    value: "",
   },
   {
     name: "telefono",
@@ -148,7 +148,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 7.5,
     align: "right",
-    value: "1236547898",
+    value: "",
   },
   {
     name: "emplazamiento",
@@ -159,7 +159,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 7.5,
     align: "right",
-    value: "Calle de la hermosa portal 2 depto 3",
+    value: "",
   },
   {
     name: "emplazamientoNumero",
@@ -181,7 +181,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 7.5,
     align: "right",
-    value: "43567",
+    value: "",
   },
   {
     name: "emplazamientoPortal",
@@ -192,7 +192,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 7.5,
     align: "right",
-    value: "43567",
+    value: "",
   },
   {
     name: "emplazamientoEscalera",
@@ -203,7 +203,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 7.5,
     align: "right",
-    value: "43567",
+    value: "",
   },
   {
     name: "emplazamientoPiso",
@@ -214,7 +214,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 7.5,
     align: "right",
-    value: "43567",
+    value: "",
   },
   {
     name: "emplazamientoPuerta",
@@ -225,7 +225,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 7.5,
     align: "right",
-    value: "43567",
+    value: "",
   },
   {
     name: "emplazamientoLocalidad",
@@ -236,7 +236,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 7.5,
     align: "right",
-    value: "43567",
+    value: "",
   },
   {
     name: "emplazamientoProvincia",
@@ -247,7 +247,7 @@ const etiquetas = ref([
     h: 2.3,
     fontSize: 7.5,
     align: "right",
-    value: "Sevilla",
+    value: "",
     background: "white",
   },
   {
@@ -259,8 +259,7 @@ const etiquetas = ref([
     h: 2.3,
     fontSize: 7.5,
     align: "right",
-    value: "Sevilla",
-    background: "white",
+    value: "",
   },
   {
     name: "UsoAlQueSeDestinaEmplazamiento",
@@ -271,7 +270,7 @@ const etiquetas = ref([
     h: 2.3,
     fontSize: 7.5,
     align: "right",
-    value: "UsoAlQueSeDestina",
+    value: "  ",
   },
   {
     name: "Superficie",
@@ -282,7 +281,7 @@ const etiquetas = ref([
     h: 2.3,
     fontSize: 7.5,
     align: "right",
-    value: "33444",
+    value: "  ",
   },
   {
     name: "instalacionTipo",
@@ -324,7 +323,7 @@ const etiquetas = ref([
     value: "33444",
   },
   {
-    name: "instalacionTipo",
+    name: "fase",
     x: 0,
     y: 0,
     h: 6,
