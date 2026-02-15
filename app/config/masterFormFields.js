@@ -9,6 +9,39 @@ export const masterFormFields = [
     name: 'numeroExpediente', 
     label: 'Número de Expediente', 
     placeholder: 'Ej: EXP-2025-001', 
+
+  // ========== SECCIÓN: SECCION ==========
+  // Campos añadidos según petición: `cups`, `superficie`, `registro`,
+  // `observaciones` (pendiente: valor frase a definir).
+  {
+    name: 'cups',
+    label: 'CUPS',
+    placeholder: 'Ej: ES123456789012345678',
+    type: 'text',
+    fullWidth: true
+  },
+  {
+    name: 'superficie',
+    label: 'Superficie (m²)',
+    placeholder: 'Ej: 45',
+    type: 'text'
+  },
+  {
+    name: 'registro',
+    label: 'Registro instalación',
+    placeholder: 'Ej: REG-2025-001',
+    type: 'text'
+  },
+  {
+    name: 'observaciones',
+    label: 'Observaciones (pendiente)',
+    placeholder: 'PENDIENTE: valor a definir',
+    type: 'select',
+    options: [
+      'bateria',
+      'sin bateria'
+    ]
+  },
     type: 'text' 
   },
   { 
@@ -24,86 +57,86 @@ export const masterFormFields = [
     type: 'text' 
   },
   */
-  { 
-    name: 'fecha', 
-    label: 'Fecha', 
-    placeholder: 'Ej: 16/10/2025', 
-    type: 'date' 
+  {
+    name: 'fecha',
+    label: 'Fecha',
+    placeholder: 'Ej: 16/10/2025',
+    type: 'date'
   },
-/*
-  // ========== SECCIÓN A: TITULAR ==========
-  { 
-    name: 'apellidosNombre', 
-    label: 'Apellidos y Nombre del Titular', 
-    placeholder: 'Ej: García López, Juan', 
-    type: 'text',
-    fullWidth: true
-  },
-  { 
-    name: 'nifCif', 
-    label: 'NIF/CIF del Titular', 
-    placeholder: 'Ej: 12.345.678-A', 
-    type: 'text' 
-  },
-  { 
-    name: 'domicilio', 
-    label: 'Domicilio del Titular', 
-    placeholder: 'Ej: Calle Principal, 25', 
-    type: 'text',
-    fullWidth: true
-  },
-  { 
-    name: 'codigoPostal', 
-    label: 'Código Postal', 
-    placeholder: 'Ej: 41001', 
-    type: 'text' 
-  },
-  { 
-    name: 'localidad', 
-    label: 'Localidad', 
-    placeholder: 'Ej: Sevilla', 
-    type: 'text' 
-  },
-  { 
-    name: 'provincia', 
-    label: 'Provincia', 
-    placeholder: 'Ej: Sevilla', 
-    type: 'text' 
-  },
-  { 
-    name: 'correoElectronico', 
-    label: 'Correo Electrónico', 
-    placeholder: 'Ej: ejemplo@correo.com', 
-    type: 'email',
-    fullWidth: true
-  },
-  { 
-    name: 'telefono', 
-    label: 'Teléfono', 
-    placeholder: 'Ej: 954 123 456', 
-    type: 'tel' 
-  },
-  { 
-    name: 'representante', 
-    label: 'Representante (si aplica)', 
-    placeholder: 'Ej: Empresa XYZ S.L.', 
-    type: 'text',
-    fullWidth: true
-  },
-  { 
-    name: 'dniRepresentante', 
-    label: 'DNI/CIF del Representante', 
-    placeholder: 'Ej: B12345678', 
-    type: 'text' 
-  }, */
-  
+  /*
+    // ========== SECCIÓN A: TITULAR ==========
+    { 
+      name: 'apellidosNombre', 
+      label: 'Apellidos y Nombre del Titular', 
+      placeholder: 'Ej: García López, Juan', 
+      type: 'text',
+      fullWidth: true
+    },
+    { 
+      name: 'nifCif', 
+      label: 'NIF/CIF del Titular', 
+      placeholder: 'Ej: 12.345.678-A', 
+      type: 'text' 
+    },
+    { 
+      name: 'domicilio', 
+      label: 'Domicilio del Titular', 
+      placeholder: 'Ej: Calle Principal, 25', 
+      type: 'text',
+      fullWidth: true
+    },
+    { 
+      name: 'codigoPostal', 
+      label: 'Código Postal', 
+      placeholder: 'Ej: 41001', 
+      type: 'text' 
+    },
+    { 
+      name: 'localidad', 
+      label: 'Localidad', 
+      placeholder: 'Ej: Sevilla', 
+      type: 'text' 
+    },
+    { 
+      name: 'provincia', 
+      label: 'Provincia', 
+      placeholder: 'Ej: Sevilla', 
+      type: 'text' 
+    },
+    { 
+      name: 'correoElectronico', 
+      label: 'Correo Electrónico', 
+      placeholder: 'Ej: ejemplo@correo.com', 
+      type: 'email',
+      fullWidth: true
+    },
+    { 
+      name: 'telefono', 
+      label: 'Teléfono', 
+      placeholder: 'Ej: 954 123 456', 
+      type: 'tel' 
+    },
+    { 
+      name: 'representante', 
+      label: 'Representante (si aplica)', 
+      placeholder: 'Ej: Empresa XYZ S.L.', 
+      type: 'text',
+      fullWidth: true
+    },
+    { 
+      name: 'dniRepresentante', 
+      label: 'DNI/CIF del Representante', 
+      placeholder: 'Ej: B12345678', 
+      type: 'text' 
+    }, */
+
 
   // ========== SECCIÓN B: EMPLAZAMIENTO ==========
-    { 
-    name: 'telefono', 
-    label: 'Teléfono', 
-    placeholder: 'Ej: 954 123 456', 
-    type: 'tel' 
+  {
+    name: 'telefono',
+    label: 'Teléfono',
+    placeholder: 'Ej: 954 123 456',
+    type: 'tel'
   },
   {
     name: 'emplazamientoCalle',
@@ -172,13 +205,13 @@ export const masterFormFields = [
       'Instalación con fines especiales'
     ]
   },
-  /*  { 
-     name: 'usoDestino', 
-     label: 'Uso y Destino', 
-     placeholder: 'Ej: Autoconsumo para vivienda', 
-     type: 'text',
-     fullWidth: true
-   }, */
+  {
+    name: 'usoDestino',
+    label: 'Uso y Destino',
+    placeholder: 'Ej: Autoconsumo para vivienda',
+    type: 'text',
+    fullWidth: true
+  },
   {
     name: 'referenciaCatastral',
     label: 'Referencia Catastral',
@@ -198,6 +231,17 @@ export const masterFormFields = [
     placeholder: 'Ej: 12.345.678-A',
     type: 'text'
   },
+  /*   {
+      name: 'instalacion',
+      label: 'Tipo de Instalación',
+      placeholder: 'Seleccionar tipo...',
+      type: 'select',
+      options: [
+        'nueva',
+        'ampliacion',
+        'modificacion'
+      ]
+    }, */
 
   // ========== SECCIÓN C: PERSONA QUE FIRMA ==========
   /*  { 
@@ -484,26 +528,26 @@ export const masterFormFields = [
   { name: 'e2_energiaDiariaDiciembre', label: 'DIC', placeholder: 'Ej: 14.8', type: 'text', subsection: 'E2.6' },
  */
   // ========== SECCIÓN F: MEDIDAS DE PROTECCIÓN EMPLEADAS ==========
-/*   { name: 'f_medidaContactoDirecto', label: 'CONTACTOS DIRECTOS - Tipo de Medida', placeholder: 'Ej: Conductores aislados y canaletas', type: 'text', subsection: 'F' },
-  { name: 'f_parteContactoDirecto', label: 'CONTACTOS DIRECTOS - Parte de la Instalación', placeholder: 'Ej: CGMP', type: 'text', subsection: 'F' },
-
-  { name: 'f_medidaContactoIndirecto', label: 'CONTACTOS INDIRECTOS - Tipo de Medida', placeholder: 'Ej: Interruptor diferencial', type: 'text', subsection: 'F' },
-  { name: 'f_parteContactoIndirecto', label: 'CONTACTOS INDIRECTOS - Parte de la Instalación', placeholder: 'Ej: CGMP', type: 'text', subsection: 'F' },
-
-  { name: 'f_medidaPuntoCaliente', label: 'EFECTO DEL PUNTO CALIENTE - Tipo de Medida', placeholder: 'Ej: 3 Diodos bypass', type: 'text', subsection: 'F' },
-  { name: 'f_partePuntoCaliente', label: 'EFECTO DEL PUNTO CALIENTE - Parte de la Instalación', placeholder: 'Ej: Módulo FV', type: 'text', subsection: 'F' },
-
-  { name: 'f_medidaSobretensiones', label: 'SOBRETENSIONES - Tipo de Medida', placeholder: 'Ej: Descargador', type: 'text', subsection: 'F' },
-  { name: 'f_parteSobretensiones', label: 'SOBRETENSIONES - Parte de la Instalación', placeholder: 'Ej: CGMP', type: 'text', subsection: 'F' },
-
-  { name: 'f_medidaExplosion', label: 'RIESGO DE EXPLOSIÓN - Tipo de Medida', placeholder: 'Opcional (solo aisladas con baterías)', type: 'text', subsection: 'F' },
-  { name: 'f_parteExplosion', label: 'RIESGO DE EXPLOSIÓN - Parte de la Instalación', placeholder: 'Opcional', type: 'text', subsection: 'F' },
-
-  { name: 'f_medidaCorrosion', label: 'RIESGO DE CORROSIÓN - Tipo de Medida', placeholder: 'Opcional (solo aisladas con baterías)', type: 'text', subsection: 'F' },
-  { name: 'f_parteCorrosion', label: 'RIESGO DE CORROSIÓN - Parte de la Instalación', placeholder: 'Opcional', type: 'text', subsection: 'F' },
-
-  { name: 'f_otrasProtecciones', label: 'OTRAS MEDIDAS', placeholder: 'Indicar cuales', type: 'textarea', subsection: 'F', fullWidth: true },
- */
+  /*   { name: 'f_medidaContactoDirecto', label: 'CONTACTOS DIRECTOS - Tipo de Medida', placeholder: 'Ej: Conductores aislados y canaletas', type: 'text', subsection: 'F' },
+    { name: 'f_parteContactoDirecto', label: 'CONTACTOS DIRECTOS - Parte de la Instalación', placeholder: 'Ej: CGMP', type: 'text', subsection: 'F' },
+  
+    { name: 'f_medidaContactoIndirecto', label: 'CONTACTOS INDIRECTOS - Tipo de Medida', placeholder: 'Ej: Interruptor diferencial', type: 'text', subsection: 'F' },
+    { name: 'f_parteContactoIndirecto', label: 'CONTACTOS INDIRECTOS - Parte de la Instalación', placeholder: 'Ej: CGMP', type: 'text', subsection: 'F' },
+  
+    { name: 'f_medidaPuntoCaliente', label: 'EFECTO DEL PUNTO CALIENTE - Tipo de Medida', placeholder: 'Ej: 3 Diodos bypass', type: 'text', subsection: 'F' },
+    { name: 'f_partePuntoCaliente', label: 'EFECTO DEL PUNTO CALIENTE - Parte de la Instalación', placeholder: 'Ej: Módulo FV', type: 'text', subsection: 'F' },
+  
+    { name: 'f_medidaSobretensiones', label: 'SOBRETENSIONES - Tipo de Medida', placeholder: 'Ej: Descargador', type: 'text', subsection: 'F' },
+    { name: 'f_parteSobretensiones', label: 'SOBRETENSIONES - Parte de la Instalación', placeholder: 'Ej: CGMP', type: 'text', subsection: 'F' },
+  
+    { name: 'f_medidaExplosion', label: 'RIESGO DE EXPLOSIÓN - Tipo de Medida', placeholder: 'Opcional (solo aisladas con baterías)', type: 'text', subsection: 'F' },
+    { name: 'f_parteExplosion', label: 'RIESGO DE EXPLOSIÓN - Parte de la Instalación', placeholder: 'Opcional', type: 'text', subsection: 'F' },
+  
+    { name: 'f_medidaCorrosion', label: 'RIESGO DE CORROSIÓN - Tipo de Medida', placeholder: 'Opcional (solo aisladas con baterías)', type: 'text', subsection: 'F' },
+    { name: 'f_parteCorrosion', label: 'RIESGO DE CORROSIÓN - Parte de la Instalación', placeholder: 'Opcional', type: 'text', subsection: 'F' },
+  
+    { name: 'f_otrasProtecciones', label: 'OTRAS MEDIDAS', placeholder: 'Indicar cuales', type: 'textarea', subsection: 'F', fullWidth: true },
+   */
   // ========== SECCIÓN G: CARACTERÍSTICAS DE LÍNEAS Y CIRCUITOS ==========
   /*   { name: 'g_generadorReguladorPotencia', label: 'Generador FV-Regulador: Potencia (kW)', placeholder: 'Ej: 5.35', type: 'text', subsection: 'G' },
     { name: 'g_generadorReguladorLongitud', label: 'Generador FV-Regulador: Longitud (m)', placeholder: 'Ej: 15', type: 'text', subsection: 'G' },
@@ -545,8 +589,8 @@ export const masterFormFields = [
   { name: 'h_esquemaUnifilar', label: 'ESQUEMA UNIFILAR (Archivo)', type: 'file', accept: 'image/*,.pdf', subsection: 'H', fullWidth: true },
 
   // ========== SECCIÓN I: PLANO DE EMPLAZAMIENTO ==========
-/*   { name: 'i_planoEmplazamiento', label: 'PLANO DE EMPLAZAMIENTO (Archivo)', type: 'file', accept: 'image/*,.pdf', subsection: 'I', fullWidth: true },
- */
+  /*   { name: 'i_planoEmplazamiento', label: 'PLANO DE EMPLAZAMIENTO (Archivo)', type: 'file', accept: 'image/*,.pdf', subsection: 'I', fullWidth: true },
+   */
   // ========== SECCIÓN OTROS: DESCRIPCIÓN DEL PROYECTO ==========
   /* { name: 'otros_tipoInstalacion', label: 'Tipo de Instalación (ej: Instalación Solar Fotovoltaica)', type: 'text', fullWidth: true },
   { name: 'otros_descripcionProyecto', label: 'Descripción del Proyecto (ej: para Autoconsumo Individual con Excedentes...)', type: 'textarea', fullWidth: true },
