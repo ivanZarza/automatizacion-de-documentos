@@ -147,7 +147,7 @@
             <div class="valor">Fotovoltaica conectada a red interior</div>
           </div>
           <div class="celda">
-            <div class="etiqueta">USO A QUE SE DESTINA:</div>
+            <div class="etiqueta">USO AL QUE SE DESTINA:</div>
             <div class="valor">Autoconsumo para vivienda</div>
           </div>
         </div>
