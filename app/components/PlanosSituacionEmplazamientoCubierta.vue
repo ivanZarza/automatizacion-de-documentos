@@ -17,7 +17,7 @@
         <p class="texto-descriptivo">
           <span class="texto-rojo">{{ formattedData.pse_tipo }}</span>
           <span class="texto-fijo"> de </span>
-          <span class="texto-rojo">{{ formattedData.pse_potencia }}</span>
+          <span class="texto-rojo">{{ formattedData.pse_potencia }}kW </span>
           <span class="texto-rojo"> {{ formattedData.pse_descripcion }}</span>
         </p>
       </div>

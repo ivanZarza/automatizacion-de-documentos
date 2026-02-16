@@ -4,39 +4,82 @@
     <div class="contenedor-principal">
       <div class="encabezado">
         <div class="encabezado-contenido">
-          <h1 class="titulo-principal">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA</h1>
-          <h3 class="titulo-secundario">AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE TEJA, <span class="texto-azul">COPLANARIA</span></h3>
+          <h1 class="titulo-principal">
+            CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA
+          </h1>
+          <h3 class="titulo-secundario">
+            AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE TEJA,
+            <span class="texto-azul">COPLANARIA</span>
+          </h3>
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
       </div>
 
       <div class="contenido-principal">
         <p class="parrafo-intro">
-          Por la presente, <span class="texto-fijo">Eduardo Rivera Cabezas</span>, con NIF <span class="texto-fijo">28.818.007-L</span>, Ingeniero Industrial colegiado número <span class="texto-fijo">4654</span> en el Colegio Oficial de Ingenieros Industriales de <span class="texto-azul">Andalucía Occidental</span>, y con domicilio en <span class="texto-fijo">Calle El Peñón 5 - 41940</span>, localidad de <span class="texto-fijo">Tomares</span>, provincia de <span class="texto-fijo">Sevilla</span>
+          Por la presente,
+          <span class="texto-fijo">Eduardo Rivera Cabezas</span>, con NIF
+          <span class="texto-fijo">28.818.007-L</span>, Ingeniero Industrial
+          colegiado número <span class="texto-fijo">4654</span> en el Colegio
+          Oficial de Ingenieros Industriales de
+          <span class="texto-azul">Andalucía Occidental</span>, y con domicilio
+          en <span class="texto-fijo">Calle El Peñón 5 - 41940</span>, localidad
+          de <span class="texto-fijo">Tomares</span>, provincia de
+          <span class="texto-fijo">Sevilla</span>
         </p>
 
         <h2 class="titulo-declara">CERTIFICO</h2>
 
         <p class="parrafo-certifico">
-          que el estado de la cubierta de teja de la vivienda sita en <span class="texto-editable">{{ direccion }}</span>, número <span class="texto-editable">{{ numero }}</span> <span class="texto-editable">{{ otrosDatosDireccion }}</span> – código postal <span class="texto-editable">{{ codigoPostal }}</span>, localidad de <span class="texto-editable">{{ localidad }}</span>, provincia de {{ provincia }}, con Referencia Catastral <span class="texto-editable">{{ referenciaCatastral }}</span>, es el adecuado para soportar de forma sólida y segura el generador fotovoltaico para <span class="texto-azul">Autoconsumo</span> que se tiene previsto instalar, a la vista de la inspección ocular realizada <span class="texto-azul">in situ</span>, de la revisión del proyecto constructivo de la misma, y de la disposición sobre la cubierta de los módulos fotovoltaicos.
+          que el estado de la cubierta de teja de la vivienda sita en
+          <span class="texto-editable">{{ direccion }}</span
+          >, número <span class="texto-editable">{{ numero }}</span>
+          <span class="texto-editable">{{ otrosDatosDireccion }}</span> – código
+          postal <span class="texto-editable">{{ codigoPostal }}</span
+          >, localidad de <span class="texto-editable">{{ localidad }}</span
+          >, provincia de {{ provincia }}, con Referencia Catastral
+          <span class="texto-editable">{{ referenciaCatastral }}</span
+          >, es el adecuado para soportar de forma sólida y segura el generador
+          fotovoltaico para <span class="texto-azul">Autoconsumo</span> que se
+          tiene previsto instalar, a la vista de la inspección ocular realizada
+          <span class="texto-azul">in situ</span>, de la revisión del proyecto
+          constructivo de la misma, y de la disposición sobre la cubierta de los
+          módulos fotovoltaicos.
         </p>
 
         <p class="parrafo-datos">
-          El generador fotovoltaico ha sido dimensionado mediante Memoria Técnica de Diseño según requiere la reglamentación, y está compuesto por <span class="texto-editable">{{ numModulos }}</span> módulos fotovoltaicos de <span class="texto-editable">{{ potencia }}</span> Wp de potencia eléctrica y <span class="texto-editable">{{ peso }}</span> de peso cada uno, del fabricante y modelo <span class="texto-editable">{{ marcaModelo }}</span> con Certificado de Garantía y Marcado CE de sus productos.
+          El generador fotovoltaico ha sido dimensionado mediante Memoria
+          Técnica de Diseño según requiere la reglamentación, y está compuesto
+          por <span class="texto-editable">{{ numModulos }}</span> módulos
+          fotovoltaicos de <span class="texto-editable">{{ potencia }}</span> Wp
+          de potencia eléctrica y
+          <span class="texto-editable">{{ peso }}</span> de peso cada uno, del
+          fabricante y modelo
+          <span class="texto-editable">{{ marcaModelo }}</span> con Certificado
+          de Garantía y Marcado CE de sus productos.
         </p>
 
         <p class="parrafo-estructura">
-          La estructura de soporte de dichos módulos fotovoltaicos es de <span class="texto-azul">perfilería</span> de aluminio ligero del modelo KH915 VR de la empresa <span class="texto-azul">SUNFER ESTRUCTURAS, S.L.</span>, especializada en soportes para generadores fotovoltaicos con Certificado de Garantía y Marcado CE de sus productos.
+          La estructura de soporte de dichos módulos fotovoltaicos es de
+          <span class="texto-azul">perfilería</span> de aluminio ligero del
+          modelo KH915 VR de la empresa
+          <span class="texto-azul">SUNFER ESTRUCTURAS, S.L.</span>,
+          especializada en soportes para generadores fotovoltaicos con
+          Certificado de Garantía y Marcado CE de sus productos.
         </p>
 
         <p class="parrafo-imagen">
-          En la siguiente imagen podemos visualizar el sistema de <span class="texto-azul">perfilería</span> empleado:
+          En la siguiente imagen podemos visualizar el sistema de
+          <span class="texto-azul">perfilería</span> empleado:
         </p>
       </div>
 
       <div class="pie-pagina">
         <p class="texto-pie">www.solay.es</p>
-        <p class="texto-pie">Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110 Sevilla.</p>
+        <p class="texto-pie">
+          Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110
+          Sevilla.
+        </p>
         <p class="texto-pie">Página 1</p>
       </div>
     </div>
@@ -45,8 +88,13 @@
     <div class="contenedor-principal">
       <div class="encabezado">
         <div class="encabezado-contenido">
-          <h1 class="titulo-principal">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA</h1>
-          <h3 class="titulo-secundario">AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE TEJA, <span class="texto-azul">COPLANARIA</span></h3>
+          <h1 class="titulo-principal">
+            CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA
+          </h1>
+          <h3 class="titulo-secundario">
+            AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE TEJA,
+            <span class="texto-azul">COPLANARIA</span>
+          </h3>
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
       </div>
@@ -55,25 +103,46 @@
         <!-- Espacio para dos imágenes - Página 2 -->
         <div class="contenedor-dos-imagenes">
           <div class="espacio-imagen-lado">
-            <img :src="'/fotos-certificados/teja-complanaria-1.png'" class="imagen-pdf-lado" />
+            <img
+              :src="'/fotos-certificados/teja-complanaria-1.png'"
+              class="imagen-pdf-lado"
+            />
           </div>
           <div class="espacio-imagen-lado">
-            <img :src="'/fotos-certificados/teja-coplanaria-2.png'" class="imagen-pdf-lado" />
+            <img
+              :src="'/fotos-certificados/teja-coplanaria-2.png'"
+              class="imagen-pdf-lado"
+            />
           </div>
         </div>
 
         <p class="parrafo-estructura">
-          Dicha <span class="texto-azul">ESTRUCTURA COPLANARIA</span> será fijada a la cubierta inclinada de teja mediante varias varillas roscadas (según procedimiento del fabricante), sólidamente fijadas a la <span class="texto-azul">perfilería</span> de aluminio mediante <span class="texto-azul">tornillería</span> de acero inoxidable.
+          Dicha <span class="texto-azul">ESTRUCTURA COPLANARIA</span> será
+          fijada a la cubierta inclinada de teja mediante varias varillas
+          roscadas (según procedimiento del fabricante), sólidamente fijadas a
+          la <span class="texto-azul">perfilería</span> de aluminio mediante
+          <span class="texto-azul">tornillería</span> de acero inoxidable.
         </p>
 
         <p class="parrafo-estructura">
-          Dichas varillas son fijadas al tablero de <span class="texto-azul">rasillones</span> existente, mediante taco químico, después de perforar la <span class="texto-azul">limatesa</span> de la teja y el mortero de compresión que se encuentra debajo; todo ello según los procedimientos de instalación establecidos en la ficha técnica del producto, guardando las distancias previstas entre las perforaciones y respetando los pares de apriete de la <span class="texto-azul">tornillería</span>.
+          Dichas varillas son fijadas al tablero de
+          <span class="texto-azul">rasillones</span> existente, mediante taco
+          químico, después de perforar la
+          <span class="texto-azul">limatesa</span> de la teja y el mortero de
+          compresión que se encuentra debajo; todo ello según los procedimientos
+          de instalación establecidos en la ficha técnica del producto,
+          guardando las distancias previstas entre las perforaciones y
+          respetando los pares de apriete de la
+          <span class="texto-azul">tornillería</span>.
         </p>
       </div>
 
       <div class="pie-pagina">
         <p class="texto-pie">www.solay.es</p>
-        <p class="texto-pie">Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110 Sevilla.</p>
+        <p class="texto-pie">
+          Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110
+          Sevilla.
+        </p>
         <p class="texto-pie">Página 2</p>
       </div>
     </div>
@@ -82,47 +151,85 @@
     <div class="contenedor-principal">
       <div class="encabezado">
         <div class="encabezado-contenido">
-          <h1 class="titulo-principal">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA</h1>
-          <h3 class="titulo-secundario">AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE TEJA, <span class="texto-azul">COPLANARIA</span></h3>
+          <h1 class="titulo-principal">
+            CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA
+          </h1>
+          <h3 class="titulo-secundario">
+            AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE TEJA,
+            <span class="texto-azul">COPLANARIA</span>
+          </h3>
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
       </div>
 
       <div class="contenido-principal">
         <p class="parrafo-estructura">
-          La <span class="texto-azul">perfilería</span> de aluminio está unida solidariamente a los módulos fotovoltaicos mediante elementos de presión y fijación con tornillo a las distancias y pares de apriete marcados por el fabricante.
+          La <span class="texto-azul">perfilería</span> de aluminio está unida
+          solidariamente a los módulos fotovoltaicos mediante elementos de
+          presión y fijación con tornillo a las distancias y pares de apriete
+          marcados por el fabricante.
         </p>
 
         <p class="parrafo-estructura">
-          El plano formado por los módulos fotovoltaicos tendrá una disposición <span class="texto-azul">COPLANAR A LA SUPERFICIE</span> de la cubierta de teja de la vivienda, de tal forma, que se evitan tanto fuerzas de tracción como de compresión sobre la propia cubierta. Dicho efecto se consigue al no producirse embolsamientos de aire en el espacio existente entre los módulos fotovoltaicos y la cubierta de teja, ya que el viento se encontrará con una misma superficie de entrada y de salida a dicho espacio.
+          El plano formado por los módulos fotovoltaicos tendrá una disposición
+          <span class="texto-azul">COPLANAR A LA SUPERFICIE</span> de la
+          cubierta de teja de la vivienda, de tal forma, que se evitan tanto
+          fuerzas de tracción como de compresión sobre la propia cubierta. Dicho
+          efecto se consigue al no producirse embolsamientos de aire en el
+          espacio existente entre los módulos fotovoltaicos y la cubierta de
+          teja, ya que el viento se encontrará con una misma superficie de
+          entrada y de salida a dicho espacio.
         </p>
 
         <p class="parrafo-estructura">
-          El estado de la cubierta de teja de la vivienda es el adecuado para soportar de forma sólida y segura el generador fotovoltaico para <span class="texto-azul">Autoconsumo</span> que se tiene previsto instalar, con ausencia de afección estructural, a la vista de la inspección ocular realizada <span class="texto-azul">in situ</span>, de la revisión del proyecto constructivo de la misma, y de la disposición sobre la cubierta de los módulos fotovoltaicos.
+          El estado de la cubierta de teja de la vivienda es el adecuado para
+          soportar de forma sólida y segura el generador fotovoltaico para
+          <span class="texto-azul">Autoconsumo</span> que se tiene previsto
+          instalar, con ausencia de afección estructural, a la vista de la
+          inspección ocular realizada <span class="texto-azul">in situ</span>,
+          de la revisión del proyecto constructivo de la misma, y de la
+          disposición sobre la cubierta de los módulos fotovoltaicos.
         </p>
 
         <p class="parrafo-estructura">
-          La mencionada Memoria Técnica de Diseño ha sido redactada por mí como técnico competente.
+          La mencionada Memoria Técnica de Diseño ha sido redactada por mí como
+          técnico competente.
         </p>
 
         <div class="contenedor-firmas">
           <div class="firma-bloque">
-            <p class="nombre-firma">Eduardo Rivera Cabezas<br />670308856<br /><span class="texto-azul">erivera@solay.es</span><br />Calle El Peñón 5 – 41940 – Tomares – Sevilla</p>
+            <p class="nombre-firma">
+              Eduardo Rivera Cabezas<br />670308856<br /><span
+                class="texto-azul"
+                >erivera@solay.es</span
+              ><br />Calle El Peñón 5 – 41940 – Tomares – Sevilla
+            </p>
           </div>
         </div>
 
-        <p class="parrafo-fecha">
-          En <span class="texto-editable">{{ ciudadFirma }}</span>, a <span class="texto-editable">{{ fecha }}</span>.
-        </p>
-
         <div class="logo-footer">
-          <img src="/firma-solay.png" alt="Logo Solay Footer" class="logo-footer-img" />
+          <img
+            src="/firma-solay.png"
+            alt="Logo Solay Footer"
+            class="logo-footer-img"
+          />
+          
         </div>
+              <p class="parrafo-fecha">
+        En <span class="texto-editable">{{ ciudadFirma }}</span
+        >, a <span class="texto-editable">{{ fecha }}</span
+        >.
+      </p>
       </div>
+
+
 
       <div class="pie-pagina">
         <p class="texto-pie">www.solay.es</p>
-        <p class="texto-pie">Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110 Sevilla.</p>
+        <p class="texto-pie">
+          Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110
+          Sevilla.
+        </p>
       </div>
     </div>
   </div>
@@ -145,17 +252,17 @@ defineProps({
   fecha: String,
   foto1: String,
   foto2: String,
-  provincia: String
-})
+  provincia: String,
+});
 </script>
 
 <style scoped>
-@import '../styles/variables.css';
+@import "../styles/variables.css";
 
 /* ========== CONTENEDOR PDF ========== */
 .contenedor-pdf {
   background-color: white;
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
   color: #333;
   font-size: 17px;
   width: 210mm;
@@ -386,11 +493,10 @@ defineProps({
   display: flex;
   justify-content: center;
   margin-top: 5px;
-
 }
 
 .logo-footer-img {
-  width: 100px;
+  width: 200px;
   height: auto;
 }
 

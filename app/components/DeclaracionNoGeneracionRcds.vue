@@ -43,7 +43,7 @@
 
         <!-- Logo footer -->
         <div class="logo-footer">
-          <img src="/logo-solay.png" alt="Logo Solay Footer" class="logo-footer-img" />
+          <img src="/firma-solay.png" alt="Logo Solay Footer" class="logo-footer-img" />
         </div>
 
         <!-- Fecha -->
