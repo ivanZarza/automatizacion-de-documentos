@@ -60,8 +60,8 @@
                     class="field-input"
                   >
                     <option value="">{{ field.placeholder }}</option>
-                    <option v-for="option in field.options" :key="option" :value="option">
-                      {{ option }}
+                    <option v-for="option in field.options" :key="option.value || option" :value="option.value || option">
+                      {{ option.label || option }}
                     </option>
                   </select>
 
@@ -131,8 +131,8 @@
                   class="field-input"
                 >
                   <option value="">{{ field.placeholder }}</option>
-                  <option v-for="option in field.options" :key="option" :value="option">
-                    {{ option }}
+                  <option v-for="option in field.options" :key="option.value || option" :value="option.value || option">
+                    {{ option.label || option }}
                   </option>
                 </select>
 

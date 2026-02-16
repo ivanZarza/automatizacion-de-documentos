@@ -176,7 +176,7 @@ const etiquetas = ref([
   {
     page: 1,
     name: "nombreVia",
-    x: 50,
+    x: 46,
     y: 153,
     w: 70,
     h: 5,
@@ -482,12 +482,12 @@ const etiquetas = ref([
   {
     page: 2,
     name: "dniNiePersona",
-    x: 131,
+    x: 160,
     y: 73,
     w: 50,
     h: 5,
     fontSize: 10,
-    align: "right",
+    align: "left",
     value: "12345678A",
     displayValue: "",
   },
@@ -624,9 +624,11 @@ watch(
       return { ...e, value: finalValue };
     });
   },
-  { deep: true },
-  // TEMPORAL: Quitado 'immediate: true' para debugging - mantiene valores de prueba
-  // immediate: true
+  {
+    deep: true,
+    // TEMPORAL: Quitado 'immediate: true' para debugging - mantiene valores de prueba
+    immediate: true,
+  },
 );
 
 // ============================================
@@ -815,7 +817,7 @@ const estiloMarcador = (m) => ({
 
 <style>
 @page {
-size: A4;
+  size: A4;
   margin: 0;
 }
 

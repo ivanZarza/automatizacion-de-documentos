@@ -11,7 +11,7 @@ export const masterFormFields = [
     placeholder: 'Ej: EXP-2025-001', 
 
   
-  { 
+
     name: 'numeroRegistro', 
     label: 'Número de Registro', 
     placeholder: 'Ej: REG-2025-001', 
@@ -105,6 +105,21 @@ export const masterFormFields = [
     placeholder: 'Ej: 654 123 456',
     type: 'tel'
   },
+    // ========== SECCIÓN OTROS: ESTABLECIMIENTO ==========
+    {
+      name: 'denominacionEstablecimiento',
+      label: 'Denominación del Establecimiento',
+      placeholder: 'Ej: Bar Los Amigos',
+      type: 'text',
+      fullWidth: true
+    },
+    {
+      name: 'tipoVia',
+      label: 'Tipo de Vía',
+      placeholder: 'Ej: Avenida, Calle, Plaza...',
+      type: 'text',
+      fullWidth: true
+    },
   {
     name: 'telefonoFijo',
     label: 'Teléfono Fijo',
@@ -124,6 +139,13 @@ export const masterFormFields = [
     placeholder: 'Ej: 42',
     type: 'text'
   },
+    { 
+        name: 'planta',
+        label: 'Planta',
+        placeholder: 'Ej: 1ª, 2ª, Bajo...',
+        type: 'text',
+        fullWidth: true
+      },
   {
     name: 'bloque',
     label: 'Bloque',
@@ -663,16 +685,22 @@ export const masterFormFields = [
     subsection: 'LEGALIZACION'
   },
   {
-    name: 'observaciones',
-    label: 'Observaciones',
-    placeholder: 'Selecciona una opción',
-    type: 'select',
-    options: [
-      'Se trata de una instalación de generación para autoconsumo FV de B.T.con baterias conectado a la red con excedentes acogido a compensación',
-      'Se trata de una instalación de generación para autoconsumo FV de B.T. conectado a la red con excedentes acogido a compensación'
-    ],
-    subsection: 'LEGALIZACION'
-  },
+      name: 'observaciones',
+      label: 'Observaciones',
+      placeholder: 'Selecciona una opción',
+      type: 'select',
+      options: [
+        {
+          label: 'con batería',
+          value: 'Se trata de una instalación de generación para autoconsumo FV de B.T.con baterias conectado a la red con excedentes acogido a compensación'
+        },
+        {
+          label: 'sin batería',
+          value: 'Se trata de una instalación de generación para autoconsumo FV de B.T. conectado a la red con excedentes acogido a compensación'
+        }
+      ],
+      subsection: 'LEGALIZACION'
+    },
   {
     name: 'tensionSuministro',
     label: 'Tensión suministro',
@@ -738,16 +766,16 @@ export const masterFormFields = [
     label: 'Código Directorio (Ciudad)',
     placeholder: 'Selecciona una ciudad...',
     type: 'select',
-    options: [
-      { label: 'Almeria', value: 'A01041434' },
-      { label: 'Cadiz', value: 'A01041435' },
-      { label: 'Cordoba', value: 'A01041436' },
-      { label: 'Granada', value: 'A01041437' },
-      { label: 'Huelva', value: 'A01041438' },
-      { label: 'Jaen', value: 'A01041440' },
-      { label: 'Malaga', value: 'A01041442' },
-      { label: 'Sevilla', value: 'A01041444' }
-    ],
+      options: [
+        { label: 'Almeria', value: 'A01041434' },
+        { label: 'Cadiz', value: 'A01041435' },
+        { label: 'Cordoba', value: 'A01041436' },
+        { label: 'Granada', value: 'A01041437' },
+        { label: 'Huelva', value: 'A01041438' },
+        { label: 'Jaen', value: 'A01041440' },
+        { label: 'Malaga', value: 'A01041442' },
+        { label: 'Sevilla', value: 'A01041444' }
+      ],
     subsection: 'LEGALIZACION'
   },
 
