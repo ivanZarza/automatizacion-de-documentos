@@ -115,7 +115,11 @@
             <div class="etiqueta etiqueta-pequena">PISO:</div>
             <div class="valor">{{ piso }}</div>
           </div>
+<<<<<<< HEAD
           <div class="celda">
+=======
+                    <div class="celda celda-izquierda">
+>>>>>>> e7d0b97
             <div class="etiqueta etiqueta-pequena">PUERTA:</div>
             <div class="valor">{{ puerta }}</div>
           </div>
@@ -133,7 +137,11 @@
         </div>
 
         <div class="cuerpo-seccion-borde">
+<<<<<<< HEAD
           <div class="etiqueta">CORREO ELECTRÓNICO</div>
+=======
+          <div class="etiqueta">CORREO ELECTRÓNICO:</div>
+>>>>>>> e7d0b97
           <div class="valor valor-pequeno">
             {{ correoElectronicoEmplazamiento }}
           </div>
@@ -1293,7 +1301,13 @@
         </div>
         <p style="margin: 5px 0">Solay Fotovoltaica</p>
         <p style="margin: 3px 0; font-size: 8px">
+<<<<<<< HEAD
 Paseo de Bollullos de la Mitación 18. Pol. El Pibo - 41110 Bollullos de la Mitación (Sevilla)        </p>
+=======
+          Paseo de Bollullos de la Mitación 18, Pol. El Pibo - 41110 Bollullos de la Mitación (Sevilla)
+        </p>
+        <p style="margin: 3px 0; font-size: 8px">Página 1</p>
+>>>>>>> e7d0b97
       </div>
     </div>
   </div>
@@ -1321,6 +1335,7 @@ defineProps({
   bloque: String,
   escalera: String,
   piso: String,
+  puerta: String,
   localidadEmplazamiento: String,
   provinciaEmplazamiento: String,
   correoElectronicoEmplazamiento: String,

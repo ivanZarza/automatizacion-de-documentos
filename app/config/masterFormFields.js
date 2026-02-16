@@ -154,6 +154,12 @@ export const masterFormFields = [
     placeholder: 'Ej: 3º',
     type: 'text'
   },
+    {
+    name: 'puerta',
+    label: 'Puerta',
+    placeholder: 'Ej: B',
+    type: 'text'
+  },
   {
     name: 'localidadEmplazamiento',
     label: 'Localidad del Emplazamiento',
