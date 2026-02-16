@@ -94,7 +94,7 @@
         </div>
 
         <div class="cuerpo-seccion-borde">
-          <div class="etiqueta">CALLE/AVENIDA:</div>
+          <div class="etiqueta">EMPLAZAMIENTO:</div>
           <div class="valor">{{ emplazamientoCalle }}</div>
         </div>
 
@@ -116,6 +116,11 @@
             <div class="valor">{{ piso }}</div>
           </div>
         </div>
+                  <div class="celda celda-izquierda">
+            <div class="etiqueta etiqueta-pequena">PUERTA:</div>
+            <div class="valor">{{ puerta }}</div>
+          </div>
+        </div>
 
         <div class="fila-grid fila-2col">
           <div class="celda celda-izquierda">
@@ -129,7 +134,7 @@
         </div>
 
         <div class="cuerpo-seccion-borde">
-          <div class="etiqueta">CORREO ELECTRÓNICO EMPLAZAMIENTO:</div>
+          <div class="etiqueta">CORREO ELECTRÓNICO</div>
           <div class="valor valor-pequeno">
             {{ correoElectronicoEmplazamiento }}
           </div>
@@ -2001,6 +2006,13 @@ const tipoInstalacionSeleccionada = ref("Nueva");
 
   button {
     display: none;
+  }
+
+  /* Ocultar todos los botones y elementos interactivos */
+  .sticky-back-button,
+  .sticky-pdf-buttons,
+  .sticky-pdf-button {
+    display: none !important;
   }
 
   /* Forzar impresión de colores */

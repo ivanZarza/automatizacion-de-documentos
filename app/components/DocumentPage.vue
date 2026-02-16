@@ -213,4 +213,14 @@ const goToMasterForm = () => {
 .sticky-pdf-button {
   min-width: 140px;
 }
+
+@media print {
+  .sticky-back-button {
+    display: none !important;
+  }
+  
+  .sticky-pdf-buttons {
+    display: none !important;
+  }
+}
 </style>
