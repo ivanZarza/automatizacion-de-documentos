@@ -21,7 +21,7 @@
         <h2 class="titulo-autorizo">AUTORIZO A</h2>
 
         <p class="parrafo-autorizacion">
-          <strong>{{ representante }}</strong>, con DNI/NIF <strong>{{ dniRepresentante }}</strong>, y con domicilio en <strong>{{ domicilioRepresentante }}</strong>, localidad Sevilla, provincia de Sevilla, ante el <strong>{{ organismo }}</strong>, para realizar en mi nombre las gestiones de <strong>{{ gestiones }}</strong>.
+          <strong>{{ representante }}</strong>, con DNI/NIF <strong>{{ dniRepresentante }}</strong>, y con domicilio en <strong>{{ domicilioRepresentante }}</strong>, localidad Sevilla, provincia de Sevilla, ante el ayuntamiento de <strong>{{ organismo }}</strong>, para realizar en mi nombre las gestiones de <strong>{{ gestiones }}</strong>.
         </p>
 
         <div class="caja-validez">

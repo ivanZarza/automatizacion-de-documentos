@@ -35,7 +35,8 @@ export const autorizacionRepresentacionConfig = {
     dniAutorizante: 'nifCif',
     domicilioAutorizante: 'emplazamientoCalle',
     localidad: 'localidadEmplazamiento',
-    provincia: 'provincia',
+    provincia: 'provinciaEmplazamiento',
+    organismo: 'localidadEmplazamiento',
     fecha: 'fecha'
   },
   capabilities: {
@@ -1601,7 +1602,7 @@ export const memoriaTecnicaPuntoRecargaConfig = {
     numeroCertificadoInstalador: '4654 COIIAOC',
     numeroInstaladorEmpresa: '41045500',
     domicilioTecnico: 'Calle Ebro',
-    numeroTecnico: '45',
+    numeroTecnico: '35',
     localidadTecnico: 'Sevilla',
     codigoPostalTecnico: '41012',
     telefonoTecnico: '629 118 196',

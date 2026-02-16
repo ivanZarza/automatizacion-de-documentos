@@ -1020,7 +1020,7 @@
               <span
                 class="subseccion-titulo-span"
                 style="background-color: #ffa02a"
-                >E2.5</span
+                >E2.6</span
               >
               PROTECCIONES EXTERNAS
             </div>
