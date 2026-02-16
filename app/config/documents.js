@@ -504,7 +504,7 @@ export const memoriaTecnicaConfig = {
     numeroCertificadoInstalador: '4654 COIIAOC',
     numeroInstaladorEmpresa: '41045500',
     domicilioTecnico: 'Calle Ebro',
-    numeroTecnico: 'Calle Ebro',
+    numeroTecnico: '35',
     localidadTecnico: 'Sevilla',
     codigoPostalTecnico: '41.012',
     telefonoTecnico: '629 118 196',

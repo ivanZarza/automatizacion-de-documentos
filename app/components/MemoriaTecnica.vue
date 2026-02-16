@@ -43,7 +43,7 @@
 
         <div class="cuerpo-seccion-borde">
           <div class="etiqueta">DOMICILIO:</div>
-          <div class="valor">{{ domicilio }}</div>
+          <div class="valor">{{ domicilio }} {{ numero }}</div>
         </div>
 
         <div class="fila-grid fila-3col">
@@ -115,6 +115,10 @@
             <div class="etiqueta etiqueta-pequena">PISO:</div>
             <div class="valor">{{ piso }}</div>
           </div>
+                    <div class="celda celda-izquierda">
+            <div class="etiqueta etiqueta-pequena">PUERTA:</div>
+            <div class="valor">{{ puerta }}</div>
+          </div>
         </div>
 
         <div class="fila-grid fila-2col">
@@ -129,7 +133,7 @@
         </div>
 
         <div class="cuerpo-seccion-borde">
-          <div class="etiqueta">CORREO ELECTRÓNICO EMPLAZAMIENTO:</div>
+          <div class="etiqueta">CORREO ELECTRÓNICO:</div>
           <div class="valor valor-pequeno">
             {{ correoElectronicoEmplazamiento }}
           </div>
@@ -141,7 +145,7 @@
             <div class="valor">Fotovoltaica conectada a red interior</div>
           </div>
           <div class="celda">
-            <div class="etiqueta">USO A QUE SE DESTINA:</div>
+            <div class="etiqueta">USO AL QUE SE DESTINA:</div>
             <div class="valor">Autoconsumo para vivienda</div>
           </div>
         </div>
@@ -1289,7 +1293,7 @@
         </div>
         <p style="margin: 5px 0">Solay Fotovoltaica</p>
         <p style="margin: 3px 0; font-size: 8px">
-          C/ Bonaventura, 3 • 41600 Sanlúcar la Mayor (Sevilla)
+          Paseo de Bollullos de la Mitación 18, Pol. El Pibo - 41110 Bollullos de la Mitación (Sevilla)
         </p>
         <p style="margin: 3px 0; font-size: 8px">Página 1</p>
       </div>

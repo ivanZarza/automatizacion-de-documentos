@@ -136,6 +136,12 @@ export const masterFormFields = [
     placeholder: 'Ej: 3º',
     type: 'text'
   },
+    {
+    name: 'puerta',
+    label: 'Puerta',
+    placeholder: 'Ej: B',
+    type: 'text'
+  },
   {
     name: 'localidadEmplazamiento',
     label: 'Localidad del Emplazamiento',
@@ -458,7 +464,7 @@ export const masterFormFields = [
 
   // E2.4 Inversor
   { name: 'e2_marcaModeloInversor', label: 'MARCA Y MODELO', placeholder: 'Ej: Fronius Symo', type: 'text', subsection: 'E2.4', fullWidth: true },
-  { name: 'e2_potenciaNominalInversor', label: 'POTENCIA NOMINAL (W)', placeholder: 'Ej: 5000', type: 'text', subsection: 'E2.4' },
+  { name: 'e2_potenciaNominalInversor', label: 'POTENCIA NOMINAL (kW)', placeholder: 'Ej: 5000', type: 'text', subsection: 'E2.4' },
   { name: 'e2_relacionTensionInversor', label: 'RELACIÓN TENSIÓN  AC, Vn (V)', placeholder: 'Ej: 230V/400V', type: 'text', subsection: 'E2.4' },
   { name: 'e2_formaOndaSalidaInversor', label: 'Vcc MÁXIMA', placeholder: 'Ej: Senoidal Pura', type: 'text', subsection: 'E2.4' },
   { name: 'e2_frecuenciaNominalInversor', label: 'Vcc MÍNIMA ', placeholder: 'Ej: 50', type: 'text', subsection: 'E2.4' },
