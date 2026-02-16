@@ -1323,6 +1323,7 @@ defineProps({
   bloque: String,
   escalera: String,
   piso: String,
+  puerta: String,
   localidadEmplazamiento: String,
   provinciaEmplazamiento: String,
   correoElectronicoEmplazamiento: String,
