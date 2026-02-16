@@ -115,11 +115,7 @@
             <div class="etiqueta etiqueta-pequena">PISO:</div>
             <div class="valor">{{ piso }}</div>
           </div>
-<<<<<<< HEAD
-          <div class="celda">
-=======
-                    <div class="celda celda-izquierda">
->>>>>>> e7d0b97
+          <div class="celda celda-izquierda">
             <div class="etiqueta etiqueta-pequena">PUERTA:</div>
             <div class="valor">{{ puerta }}</div>
           </div>
@@ -130,18 +126,14 @@
             <div class="etiqueta">LOCALIDAD:</div>
             <div class="valor">{{ localidadEmplazamiento }}</div>
           </div>
-          <div class="celda">
+          <div class="celda celda-izquierda">
             <div class="etiqueta">PROVINCIA:</div>
             <div class="valor">{{ provinciaEmplazamiento }}</div>
           </div>
         </div>
 
         <div class="cuerpo-seccion-borde">
-<<<<<<< HEAD
-          <div class="etiqueta">CORREO ELECTRÓNICO</div>
-=======
           <div class="etiqueta">CORREO ELECTRÓNICO:</div>
->>>>>>> e7d0b97
           <div class="valor valor-pequeno">
             {{ correoElectronicoEmplazamiento }}
           </div>
@@ -152,7 +144,7 @@
             <div class="etiqueta">TIPO DE INSTALACIÓN:</div>
             <div class="valor">Fotovoltaica conectada a red interior</div>
           </div>
-          <div class="celda">
+          <div class="celda celda-izquierda">
             <div class="etiqueta">USO AL QUE SE DESTINA:</div>
             <div class="valor">Autoconsumo para vivienda</div>
           </div>
@@ -442,7 +434,7 @@
             GENERADORA FOTOVOLTAICA AISLADA
           </div>
 -->
-          <!-- E1.1 Módulo Fotovoltaico 
+        <!-- E1.1 Módulo Fotovoltaico 
           <div class="subseccion">
             <div class="subseccion-titulo">
               <span class="subseccion-titulo-span">E1.1</span> MÓDULO
@@ -470,7 +462,7 @@
             </div>
           </div>
  -->
-          <!-- E1.2 Generador Fotovoltaico
+        <!-- E1.2 Generador Fotovoltaico
           <div class="subseccion">
             <div class="subseccion-titulo">
               <span class="subseccion-titulo-span">E1.2</span> GENERADOR
@@ -520,7 +512,7 @@
             </div>
           </div>
 -->
-          <!-- E1.3 Baterías 
+        <!-- E1.3 Baterías 
           <div class="subseccion">
             <div class="subseccion-titulo">
               <span class="subseccion-titulo-span">E1.3</span> BATERÍAS
@@ -577,7 +569,7 @@
             </div>
           </div>
  -->
-          <!-- E1.4 Regulador
+        <!-- E1.4 Regulador
           <div class="subseccion">
             <div class="subseccion-titulo">
               <span class="subseccion-titulo-span">E1.4</span> REGULADOR
@@ -604,7 +596,7 @@
             </div>
           </div>
 -->
-          <!-- E1.5 Inversor 
+        <!-- E1.5 Inversor 
           <div class="subseccion">
             <div class="subseccion-titulo">
               <span class="subseccion-titulo-span">E1.5</span> INVERSOR
@@ -673,7 +665,7 @@
             </div>
           </div>
 -->
-          <!-- E1.6 Otros 
+        <!-- E1.6 Otros 
           <div class="subseccion">
             <div class="subseccion-titulo">
               <span class="subseccion-titulo-span">E1.6</span> OTROS
@@ -712,7 +704,7 @@
             </div>
           </div>
 -->
-          <!-- E1.7 Información de la Demanda 
+        <!-- E1.7 Información de la Demanda 
           <div
             class="subseccion subseccion-e1-7"
             style="border-top: 1px solid #000"
@@ -1301,13 +1293,9 @@
         </div>
         <p style="margin: 5px 0">Solay Fotovoltaica</p>
         <p style="margin: 3px 0; font-size: 8px">
-<<<<<<< HEAD
-Paseo de Bollullos de la Mitación 18. Pol. El Pibo - 41110 Bollullos de la Mitación (Sevilla)        </p>
-=======
-          Paseo de Bollullos de la Mitación 18, Pol. El Pibo - 41110 Bollullos de la Mitación (Sevilla)
+          Paseo de Bollullos de la Mitación 18. Pol. El Pibo - 41110 Bollullos
+          de la Mitación (Sevilla)
         </p>
-        <p style="margin: 3px 0; font-size: 8px">Página 1</p>
->>>>>>> e7d0b97
       </div>
     </div>
   </div>
@@ -1587,8 +1575,6 @@ const tipoInstalacionSeleccionada = ref("Nueva");
 .contenido-caja {
   color: #000;
 }
-
-
 
 .cuerpo-seccion-borde {
   padding: 1px 5px;
