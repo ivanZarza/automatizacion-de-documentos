@@ -862,7 +862,7 @@
             </div>
             <div class="fila-grid fila-2col fila-sin-borde fila-table-e2">
               <div class="celda celda-izquierda">
-                <div class="etiqueta">POTENCIA PICO (Wp):</div>
+                <div class="etiqueta">POTENCIA PICO (Wp) del módulo:</div>
                 <div class="valor">{{ potenciaPicoModulo }}</div>
               </div>
               <div class="celda">
@@ -880,7 +880,7 @@
             </div>
             <div class="fila-grid fila-2col fila-table-e2">
               <div class="celda celda-izquierda">
-                <div class="etiqueta">POTENCIA PICO (Wp):</div>
+                <div class="etiqueta">POTENCIA PICO (Wp) del generador:</div>
                 <div class="valor">{{ potenciaPicoGenerador }}</div>
               </div>
               <div class="celda">

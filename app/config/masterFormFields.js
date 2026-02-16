@@ -467,11 +467,11 @@ export const masterFormFields = [
   // E2.2 Módulo Fotovoltaico
 /*   { name: 'e2_tecnologiaCelulaModulo', label: 'TECNOLOGÍA DE LA CÉLULA', placeholder: 'Ej: Monocristalino -PERC-', type: 'text', subsection: 'E2.2' },
  */  { name: 'e2_marcaModeloModulo', label: 'MARCA Y MODELO', placeholder: 'Ej: JA Solar JAM72S30 450/MR', type: 'text', subsection: 'E2.2', fullWidth: true },
-  { name: 'e2_potenciaPicoModulo', label: 'POTENCIA PICO (Wp)', placeholder: 'Ej: 450', type: 'text', subsection: 'E2.2' },
+  { name: 'e2_potenciaPicoModulo', label: 'POTENCIA PICO (Wp) DEL MÓDULO', placeholder: 'Ej: 450', type: 'text', subsection: 'E2.2' },
   /*   { name: 'e2_toncModulo', label: 'TONC (ºC)', placeholder: 'Ej: 45', type: 'text', subsection: 'E2.2' },
    */
   // E2.3 Generador Fotovoltaico
-  { name: 'e2_potenciaPicoGenerador', label: 'POTENCIA PICO (Wp)', placeholder: 'Ej: 4500', type: 'text', subsection: 'E2.3' },
+  { name: 'e2_potenciaPicoGenerador', label: 'POTENCIA PICO (Wp) DEL GENERADOR', placeholder: 'Ej: 4500', type: 'text', subsection: 'E2.3' },
   { name: 'e2_intensidadIpmpGenerador', label: 'INTENSIDAD MÁXIMA POTENCIA, Ipmp (A)', placeholder: 'Ej: 10', type: 'text', subsection: 'E2.3' },
   { name: 'e2_tensionVpmpGenerador', label: 'TENSIÓN MÁXIMA POTENCIA, Vpmp (V)', placeholder: 'Ej: 400', type: 'text', subsection: 'E2.3' },
   { name: 'e2_orientacionGenerador', label: 'ORIENTACIÓN', placeholder: 'Ej: Sur', type: 'text', subsection: 'E2.3' },
@@ -479,6 +479,7 @@ export const masterFormFields = [
   { name: 'e2_totalModulos', label: 'Nº TOTAL MÓDULOS', placeholder: 'Ej: 10', type: 'text', subsection: 'E2.3' },
   { name: 'e2_modulosEnSerie', label: 'Nº MÓDULOS EN SERIE', placeholder: 'Ej: 10', type: 'text', subsection: 'E2.3' },
   { name: 'e2_ramasEnParalelo', label: 'Nº RAMAS EN PARALELO', placeholder: 'Ej: 1', type: 'text', subsection: 'E2.3' },
+  { name: 'disposicionModulos', label: 'DISPOSICIÓN DE LOS MÓDULOS', placeholder: 'Ej: En fila horizontal', type: 'text', subsection: 'E2.3', fullWidth: true },
 
   // E2.4 Inversor
   { name: 'e2_marcaModeloInversor', label: 'MARCA Y MODELO', placeholder: 'Ej: Fronius Symo', type: 'text', subsection: 'E2.4', fullWidth: true },
