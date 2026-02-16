@@ -501,6 +501,10 @@ export const masterFormFields = [
   { name: 'e2_potenciaMaximaSalida', label: 'POTENCIA MÁXIMA SALIDA', placeholder: 'Opcional', type: 'text', subsection: 'E2.5' },
   { name: 'e2_maximoPicoDePotencia', label: 'MÁXIMO PICO DE POTENCIA', placeholder: 'Opcional', type: 'text', subsection: 'E2.5' },
 
+  // E2.5.1 Protecciones Externas
+  { name: 'e2_intensidadNominalInterruptor', label: 'INTENSIDAD NOMINAL DEL INTERRUPTOR GENERAL, In (A)', placeholder: 'Ej: 25', type: 'text', subsection: 'E2.5.1' },
+  { name: 'e2_poderCorteInterruptor', label: 'PODER DE CORTE DEL INTERRUPTOR GENERAL (kA)', placeholder: 'Ej: 6', type: 'text', subsection: 'E2.5.1' },
+
   /* // E2.6 Información de la Demanda
   { name: 'e2_potenciaMaximaDemanda', label: 'MARCA Y MODELO', placeholder: 'Ej: 5000', type: 'text', subsection: 'E2.6' },
   { name: 'e2_periodicidadDemanda', label: 'PERIODICIDAD', placeholder: 'Ej: Diaria', type: 'text', subsection: 'E2.6' },

@@ -723,6 +723,9 @@ export const memoriaTecnicaConfig = {
     energiaTotalBateria: 'e2_energiaTotal',
     potenciaMaximaSalidaBateria: 'e2_potenciaMaximaSalida',
     maximoPicoPotenciaBateria: 'e2_maximoPicoDePotencia',
+    // E2.5.1 - Protecciones Externas
+    intensidadInterruptorGeneral: 'e2_intensidadNominalInterruptor',
+    poderCorteInterruptor: 'e2_poderCorteInterruptor',
     // G - Características de Líneas y Circuitos
     potenciaBateriaInversor: 'g_bateriaDiRectaInversorPotencia',
     potenciaGeneradorInversorDirecto: 'g_generadorDirectoInversorPotencia',
@@ -776,8 +779,8 @@ export const memoriaInstalacionAisladaConBateriaConfig = {
     nombreTecnicoInstalador: 'Eduardo Rivera Cabezas ',
     numeroCertificadoInstalador: '4654 COIIAOC',
     numeroInstaladorEmpresa: '41045500',
-    domicilioTecnico: 'Calle Ebro 35',
-    numeroTecnico: '',
+    domicilioTecnico: 'Calle Ebro',
+    numeroTecnico: '35',
     localidadTecnico: 'Sevilla',
     codigoPostalTecnico: '41.012',
     telefonoTecnico: '629 118 196',
@@ -995,6 +998,8 @@ export const memoriaInstalacionAisladaConBateriaConfig = {
     energiaTotalBateria: 'e2_energiaTotal',
     potenciaMaximaSalidaBateria: 'e2_potenciaMaximaSalida',
     maximoPicoPotenciaBateria: 'e2_maximoPicoDePotencia',
+    intensidadInterruptorGeneral: 'e2_intensidadNominalInterruptor',
+    poderCorteInterruptor: 'e2_poderCorteInterruptor',
     // G - Características de Líneas y Circuitos
     potenciaBateriaInversor: 'g_bateriaDiRectaInversorPotencia',
     potenciaGeneradorInversorDirecto: 'g_generadorDirectoInversorPotencia',
@@ -1049,7 +1054,7 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
     nombreTecnicoInstalador: 'Eduardo Rivera Cabezas',
     numeroCertificadoInstalador: '4654 COIIAOC',
     numeroInstaladorEmpresa: '41045500',
-    domicilioTecnico: 'Calle Ebro 32',
+    domicilioTecnico: 'Calle Ebro',
     numeroTecnico: '35',
     localidadTecnico: 'Sevilla',
     codigoPostalTecnico: '41012',
@@ -1176,8 +1181,8 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
     potenciaMaximaSalidaBateria: '',
     maximoPicoPotenciaBateria: '',
     // E2.5.1 Protecciones Externas
-    intensidadInterruptorGeneral: '',
-    poderCorteInterruptor: '',
+    intensidadInterruptorGeneral: '25',
+    poderCorteInterruptor: '6',
     proteccionFrecuenciaTension: '',
     // Sección F - Medidas de Protección
     medidaContactosDirectos: 'Conductores aislados y canaletas',
@@ -1269,6 +1274,9 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
     energiaTotalBateria: 'e2_energiaTotal',
     potenciaMaximaSalidaBateria: 'e2_potenciaMaximaSalida',
     maximoPicoPotenciaBateria: 'e2_maximoPicoDePotencia',
+    // E2.5.1 - Protecciones Externas
+    intensidadInterruptorGeneral: 'e2_intensidadNominalInterruptor',
+    poderCorteInterruptor: 'e2_poderCorteInterruptor',
     // G - Características de Líneas y Circuitos
     potenciaBateriaInversor: 'g_bateriaDiRectaInversorPotencia',
     potenciaGeneradorInversorDirecto: 'g_generadorDirectoInversorPotencia',
@@ -1319,7 +1327,7 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
     nombreTecnicoInstalador: 'Eduardo Rivera Cabezas',
     numeroCertificadoInstalador: '4654 COIIAOC',
     numeroInstaladorEmpresa: '41045500',
-    domicilioTecnico: 'Calle Ebro 32',
+    domicilioTecnico: 'Calle Ebro',
     numeroTecnico: '35',
     localidadTecnico: 'Sevilla',
     codigoPostalTecnico: '41012',
@@ -1446,8 +1454,8 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
     potenciaMaximaSalidaBateria: '',
     maximoPicoPotenciaBateria: '',
     // E2.5.1 Protecciones Externas
-    intensidadInterruptorGeneral: '',
-    poderCorteInterruptor: '',
+    intensidadInterruptorGeneral: '25',
+    poderCorteInterruptor: '6',
     proteccionFrecuenciaTension: '',
     // Sección F - Medidas de Protección
     medidaContactosDirectos: 'Conductores aislados y canaletas',
@@ -1539,7 +1547,9 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
     energiaTotalBateria: 'e2_energiaTotal',
     potenciaMaximaSalidaBateria: 'e2_potenciaMaximaSalida',
     maximoPicoPotenciaBateria: 'e2_maximoPicoDePotencia',
-
+    // E2.5.1 - Protecciones Externas
+    intensidadInterruptorGeneral: 'e2_intensidadNominalInterruptor',
+    poderCorteInterruptor: 'e2_poderCorteInterruptor',
     // G - Características de Líneas y Circuitos
     potenciaBateriaInversor: 'g_bateriaDiRectaInversorPotencia',
     potenciaGeneradorInversorDirecto: 'g_generadorDirectoInversorPotencia',
@@ -1590,7 +1600,7 @@ export const memoriaTecnicaPuntoRecargaConfig = {
     nombreTecnicoInstalador: 'Eduardo Rivera Cabezas',
     numeroCertificadoInstalador: '4654 COIIAOC',
     numeroInstaladorEmpresa: '41045500',
-    domicilioTecnico: 'Calle Ebro 32',
+    domicilioTecnico: 'Calle Ebro',
     numeroTecnico: '45',
     localidadTecnico: 'Sevilla',
     codigoPostalTecnico: '41012',
