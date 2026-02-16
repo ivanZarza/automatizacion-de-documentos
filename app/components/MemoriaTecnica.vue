@@ -115,11 +115,9 @@
             <div class="etiqueta etiqueta-pequena">PISO:</div>
             <div class="valor">{{ piso }}</div>
           </div>
-        </div>
-            <div class="celda celda-izquierda">
+          <div class="celda">
             <div class="etiqueta etiqueta-pequena">PUERTA:</div>
             <div class="valor">{{ puerta }}</div>
-              </div>
           </div>
         </div>
 
@@ -1295,10 +1293,10 @@
         </div>
         <p style="margin: 5px 0">Solay Fotovoltaica</p>
         <p style="margin: 3px 0; font-size: 8px">
-          C/ Bonaventura, 3 • 41600 Sanlúcar la Mayor (Sevilla)
-        </p>
-        <p style="margin: 3px 0; font-size: 8px">Página 1</p>
+Paseo de Bollullos de la Mitación 18. Pol. El Pibo - 41110 Bollullos de la Mitación (Sevilla)        </p>
       </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
