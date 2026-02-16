@@ -101,7 +101,13 @@ export const masterFormFields = [
   // ========== SECCIÓN B: EMPLAZAMIENTO ==========
   {
     name: 'telefono',
-    label: 'Teléfono',
+    label: 'Teléfono Móvil',
+    placeholder: 'Ej: 654 123 456',
+    type: 'tel'
+  },
+  {
+    name: 'telefonoFijo',
+    label: 'Teléfono Fijo',
     placeholder: 'Ej: 954 123 456',
     type: 'tel'
   },
@@ -128,6 +134,18 @@ export const masterFormFields = [
     name: 'escalera',
     label: 'Escalera',
     placeholder: 'Ej: 1',
+    type: 'text'
+  },
+  {
+    name: 'letra',
+    label: 'Letra',
+    placeholder: 'Ej: B',
+    type: 'text'
+  },
+  {
+    name: 'KMEnLaVia',
+    label: 'KM en la Vía',
+    placeholder: 'Ej: 5',
     type: 'text'
   },
   {
@@ -458,7 +476,7 @@ export const masterFormFields = [
 
   // E2.4 Inversor
   { name: 'e2_marcaModeloInversor', label: 'MARCA Y MODELO', placeholder: 'Ej: Fronius Symo', type: 'text', subsection: 'E2.4', fullWidth: true },
-  { name: 'e2_potenciaNominalInversor', label: 'POTENCIA NOMINAL (W)', placeholder: 'Ej: 5000', type: 'text', subsection: 'E2.4' },
+  { name: 'e2_potenciaNominalInversor', label: 'POTENCIA NOMINAL (kW)', placeholder: 'Ej: 5000', type: 'text', subsection: 'E2.4' },
   { name: 'e2_relacionTensionInversor', label: 'RELACIÓN TENSIÓN  AC, Vn (V)', placeholder: 'Ej: 230V/400V', type: 'text', subsection: 'E2.4' },
   { name: 'e2_formaOndaSalidaInversor', label: 'Vcc MÁXIMA', placeholder: 'Ej: Senoidal Pura', type: 'text', subsection: 'E2.4' },
   { name: 'e2_frecuenciaNominalInversor', label: 'Vcc MÍNIMA ', placeholder: 'Ej: 50', type: 'text', subsection: 'E2.4' },
@@ -679,6 +697,48 @@ export const masterFormFields = [
     type: 'text',
     subsection: 'LEGALIZACION'
   },
+  {
+    name: 'instalacion1',
+    label: 'Instalación 1',
+    placeholder: 'Ej: Instalación principal',
+    type: 'text',
+    fullWidth: true,
+    subsection: 'LEGALIZACION'
+  },
+  {
+    name: 'apellidosNombrePersona',
+    label: 'Apellidos y Nombre de la Persona Autorizada',
+    placeholder: 'Ej: Eduardo Rivera Cabezas',
+    type: 'text',
+    fullWidth: true,
+    value: 'Eduardo Rivera Cabezas',
+    subsection: 'LEGALIZACION'
+  },
+  {
+    name: 'dniNiePersona',
+    label: 'DNI/NIE de la Persona',
+    placeholder: 'Ej: B09848912',
+    type: 'text',
+    value: 'B09848912',
+    subsection: 'LEGALIZACION'
+  },
+  {
+    name: 'codigoDirectorio',
+    label: 'Código Directorio (Ciudad)',
+    placeholder: 'Selecciona una ciudad...',
+    type: 'select',
+    options: [
+      { label: 'Almeria', value: 'A01041434' },
+      { label: 'Cadiz', value: 'A01041435' },
+      { label: 'Cordoba', value: 'A01041436' },
+      { label: 'Granada', value: 'A01041437' },
+      { label: 'Huelva', value: 'A01041438' },
+      { label: 'Jaen', value: 'A01041440' },
+      { label: 'Malaga', value: 'A01041442' },
+      { label: 'Sevilla', value: 'A01041444' }
+    ],
+    subsection: 'LEGALIZACION'
+  },
 
   // ========== SECCIÓN: FECHA ==========
   {
@@ -698,7 +758,15 @@ export const masterFormFields = [
     label: 'Año',
     placeholder: 'Ej: 2026',
     type: 'text'
-  }
+  },
+  {
+    name: 'pais',
+    label: 'País',
+    placeholder: 'Ej: España',
+    type: 'text',
+    subsection: 'LEGALIZACION'
+  },
+
 ]
 
 export const getMasterFormDefaultData = () => {
