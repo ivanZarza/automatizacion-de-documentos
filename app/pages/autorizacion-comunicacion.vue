@@ -7,7 +7,7 @@
 
 <script setup>
 import DocumentPage from '../components/DocumentPage.vue'
-import AutorizacionComunicacion from '../components/AutorizacionComunicacion.vue'
+import AutorizacionComunicacion from '../components/zAutorizacionComunicacion.vue'
 import { autorizacionComunicacionConfig } from '../config/documents.js'
 </script>
 

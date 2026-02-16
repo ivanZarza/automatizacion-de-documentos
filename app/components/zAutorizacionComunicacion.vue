@@ -55,19 +55,22 @@ const props = defineProps({
   // SECCIÓN 1: DATOS IDENTIFICATIVOS
   apellidosNombre: { type: String, default: "" },
   nifCif: { type: String, default: "" },
-  razonSocial: { type: String, default: "" },
-  calidad: { type: String, default: "" },
+  nombreRepresentante: { type: String, default: "" },
+  dniCifRepresentante: { type: String, default: "" },
 
   // SECCIÓN 2: LUGAR Y MEDIO DE NOTIFICACIÓN
   tipoVia: { type: String, default: "" },
   nombreVia: { type: String, default: "" },
   numero: { type: String, default: "" },
+  letra: { type: String, default: "" },
+  KMEnLaVia: { type: String, default: "" },
   bloque: { type: String, default: "" },
   portal: { type: String, default: "" },
   escalera: { type: String, default: "" },
   planta: { type: String, default: "" },
   puerta: { type: String, default: "" },
   codigoPostal: { type: String, default: "" },
+  entidad: { type: String, default: "" },
   municipio: { type: String, default: "" },
   provincia: { type: String, default: "" },
   pais: { type: String, default: "" },
@@ -762,7 +765,6 @@ const estiloMarcador = (m) => ({
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 8mm 0;
   background: #f0f0f0;
 }
 
@@ -776,7 +778,6 @@ const estiloMarcador = (m) => ({
   font-family: Arial, sans-serif;
   font-size: 7.1pt;
   margin-bottom: 16mm;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Imágenes de fondo */
@@ -804,10 +805,28 @@ const estiloMarcador = (m) => ({
 }
 
 /* IMPRESIÓN */
+@page {
+  width: 310mm;
+  height: auto;
+  margin: 0;
+}
+
 @media print {
-  * {
-    margin: 0 !important;
-    padding: 0 !important;
+}
+</style>
+
+<style>
+@page {
+size: A4;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
   }
 
   .print-wrapper {
@@ -816,20 +835,16 @@ const estiloMarcador = (m) => ({
   }
 
   .pagina-documento {
-    width: 210mm;
-    height: 297mm;
-    margin: 0;
+    --guide-color: transparent;
+    border: 0;
+    box-shadow: none;
+    margin: 0 auto;
     page-break-after: always;
     page-break-inside: avoid;
-    box-shadow: none;
-    display: block;
-
-    /* Forzar colores exactos */
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 
-  /* Última página sin salto */
   .pagina-documento:last-child {
     page-break-after: auto;
   }
