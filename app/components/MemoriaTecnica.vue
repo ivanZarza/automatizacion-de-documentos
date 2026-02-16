@@ -116,9 +116,10 @@
             <div class="valor">{{ piso }}</div>
           </div>
         </div>
-                  <div class="celda celda-izquierda">
+            <div class="celda celda-izquierda">
             <div class="etiqueta etiqueta-pequena">PUERTA:</div>
             <div class="valor">{{ puerta }}</div>
+              </div>
           </div>
         </div>
 
@@ -1298,8 +1299,6 @@
         </p>
         <p style="margin: 3px 0; font-size: 8px">Página 1</p>
       </div>
-    </div>
-  </div>
 </template>
 
 <script setup>
