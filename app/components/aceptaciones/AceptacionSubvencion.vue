@@ -7,7 +7,12 @@
         class="overlay-field"
         :style="estiloEtiqueta(et)"
       >
-        {{ et.displayValue }}
+        <img
+          v-if="et.name === 'firma' && et.displayValue"
+          :src="et.displayValue"
+          style="width: 100%; height: 100%; object-fit: contain"
+        />
+        <span v-else>{{ et.displayValue }}</span>
       </span>
       <!-- Marcadores condicionales (X) -->
       <span
@@ -30,6 +35,7 @@ const props = defineProps({
   dia: { type: String, default: '' },
   mes: { type: String, default: '' },
   anio: { type: String, default: '' },
+  firma: { type: String, default: '' },
   generatedDate: { type: String, default: '' }
 });
 
@@ -76,6 +82,14 @@ const etiquetas = ref([
     align: "center",
     background: "#fff",
     value: "2026"
+  },
+  {
+    name: "firma",
+    x: 80,
+    y: 219,
+    w: 65,
+    h: 15,
+    value: "/firma-solay.png"
   }
 ]);
 
