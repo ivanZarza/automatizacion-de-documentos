@@ -385,7 +385,7 @@ export const certificadoParamentoVerticalConfig = {
     potencia: 'e2_potenciaPicoModulo',
     peso: 'peso',
     marcaModelo: 'e2_marcaModeloModulo',
-    ciudadFirma: 'ciudadFirma',
+    ciudadFirma: 'localidadEmplazamiento',
     fecha: 'fecha',
     foto1: 'otros_foto1',
     foto2: 'otros_foto2'
@@ -734,7 +734,7 @@ export const memoriaTecnicaConfig = {
     // H - Esquema Unifilar
     esquemaUnifilar: 'h_esquemaUnifilar',
     // I - Plano de Emplazamiento
-    planoEmplazamiento: 'otros_PlanoCubiertaNuevo'
+    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento'
   },
   capabilities: {
     canPreview: true,
@@ -1011,7 +1011,7 @@ export const memoriaInstalacionAisladaConBateriaConfig = {
     // H - Esquema Unifilar
     esquemaUnifilar: 'h_esquemaUnifilar',
     // I - Plano de Emplazamiento
-    planoEmplazamiento: 'otros_PlanoCubiertaNuevo'
+    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento'
   },
   capabilities: {
     canPreview: true,
@@ -1157,7 +1157,7 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
     // H - Esquema Unifilar
     esquemaUnifilar: 'h_esquemaUnifilar',
     // I - Plano de Emplazamiento
-    planoEmplazamiento: 'otros_PlanoCubiertaNuevo'
+    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento'
   },
   capabilities: { ...memoriaTecnicaConfig.capabilities }
 }
@@ -1299,7 +1299,7 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
     // H - Esquema Unifilar
     esquemaUnifilar: 'h_esquemaUnifilar',
     // I - Plano de Emplazamiento
-    planoEmplazamiento: 'otros_PlanoCubiertaNuevo'
+    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento'
   },
   capabilities: { ...memoriaTecnicaConfig.capabilities }
 }
@@ -1441,7 +1441,7 @@ export const memoriaTecnicaPuntoRecargaConfig = {
     // H - Esquema Unifilar
     esquemaUnifilar: 'h_esquemaUnifilar',
     // I - Plano de Emplazamiento
-    planoEmplazamiento: 'otros_PlanoCubiertaNuevo'
+    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento'
   },
   capabilities: {
     canPreview: true,
