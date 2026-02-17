@@ -38,7 +38,7 @@ const debug = ref(true);
 const etiquetas = ref([
   {
     name: "ciudad",
-    x: 36,
+    x: 40,
     y: 214,
     w: 80,
     h: 6,
@@ -48,7 +48,7 @@ const etiquetas = ref([
   },
   {
     name: "dia",
-    x: 103,
+    x: 110,
     y: 213.5,
     w: 15,
     h: 6,
@@ -58,7 +58,7 @@ const etiquetas = ref([
   },
   {
     name: "mes",
-    x: 116,
+    x: 125,
     y: 213.5,
     w: 20,
     h: 6,
@@ -68,7 +68,7 @@ const etiquetas = ref([
   },
   {
     name: "anio",
-    x: 145,
+    x: 155,
     y: 213.5,
     w: 20,
     h: 3,
