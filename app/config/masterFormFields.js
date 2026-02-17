@@ -639,14 +639,6 @@ export const masterFormFields = [
     description: 'Plano de emplazamiento de la instalación.',
     fullWidth: true
   },
-  {
-    name: 'otros_imagenPlanoCubierta',
-    label: 'PLANO DE CUBIERTA',
-    type: 'file',
-    accept: 'image/*,.pdf',
-    description: 'Plano de detalle de la instalación fotovoltaica en cubierta.',
-    fullWidth: true
-  },
     {
     name: 'otros_PlanoCubiertaNuevo',
     label: 'PLANO DE CUBIERTA NUEVO',
