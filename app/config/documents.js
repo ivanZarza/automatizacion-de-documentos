@@ -2220,6 +2220,59 @@ export const declaracionAusenciaConflictoInteresesConfig = {
   category: 'aceptaciones'
 };
 
+export const anexoCCompromisoTransversalesConfig = {
+  id: 'aceptacion-anexo-c-compromiso-transversales',
+  title: 'Anexo C - Declaración de Compromiso de Cumplimiento de Principios Transversales',
+  description: 'Modelo de declaración de compromiso de cumplimiento de los principios transversales (PRTR)',
+  fileName: 'anexo-c-compromiso-transversales.pdf',
+  route: '/aceptaciones/aceptacion-anexo-c-compromiso-transversales',
+  fields: [
+    { name: 'nombreApellidos', label: 'Nombre y Apellidos', type: 'text', fullWidth: true },
+    { name: 'nif', label: 'NIF/CIF', type: 'text' },
+    { name: 'direccion', label: 'Dirección', type: 'text', fullWidth: true },
+    { name: 'nombreRepresentante', label: 'Nombre del Representante', type: 'text', fullWidth: true },
+    { name: 'dniRepresentante', label: 'DNI/NIF del Representante', type: 'text' },
+    { name: 'nombreEntidadRepresentada', label: 'Nombre de la Entidad Representada', type: 'text', fullWidth: true },
+    { name: 'nifEntidadRepresentada', label: 'NIF de la Entidad Representada', type: 'text' },
+    { name: 'domicilioEntidad', label: 'Domicilio de la Entidad', type: 'text', fullWidth: true },
+    { name: 'ciudad', label: 'Ciudad', type: 'text', fullWidth: true },
+    { name: 'dia', label: 'Día', type: 'text' },
+    { name: 'mes', label: 'Mes', type: 'text' },
+    { name: 'anio', label: 'Año', type: 'text' },
+    { name: 'firma', label: 'Firma (Imagen)', type: 'file', accept: 'image/*' }
+  ],
+  defaultData: {
+    nombreApellidos: '',
+    nif: '',
+    direccion: '',
+    nombreRepresentante: '',
+    dniRepresentante: '',
+    nombreEntidadRepresentada: '',
+    nifEntidadRepresentada: '',
+    domicilioEntidad: '',
+    ciudad: '',
+    dia: '',
+    mes: '',
+    anio: '',
+    firma: ''
+  },
+  fieldMapping: {
+    nombreApellidos: 'apellidosNombre',
+    nif: 'nifCif',
+    direccion: 'emplazamientoCalle',
+    ciudad: 'localidadEmplazamiento',
+    dia: 'dia',
+    mes: 'mes',
+    anio: 'anio'
+  },
+  capabilities: {
+    canPreview: true,
+    canEdit: true,
+    canGeneratePDF: true
+  },
+  category: 'aceptaciones'
+};
+
 const documentConfigs = {
   'certificado-adecuacion': certificadoAdecuacionConfig,
   'autorizacion-representacion': autorizacionRepresentacionConfig,
@@ -2245,7 +2298,8 @@ const documentConfigs = {
   'aceptacion-subvencion': aceptacionSubvencionConfig,
   'aceptacion-cesion-tratamiento': declaracionCesionTratamientoConfig,
   'aceptacion-compromiso-derechos': declaracionCompromisoDerechosConfig,
-  'aceptacion-ausencia-conflicto-intereses': declaracionAusenciaConflictoInteresesConfig
+  'aceptacion-ausencia-conflicto-intereses': declaracionAusenciaConflictoInteresesConfig,
+  'aceptacion-anexo-c-compromiso-transversales': anexoCCompromisoTransversalesConfig
 }
 
 /**
