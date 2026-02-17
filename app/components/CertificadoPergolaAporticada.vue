@@ -49,17 +49,6 @@
       </div>
 
       <div class="contenido-principal">
-        <div class="contenedor-dos-imagenes">
-          <div class="espacio-imagen-lado">
-            <img v-if="foto1" :src="foto1" class="imagen-pdf-lado" />
-            <span v-else>[Imagen 1: Vista pérgola]</span>
-          </div>
-          <div class="espacio-imagen-lado">
-            <img v-if="foto2" :src="foto2" class="imagen-pdf-lado" />
-            <span v-else>[Imagen 2: Detalle anclajes/perfilería]</span>
-          </div>
-        </div>
-
         <p class="parrafo-estructura">
           La estructura se ancla mediante tornillería y anclajes químicos/mecánicos según la naturaleza del soporte. Se respetarán las distancias y pares de apriete marcados por el fabricante.
         </p>
