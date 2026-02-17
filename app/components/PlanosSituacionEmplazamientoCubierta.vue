@@ -52,7 +52,7 @@
               </tr>
               <tr>
                 <td class="label">Potencia:</td>
-                <td class="valor">{{ formattedData.potenciaKw }} kW</td>
+                <td class="valor">{{ formattedData.pse_potencia }} kW</td>
                 <td class="label">Tipo Instalación:</td>
                 <td class="valor">{{ formattedData.tipoInstalacion }}</td>
               </tr>
