@@ -136,17 +136,17 @@
               
               <div class="dato-bloque">
                 <p class="dato-label"><strong>Dirección:</strong></p>
-                <p class="dato-item" style="color: #ff6633;">{{ formattedData.direccion }}</p>
+                <p class="dato-item" >{{ formattedData.direccion }}</p>
               </div>
               
               <div class="dato-bloque">
                 <p class="dato-label"><strong>Número:</strong></p>
-                <p class="dato-item" style="color: #ff6633;">{{ formattedData.numero }}</p>
+                <p class="dato-item" >{{ formattedData.numero }}</p>
               </div>
               
               <div class="dato-bloque">
                 <p class="dato-label"><strong>Código Postal:</strong></p>
-                <p class="dato-item" style="color: #ff6633;">{{ formattedData.codigoPostal }}</p>
+                <p class="dato-item" >{{ formattedData.codigoPostal }}</p>
               </div>
               
               <div class="dato-bloque">
@@ -183,22 +183,22 @@
               
               <div class="dato-bloque">
                 <p class="dato-label"><strong>Total nº de módulos:</strong></p>
-                <p class="dato-item" style="color: #ff6633;">{{ formattedData.totalModulos }}</p>
+                <p class="dato-item" >{{ formattedData.totalModulos }}</p>
               </div>
               
               <div class="dato-bloque">
                 <p class="dato-label"><strong>Potencia de los módulos (Wp):</strong></p>
-                <p class="dato-item" style="color: #ff6633;">{{ formattedData.potenciaModulos }}</p>
+                <p class="dato-item" >{{ formattedData.potenciaModulos }}</p>
               </div>
               
               <div class="dato-bloque">
                 <p class="dato-label"><strong>Potencia pico del generador (Wp):</strong></p>
-                <p class="dato-item" style="color: #ff6633;">{{ formattedData.potenciaPicoGenerador }}</p>
+                <p class="dato-item" >{{ formattedData.potenciaPicoGenerador }}</p>
               </div>
               
               <div class="dato-bloque">
                 <p class="dato-label"><strong>Disposición de los módulos:</strong></p>
-                <p class="dato-item" style="color: #ff6633;">{{ formattedData.disposicionModulos }}</p>
+                <p class="dato-item" >{{ formattedData.disposicionModulos }}</p>
               </div>
               
               <div class="dato-bloque">

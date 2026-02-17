@@ -647,6 +647,14 @@ export const masterFormFields = [
     description: 'Plano de detalle de la instalación fotovoltaica en cubierta.',
     fullWidth: true
   },
+    {
+    name: 'otros_PlanoCubiertaNuevo',
+    label: 'PLANO DE CUBIERTA NUEVO',
+    type: 'file',
+    accept: 'image/*,.pdf',
+    description: 'Plano de detalle de la instalación fotovoltaica en cubierta.',
+    fullWidth: true
+  },
 
   // ========== SECCIÓN: LEGALIZACION ==========
   // Campos de legalización: súministro, distribuidora, protecciones
