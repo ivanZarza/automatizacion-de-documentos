@@ -1571,7 +1571,7 @@ export const planosPlanosSituacionEmplazamientoCubiertaConfig = {
     pse_provincia: 'provinciaEmplazamiento',
     pse_referenciaCatastral: 'referenciaCatastral',
     pse_potenciaKw: 'potenciaKw',
-    pse_tipoInstalacion: 'tipoInstalacionSeleccionada',
+    pse_tipoInstalacion: 'tipoInstalacion',
     pse_potenciaPicoGenerador: 'e2_potenciaPicoGenerador',
     pse_totalModulos: 'e2_totalModulos',
     pse_potenciaModulos: 'e2_potenciaPicoModulo',
