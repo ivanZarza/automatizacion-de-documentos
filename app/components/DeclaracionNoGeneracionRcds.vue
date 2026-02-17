@@ -157,18 +157,18 @@ defineProps({
 }
 
 .parrafo-declaracion {
-  margin: 15px 0 20px 0;
+  margin: 15px 0 10px 0;
   text-align: justify;
 }
 
 /* ========== LISTA DECLARACIÓN ========== */
 .lista-declaracion {
-  margin: 20px 0;
+  margin: 10px 0;
 }
 
 .item-declaracion {
   display: flex;
-  margin: 15px 0;
+  margin: 5px 0;
   text-align: justify;
 }
 
@@ -181,7 +181,7 @@ defineProps({
 /* ========== DATOS FIRMANTE ========== */
 .parrafo-firmante {
   text-align: center;
-  margin: 40px 0 20px 0;
+  margin: 20px 0 20px 0;
   font-size: 14px;
   line-height: 1.6;
 }
@@ -210,7 +210,7 @@ defineProps({
 .pie-pagina {
   padding: 12px 0;
   border-top: 1px solid #0066cc;
-  margin-top: 20px;
+  margin-top: 5px;
   text-align: center;
   font-size: 11px;
   color: #666;
@@ -251,7 +251,6 @@ defineProps({
     box-shadow: none !important;
     margin: 0 !important;
     padding: 0 !important;
-    page-break-after: avoid;
     background: white !important;
   }
 

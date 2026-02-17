@@ -1485,7 +1485,7 @@ export const declaracionNoGeneracionRcdsConfig = {
     municipio: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',
     referenciaCatastral: 'referenciaCatastral',
-    ciudadFirma: 'ciudadFirma',
+    ciudadFirma: 'localidadEmplazamiento',
     fecha: 'fecha'
   },
   capabilities: {
