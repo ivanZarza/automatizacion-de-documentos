@@ -1970,6 +1970,44 @@ export const zCertificadoDOACFVConfig = {
   category: 'legalizacion'
 }
 
+export const zDeclaracionDireccionObraConfig = {
+  id: 'z-declaracion-direccion-obra',
+  title: 'Declaración Responsable Dirección de Obra',
+  description: 'Declaración responsable para la dirección de obra con campos sobre imagen de fondo',
+  fileName: 'declaracion-responsable-direccion-obra.pdf',
+  route: '/z-declaracion-direccion-obra',
+  fields: [
+    { name: 'potencia', label: 'Potencia', type: 'text' },
+    { name: 'provincia', label: 'Provincia', type: 'text' },
+    { name: 'fechaElaboracion', label: 'Fecha de Elaboración', type: 'date' },
+    { name: 'dia', label: 'Día', type: 'text' },
+    { name: 'mes', label: 'Mes', type: 'text' },
+    { name: 'anio', label: 'Año', type: 'text' }
+  ],
+  defaultData: {
+    potencia: '',
+    provincia: '',
+    fechaElaboracion: '',
+    dia: '',
+    mes: '',
+    anio: ''
+  },
+  fieldMapping: {
+    potencia: 'potencia',
+    provincia: 'provinciaEmplazamiento',
+    fechaElaboracion: 'fecha',
+    dia: 'dia',
+    mes: 'mes',
+    anio: 'anio'
+  },
+  capabilities: {
+    canPreview: true,
+    canEdit: true,
+    canGeneratePDF: true
+  },
+  category: 'legalizacion'
+};
+
 const documentConfigs = {
   'certificado-adecuacion': certificadoAdecuacionConfig,
   'autorizacion-representacion': autorizacionRepresentacionConfig,
@@ -1989,7 +2027,8 @@ const documentConfigs = {
   'planos-situacion-emplazamiento-cubierta': planosPlanosSituacionEmplazamientoCubiertaConfig,
   'z-certificado-br': zCertificadoBRConfig,
   'autorizacion-comunicacion': autorizacionComunicacionConfig,
-  'z-certificado-doacfv': zCertificadoDOACFVConfig
+  'z-certificado-doacfv': zCertificadoDOACFVConfig,
+  'z-declaracion-direccion-obra': zDeclaracionDireccionObraConfig
 }
 
 /**
