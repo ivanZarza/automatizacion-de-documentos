@@ -1,9 +1,13 @@
-<template>
-  <document-page>
-    <CertificadoAdecuacion />
-  </document-page>
-</template>
 
 <script setup>
-import CertificadoAdecuacion from '~/components/CertificadoAdecuacion.vue'
+import DocumentPage from '../components/DocumentPage.vue'
+import CertificadoAdecuacion from '../components/CertificadoAdecuacion.vue'
+import { certificadoAdecuacionConfig } from '../config/documents'
 </script>
+
+<template>
+  <DocumentPage 
+    :config="certificadoAdecuacionConfig"
+    :documentComponent="CertificadoAdecuacion"
+  />
+</template>

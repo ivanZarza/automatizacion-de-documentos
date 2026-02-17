@@ -2112,15 +2112,45 @@ export const autorizacionComunicacionConfig = {
 /**
  * Objeto que contiene todas las configuraciones de documentos
  */
-const certificadoAdecuacionConfig = {
+export const certificadoAdecuacionConfig = {
   id: 'certificado-adecuacion',
   title: 'Certificado de Adecuación al Real Decreto 1699/2011',
   description: 'Certificado de adecuación para instalaciones eléctricas según RD 1699/2011',
   fileName: 'certificado-adecuacion.pdf',
   route: '/certificado-adecuacion',
-  fields: [],
-  defaultData: {},
-  fieldMapping: {},
+  fields: [
+    { name: 'tipoInstalacion', label: 'Tipo de instalación', type: 'text', fullWidth: true },
+    { name: 'direccion', label: 'Dirección', type: 'text', fullWidth: true },
+    { name: 'localidad', label: 'Localidad', type: 'text' },
+    { name: 'provincia', label: 'Provincia', type: 'text' },
+    { name: 'uso', label: 'Uso', type: 'text', fullWidth: true },
+    { name: 'ciudadFirma', label: 'Ciudad de firma', type: 'text' },
+    { name: 'dia', label: 'Día', type: 'text', width: 50 },
+    { name: 'mes', label: 'Mes', type: 'text', width: 100 },
+    { name: 'anio', label: 'Año', type: 'text', width: 70 }
+  ],
+  defaultData: {
+    tipoInstalacion: 'con almacenamiento',
+    direccion: 'AVENIDA DE MÁLAGA, Nº50',
+    localidad: 'MONTILLA',
+    provincia: 'SEVILLA',
+    uso: 'doméstico o negocio',
+    ciudadFirma: 'Bollullos de la Mitación',
+    dia: '01',
+    mes: 'JULIO',
+    anio: '2024'
+  },
+  fieldMapping: {
+    tipoInstalacion: '',
+    direccion: 'emplazamientoCalle',
+    localidad: 'localidadEmplazamiento',
+    provincia: 'provinciaEmplazamiento',
+    uso: 'usoDestino',
+    ciudadFirma: 'ciudadFirma',
+    dia: 'dia',
+    mes: 'mes',
+    anio: 'anio'
+  },
   capabilities: {
     canPreview: true,
     canEdit: false,

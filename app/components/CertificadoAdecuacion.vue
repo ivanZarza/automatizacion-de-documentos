@@ -1,32 +1,89 @@
 
+
 <template>
-  <div class="certificado-adecuacion">
-    <div class="logo-header">
-      <img src="/logo-solay.png" alt="Logo Solay" class="logo-solay" />
+  <div data-pdf-content class="contenedor-pdf">
+    <!-- Contenedor principal con márgenes A4 -->
+    <div class="contenedor-principal">
+      
+      <!-- Encabezado con Logo -->
+      <div class="encabezado">
+        <div class="encabezado-contenido">
+          <h1 class="titulo-principal">CERTIFICADO DE ADECUACIÓN AL REAL DECRETO 1699/2011</h1>
+        </div>
+        <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
+      </div>
+
+      <!-- Contenido Principal -->
+      <div class="contenido-principal">
+        <p>
+          SOLAY INGENIEROS, S.L. empresa instaladora habilitada en baja tensión con C.I.F. B-09.848.912,
+          <b>CERTIFICA</b> que la instalación eléctrica generadora fotovoltaica <b>{{ tipoInstalacion }}</b>, situada en
+          <b>{{ direccion }}</b> en la localidad de <b>{{ localidad }}</b>, de la Provincia de <b>{{ provincia }}</b>,
+          y cuyo uso al que se destina es <b>{{ uso }}</b>, cumple con todos y cada uno de los requisitos y disposiciones reglamentarias en lo que a instalaciones eléctricas en baja tensión se refiere el:
+        </p>
+        <ul>
+          <li>R.D. 842/2002 Reglamento Electrotécnico para Baja Tensión.</li>
+          <li>R.D. 1699/2011 Que regula la conexión a red de instalaciones de producción de energía eléctrica de pequeña potencia.</li>
+        </ul>
+        <p>
+          Y para que así conste y sirva de justificante, expido el presente certificado en {{ ciudadFirma }}, a <b>{{ dia }}</b> de <b>{{ mes }}</b> de <b>{{ anio }}</b>.
+        </p>
+        <div class="logo-footer">
+          <img src="/firma-solay.png" alt="Firma Solay" class="logo-solay-footer" />
+        </div>
+        <div class="firma">(firma y sello del Instalador Habilitado)</div>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es</p>
+        <p class="texto-pie">Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110 Sevilla.</p>
+        <p class="texto-pie">Página 1</p>
+      </div>
     </div>
-    <h2 class="titulo">CERTIFICADO DE ADECUACIÓN AL REAL DECRETO 1699/2011</h2>
-    <p>
-      SOLAY INGENIEROS, S.L. empresa instaladora habilitada en baja tensión con C.I.F. B-09.848.912,
-      <b>CERTIFICA</b> que la instalación eléctrica generadora fotovoltaica <span class="resaltado">con almacenamiento</span>, situada en
-      <span class="resaltado">AVENIDA DE MÁLAGA, Nº50</span> en la localidad de <span class="resaltado">MONTILLA</span>, de la Provincia de <span class="resaltado">SEVILLA</span>,
-      y cuyo uso al que se destina es <span class="resaltado">doméstico o negocio</span>, cumple con todos y cada uno de los requisitos y disposiciones reglamentarias en lo que a instalaciones eléctricas en baja tensión se refiere el:
-    </p>
-    <ul>
-      <li>R.D. 842/2002 Reglamento Electrotécnico para Baja Tensión.</li>
-      <li>R.D. 1699/2011 Que regula la conexión a red de instalaciones de producción de energía eléctrica de pequeña potencia.</li>
-    </ul>
-    <p>
-      Y para que así conste y sirva de justificante, expido el presente certificado en Bollullos de la Mitación, a <span class="resaltado">01 de JULIO de 2024</span>.
-    </p>
-    <div class="logo-footer">
-      <img src="/firma-solay.png" alt="Firma Solay" class="logo-solay-footer" />
-    </div>
-    <div class="firma">(firma y sello del Instalador Habilitado)</div>
   </div>
 </template>
 
 <script setup>
-// Variables, props y lógica se añadirán en los siguientes pasos
+
+defineProps({
+  tipoInstalacion: {
+    type: String,
+    default: 'con almacenamiento'
+  },
+  direccion: {
+    type: String,
+    default: 'AVENIDA DE MÁLAGA, Nº50'
+  },
+  localidad: {
+    type: String,
+    default: 'MONTILLA'
+  },
+  provincia: {
+    type: String,
+    default: 'SEVILLA'
+  },
+  uso: {
+    type: String,
+    default: 'doméstico o negocio'
+  },
+  ciudadFirma: {
+    type: String,
+    default: 'Bollullos de la Mitación'
+  },
+  dia: {
+    type: String,
+    default: '01'
+  },
+  mes: {
+    type: String,
+    default: 'JULIO'
+  },
+  anio: {
+    type: String,
+    default: '2024'
+  }
+})
 </script>
 
 <style scoped>
@@ -53,32 +110,36 @@
 }
 
 /* ========== ENCABEZADO ========== */
-.logo-header {
+.encabezado {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: flex-start;
   padding: 18px 0;
   border-bottom: 2px solid #0066cc;
   margin-bottom: 27px;
 }
 
-.logo-solay {
-  width: 150px;
-  height: auto;
-  margin-left: 15px;
-  flex-shrink: 0;
+.encabezado-contenido {
+  flex: 1;
 }
 
-.titulo {
-  margin: 0 0 20px 0;
+.titulo-principal {
+  margin: 0;
   font-size: 24px;
   font-weight: bold;
   color: #ff9900;
   text-align: center;
 }
 
+.logo {
+  width: 150px;
+  height: auto;
+  margin-left: 15px;
+  flex-shrink: 0;
+}
+
 /* ========== CONTENIDO PRINCIPAL ========== */
-.certificado-adecuacion {
+.contenido-principal {
   line-height: 1.8;
   font-size: 16px;
   flex: 1;
@@ -86,30 +147,20 @@
   flex-direction: column;
 }
 
-.resaltado {
-  color: #d32f2f;
-  font-weight: bold;
-}
 
 ul {
   margin: 15px 0 15px 30px;
   font-size: 16px;
 }
 
-/* ========== FECHA ========== */
-.certificado-adecuacion p {
-  margin: 0 0 15px 0;
-  text-align: justify;
-}
-
 .logo-footer {
   display: flex;
   justify-content: center;
-  margin: 30px 0 10px 0;
+  margin: 80px 0 10px 0;
 }
 
 .logo-solay-footer {
-  width: 140px;
+  width: 200px;
   height: auto;
 }
 
@@ -118,6 +169,20 @@ ul {
   margin-top: 10px;
   font-size: 15px;
   font-style: italic;
+}
+
+/* ========== PIE DE PÁGINA ========== */
+.pie-pagina {
+  padding: 12px 0;
+  border-top: 1px solid #0066cc;
+  margin-top: 20px;
+  text-align: center;
+  font-size: 12px;
+  color: #000;
+}
+
+.texto-pie {
+  margin: 2px 0;
 }
 
 @media print {
@@ -143,7 +208,7 @@ ul {
     box-shadow: none !important;
   }
 
-  .certificado-adecuacion {
+  div[data-pdf-content] {
     font-size: 16px !important;
     width: 210mm !important;
     height: 297mm !important;
@@ -154,8 +219,8 @@ ul {
     background: white !important;
   }
 
-  .logo-header, .logo-footer {
-    page-break-inside: avoid;
+  div[data-pdf-content] > div {
+    height: auto !important;
   }
 
   button {
@@ -169,7 +234,7 @@ ul {
 }
 
 @media screen {
-  .certificado-adecuacion {
+  div[data-pdf-content] {
     font-size: 20px;
     max-width: 210mm;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -179,5 +244,4 @@ ul {
     padding: 10mm;
   }
 }
-
 </style>
