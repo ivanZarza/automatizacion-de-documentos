@@ -207,7 +207,6 @@ defineProps({
 /* ========== PÁRRAFOS ========== */
 .parrafo-tecnico {
   margin: 20px 0 20px 0;
-  text-align: center;
   font-size: 15px;
   line-height: 1.5;
 }
@@ -218,7 +217,12 @@ defineProps({
   font-size: 15px;
   line-height: 1.5;
 }
-
+.parrafo-fecha {
+  text-align: center;
+  font-size: 14px;
+  margin: 60px 0;
+  font-weight: bold;
+}
 .parrafo-fecha {
   text-align: center;
   font-size: 14px;
@@ -232,9 +236,6 @@ defineProps({
   font-weight: bold;
 }
 
-.texto-rojo {
-  color: #ff0000;
-}
 
 /* ========== LOGO CENTRO ========== */
 .contenedor-logo-centro {

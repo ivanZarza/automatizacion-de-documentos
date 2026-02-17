@@ -229,7 +229,7 @@ defineProps({
 .parrafo-datos,
 .parrafo-estructura {
   margin: 20px 0 25px 0;
-  text-align: center;
+  text-align: justify;
 }
 
 .parrafo-imagen {

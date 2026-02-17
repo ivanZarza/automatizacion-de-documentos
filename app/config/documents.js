@@ -265,7 +265,7 @@ export const certificadoAporticadaTejConfig = {
     potencia: 'e2_potenciaPicoModulo',
     peso: 'peso',
     marcaModelo: 'e2_marcaModeloModulo',
-    ciudadFirma: 'ciudadFirma',
+    ciudadFirma: 'localidadEmplazamiento',
     fecha: 'fecha',
     foto1: 'otros_foto1',
     foto2: 'otros_foto2'
