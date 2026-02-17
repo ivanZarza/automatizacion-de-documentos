@@ -2186,6 +2186,40 @@ export const declaracionCompromisoDerechosConfig = {
   category: 'aceptaciones'
 };
 
+export const declaracionAusenciaConflictoInteresesConfig = {
+  id: 'aceptacion-ausencia-conflicto-intereses',
+  title: 'Declaración de Ausencia de Conflicto de Intereses (DACI)',
+  description: 'Declaración de ausencia de conflicto de intereses del personal externo a la Administración Pública',
+  fileName: 'declaracion-ausencia-conflicto-intereses.pdf',
+  route: '/aceptaciones/aceptacion-ausencia-conflicto-intereses',
+  fields: [
+    { name: 'ciudad', label: 'Ciudad', type: 'text', fullWidth: true },
+    { name: 'dia', label: 'Día', type: 'text' },
+    { name: 'mes', label: 'Mes', type: 'text' },
+    { name: 'anio', label: 'Año', type: 'text' },
+    { name: 'firma', label: 'Firma (Imagen)', type: 'file', accept: 'image/*' }
+  ],
+  defaultData: {
+    ciudad: '',
+    dia: '',
+    mes: '',
+    anio: '',
+    firma: ''
+  },
+  fieldMapping: {
+    ciudad: 'localidadEmplazamiento',
+    dia: 'dia',
+    mes: 'mes',
+    anio: 'anio'
+  },
+  capabilities: {
+    canPreview: true,
+    canEdit: true,
+    canGeneratePDF: true
+  },
+  category: 'aceptaciones'
+};
+
 const documentConfigs = {
   'certificado-adecuacion': certificadoAdecuacionConfig,
   'autorizacion-representacion': autorizacionRepresentacionConfig,
@@ -2210,7 +2244,8 @@ const documentConfigs = {
   'z-declaracion-tecnico-competente': zDeclaracionTecnicoCompetenteConfig,
   'aceptacion-subvencion': aceptacionSubvencionConfig,
   'aceptacion-cesion-tratamiento': declaracionCesionTratamientoConfig,
-  'aceptacion-compromiso-derechos': declaracionCompromisoDerechosConfig
+  'aceptacion-compromiso-derechos': declaracionCompromisoDerechosConfig,
+  'aceptacion-ausencia-conflicto-intereses': declaracionAusenciaConflictoInteresesConfig
 }
 
 /**
