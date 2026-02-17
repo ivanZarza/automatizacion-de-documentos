@@ -2112,7 +2112,25 @@ export const autorizacionComunicacionConfig = {
 /**
  * Objeto que contiene todas las configuraciones de documentos
  */
+const certificadoAdecuacionConfig = {
+  id: 'certificado-adecuacion',
+  title: 'Certificado de Adecuación al Real Decreto 1699/2011',
+  description: 'Certificado de adecuación para instalaciones eléctricas según RD 1699/2011',
+  fileName: 'certificado-adecuacion.pdf',
+  route: '/certificado-adecuacion',
+  fields: [],
+  defaultData: {},
+  fieldMapping: {},
+  capabilities: {
+    canPreview: true,
+    canEdit: false,
+    canGeneratePDF: true
+  },
+  category: 'legalizacion'
+};
+
 const documentConfigs = {
+  'certificado-adecuacion': certificadoAdecuacionConfig,
   'autorizacion-representacion': autorizacionRepresentacionConfig,
   'declaracion-habilitacion-profesional': declaracionHabilitacionProfesionalConfig,
   'declaracion-no-generacion-rcds': declaracionNoGeneracionRcdsConfig,
