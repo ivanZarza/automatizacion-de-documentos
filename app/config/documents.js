@@ -2220,12 +2220,12 @@ export const declaracionAusenciaConflictoInteresesConfig = {
   category: 'aceptaciones'
 };
 
-export const anexoCCompromisoTransversalesConfig = {
-  id: 'aceptacion-anexo-c-compromiso-transversales',
-  title: 'Anexo C - Declaración de Compromiso de Cumplimiento de Principios Transversales',
+export const declaracionCompromisoTransversalesConfig = {
+  id: 'aceptacion-compromiso-transversales',
+  title: 'Declaración de Compromiso de Cumplimiento de Principios Transversales',
   description: 'Modelo de declaración de compromiso de cumplimiento de los principios transversales (PRTR)',
-  fileName: 'anexo-c-compromiso-transversales.pdf',
-  route: '/aceptaciones/aceptacion-anexo-c-compromiso-transversales',
+  fileName: 'compromiso-transversales.pdf',
+  route: '/aceptaciones/aceptacion-compromiso-transversales',
   fields: [
     { name: 'nombreApellidos', label: 'Nombre y Apellidos', type: 'text', fullWidth: true },
     { name: 'nif', label: 'NIF/CIF', type: 'text' },
@@ -2299,7 +2299,7 @@ const documentConfigs = {
   'aceptacion-cesion-tratamiento': declaracionCesionTratamientoConfig,
   'aceptacion-compromiso-derechos': declaracionCompromisoDerechosConfig,
   'aceptacion-ausencia-conflicto-intereses': declaracionAusenciaConflictoInteresesConfig,
-  'aceptacion-anexo-c-compromiso-transversales': anexoCCompromisoTransversalesConfig
+  'aceptacion-compromiso-transversales': declaracionCompromisoTransversalesConfig
 }
 
 /**
