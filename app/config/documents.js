@@ -734,7 +734,7 @@ export const memoriaTecnicaConfig = {
     // H - Esquema Unifilar
     esquemaUnifilar: 'h_esquemaUnifilar',
     // I - Plano de Emplazamiento
-    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento'
+    planoEmplazamiento: 'otros_PlanoCubiertaNuevo'
   },
   capabilities: {
     canPreview: true,
@@ -1011,7 +1011,7 @@ export const memoriaInstalacionAisladaConBateriaConfig = {
     // H - Esquema Unifilar
     esquemaUnifilar: 'h_esquemaUnifilar',
     // I - Plano de Emplazamiento
-    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento'
+    planoEmplazamiento: 'otros_PlanoCubiertaNuevo'
   },
   capabilities: {
     canPreview: true,
@@ -1157,7 +1157,7 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
     // H - Esquema Unifilar
     esquemaUnifilar: 'h_esquemaUnifilar',
     // I - Plano de Emplazamiento
-    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento'
+    planoEmplazamiento: 'otros_PlanoCubiertaNuevo'
   },
   capabilities: { ...memoriaTecnicaConfig.capabilities }
 }
@@ -1299,7 +1299,7 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
     // H - Esquema Unifilar
     esquemaUnifilar: 'h_esquemaUnifilar',
     // I - Plano de Emplazamiento
-    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento'
+    planoEmplazamiento: 'otros_PlanoCubiertaNuevo'
   },
   capabilities: { ...memoriaTecnicaConfig.capabilities }
 }
@@ -1441,7 +1441,7 @@ export const memoriaTecnicaPuntoRecargaConfig = {
     // H - Esquema Unifilar
     esquemaUnifilar: 'h_esquemaUnifilar',
     // I - Plano de Emplazamiento
-    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento'
+    planoEmplazamiento: 'otros_PlanoCubiertaNuevo'
   },
   capabilities: {
     canPreview: true,
@@ -1571,7 +1571,7 @@ export const planosPlanosSituacionEmplazamientoCubiertaConfig = {
     pse_provincia: 'provinciaEmplazamiento',
     pse_referenciaCatastral: 'referenciaCatastral',
     pse_potenciaKw: 'potenciaKw',
-    pse_tipoInstalacion: 'tipoInstalacion',
+    pse_tipoInstalacion: 'tipoInstalacionSeleccionada',
     pse_potenciaPicoGenerador: 'e2_potenciaPicoGenerador',
     pse_totalModulos: 'e2_totalModulos',
     pse_potenciaModulos: 'e2_potenciaPicoModulo',
@@ -1583,7 +1583,7 @@ export const planosPlanosSituacionEmplazamientoCubiertaConfig = {
     pse_descripcion: 'otros_descripcionProyecto',
     pse_imagenSituacion: 'otros_imagenPlanoSituacion',
     pse_imagenEmplazamiento: 'otros_imagenPlanoEmplazamiento',
-    pse_imagenCubierta: 'otros_PlanoCubiertaNuevo'
+    pse_imagenCubierta: 'otros_imagenPlanoCubierta'
   },
   capabilities: {
     canPreview: true,

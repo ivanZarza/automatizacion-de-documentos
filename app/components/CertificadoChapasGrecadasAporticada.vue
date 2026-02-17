@@ -284,9 +284,6 @@ defineProps({
   font-weight: bold;
 }
 
-.texto-rojo {
-  color: #ff0000;
-}
 
 /* ========== LOGO CENTRO ========== */
 .contenedor-logo-centro {
