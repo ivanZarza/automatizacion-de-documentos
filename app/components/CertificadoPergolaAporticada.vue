@@ -5,7 +5,7 @@
       <div class="encabezado">
         <div class="encabezado-contenido">
           <h1 class="titulo-principal">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA</h1>
-          <h3 class="titulo-secundario">AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE PÉRGOLA, <span class="texto-azul">APORTICADA</span></h3>
+          <h3 class="titulo-secundario">AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE PÉRGOLA</h3>
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
       </div>
