@@ -1583,7 +1583,7 @@ export const planosPlanosSituacionEmplazamientoCubiertaConfig = {
     pse_descripcion: 'otros_descripcionProyecto',
     pse_imagenSituacion: 'otros_imagenPlanoSituacion',
     pse_imagenEmplazamiento: 'otros_imagenPlanoEmplazamiento',
-    pse_imagenCubierta: 'otros_imagenPlanoCubierta'
+    pse_imagenCubierta: 'otros_PlanoCubiertaNuevo'
   },
   capabilities: {
     canPreview: true,
