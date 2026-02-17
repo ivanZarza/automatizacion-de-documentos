@@ -1,0 +1,3 @@
+Promp para crear una pagina nueva sencilla
+vamos a crear un documento nuevo, donde te pasare en imagen y el texto si lo necesitas, empezaremos por crear la plantilla html,despues copiaras las clases css y los estilos de AutorizacionRepresentacion.vue, despues las variables, despues las props en ese archivo, despues crearemos la vista del archivo en la carpeta pages que va envuelto por el archivo documentPage, despues el objeto config en el archivo document.js de la carpeta config para que lo enlace al formulario maestro, pero antes sigue la  ruta necesaria en otro archivo, por ejemplo Autorizacion representacion. vue para que lo entiendas,  y despues procedemos con este, es importante que vayas paso a paso y no hags nada sin preguntar
+
