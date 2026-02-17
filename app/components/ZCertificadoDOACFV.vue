@@ -34,7 +34,15 @@
             Se han observado y cumplido todas las condiciones y/o requisitos técnicos y de seguridad según la legislación vigente en el desarrollo de los trabajos (R.E.B.T. e I.T.C. según instalación determinada en Condiciones Particulares del Contrato) y se han realizado todas las verificaciones previstas en los reglamentos vigentes que afectan a la instalación que el Proyecto comprende, con el resultado de FAVORABLE.
           </li>
         </ol>
-        <p class="parrafo-fecha">FIRMA DEL INGENIERO INDUSTRIAL</p>
+          <div class="firma-bloque">
+              <img src="/firma-solay.png" alt="Firma" class="imagen-firma" />
+            <p class="etiqueta-firma">FIRMA DEL REPRESENTANTE</p>
+            <p class="nombre-firma">{{ representante }}</p>
+                            <p class="texto-pie">
+          <strong>LUGAR Y FECHA:</strong> {{ localidad }}, a {{ dia }} de {{ mes }} de {{ anio }}.
+        </p>
+          </div>
+
       </div>
 
       <!-- Pie de página -->
@@ -42,9 +50,7 @@
         <div class="footer-logo">
           <img src="/logo-solay.png" alt="SOLAV INGENIEROS, S.L." class="logo" />
         </div>
-        <p class="texto-pie">
-          <strong>LUGAR Y FECHA:</strong> {{ localidad }}, a {{ dia }} de {{ mes }} de {{ anio }}.
-        </p>
+
       </div>
     </div>
   </div>
@@ -175,6 +181,53 @@ defineProps({
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
+}
+
+/* ========== FIRMAS ========== */
+.contenedor-firmas {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: auto;
+}
+
+.firma-bloque {
+  margin-top: 50px;
+  flex: 1;
+  text-align: center;
+}
+
+.linea-firma {
+  border-bottom: 1px solid #000;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.linea-firma-imagen {
+  border-bottom: 1px solid #000;
+  height: 60px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.imagen-firma {
+  height: 80px;
+  object-fit: contain;
+  margin-top: -50px;
+}
+
+.etiqueta-firma {
+  margin: 5px 0;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.nombre-firma {
+  margin: 2px 0;
+  font-size: 13px;
+  color: #666;
 }
 
 /* ========== MEDIA QUERIES ========== */
