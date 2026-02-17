@@ -1,3 +1,4 @@
+
 export const autorizacionRepresentacionConfig = {
   id: 'autorizacion-representacion',
   title: 'Autorización de Representación',
@@ -1867,9 +1868,7 @@ export const autorizacionComunicacionConfig = {
   category: 'legalizacion'
 }
 
-/**
- * Objeto que contiene todas las configuraciones de documentos
- */
+
 export const certificadoAdecuacionConfig = {
   id: 'certificado-adecuacion',
   title: 'Certificado de Adecuación al Real Decreto 1699/2011',
@@ -2008,6 +2007,49 @@ export const zDeclaracionDireccionObraConfig = {
   category: 'legalizacion'
 };
 
+export const zDeclaracionTecnicoCompetenteConfig = {
+  id: 'z-declaracion-tecnico-competente',
+  title: 'Declaración Responsable Técnico Competente',
+  description: 'Declaración responsable para técnico competente con campos sobre imagen de fondo',
+  fileName: 'declaracion-tecnico-competente.pdf',
+  route: '/z-declaracion-tecnico-competente',
+  fields: [
+    { name: 'potencia', label: 'Potencia', type: 'text' },
+    { name: 'provincia', label: 'Provincia', type: 'text' },
+    { name: 'fechaElaboracion', label: 'Fecha de Elaboración', type: 'date' },
+    { name: 'dia', label: 'Día', type: 'text' },
+    { name: 'mes', label: 'Mes', type: 'text' },
+    { name: 'anio', label: 'Año', type: 'text' }
+  ],
+  defaultData: {
+    potencia: '',
+    provincia: '',
+    fechaElaboracion: '',
+    dia: '',
+    mes: '',
+    anio: ''
+  },
+  fieldMapping: {
+    potencia: 'potencia',
+    provincia: 'provinciaEmplazamiento',
+    fechaElaboracion: 'fecha',
+    dia: 'dia',
+    mes: 'mes',
+    anio: 'anio'
+  },
+  capabilities: {
+    canPreview: true,
+    canEdit: true,
+    canGeneratePDF: true
+  },
+  category: 'legalizacion'
+};
+
+
+
+// --- Categoría: Aceptaciones ---
+// Aquí se agregarán los documentos de la categoría 'aceptaciones'
+
 const documentConfigs = {
   'certificado-adecuacion': certificadoAdecuacionConfig,
   'autorizacion-representacion': autorizacionRepresentacionConfig,
@@ -2028,7 +2070,8 @@ const documentConfigs = {
   'z-certificado-br': zCertificadoBRConfig,
   'autorizacion-comunicacion': autorizacionComunicacionConfig,
   'z-certificado-doacfv': zCertificadoDOACFVConfig,
-  'z-declaracion-direccion-obra': zDeclaracionDireccionObraConfig
+  'z-declaracion-direccion-obra': zDeclaracionDireccionObraConfig,
+  'z-declaracion-tecnico-competente': zDeclaracionTecnicoCompetenteConfig
 }
 
 /**

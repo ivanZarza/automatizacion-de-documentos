@@ -6,9 +6,10 @@ import DocumentCard from '../components/DocumentCard.vue'
 
 
 
-const isFormularioExpanded = ref(true)
-const isProyectoExpanded = ref(true)
-const isLegalizacionExpanded = ref(true)
+const isFormularioExpanded = ref(false)
+const isProyectoExpanded = ref(false)
+const isLegalizacionExpanded = ref(false)
+const isAceptacionesExpanded = ref(false)
 
 const allDocuments = getAllDocuments()
 
@@ -18,6 +19,10 @@ const documentosProyecto = computed(() =>
 
 const documentosLegalizacion = computed(() =>
   allDocuments.filter(doc => doc.category === 'legalizacion')
+)
+
+const documentosAceptaciones = computed(() =>
+  allDocuments.filter(doc => doc.category === 'aceptaciones')
 )
 </script>
 
@@ -72,6 +77,27 @@ const documentosLegalizacion = computed(() =>
       <div v-else class="documentos-grid">
         <DocumentCard
           v-for="documento in documentosLegalizacion"
+          :key="documento.id"
+          :config="documento"
+        />
+      </div>
+    </SectionCard>
+
+    <!-- SECCIÓN DOCUMENTOS DE ACEPTACIONES -->
+    <SectionCard
+      title="✅ Documentos de Aceptaciones"
+      :isExpanded="isAceptacionesExpanded"
+      @toggle="isAceptacionesExpanded = !isAceptacionesExpanded"
+      :count="documentosAceptaciones.length"
+      :isEmpty="documentosAceptaciones.length === 0"
+    >
+      <div v-if="documentosAceptaciones.length === 0" class="empty-state">
+        <span class="empty-icon">🔜</span>
+        <p class="empty-text">Próximamente documentos de aceptaciones</p>
+      </div>
+      <div v-else class="documentos-grid">
+        <DocumentCard
+          v-for="documento in documentosAceptaciones"
           :key="documento.id"
           :config="documento"
         />
