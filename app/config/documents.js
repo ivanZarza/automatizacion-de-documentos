@@ -2080,6 +2080,59 @@ export const aceptacionSubvencionConfig = {
   category: 'aceptaciones'
 };
 
+export const declaracionCesionTratamientoConfig = {
+  id: 'aceptacion-cesion-tratamiento',
+  title: 'Declaración de Cesión y Tratamiento de Datos',
+  description: 'Declaración de cesión y tratamiento de datos para trámites de aceptación',
+  fileName: 'declaracion-cesion-tratamiento.pdf',
+  route: '/aceptaciones/aceptacion-cesion-tratamiento',
+  fields: [
+    { name: 'nombreApellidos', label: 'Nombre y Apellidos', type: 'text', fullWidth: true },
+    { name: 'nif', label: 'NIF/CIF', type: 'text' },
+    { name: 'direccion', label: 'Dirección', type: 'text', fullWidth: true },
+    { name: 'nombreRepresentante', label: 'Nombre del Representante', type: 'text', fullWidth: true },
+    { name: 'dniRepresentante', label: 'DNI/NIF del Representante', type: 'text' },
+    { name: 'nombreEntidadRepresentada', label: 'Nombre de la Entidad Representada', type: 'text', fullWidth: true },
+    { name: 'nifEntidadRepresentada', label: 'NIF de la Entidad Representada', type: 'text' },
+    { name: 'domicilioEntidad', label: 'Domicilio de la Entidad', type: 'text', fullWidth: true },
+    { name: 'ciudad', label: 'Ciudad', type: 'text', fullWidth: true },
+    { name: 'dia', label: 'Día', type: 'text' },
+    { name: 'mes', label: 'Mes', type: 'text' },
+    { name: 'anio', label: 'Año', type: 'text' },
+    { name: 'firma', label: 'Firma (Imagen)', type: 'file', accept: 'image/*' }
+  ],
+  defaultData: {
+    nombreApellidos: '',
+    nif: '',
+    direccion: '',
+    nombreRepresentante: '',
+    dniRepresentante: '',
+    nombreEntidadRepresentada: '',
+    nifEntidadRepresentada: '',
+    domicilioEntidad: '',
+    ciudad: '',
+    dia: '',
+    mes: '',
+    anio: '',
+    firma: ''
+  },
+  fieldMapping: {
+    nombreApellidos: 'apellidosNombre',
+    nif: 'nifCif',
+    direccion: 'emplazamientoCalle',
+    ciudad: 'localidadEmplazamiento',
+    dia: 'dia',
+    mes: 'mes',
+    anio: 'anio'
+  },
+  capabilities: {
+    canPreview: true,
+    canEdit: true,
+    canGeneratePDF: true
+  },
+  category: 'aceptaciones'
+};
+
 const documentConfigs = {
   'certificado-adecuacion': certificadoAdecuacionConfig,
   'autorizacion-representacion': autorizacionRepresentacionConfig,
@@ -2102,7 +2155,8 @@ const documentConfigs = {
   'z-certificado-doacfv': zCertificadoDOACFVConfig,
   'z-declaracion-direccion-obra': zDeclaracionDireccionObraConfig,
   'z-declaracion-tecnico-competente': zDeclaracionTecnicoCompetenteConfig,
-  'aceptacion-subvencion': aceptacionSubvencionConfig
+  'aceptacion-subvencion': aceptacionSubvencionConfig,
+  'aceptacion-cesion-tratamiento': declaracionCesionTratamientoConfig
 }
 
 /**
