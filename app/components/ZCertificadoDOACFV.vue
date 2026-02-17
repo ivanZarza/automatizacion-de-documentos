@@ -18,7 +18,7 @@
         <p class="titulo-autorizo">CERTIFICA QUE:</p>
         <ol>
           <li>
-            Ha redactado y firmado el Proyecto de Ejecución titulado: Instalación solar fotovoltaica de {{ potencia }} para Autoconsumo en {{ tipoEstablecimiento }} ({{ localidad }}).
+            Ha redactado y firmado el Proyecto de Ejecución titulado: Instalación solar fotovoltaica de {{ potencia }}kW para Autoconsumo en {{ tipoEstablecimiento }} ({{ localidad }}).
           </li>
           <li>
             Ha ejercido la Dirección Técnica de Obra en la ejecución de la instalación asociada al Proyecto:<br>
@@ -43,7 +43,7 @@
           <img src="/logo-solay.png" alt="SOLAV INGENIEROS, S.L." class="logo" />
         </div>
         <p class="texto-pie">
-          <strong>LUGAR Y FECHA:</strong> {{ localidad }}, a {{ fecha }}
+          <strong>LUGAR Y FECHA:</strong> {{ localidad }}, a {{ dia }} de {{ mes }} de {{ anio }}.
         </p>
       </div>
     </div>
@@ -58,15 +58,11 @@ defineProps({
   cp: String,
   localidad: String,
   provincia: String,
-  fecha: String,
-  potencia: {
-    type: String,
-    default: '12kW'
-  },
-  tipoEstablecimiento: {
-    type: String,
-    default: 'cubierta tipo de establecimiento'
-  }
+  dia: String,
+  mes: String,
+  anio: String,
+  potencia: String,
+  tipoEstablecimientoString: String
 })
 </script>
 
