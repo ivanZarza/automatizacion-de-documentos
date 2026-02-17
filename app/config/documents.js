@@ -2048,7 +2048,37 @@ export const zDeclaracionTecnicoCompetenteConfig = {
 
 
 // --- Categoría: Aceptaciones ---
-// Aquí se agregarán los documentos de la categoría 'aceptaciones'
+export const aceptacionSubvencionConfig = {
+  id: 'aceptacion-subvencion',
+  title: 'Aceptación de la Subvención Concedida',
+  description: 'Aceptación de la subvención concedida para instalación fotovoltaica',
+  fileName: 'aceptacion-subvencion.pdf',
+  route: '/aceptaciones/aceptacion-subvencion',
+  fields: [
+    { name: 'ciudad', label: 'Ciudad', type: 'text', fullWidth: true },
+    { name: 'dia', label: 'Día', type: 'text' },
+    { name: 'mes', label: 'Mes', type: 'text' },
+    { name: 'anio', label: 'Año', type: 'text' }
+  ],
+  defaultData: {
+    ciudad: '',
+    dia: '',
+    mes: '',
+    anio: ''
+  },
+  fieldMapping: {
+    ciudad: 'localidadEmplazamiento',
+    dia: 'dia',
+    mes: 'mes',
+    anio: 'anio'
+  },
+  capabilities: {
+    canPreview: true,
+    canEdit: true,
+    canGeneratePDF: true
+  },
+  category: 'aceptaciones'
+};
 
 const documentConfigs = {
   'certificado-adecuacion': certificadoAdecuacionConfig,
@@ -2071,7 +2101,8 @@ const documentConfigs = {
   'autorizacion-comunicacion': autorizacionComunicacionConfig,
   'z-certificado-doacfv': zCertificadoDOACFVConfig,
   'z-declaracion-direccion-obra': zDeclaracionDireccionObraConfig,
-  'z-declaracion-tecnico-competente': zDeclaracionTecnicoCompetenteConfig
+  'z-declaracion-tecnico-competente': zDeclaracionTecnicoCompetenteConfig,
+  'aceptacion-subvencion': aceptacionSubvencionConfig
 }
 
 /**
