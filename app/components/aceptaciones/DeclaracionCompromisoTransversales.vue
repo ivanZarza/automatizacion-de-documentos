@@ -13,7 +13,7 @@
           :src="et.displayValue"
           style="width: 100%; height: 100%; object-fit: contain"
         />
-        <span v-else>{{ et.displayValue }}</span>
+        <span v-else >{{ et.displayValue }}</span>
       </span>
     </article>
   </div>
