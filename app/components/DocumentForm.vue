@@ -19,42 +19,38 @@
           
           <!-- Contenido Desplegable -->
           <div v-if="expandedSections[sectionLetter]" class="section-content">
-          <!-- Agrupar por subsección si es E1, E2, F, G, H, o I -->
-          <template v-if="['E1', 'E2', 'F', 'G', 'H', 'I'].includes(sectionLetter)">
             <div v-for="(subFields, subsection) in groupFieldsBySubsection(groupedFields)" :key="subsection" class="subsection-container">
               <h4 class="subsection-title">{{ getSubsectionLabel(subsection) }}</h4>
               <div class="fields-grid">
                 <div v-for="field in subFields" :key="field.name" class="field-wrapper">
                   <label class="field-label">{{ field.label }}</label>
-                  
                   <!-- Input Text -->
-                    <input 
-                      v-if="field.type === 'text' || field.type === 'email' || field.type === 'tel'"
-                      v-model="formData[field.name]"
-                      :type="field.type"
-                      :placeholder="field.placeholder"
-                      class="field-input"
-                    />
-                    <!-- Input URL con previsualización de imagen -->
-                    <div v-else-if="field.type === 'url' && field.preview" class="url-preview-wrapper">
-                      <input
-                        v-model="formData[field.name]"
-                        type="url"
-                        :placeholder="field.placeholder"
-                        class="field-input"
-                      />
-                      <div v-if="formData[field.name]" class="file-preview">
-                        <img :src="formData[field.name]" class="file-preview-image" style="max-width:200px;max-height:100px;object-fit:contain;" />
-                      </div>
-                    </div>
-                    <input 
-                      v-else-if="field.type === 'url'"
+                  <input 
+                    v-if="field.type === 'text' || field.type === 'email' || field.type === 'tel'"
+                    v-model="formData[field.name]"
+                    :type="field.type"
+                    :placeholder="field.placeholder"
+                    class="field-input"
+                  />
+                  <!-- Input URL con previsualización de imagen -->
+                  <div v-else-if="field.type === 'url' && field.preview" class="url-preview-wrapper">
+                    <input
                       v-model="formData[field.name]"
                       type="url"
                       :placeholder="field.placeholder"
                       class="field-input"
                     />
-
+                    <div v-if="formData[field.name]" class="file-preview">
+                      <img :src="formData[field.name]" class="file-preview-image" style="max-width:200px;max-height:100px;object-fit:contain;" />
+                    </div>
+                  </div>
+                  <input 
+                    v-else-if="field.type === 'url'"
+                    v-model="formData[field.name]"
+                    type="url"
+                    :placeholder="field.placeholder"
+                    class="field-input"
+                  />
                   <!-- Input Date -->
                   <input 
                     v-else-if="field.type === 'date'"
@@ -62,7 +58,6 @@
                     type="date"
                     class="field-input"
                   />
-
                   <!-- Textarea -->
                   <textarea 
                     v-else-if="field.type === 'textarea'"
@@ -71,7 +66,6 @@
                     :rows="field.rows || 3"
                     class="field-input field-textarea"
                   ></textarea>
-
                   <!-- Select -->
                   <select 
                     v-else-if="field.type === 'select'"
@@ -83,7 +77,6 @@
                       {{ option.label || option }}
                     </option>
                   </select>
-
                   <!-- File Input -->
                   <div v-else-if="field.type === 'file'" class="file-wrapper">
                     <label :for="field.name" class="file-input-label">
@@ -111,77 +104,7 @@
                 </div>
               </div>
             </div>
-          </template>
-          <template v-else>
-            <div class="fields-grid">
-              <div v-for="field in groupedFields" :key="field.name" class="field-wrapper">
-                <label class="field-label">{{ field.label }}</label>
-                
-                <!-- Input Text -->
-                <input 
-                  v-if="field.type === 'text' || field.type === 'email' || field.type === 'tel'"
-                  v-model="formData[field.name]"
-                  :type="field.type"
-                  :placeholder="field.placeholder"
-                  class="field-input"
-                />
-
-                <!-- Input Date -->
-                <input 
-                  v-else-if="field.type === 'date'"
-                  v-model="formData[field.name]"
-                  type="date"
-                  class="field-input"
-                />
-
-                <!-- Textarea -->
-                <textarea 
-                  v-else-if="field.type === 'textarea'"
-                  v-model="formData[field.name]"
-                  :placeholder="field.placeholder"
-                  :rows="field.rows || 3"
-                  class="field-input field-textarea"
-                ></textarea>
-
-                <!-- Select -->
-                <select 
-                  v-else-if="field.type === 'select'"
-                  v-model="formData[field.name]"
-                  class="field-input"
-                >
-                  <option value="">{{ field.placeholder }}</option>
-                  <option v-for="option in field.options" :key="option.value || option" :value="option.value || option">
-                    {{ option.label || option }}
-                  </option>
-                </select>
-
-                <!-- File Input -->
-                <div v-else-if="field.type === 'file'" class="file-wrapper">
-                  <label :for="'file-' + field.name" class="file-input-label">
-                    <svg class="file-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                      <polyline points="17 8 12 3 7 8"></polyline>
-                      <line x1="12" y1="3" x2="12" y2="15"></line>
-                    </svg>
-                    <span>{{ formData[field.name] ? 'Cambiar archivo' : 'Seleccionar archivo' }}</span>
-                  </label>
-                  <input 
-                    :id="'file-' + field.name"
-                    :key="field.name"
-                    type="file"
-                    :accept="field.accept || '*'"
-                    class="file-input-hidden"
-                    @change="handleFileUpload($event, field.name)"
-                  />
-                  <div v-if="formData[field.name]" class="file-preview">
-                    <p class="file-preview-text">✓ Archivo seleccionado:</p>
-                    <img v-if="field.accept?.includes('image')" :src="formData[field.name]" class="file-preview-image" />
-                    <p v-else class="file-preview-name">{{ extractFileName(formData[field.name]) }}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </template>
+          </div>
           </div>
         </div>
 
@@ -349,7 +272,7 @@ const groupedFieldsBySection = computed(() => {
   })
   
   // Ordenar secciones
-  const sortOrder = ['A', 'B', 'C', 'D', 'E', 'E1', 'E2', 'F', 'G', 'H', 'I', 'Otros','LEGALIZACION']
+  const sortOrder = ['A', 'B', 'C', 'D', 'E', 'E1', 'E2', 'F', 'G', 'H', 'I', 'Otros','LEGALIZACION', 'ACEPTACION']
   const sorted = {}
   sortOrder.forEach(key => {
     if (grouped[key]) {
