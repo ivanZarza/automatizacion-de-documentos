@@ -2060,7 +2060,8 @@ export const zDeclaracionTecnicoCompetenteConfig = {
     { name: 'anio', label: 'Año', type: 'text' }
   ],
   defaultData: {
-    potencia: '',
+    potenciaFrase1: '',
+    potenciaFrase2: '',
     provincia: '',
     razonSocial: '',
     fechaElaboracion: '',
@@ -2089,7 +2090,8 @@ export const zDeclaracionTecnicoCompetenteConfig = {
     firma: '/firma-solay.png',
   },
   fieldMapping: {
-    potencia: 'potencia',
+    potenciaFrase1: 'potenciaProyecto',
+    potenciaFrase2: 'potenciaProyecto',
     provincia: 'provinciaEmplazamiento',
     fechaElaboracion: 'fechaElaboracion',
     dia: 'dia',

@@ -32,7 +32,8 @@
 import { ref, computed, watch } from "vue";
 
 const props = defineProps({
-  potencia: { type: String, default: "" },
+  potenciaFrase1: { type: String, default: "" },
+  potenciaFrase2: { type: String, default: "" },
   provincia: { type: String, default: "" },
   fechaElaboracion: { type: String, default: "" },
   dia: { type: String, default: "" },
@@ -66,9 +67,19 @@ const debug = ref(true);
 
 const etiquetas = ref([
   {
-    name: "potencia",
-    x: 50,
-    y: 100,
+    name: "potenciaFrase1",
+    x: 160,
+    y: 135,
+    w: 30,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+    {
+    name: "potenciaFrase2",
+    x: 120,
+    y: 148,
     w: 30,
     h: 6,
     fontSize: 10,
