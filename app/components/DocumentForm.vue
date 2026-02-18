@@ -28,13 +28,32 @@
                   <label class="field-label">{{ field.label }}</label>
                   
                   <!-- Input Text -->
-                  <input 
-                    v-if="field.type === 'text' || field.type === 'email' || field.type === 'tel'"
-                    v-model="formData[field.name]"
-                    :type="field.type"
-                    :placeholder="field.placeholder"
-                    class="field-input"
-                  />
+                    <input 
+                      v-if="field.type === 'text' || field.type === 'email' || field.type === 'tel'"
+                      v-model="formData[field.name]"
+                      :type="field.type"
+                      :placeholder="field.placeholder"
+                      class="field-input"
+                    />
+                    <!-- Input URL con previsualización de imagen -->
+                    <div v-else-if="field.type === 'url' && field.preview" class="url-preview-wrapper">
+                      <input
+                        v-model="formData[field.name]"
+                        type="url"
+                        :placeholder="field.placeholder"
+                        class="field-input"
+                      />
+                      <div v-if="formData[field.name]" class="file-preview">
+                        <img :src="formData[field.name]" class="file-preview-image" style="max-width:200px;max-height:100px;object-fit:contain;" />
+                      </div>
+                    </div>
+                    <input 
+                      v-else-if="field.type === 'url'"
+                      v-model="formData[field.name]"
+                      type="url"
+                      :placeholder="field.placeholder"
+                      class="field-input"
+                    />
 
                   <!-- Input Date -->
                   <input 

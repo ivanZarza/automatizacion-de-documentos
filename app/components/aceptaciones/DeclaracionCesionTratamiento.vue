@@ -209,7 +209,7 @@ watch(
       }
     });
   },
-  { deep: true, /* immediate: true */ }
+  { deep: true, immediate: true }
 );
 
 // Computed para filtrar por página

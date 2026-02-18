@@ -2121,9 +2121,15 @@ export const declaracionCesionTratamientoConfig = {
     nif: 'nifCif',
     direccion: 'emplazamientoCalle',
     ciudad: 'localidadEmplazamiento',
+    nombreRepresentante: 'nombreRepresentanteEntidad',
+    dniRepresentante: 'dniRepresentanteEntidad',
+    nombreEntidadRepresentada: 'denominacionEstablecimiento',
+    nifEntidadRepresentada: 'nifEntidadRepresentada',
+    domicilioEntidad: 'emplazamientoCalle',
     dia: 'dia',
     mes: 'mes',
-    anio: 'anio'
+    anio: 'anio',
+    firma: 'firma'
   },
   capabilities: {
     canPreview: true,

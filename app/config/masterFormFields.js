@@ -10,8 +10,6 @@ export const masterFormFields = [
     label: 'Número de Expediente', 
     placeholder: 'Ej: EXP-2025-001', 
 
-  
-
     name: 'numeroRegistro', 
     label: 'Número de Registro', 
     placeholder: 'Ej: REG-2025-001', 
@@ -24,6 +22,35 @@ export const masterFormFields = [
     type: 'text' 
   },
   */
+  // ========== SECCIÓN REPRESENTANTE ENTIDAD ==========
+  {
+    name: 'nombreRepresentanteEntidad',
+    label: 'Nombre del Representante de la Entidad',
+    placeholder: 'Ej: Juan Pérez',
+    type: 'text',
+    fullWidth: true
+  },
+  {
+    name: 'dniRepresentanteEntidad',
+    label: 'DNI del Representante de la Entidad',
+    placeholder: 'Ej: 12345678A',
+    type: 'text'
+  },
+  {
+    name: 'nifEntidadRepresentada',
+    label: 'NIF de la Entidad Representada',
+    placeholder: 'Ej: B12345678',
+    type: 'text'
+  },
+  // ========== SECCIÓN FIRMA ==========
+  {
+    name: 'firma',
+    label: 'Firma (URL de la foto)',
+    placeholder: 'Pega la URL de la imagen de la firma',
+    type: 'url',
+    preview: true, // Campo personalizado para indicar previsualización
+    fullWidth: true
+  },
   {
     name: 'fecha',
     label: 'Fecha',
