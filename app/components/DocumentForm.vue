@@ -349,7 +349,7 @@ const groupedFieldsBySection = computed(() => {
   })
   
   // Ordenar secciones
-  const sortOrder = ['A', 'B', 'C', 'D', 'E', 'E1', 'E2', 'F', 'G', 'H', 'I', 'Otros']
+  const sortOrder = ['A', 'B', 'C', 'D', 'E', 'E1', 'E2', 'F', 'G', 'H', 'I', 'Otros','LEGALIZACION']
   const sorted = {}
   sortOrder.forEach(key => {
     if (grouped[key]) {

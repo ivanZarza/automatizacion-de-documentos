@@ -1,55 +1,62 @@
-  export const masterFormFields = [
-          {
-            name: 'fechaElaboracion',
-            label: 'Fecha elaboración del trabajo',
-            placeholder: 'Ej: 18/02/2026',
-            type: 'date',
-            fullWidth: true
-          },
-        {
-          name: 'nombreCubierta',
-          label: 'Nombre Cubierta',
-          placeholder: 'FARMACIA bURGOS, 9 C.B.',
-          type: 'text',
-          fullWidth: true
-        },
-      // ========== SECCIÓN aceptacion ==========
-    {
-      name: 'edificioVivienda',
-      label: 'Edificio/Vivienda',
-      placeholder: 'Selecciona una opción',
-      type: 'select',
-      options: [
-        { label: 'Edificio', value: 'edificio' },
-        { label: 'Vivienda', value: 'vivienda' }
-      ],
-      fullWidth: true
-    },
+export const masterFormFields = [
+  {
+    name: 'fechaElaboracion',
+    label: 'Fecha elaboración del trabajo',
+    placeholder: 'Ej: 18/02/2026',
+    type: 'date',
+    fullWidth: true,
+    subsection: 'ACEPTACION'
+  },
+  {
+    name: 'nombreCubierta',
+    label: 'Nombre Cubierta',
+    placeholder: 'FARMACIA bURGOS, 9 C.B.',
+    type: 'text',
+    fullWidth: true,
+    subsection: 'ACEPTACION'
+  },
+  // ========== SECCIÓN ACEPTACION ==========
+  {
+    name: 'edificioVivienda',
+    label: 'Edificio/Vivienda',
+    placeholder: 'Selecciona una opción',
+    type: 'select',
+    options: [
+      { label: 'Edificio', value: 'edificio' },
+      { label: 'Vivienda', value: 'vivienda' }
+    ],
+    fullWidth: true,
+    subsection: 'ACEPTACION'
+  },
+
   {
     name: 'expedienteECO',
     label: 'Expediente ECO',
     placeholder: 'Ej: EXP-2026-001',
     type: 'text',
-    fullWidth: true
+    fullWidth: true,
+    subsection: 'ACEPTACION'
   },
   {
     name: 'codigoENI',
     label: 'Código ENI',
     placeholder: 'Ej: 1234567890',
     type: 'text',
-    fullWidth: true
+    fullWidth: true,
+    subsection: 'ACEPTACION'
   },
   {
     name: 'importeSubvencion',
     label: 'Importe de la Subvención',
     placeholder: 'Ej: 15348',
     type: 'text',
-    fullWidth: true
+    fullWidth: true,
+    subsection: 'ACEPTACION'
   },
-/**
- * Configuración de campos para el Formulario Maestro
- * Todos los campos de Memoria Técnica organizados por secciones
- */
+  /**
+   * Configuración de campos para el Formulario Maestro
+   * Todos los campos de Memoria Técnica organizados por secciones
+   */
 
 
   // ========== SECCIÓN EXPEDIENTE ==========
@@ -76,19 +83,22 @@
     label: 'Nombre del Representante de la Entidad',
     placeholder: 'Ej: Juan Pérez',
     type: 'text',
-    fullWidth: true
+    fullWidth: true,
+    subsection: 'A'
   },
   {
     name: 'dniRepresentanteEntidad',
     label: 'DNI del Representante de la Entidad',
     placeholder: 'Ej: 12345678A',
-    type: 'text'
+    type: 'text',
+    subsection: 'A'
   },
   {
     name: 'nifEntidadRepresentada',
     label: 'NIF de la Entidad Representada',
     placeholder: 'Ej: B12345678',
-    type: 'text'
+    type: 'text',
+    subsection: 'A'
   },
   // ========== SECCIÓN FIRMA ==========
   {
@@ -97,13 +107,15 @@
     placeholder: 'Selecciona o arrastra la imagen de la firma',
     type: 'file',
     accept: 'image/*',
-    fullWidth: true
+    fullWidth: true,
+    subsection: 'A'
   },
   {
     name: 'fecha',
     label: 'Fecha',
     placeholder: 'Ej: 16/10/2025',
-    type: 'date'
+    type: 'date',
+    subsection: 'A'
   },
   /*
     // ========== SECCIÓN A: TITULAR ==========
@@ -112,7 +124,6 @@
       label: 'Apellidos y Nombre del Titular', 
       placeholder: 'Ej: García López, Juan', 
       type: 'text',
-      fullWidth: true
     },
     { 
       name: 'nifCif', 
@@ -125,7 +136,6 @@
       label: 'Domicilio del Titular', 
       placeholder: 'Ej: Calle Principal, 25', 
       type: 'text',
-      fullWidth: true
     },
     { 
       name: 'codigoPostal', 
@@ -150,7 +160,6 @@
       label: 'Correo Electrónico', 
       placeholder: 'Ej: ejemplo@correo.com', 
       type: 'email',
-      fullWidth: true
     },
     { 
       name: 'telefono', 
@@ -163,7 +172,6 @@
       label: 'Representante (si aplica)', 
       placeholder: 'Ej: Empresa XYZ S.L.', 
       type: 'text',
-      fullWidth: true
     },
     { 
       name: 'dniRepresentante', 
@@ -178,7 +186,8 @@
     name: 'telefono',
     label: 'Teléfono Móvil',
     placeholder: 'Ej: 654 123 456',
-    type: 'tel'
+    type: 'tel',
+    subsection: 'A'
   },
   // ========== SECCIÓN OTROS: ESTABLECIMIENTO ==========
   {
@@ -186,101 +195,112 @@
     label: 'Denominación del Establecimiento',
     placeholder: 'Ej: Bar Los Amigos',
     type: 'text',
-    fullWidth: true
+    subsection: 'A'
   },
   {
     name: 'tipoVia',
     label: 'Tipo de Vía',
     placeholder: 'Ej: Avenida, Calle, Plaza...',
     type: 'text',
-    fullWidth: true
+    subsection: 'A'
   },
   {
     name: 'telefonoFijo',
     label: 'Teléfono Fijo',
     placeholder: 'Ej: 954 123 456',
-    type: 'tel'
+    type: 'tel',
+    subsection: 'A'
   },
   {
     name: 'emplazamientoCalle',
     label: 'Calle del Emplazamiento',
     placeholder: 'Ej: Avenida de la Innovación',
     type: 'text',
-    fullWidth: true
+    subsection: 'A'
   },
   {
     name: 'numero',
     label: 'Número',
     placeholder: 'Ej: 42',
-    type: 'text'
+    type: 'text',
+    subsection: 'A'
   },
   {
     name: 'planta',
     label: 'Planta',
     placeholder: 'Ej: 1ª, 2ª, Bajo...',
     type: 'text',
-    fullWidth: true
+    subsection: 'A'
   },
   {
     name: 'bloque',
     label: 'Bloque',
     placeholder: 'Ej: A',
-    type: 'text'
+    type: 'text',
+    subsection: 'A'
   },
   {
     name: 'escalera',
     label: 'Escalera',
     placeholder: 'Ej: 1',
-    type: 'text'
+    type: 'text',
+    subsection: 'A'
   },
   {
     name: 'letra',
     label: 'Letra',
     placeholder: 'Ej: B',
-    type: 'text'
+    type: 'text',
+    subsection: 'A'
   },
   {
     name: 'KMEnLaVia',
     label: 'KM en la Vía',
     placeholder: 'Ej: 5',
-    type: 'text'
+    type: 'text',
+    subsection: 'A'
   },
   {
     name: 'piso',
     label: 'Piso',
     placeholder: 'Ej: 3º',
-    type: 'text'
+    type: 'text',
+    subsection: 'A'
   },
   {
     name: 'puerta',
     label: 'Puerta',
     placeholder: 'Ej: B',
-    type: 'text'
+    type: 'text',
+    subsection: 'A'
   },
   {
     name: 'localidadEmplazamiento',
     label: 'Localidad del Emplazamiento',
     placeholder: 'Ej: Sevilla',
-    type: 'text'
+    type: 'text',
+    subsection: 'A'
   },
   {
     name: 'provinciaEmplazamiento',
     label: 'Provincia del Emplazamiento',
     placeholder: 'Ej: Sevilla',
-    type: 'text'
+    type: 'text',
+    subsection: 'A'
   },
   {
     name: 'codigoPostalEmplazamiento',
     label: 'Código Postal del Emplazamiento',
     placeholder: 'Ej: 41001',
-    type: 'text'
+    type: 'text',
+    subsection: 'A'
   },
   {
     name: 'correoElectronicoEmplazamiento',
     label: 'Correo Electrónico del Emplazamiento',
     placeholder: 'Ej: emplazamiento@correo.com',
     type: 'email',
-    fullWidth: true
+    subsection: 'A'
   },
   {
     name: 'tipoInstalacion',
@@ -298,26 +318,26 @@
     label: 'Uso y Destino',
     placeholder: 'Ej: Autoconsumo para vivienda',
     type: 'text',
-    fullWidth: true
+    subsection: 'A'
   },
   {
     name: 'referenciaCatastral',
     label: 'Referencia Catastral',
     placeholder: 'Ej: 4127805SG0000200000CT',
     type: 'text',
-    fullWidth: true
   }, {
     name: 'apellidosNombre',
     label: 'Apellidos y Nombre del Titular',
     placeholder: 'Ej: García López, Juan',
     type: 'text',
-    fullWidth: true
+      subsection: 'A'
   },
   {
     name: 'nifCif',
     label: 'NIF/CIF del Titular',
     placeholder: 'Ej: 12.345.678-A',
-    type: 'text'
+    type: 'text',
+    subsection: 'A'
   },
   /*   {
       name: 'instalacion',
@@ -337,7 +357,6 @@
      label: 'Nombre del Técnico Instalador', 
      placeholder: 'Ej: Eduardo Rivera Cabezas', 
      type: 'text',
-     fullWidth: true
    },
    { 
      name: 'numeroCertificadoInstalador', 
@@ -356,7 +375,6 @@
      label: 'Domicilio del Técnico', 
      placeholder: 'Ej: Calle Ebro', 
      type: 'text',
-     fullWidth: true
    },
    { 
      name: 'numeroTecnico', 
@@ -387,14 +405,12 @@
      label: 'Nombre del Técnico Competente (si aplica)', 
      placeholder: 'Opcional', 
      type: 'text',
-     fullWidth: true
    },
    { 
      name: 'domicilioTecnicoCompetente', 
      label: 'Domicilio del Técnico Competente', 
      placeholder: 'Opcional', 
      type: 'text',
-     fullWidth: true
    },
    { 
      name: 'numeroTecnicoCompetente', 
@@ -425,7 +441,6 @@
      label: 'Colegio Oficial', 
      placeholder: 'Ej: Colegio de Ingenieros', 
      type: 'text',
-     fullWidth: true
    },
    { 
      name: 'numeroColegiado', 
@@ -483,31 +498,31 @@
 
   // ========== SECCIÓN E1: INSTALACIÓN AISLADA ==========
   /*  // E1.1 Módulo Fotovoltaico
-   { name: 'e1_tecnologiaCelulaModulo', label: 'TECNOLOGÍA DE LA CÉLULA', placeholder: 'Ej: Monocristalino', type: 'text', subsection: 'E1.1' },
-   { name: 'e1_marcaModeloModulo', label: 'MARCA Y MODELO', placeholder: 'Ej: JAM72S30 535/MR', type: 'text', subsection: 'E1.1', fullWidth: true },
-   { name: 'e1_potenciaPicoModulo', label: 'POTENCIA PICO (Wp)', placeholder: 'Ej: 535', type: 'text', subsection: 'E1.1' },
-   { name: 'e1_toncModulo', label: 'TONC (ºC)', placeholder: 'Ej: 45', type: 'text', subsection: 'E1.1' },
+  { name: 'e1_tecnologiaCelulaModulo', label: 'TECNOLOGÍA DE LA CÉLULA', placeholder: 'Ej: Monocristalino', type: 'text', subsection: 'E1' },
+  { name: 'e1_marcaModeloModulo', label: 'MARCA Y MODELO', placeholder: 'Ej: JAM72S30 535/MR', type: 'text', subsection: 'E1', fullWidth: true },
+  { name: 'e1_potenciaPicoModulo', label: 'POTENCIA PICO (Wp)', placeholder: 'Ej: 535', type: 'text', subsection: 'E1' },
+  { name: 'e1_toncModulo', label: 'TONC (ºC)', placeholder: 'Ej: 45', type: 'text', subsection: 'E1' },
  
    // E1.2 Generador Fotovoltaico
-   { name: 'e1_potenciaPicoGenerador', label: 'POTENCIA PICO (Wp)', placeholder: 'Ej: 5350', type: 'text', subsection: 'E1.2' },
-   { name: 'e1_intensidadIpmpGenerador', label: 'INTENSIDAD MÁXIMA POTENCIA, Ipmp (A)', placeholder: 'Ej: 10.84', type: 'text', subsection: 'E1.2' },
-   { name: 'e1_tensionVpmpGenerador', label: 'TENSIÓN MÁXIMA POTENCIA, Vpmp (V)', placeholder: 'Ej: 493', type: 'text', subsection: 'E1.2' },
-   { name: 'e1_orientacionGenerador', label: 'ORIENTACIÓN', placeholder: 'Ej: Sur', type: 'text', subsection: 'E1.2' },
-   { name: 'e1_inclinacionGenerador', label: 'INCLINACIÓN (º)', placeholder: 'Ej: 30', type: 'text', subsection: 'E1.2' },
-   { name: 'e1_totalModulos', label: 'Nº TOTAL MÓDULOS', placeholder: 'Ej: 10', type: 'text', subsection: 'E1.2' },
-   { name: 'e1_modulosEnSerie', label: 'Nº MÓDULOS EN SERIE', placeholder: 'Ej: 10', type: 'text', subsection: 'E1.2' },
-   { name: 'e1_ramasEnParalelo', label: 'Nº RAMAS EN PARALELO', placeholder: 'Ej: 1', type: 'text', subsection: 'E1.2' },
+  { name: 'e1_potenciaPicoGenerador', label: 'POTENCIA PICO (Wp)', placeholder: 'Ej: 5350', type: 'text', subsection: 'E1' },
+  { name: 'e1_intensidadIpmpGenerador', label: 'INTENSIDAD MÁXIMA POTENCIA, Ipmp (A)', placeholder: 'Ej: 10.84', type: 'text', subsection: 'E1' },
+  { name: 'e1_tensionVpmpGenerador', label: 'TENSIÓN MÁXIMA POTENCIA, Vpmp (V)', placeholder: 'Ej: 493', type: 'text', subsection: 'E1' },
+  { name: 'e1_orientacionGenerador', label: 'ORIENTACIÓN', placeholder: 'Ej: Sur', type: 'text', subsection: 'E1' },
+  { name: 'e1_inclinacionGenerador', label: 'INCLINACIÓN (º)', placeholder: 'Ej: 30', type: 'text', subsection: 'E1' },
+  { name: 'e1_totalModulos', label: 'Nº TOTAL MÓDULOS', placeholder: 'Ej: 10', type: 'text', subsection: 'E1' },
+  { name: 'e1_modulosEnSerie', label: 'Nº MÓDULOS EN SERIE', placeholder: 'Ej: 10', type: 'text', subsection: 'E1' },
+  { name: 'e1_ramasEnParalelo', label: 'Nº RAMAS EN PARALELO', placeholder: 'Ej: 1', type: 'text', subsection: 'E1' },
  
    // E1.3 Baterías
-   { name: 'e1_marcaModeloBateria', label: 'MARCA Y MODELO', placeholder: 'Ej: LG Chem RESU', type: 'text', subsection: 'E1.3', fullWidth: true },
-   { name: 'e1_tipoBateria', label: 'TIPO DE BATERÍA', placeholder: 'Ej: Litio-Hierro Fosfato', type: 'text', subsection: 'E1.3' },
-   { name: 'e1_tipoPlacaBateria', label: 'TIPO DE PLACA', placeholder: 'Ej: OPzS', type: 'text', subsection: 'E1.3' },
-   { name: 'e1_c10Bateria', label: 'C10 (Ah)', placeholder: 'Ej: 2300', type: 'text', subsection: 'E1.3' },
-   { name: 'e1_c100Bateria', label: 'C100 (Ah)', placeholder: 'Ej: 2500', type: 'text', subsection: 'E1.3' },
-   { name: 'e1_tensionNominalBateria', label: 'TENSIÓN NOMINAL (V)', placeholder: 'Ej: 48', type: 'text', subsection: 'E1.3' },
-   { name: 'e1_profundidadDescargaBateria', label: 'PROFUNDIDAD DESCARGA', placeholder: 'Ej: 80', type: 'text', subsection: 'E1.3' },
-   { name: 'e1_tensionMaximaBateria', label: 'TENSIÓN MÁXIMA (V)', placeholder: 'Ej: 57.6', type: 'text', subsection: 'E1.3' },
-   { name: 'e1_tensionMinimaBateria', label: 'TENSIÓN MÍNIMA (V)', placeholder: 'Ej: 44.8', type: 'text', subsection: 'E1.3' },
+  { name: 'e1_marcaModeloBateria', label: 'MARCA Y MODELO', placeholder: 'Ej: LG Chem RESU', type: 'text', subsection: 'E1', fullWidth: true },
+  { name: 'e1_tipoBateria', label: 'TIPO DE BATERÍA', placeholder: 'Ej: Litio-Hierro Fosfato', type: 'text', subsection: 'E1' },
+  { name: 'e1_tipoPlacaBateria', label: 'TIPO DE PLACA', placeholder: 'Ej: OPzS', type: 'text', subsection: 'E1' },
+  { name: 'e1_c10Bateria', label: 'C10 (Ah)', placeholder: 'Ej: 2300', type: 'text', subsection: 'E1' },
+  { name: 'e1_c100Bateria', label: 'C100 (Ah)', placeholder: 'Ej: 2500', type: 'text', subsection: 'E1' },
+  { name: 'e1_tensionNominalBateria', label: 'TENSIÓN NOMINAL (V)', placeholder: 'Ej: 48', type: 'text', subsection: 'E1' },
+  { name: 'e1_profundidadDescargaBateria', label: 'PROFUNDIDAD DESCARGA', placeholder: 'Ej: 80', type: 'text', subsection: 'E1' },
+  { name: 'e1_tensionMaximaBateria', label: 'TENSIÓN MÁXIMA (V)', placeholder: 'Ej: 57.6', type: 'text', subsection: 'E1' },
+  { name: 'e1_tensionMinimaBateria', label: 'TENSIÓN MÍNIMA (V)', placeholder: 'Ej: 44.8', type: 'text', subsection: 'E1' },
    { name: 'e1_intensidadMaximaCargaBateria', label: 'INTENSIDAD MÁX CARGA (A)', placeholder: 'Ej: 100', type: 'text', subsection: 'E1.3' },
  
    // E1.4 Regulador
@@ -558,67 +573,67 @@
   */
   // ========== SECCIÓN E2: INSTALACIÓN INTERCONECTADA ==========
   // E2.1 Conexión a la Red
-  { name: 'e2_potenciaNominalInversores', label: 'POTENCIA NOMINAL TOTAL EN INVERSORES (kW)', placeholder: 'Ej: 5.5', type: 'text', subsection: 'E2.1' },
-  { name: 'e2_tipoConexionRed', label: 'TIPO', placeholder: 'Ej: Monofásica / Trifásica', type: 'select', options: ['Monofásica', 'Trifásica'], subsection: 'E2.1' },
+  { name: 'e2_potenciaNominalInversores', label: 'POTENCIA NOMINAL TOTAL EN INVERSORES (kW)', placeholder: 'Ej: 5.5', type: 'text', subsection: 'E2' },
+  { name: 'e2_tipoConexionRed', label: 'TIPO', placeholder: 'Ej: Monofásica / Trifásica', type: 'select', options: ['Monofásica', 'Trifásica'], subsection: 'E2' },
 
   // E2.2 Módulo Fotovoltaico
-/*   { name: 'e2_tecnologiaCelulaModulo', label: 'TECNOLOGÍA DE LA CÉLULA', placeholder: 'Ej: Monocristalino -PERC-', type: 'text', subsection: 'E2.2' },
- */  { name: 'e2_marcaModeloModulo', label: 'MARCA Y MODELO', placeholder: 'Ej: JA Solar JAM72S30 450/MR', type: 'text', subsection: 'E2.2', fullWidth: true },
-  { name: 'e2_potenciaPicoModulo', label: 'POTENCIA PICO (Wp) DEL MÓDULO', placeholder: 'Ej: 450', type: 'text', subsection: 'E2.2' },
-  /*   { name: 'e2_toncModulo', label: 'TONC (ºC)', placeholder: 'Ej: 45', type: 'text', subsection: 'E2.2' },
+/*   { name: 'e2_tecnologiaCelulaModulo', label: 'TECNOLOGÍA DE LA CÉLULA', placeholder: 'Ej: Monocristalino -PERC-', type: 'text', subsection: 'E2' },
+ */  { name: 'e2_marcaModeloModulo', label: 'MARCA Y MODELO', placeholder: 'Ej: JA Solar JAM72S30 450/MR', type: 'text', subsection: 'E2', fullWidth: true },
+  { name: 'e2_potenciaPicoModulo', label: 'POTENCIA PICO (Wp) DEL MÓDULO', placeholder: 'Ej: 450', type: 'text', subsection: 'E2' },
+  /*   { name: 'e2_toncModulo', label: 'TONC (ºC)', placeholder: 'Ej: 45', type: 'text', subsection: 'E2' },
    */
   // E2.3 Generador Fotovoltaico
-  { name: 'e2_potenciaPicoGenerador', label: 'POTENCIA PICO (Wp) DEL GENERADOR', placeholder: 'Ej: 4500', type: 'text', subsection: 'E2.3' },
-  { name: 'e2_intensidadIpmpGenerador', label: 'INTENSIDAD MÁXIMA POTENCIA, Ipmp (A)', placeholder: 'Ej: 10', type: 'text', subsection: 'E2.3' },
-  { name: 'e2_tensionVpmpGenerador', label: 'TENSIÓN MÁXIMA POTENCIA, Vpmp (V)', placeholder: 'Ej: 400', type: 'text', subsection: 'E2.3' },
-  { name: 'e2_orientacionGenerador', label: 'ORIENTACIÓN', placeholder: 'Ej: Sur', type: 'text', subsection: 'E2.3' },
-  { name: 'e2_inclinacionGenerador', label: 'INCLINACIÓN (º)', placeholder: 'Ej: 30', type: 'text', subsection: 'E2.3' },
-  { name: 'e2_totalModulos', label: 'Nº TOTAL MÓDULOS', placeholder: 'Ej: 10', type: 'text', subsection: 'E2.3' },
-  { name: 'e2_modulosEnSerie', label: 'Nº MÓDULOS EN SERIE', placeholder: 'Ej: 10', type: 'text', subsection: 'E2.3' },
-  { name: 'e2_ramasEnParalelo', label: 'Nº RAMAS EN PARALELO', placeholder: 'Ej: 1', type: 'text', subsection: 'E2.3' },
-  { name: 'disposicionModulos', label: 'DISPOSICIÓN DE LOS MÓDULOS', placeholder: 'Ej: En fila horizontal', type: 'text', subsection: 'E2.3', fullWidth: true },
+  { name: 'e2_potenciaPicoGenerador', label: 'POTENCIA PICO (Wp) DEL GENERADOR', placeholder: 'Ej: 4500', type: 'text', subsection: 'E2' },
+  { name: 'e2_intensidadIpmpGenerador', label: 'INTENSIDAD MÁXIMA POTENCIA, Ipmp (A)', placeholder: 'Ej: 10', type: 'text', subsection: 'E2' },
+  { name: 'e2_tensionVpmpGenerador', label: 'TENSIÓN MÁXIMA POTENCIA, Vpmp (V)', placeholder: 'Ej: 400', type: 'text', subsection: 'E2' },
+  { name: 'e2_orientacionGenerador', label: 'ORIENTACIÓN', placeholder: 'Ej: Sur', type: 'text', subsection: 'E2' },
+  { name: 'e2_inclinacionGenerador', label: 'INCLINACIÓN (º)', placeholder: 'Ej: 30', type: 'text', subsection: 'E2' },
+  { name: 'e2_totalModulos', label: 'Nº TOTAL MÓDULOS', placeholder: 'Ej: 10', type: 'text', subsection: 'E2' },
+  { name: 'e2_modulosEnSerie', label: 'Nº MÓDULOS EN SERIE', placeholder: 'Ej: 10', type: 'text', subsection: 'E2' },
+  { name: 'e2_ramasEnParalelo', label: 'Nº RAMAS EN PARALELO', placeholder: 'Ej: 1', type: 'text', subsection: 'E2' },
+  { name: 'disposicionModulos', label: 'DISPOSICIÓN DE LOS MÓDULOS', placeholder: 'Ej: En fila horizontal', type: 'text', subsection: 'E2', fullWidth: true },
 
   // E2.4 Inversor
-  { name: 'e2_marcaModeloInversor', label: 'MARCA Y MODELO', placeholder: 'Ej: Fronius Symo', type: 'text', subsection: 'E2.4', fullWidth: true },
-  { name: 'e2_potenciaNominalInversor', label: 'POTENCIA NOMINAL (kW)', placeholder: 'Ej: 5000', type: 'text', subsection: 'E2.4' },
-  { name: 'e2_relacionTensionInversor', label: 'RELACIÓN TENSIÓN  AC, Vn (V)', placeholder: 'Ej: 230V/400V', type: 'text', subsection: 'E2.4' },
-  { name: 'e2_formaOndaSalidaInversor', label: 'Vcc MÁXIMA', placeholder: 'Ej: Senoidal Pura', type: 'text', subsection: 'E2.4' },
-  { name: 'e2_frecuenciaNominalInversor', label: 'Vcc MÍNIMA ', placeholder: 'Ej: 50', type: 'text', subsection: 'E2.4' },
-  { name: 'e2_tensionMaximaEntradaInversor', label: 'CONEXIÓN', placeholder: 'Ej: 65', type: 'text', subsection: 'E2.4' },
-  /*   { name: 'e2_tensionSalidaInversor', label: 'TENSIÓN SALIDA (V)', placeholder: 'Ej: 400', type: 'text', subsection: 'E2.4' },
-    { name: 'e2_consumoVacioInversor', label: 'CONSUMO EN VACÍO', placeholder: 'Ej: 50', type: 'text', subsection: 'E2.4' }, */
+  { name: 'e2_marcaModeloInversor', label: 'MARCA Y MODELO', placeholder: 'Ej: Fronius Symo', type: 'text', subsection: 'E2', fullWidth: true },
+  { name: 'e2_potenciaNominalInversor', label: 'POTENCIA NOMINAL (kW)', placeholder: 'Ej: 5000', type: 'text', subsection: 'E2' },
+  { name: 'e2_relacionTensionInversor', label: 'RELACIÓN TENSIÓN  AC, Vn (V)', placeholder: 'Ej: 230V/400V', type: 'text', subsection: 'E2' },
+  { name: 'e2_formaOndaSalidaInversor', label: 'Vcc MÁXIMA', placeholder: 'Ej: Senoidal Pura', type: 'text', subsection: 'E2' },
+  { name: 'e2_frecuenciaNominalInversor', label: 'Vcc MÍNIMA ', placeholder: 'Ej: 50', type: 'text', subsection: 'E2' },
+  { name: 'e2_tensionMaximaEntradaInversor', label: 'CONEXIÓN', placeholder: 'Ej: 65', type: 'text', subsection: 'E2' },
+  /*   { name: 'e2_tensionSalidaInversor', label: 'TENSIÓN SALIDA (V)', placeholder: 'Ej: 400', type: 'text', subsection: 'E2' },
+    { name: 'e2_consumoVacioInversor', label: 'CONSUMO EN VACÍO', placeholder: 'Ej: 50', type: 'text', subsection: 'E2' }, */
 
   // E2.5 Otros
-  { name: 'e2_marcaModelo', label: 'MARCA Y MODELO', placeholder: 'Opcional', type: 'text', subsection: 'E2.5', fullWidth: true },
-  { name: 'e2_tipoDeBateria', label: 'TIPO DE BATERÍA', placeholder: 'Opcional', type: 'text', subsection: 'E2.5' },
-  { name: 'e2_tensionNominal', label: 'TENSIÓN NOMINAL (V)', placeholder: 'Opcional', type: 'text', subsection: 'E2.5', fullWidth: true },
-  { name: 'e2_profundidadDescarga', label: 'PROFUNDIDAD DE DESCARGA', placeholder: 'Opcional', type: 'text', subsection: 'E2.5', fullWidth: true },
-  { name: 'e2_tensionMaxima', label: 'TENSIÓN MÁXIMA (V)', placeholder: 'Opcional', type: 'text', subsection: 'E2.5' },
-  { name: 'e2_tensionMinima', label: 'TENSIÓN MÍNIMA (V)', placeholder: 'Opcional', type: 'text', subsection: 'E2.5' },
-  { name: 'e2_energiaTotal', label: 'ENERGÍA TOTAL ', placeholder: 'Opcional', type: 'text', subsection: 'E2.5' },
-  { name: 'e2_potenciaMaximaSalida', label: 'POTENCIA MÁXIMA SALIDA', placeholder: 'Opcional', type: 'text', subsection: 'E2.5' },
-  { name: 'e2_maximoPicoDePotencia', label: 'MÁXIMO PICO DE POTENCIA', placeholder: 'Opcional', type: 'text', subsection: 'E2.5' },
+  { name: 'e2_marcaModelo', label: 'MARCA Y MODELO', placeholder: 'Opcional', type: 'text', subsection: 'E2', fullWidth: true },
+  { name: 'e2_tipoDeBateria', label: 'TIPO DE BATERÍA', placeholder: 'Opcional', type: 'text', subsection: 'E2' },
+  { name: 'e2_tensionNominal', label: 'TENSIÓN NOMINAL (V)', placeholder: 'Opcional', type: 'text', subsection: 'E2', fullWidth: true },
+  { name: 'e2_profundidadDescarga', label: 'PROFUNDIDAD DE DESCARGA', placeholder: 'Opcional', type: 'text', subsection: 'E2', fullWidth: true },
+  { name: 'e2_tensionMaxima', label: 'TENSIÓN MÁXIMA (V)', placeholder: 'Opcional', type: 'text', subsection: 'E2' },
+  { name: 'e2_tensionMinima', label: 'TENSIÓN MÍNIMA (V)', placeholder: 'Opcional', type: 'text', subsection: 'E2' },
+  { name: 'e2_energiaTotal', label: 'ENERGÍA TOTAL ', placeholder: 'Opcional', type: 'text', subsection: 'E2' },
+  { name: 'e2_potenciaMaximaSalida', label: 'POTENCIA MÁXIMA SALIDA', placeholder: 'Opcional', type: 'text', subsection: 'E2' },
+  { name: 'e2_maximoPicoDePotencia', label: 'MÁXIMO PICO DE POTENCIA', placeholder: 'Opcional', type: 'text', subsection: 'E2' },
 
   // 2.6 Protecciones Externas
-  { name: 'e2_intensidadNominalInterruptor', label: 'INTENSIDAD NOMINAL DEL INTERRUPTOR GENERAL, In (A)', placeholder: 'Ej: 25', type: 'text', subsection: '2.6' },
-  { name: 'e2_poderCorteInterruptor', label: 'PODER DE CORTE DEL INTERRUPTOR GENERAL (kA)', placeholder: 'Ej: 6', type: 'text', subsection: '2.6' },
+  { name: 'e2_intensidadNominalInterruptor', label: 'INTENSIDAD NOMINAL DEL INTERRUPTOR GENERAL, In (A)', placeholder: 'Ej: 25', type: 'text', subsection: 'E2' },
+  { name: 'e2_poderCorteInterruptor', label: 'PODER DE CORTE DEL INTERRUPTOR GENERAL (kA)', placeholder: 'Ej: 6', type: 'text', subsection: 'E2' },
 
   /* // E2.6 Información de la Demanda
-  { name: 'e2_potenciaMaximaDemanda', label: 'MARCA Y MODELO', placeholder: 'Ej: 5000', type: 'text', subsection: 'E2.6' },
-  { name: 'e2_periodicidadDemanda', label: 'PERIODICIDAD', placeholder: 'Ej: Diaria', type: 'text', subsection: 'E2.6' },
-  { name: 'e2_energiaDiariaMediaMensual', label: 'ENERGÍA DIARIA MEDIA MENSUAL (Wh/día)', placeholder: 'Ej: 15500', type: 'text', subsection: 'E2.6' },
-  { name: 'e2_energiaDiariaEnero', label: 'ENE', placeholder: 'Ej: 15.5', type: 'text', subsection: 'E2.6' },
-  { name: 'e2_energiaDiariaFebrero', label: 'FEB', placeholder: 'Ej: 16.2', type: 'text', subsection: 'E2.6' },
-  { name: 'e2_energiaDiariaMarzo', label: 'MAR', placeholder: 'Ej: 18.5', type: 'text', subsection: 'E2.6' },
-  { name: 'e2_energiaDiariaAbril', label: 'ABR', placeholder: 'Ej: 20.1', type: 'text', subsection: 'E2.6' },
-  { name: 'e2_energiaDiariaMayo', label: 'MAY', placeholder: 'Ej: 22.3', type: 'text', subsection: 'E2.6' },
-  { name: 'e2_energiaDiariaJunio', label: 'JUN', placeholder: 'Ej: 23.8', type: 'text', subsection: 'E2.6' },
-  { name: 'e2_energiaDiariaJulio', label: 'JUL', placeholder: 'Ej: 24.5', type: 'text', subsection: 'E2.6' },
-  { name: 'e2_energiaDiariaAgosto', label: 'AGO', placeholder: 'Ej: 24.1', type: 'text', subsection: 'E2.6' },
-  { name: 'e2_energiaDiariaSeptiembre', label: 'SEP', placeholder: 'Ej: 21.5', type: 'text', subsection: 'E2.6' },
-  { name: 'e2_energiaDiariaOctubre', label: 'OCT', placeholder: 'Ej: 18.9', type: 'text', subsection: 'E2.6' },
-  { name: 'e2_energiaDiariaNoviembre', label: 'NOV', placeholder: 'Ej: 16.3', type: 'text', subsection: 'E2.6' },
-  { name: 'e2_energiaDiariaDiciembre', label: 'DIC', placeholder: 'Ej: 14.8', type: 'text', subsection: 'E2.6' },
+  { name: 'e2_potenciaMaximaDemanda', label: 'MARCA Y MODELO', placeholder: 'Ej: 5000', type: 'text', subsection: 'E2' },
+  { name: 'e2_periodicidadDemanda', label: 'PERIODICIDAD', placeholder: 'Ej: Diaria', type: 'text', subsection: 'E2' },
+  { name: 'e2_energiaDiariaMediaMensual', label: 'ENERGÍA DIARIA MEDIA MENSUAL (Wh/día)', placeholder: 'Ej: 15500', type: 'text', subsection: 'E2' },
+  { name: 'e2_energiaDiariaEnero', label: 'ENE', placeholder: 'Ej: 15.5', type: 'text', subsection: 'E2' },
+  { name: 'e2_energiaDiariaFebrero', label: 'FEB', placeholder: 'Ej: 16.2', type: 'text', subsection: 'E2' },
+  { name: 'e2_energiaDiariaMarzo', label: 'MAR', placeholder: 'Ej: 18.5', type: 'text', subsection: 'E2' },
+  { name: 'e2_energiaDiariaAbril', label: 'ABR', placeholder: 'Ej: 20.1', type: 'text', subsection: 'E2' },
+  { name: 'e2_energiaDiariaMayo', label: 'MAY', placeholder: 'Ej: 22.3', type: 'text', subsection: 'E2' },
+  { name: 'e2_energiaDiariaJunio', label: 'JUN', placeholder: 'Ej: 23.8', type: 'text', subsection: 'E2' },
+  { name: 'e2_energiaDiariaJulio', label: 'JUL', placeholder: 'Ej: 24.5', type: 'text', subsection: 'E2' },
+  { name: 'e2_energiaDiariaAgosto', label: 'AGO', placeholder: 'Ej: 24.1', type: 'text', subsection: 'E2' },
+  { name: 'e2_energiaDiariaSeptiembre', label: 'SEP', placeholder: 'Ej: 21.5', type: 'text', subsection: 'E2' },
+  { name: 'e2_energiaDiariaOctubre', label: 'OCT', placeholder: 'Ej: 18.9', type: 'text', subsection: 'E2' },
+  { name: 'e2_energiaDiariaNoviembre', label: 'NOV', placeholder: 'Ej: 16.3', type: 'text', subsection: 'E2' },
+  { name: 'e2_energiaDiariaDiciembre', label: 'DIC', placeholder: 'Ej: 14.8', type: 'text', subsection: 'E2' },
  */
   // ========== SECCIÓN F: MEDIDAS DE PROTECCIÓN EMPLEADAS ==========
   /*   { name: 'f_medidaContactoDirecto', label: 'CONTACTOS DIRECTOS - Tipo de Medida', placeholder: 'Ej: Conductores aislados y canaletas', type: 'text', subsection: 'F' },
@@ -679,10 +694,10 @@
    { name: 'g_inversorRedCaidaTension', label: 'Inversor-Red (interconectadas): Caída de Tensión (%)', placeholder: 'Ej: < 1.5', type: 'text', subsection: 'G' },
   */
   // ========== SECCIÓN H: ESQUEMA UNIFILAR ==========
-  { name: 'h_esquemaUnifilar', label: 'ESQUEMA UNIFILAR (Archivo)', type: 'file', accept: 'image/*,.pdf', subsection: 'H', fullWidth: true },
+  { name: 'h_esquemaUnifilar', label: 'ESQUEMA UNIFILAR (Archivo)', type: 'file', accept: 'image/*,.pdf', subsection: 'H', fullWidth: true, subsection: 'H' },
 
   // ========== SECCIÓN I: PLANO DE EMPLAZAMIENTO ==========
-  /*   { name: 'i_planoEmplazamiento', label: 'PLANO DE EMPLAZAMIENTO (Archivo)', type: 'file', accept: 'image/*,.pdf', subsection: 'I', fullWidth: true },
+  /*   { name: 'i_planoEmplazamiento', label: 'PLANO DE EMPLAZAMIENTO (Archivo)', type: 'file', accept: 'image/*,.pdf', subsection: 'I', fullWidth: true, subsection: 'I' },
    */
   // ========== SECCIÓN OTROS: DESCRIPCIÓN DEL PROYECTO ==========
   /* { name: 'otros_tipoInstalacion', label: 'Tipo de Instalación (ej: Instalación Solar Fotovoltaica)', type: 'text', fullWidth: true },
@@ -704,7 +719,7 @@
     type: 'file',
     accept: 'image/*,.pdf',
     description: 'Plano de situación geográfica de la instalación.',
-    fullWidth: true
+    subsection: 'imagenes'
   },
   {
     name: 'otros_imagenPlanoEmplazamiento',
@@ -712,15 +727,15 @@
     type: 'file',
     accept: 'image/*,.pdf',
     description: 'Plano de emplazamiento de la instalación.',
-    fullWidth: true
+    subsection: 'imagenes'
   },
-    {
+  {
     name: 'otros_PlanoCubiertaNuevo',
     label: 'PLANO DE CUBIERTA NUEVO',
     type: 'file',
     accept: 'image/*,.pdf',
     description: 'Plano de detalle de la instalación fotovoltaica en cubierta.',
-    fullWidth: true
+    subsection: 'imagenes'
   },
 
   // ========== SECCIÓN: LEGALIZACION ==========
@@ -745,7 +760,7 @@
     label: 'Registro Instalación',
     placeholder: 'Ej: REG-2025-001-PRINCIPAL',
     type: 'text',
-    fullWidth: true
+    subsection: 'LEGALIZACION'
   },
   {
     name: 'instalacion',
@@ -859,32 +874,36 @@
     name: 'dia',
     label: 'Día',
     placeholder: 'Ej: 15',
-    type: 'text'
+    type: 'text',
+    subsection: 'LEGALIZACION'
   },
   {
     name: 'mes',
     label: 'Mes',
     placeholder: 'Ej: 02',
-    type: 'text'
+    type: 'text',
+    subsection: 'A',
   },
   {
     name: 'anio',
     label: 'Año',
     placeholder: 'Ej: 2026',
-    type: 'text'
+    type: 'text',
+    subsection: 'A'
   },
   {
     name: 'pais',
     label: 'País',
     placeholder: 'Ej: España',
     type: 'text',
-    subsection: 'LEGALIZACION'
+    subsection: 'A'
   },
-    {
+  {
     name: 'potenciaProyecto',
     label: 'Potencia del Proyecto',
     placeholder: 'Ej: 5 kW',
-    type: 'text'
+    type: 'text',
+    subsection: 'ACEPTACION'
   },
 
 ]
