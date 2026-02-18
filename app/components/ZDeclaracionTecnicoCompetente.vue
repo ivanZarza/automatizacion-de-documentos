@@ -217,12 +217,13 @@ const etiquetas = ref([
   },
   {
     name: "codigoPostalFijo",
-    x: 178,
+    x: 177.5,
     y: 91,
     w: 80,
     h: 6,
-    fontSize: 10,
+    fontSize: 11,
     align: "center",
+    letterSpacing: '2.5px',
     value: "",
   },
   {
@@ -354,6 +355,7 @@ const estiloEtiqueta = (e) => ({
   whiteSpace: "nowrap",
   overflow: "visible",
   background: `${e.background}`,
+  letterSpacing: `${e.letterSpacing || 'normal'}`,
 });
 
 watch(
