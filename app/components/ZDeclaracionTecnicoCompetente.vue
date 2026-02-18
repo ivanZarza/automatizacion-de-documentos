@@ -7,7 +7,13 @@
         class="overlay-field"
         :style="estiloEtiqueta(et)"
       >
-        {{ et.displayValue }}
+        <template v-if="et.name === 'firma'">
+          <img v-if="et.displayValue" :src="et.displayValue" alt="Firma" style="max-width:100%; max-height:100%; object-fit:contain;" />
+          <span v-else>{{ et.displayValue }}</span>
+        </template>
+        <template v-else>
+          {{ et.displayValue }}
+        </template>
       </span>
       <!-- Marcadores condicionales (X) -->
       <span
@@ -26,24 +32,309 @@
 import { ref, computed, watch } from "vue";
 
 const props = defineProps({
-  potencia: { type: String, default: '' },
-  provincia: { type: String, default: '' },
-  fechaElaboracion: { type: String, default: '' },
-  dia: { type: String, default: '' },
-  mes: { type: String, default: '' },
-  anio: { type: String, default: '' },
-  generatedDate: { type: String, default: '' }
+  potencia: { type: String, default: "" },
+  provincia: { type: String, default: "" },
+  fechaElaboracion: { type: String, default: "" },
+  dia: { type: String, default: "" },
+  mes: { type: String, default: "" },
+  anio: { type: String, default: "" },
+  generatedDate: { type: String, default: "" },
+  razonSocial: { type: String, default: "" },
+  nombreApellidosEduardoFijo: { type: String, default: "" },
+  nifEduardoFijo: { type: String, default: "" },
+  tipoViaFijo: { type: String, default: "" },
+  nombreViaFijo: { type: String, default: "" },
+  numeroViaFijo: { type: String, default: "" },
+  paisFijo: { type: String, default: "" },
+  provinciaFijo: { type: String, default: "" },
+  municipioFijo: { type: String, default: "" },
+  codigoPostalFijo: { type: String, default: "" },
+  titulacionFijo: { type: String, default: "" },
+  especialidadFijo: { type: String, default: "" },
+  universidadFijo: { type: String, default: "" },
+  colegioFijo: { type: String, default: "" },
+  numeroColegiadoFijo: { type: String, default: "" },
+  fraseFija1: { type: String, default: "" },
+  fraseFija2: { type: String, default: "" },
+  provinciaSelect1: { type: String, default: "" },
+  provinciaSelect2: { type: String, default: "" },
+  nombreFirma: { type: String, default: "" },
+  firma: { type: String, default: "" },
 });
 
 const debug = ref(true);
 
 const etiquetas = ref([
-  { name: "potencia", x: 50, y: 100, w: 30, h: 6, fontSize: 10, align: "center", value: "" },
-  { name: "provincia", x: 130, y: 100, w: 30, h: 6, fontSize: 10, align: "center", value: "" },
-  { name: "fechaElaboracion", x: 50, y: 150, w: 80, h: 6, fontSize: 10, align: "center", value: "" },
-  { name: "dia", x: 50, y: 200, w: 15, h: 6, fontSize: 10, align: "center", value: "" },
-  { name: "mes", x: 85, y: 200, w: 20, h: 6, fontSize: 10, align: "center", value: "" },
-  { name: "anio", x: 130, y: 200, w: 20, h: 6, fontSize: 10, align: "center", value: "" }
+  {
+    name: "potencia",
+    x: 50,
+    y: 100,
+    w: 30,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "provincia",
+    x: 58,
+    y: 199,
+    w: 30,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "razonSocial",
+    x: 50,
+    y: 110,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "left",
+    value: "",
+  },
+  {
+    name: "fechaElaboracion",
+    x: 90,
+    y: 157,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "dia",
+    x: 103,
+    y: 199,
+    w: 15,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "mes",
+    x: 118,
+    y: 199,
+    w: 20,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "anio",
+    x: 145,
+    y: 199,
+    w: 20,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "nombreApellidosEduardoFijo",
+    x: 25,
+    y: 64,
+    w: 60,
+    h: 8,
+    fontSize: 10,
+    align: "left",
+    value: "",
+  },
+  {
+    name: "nifEduardoFijo",
+    x: 156,
+    y: 64,
+    w: 30,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "tipoViaFijo",
+    x: 25,
+    y: 75.5,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "nombreViaFijo",
+    x: 59,
+    y: 75.5,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "numeroViaFijo",
+    x: 50,
+    y: 83,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "paisFijo",
+    x: 25,
+    y: 91,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "provinciaFijo",
+    x: 59,
+    y: 91,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "municipioFijo",
+    x: 110,
+    y: 91,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "codigoPostalFijo",
+    x: 178,
+    y: 91,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "titulacionFijo",
+    x: 25,
+    y: 100,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "especialidadFijo",
+    x: 129,
+    y: 100,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "universidadFijo",
+    x: 25,
+    y: 108,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "colegioFijo",
+    x: 25,
+    y: 116,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "numeroColegiadoFijo",
+    x: 160,
+    y: 116,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "fraseFija1",
+    x: 50,
+    y: 135,
+    w: 120,
+    h: 8,
+    fontSize: 10,
+    align: "left",
+    value: "",
+  },
+  {
+    name: "fraseFija2",
+    x: 25,
+    y: 148,
+    w: 120,
+    h: 8,
+    fontSize: 10,
+    align: "left",
+    value: "",
+  },
+  {
+    name: "provinciaSelect1",
+    x: 140,
+    y: 20.5,
+    w: 20,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    background: "white",
+    value: "",
+  },
+  {
+    name: "provinciaSelect2",
+    x: 171,
+    y: 232,
+    w: 20,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    background: "white",
+    value: "",
+  },
+  {
+    name: "nombreFirma",
+    x: 80,
+    y: 225,
+    w: 65,
+    h: 15,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "firma",
+    x: 80,
+    y: 208,
+    w: 100,
+    h: 15,
+    align: "center",
+    value: "",
+  },
 ]);
 
 const estiloEtiqueta = (e) => ({
@@ -71,7 +362,10 @@ watch(
     etiquetas.value = etiquetas.value.map((e) => {
       const key = e.name;
       const propVal = newVals[key];
-      const finalValue = propVal !== undefined && propVal !== null && String(propVal) !== '' ? propVal : '';
+      const finalValue =
+        propVal !== undefined && propVal !== null && String(propVal) !== ""
+          ? propVal
+          : "";
       return {
         ...e,
         value: finalValue,
@@ -84,7 +378,13 @@ watch(
 const etiquetasConValores = computed(() => etiquetas.value);
 
 const etiquetasVisibles = computed(() => {
-  const ocultar = new Set(["monofásica","trifásica", "modificacion", "nueva", "ampliacion"]);
+  const ocultar = new Set([
+    "monofásica",
+    "trifásica",
+    "modificacion",
+    "nueva",
+    "ampliacion",
+  ]);
   return etiquetasConValores.value.map((e) => {
     const val = e.value && String(e.value).trim().toLowerCase();
     return {

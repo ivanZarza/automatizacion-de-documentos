@@ -1,4 +1,11 @@
   export const masterFormFields = [
+          {
+            name: 'fechaElaboracion',
+            label: 'Fecha elaboración del trabajo',
+            placeholder: 'Ej: 18/02/2026',
+            type: 'date',
+            fullWidth: true
+          },
         {
           name: 'nombreCubierta',
           label: 'Nombre Cubierta',
