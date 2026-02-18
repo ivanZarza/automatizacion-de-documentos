@@ -45,10 +45,10 @@ export const masterFormFields = [
   // ========== SECCIÓN FIRMA ==========
   {
     name: 'firma',
-    label: 'Firma (URL de la foto)',
-    placeholder: 'Pega la URL de la imagen de la firma',
-    type: 'url',
-    preview: true, // Campo personalizado para indicar previsualización
+    label: 'Firma (Imagen)',
+    placeholder: 'Selecciona o arrastra la imagen de la firma',
+    type: 'file',
+    accept: 'image/*',
     fullWidth: true
   },
   {

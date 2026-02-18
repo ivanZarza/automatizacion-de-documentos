@@ -183,7 +183,7 @@ watch(
       }
     });
   },
-  { deep: true, /* immediate: true */ }
+  { deep: true, immediate: true }
 );
 
 // Computed para obtener etiquetas visibles
@@ -263,6 +263,7 @@ const estiloEtiqueta = (etiqueta) => ({
   }
 
   .print-wrapper {
+    margin: 0 auto;
     padding: 0;
     background: #fff;
   }

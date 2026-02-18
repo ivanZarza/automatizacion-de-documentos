@@ -123,7 +123,7 @@ const etiquetas = ref([
   {
     nombre: "ciudad",
     x: 47,
-    y: 159.5,
+    y: 179.5,
     w: 60,
     h: 8,
     fontSize: 10,
@@ -133,7 +133,7 @@ const etiquetas = ref([
   {
     nombre: "dia",
     x: 107,
-    y: 159.5,
+    y: 179.5,
     w: 20,
     h: 8,
     fontSize: 10,
@@ -143,7 +143,7 @@ const etiquetas = ref([
   {
     nombre: "mes",
     x: 130,
-    y: 159.5,
+    y: 179.5,
     w: 20,
     h: 8,
     fontSize: 10,
@@ -153,7 +153,7 @@ const etiquetas = ref([
   {
     nombre: "anio",
     x: 148,
-    y: 159.5,
+    y: 179.5,
     w: 30,
     h: 8,
     fontSize: 10,
@@ -163,7 +163,7 @@ const etiquetas = ref([
   {
     nombre: "firma",
     x: 80,
-    y: 173,
+    y: 193,
     w: 80,
     h: 20,
     value: "/firma-solay.png",
@@ -182,7 +182,7 @@ watch(
       }
     });
   },
-  { deep: true, /* immediate: true */ }
+  { deep: true, immediate: true }
 );
 
 // Computed para obtener etiquetas visibles
