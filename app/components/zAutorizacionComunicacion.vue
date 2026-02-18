@@ -57,6 +57,7 @@ const props = defineProps({
   nifCif: { type: String, default: "" },
   nombreRepresentante: { type: String, default: "" },
   dniCifRepresentante: { type: String, default: "" },
+  calidad: { type: String, default: "Representante sociedad' }," },
 
   // SECCIÓN 2: LUGAR Y MEDIO DE NOTIFICACIÓN
   tipoVia: { type: String, default: "" },
@@ -158,6 +159,18 @@ const etiquetas = ref([
     align: "left",
     value: "12345678A",
     displayValue: "12345678A",
+  },
+  {
+    page: 1,
+    name: "calidad",
+    x: 20,
+    y: 120,
+    w: 100,
+    h: 5,
+    fontSize: 10,
+    align: "left",
+    value: "Representante de la sociedad",
+    displayValue: "Representante de la sociedad",
   },
 
   // PÁGINA 1 - SECCIÓN 2
@@ -567,6 +580,17 @@ const etiquetas = ref([
     value: "A01041434",
     displayValue: "",
   },
+  {
+    name: "nombreFirma",
+    x: 25,
+    y: 64,
+    w: 130,
+    h: 20,
+    fontSize: 10,
+    align: "left",
+    value: "",
+    displayValue: "",
+  }
 ]);
 
 // ============================================

@@ -3,116 +3,56 @@
     <div class="form-wrapper">
       <h2 class="form-title">{{ title }}</h2>
       <form @submit.prevent="submit" class="form-content">
-        <!-- Agrupar campos por sección y subsección -->
-        <div v-for="(groupedFields, sectionLetter) in groupedFieldsBySection" :key="sectionLetter" class="section-container" :data-section="sectionLetter" :style="{ borderLeftColor: getSectionColor(sectionLetter) }">
-          <!-- Header Desplegable de Sección -->
+        <div v-for="(groupedFields, subsectionName) in groupedFieldsBySection" :key="subsectionName" class="section-container" :data-section="subsectionName" :style="{ borderLeftColor: getSectionColor(subsectionName) }">
           <div 
             class="section-header"
-            @click="toggleSection(sectionLetter)"
-            :style="{ backgroundColor: sectionColorMap[sectionLetter] }"
+            @click="toggleSection(subsectionName)"
+            :style="{ backgroundColor: sectionColorMap[subsectionName] }"
           >
-            <span class="section-toggle-icon" :class="{ 'is-open': expandedSections[sectionLetter] }">
-              ●
-            </span>
-            <h3 class="section-title">Sección {{ sectionLetter }}</h3>
+            <span class="section-toggle-icon" :class="{ 'is-open': expandedSections[subsectionName] }">●</span>
+            <h3 class="section-title">{{ getSubsectionLabel(subsectionName) }}</h3>
           </div>
           
-          <!-- Contenido Desplegable -->
-          <div v-if="expandedSections[sectionLetter]" class="section-content">
-            <div v-for="(subFields, subsection) in groupFieldsBySubsection(groupedFields)" :key="subsection" class="subsection-container">
-              <h4 class="subsection-title">{{ getSubsectionLabel(subsection) }}</h4>
-              <div class="fields-grid">
-                <div v-for="field in subFields" :key="field.name" class="field-wrapper">
-                  <label class="field-label">{{ field.label }}</label>
-                  <!-- Input Text -->
-                  <input 
-                    v-if="field.type === 'text' || field.type === 'email' || field.type === 'tel'"
-                    v-model="formData[field.name]"
-                    :type="field.type"
-                    :placeholder="field.placeholder"
-                    class="field-input"
-                  />
-                  <!-- Input URL con previsualización de imagen -->
-                  <div v-else-if="field.type === 'url' && field.preview" class="url-preview-wrapper">
-                    <input
-                      v-model="formData[field.name]"
-                      type="url"
-                      :placeholder="field.placeholder"
-                      class="field-input"
-                    />
-                    <div v-if="formData[field.name]" class="file-preview">
-                      <img :src="formData[field.name]" class="file-preview-image" style="max-width:200px;max-height:100px;object-fit:contain;" />
-                    </div>
+          <div v-if="expandedSections[subsectionName]" class="section-content">
+            <div class="fields-grid">
+              <div v-for="field in groupedFields" :key="field.name" class="field-wrapper">
+                <label class="field-label">{{ field.label }}</label>
+                <input v-if="field.type === 'text' || field.type === 'email' || field.type === 'tel'" v-model="formData[field.name]" :type="field.type" :placeholder="field.placeholder" class="field-input" />
+                <div v-else-if="field.type === 'url' && field.preview" class="url-preview-wrapper">
+                  <input v-model="formData[field.name]" type="url" :placeholder="field.placeholder" class="field-input" />
+                  <div v-if="formData[field.name]" class="file-preview">
+                    <img :src="formData[field.name]" class="file-preview-image" style="max-width:200px;max-height:100px;object-fit:contain;" />
                   </div>
-                  <input 
-                    v-else-if="field.type === 'url'"
-                    v-model="formData[field.name]"
-                    type="url"
-                    :placeholder="field.placeholder"
-                    class="field-input"
-                  />
-                  <!-- Input Date -->
-                  <input 
-                    v-else-if="field.type === 'date'"
-                    v-model="formData[field.name]"
-                    type="date"
-                    class="field-input"
-                  />
-                  <!-- Textarea -->
-                  <textarea 
-                    v-else-if="field.type === 'textarea'"
-                    v-model="formData[field.name]"
-                    :placeholder="field.placeholder"
-                    :rows="field.rows || 3"
-                    class="field-input field-textarea"
-                  ></textarea>
-                  <!-- Select -->
-                  <select 
-                    v-else-if="field.type === 'select'"
-                    v-model="formData[field.name]"
-                    class="field-input"
-                  >
-                    <option value="">{{ field.placeholder }}</option>
-                    <option v-for="option in field.options" :key="option.value || option" :value="option.value || option">
-                      {{ option.label || option }}
-                    </option>
-                  </select>
-                  <!-- File Input -->
-                  <div v-else-if="field.type === 'file'" class="file-wrapper">
-                    <label :for="field.name" class="file-input-label">
-                      <svg class="file-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                        <polyline points="17 8 12 3 7 8"></polyline>
-                        <line x1="12" y1="3" x2="12" y2="15"></line>
-                      </svg>
-                      <span>{{ formData[field.name] ? 'Cambiar archivo' : 'Seleccionar archivo' }}</span>
-                    </label>
-                    <input 
-                      :id="field.name"
-                      :key="field.name"
-                      type="file"
-                      :accept="field.accept || '*'"
-                      class="file-input-hidden"
-                      @change="handleFileUpload($event, field.name)"
-                    />
-                    <div v-if="formData[field.name]" class="file-preview">
-                      <p class="file-preview-text">✓ Archivo seleccionado:</p>
-                      <img v-if="field.accept?.includes('image')" :src="formData[field.name]" class="file-preview-image" />
-                      <p v-else class="file-preview-name">{{ extractFileName(formData[field.name]) }}</p>
-                    </div>
+                </div>
+                <input v-else-if="field.type === 'url'" v-model="formData[field.name]" type="url" :placeholder="field.placeholder" class="field-input" />
+                <input v-else-if="field.type === 'date'" v-model="formData[field.name]" type="date" class="field-input" />
+                <textarea v-else-if="field.type === 'textarea'" v-model="formData[field.name]" :placeholder="field.placeholder" :rows="field.rows || 3" class="field-input field-textarea"></textarea>
+                <select v-else-if="field.type === 'select'" v-model="formData[field.name]" class="field-input">
+                  <option value="">{{ field.placeholder }}</option>
+                  <option v-for="option in field.options" :key="option.value || option" :value="option.value || option">{{ option.label || option }}</option>
+                </select>
+                <div v-else-if="field.type === 'file'" class="file-wrapper">
+                  <label :for="field.name" class="file-input-label">
+                    <svg class="file-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="17 8 12 3 7 8"></polyline>
+                      <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <span>{{ formData[field.name] ? 'Cambiar archivo' : 'Seleccionar archivo' }}</span>
+                  </label>
+                  <input :id="field.name" :key="field.name" type="file" :accept="field.accept || '*'" class="file-input-hidden" @change="handleFileUpload($event, field.name)" />
+                  <div v-if="formData[field.name]" class="file-preview">
+                    <p class="file-preview-text">✓ Archivo seleccionado:</p>
+                    <img v-if="field.accept?.includes('image')" :src="formData[field.name]" class="file-preview-image" />
+                    <p v-else class="file-preview-name">{{ extractFileName(formData[field.name]) }}</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          </div>
         </div>
 
-        <Boton 
-          type="submit" 
-          variant="success" 
-          class="form-submit"
-        >
+        <Boton type="submit" variant="success" class="form-submit">
           {{ submitButtonText }}
         </Boton>
       </form>
@@ -213,33 +153,41 @@ const filterEditableFields = () => {
   return props.fields.filter(field => props.editableFieldNames.includes(field.name))
 }
 
-// Colores suaves por sección
+// Colores suave por subsección
 const sectionColorMap = {
+  'ACEPTACION': '#E8F4F8',
   'A': '#E8F4F8',
-  'B': '#E8F8E8',
-  'C': '#FFF4E8',
-  'D': '#F8E8F8',
-  'E': '#FFE8F0',
   'E1': '#FFE8F0',
+  'E1.3': '#FFE8F0',
+  'E1.4': '#FFD6E8',
+  'E1.5': '#FFCCE0',
+  'E1.6': '#FFC2D8',
+  'E1.7': '#FFB8D0',
   'E2': '#FFF0E8',
   'F': '#FFE8E8',
   'G': '#E8F0FF',
   'H': '#FFFFF0',
-  'I': '#F0E8FF'
+  'I': '#F0E8FF',
+  'IMAGEN': '#E8F8E8',
+  'LEGALIZACION': '#F8E8F8'
 }
 
 const sectionLineColorMap = {
+  'ACEPTACION': '#2E7D95',
   'A': '#2E7D95',
-  'B': '#2E952E',
-  'C': '#D97706',
-  'D': '#8B5A8B',
-  'E': '#D97706',
   'E1': '#D97706',
+  'E1.3': '#D97706',
+  'E1.4': '#CC7722',
+  'E1.5': '#CC7722',
+  'E1.6': '#CC7722',
+  'E1.7': '#CC7722',
   'E2': '#CC7722',
   'F': '#DC2626',
   'G': '#0369A1',
   'H': '#B8860B',
-  'I': '#7C3AED'
+  'I': '#7C3AED',
+  'IMAGEN': '#2E952E',
+  'LEGALIZACION': '#8B5A8B'
 }
 
 const getSectionColor = (section) => {
@@ -251,31 +199,28 @@ const groupedFieldsBySection = computed(() => {
   const editable = filterEditableFields()
   
   editable.forEach(field => {
-    let section = 'Otros'
-    
-    // Detectar sección por prefijo del nombre
-    if (field.name.startsWith('e1_')) section = 'E1'
-    else if (field.name.startsWith('e2_')) section = 'E2'
-    else if (field.name.startsWith('f_')) section = 'F'
-    else if (field.name.startsWith('g_')) section = 'G'
-    else if (field.name.startsWith('h_')) section = 'H'
-    else if (field.name.startsWith('i_')) section = 'I'
-    else if (field.name.startsWith('apellidos') || field.name.startsWith('nif') || field.name === 'correoElectronico' || field.name === 'telefono' || field.name === 'representante' || field.name === 'dniRepresentante' || field.name === 'domicilio' || field.name === 'localidad' || field.name === 'provincia' || field.name === 'codigoPostal') section = 'A'
-    else if (field.name.startsWith('emplazamiento') || (field.name === 'numero' && !field.name.includes('Tecnico')) || field.name === 'bloque' || field.name === 'escalera' || field.name === 'piso' || field.name === 'localidadEmplazamiento' || field.name === 'provinciaEmplazamiento' || field.name === 'codigoPostalEmplazamiento' || field.name === 'correoElectronicoEmplazamiento' || field.name === 'referenciaCatastral' || field.name === 'tipoInstalacion' || field.name === 'usoDestino') section = 'B'
-    else if (field.name.startsWith('nombreTecnico') || field.name.startsWith('numeroCertificado') || field.name.startsWith('numeroInstalador') || field.name.startsWith('domicilioTecnico') || field.name.startsWith('localidadTecnico') || field.name.startsWith('telefonoTecnico') || field.name.startsWith('codigoPostalTecnico') || field.name.startsWith('numeroTecnico')) section = 'C'
-    else if (field.name.startsWith('modalidad')) section = 'D'
-    
+    const section = field.subsection || 'Sin sección'
     if (!grouped[section]) {
       grouped[section] = []
     }
     grouped[section].push(field)
   })
   
-  // Ordenar secciones
-  const sortOrder = ['A', 'B', 'C', 'D', 'E', 'E1', 'E2', 'F', 'G', 'H', 'I', 'Otros','LEGALIZACION', 'ACEPTACION']
+  // Ordenar secciones con ACEPTACION al final
+  const sortOrder = ['A', 'E1', 'E1.1', 'E1.2', 'E1.3', 'E1.4', 'E1.5', 'E1.6', 'E1.7', 
+                     'E2', 'E2.1', 'E2.2', 'E2.3', 'E2.4', 'E2.5', 'E2.6',
+                     'F', 'G', 'H', 'I', 'IMAGEN', 'LEGALIZACION', 'ACEPTACION']
+  
   const sorted = {}
   sortOrder.forEach(key => {
     if (grouped[key]) {
+      sorted[key] = grouped[key]
+    }
+  })
+  
+  // Agregar cualquier sección no incluida en el orden
+  Object.keys(grouped).forEach(key => {
+    if (!sorted[key]) {
       sorted[key] = grouped[key]
     }
   })
@@ -323,24 +268,29 @@ function groupFieldsBySubsection(fields) {
 // Etiquetas de subsección
 function getSubsectionLabel(subsection) {
   const labels = {
+    'A': 'A - Datos del Solicitante',
+    'E1': 'E1 - Instalación Aislada',
     'E1.1': 'E1.1 - Módulo Fotovoltaico',
     'E1.2': 'E1.2 - Generador Fotovoltaico',
     'E1.3': 'E1.3 - Baterías',
     'E1.4': 'E1.4 - Regulador',
     'E1.5': 'E1.5 - Inversor',
-    'E1.6': 'E1.6 - Otros',
+    'E1.6': 'E1.6 - Otros Equipos',
     'E1.7': 'E1.7 - Información de la Demanda',
+    'E2': 'E2 - Instalación Conectada a Red',
     'E2.1': 'E2.1 - Conexión a la Red',
     'E2.2': 'E2.2 - Módulo Fotovoltaico',
     'E2.3': 'E2.3 - Generador Fotovoltaico',
     'E2.4': 'E2.4 - Inversor',
-    'E2.5': 'E2.5 - Baterías',
+    'E2.5': 'E2.5 - Baterías (Opcional)',
     'E2.6': 'E2.6 - Protecciones Externas',
     'F': 'F - Medidas de Protección',
     'G': 'G - Características de Líneas y Circuitos',
     'H': 'H - Esquema Unifilar',
     'I': 'I - Plano de Emplazamiento',
-    'LEGALIZACION': 'LEGALIZACIÓN'
+    'IMAGEN': 'Imágenes y Documentos',
+    'LEGALIZACION': 'LEGALIZACIÓN',
+    'ACEPTACION': 'ACEPTACIÓN',
   }
   return labels[subsection] || subsection
 }

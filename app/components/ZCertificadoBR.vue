@@ -29,43 +29,50 @@ import { ref, computed, watch } from "vue";
 // Incluimos aquí todas las claves que aparecen en `etiquetas` para evitar
 // desajustes con el `fieldMapping`.
 const props = defineProps({
-  registro_instalacion: { type: [String, Number], default: '' },
-  registro: { type: [String, Number], default: '' },
-  nombre: { type: String, default: '' },
-  nif: { type: String, default: '' },
-  domicilio: { type: String, default: '' },
-  cp: { type: String, default: '' },
-  localidad: { type: String, default: '' },
-  provincia: { type: String, default: '' },
-  correo_electronico: { type: String, default: '' },
-  telefono: { type: String, default: '' },
-  emplazamiento: { type: String, default: '' },
-  emplazamientoNumero: { type: String, default: '' },
-  emplazamientoBloque: { type: String, default: '' },
-  emplazamientoPortal: { type: String, default: '' },
-  emplazamientoEscalera: { type: String, default: '' },
-  emplazamientoPiso: { type: String, default: '' },
-  emplazamientoPuerta: { type: String, default: '' },
-  emplazamientoLocalidad: { type: String, default: '' },
-  emplazamientoProvincia: { type: String, default: '' },
-  emplazamientoCodigoPostal: { type: String, default: '' },
-  UsoAlQueSeDestinaEmplazamiento: { type: String, default: '' },
-  cups: { type: String, default: '' },
-  instalacionTipo: { type: String, default: '' },
-  fase: { type: String, default: '' },
-  potenciaPrevista: { type: String, default: '' },
-  Superficie: { type: String, default: '' },
-  tensionSuministro: { type: String, default: '' },
-  empresaDistribuidora: { type: String, default: '' },
-  intensidadNominal: { type: String, default: '' },
-  sensibilidadDiferencial: { type: String, default: '' },
-  directorDeObra: { type: String, default: '' },
-  observaciones: { type: String, default: '' },
-  dia: { type: String, default: '' },
-  mes: { type: String, default: '' },
-  anio: { type: String, default: '' },
-  fecha: { type: String, default: '' },
-  generatedDate: { type: String, default: '' }
+  registro_instalacion: { type: [String, Number], default: "" },
+  registro: { type: [String, Number], default: "" },
+  nombre: { type: String, default: "" },
+  nif: { type: String, default: "" },
+  domicilio: { type: String, default: "" },
+  cp: { type: String, default: "" },
+  localidad: { type: String, default: "" },
+  provincia: { type: String, default: "" },
+  correo_electronico: { type: String, default: "" },
+  telefono: { type: String, default: "" },
+  emplazamiento: { type: String, default: "" },
+  emplazamientoNumero: { type: String, default: "" },
+  emplazamientoBloque: { type: String, default: "" },
+  emplazamientoPortal: { type: String, default: "" },
+  emplazamientoEscalera: { type: String, default: "" },
+  emplazamientoPiso: { type: String, default: "" },
+  emplazamientoPuerta: { type: String, default: "" },
+  emplazamientoLocalidad: { type: String, default: "" },
+  emplazamientoProvincia: { type: String, default: "" },
+  emplazamientoCodigoPostal: { type: String, default: "" },
+  UsoAlQueSeDestinaEmplazamiento: { type: String, default: "" },
+  cups: { type: String, default: "" },
+  instalacionTipo: { type: String, default: "" },
+  fase: { type: String, default: "" },
+  potenciaPrevista: { type: String, default: "" },
+  Superficie: { type: String, default: "" },
+  tensionSuministro: { type: String, default: "" },
+  empresaDistribuidora: { type: String, default: "" },
+  intensidadNominal: { type: String, default: "" },
+  sensibilidadDiferencial: { type: String, default: "" },
+  directorDeObra: { type: String, default: "" },
+  observaciones: { type: String, default: "" },
+  dia: { type: String, default: "" },
+  mes: { type: String, default: "" },
+  anio: { type: String, default: "" },
+  fecha: { type: String, default: "" },
+  generatedDate: { type: String, default: "" },
+  seccionFase: { type: String, default: "" },
+  titulacion: { type: String, default: "" },
+  colegioOficial: { type: String, default: "" },
+  numeroColegiado: { type: String, default: "" },
+  organismoControl: { type: String, default: "" },
+  numeroNotificacion: { type: String, default: "" },
+  referenciaFechaInspeccion: { type: String, default: "" },
 });
 
 // Toggle para mostrar guías en pantalla (no se imprime)
@@ -368,7 +375,7 @@ const etiquetas = ref([
       Trifásica: { x: 60, y: 152.6 },
     },
   },
-    {
+  {
     name: "tensionSuministro",
     x: 75,
     y: 155,
@@ -379,7 +386,18 @@ const etiquetas = ref([
     align: "right",
     value: "33444",
   },
-      {
+  {
+    name: "seccionFase",
+    x: 148,
+    y: 156,
+    h: 6,
+    w: 20,
+    h: 2.3,
+    fontSize: 7.5,
+    align: "right",
+    value: "seccionFase",
+  },
+  {
     name: "empresaDistribuidora",
     x: 35,
     y: 161,
@@ -390,7 +408,7 @@ const etiquetas = ref([
     align: "right",
     value: "33444",
   },
-    {
+  {
     name: "intensidadNominal",
     x: 11,
     y: 172,
@@ -421,7 +439,73 @@ const etiquetas = ref([
     h: 2.3,
     fontSize: 7.5,
     align: "right",
-    value: "",
+    value: "directorDeObra",
+  },
+  {
+    name: "titulacion",
+    x: 101,
+    y: 190,
+    h: 6,
+    w: 20,
+    h: 2.3,
+    fontSize: 7.5,
+    align: "right",
+    value: "titulacion",
+  },
+  {
+    name: "colegioOficial",
+    x: 138,
+    y: 190,
+    h: 6,
+    w: 20,
+    h: 2.3,
+    fontSize: 7.5,
+    align: "right",
+    value: "colegioOficial",
+  },
+  {
+    name: "numeroColegiado",
+    x: 174,
+    y: 190,
+    h: 6,
+    w: 20,
+    h: 2.3,
+    fontSize: 7.5,
+    align: "right",
+    value: "111111",
+  },
+    {
+    name: "organismoControl",
+    x: 11,
+    y: 197,
+    h: 6,
+    w: 20,
+    h: 2.3,
+    fontSize: 7.5,
+    align: "right",
+    value: "organismoControl",
+  },
+      {
+    name: "numeroNotificacion",
+    x: 89,
+    y: 197,
+    h: 6,
+    w: 20,
+    h: 2.3,
+    fontSize: 7.5,
+    align: "right",
+    value: "numeroNotificacion",
+  },
+        {
+    name: "referenciaFechaInspeccion",
+    x: 126,
+    y: 197,
+    h: 6,
+    w: 20,
+    h: 2.3,
+    fontSize: 7.5,
+    align: "right",
+    value: "referenciaFechaInspeccion",
   },
   {
     name: "observaciones",
@@ -467,7 +551,6 @@ const etiquetas = ref([
     align: "right",
     value: "anio",
   },
-
 ]);
 
 const estiloEtiqueta = (e) => ({
@@ -501,21 +584,30 @@ watch(
     etiquetas.value = etiquetas.value.map((e) => {
       const key = e.name;
       const propVal = newVals[key];
-      const finalValue = propVal !== undefined && propVal !== null && String(propVal) !== '' ? propVal : '';
+      const finalValue =
+        propVal !== undefined && propVal !== null && String(propVal) !== ""
+          ? propVal
+          : "";
       return {
         ...e,
         value: finalValue,
       };
     });
   },
-  { deep: true, immediate: true },
+  { deep: true /* immediate: true */ },
 );
 
 const etiquetasConValores = computed(() => etiquetas.value);
 
 // Computed que oculta el texto cuando el valor es 'monofásica' o 'modificacion'
 const etiquetasVisibles = computed(() => {
-  const ocultar = new Set(["monofásica","trifásica", "modificacion", "nueva", "ampliacion"]);
+  const ocultar = new Set([
+    "monofásica",
+    "trifásica",
+    "modificacion",
+    "nueva",
+    "ampliacion",
+  ]);
   return etiquetasConValores.value.map((e) => {
     const val = e.value && String(e.value).trim().toLowerCase();
     return {
