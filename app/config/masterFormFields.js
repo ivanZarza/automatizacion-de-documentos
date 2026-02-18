@@ -12,8 +12,8 @@
       fullWidth: true
     },
   {
-    name: 'expedienteAceptacion',
-    label: 'Expediente de Aceptación',
+    name: 'expedienteECO',
+    label: 'Expediente ECO',
     placeholder: 'Ej: EXP-2026-001',
     type: 'text',
     fullWidth: true

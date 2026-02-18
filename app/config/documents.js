@@ -2057,7 +2057,7 @@ export const aceptacionSubvencionConfig = {
   fields: [
     { name: 'razonSocial', label: 'Razón Social', type: 'text', fullWidth: true },
     { name: 'dni', label: 'DNI/NIF', type: 'text' },
-    { name: 'expedienteAceptacion', label: 'Expediente', type: 'text' },
+    { name: 'expedienteECO', label: 'Expediente', type: 'text' },
     { name: 'codigoENI', label: 'Código ENI', type: 'text' },
     { name: 'provincia', label: 'Provincia', type: 'text' },
     { name: 'edificioVivienda', label: 'Edificio/Vivienda', type: 'text' },
@@ -2065,12 +2065,14 @@ export const aceptacionSubvencionConfig = {
     { name: 'ciudad', label: 'Ciudad', type: 'text', fullWidth: true },
     { name: 'dia', label: 'Día', type: 'text' },
     { name: 'mes', label: 'Mes', type: 'text' },
-    { name: 'anio', label: 'Año', type: 'text' }
+    { name: 'anio', label: 'Año', type: 'text' },
+    { name: 'nombreFirma', label: 'Nombre del Firmante', type: 'text' },
+    { name: 'firma', label: 'Firma (Imagen)', type: 'file', accept: 'image/*' }
   ],
   defaultData: {
     razonSocial: '',
     dni: '',
-    expedienteAceptacion: '',
+    expedienteECO: '',
     codigoENI: '',
     provincia: '',
     edificioVivienda: '',
@@ -2078,12 +2080,14 @@ export const aceptacionSubvencionConfig = {
     ciudad: '',
     dia: '',
     mes: '',
-    anio: ''
+    anio: '',
+    nombreFirma: '',
+    firma: ''
   },
   fieldMapping: {
     razonSocial: 'apellidosNombre',
     dni: 'nifCif',
-    expedienteAceptacion: 'expedienteAceptacion',
+    expedienteECO: 'expedienteECO',
     codigoENI: 'codigoENI',
     provincia: 'provinciaEmplazamiento',
     edificioVivienda: 'edificioVivienda',
@@ -2091,7 +2095,9 @@ export const aceptacionSubvencionConfig = {
     ciudad: 'localidadEmplazamiento',
     dia: 'dia',
     mes: 'mes',
-    anio: 'anio'
+    anio: 'anio',
+    nombreFirma: 'apellidosNombre',
+    firma: 'firma'
   },
   capabilities: {
     canPreview: true,
@@ -2120,6 +2126,7 @@ export const declaracionCesionTratamientoConfig = {
     { name: 'dia', label: 'Día', type: 'text' },
     { name: 'mes', label: 'Mes', type: 'text' },
     { name: 'anio', label: 'Año', type: 'text' },
+    { name: 'nombreFirma', label: 'Nombre del Firmante', type: 'text' },
     { name: 'firma', label: 'Firma (Imagen)', type: 'file', accept: 'image/*' }
   ],
   defaultData: {
@@ -2135,6 +2142,7 @@ export const declaracionCesionTratamientoConfig = {
     dia: '',
     mes: '',
     anio: '',
+    nombreFirma: '',
     firma: ''
   },
   fieldMapping: {
@@ -2150,6 +2158,7 @@ export const declaracionCesionTratamientoConfig = {
     dia: 'dia',
     mes: 'mes',
     anio: 'anio',
+    nombreFirma: 'apellidosNombre',
     firma: 'firma'
   },
   capabilities: {

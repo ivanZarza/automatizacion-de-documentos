@@ -33,7 +33,7 @@ import { ref, computed, watch } from "vue";
 const props = defineProps({
   razonSocial: { type: String, default: "" },
   dni: { type: String, default: "" },
-  expedienteAceptacion: { type: String, default: "" },
+  expedienteECO: { type: String, default: "" },
   codigoENI: { type: String, default: "" },
   provincia: { type: String, default: "" },
   edificioVivienda: { type: String, default: "" },
@@ -43,6 +43,7 @@ const props = defineProps({
   mes: { type: String, default: "" },
   anio: { type: String, default: "" },
   firma: { type: String, default: "" },
+  nombreFirma: { type: String, default: "" },
   generatedDate: { type: String, default: "" },
 });
 
@@ -112,7 +113,7 @@ const etiquetas = ref([
     value: "B09848912A",
   },
   {
-    name: "expedienteAceptacion",
+    name: "expedienteECO",
     x: 120,
     y: 81.5,
     w: 80,
@@ -169,6 +170,17 @@ const etiquetas = ref([
     w: 65,
     h: 15,
     value: "/firma-solay.png",
+    align: "center",
+  },
+    {
+    name: "nombreFirma",
+    x: 75,
+    y: 232,
+    w: 20,
+    h: 3,
+    fontSize: 9,
+    align: "center",
+    value: "Nombre del Firmante",
   },
 ]);
 
