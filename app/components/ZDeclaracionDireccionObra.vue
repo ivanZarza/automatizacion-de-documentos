@@ -8,7 +8,12 @@
         :style="estiloEtiqueta(et)"
       >
         <template v-if="et.name === 'firma'">
-          <img v-if="et.displayValue" :src="et.displayValue" alt="Firma" style="max-width:100%; max-height:100%; object-fit:contain;" />
+          <img
+            v-if="et.displayValue"
+            :src="et.displayValue"
+            alt="Firma"
+            style="max-width: 100%; max-height: 100%; object-fit: contain"
+          />
           <span v-else>{{ et.displayValue }}</span>
         </template>
         <template v-else>
@@ -34,7 +39,6 @@ import { ref, computed, watch } from "vue";
 // Props individuales
 const props = defineProps({
   potenciaFrase1: { type: String, default: "" },
-  potenciaFrase2: { type: String, default: "" },
   provincia: { type: String, default: "" },
   fechaElaboracion: { type: String, default: "" },
   dia: { type: String, default: "" },
@@ -69,18 +73,8 @@ const debug = ref(true);
 const etiquetas = ref([
   {
     name: "potenciaFrase1",
-    x: 147,
+    x: 126.5,
     y: 135,
-    w: 30,
-    h: 6,
-    fontSize: 9,
-    align: "center",
-    value: "",
-  },
-    {
-    name: "potenciaFrase2",
-    x: 108,
-    y: 148,
     w: 30,
     h: 6,
     fontSize: 9,
@@ -235,7 +229,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 11,
     align: "center",
-    letterSpacing: '2.5px',
+    letterSpacing: "2.5px",
     value: "",
   },
   {
@@ -290,7 +284,7 @@ const etiquetas = ref([
   },
   {
     name: "fraseFija1",
-    x: 50,
+    x: 60,
     y: 135,
     w: 120,
     h: 8,
@@ -300,7 +294,7 @@ const etiquetas = ref([
   },
   {
     name: "fraseFija2",
-    x: 25,
+    x: 60,
     y: 148,
     w: 120,
     h: 8,
@@ -333,9 +327,10 @@ const etiquetas = ref([
   {
     name: "nombreFirma",
     x: 80,
-    y: 225,
+    y: 224,
     w: 65,
     h: 15,
+    fontSize: 10,
     align: "center",
     value: "",
   },
@@ -367,7 +362,7 @@ const estiloEtiqueta = (e) => ({
   whiteSpace: "nowrap",
   overflow: "visible",
   background: `${e.background}`,
-  letterSpacing: `${e.letterSpacing || 'normal'}`,
+  letterSpacing: `${e.letterSpacing || "normal"}`,
 });
 
 watch(

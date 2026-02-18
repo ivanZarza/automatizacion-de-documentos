@@ -8,7 +8,12 @@
         :style="estiloEtiqueta(et)"
       >
         <template v-if="et.name === 'firma'">
-          <img v-if="et.displayValue" :src="et.displayValue" alt="Firma" style="max-width:100%; max-height:100%; object-fit:contain;" />
+          <img
+            v-if="et.displayValue"
+            :src="et.displayValue"
+            alt="Firma"
+            style="max-width: 100%; max-height: 100%; object-fit: contain"
+          />
           <span v-else>{{ et.displayValue }}</span>
         </template>
         <template v-else>
@@ -76,7 +81,7 @@ const etiquetas = ref([
     align: "center",
     value: "",
   },
-    {
+  {
     name: "potenciaFrase2",
     x: 108,
     y: 148,
@@ -234,7 +239,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 11,
     align: "center",
-    letterSpacing: '2.5px',
+    letterSpacing: "2.5px",
     value: "",
   },
   {
@@ -332,9 +337,10 @@ const etiquetas = ref([
   {
     name: "nombreFirma",
     x: 80,
-    y: 225,
+    y: 224,
     w: 65,
     h: 15,
+    fontSize: 10,
     align: "center",
     value: "",
   },
@@ -366,7 +372,7 @@ const estiloEtiqueta = (e) => ({
   whiteSpace: "nowrap",
   overflow: "visible",
   background: `${e.background}`,
-  letterSpacing: `${e.letterSpacing || 'normal'}`,
+  letterSpacing: `${e.letterSpacing || "normal"}`,
 });
 
 watch(
