@@ -36,6 +36,7 @@ const props = defineProps({
   mes: { type: String, default: "" },
   anio: { type: String, default: "" },
   firma: { type: String, default: "" },
+  nombreFirma: { type: String, default: "" },
 });
 
 const etiquetas = ref([
@@ -167,6 +168,16 @@ const etiquetas = ref([
     w: 80,
     h: 20,
     value: "/firma-solay.png",
+    align: "center",
+  },
+  {
+    nombre: "nombreFirma",
+    x: 80,
+    y: 210,
+    w: 80,
+    h: 8,
+    fontSize: 10,
+    value: "Juan Pérez",
     align: "center",
   },
 ]);

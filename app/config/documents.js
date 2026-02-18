@@ -2288,6 +2288,7 @@ export const declaracionCompromisoTransversalesConfig = {
     { name: 'dia', label: 'Día', type: 'text' },
     { name: 'mes', label: 'Mes', type: 'text' },
     { name: 'anio', label: 'Año', type: 'text' },
+    { name: 'nombreFirma', label: 'Nombre del Firmante', type: 'text' },
     { name: 'firma', label: 'Firma (Imagen)', type: 'file', accept: 'image/*' }
   ],
   defaultData: {
@@ -2303,7 +2304,8 @@ export const declaracionCompromisoTransversalesConfig = {
     dia: '',
     mes: '',
     anio: '',
-    firma: ''
+    firma: '',
+    nombreFirma: '',
   },
   fieldMapping: {
     nombreApellidos: 'apellidosNombre',
@@ -2318,7 +2320,8 @@ export const declaracionCompromisoTransversalesConfig = {
     dia: 'dia',
     mes: 'mes',
     anio: 'anio',
-    firma: 'firma'
+    firma: 'firma',
+    nombreFirma: 'apellidosNombre'
   },
   capabilities: {
     canPreview: true,
