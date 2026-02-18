@@ -135,10 +135,10 @@ const estiloMarcador = (m) => ({
   position: relative;
   box-sizing: border-box;
   background-color: #fff;
-  background-image: url("/documentos-oficiales/declaracion-tecnico-competente.png");
+  background-image: url("/documentos-oficiales/declaracion-tecnico-competente.jpg");
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 110% 100%;
+  background-size: 100% 100%;
   color: #111;
   font-family: Arial, sans-serif;
   font-size: 7.1pt;

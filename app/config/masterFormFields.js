@@ -1,4 +1,11 @@
   export const masterFormFields = [
+        {
+          name: 'nombreCubierta',
+          label: 'Nombre Cubierta',
+          placeholder: 'FARMACIA bURGOS, 9 C.B.',
+          type: 'text',
+          fullWidth: true
+        },
       // ========== SECCIÓN aceptacion ==========
     {
       name: 'edificioVivienda',

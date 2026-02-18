@@ -27,13 +27,28 @@ import { ref, computed, watch } from "vue";
 
 // Props individuales
 const props = defineProps({
-  potencia: { type: String, default: '' },
-  provincia: { type: String, default: '' },
-  fechaElaboracion: { type: String, default: '' },
-  dia: { type: String, default: '' },
-  mes: { type: String, default: '' },
-  anio: { type: String, default: '' },
-  generatedDate: { type: String, default: '' }
+  potencia: { type: String, default: "" },
+  provincia: { type: String, default: "" },
+  fechaElaboracion: { type: String, default: "" },
+  dia: { type: String, default: "" },
+  mes: { type: String, default: "" },
+  anio: { type: String, default: "" },
+  generatedDate: { type: String, default: "" },
+  nombreApellidosEduardoFijo: { type: String, default: "" },
+  nifEduardoFijo: { type: String, default: "" },
+  tipoViaFijo: { type: String, default: "" },
+  nombreViaFijo: { type: String, default: "" },
+  numeroViaFijo: { type: String, default: "" },
+  paisFijo: { type: String, default: "" },
+  provinciaFijo: { type: String, default: "" },
+  municipioFijo: { type: String, default: "" },
+  titulacionFijo: { type: String, default: "" },
+  especialidadFijo: { type: String, default: "" },
+  universidadFijo: { type: String, default: "" },
+  colegioFijo: { type: String, default: "" },
+  numeroColegiadoFijo: { type: String, default: "" },
+  telefonoFijo: { type: String, default: "" },
+  emailFijo: { type: String, default: "" },
 });
 
 // Toggle para mostrar guías en pantalla (no se imprime)
@@ -41,6 +56,177 @@ const debug = ref(true);
 
 // Array simple de etiquetas
 const etiquetas = ref([
+  {
+    name: "nombreApellidosEduardoFijo",
+    x: 36,
+    y: 80.5,
+    w: 60,
+    h: 8,
+    fontSize: 10,
+    align: "left",
+    value: "",
+  },
+  {
+    name: "nifEduardoFijo",
+    x: 130,
+    y: 100,
+    w: 30,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "tipoViaFijo",
+    x: 50,
+    y: 150,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "nombreViaFijo",
+    x: 50,
+    y: 150,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "numeroViaFijo",
+    x: 50,
+    y: 150,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "paisFijo",
+    x: 50,
+    y: 150,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "provinciaFijo",
+    x: 50,
+    y: 150,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "municipioFijo",
+    x: 50,
+    y: 150,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "titulacionFijo",
+    x: 50,
+    y: 150,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "especialidadFijo",
+    x: 50,
+    y: 150,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+    {
+    name: "universidadFijo",
+    x: 50,
+    y: 150,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+      {
+    name: "colegioFijo",
+    x: 50,
+    y: 150,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "numeroColegiadoFijo",
+    x: 50,
+    y: 150,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+   {
+    name: "telefonoFijo",
+    x: 50,
+    y: 150,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  {
+    name: "emailFijo",
+    x: 50,
+    y: 150,
+    w: 80,
+    h: 6,
+    fontSize: 10,
+    align: "center",
+    value: "",
+  },
+  // Frases fijas
+  {
+    name: "fraseFija1",
+    x: 50,
+    y: 160,
+    w: 120,
+    h: 8,
+    fontSize: 11,
+    align: "left",
+    value: "Esta es la primera frase fija que siempre aparece.",
+  },
+  {
+    name: "fraseFija2",
+    x: 50,
+    y: 170,
+    w: 120,
+    h: 8,
+    fontSize: 11,
+    align: "left",
+    value: "Y esta es la segunda frase fija, también visible siempre.",
+  },
   {
     name: "potencia",
     x: 50,
@@ -129,7 +315,10 @@ watch(
     etiquetas.value = etiquetas.value.map((e) => {
       const key = e.name;
       const propVal = newVals[key];
-      const finalValue = propVal !== undefined && propVal !== null && String(propVal) !== '' ? propVal : '';
+      const finalValue =
+        propVal !== undefined && propVal !== null && String(propVal) !== ""
+          ? propVal
+          : "";
       return {
         ...e,
         value: finalValue,
@@ -143,7 +332,13 @@ const etiquetasConValores = computed(() => etiquetas.value);
 
 // Computed que oculta el texto cuando es cierto valor
 const etiquetasVisibles = computed(() => {
-  const ocultar = new Set(["monofásica","trifásica", "modificacion", "nueva", "ampliacion"]);
+  const ocultar = new Set([
+    "monofásica",
+    "trifásica",
+    "modificacion",
+    "nueva",
+    "ampliacion",
+  ]);
   return etiquetasConValores.value.map((e) => {
     const val = e.value && String(e.value).trim().toLowerCase();
     return {
@@ -195,10 +390,10 @@ const estiloMarcador = (m) => ({
   position: relative;
   box-sizing: border-box;
   background-color: #fff;
-  background-image: url("/documentos-oficiales/declaracion-responsable-direccion-obra.png");
+  background-image: url("/documentos-oficiales/declaracion-direccion-obra.jpg");
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 110% 100%;
+  background-size: 100% 100%;
   color: #111;
   font-family: Arial, sans-serif;
   font-size: 7.1pt;
