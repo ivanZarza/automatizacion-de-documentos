@@ -31,26 +31,105 @@
 import { ref, computed, watch } from "vue";
 
 const props = defineProps({
-  ciudad: { type: String, default: '' },
-  dia: { type: String, default: '' },
-  mes: { type: String, default: '' },
-  anio: { type: String, default: '' },
-  firma: { type: String, default: '' },
-  generatedDate: { type: String, default: '' }
+  razonSocial: { type: String, default: "" },
+  dni: { type: String, default: "" },
+  expedienteAceptacion: { type: String, default: "" },
+  codigoENI: { type: String, default: "" },
+  provincia: { type: String, default: "" },
+  edificioVivienda: { type: String, default: "" },
+  importeSubvencion: { type: String, default: "" },
+  ciudad: { type: String, default: "" },
+  dia: { type: String, default: "" },
+  mes: { type: String, default: "" },
+  anio: { type: String, default: "" },
+  firma: { type: String, default: "" },
+  generatedDate: { type: String, default: "" },
 });
 
 const debug = ref(true);
 
 const etiquetas = ref([
   {
+    name: "codigoENI",
+    x: 48,
+    y: 40,
+    w: 80,
+    h: 6,
+    fontSize: 11,
+    align: "left",
+    value: "1234567890",
+  },
+  {
+    name: "provincia",
+    x: 150,
+    y: 29.5,
+    w: 40,
+    h: 6,
+    fontSize: 9,
+    background: "#fff",
+    align: "left",
+    value: "Granada",
+  },
+  {
+    name: "edificioVivienda",
+    x: 69.5,
+    y: 104.8,
+    w: 40,
+    h: 3,
+    fontSize: 9,
+    background: "#fff",
+    align: "left",
+    value: "edificio",
+  },
+  {
+    name: "importeSubvencion",
+    x: 172,
+    y: 123,
+    w: 80,
+    h: 6,
+    fontSize: 9,
+    align: "left",
+    value: "15348",
+  },
+  {
+    name: "razonSocial",
+    x: 40,
+    y: 76.5,
+    w: 80,
+    h: 6,
+    fontSize: 9,
+    align: "left",
+    value: "ermenegildo varelo rancio sl",
+  },
+  {
+    name: "dni",
+    x: 38,
+    y: 81.5,
+    w: 80,
+    h: 6,
+    fontSize: 9,
+    align: "left",
+    value: "B09848912A",
+  },
+  {
+    name: "expedienteAceptacion",
+    x: 120,
+    y: 81.5,
+    w: 80,
+    h: 6,
+    fontSize: 9,
+    align: "left",
+    value: "h123544654756u",
+  },
+  {
     name: "ciudad",
     x: 40,
     y: 214,
     w: 80,
     h: 6,
-    fontSize:9,
+    fontSize: 9,
     align: "center",
-    value: "Bollullos de la Mitación"
+    value: "Bollullos de la Mitación",
   },
   {
     name: "dia",
@@ -60,7 +139,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 9,
     align: "center",
-    value: "29"
+    value: "29",
   },
   {
     name: "mes",
@@ -70,7 +149,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 9,
     align: "center",
-    value: "Noviembre"
+    value: "Noviembre",
   },
   {
     name: "anio",
@@ -81,7 +160,7 @@ const etiquetas = ref([
     fontSize: 9,
     align: "center",
     background: "#fff",
-    value: "2026"
+    value: "2026",
   },
   {
     name: "firma",
@@ -89,8 +168,8 @@ const etiquetas = ref([
     y: 219,
     w: 65,
     h: 15,
-    value: "/firma-solay.png"
-  }
+    value: "/firma-solay.png",
+  },
 ]);
 
 const estiloEtiqueta = (e) => ({
@@ -109,7 +188,7 @@ const estiloEtiqueta = (e) => ({
   boxSizing: "border-box",
   whiteSpace: "nowrap",
   overflow: "visible",
-  background: `${e.background}`
+  background: `${e.background}`,
 });
 
 watch(
@@ -118,25 +197,34 @@ watch(
     etiquetas.value = etiquetas.value.map((e) => {
       const key = e.name;
       const propVal = newVals[key];
-      const finalValue = propVal !== undefined && propVal !== null && String(propVal) !== '' ? propVal : '';
+      const finalValue =
+        propVal !== undefined && propVal !== null && String(propVal) !== ""
+          ? propVal
+          : "";
       return {
         ...e,
-        value: finalValue
+        value: finalValue,
       };
     });
   },
-  { deep: true, /* immediate: true */ }
+  { deep: true, immediate: true },
 );
 
 const etiquetasConValores = computed(() => etiquetas.value);
 
 const etiquetasVisibles = computed(() => {
-  const ocultar = new Set(["monofásica", "trifásica", "modificacion", "nueva", "ampliacion"]);
+  const ocultar = new Set([
+    "monofásica",
+    "trifásica",
+    "modificacion",
+    "nueva",
+    "ampliacion",
+  ]);
   return etiquetasConValores.value.map((e) => {
     const val = e.value && String(e.value).trim().toLowerCase();
     return {
       ...e,
-      displayValue: ocultar.has(val) ? "" : e.value
+      displayValue: ocultar.has(val) ? "" : e.value,
     };
   });
 });
@@ -150,7 +238,7 @@ const marcadores = computed(() =>
       if (!coord) return null;
       return { name: e.name, x: coord.x, y: coord.y };
     })
-    .filter(Boolean)
+    .filter(Boolean),
 );
 
 const estiloMarcador = (m) => ({
@@ -161,7 +249,7 @@ const estiloMarcador = (m) => ({
   color: "#000",
   fontWeight: 700,
   transform: "translate(-50%,-50%)",
-  pointerEvents: "none"
+  pointerEvents: "none",
 });
 </script>
 

@@ -1,9 +1,43 @@
+  export const masterFormFields = [
+      // ========== SECCIÓN aceptacion ==========
+    {
+      name: 'edificioVivienda',
+      label: 'Edificio/Vivienda',
+      placeholder: 'Selecciona una opción',
+      type: 'select',
+      options: [
+        { label: 'Edificio', value: 'edificio' },
+        { label: 'Vivienda', value: 'vivienda' }
+      ],
+      fullWidth: true
+    },
+  {
+    name: 'expedienteAceptacion',
+    label: 'Expediente de Aceptación',
+    placeholder: 'Ej: EXP-2026-001',
+    type: 'text',
+    fullWidth: true
+  },
+  {
+    name: 'codigoENI',
+    label: 'Código ENI',
+    placeholder: 'Ej: 1234567890',
+    type: 'text',
+    fullWidth: true
+  },
+  {
+    name: 'importeSubvencion',
+    label: 'Importe de la Subvención',
+    placeholder: 'Ej: 15348',
+    type: 'text',
+    fullWidth: true
+  },
 /**
  * Configuración de campos para el Formulario Maestro
  * Todos los campos de Memoria Técnica organizados por secciones
  */
 
-export const masterFormFields = [
+
   // ========== SECCIÓN EXPEDIENTE ==========
   /* { 
     name: 'numeroExpediente', 
