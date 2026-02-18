@@ -48,6 +48,7 @@ const props = defineProps({
   mes: { type: String, default: "" },
   anio: { type: String, default: "" },
   firma: { type: String, default: "" },
+  nombreFirma: { type: String, default: "" },
 });
 
 const etiquetas = ref([
@@ -196,6 +197,17 @@ const etiquetas = ref([
     value: "/firma-solay.png",
     align: "center",
   },
+  {
+    nombre: "nombreFirma",
+    page: 2,
+    x: 75,
+    y: 131.5,
+    w: 80,
+    h: 8,
+    fontSize: 10,
+    value: "Nombre del Firmante",
+    align: "center",
+  }
 ]);
 
 // Watch para sincronizar props con etiquetas

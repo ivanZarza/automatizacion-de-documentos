@@ -2188,6 +2188,7 @@ export const declaracionCompromisoDerechosConfig = {
     { name: 'dia', label: 'Día', type: 'text' },
     { name: 'mes', label: 'Mes', type: 'text' },
     { name: 'anio', label: 'Año', type: 'text' },
+    { name: 'nombreFirma', label: 'Nombre del Firmante', type: 'text' },
     { name: 'firma', label: 'Firma (Imagen)', type: 'file', accept: 'image/*' }
   ],
   defaultData: {
@@ -2203,7 +2204,8 @@ export const declaracionCompromisoDerechosConfig = {
     dia: '',
     mes: '',
     anio: '',
-    firma: ''
+    firma: '',
+    nombreFirma: '',
   },
   fieldMapping: {
     nombreApellidos: 'apellidosNombre',
@@ -2218,7 +2220,8 @@ export const declaracionCompromisoDerechosConfig = {
     dia: 'dia',
     mes: 'mes',
     anio: 'anio',
-    firma: 'firma'
+    firma: 'firma',
+    nombreFirma: 'apellidosNombre'
   },
   capabilities: {
     canPreview: true,
@@ -2239,6 +2242,7 @@ export const declaracionAusenciaConflictoInteresesConfig = {
     { name: 'dia', label: 'Día', type: 'text' },
     { name: 'mes', label: 'Mes', type: 'text' },
     { name: 'anio', label: 'Año', type: 'text' },
+    { name: 'nombreFirma', label: 'Nombre del Firmante', type: 'text' },
     { name: 'firma', label: 'Firma (Imagen)', type: 'file', accept: 'image/*' }
   ],
   defaultData: {
@@ -2246,13 +2250,16 @@ export const declaracionAusenciaConflictoInteresesConfig = {
     dia: '',
     mes: '',
     anio: '',
+    nombreFirma: '',
     firma: ''
   },
   fieldMapping: {
     ciudad: 'localidadEmplazamiento',
     dia: 'dia',
     mes: 'mes',
-    anio: 'anio'
+    anio: 'anio',
+    nombreFirma: 'apellidosNombre',
+    firma: 'firma'
   },
   capabilities: {
     canPreview: true,

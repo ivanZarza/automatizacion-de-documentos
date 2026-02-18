@@ -32,6 +32,7 @@ const props = defineProps({
   mes: { type: String, default: "" },
   anio: { type: String, default: "" },
   firma: { type: String, default: "" },
+  nombreFirma: { type: String, default: "" },
 });
 
 const etiquetas = ref([
@@ -83,11 +84,22 @@ const etiquetas = ref([
   {
     nombre: "firma",
     page: 2,
-    x: 75,
+    x: 65,
     y: 92,
     w: 80,
     h: 19,
     value: "/firma-solay.png",
+    align: "center",
+  },
+  {
+    nombre: "nombreFirma",
+    page: 2,
+    x: 68,
+    y: 108.5,
+    w: 80,
+    h: 8,
+    fontSize: 11,
+    value: "Solay Martínez García",
     align: "center",
   },
 ]);
