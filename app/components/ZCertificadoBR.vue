@@ -594,7 +594,7 @@ watch(
       };
     });
   },
-  { deep: true /* immediate: true */ },
+  { deep: true, immediate: true },
 );
 
 const etiquetasConValores = computed(() => etiquetas.value);
