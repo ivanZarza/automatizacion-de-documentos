@@ -55,7 +55,7 @@ const props = defineProps({
 
 const etiquetas = ref([
   // PÁGINA 1
-  { nombre: "expediente", page: 1, x: 50, y: 35, w: 80, h: 6, fontSize: 11, align: "left" },
+  { nombre: "expediente", page: 1, x: 50, y: 35, w: 80, h: 6, fontSize: 11, align: "left",  },
   { nombre: "apellidosNombre", page: 1, x: 20, y: 55, w: 80, h: 6, fontSize: 9, align: "left" },
   { nombre: "dni", page: 1, x: 120, y: 55, w: 40, h: 6, fontSize: 9, align: "left" },
   { nombre: "telefono", page: 1, x: 20, y: 62, w: 40, h: 6, fontSize: 9, align: "left" },
