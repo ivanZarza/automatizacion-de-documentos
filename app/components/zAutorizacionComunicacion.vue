@@ -60,7 +60,7 @@ const props = defineProps({
   calidad: { type: String, default: "Representante sociedad' }," },
 
   // SECCIÓN 2: LUGAR Y MEDIO DE NOTIFICACIÓN
-  tipoVia: { type: String, default: "" },
+ /*  tipoVia: { type: String, default: "" },
   nombreVia: { type: String, default: "" },
   numero: { type: String, default: "" },
   letra: { type: String, default: "" },
@@ -77,7 +77,7 @@ const props = defineProps({
   pais: { type: String, default: "" },
   telefonoFijo: { type: String, default: "" },
   telefonoMovil: { type: String, default: "" },
-  correoElectronico: { type: String, default: "" },
+  correoElectronico: { type: String, default: "" }, */
 
   // SECCIÓN 3: DATOS DEL ESTABLECIMIENTO E INSTALACIONES
   denominacionEstablecimiento: { type: String, default: "" },
@@ -86,11 +86,11 @@ const props = defineProps({
   provinciaEstablecimiento: { type: String, default: "" },
   codigoPostalEstablecimiento: { type: String, default: "" },
   instalacion1: { type: String, default: "" },
-  instalacion2: { type: String, default: "" },
+/*   instalacion2: { type: String, default: "" },
   instalacion3: { type: String, default: "" },
   instalacion4: { type: String, default: "" },
   instalacion5: { type: String, default: "" },
-  instalacion6: { type: String, default: "" },
+  instalacion6: { type: String, default: "" }, */
 
   // SECCIÓN 4: DATOS DE LA PERSONA AUTORIZADA
   figura: { type: String, default: "" },

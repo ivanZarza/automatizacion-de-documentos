@@ -1721,7 +1721,7 @@ export const zCertificadoBRConfig = {
     emplazamientoLocalidad: '',
     emplazamientoProvincia: '',
     emplazamientoCodigoPostal: '',
-    UsoAlQueSeDestinaEmplazamiento: 'Produccion de enrgia electrica',
+    UsoAlQueSeDestinaEmplazamiento: 'Producción de energía eléctrica',
     cups: '',
     instalacionTipo: '',
     fase: '',

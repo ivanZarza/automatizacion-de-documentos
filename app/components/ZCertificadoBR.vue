@@ -363,7 +363,7 @@ const etiquetas = ref([
   },
   {
     name: "potenciaPrevista",
-    x: 20,
+    x: 60,
     y: 143,
     h: 6,
     w: 20,

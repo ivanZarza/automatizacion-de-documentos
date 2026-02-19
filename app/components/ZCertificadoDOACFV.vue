@@ -37,8 +37,8 @@
           <div class="firma-bloque">
               <img src="/firma-solay.png" alt="Firma" class="imagen-firma" />
             <p class="etiqueta-firma">FIRMA DEL REPRESENTANTE</p>
-            <p class="nombre-firma">{{ representante }}</p>
-                            <p class="texto-pie">
+<!--             <p class="nombre-firma">{{ representante }}</p>
+ -->                            <p class="texto-pie">
           <strong>LUGAR Y FECHA:</strong> {{ localidad }}, a {{ dia }} de {{ mes }} de {{ anio }}.
         </p>
           </div>

@@ -172,14 +172,17 @@ export const masterFormFields = [
   { name: 'registro_instalacion', label: 'Registro Instalación', placeholder: 'Ej: REG-2025-001-PRINCIPAL', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'terminacioAnual', label: 'Terminación Anual', placeholder: 'Ej: 2025', type: 'select', options: ['26', '27', '28'], subsection: 'LEGALIZACION' },
   { name: 'almacenamiento', label: 'Almacenamiento', placeholder: 'Seleccionar tipo...', type: 'select', options: ['con almacenamiento', 'sin almacenamiento'], subsection: 'LEGALIZACION' },
-  { name: 'instalacion', label: 'Tipo de Instalación', placeholder: 'Seleccionar tipo...', type: 'select', options: ['nueva', 'ampliacion', 'modificacion'], subsection: 'LEGALIZACION' },
+  { name: 'instalacion1', label: 'Tipo de Instalación', placeholder: 'Seleccionar tipo...', type: 'select', options: ['nueva', 'ampliacion', 'modificacion'], subsection: 'LEGALIZACION' },
   {
     name: 'figura', label: 'Figura', placeholder: 'Selecciona una opción...', type: 'select', options: [
       { label: 'Tecnico competente', value: 'Tecnico competente' },
       { label: 'Instalador habilitado', value: 'Instalador habilitado' },
       { label: 'Responsable tecnico', value: 'Responsable tecnico' },
     ], subsection: 'LEGALIZACION'
-  }, { name: 'observaciones', label: 'Observaciones', placeholder: 'Selecciona una opción', type: 'select', options: [{ label: 'con batería', value: 'Se trata de una instalación de generación para autoconsumo FV de B.T.con baterias conectado a la red con excedentes acogido a compensación' }, { label: 'sin batería', value: 'Se trata de una instalación de generación para autoconsumo FV de B.T. conectado a la red con excedentes acogido a compensación' }], subsection: 'LEGALIZACION' },
+  },
+    { name: 'instalacion1', label: 'Instalación1', placeholder: 'Seleccionar tipo...', type: 'text', subsection: 'LEGALIZACION' },
+  { name: 'observaciones', label: 'Observaciones', placeholder: 'Selecciona una opción', type: 'select', options: [{ label: 'con batería', value: 'Se trata de una instalación de generación para autoconsumo FV de B.T.con baterias conectado a la red con excedentes acogido a compensación' }, { label: 'sin batería', value: 'Se trata de una instalación de generación para autoconsumo FV de B.T. conectado a la red con excedentes acogido a compensación' }], subsection: 'LEGALIZACION' },
+    { name: 'e2_potenciaNominalInversores', label: 'POTENCIA NOMINAL TOTAL EN INVERSORES (kW)', placeholder: 'Ej: 5.5', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'tensionSuministro', label: 'Tensión suministro', placeholder: 'Ej: 230V / 400V', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'empresaDistribuidora', label: 'Empresa Distribuidora', placeholder: 'Ej: Endesa, Iberdrola', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'intensidadNominal', label: 'Intensidad nominal', placeholder: 'Ej: 30A / 63A', type: 'text', subsection: 'LEGALIZACION' },
@@ -199,7 +202,6 @@ export const masterFormFields = [
       { label: 'Sevilla', value: 'A01041444' }
     ], subsection: 'LEGALIZACION'
   },
-
   // Campos añadidos para ZCertificadoBR
   { name: 'titulacion', label: 'Titulación', placeholder: '', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'colegioOficial', label: 'Colegio Oficial', placeholder: '', type: 'text', subsection: 'LEGALIZACION' },
