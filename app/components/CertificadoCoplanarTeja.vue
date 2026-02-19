@@ -533,7 +533,7 @@ defineProps({
   .contenedor-principal {
     width: 210mm !important;
     min-height: 297mm !important;
-    padding: 10mm !important;
+    padding: 10mm 20mm !important;
     margin: 0 !important;
     box-shadow: none !important;
     page-break-after: always;
