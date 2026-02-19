@@ -86,11 +86,14 @@ import { useDocument } from '../composables/useDocument'
 import { getMergedDocumentData } from '../utils/mergeFormData'
 import { getEditableFields } from '../config/editableFields'
 import { loadFromStorage, updateStoragePartially } from '../utils/storageManager'
+import { useImageStore } from '../stores/imageStore'
 import { ref, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
 const router = useRouter()
 const route = useRoute()
+
+const imageStore = useImageStore()
 
 const props = defineProps({
   config: {
@@ -115,13 +118,17 @@ onMounted(() => {
   const masterData = loadFromStorage()
   console.log('[DocumentPage] Master data from localStorage:', masterData)
   
+  // Cargar imágenes del store de Pinia
+  const storedImages = imageStore.getAllImages()
+  console.log('[DocumentPage] Images from Pinia store:', storedImages)
+  
   // Fusionar con configuración del documento
   const mergedData = getMergedDocumentData(props.config)
   console.log('[DocumentPage] Merged data (master + document defaults):', mergedData)
   console.log('[DocumentPage] Document config:', props.config.id)
   
-  // Inicializar formData con los datos fusionados
-  formData.value = { ...mergedData }
+  // Inicializar formData con los datos fusionados + imágenes del store
+  formData.value = { ...mergedData, ...masterData, ...storedImages }
   
   // Obtener lista de campos editables para este documento
   editableFields.value = getEditableFields(props.config.id)

@@ -44,8 +44,10 @@ import DocumentForm from '../components/DocumentForm.vue'
 import Boton from '../components/Boton.vue'
 import { masterFormFields, getMasterFormDefaultData } from '../config/masterFormFields'
 import { loadFromStorage, saveToStorage, clearStorage } from '../utils/storageManager'
+import { useImageStore } from '../stores/imageStore'
 
 const router = useRouter()
+const imageStore = useImageStore()
 
 // Inicializar formData
 const formData = ref({})
@@ -94,6 +96,9 @@ const clearAllData = () => {
   if (confirmed) {
     // Limpiar localStorage
     clearStorage()
+    
+    // Limpiar imágenes del store de Pinia
+    imageStore.clearAllImages()
     
     // Reiniciar formulario con valores por defecto
     formData.value = getMasterFormDefaultData()

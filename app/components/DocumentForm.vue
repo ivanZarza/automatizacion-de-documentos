@@ -64,6 +64,7 @@
 import { ref, watch, computed } from 'vue'
 import Boton from './Boton.vue'
 import { masterFormFields } from '../config/masterFormFields'
+import { useImageStore } from '../stores/imageStore'
 
 const props = defineProps({
   title: {
@@ -88,6 +89,8 @@ const props = defineProps({
 
 const emit = defineEmits(['submit'])
 
+const imageStore = useImageStore()
+
 const formData = ref({ ...props.initialData })
 const expandedSections = ref({})
 
@@ -107,7 +110,10 @@ const handleFileUpload = (event, fieldName) => {
   if (file) {
     const reader = new FileReader()
     reader.onload = (e) => {
-      formData.value[fieldName] = e.target.result
+      const base64Data = e.target.result
+      formData.value[fieldName] = base64Data
+      // Guardar imagen en Pinia store para que persista en la sesión
+      imageStore.setImage(fieldName, base64Data)
     }
     reader.readAsDataURL(file)
   }

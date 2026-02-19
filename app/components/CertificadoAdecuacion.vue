@@ -18,7 +18,7 @@
         <p>
           SOLAY INGENIEROS, S.L. empresa instaladora habilitada en baja tensión con C.I.F. B-09.848.912,
           <b>CERTIFICA</b> que la instalación eléctrica generadora fotovoltaica <b>{{ almacenamiento }}</b>, situada en
-          <b>{{ direccion }}</b> en la localidad de <b>{{ localidad }}</b>, de la Provincia de <b>{{ provincia }}</b>,
+          <b>{{ direccion }}</b>, nº <b>{{ numero }}</b>, en la localidad de <b>{{ localidad }}</b>, de la Provincia de <b>{{ provincia }}</b>,
           y cuyo uso al que se destina es <b>{{ uso }}</b>, cumple con todos y cada uno de los requisitos y disposiciones reglamentarias en lo que a instalaciones eléctricas en baja tensión se refiere el:
         </p>
         <ul>
@@ -54,6 +54,10 @@ defineProps({
   direccion: {
     type: String,
     default: 'AVENIDA DE MÁLAGA, Nº50'
+  },
+  numero: {
+    type: String,
+    default: '50'
   },
   localidad: {
     type: String,

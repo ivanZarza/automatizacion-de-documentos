@@ -1948,6 +1948,7 @@ export const certificadoAdecuacionConfig = {
   fields: [
     { name: 'almacenamiento', label: 'Almacenamiento', type: 'text', fullWidth: true },
     { name: 'direccion', label: 'Dirección', type: 'text', fullWidth: true },
+    { name: 'numero', label: 'Número', type: 'text' },
     { name: 'localidad', label: 'Localidad', type: 'text' },
     { name: 'provincia', label: 'Provincia', type: 'text' },
     { name: 'uso', label: 'Uso', type: 'text', fullWidth: true },
@@ -1959,6 +1960,7 @@ export const certificadoAdecuacionConfig = {
   defaultData: {
     almacenamiento: '',
     direccion: 'AVENIDA DE MÁLAGA, Nº50',
+    numero: '',
     localidad: 'MONTILLA',
     provincia: 'SEVILLA',
     uso: 'doméstico o negocio',
@@ -1969,6 +1971,7 @@ export const certificadoAdecuacionConfig = {
   },
   fieldMapping: {
     almacenamiento: '',
+    numero: 'numero',
     direccion: 'emplazamientoCalle',
     localidad: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',
