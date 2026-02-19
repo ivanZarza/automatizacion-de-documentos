@@ -225,10 +225,11 @@ const etiquetas = ref([
   },
   {
     nombre: "firma",
-    x: 80,
-    y: 193,
-    w: 80,
-    h: 20,
+    page: 2,
+    x: 120,
+    y: 270,
+    w: 30,
+    h: 15,
     value: "/firma-solay.png",
     align: "center",
   },
@@ -240,7 +241,8 @@ watch(
   (newProps) => {
     etiquetas.value.forEach((etiqueta) => {
       const propValue = newProps[etiqueta.nombre];
-      if (propValue !== undefined && propValue !== null) {
+      // Solo sobrescribir si el prop tiene un valor válido (no vacío/null/undefined)
+      if (propValue !== undefined && propValue !== null && propValue !== "") {
         etiqueta.value = String(propValue);
       }
     });
