@@ -215,15 +215,23 @@ const etiquetas = ref([
   {
     nombre: "personaFirma",
     page: 2,
-    x: 40,
-    y: 280,
-    w: 80,
+    x: 80,
+    y: 281.5,
+    w: 60,
     h: 6,
     fontSize: 10,
-    align: "center",
-    value: "asdffdsa",
+    align: "left",
+    value: "asdffdsadfgdfgsdfsg",
   },
-  { nombre: "firma", page: 2, x: 80, y: 290, w: 65, h: 15, align: "center" },
+  {
+    nombre: "firma",
+    x: 80,
+    y: 193,
+    w: 80,
+    h: 20,
+    value: "/firma-solay.png",
+    align: "center",
+  },
 ]);
 
 // Watch para sincronizar props con etiquetas
