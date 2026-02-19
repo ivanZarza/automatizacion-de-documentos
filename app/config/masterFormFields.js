@@ -37,7 +37,6 @@ export const masterFormFields = [
   { name: 'tipoInstalacion', label: 'Tipo de Instalación', placeholder: 'Seleccionar tipo...', type: 'select', options: ['Fotovoltaica conectada a red interior', 'Fotovoltaica aislada', 'Instalación con fines especiales'], subsection: 'E2' },
   { name: 'usoDestino', label: 'Uso y Destino', placeholder: 'Ej: Autoconsumo para vivienda', type: 'text', subsection: 'E2' },
   { name: 'referenciaCatastral', label: 'Referencia Catastral', placeholder: 'Ej: 4127805SG0000200000CT', type: 'text', subsection: 'E2' },
-
   { name: 'e2_potenciaNominalInversores', label: 'POTENCIA NOMINAL TOTAL EN INVERSORES (kW)', placeholder: 'Ej: 5.5', type: 'text', subsection: 'E2' },
   { name: 'e2_tipoConexionRed', label: 'TIPO', placeholder: 'Ej: Monofásica / Trifásica', type: 'select', options: ['Monofásica', 'Trifásica'], subsection: 'E2' },
 
