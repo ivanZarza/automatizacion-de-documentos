@@ -291,7 +291,7 @@ defineProps({
   align-items: flex-start;
   padding: 18px 0;
   border-bottom: 2px solid #0066cc;
-  margin-bottom: 27px;
+  margin-bottom: 17px;
 }
 
 .encabezado-contenido {
@@ -368,7 +368,7 @@ defineProps({
   font-size: 18px;
   font-weight: bold;
   color: #0066cc;
-  margin: 20px 0;
+  margin: 10px 0;
   padding: 10px 0;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
@@ -387,13 +387,13 @@ defineProps({
 
 /* ========== IMÁGENES - PÁGINA 1 ========== */
 .espacio-imagen-pagina1 {
-  height: 180px;
+  height: 150px;
   border: 2px solid #0066cc;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #f5f5f5;
-  margin: 15px 0 20px 0;
+  margin: 5px 0 20px 0;
   font-size: 12px;
   color: #666;
   overflow: hidden;
@@ -412,8 +412,8 @@ defineProps({
   justify-content: center;
   border: 2px solid #0066cc;
   background-color: #f5f5f5;
-  margin: 20px 0;
-  min-height: 300px;
+  margin: 10px 0;
+  min-height: 200px;
   overflow: hidden;
 }
 
@@ -458,7 +458,7 @@ defineProps({
   align-items: center;
   justify-content: center;
   background-color: #f5f5f5;
-  margin: 20mm 0 20px 0;
+  margin: 10mm 0 10px 0;
   font-size: 12px;
   color: #666;
   overflow: hidden;
@@ -533,7 +533,7 @@ defineProps({
   .contenedor-principal {
     width: 210mm !important;
     min-height: 297mm !important;
-    padding: 20mm !important;
+    padding: 10mm !important;
     margin: 0 !important;
     box-shadow: none !important;
     page-break-after: always;
@@ -546,7 +546,7 @@ defineProps({
     box-shadow: none !important;
     margin: 0 !important;
     padding: 0 !important;
-    page-break-after: avoid;
+    page-break-after: allways !important;
     background: white !important;
   }
 
@@ -569,10 +569,10 @@ defineProps({
     font-size: 16px;
     max-width: 210mm;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 20px auto;
+    margin: 10px auto;
     background: white;
     min-height: 350mm;
-    padding: 10mm;
+    padding: 5mm;
   }
 }
 </style>

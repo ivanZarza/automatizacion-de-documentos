@@ -152,11 +152,11 @@ const estiloEtiqueta = (etiqueta) => ({
 }
 
 .pagina-1 {
-  background-image: url("/documentos-oficiales/justificaciones/justificacion-1.jpg");
+  background-image: url("/documentos-oficiales/justificaciones/formato-pago-justificacion-linea3-1.jpg");
 }
 
 .pagina-2 {
-  background-image: url("/documentos-oficiales/justificaciones/justificacion-2.jpg");
+  background-image: url("/documentos-oficiales/justificaciones/formato-pago-justificacion-linea3-2.jpg");
 }
 
 .overlay-field {
