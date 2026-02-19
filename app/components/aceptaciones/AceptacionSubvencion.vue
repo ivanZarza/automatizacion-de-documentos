@@ -33,8 +33,8 @@ import { ref, computed, watch } from "vue";
 const props = defineProps({
   razonSocial: { type: String, default: "" },
   dni: { type: String, default: "" },
-  expedienteECO: { type: String, default: "" },
-  codigoENI: { type: String, default: "" },
+  expedienteEco: { type: String, default: "" },
+  codigoEni: { type: String, default: "" },
   provincia: { type: String, default: "" },
   edificioVivienda: { type: String, default: "" },
   importeSubvencion: { type: String, default: "" },
@@ -51,7 +51,7 @@ const debug = ref(true);
 
 const etiquetas = ref([
   {
-    name: "codigoENI",
+    name: "codigoEni",
     x: 48,
     y: 40,
     w: 80,
@@ -73,7 +73,7 @@ const etiquetas = ref([
   },
   {
     name: "edificioVivienda",
-    x: 69.5,
+    x: 35.5,
     y: 104.8,
     w: 40,
     h: 3,
@@ -113,7 +113,7 @@ const etiquetas = ref([
     value: "B09848912A",
   },
   {
-    name: "expedienteECO",
+    name: "expedienteEco",
     x: 120,
     y: 81.5,
     w: 80,

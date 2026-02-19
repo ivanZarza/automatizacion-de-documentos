@@ -1,3 +1,4 @@
+
 export const masterFormFields = [
   // ========== SECCIÓN A ==========
 
@@ -17,12 +18,13 @@ export const masterFormFields = [
   { name: 'tipoVia', label: 'Tipo de Vía', placeholder: 'Ej: Avenida, Calle, Plaza...', type: 'text', subsection: 'A' },
   { name: 'numero', label: 'Número', placeholder: 'Ej: 42', type: 'text', subsection: 'A' },
   { name: 'planta', label: 'Planta', placeholder: 'Ej: 1ª, 2ª, Bajo...', type: 'text', subsection: 'A' },
+  { name: 'portal', label: 'Portal', placeholder: 'Ej: 3', type: 'text', subsection: 'A' },
   { name: 'bloque', label: 'Bloque', placeholder: 'Ej: A', type: 'text', subsection: 'A' },
   { name: 'escalera', label: 'Escalera', placeholder: 'Ej: 1', type: 'text', subsection: 'A' },
   { name: 'letra', label: 'Letra', placeholder: 'Ej: B', type: 'text', subsection: 'A' },
   { name: 'KMEnLaVia', label: 'KM en la Vía', placeholder: 'Ej: 5', type: 'text', subsection: 'A' },
   { name: 'piso', label: 'Piso', placeholder: 'Ej: 3º', type: 'text', subsection: 'A' },
-  { name: 'puerta', label: 'Puerta', placeholder: 'Ej: B', type: 'text', subsection: 'A' },  { name: 'nombreRepresentanteEntidad', label: 'Nombre del Representante de la Entidad', placeholder: 'Ej: Juan Pérez', type: 'text', fullWidth: true, subsection: 'A' },
+  { name: 'puerta', label: 'Puerta', placeholder: 'Ej: B', type: 'text', subsection: 'A' }, { name: 'nombreRepresentanteEntidad', label: 'Nombre del Representante de la Entidad', placeholder: 'Ej: Juan Pérez', type: 'text', fullWidth: true, subsection: 'A' },
   { name: 'nombreRepresentanteEntidad', label: 'Nombre del Representante de la Entidad', placeholder: 'Ej: Juan Pérez', type: 'text', fullWidth: true, subsection: 'A' },
   { name: 'dniRepresentanteEntidad', label: 'DNI del Representante de la Entidad', placeholder: 'Ej: 12345678A', type: 'text', subsection: 'A' },
   { name: 'nifEntidadRepresentada', label: 'NIF de la Entidad Representada', placeholder: 'Ej: B12345678', type: 'text', subsection: 'A' },
@@ -155,38 +157,47 @@ export const masterFormFields = [
    { name: 'g_inversorRedIntensidad', label: 'Inversor-Red (interconectadas): Intensidad Admisible (A)', placeholder: 'Ej: 44', type: 'text', subsection: 'G' },
    { name: 'g_inversorRedCaidaTension', label: 'Inversor-Red (interconectadas): Caída de Tensión (%)', placeholder: 'Ej: < 1.5', type: 'text', subsection: 'G' },
   */
-  // ========== SECCIÓN H: ESQUEMA UNIFILAR ==========
-  { name: 'h_esquemaUnifilar', label: 'ESQUEMA UNIFILAR (Archivo)', type: 'file', accept: 'image/*,.pdf', subsection: 'IMAGEN', fullWidth: true, },
 
-  // ========== SECCIÓN I: PLANO DE EMPLAZAMIENTO (COMENTADA) ==========
 
   // ========== SECCIÓN IMAGEN: IMÁGENES DE PLANOS CON DESCRIPCIONES ==========
   { name: 'otros_imagenPlanoSituacion', label: 'PLANO DE SITUACIÓN', type: 'file', accept: 'image/*,.pdf', description: 'Plano de situación geográfica de la instalación.', subsection: 'IMAGEN' },
   { name: 'otros_imagenPlanoEmplazamiento', label: 'PLANO DE EMPLAZAMIENTO', type: 'file', accept: 'image/*,.pdf', description: 'Plano de emplazamiento de la instalación.', subsection: 'IMAGEN' },
   { name: 'otros_PlanoCubiertaNuevo', label: 'PLANO DE CUBIERTA NUEVO', type: 'file', accept: 'image/*,.pdf', description: 'Plano de detalle de la instalación fotovoltaica en cubierta.', subsection: 'IMAGEN' },
+  { name: 'h_esquemaUnifilar', label: 'ESQUEMA UNIFILAR (Archivo)', type: 'file', accept: 'image/*,.pdf', subsection: 'IMAGEN', fullWidth: true, },
+  { name: 'firma', label: 'FIRMA (Archivo)', type: 'file', accept: 'image/*,.pdf', subsection: 'IMAGEN', fullWidth: true, },
 
   // ========== SECCIÓN: LEGALIZACION ==========
   // Campos de legalización: súministro, distribuidora, protecciones
   { name: 'cups', label: 'CUPS', placeholder: 'Ej: ES123456789012345678', type: 'text', fullWidth: true, subsection: 'LEGALIZACION' },
   { name: 'superficie', label: 'Superficie (m²)', placeholder: 'Ej: 45', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'registro_instalacion', label: 'Registro Instalación', placeholder: 'Ej: REG-2025-001-PRINCIPAL', type: 'text', subsection: 'LEGALIZACION' },
+  { name: 'almacenamiento', label: 'Almacenamiento', placeholder: 'Seleccionar tipo...', type: 'select', options: ['con almacenamiento', 'sin almacenamiento'], subsection: 'LEGALIZACION' },
   { name: 'instalacion', label: 'Tipo de Instalación', placeholder: 'Seleccionar tipo...', type: 'select', options: ['nueva', 'ampliacion', 'modificacion'], subsection: 'LEGALIZACION' },
-  { name: 'observaciones', label: 'Observaciones', placeholder: 'Selecciona una opción', type: 'select', options: [{ label: 'con batería', value: 'Se trata de una instalación de generación para autoconsumo FV de B.T.con baterias conectado a la red con excedentes acogido a compensación' }, { label: 'sin batería', value: 'Se trata de una instalación de generación para autoconsumo FV de B.T. conectado a la red con excedentes acogido a compensación' }], subsection: 'LEGALIZACION' },
+  {   
+    name: 'figura', label: 'Figura', placeholder: 'Selecciona una opción...', type: 'select', options: [
+      { label: 'Tecnico competente', value: 'Tecnico competente' },
+      { label: 'Instalador habilitado', value: 'Instalador habilitado' },
+      { label: 'Responsable tecnico', value: 'Responsable tecnico' },
+    ], subsection: 'LEGALIZACION'
+  }, { name: 'observaciones', label: 'Observaciones', placeholder: 'Selecciona una opción', type: 'select', options: [{ label: 'con batería', value: 'Se trata de una instalación de generación para autoconsumo FV de B.T.con baterias conectado a la red con excedentes acogido a compensación' }, { label: 'sin batería', value: 'Se trata de una instalación de generación para autoconsumo FV de B.T. conectado a la red con excedentes acogido a compensación' }], subsection: 'LEGALIZACION' },
   { name: 'tensionSuministro', label: 'Tensión suministro', placeholder: 'Ej: 230V / 400V', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'empresaDistribuidora', label: 'Empresa Distribuidora', placeholder: 'Ej: Endesa, Iberdrola', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'intensidadNominal', label: 'Intensidad nominal', placeholder: 'Ej: 30A / 63A', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'sensibilidadDiferencial', label: 'Sensibilidad (mA)', placeholder: 'Ej: 30', type: 'text', subsection: 'LEGALIZACION' },
+  { name: 'fechaElaboracion', label: 'Fecha de Elaboración', placeholder: 'Ej: 16/10/2025', type: 'date', subsection: 'LEGALIZACION' },
   { name: 'directorDeObra', label: 'Director de Obra', placeholder: 'Ej: Juan García López', type: 'text', subsection: 'LEGALIZACION' },
-  { name: 'codigoDirectorio', label: 'Código Directorio (Ciudad)', placeholder: 'Selecciona una ciudad...', type: 'select', options: [
-    { label: 'Almeria', value: 'A01041434' },
-    { label: 'Cadiz', value: 'A01041435' },
-    { label: 'Cordoba', value: 'A01041436' },
-    { label: 'Granada', value: 'A01041437' },
-    { label: 'Huelva', value: 'A01041438' },
-    { label: 'Jaen', value: 'A01041440' },
-    { label: 'Malaga', value: 'A01041442' },
-    { label: 'Sevilla', value: 'A01041444' }
-  ], subsection: 'LEGALIZACION' },
+  {
+    name: 'codigoDirectorio', label: 'Código Directorio (Ciudad)', placeholder: 'Selecciona una ciudad...', type: 'select', options: [
+      { label: 'Almeria', value: 'A01041434' },
+      { label: 'Cadiz', value: 'A01041435' },
+      { label: 'Cordoba', value: 'A01041436' },
+      { label: 'Granada', value: 'A01041437' },
+      { label: 'Huelva', value: 'A01041438' },
+      { label: 'Jaen', value: 'A01041440' },
+      { label: 'Malaga', value: 'A01041442' },
+      { label: 'Sevilla', value: 'A01041444' }
+    ], subsection: 'LEGALIZACION'
+  },
 
   // Campos añadidos para ZCertificadoBR
   { name: 'seccionFase', label: 'Sección Fase', placeholder: '', type: 'text', subsection: 'LEGALIZACION' },
@@ -199,8 +210,15 @@ export const masterFormFields = [
 
 
   // ========== SECCIÓN ACEPTACION: ACEPTACIÓN Y CONFORMIDAD ==========
+  { name: 'codigoEni', label: 'Código ENI', placeholder: 'Ej: ENI12345', type: 'text', subsection: 'ACEPTACION' },
+  { name: 'expedienteEco', label: 'Expediente ECO', placeholder: 'Ej: ECO12345', type: 'text', subsection: 'ACEPTACION' },
   { name: 'potenciaProyecto', label: 'Potencia del Proyecto', placeholder: 'Ej: 5 kW', type: 'text', subsection: 'ACEPTACION' },
+  { name: 'importeSubvencion', label: 'Importe de la Subvención', placeholder: 'Ej: 1500 €', type: 'text', subsection: 'ACEPTACION' },
+  { name: 'edificioVivienda', label: 'Edificio o Vivienda', placeholder: 'Ej: selecciona una opción', type: 'select', options: [
+    { label: 'Edificio', value: 'rehabilitacion a nivel de edificio' },
+    { label: 'Vivienda', value: 'mejora de la eficiencia energética en viviendas' },
 
+  ], subsection: 'ACEPTACION' },
 ]
 
 export const getMasterFormDefaultData = () => {

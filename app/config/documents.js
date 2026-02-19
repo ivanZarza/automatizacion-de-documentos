@@ -1697,7 +1697,7 @@ export const zCertificadoBRConfig = {
     cp: 'codigoPostalEmplazamiento',
     localidad: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',
-    correo_electronico: 'email',
+    correo_electronico: 'correoElectronicoEmplazamiento',
     telefono: 'telefono',
     emplazamiento: 'emplazamientoCalle',
     emplazamientoNumero: 'numero',
@@ -1892,7 +1892,7 @@ export const certificadoAdecuacionConfig = {
   fileName: 'certificado-adecuacion.pdf',
   route: '/certificado-adecuacion',
   fields: [
-    { name: 'tipoInstalacion', label: 'Tipo de instalación', type: 'text', fullWidth: true },
+    { name: 'almacenamiento', label: 'Almacenamiento', type: 'text', fullWidth: true },
     { name: 'direccion', label: 'Dirección', type: 'text', fullWidth: true },
     { name: 'localidad', label: 'Localidad', type: 'text' },
     { name: 'provincia', label: 'Provincia', type: 'text' },
@@ -1903,7 +1903,7 @@ export const certificadoAdecuacionConfig = {
     { name: 'anio', label: 'Año', type: 'text', width: 70 }
   ],
   defaultData: {
-    tipoInstalacion: 'con almacenamiento',
+    almacenamiento: '',
     direccion: 'AVENIDA DE MÁLAGA, Nº50',
     localidad: 'MONTILLA',
     provincia: 'SEVILLA',
@@ -1914,7 +1914,7 @@ export const certificadoAdecuacionConfig = {
     anio: '2024'
   },
   fieldMapping: {
-    tipoInstalacion: '',
+    almacenamiento: '',
     direccion: 'emplazamientoCalle',
     localidad: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',
@@ -2138,8 +2138,8 @@ export const aceptacionSubvencionConfig = {
   fields: [
     { name: 'razonSocial', label: 'Razón Social', type: 'text', fullWidth: true },
     { name: 'dni', label: 'DNI/NIF', type: 'text' },
-    { name: 'expedienteECO', label: 'Expediente', type: 'text' },
-    { name: 'codigoENI', label: 'Código ENI', type: 'text' },
+    { name: 'expedienteEco', label: 'Expediente', type: 'text' },
+    { name: 'codigoEni', label: 'Código ENI', type: 'text' },
     { name: 'provincia', label: 'Provincia', type: 'text' },
     { name: 'edificioVivienda', label: 'Edificio/Vivienda', type: 'text' },
     { name: 'importeSubvencion', label: 'Importe Subvención', type: 'text' },
@@ -2153,8 +2153,8 @@ export const aceptacionSubvencionConfig = {
   defaultData: {
     razonSocial: '',
     dni: '',
-    expedienteECO: '',
-    codigoENI: '',
+    expedienteEco: '',
+    codigoEni: '',
     provincia: '',
     edificioVivienda: '',
     importeSubvencion: '',
@@ -2168,8 +2168,8 @@ export const aceptacionSubvencionConfig = {
   fieldMapping: {
     razonSocial: 'apellidosNombre',
     dni: 'nifCif',
-    expedienteECO: 'expedienteECO',
-    codigoENI: 'codigoENI',
+    expedienteEco: 'expedienteEco',
+    codigoEni: 'codigoEni',
     provincia: 'provinciaEmplazamiento',
     edificioVivienda: 'edificioVivienda',
     importeSubvencion: 'importeSubvencion',

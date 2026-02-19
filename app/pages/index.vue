@@ -10,6 +10,8 @@ const isFormularioExpanded = ref(false)
 const isProyectoExpanded = ref(false)
 const isLegalizacionExpanded = ref(false)
 const isAceptacionesExpanded = ref(false)
+const isJustificacionesExpanded = ref(false)
+
 
 const allDocuments = getAllDocuments()
 
@@ -23,6 +25,10 @@ const documentosLegalizacion = computed(() =>
 
 const documentosAceptaciones = computed(() =>
   allDocuments.filter(doc => doc.category === 'aceptaciones')
+)
+
+const documentosJustificaciones = computed(() =>
+  allDocuments.filter(doc => doc.category === 'justificaciones')
 )
 </script>
 
@@ -98,6 +104,26 @@ const documentosAceptaciones = computed(() =>
       <div v-else class="documentos-grid">
         <DocumentCard
           v-for="documento in documentosAceptaciones"
+          :key="documento.id"
+          :config="documento"
+        />
+      </div>
+    </SectionCard>
+
+    <SectionCard
+      title="✅ Documentos de Justificaciones"
+      :isExpanded="isJustificacionesExpanded"
+      @toggle="isJustificacionesExpanded = !isJustificacionesExpanded"
+      :count="documentosJustificaciones.length"
+      :isEmpty="documentosJustificaciones.length === 0"
+    >
+      <div v-if="documentosJustificaciones.length === 0" class="empty-state">
+        <span class="empty-icon">🔜</span>
+        <p class="empty-text">Próximamente documentos de justificaciones</p>
+      </div>
+      <div v-else class="documentos-grid">
+        <DocumentCard
+          v-for="documento in documentosJustificaciones"
           :key="documento.id"
           :config="documento"
         />

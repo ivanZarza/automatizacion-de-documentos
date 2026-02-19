@@ -105,7 +105,7 @@ const props = defineProps({
   representante: { type: String, default: "" },
   codigoDirectorio: { type: String, default: "" },
 });
-
+console.log(props.apellidosNombrePersona);
 // ============================================
 // ETIQUETAS ARRAY - Estructura base
 // x: 0, y: 0 son PLACEHOLDERS - rellenar con coordenadas reales
@@ -471,14 +471,20 @@ const etiquetas = ref([
   {
     page: 2,
     name: "figura",
-    x: 53.5,
-    y: 63.2,
+    // Coordenadas por defecto (puedes ajustar si lo necesitas)
+    x: 0,
+    y: 0,
     w: 80,
     h: 5,
-    fontSize: 12,
+    fontSize: 16,
     align: "left",
-    value: "X",
+    value: "", // El valor real vendrá del input
     displayValue: "",
+    markers: {
+      "Tecnico competente": { x: 56, y: 53.5 },
+      "Instalador habilitado": { x: 56, y: 59.5 },
+      "Responsable tecnico": { x: 56, y: 65.8 },
+    },
   },
   {
     page: 2,
@@ -590,7 +596,7 @@ const etiquetas = ref([
     align: "left",
     value: "",
     displayValue: "",
-  }
+  },
 ]);
 
 // ============================================
@@ -602,6 +608,7 @@ watch(
     nifCif: props.nifCif,
     nombreRepresentante: props.nombreRepresentante,
     dniCifRepresentante: props.dniCifRepresentante,
+    calidad: props.calidad,
     tipoVia: props.tipoVia,
     nombreVia: props.nombreVia,
     numero: props.numero,
@@ -661,27 +668,20 @@ watch(
 const ocultarValores = new Set([
   "Propietario",
   "Instalador",
-  "Responsable técnico",
-  "Técnico competente",
   "Instalador habilitado",
+  "Tecnico competente",
+  "Responsable tecnico",
 ]);
 
 const etiquetasVisibles = computed(() =>
   etiquetas.value.map((e) => {
-    // TEMPORAL: Mientras mapeamos coordenadas, SIEMPRE mostrar el valor para debugging
-    // const val = e.value && String(e.value).trim().toLowerCase()
-    // const esOculto = Array.from(ocultarValores).some(
-    //   (v) => String(v).toLowerCase() === val
-    // )
-    // return {
-    //   ...e,
-    //   displayValue: esOculto ? '' : e.value
-    // }
-
-    // DURANTE MAPEO: Mostrar siempre para ver posiciones
+    const val = e.value && String(e.value).trim().toLowerCase();
+    const esOculto = Array.from(ocultarValores).some(
+      (v) => String(v).toLowerCase() === val,
+    );
     return {
       ...e,
-      displayValue: e.value,
+      displayValue: esOculto ? "" : e.value,
     };
   }),
 );

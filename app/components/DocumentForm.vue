@@ -228,11 +228,11 @@ const groupedFieldsBySection = computed(() => {
   return sorted
 })
 
-// Inicializar todas las secciones como expandidas cuando se calcula groupedFieldsBySection
+// Inicializar todas las secciones como cerradas cuando se calcula groupedFieldsBySection
 watch(() => Object.keys(groupedFieldsBySection.value), (sections) => {
   sections.forEach(section => {
     if (expandedSections.value[section] === undefined) {
-      expandedSections.value[section] = true
+      expandedSections.value[section] = false
     }
   })
 }, { immediate: true })
