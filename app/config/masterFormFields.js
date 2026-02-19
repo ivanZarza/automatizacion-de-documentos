@@ -9,14 +9,9 @@ export const masterFormFields = [
   { name: 'apellidosNombre', label: 'Apellidos y Nombre del Titular', placeholder: 'Ej: García López, Juan', type: 'text', subsection: 'A' },
   { name: 'nifCif', label: 'NIF/CIF del Titular', placeholder: 'Ej: 12.345.678-A', type: 'text', subsection: 'A' },
   { name: 'telefono', label: 'Teléfono Móvil', placeholder: 'Ej: 654 123 456', type: 'tel', subsection: 'A' },
-  { name: 'telefonoFijo', label: 'Teléfono Fijo', placeholder: 'Ej: 954 123 456', type: 'tel', subsection: 'A' },
-  { name: 'emplazamientoCalle', label: 'Calle del Emplazamiento', placeholder: 'Ej: Avenida de la Innovación', type: 'text', subsection: 'A' },
-  { name: 'localidadEmplazamiento', label: 'Localidad del Emplazamiento', placeholder: 'Ej: Sevilla', type: 'text', subsection: 'A' },
-  { name: 'provinciaEmplazamiento', label: 'Provincia del Emplazamiento', placeholder: 'Ej: Sevilla', type: 'text', subsection: 'A' },
-  { name: 'codigoPostalEmplazamiento', label: 'Código Postal del Emplazamiento', placeholder: 'Ej: 41001', type: 'text', subsection: 'A' },
   { name: 'correoElectronicoEmplazamiento', label: 'Correo Electrónico del Emplazamiento', placeholder: 'Ej: emplazamiento@correo.com', type: 'email', subsection: 'A' },
-  { name: 'tipoVia', label: 'Tipo de Vía', placeholder: 'Ej: Avenida, Calle, Plaza...', type: 'text', subsection: 'A' },
-  { name: 'numero', label: 'Número', placeholder: 'Ej: 42', type: 'text', subsection: 'A' },
+  
+    { name: 'numero', label: 'Número', placeholder: 'Ej: 42', type: 'text', subsection: 'A' },
   { name: 'planta', label: 'Planta', placeholder: 'Ej: 1ª, 2ª, Bajo...', type: 'text', subsection: 'A' },
   { name: 'portal', label: 'Portal', placeholder: 'Ej: 3', type: 'text', subsection: 'A' },
   { name: 'bloque', label: 'Bloque', placeholder: 'Ej: A', type: 'text', subsection: 'A' },
@@ -24,13 +19,20 @@ export const masterFormFields = [
   { name: 'letra', label: 'Letra', placeholder: 'Ej: B', type: 'text', subsection: 'A' },
   { name: 'KMEnLaVia', label: 'KM en la Vía', placeholder: 'Ej: 5', type: 'text', subsection: 'A' },
   { name: 'piso', label: 'Piso', placeholder: 'Ej: 3º', type: 'text', subsection: 'A' },
-  { name: 'puerta', label: 'Puerta', placeholder: 'Ej: B', type: 'text', subsection: 'A' }, { name: 'nombreRepresentanteEntidad', label: 'Nombre del Representante de la Entidad', placeholder: 'Ej: Juan Pérez', type: 'text', fullWidth: true, subsection: 'A' },
+  { name: 'puerta', label: 'Puerta', placeholder: 'Ej: B', type: 'text', subsection: 'A' },{ name: 'telefonoFijo', label: 'Teléfono Fijo', placeholder: 'Ej: 954 123 456', type: 'tel', subsection: 'A' },
+  { name: 'emplazamientoCalle', label: 'Calle del Emplazamiento', placeholder: 'Ej: Avenida de la Innovación', type: 'text', subsection: 'A' },
+  { name: 'localidadEmplazamiento', label: 'Localidad del Emplazamiento', placeholder: 'Ej: Sevilla', type: 'text', subsection: 'A' },
+  { name: 'provinciaEmplazamiento', label: 'Provincia del Emplazamiento', placeholder: 'Ej: Sevilla', type: 'text', subsection: 'A' },
+  { name: 'codigoPostalEmplazamiento', label: 'Código Postal del Emplazamiento', placeholder: 'Ej: 41001', type: 'text', subsection: 'A' },
+/*   { name: 'tipoVia', label: 'Tipo de Vía', placeholder: 'Ej: Avenida, Calle, Plaza...', type: 'text', subsection: 'A' },
+ */
+  { name: 'nombreRepresentanteEntidad', label: 'Nombre del Representante de la Entidad', placeholder: 'Ej: Juan Pérez', type: 'text', fullWidth: true, subsection: 'A' },
   { name: 'nombreRepresentanteEntidad', label: 'Nombre del Representante de la Entidad', placeholder: 'Ej: Juan Pérez', type: 'text', fullWidth: true, subsection: 'A' },
   { name: 'dniRepresentanteEntidad', label: 'DNI del Representante de la Entidad', placeholder: 'Ej: 12345678A', type: 'text', subsection: 'A' },
   { name: 'nifEntidadRepresentada', label: 'NIF de la Entidad Representada', placeholder: 'Ej: B12345678', type: 'text', subsection: 'A' },
   { name: 'denominacionEstablecimiento', label: 'Denominación del Establecimiento', placeholder: 'Ej: Bar Los Amigos', type: 'text', subsection: 'A' },
-  { name: 'pais', label: 'País', placeholder: 'Ej: España', type: 'text', subsection: 'A' },
-
+/*   { name: 'pais', label: 'País', placeholder: 'Ej: España', type: 'text', subsection: 'A' },
+ */
   // ========== SECCIÓN E2: INSTALACIÓN INTERCONECTADA ==========
   // E2.1 Conexión a la Red
   { name: 'tipoInstalacion', label: 'Tipo de Instalación', placeholder: 'Seleccionar tipo...', type: 'select', options: ['Fotovoltaica conectada a red interior', 'Fotovoltaica aislada', 'Instalación con fines especiales'], subsection: 'E2' },
@@ -173,7 +175,7 @@ export const masterFormFields = [
   { name: 'registro_instalacion', label: 'Registro Instalación', placeholder: 'Ej: REG-2025-001-PRINCIPAL', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'almacenamiento', label: 'Almacenamiento', placeholder: 'Seleccionar tipo...', type: 'select', options: ['con almacenamiento', 'sin almacenamiento'], subsection: 'LEGALIZACION' },
   { name: 'instalacion', label: 'Tipo de Instalación', placeholder: 'Seleccionar tipo...', type: 'select', options: ['nueva', 'ampliacion', 'modificacion'], subsection: 'LEGALIZACION' },
-  {   
+  {
     name: 'figura', label: 'Figura', placeholder: 'Selecciona una opción...', type: 'select', options: [
       { label: 'Tecnico competente', value: 'Tecnico competente' },
       { label: 'Instalador habilitado', value: 'Instalador habilitado' },
@@ -214,11 +216,13 @@ export const masterFormFields = [
   { name: 'expedienteEco', label: 'Expediente ECO', placeholder: 'Ej: ECO12345', type: 'text', subsection: 'ACEPTACION' },
   { name: 'potenciaProyecto', label: 'Potencia del Proyecto', placeholder: 'Ej: 5 kW', type: 'text', subsection: 'ACEPTACION' },
   { name: 'importeSubvencion', label: 'Importe de la Subvención', placeholder: 'Ej: 1500 €', type: 'text', subsection: 'ACEPTACION' },
-  { name: 'edificioVivienda', label: 'Edificio o Vivienda', placeholder: 'Ej: selecciona una opción', type: 'select', options: [
-    { label: 'Edificio', value: 'rehabilitacion a nivel de edificio' },
-    { label: 'Vivienda', value: 'mejora de la eficiencia energética en viviendas' },
+  {
+    name: 'edificioVivienda', label: 'Edificio o Vivienda', placeholder: 'Ej: selecciona una opción', type: 'select', options: [
+      { label: 'Edificio', value: 'rehabilitacion a nivel de edificio' },
+      { label: 'Vivienda', value: 'mejora de la eficiencia energética en viviendas' },
 
-  ], subsection: 'ACEPTACION' },
+    ], subsection: 'ACEPTACION'
+  },
 ]
 
 export const getMasterFormDefaultData = () => {
