@@ -9,13 +9,33 @@ const STORAGE_KEY_MAESTRO = 'formDataMaestro'
 
 /**
  * Guardar datos en localStorage (base de datos central)
+ * NOTA: Excluye automáticamente los campos de tipo 'file' para evitar exceder la cuota
  * @param {Object} data - Datos a guardar
  */
 export const saveToStorage = (data) => {
   try {
-    localStorage.setItem(STORAGE_KEY_MAESTRO, JSON.stringify(data))
+    // Excluir campos de tipo 'file' conocidos para no abusar de localStorage
+    const fileFields = new Set([
+      'otros_imagenPlanoSituacion',
+      'otros_imagenPlanoEmplazamiento',
+      'otros_PlanoCubiertaNuevo',
+      'h_esquemaUnifilar',
+      'firma',
+      // Campos file de otros documentos
+      'fotoCertificado',
+      'imagenAdjunta'
+    ])
+    
+    const filteredData = {}
+    Object.entries(data).forEach(([key, value]) => {
+      if (!fileFields.has(key)) {
+        filteredData[key] = value
+      }
+    })
+    
+    localStorage.setItem(STORAGE_KEY_MAESTRO, JSON.stringify(filteredData))
     // Notificar a los listeners
-    notifyStorageChange(data)
+    notifyStorageChange(filteredData)
   } catch (error) {
     console.error('Error guardando en localStorage:', error)
   }
@@ -38,12 +58,32 @@ export const loadFromStorage = () => {
 /**
  * Actualizar parcialmente los datos en localStorage
  * Útil para actualizar solo campos específicos sin perder el resto
+ * NOTA: Excluye automáticamente los campos de tipo 'file' para evitar exceder la cuota
  * @param {Object} newData - Datos parciales a actualizar
  */
 export const updateStoragePartially = (newData) => {
   try {
+    // Excluir campos de tipo 'file' conocidos para no abusar de localStorage
+    const fileFields = new Set([
+      'otros_imagenPlanoSituacion',
+      'otros_imagenPlanoEmplazamiento',
+      'otros_PlanoCubiertaNuevo',
+      'h_esquemaUnifilar',
+      'firma',
+      // Campos file de otros documentos
+      'fotoCertificado',
+      'imagenAdjunta'
+    ])
+    
+    const filteredData = {}
+    Object.entries(newData).forEach(([key, value]) => {
+      if (!fileFields.has(key)) {
+        filteredData[key] = value
+      }
+    })
+    
     const currentData = loadFromStorage()
-    const mergedData = { ...currentData, ...newData }
+    const mergedData = { ...currentData, ...filteredData }
     localStorage.setItem(STORAGE_KEY_MAESTRO, JSON.stringify(mergedData))
     // Notificar a los listeners
     notifyStorageChange(mergedData)

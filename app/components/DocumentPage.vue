@@ -173,8 +173,8 @@ const handleFormSubmit = (newData) => {
   console.log('[DocumentPage] Merged data saved to component state:', mergedData)
   
   // Guardar en localStorage (base de datos central)
-  // Importante: Guardamos TODOS los datos porque algunos vienen del maestro
-  // y necesitamos mantenerlos para que se sincronicen
+  // NOTA: updateStoragePartially filtra automáticamente los campos de tipo 'file'
+  // para evitar exceder la cuota de localStorage
   updateStoragePartially(mergedData)
   console.log('[DocumentPage] Data persisted to localStorage')
   

@@ -1,9 +1,9 @@
-export const justificacionPagoSubvencionConfigL3 = {
-  id: 'justificacion-pago-subvencion-l3',
-  title: 'Justificación de Pago de Subvención - L3',
+export const justificacionPagoSubvencionConfigL4 = {
+  id: 'justificacion-pago-subvencion-l4',
+  title: 'Justificación de Pago de Subvención - L4',
   description: 'Documento para justificar el pago de una subvención',
-  fileName: 'justificacion-pago-subvencion-l3.pdf',
-  route: '/justificaciones/justificacion-pago-subvencion-l3',
+  fileName: 'justificacion-pago-subvencion-l4.pdf',
+  route: '/justificaciones/justificacion-pago-subvencion-l4',
   fields: [
     { name: 'expediente', label: 'Expediente', type: 'text' },
     { name: 'apellidosNombre', label: 'Nombre y Apellidos', type: 'text', fullWidth: true },
