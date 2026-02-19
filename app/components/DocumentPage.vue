@@ -87,7 +87,7 @@ import { getMergedDocumentData } from '../utils/mergeFormData'
 import { getEditableFields } from '../config/editableFields'
 import { loadFromStorage, updateStoragePartially } from '../utils/storageManager'
 import { useImageStore } from '../stores/imageStore'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
 const router = useRouter()
@@ -144,6 +144,18 @@ onMounted(() => {
     showEdit.value = false
   }
 })
+
+// Vigilar cambios en el store de imágenes para sincronizar con formData
+watch(() => imageStore.images, (newImages) => {
+  console.log('[DocumentPage] Watch: Imágenes del store cambiaron:', newImages)
+  // Actualizar formData con las nuevas imágenes
+  Object.keys(newImages).forEach(fieldName => {
+    if (newImages[fieldName]) {
+      formData.value[fieldName] = newImages[fieldName]
+      console.log(`[DocumentPage] Imagen sincronizada: ${fieldName}`)
+    }
+  })
+}, { deep: true })
 
 const previewDocument = () => {
   showPreview.value = true

@@ -7,8 +7,14 @@ export const useImageStore = defineStore('images', () => {
 
   // Guardar una imagen por fieldName
   const setImage = (fieldName, base64Data) => {
+    if (!fieldName || !base64Data) {
+      console.warn(`[ImageStore] Intento de guardar imagen inválida:`, { fieldName, hasData: !!base64Data })
+      return
+    }
     images.value[fieldName] = base64Data
-    console.log(`[ImageStore] Imagen guardada: ${fieldName}`)
+    console.log(`[ImageStore] ✓ Imagen guardada: ${fieldName}, tamaño: ${base64Data.length} bytes`)
+    console.log(`[ImageStore] Total imágenes en store: ${Object.keys(images.value).length}`)
+    console.log(`[ImageStore] Contenido del store:`, Object.keys(images.value))
   }
 
   // Obtener una imagen por fieldName

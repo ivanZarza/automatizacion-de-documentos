@@ -170,8 +170,8 @@ export const masterFormFields = [
   // ========== SECCIÓN: LEGALIZACION ==========
   // Campos de legalización: súministro, distribuidora, protecciones
   { name: 'cups', label: 'CUPS', placeholder: 'Ej: ES123456789012345678', type: 'text', fullWidth: true, subsection: 'LEGALIZACION' },
-  { name: 'superficie', label: 'Superficie (m²)', placeholder: 'Ej: 45', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'registro_instalacion', label: 'Registro Instalación', placeholder: 'Ej: REG-2025-001-PRINCIPAL', type: 'text', subsection: 'LEGALIZACION' },
+  { name: 'terminacioAnual', label: 'Terminación Anual', placeholder: 'Ej: 2025', type: 'select', options: ['26', '27', '28'], subsection: 'LEGALIZACION' },
   { name: 'almacenamiento', label: 'Almacenamiento', placeholder: 'Seleccionar tipo...', type: 'select', options: ['con almacenamiento', 'sin almacenamiento'], subsection: 'LEGALIZACION' },
   { name: 'instalacion', label: 'Tipo de Instalación', placeholder: 'Seleccionar tipo...', type: 'select', options: ['nueva', 'ampliacion', 'modificacion'], subsection: 'LEGALIZACION' },
   {
@@ -184,7 +184,8 @@ export const masterFormFields = [
   { name: 'tensionSuministro', label: 'Tensión suministro', placeholder: 'Ej: 230V / 400V', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'empresaDistribuidora', label: 'Empresa Distribuidora', placeholder: 'Ej: Endesa, Iberdrola', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'intensidadNominal', label: 'Intensidad nominal', placeholder: 'Ej: 30A / 63A', type: 'text', subsection: 'LEGALIZACION' },
-  { name: 'sensibilidadDiferencial', label: 'Sensibilidad (mA)', placeholder: 'Ej: 30', type: 'text', subsection: 'LEGALIZACION' },
+    { name: 'seccionFase', label: 'Sección Fase', placeholder: '', type: 'text', subsection: 'LEGALIZACION' },
+{ name: 'sensibilidadDiferencial', label: 'Sensibilidad (mA)', placeholder: 'Ej: 30', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'fechaElaboracion', label: 'Fecha de Elaboración', placeholder: 'Ej: 16/10/2025', type: 'date', subsection: 'LEGALIZACION' },
   { name: 'directorDeObra', label: 'Director de Obra', placeholder: 'Ej: Juan García López', type: 'text', subsection: 'LEGALIZACION' },
   {
@@ -201,7 +202,6 @@ export const masterFormFields = [
   },
 
   // Campos añadidos para ZCertificadoBR
-  { name: 'seccionFase', label: 'Sección Fase', placeholder: '', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'titulacion', label: 'Titulación', placeholder: '', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'colegioOficial', label: 'Colegio Oficial', placeholder: '', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'numeroColegiado', label: 'Número Colegiado', placeholder: '', type: 'text', subsection: 'LEGALIZACION' },
