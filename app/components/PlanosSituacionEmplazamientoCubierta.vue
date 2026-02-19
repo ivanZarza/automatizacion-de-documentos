@@ -56,6 +56,10 @@
                 <td class="label">Tipo Instalación:</td>
                 <td class="valor">{{ formattedData.tipoInstalacion }}</td>
               </tr>
+              <tr >
+                <td class="label">Autor proyecto:</td>
+                <td class="valor" colspan="3">Eduardo Rafael Rivera Cabezas-4654</td>
+              </tr>
             </tbody>
           </table>
         </div>
