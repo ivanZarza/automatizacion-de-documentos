@@ -919,7 +919,7 @@
               </div>
               <div class="celda">
                 <div class="etiqueta">Nº DE RAMAS EN PARALELO:</div>
-                <div class="valor">{{ ramrasEnParalelo }}</div>
+                <div class="valor">1</div>
               </div>
             </div>
           </div>
