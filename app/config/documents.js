@@ -1326,6 +1326,7 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
     inclinacionGenerador: 'e2_inclinacionGenerador',
     totalModulos: 'e2_totalModulos',
     modulosEnSerie: 'e2_modulosEnSerie',
+    ramasEnParalelo: '',
     // E2.4 - Inversor E2
     marcaModeloInversor: 'e2_marcaModeloInversor',
     potenciaACInversor: 'e2_potenciaNominalInversor',
