@@ -38,19 +38,17 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import DocumentForm from '../components/DocumentForm.vue'
 import Boton from '../components/Boton.vue'
 import { masterFormFields, getMasterFormDefaultData } from '../config/masterFormFields'
 import { loadFromStorage, saveToStorage, clearStorage } from '../utils/storageManager'
-import { onStorageChange } from '../utils/storageEvents'
 
 const router = useRouter()
 
 // Inicializar formData
 const formData = ref({})
-let unsubscribe = null
 
 /**
  * Función para cargar datos del localStorage
@@ -68,21 +66,8 @@ const loadMasterData = () => {
 }
 
 onMounted(() => {
-  // Cargar datos la primera vez
+  // Cargar datos la primera vez (solo al montar, sin listener de cambios)
   loadMasterData()
-  
-  // Suscribirse a cambios en localStorage
-  unsubscribe = onStorageChange((newData) => {
-    console.log('🔄 localStorage cambió desde otro componente, actualizando formulario')
-    formData.value = { ...newData }
-  })
-})
-
-onBeforeUnmount(() => {
-  // Desuscribirse cuando se desmonta el componente
-  if (unsubscribe) {
-    unsubscribe()
-  }
 })
 
 const handleFormSubmit = (newData) => {

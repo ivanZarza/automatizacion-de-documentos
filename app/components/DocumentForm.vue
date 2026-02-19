@@ -64,7 +64,6 @@
 import { ref, watch, computed } from 'vue'
 import Boton from './Boton.vue'
 import { masterFormFields } from '../config/masterFormFields'
-import { updateStoragePartially } from '../utils/storageManager'
 
 const props = defineProps({
   title: {
@@ -100,33 +99,8 @@ watch(() => props.initialData, (newData) => {
   formData.value = { ...newData }
 }, { deep: true })
 
-// Guardar automáticamente en localStorage cada vez que cambian los datos
-// Usa updateStoragePartially para hacer merge (no sobrescribe todo)
-const saveFormDataToLocalStorage = () => {
-  if (typeof window !== 'undefined') {
-    try {
-      // Solo guardar campos con valor para no contaminar el storage
-      const fieldsToSave = Object.fromEntries(
-        Object.entries(formData.value).filter(([_, value]) => 
-          value !== '' && value !== null && value !== undefined
-        )
-      )
-      updateStoragePartially(fieldsToSave)
-      console.log('[DocumentForm] Auto-saved to localStorage:', fieldsToSave)
-    } catch (e) {
-      console.error('[DocumentForm] Error saving form data to localStorage:', e)
-    }
-  }
-}
-
-// Watch para guardar automáticamente (con debounce)
-let saveTimeout
-watch(() => formData.value, () => {
-  clearTimeout(saveTimeout)
-  saveTimeout = setTimeout(() => {
-    saveFormDataToLocalStorage()
-  }, 500) // Esperar 500ms de inactividad antes de guardar
-}, { deep: true })
+// Guardar automáticamente en localStorage controlado por DocumentPage
+// (No auto-guardamos aquí para evitar loops infinitos con listeners)
 
 const handleFileUpload = (event, fieldName) => {
   const file = event.target.files[0]
