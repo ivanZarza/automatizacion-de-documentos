@@ -24,6 +24,8 @@ export const masterFormFields = [
  */  { name: 'localidadEmplazamiento', label: 'Localidad del Emplazamiento', placeholder: 'Ej: Sevilla', type: 'text', subsection: 'A' },
   { name: 'provinciaEmplazamiento', label: 'Provincia del Emplazamiento', placeholder: 'Ej: Sevilla', type: 'text', subsection: 'A' },
   { name: 'codigoPostalEmplazamiento', label: 'Código Postal del Emplazamiento', placeholder: 'Ej: 41001', type: 'text', subsection: 'A' },
+  { name: 'referenciaCatastral', label: 'Referencia Catastral', placeholder: 'Ej: 4127805SG0000200000CT', type: 'text', subsection: 'A' },
+  
   /*   { name: 'tipoVia', label: 'Tipo de Vía', placeholder: 'Ej: Avenida, Calle, Plaza...', type: 'text', subsection: 'A' },
    */
 
@@ -34,9 +36,8 @@ export const masterFormFields = [
   // ========== SECCIÓN E2: INSTALACIÓN INTERCONECTADA ==========
   // E2.1 Conexión a la Red
   { name: 'tipoInstalacion', label: 'Tipo de Instalación', placeholder: 'Seleccionar tipo...', type: 'select', options: ['Fotovoltaica conectada a red interior', 'Fotovoltaica aislada', 'Instalación con fines especiales'], subsection: 'E2' },
-  { name: 'usoDestino', label: 'Uso y Destino', placeholder: 'Ej: Autoconsumo para vivienda', type: 'text', subsection: 'E2' },
-  { name: 'referenciaCatastral', label: 'Referencia Catastral', placeholder: 'Ej: 4127805SG0000200000CT', type: 'text', subsection: 'E2' },
-  { name: 'e2_potenciaNominalInversores', label: 'POTENCIA NOMINAL TOTAL EN INVERSORES (kW)', placeholder: 'Ej: 5.5', type: 'text', subsection: 'E2' },
+/*   { name: 'usoDestino', label: 'Uso y Destino', placeholder: 'Ej: Autoconsumo para vivienda', type: 'text', subsection: 'E2' },
+ */ { name: 'e2_potenciaNominalInversores', label: 'POTENCIA NOMINAL TOTAL EN INVERSORES (kW)', placeholder: 'Ej: 5.5', type: 'text', subsection: 'E2' },
   { name: 'e2_tipoConexionRed', label: 'TIPO', placeholder: 'Ej: Monofásica / Trifásica', type: 'select', options: ['Monofásica', 'Trifásica'], subsection: 'E2' },
 
   // E2.2 Módulo Fotovoltaico
@@ -54,7 +55,7 @@ export const masterFormFields = [
   { name: 'e2_totalModulos', label: 'Nº TOTAL MÓDULOS', placeholder: 'Ej: 10', type: 'text', subsection: 'E2' },
   { name: 'e2_modulosEnSerie', label: 'Nº MÓDULOS EN SERIE', placeholder: 'Ej: 10', type: 'text', subsection: 'E2' },
   { name: 'e2_ramasEnParalelo', label: 'Nº RAMAS EN PARALELO', placeholder: 'Ej: 1', type: 'text', subsection: 'E2' },
-  { name: 'disposicionModulos', label: 'DISPOSICIÓN DE LOS MÓDULOS', placeholder: 'Ej: En fila horizontal', type: 'text', subsection: 'E2', fullWidth: true },
+  { name: 'disposicionModulos', label: 'DISPOSICIÓN DE LOS MÓDULOS', placeholder: 'Ej: En fila horizontal', type: 'select', options: ['Cubierta Teja - Aporticada','Cubierta Teja - Coplanar','Cubierta Plana', 'Pergola', 'Chapa Grecada - Aporticada','Chapa Grecada - Coplanar', 'Suelo', 'Paramento Vertical' ], subsection: 'E2', fullWidth: true },
 
   // E2.4 Inversor
   { name: 'e2_marcaModeloInversor', label: 'MARCA Y MODELO', placeholder: 'Ej: Fronius Symo', type: 'text', subsection: 'E2', fullWidth: true },
@@ -207,7 +208,7 @@ export const masterFormFields = [
   { name: 'referenciaFechaInspeccion', label: 'Referencia Fecha Inspección', placeholder: '', type: 'text', subsection: 'LEGALIZACION' },
     { name: 'nombreRepresentanteEntidad', label: 'Nombre del Representante de la Entidad', placeholder: 'Ej: Juan Pérez', type: 'text', fullWidth: true, subsection: 'LEGALIZACION' },
   { name: 'dniRepresentanteEntidad', label: 'DNI del Representante de la Entidad', placeholder: 'Ej: 12345678A', type: 'text', subsection: 'LEGALIZACION' },
-   { name: 'denominacionEstablecimiento', label: 'Denominación del Establecimiento', placeholder: 'Ej: Bar Los Amigos', type: 'text', subsection: 'LEGALIZACION' },
+  { name: 'denominacionEstablecimiento', label: 'Denominación del Establecimiento', placeholder: 'Ej: Bar Los Amigos', type: 'text', subsection: 'LEGALIZACION' },
 
 
   // ========== SECCIÓN ACEPTACION: ACEPTACIÓN Y CONFORMIDAD ==========
