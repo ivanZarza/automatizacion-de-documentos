@@ -22,8 +22,8 @@
           <h1 class="titulo-principal">MEMORIA ECONÓMICA JUSTIFICATIVA</h1>
           <h3 class="titulo-secundario">
             CON APORTACIÓN DE JUSTIFICANTES DE GASTO DE SUBVENCIÓN PARA LA
-            REHABILITACIÓN A NIVEL DE {{ edificio }} EN LA COMUNIDAD AUTÓNOMA DE
-            ANDALUCÍA (Línea {{ l3 }})
+            REHABILITACIÓN A NIVEL DE {{ edificioVivienda }} EN LA COMUNIDAD AUTÓNOMA DE
+            ANDALUCÍA ({{ l3l4 }})
           </h3>
         </div>
       </div>
@@ -40,14 +40,13 @@
         </p>
         <p class="dato-linea">
           <span class="dato-label">AGENTE GESTOR:</span>
-          <span class="dato-valor" v-text="datosDocumento.agenteGestor"></span>
+          <span class="dato-valor">SOLAY INGENIEROS S.L.</span>
         </p>
         <p class="dato-linea">
           <span class="dato-label">NIF AGENTE GESTOR:</span>
           <span
             class="dato-valor"
-            v-text="datosDocumento.nifAgenteGestor"
-          ></span>
+          >B09848912</span>
         </p>
       </div>
 
@@ -62,9 +61,7 @@
               La presente memoria tiene por objeto justificar la utilización de
               la subvención otorgada por la Comunidad Autónoma de Andalucía para
               la rehabilitación a nivel de
-              <span class="texto-fijo">{{ edificioVivienda }}</span> (Línea
-              <span class="texto-fijo">{{ l3l4 }}</span
-              >), de acuerdo con lo establecido en el apartado 25 del cuadro
+              <span class="texto-fijo">{{ edificioVivienda }}</span> (<span class="texto-fijo">{{ l3l4 }}</span>), de acuerdo con lo establecido en el apartado 25 del cuadro
               resumen de las bases reguladoras aprobadas por Orden de 9 de junio
               de 2022 de la Consejería de Fomento, Articulación del Territorio y
               Vivienda.
@@ -72,7 +69,7 @@
           </div>
 
           <div class="parrafo-introduccion">
-            <p  class="texto-parrafo parrafo-activo">
+            <p class="texto-parrafo parrafo-activo">
               <span class="texto-fijo">{{ parrafoTexto }}</span>
             </p>
           </div>
@@ -325,21 +322,16 @@
 </template>
 
 <script setup>
-// Datos fijos del documento
-const datosDocumento = {
-  agenteGestor: "SOLAY INGENIEROS S.L.",
-  nifAgenteGestor: "B09848912",
-};
 
 // Props editables
 defineProps({
   expediente: {
     type: String,
-    default: 'expediente'
+    default: '003832'
   },
   nif: {
     type: String,
-    default: 'nif'
+    default: 'B-003637D'
   },
   edificioVivienda: {
     type: String,
@@ -379,35 +371,35 @@ defineProps({
   },
   firmaImagen: {
     type: String,
-    default: 'firmaImagen'
+    default: ''
   },
   numeroFactura: {
     type: String,
-    default: 'numeroFactura'
+    default: '003832'
   },
   fechaFactura: {
     type: String,
-    default: 'fechaFactura'
+    default: '06/10/23'
   },
   cf: {
     type: String,
-    default: 'cf'
+    default: 'B-003637D'
   },
   acreedor: {
     type: String,
-    default: 'acreedor'
+    default: 'MAS SOL ENERGIA 15 S.L.U'
   },
   concepto: {
     type: String,
-    default: 'concepto'
+    default: ''
   },
   fechaPago: {
     type: String,
-    default: 'fechaPago'
+    default: '24/07/2023'
   },
   importe: {
     type: String,
-    default: '0,00'
+    default: '8.400,00'
   }
 });
 </script>

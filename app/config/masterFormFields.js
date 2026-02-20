@@ -217,11 +217,14 @@ export const masterFormFields = [
   { name: 'importeSubvencion', label: 'Importe de la Subvención', placeholder: 'Ej: 1500 €', type: 'text', subsection: 'ACEPTACION' },
   {
     name: 'edificioVivienda', label: 'Edificio o Vivienda', placeholder: 'Ej: selecciona una opción', type: 'select', options: [
-      { label: 'Edificio', value: 'rehabilitacion a nivel de edificio' },
+      { label: 'Edificio', value: '' },
       { label: 'Vivienda', value: 'mejora de la eficiencia energética en viviendas' },
 
     ], subsection: 'ACEPTACION'
   },
+    // ========== SUBSECCIÓN JUSTIFICACIÓN ==========
+  { name: 'edificioViviendaJUS', label: 'Tipo de Edificio/Vivienda', type: 'select', options: ['edificio', 'vivienda'], subsection: 'justificacion' },
+
 ]
 
 export const getMasterFormDefaultData = () => {

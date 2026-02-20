@@ -5,6 +5,7 @@ export const autorizacionRepresentacionConfig = {
   fileName: 'autorizacion-representacion.pdf',
   route: '/autorizacion-representacion',
   fields: [
+    { type: 'subsection', label: 'Justificación', name: 'justificacion', description: 'Datos específicos para la justificación económica de la subvención.' },
     { name: 'autorizante', label: 'Nombre del Autorizante', type: 'text', fullWidth: true },
     { name: 'dniAutorizante', label: 'DNI/NIF del Autorizante', type: 'text' },
     { name: 'domicilioAutorizante', label: 'Domicilio del Autorizante', type: 'text', fullWidth: true },
