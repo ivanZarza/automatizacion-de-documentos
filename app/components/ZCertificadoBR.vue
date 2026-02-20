@@ -279,7 +279,7 @@ const etiquetas = ref([
   },
   {
     name: "emplazamientoLocalidad",
-    x: 11,
+    x: 13,
     y: 95,
     h: 6,
     w: 20,
@@ -400,7 +400,7 @@ const etiquetas = ref([
   },
   {
     name: "seccionFase",
-    x: 148,
+    x: 155.5,
     y: 156,
     h: 6,
     w: 20,

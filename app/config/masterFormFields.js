@@ -4,7 +4,7 @@ export const masterFormFields = [
 
   { name: 'fecha', label: 'Fecha', placeholder: 'Ej: 16/10/2025', type: 'date', subsection: 'A' },
   { name: 'dia', label: 'Día', placeholder: 'Ej: 15', type: 'text', subsection: 'A' },
-  { name: 'mes', label: 'Mes', placeholder: 'Ej: 02', type: 'text', subsection: 'A' },
+  { name: 'mes', label: 'Mes(En letra joder!) ', placeholder: 'Ej: 02', type: 'text', subsection: 'A' },
   { name: 'anio', label: 'Año', placeholder: 'Ej: 2026', type: 'text', subsection: 'A' },
   { name: 'apellidosNombre', label: 'Apellidos y Nombre del Titular', placeholder: 'Ej: García López, Juan', type: 'text', subsection: 'A' },
   { name: 'nifCif', label: 'NIF/CIF del Titular', placeholder: 'Ej: 12.345.678-A', type: 'text', subsection: 'A' },
@@ -185,7 +185,7 @@ export const masterFormFields = [
     { name: 'seccionFase', label: 'Sección Fase', placeholder: '', type: 'text', subsection: 'LEGALIZACION' },
 { name: 'sensibilidadDiferencial', label: 'Sensibilidad (mA)', placeholder: 'Ej: 30', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'fechaElaboracion', label: 'Fecha de Elaboración', placeholder: 'Ej: 16/10/2025', type: 'date', subsection: 'LEGALIZACION' },
-  { name: 'directorDeObra', label: 'Director de Obra', placeholder: 'Ej: Juan García López', type: 'text', subsection: 'LEGALIZACION' },
+  { name: 'directorDeObra', label: 'Director de Obra', placeholder: 'Ej: Juan García López', type: 'select', options: ['Eduardo Rafael Rivera Cabezas', '   '], subsection: 'LEGALIZACION' },
   {
     name: 'codigoDirectorio', label: 'Código Directorio (Ciudad)', placeholder: 'Selecciona una ciudad...', type: 'select', options: [
       { label: 'Almeria', value: 'A01041434' },
@@ -199,9 +199,9 @@ export const masterFormFields = [
     ], subsection: 'LEGALIZACION'
   },
 
-  { name: 'titulacion', label: 'Titulación', placeholder: '', type: 'text', subsection: 'LEGALIZACION' },
-  { name: 'colegioOficial', label: 'Colegio Oficial', placeholder: '', type: 'text', subsection: 'LEGALIZACION' },
-  { name: 'numeroColegiado', label: 'Número Colegiado', placeholder: '', type: 'text', subsection: 'LEGALIZACION' },
+  { name: 'titulacion', label: 'Titulación', placeholder: '', type: 'select', options: ['' , 'Ingeniero Técnico Industrial'], subsection: 'LEGALIZACION' },
+  { name: 'colegioOficial', label: 'Colegio Oficial', placeholder: '', type: 'select', options: [ '    ', 'COIIAOC'], subsection: 'LEGALIZACION' },
+  { name: 'numeroColegiado', label: 'Número Colegiado', placeholder: '', type: 'select', options: [' ', '4654'], subsection: 'LEGALIZACION' },
   { name: 'organismoControl', label: 'Organismo de Control', placeholder: '', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'numeroNotificacion', label: 'Número Notificación', placeholder: '', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'referenciaFechaInspeccion', label: 'Referencia Fecha Inspección', placeholder: '', type: 'text', subsection: 'LEGALIZACION' },
