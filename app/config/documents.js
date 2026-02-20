@@ -1776,7 +1776,7 @@ export const zCertificadoBRConfig = {
     potenciaPrevista: 'e2_potenciaNominalInversores',
     Superficie: 'superficie',
     registro: 'registro',
-    tensionSuministro: 'tensionSuministro',
+    tensionSuministro: 'e2_relacionTensionInversor',
     empresaDistribuidora: 'empresaDistribuidora',
     intensidadNominal: 'intensidadNominal',
     sensibilidadDiferencial: 'sensibilidadDiferencial',

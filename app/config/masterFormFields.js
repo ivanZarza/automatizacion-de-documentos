@@ -19,20 +19,20 @@ export const masterFormFields = [
   { name: 'letra', label: 'Letra', placeholder: 'Ej: B', type: 'text', subsection: 'A' },
 /*   { name: 'KMEnLaVia', label: 'KM en la Vía', placeholder: 'Ej: 5', type: 'text', subsection: 'A' },
  *//*   { name: 'piso', label: 'Piso', placeholder: 'Ej: 3º', type: 'text', subsection: 'A' },
- */  { name: 'puerta', label: 'Puerta', placeholder: 'Ej: B', type: 'text', subsection: 'A' }, 
+ */  { name: 'puerta', label: 'Puerta', placeholder: 'Ej: B', type: 'text', subsection: 'A' },
 /*   { name: 'telefonoFijo', label: 'Teléfono Fijo', placeholder: 'Ej: 954 123 456', type: 'tel', subsection: 'A' },
  */  { name: 'localidadEmplazamiento', label: 'Localidad del Emplazamiento', placeholder: 'Ej: Sevilla', type: 'text', subsection: 'A' },
   { name: 'provinciaEmplazamiento', label: 'Provincia del Emplazamiento', placeholder: 'Ej: Sevilla', type: 'text', subsection: 'A' },
   { name: 'codigoPostalEmplazamiento', label: 'Código Postal del Emplazamiento', placeholder: 'Ej: 41001', type: 'text', subsection: 'A' },
   { name: 'referenciaCatastral', label: 'Referencia Catastral', placeholder: 'Ej: 4127805SG0000200000CT', type: 'text', subsection: 'A' },
-  
+
   /*   { name: 'tipoVia', label: 'Tipo de Vía', placeholder: 'Ej: Avenida, Calle, Plaza...', type: 'text', subsection: 'A' },
    */
 
-/*   { name: 'nifEntidadRepresentada', label: 'NIF de la Entidad Representada', placeholder: 'Ej: B12345678', type: 'text', subsection: 'A' },
-
-  /*   { name: 'pais', label: 'País', placeholder: 'Ej: España', type: 'text', subsection: 'A' },
-   */
+  /*   { name: 'nifEntidadRepresentada', label: 'NIF de la Entidad Representada', placeholder: 'Ej: B12345678', type: 'text', subsection: 'A' },
+  
+    /*   { name: 'pais', label: 'País', placeholder: 'Ej: España', type: 'text', subsection: 'A' },
+     */
   // ========== SECCIÓN E2: INSTALACIÓN INTERCONECTADA ==========
   // E2.1 Conexión a la Red
   { name: 'tipoInstalacion', label: 'Tipo de Instalación', placeholder: 'Seleccionar tipo...', type: 'select', options: ['Fotovoltaica conectada a red interior', 'Fotovoltaica aislada', 'Instalación con fines especiales'], subsection: 'E2' },
@@ -55,7 +55,7 @@ export const masterFormFields = [
   { name: 'e2_totalModulos', label: 'Nº TOTAL MÓDULOS', placeholder: 'Ej: 10', type: 'text', subsection: 'E2' },
   { name: 'e2_modulosEnSerie', label: 'Nº MÓDULOS EN SERIE', placeholder: 'Ej: 10', type: 'text', subsection: 'E2' },
   { name: 'e2_ramasEnParalelo', label: 'Nº RAMAS EN PARALELO', placeholder: 'Ej: 1', type: 'text', subsection: 'E2' },
-  { name: 'disposicionModulos', label: 'DISPOSICIÓN DE LOS MÓDULOS', placeholder: 'Ej: En fila horizontal', type: 'select', options: ['Cubierta Teja - Aporticada','Cubierta Teja - Coplanar','Cubierta Plana', 'Pergola', 'Chapa Grecada - Aporticada','Chapa Grecada - Coplanar', 'Suelo', 'Paramento Vertical' ], subsection: 'E2', fullWidth: true },
+  { name: 'disposicionModulos', label: 'DISPOSICIÓN DE LOS MÓDULOS', placeholder: 'Ej: En fila horizontal', type: 'select', options: ['Cubierta Teja - Aporticada', 'Cubierta Teja - Coplanar', 'Cubierta Plana', 'Pergola', 'Chapa Grecada - Aporticada', 'Chapa Grecada - Coplanar', 'Suelo', 'Paramento Vertical'], subsection: 'E2', fullWidth: true },
 
   // E2.4 Inversor
   { name: 'e2_marcaModeloInversor', label: 'MARCA Y MODELO', placeholder: 'Ej: Fronius Symo', type: 'text', subsection: 'E2', fullWidth: true },
@@ -168,24 +168,21 @@ export const masterFormFields = [
 
   // ========== SECCIÓN: LEGALIZACION ==========
   // Campos de legalización: súministro, distribuidora, protecciones
-  { name: 'cups', label: 'CUPS', placeholder: 'Ej: ES123456789012345678', type: 'text', fullWidth: true, subsection: 'LEGALIZACION' },
   { name: 'registro_instalacion', label: 'Registro Instalación', placeholder: 'Ej: REG-2025-001-PRINCIPAL', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'terminacioAnual', label: 'Terminación Anual', placeholder: 'Ej: 2025', type: 'select', options: ['26', '27', '28'], subsection: 'LEGALIZACION' },
   { name: 'almacenamiento', label: 'Almacenamiento', placeholder: 'Seleccionar tipo...', type: 'select', options: ['con almacenamiento', 'sin almacenamiento'], subsection: 'LEGALIZACION' },
-  { name: 'instalacion1', label: 'Tipo de Instalación', placeholder: 'Seleccionar tipo...', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'figuraTecnicoCompetente', label: 'Técnico Competente', type: 'checkbox', subsection: 'LEGALIZACION' },
   { name: 'figuraInstaladorHabilitado', label: 'Instalador Habilitado', type: 'checkbox', subsection: 'LEGALIZACION' },
   { name: 'figuraResponsableTecnico', label: 'Responsable Técnico', type: 'checkbox', subsection: 'LEGALIZACION' },
   { name: 'instalacion1', label: 'Instalación1', placeholder: 'Seleccionar tipo...', type: 'text', subsection: 'LEGALIZACION' },
-  { name: 'nombreFirma', label: 'Nombre Firma', placeholder: 'Ej: Juan García López', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'observaciones', label: 'Observaciones', placeholder: 'Selecciona una opción', type: 'select', options: [{ label: 'con batería', value: 'Se trata de una instalación de generación para autoconsumo FV de B.T.con baterias conectado a la red con excedentes acogido a compensación' }, { label: 'sin batería', value: 'Se trata de una instalación de generación para autoconsumo FV de B.T. conectado a la red con excedentes acogido a compensación' }], subsection: 'LEGALIZACION' },
-    { name: 'e2_potenciaNominalInversores', label: 'POTENCIA NOMINAL TOTAL EN INVERSORES (kW)', placeholder: 'Ej: 5.5', type: 'text', subsection: 'LEGALIZACION' },
-  { name: 'tensionSuministro', label: 'Tensión suministro', placeholder: 'Ej: 230V / 400V', type: 'text', subsection: 'LEGALIZACION' },
+  { name: 'e2_potenciaNominalInversores', label: 'POTENCIA NOMINAL TOTAL EN INVERSORES (kW)', placeholder: 'Ej: 5.5', type: 'text', subsection: 'LEGALIZACION' },
+    { name: 'cups', label: 'CUPS', placeholder: 'Ej: ES123456789012345678', type: 'text', fullWidth: true, subsection: 'LEGALIZACION' },
   { name: 'empresaDistribuidora', label: 'Empresa Distribuidora', placeholder: 'Ej: Endesa, Iberdrola', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'intensidadNominal', label: 'Intensidad nominal', placeholder: 'Ej: 30A / 63A', type: 'text', subsection: 'LEGALIZACION' },
-    { name: 'seccionFase', label: 'Sección Fase', placeholder: '', type: 'text', subsection: 'LEGALIZACION' },
-{ name: 'sensibilidadDiferencial', label: 'Sensibilidad (mA)', placeholder: 'Ej: 30', type: 'text', subsection: 'LEGALIZACION' },
-  { name: 'fechaElaboracion', label: 'Fecha de Elaboración', placeholder: 'Ej: 16/10/2025', type: 'date', subsection: 'LEGALIZACION' },
+  { name: 'seccionFase', label: 'Sección Fase', placeholder: '', type: 'text', subsection: 'LEGALIZACION' },
+  { name: 'sensibilidadDiferencial', label: 'Sensibilidad (mA)', placeholder: 'Ej: 30', type: 'text', subsection: 'LEGALIZACION' },
+  { name: 'fechaElaboracion', label: 'Fecha de Elaboración Proyecto', placeholder: 'Ej: 16/10/2025', type: 'date', subsection: 'LEGALIZACION' },
   { name: 'directorDeObra', label: 'Director de Obra', placeholder: 'Ej: Juan García López', type: 'select', options: ['Eduardo Rafael Rivera Cabezas', '   '], subsection: 'LEGALIZACION' },
   {
     name: 'codigoDirectorio', label: 'Código Directorio (Ciudad)', placeholder: 'Selecciona una ciudad...', type: 'select', options: [
@@ -196,17 +193,19 @@ export const masterFormFields = [
       { label: 'Huelva', value: 'A01041438' },
       { label: 'Jaen', value: 'A01041440' },
       { label: 'Malaga', value: 'A01041442' },
-      { label: 'Sevilla', value: 'A01041444' }
+      { label: 'Sevilla', value: 'A01041444' },
+      { name: 'nombreFirma', label: 'Nombre Firma', placeholder: 'Ej: Juan García López', type: 'text', subsection: 'LEGALIZACION' },
+
     ], subsection: 'LEGALIZACION'
   },
 
-  { name: 'titulacion', label: 'Titulación', placeholder: '', type: 'select', options: ['' , 'Ingeniero Técnico Industrial'], subsection: 'LEGALIZACION' },
-  { name: 'colegioOficial', label: 'Colegio Oficial', placeholder: '', type: 'select', options: [ '    ', 'COIIAOC'], subsection: 'LEGALIZACION' },
+  { name: 'titulacion', label: 'Titulación', placeholder: '', type: 'select', options: ['', 'Ingeniero Técnico Industrial'], subsection: 'LEGALIZACION' },
+  { name: 'colegioOficial', label: 'Colegio Oficial', placeholder: '', type: 'select', options: ['    ', 'COIIAOC'], subsection: 'LEGALIZACION' },
   { name: 'numeroColegiado', label: 'Número Colegiado', placeholder: '', type: 'select', options: [' ', '4654'], subsection: 'LEGALIZACION' },
   { name: 'organismoControl', label: 'Organismo de Control', placeholder: '', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'numeroNotificacion', label: 'Número Notificación', placeholder: '', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'referenciaFechaInspeccion', label: 'Referencia Fecha Inspección', placeholder: '', type: 'text', subsection: 'LEGALIZACION' },
-    { name: 'nombreRepresentanteEntidad', label: 'Nombre del Representante de la Entidad', placeholder: 'Ej: Juan Pérez', type: 'text', fullWidth: true, subsection: 'LEGALIZACION' },
+  { name: 'nombreRepresentanteEntidad', label: 'Nombre del Representante de la Entidad', placeholder: 'Ej: Juan Pérez', type: 'text', fullWidth: true, subsection: 'LEGALIZACION' },
   { name: 'dniRepresentanteEntidad', label: 'DNI del Representante de la Entidad', placeholder: 'Ej: 12345678A', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'denominacionEstablecimiento', label: 'Denominación del Establecimiento', placeholder: 'Ej: Bar Los Amigos', type: 'text', subsection: 'LEGALIZACION' },
 
