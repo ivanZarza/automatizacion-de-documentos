@@ -1,4 +1,3 @@
-
 export const autorizacionRepresentacionConfig = {
   id: 'autorizacion-representacion',
   title: 'Autorización de Representación',
@@ -917,10 +916,10 @@ export const memoriaInstalacionAisladaConBateriaConfig = {
     parteInstalacionDirectos: '',
     medidaContactosIndirectos: 'Interruptor diferencial',
     parteInstalacionIndirectos: 'CGMP',
-    medidaSobretensiones: '3 Diodos bypass',
-    parteInstalacionSobretensiones: 'modulo FV',
-    medidaPuntoCaliente: 'Descargador',
-    parteInstalacionPuntoCaliente: 'CGMP',
+    medidaSobretensiones: 'Descargador',
+    parteInstalacionSobretensiones: 'CGMP',
+    medidaPuntoCaliente: '3 Diodos bypass',
+    parteInstalacionPuntoCaliente: 'Módulo FV',
     medidaExplosion: '',
     parteInstalacionExplosion: '',
     medidaCorrosion: '',
@@ -985,6 +984,7 @@ export const memoriaInstalacionAisladaConBateriaConfig = {
     inclinacionGenerador: 'e2_inclinacionGenerador',
     totalModulos: 'e2_totalModulos',
     modulosEnSerie: 'e2_modulosEnSerie',
+    ramasEnParalelo: '',
     // E2.4 - Inversor E2
     marcaModeloInversor: 'e2_marcaModeloInversor',
     potenciaACInversor: 'e2_potenciaNominalInversor',
@@ -1131,6 +1131,7 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
     inclinacionGenerador: 'e2_inclinacionGenerador',
     totalModulos: 'e2_totalModulos',
     modulosEnSerie: 'e2_modulosEnSerie',
+    ramasEnParalelo: '',
     // E2.4 - Inversor E2
     marcaModeloInversor: 'e2_marcaModeloInversor',
     potenciaACInversor: 'e2_potenciaNominalInversor',
@@ -1469,6 +1470,7 @@ export const memoriaTecnicaPuntoRecargaConfig = {
     inclinacionGenerador: 'e2_inclinacionGenerador',
     totalModulos: 'e2_totalModulos',
     modulosEnSerie: 'e2_modulosEnSerie',
+    ramasEnParalelo: '',
     // E2.4 - Inversor E2
     marcaModeloInversor: 'e2_marcaModeloInversor',
     potenciaACInversor: 'e2_potenciaNominalInversor',
@@ -1836,9 +1838,9 @@ export const autorizacionComunicacionConfig = {
     { name: 'provinciaEstablecimiento', label: 'Provincia del Establecimiento', type: 'text', page: 1 },
     { name: 'codigoPostalEstablecimiento', label: 'Código Postal del Establecimiento', type: 'text', page: 1 },
     { name: 'instalacion1', label: 'Instalación 1', type: 'text', page: 1, optional: true },
-    { name:'figura_tecnico_competente', label: 'Figura: Técnico Competente', type: 'text', page: 2, optional: true },
-    { name:'figura_instalador_habilitado', label: 'Figura: Instalador Habilitado', type: 'text', page: 2, optional: true },
-    { name:'figura_responsable_tecnico', label: 'Figura: Responsable Técnico', type: 'text', page: 2, optional: true },
+    { name: 'figuraTecnicoCompetente', label: 'Figura: Técnico Competente', type: 'text', page: 2, optional: true },
+    { name: 'figuraInstaladorHabilitado', label: 'Figura: Instalador Habilitado', type: 'text', page: 2, optional: true },
+    { name: 'figuraResponsableTecnico', label: 'Figura: Responsable Técnico', type: 'text', page: 2, optional: true },
     // SECCIÓN 4: DATOS DE LA PERSONA AUTORIZADA
     { name: 'figura', label: 'Figura', type: 'select', options: ['Técnico competente', 'Instalador habilitado', 'Responsable técnico'], page: 2 },
     { name: 'apellidosNombrePersona', label: 'Apellidos y Nombre de la Persona', type: 'text', page: 2 },
@@ -1848,6 +1850,8 @@ export const autorizacionComunicacionConfig = {
     { name: 'diaFirma', label: 'Día', type: 'text', page: 2 },
     { name: 'mesFirma', label: 'Mes', type: 'text', page: 2 },
     { name: 'anioFirma', label: 'Año', type: 'text', page: 2 },
+    { name: 'nombreFirma', label: 'Nombre Firma', type: 'text', page: 2, optional: true },
+    { name: 'provinciaFirma', label: 'Provincia Firma', type: 'text', page: 2, optional: true },
     { name: 'representante', label: 'Representante/Autorizado', type: 'text', page: 2, optional: true },
     { name: 'codigoDirectorio', label: 'Código Directorio', type: 'text', page: 2, optional: true }
   ],
@@ -1881,9 +1885,9 @@ export const autorizacionComunicacionConfig = {
     provinciaEstablecimiento: '',
     codigoPostalEstablecimiento: '',
     instalacion1: '',
-    figura_tecnico_competente: '',
-    figura_instalador_habilitado: '',
-    figura_responsable_tecnico: '',
+    figuraTecnicoCompetente: '',
+    figuraInstaladorHabilitado: '',
+    figuraResponsableTecnico: '',
     apellidosNombrePersona: 'Eduardo Rivera Cabezas',
     dniNiePersona: 'B09848912',
     lugarFirma: '',
@@ -1891,6 +1895,8 @@ export const autorizacionComunicacionConfig = {
     mesFirma: '',
     anioFirma: '',
     representante: '',
+    nombreFirma: 'TEXTO PRUEBA FIRMA',
+    provinciaFirma: '',
     codigoDirectorio: ''
   },
   fieldMapping: {
@@ -1923,9 +1929,9 @@ export const autorizacionComunicacionConfig = {
     provinciaEstablecimiento: 'provinciaEmplazamiento',
     codigoPostalEstablecimiento: 'codigoPostalEmplazamiento',
     instalacion1: 'instalacion1',
-    figura_tecnico_competente: 'figura_tecnico_competente',
-    figura_instalador_habilitado: 'figura_instalador_habilitado',
-    figura_responsable_tecnico: 'figura_responsable_tecnico',
+    figuraTecnicoCompetente: 'figuraTecnicoCompetente',
+    figuraInstaladorHabilitado: 'figuraInstaladorHabilitado',
+    figuraResponsableTecnico: 'figuraResponsableTecnico',
     apellidosNombrePersona: '',
     dniNiePersona: '',
     lugarFirma: 'localidadEmplazamiento',
@@ -1933,6 +1939,8 @@ export const autorizacionComunicacionConfig = {
     mesFirma: 'mes',
     anioFirma: 'anio',
     representante: 'representante',
+    nombreFirma: '',
+    provinciaFirma: 'provinciaEmplazamiento',
     codigoDirectorio: 'codigoDirectorio'
   },
   capabilities: {
@@ -2286,8 +2294,8 @@ export const declaracionCesionTratamientoConfig = {
     dia: '',
     mes: '',
     anio: '',
+    firma: '',
     nombreFirma: '',
-    firma: ''
   },
   fieldMapping: {
     nombreApellidos: 'apellidosNombre',
@@ -2302,8 +2310,8 @@ export const declaracionCesionTratamientoConfig = {
     dia: 'dia',
     mes: 'mes',
     anio: 'anio',
-    nombreFirma: 'apellidosNombre',
-    firma: 'firma'
+    firma: 'firma',
+    nombreFirma: 'apellidosNombre'
   },
   capabilities: {
     canPreview: true,
@@ -2507,7 +2515,7 @@ const documentConfigs = {
   'aceptacion-compromiso-transversales': declaracionCompromisoTransversalesConfig,
   'justificacion-pago-subvencion-l3': justificacionPagoSubvencionConfigL3,
   'justificacion-pago-subvencion-l4': justificacionPagoSubvencionConfigL4
-}     
+}
 
 /**
  * Obtener configuración de un documento por ID
@@ -2542,3 +2550,5 @@ export const getAllDocuments = () => {
 
   return list
 }
+
+// Transformar los checkboxes a valores textuales

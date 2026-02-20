@@ -223,9 +223,10 @@ watch(() => Object.keys(groupedFieldsBySection.value), (sections) => {
 
 const submit = () => {
   // Filtrar solo campos con valor (evitar contaminar el maestro con vacíos)
+  // Pero permitir false para checkboxes
   const filteredData = Object.fromEntries(
     Object.entries(formData.value).filter(([_, value]) => 
-      value !== '' && value !== null && value !== undefined
+      (value !== '' && value !== null && value !== undefined) || value === false
     )
   )
   emit('submit', filteredData)

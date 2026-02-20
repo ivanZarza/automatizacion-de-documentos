@@ -60,7 +60,7 @@ const props = defineProps({
   calidad: { type: String, default: "Representante sociedad' }," },
 
   // SECCIÓN 2: LUGAR Y MEDIO DE NOTIFICACIÓN
- /*  tipoVia: { type: String, default: "" },
+  /*  tipoVia: { type: String, default: "" },
   nombreVia: { type: String, default: "" },
   numero: { type: String, default: "" },
   letra: { type: String, default: "" },
@@ -86,14 +86,16 @@ const props = defineProps({
   provinciaEstablecimiento: { type: String, default: "" },
   codigoPostalEstablecimiento: { type: String, default: "" },
   instalacion1: { type: String, default: "" },
-/*   instalacion2: { type: String, default: "" },
+  /*   instalacion2: { type: String, default: "" },
   instalacion3: { type: String, default: "" },
   instalacion4: { type: String, default: "" },
   instalacion5: { type: String, default: "" },
   instalacion6: { type: String, default: "" }, */
 
   // SECCIÓN 4: DATOS DE LA PERSONA AUTORIZADA
-  figura: { type: String, default: "" },
+  figuraTecnicoCompetente: { type: [String, Boolean], default: "" },
+  figuraInstaladorHabilitado: { type: [String, Boolean], default: "" },
+  figuraResponsableTecnico: { type: [String, Boolean], default: "" },
   apellidosNombrePersona: { type: String, default: "" },
   dniNiePersona: { type: String, default: "" },
 
@@ -103,9 +105,11 @@ const props = defineProps({
   mesFirma: { type: String, default: "" },
   anioFirma: { type: String, default: "" },
   representante: { type: String, default: "" },
+  nombreFirma: { type: String, default: "" },
+  provinciaFirma: { type: String, default: "" },
   codigoDirectorio: { type: String, default: "" },
 });
-console.log(props.apellidosNombrePersona);
+
 // ============================================
 // ETIQUETAS ARRAY - Estructura base
 // x: 0, y: 0 son PLACEHOLDERS - rellenar con coordenadas reales
@@ -471,50 +475,37 @@ const etiquetas = ref([
   {
     page: 2,
     name: "figuraTecnicoCompetente",
-    // Coordenadas por defecto (puedes ajustar si lo necesitas)
-    x: 56,
-    y: 53.5,
+    x: 53.5,
+    y: 50.5,
     w: 80,
     h: 5,
     fontSize: 16,
     align: "left",
-    value: "", // El valor real vendrá del input
+    value: "",
     displayValue: "",
   },
   {
     page: 2,
     name: "figuraInstaladorHabilitado",
-    x: 56,
-    y: 59.5,
+    x: 53.5,
+    y: 56.5,
     w: 80,
     h: 5,
     fontSize: 16,
     align: "left",
-    value: "x", // El valor real vendrá del input
+    value: "",
     displayValue: "",
   },
   {
     page: 2,
     name: "figuraResponsableTecnico",
-    x: 56,
-    y: 65.8,
+    x: 53.5,
+    y: 62.5,
     w: 80,
     h: 5,
     fontSize: 16,
     align: "left",
-    value: "x", // El valor real vendrá del input
-    displayValue: "",
-  },
-  {
-    page: 2,
-    name: "figuraResponsableTecnico",
-    x: 56,
-    y: 65.8,
-    w: 80,
-    h: 5,
-    fontSize: 16,
-    align: "left",
-    value: "", // El valor real vendrá del input
+    value: "",
     displayValue: "",
   },
   {
@@ -606,6 +597,30 @@ const etiquetas = ref([
   },
   {
     page: 2,
+    name: "nombreFirma",
+    x: 73.3,
+    y: 125,
+    w: 130,
+    h: 20,
+    fontSize: 10,
+    align: "left",
+    value: "",
+    displayValue: "",
+  },
+  {
+    page: 2,
+    name: "provinciaFirma",
+    x: 65.3,
+    y: 141,
+    w: 130,
+    h: 20,
+    fontSize: 10,
+    align: "left",
+    value: "",
+    displayValue: "",
+  },
+  {
+    page: 2,
     name: "codigoDirectorio",
     x: 105.3,
     y: 145,
@@ -615,17 +630,6 @@ const etiquetas = ref([
     letterSpacing: 3.4,
     align: "center",
     value: "A01041434",
-    displayValue: "",
-  },
-  {
-    name: "nombreFirma",
-    x: 25,
-    y: 64,
-    w: 130,
-    h: 20,
-    fontSize: 10,
-    align: "left",
-    value: "",
     displayValue: "",
   },
 ]);
@@ -665,6 +669,9 @@ watch(
     codigoPostalEstablecimiento: props.codigoPostalEstablecimiento,
     instalacion1: props.instalacion1,
     figura: props.figura,
+    figuraTecnicoCompetente: props.figuraTecnicoCompetente,
+    figuraInstaladorHabilitado: props.figuraInstaladorHabilitado,
+    figuraResponsableTecnico: props.figuraResponsableTecnico,
     apellidosNombrePersona: props.apellidosNombrePersona,
     dniNiePersona: props.dniNiePersona,
     lugarFirma: props.lugarFirma,
@@ -672,6 +679,8 @@ watch(
     mesFirma: props.mesFirma,
     anioFirma: props.anioFirma,
     representante: props.representante,
+    nombreFirma: props.nombreFirma,
+    provinciaFirma: props.provinciaFirma,
     codigoDirectorio: props.codigoDirectorio,
   }),
   (newVals) => {
@@ -706,13 +715,31 @@ const ocultarValores = new Set([
 
 const etiquetasVisibles = computed(() =>
   etiquetas.value.map((e) => {
-    const val = e.value && String(e.value).trim().toLowerCase();
+    let valorMostrar = e.value;
+
+    // Transformar true/false a valores legibles para figura
+    if (e.name === "figuraTecnicoCompetente" && e.value === true) {
+      valorMostrar = "X";
+    } else if (e.name === "figuraInstaladorHabilitado" && e.value === true) {
+      valorMostrar = "X";
+    } else if (e.name === "figuraResponsableTecnico" && e.value === true) {
+      valorMostrar = "X";
+    } else if (
+      (e.name === "figuraTecnicoCompetente" ||
+        e.name === "figuraInstaladorHabilitado" ||
+        e.name === "figuraResponsableTecnico") &&
+      e.value === false
+    ) {
+      valorMostrar = "";
+    }
+
+    const val = valorMostrar && String(valorMostrar).trim().toLowerCase();
     const esOculto = Array.from(ocultarValores).some(
       (v) => String(v).toLowerCase() === val,
     );
     return {
       ...e,
-      displayValue: esOculto ? "" : e.value,
+      displayValue: esOculto ? "" : valorMostrar,
     };
   }),
 );

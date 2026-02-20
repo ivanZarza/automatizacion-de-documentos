@@ -116,7 +116,7 @@ const editableFields = ref([])
 onMounted(() => {
   // Cargar datos de localStorage (base de datos central)
   const masterData = loadFromStorage()
-  console.log('[DocumentPage] Master data from localStorage:', masterData)
+
   
   // Cargar imágenes del store de Pinia
   const storedImages = imageStore.getAllImages()
