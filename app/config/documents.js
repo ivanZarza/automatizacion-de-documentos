@@ -1895,7 +1895,7 @@ export const autorizacionComunicacionConfig = {
     mesFirma: '',
     anioFirma: '',
     representante: '',
-    nombreFirma: 'TEXTO PRUEBA FIRMA',
+    nombreFirma: '',
     provinciaFirma: '',
     codigoDirectorio: ''
   },
@@ -1938,8 +1938,8 @@ export const autorizacionComunicacionConfig = {
     diaFirma: 'dia',
     mesFirma: 'mes',
     anioFirma: 'anio',
-    representante: 'representante',
-    nombreFirma: '',
+    representante: 'firma',
+    nombreFirma: 'nombreRepresentanteEntidad',
     provinciaFirma: 'provinciaEmplazamiento',
     codigoDirectorio: 'codigoDirectorio'
   },

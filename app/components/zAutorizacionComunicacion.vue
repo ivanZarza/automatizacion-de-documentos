@@ -593,7 +593,7 @@ const etiquetas = ref([
     align: "left",
     value: "",
     displayValue: "",
-    imageUrl: "/firma-solay.png",
+    imageUrl: "",
   },
   {
     page: 2,
@@ -692,7 +692,11 @@ watch(
         String(propVal).trim() !== ""
           ? propVal
           : "";
-      return { ...e, value: finalValue };
+      if (e.name === "representante") {
+        return { ...e, value: finalValue, imageUrl: finalValue };
+      } else {
+        return { ...e, value: finalValue };
+      }
     });
   },
   {
