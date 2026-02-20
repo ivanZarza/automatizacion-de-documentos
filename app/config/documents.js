@@ -2488,6 +2488,7 @@ export const declaracionCompromisoTransversalesConfig = {
 
 import { justificacionPagoSubvencionConfigL3 } from './justificaciones/justificacionPagoSubvencionConfigL3'
 import { justificacionPagoSubvencionConfigL4 } from './justificaciones/justificacionPagoSubvencionConfigL4'
+import { memoriaEconomicaConfig } from './justificaciones/memoriaEconomicaConfig'
 
 const documentConfigs = {
   'certificado-adecuacion': certificadoAdecuacionConfig,
@@ -2517,7 +2518,8 @@ const documentConfigs = {
   'aceptacion-ausencia-conflicto-intereses': declaracionAusenciaConflictoInteresesConfig,
   'aceptacion-compromiso-transversales': declaracionCompromisoTransversalesConfig,
   'justificacion-pago-subvencion-l3': justificacionPagoSubvencionConfigL3,
-  'justificacion-pago-subvencion-l4': justificacionPagoSubvencionConfigL4
+  'justificacion-pago-subvencion-l4': justificacionPagoSubvencionConfigL4,
+  'memoria-economica': memoriaEconomicaConfig
 }
 
 /**

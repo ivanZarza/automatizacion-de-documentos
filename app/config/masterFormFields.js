@@ -177,7 +177,7 @@ export const masterFormFields = [
   { name: 'instalacion1', label: 'Instalación1', placeholder: 'Seleccionar tipo...', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'observaciones', label: 'Observaciones', placeholder: 'Selecciona una opción', type: 'select', options: [{ label: 'con batería', value: 'Se trata de una instalación de generación para autoconsumo FV de B.T.con baterias conectado a la red con excedentes acogido a compensación' }, { label: 'sin batería', value: 'Se trata de una instalación de generación para autoconsumo FV de B.T. conectado a la red con excedentes acogido a compensación' }], subsection: 'LEGALIZACION' },
   { name: 'e2_potenciaNominalInversores', label: 'POTENCIA NOMINAL TOTAL EN INVERSORES (kW)', placeholder: 'Ej: 5.5', type: 'text', subsection: 'LEGALIZACION' },
-    { name: 'cups', label: 'CUPS', placeholder: 'Ej: ES123456789012345678', type: 'text', fullWidth: true, subsection: 'LEGALIZACION' },
+  { name: 'cups', label: 'CUPS', placeholder: 'Ej: ES123456789012345678', type: 'text', fullWidth: true, subsection: 'LEGALIZACION' },
   { name: 'empresaDistribuidora', label: 'Empresa Distribuidora', placeholder: 'Ej: Endesa, Iberdrola', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'intensidadNominal', label: 'Intensidad nominal', placeholder: 'Ej: 30A / 63A', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'seccionFase', label: 'Sección Fase', placeholder: '', type: 'text', subsection: 'LEGALIZACION' },
