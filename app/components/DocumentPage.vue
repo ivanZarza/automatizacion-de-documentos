@@ -111,23 +111,14 @@ const generatedDate = ref('')
 const editableFields = ref([])
 
 onMounted(() => {
-  console.log('[DocumentPage] Iniciando carga de datos...')
-  
   // Cargar datos de localStorage (base de datos central)
   const masterData = loadFromStorage()
-  console.log('[DocumentPage] Master data from localStorage:', masterData)
   
   // Cargar imágenes desde localStorage
   const storedImages = loadImagesFromStorage()
-  console.log('[DocumentPage] Stored images from localStorage:', Object.keys(storedImages))
-  Object.entries(storedImages).forEach(([key, value]) => {
-    console.log(`  - ${key}: ${(value.length / 1024).toFixed(2)} KB`)
-  })
   
   // Fusionar con configuración del documento
   const mergedData = getMergedDocumentData(props.config)
-  console.log('[DocumentPage] Merged data (master + document defaults):', mergedData)
-  console.log('[DocumentPage] Document config ID:', props.config.id)
   
   // Aplicar fieldMapping inverso a las imágenes para que coincidan con los nombres de props del documento
   const mappedImages = {}
@@ -140,19 +131,15 @@ onMounted(() => {
       inverseMapping[masterField] = docField
     }
   })
-  console.log('[DocumentPage] Inverse field mapping:', inverseMapping)
   
   // Mapear imágenes usando el inverseMapping
   Object.entries(storedImages).forEach(([fieldName, imageData]) => {
     const mappedFieldName = inverseMapping[fieldName] || fieldName
     mappedImages[mappedFieldName] = imageData
-    console.log(`[DocumentPage] Mapped image: ${fieldName} → ${mappedFieldName}`)
   })
   
   // Inicializar formData con los datos fusionados + imágenes mapeadas desde localStorage
   formData.value = { ...mergedData, ...mappedImages }
-  console.log('[DocumentPage] Final formData keys:', Object.keys(formData.value))
-  console.log('[DocumentPage] formData representante:', formData.value.representante ? `${(formData.value.representante.length / 1024).toFixed(2)} KB` : 'vacío')
   
   // Obtener lista de campos editables para este documento
   editableFields.value = getEditableFields(props.config.id)
@@ -191,8 +178,6 @@ const generatePDF = async () => {
 }
 
 const handleFormSubmit = (newData) => {
-  console.log('[DocumentPage] Form submitted with data:', newData)
-  
   // Merge inteligente: mantener datos anteriores + actualizar solo con valores
   const mergedData = { ...formData.value }
   Object.entries(newData).forEach(([key, value]) => {
@@ -201,13 +186,11 @@ const handleFormSubmit = (newData) => {
     }
   })
   formData.value = mergedData
-  console.log('[DocumentPage] Merged data saved to component state:', mergedData)
   
   // Guardar en localStorage (base de datos central)
   // NOTA: updateStoragePartially filtra automáticamente los campos de tipo 'file'
   // para evitar exceder la cuota de localStorage
   updateStoragePartially(mergedData)
-  console.log('[DocumentPage] Data persisted to localStorage')
   
   saveChanges()
 }

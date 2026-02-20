@@ -635,22 +635,6 @@ const etiquetas = ref([
 ]);
 
 // ============================================
-// DEBUG: Watcher para el prop representante
-// ============================================
-watch(
-  () => props.representante,
-  (newVal) => {
-    console.log('[zAutorizacionComunicacion] Prop representante cambió:', {
-      value: newVal,
-      length: newVal ? newVal.length : 0,
-      isDataUrl: newVal ? newVal.startsWith('data:') : false,
-      truncated: newVal ? newVal.substring(0, 100) : 'vacío'
-    })
-  },
-  { immediate: true }
-)
-
-// ============================================
 // WATCHER: Sincronizar props → etiquetas
 // ============================================
 watch(
@@ -700,12 +684,6 @@ watch(
     codigoDirectorio: props.codigoDirectorio,
   }),
   (newVals) => {
-    if (newVals.representante) {
-      console.log('[zAutorizacionComunicacion] Watcher: representante tiene valor:', {
-        length: newVals.representante.length,
-        truncated: newVals.representante.substring(0, 100)
-      })
-    }
     etiquetas.value = etiquetas.value.map((e) => {
       const propVal = newVals[e.name];
       const finalValue =
@@ -715,9 +693,6 @@ watch(
           ? propVal
           : "";
       if (e.name === "representante") {
-        console.log('[zAutorizacionComunicacion] Procesando representante:', {
-          finalValue: finalValue ? finalValue.substring(0, 100) : 'vacío'
-        })
         return { ...e, value: finalValue, imageUrl: finalValue };
       } else {
         return { ...e, value: finalValue };

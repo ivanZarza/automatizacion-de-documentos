@@ -15,17 +15,12 @@ const STORAGE_KEY_IMAGES = 'formDataImages'
  */
 export const saveImageToStorage = (fieldName, base64Data) => {
   try {
-    const imageSizeKB = (base64Data.length / 1024).toFixed(2)
-    console.log(`[StorageManager] Guardando imagen: ${fieldName}, tamaño: ${imageSizeKB} KB`)
-    
     // Actualizar el objeto maestro con la imagen
     const currentData = loadFromStorage()
     currentData[fieldName] = base64Data
     
     try {
       localStorage.setItem(STORAGE_KEY_MAESTRO, JSON.stringify(currentData))
-      const totalSizeKB = (JSON.stringify(currentData).length / 1024).toFixed(2)
-      console.log(`[StorageManager] ✅ Imagen guardada en maestro. Tamaño total: ${totalSizeKB} KB`)
     } catch (quotaError) {
       console.error(`[StorageManager] ❌ localStorage LLENO - No se pudo guardar imagen`)
       throw new Error(`localStorage lleno: ${quotaError.message}`)
@@ -89,7 +84,6 @@ export const deleteImageFromStorage = (fieldName) => {
     const currentData = loadFromStorage()
     delete currentData[fieldName]
     localStorage.setItem(STORAGE_KEY_MAESTRO, JSON.stringify(currentData))
-    console.log(`[StorageManager] Imagen eliminada: ${fieldName}`)
   } catch (error) {
     console.error('[StorageManager] Error eliminando imagen:', error)
   }
@@ -116,7 +110,6 @@ export const clearImagesFromStorage = () => {
     })
     
     localStorage.setItem(STORAGE_KEY_MAESTRO, JSON.stringify(currentData))
-    console.log('[StorageManager] Todas las imágenes eliminadas')
   } catch (error) {
     console.error('[StorageManager] Error limpiando imágenes:', error)
   }
@@ -129,17 +122,15 @@ export const clearImagesFromStorage = () => {
  */
 export const saveToStorage = (data) => {
   try {
-    console.log('[StorageManager] Guardando datos en localStorage...')
     localStorage.setItem(STORAGE_KEY_MAESTRO, JSON.stringify(data))
-    const sizeKB = (JSON.stringify(data).length / 1024).toFixed(2)
-    console.log(`[StorageManager] ✅ Datos guardados. Tamaño total: ${sizeKB} KB`)
     // Notificar a los listeners
     notifyStorageChange(data)
   } catch (error) {
     if (error.name === 'QuotaExceededError') {
       console.error(`[StorageManager] ❌ localStorage LLENO. No hay suficiente espacio`)
+    } else {
+      console.error('[StorageManager] Error guardando en localStorage:', error)
     }
-    console.error('Error guardando en localStorage:', error)
   }
 }
 
@@ -165,20 +156,18 @@ export const loadFromStorage = () => {
  */
 export const updateStoragePartially = (newData) => {
   try {
-    console.log('[StorageManager] Actualizando datos en localStorage...')
     const currentData = loadFromStorage()
     const mergedData = { ...currentData, ...newData }
     localStorage.setItem(STORAGE_KEY_MAESTRO, JSON.stringify(mergedData))
-    const sizeKB = (JSON.stringify(mergedData).length / 1024).toFixed(2)
-    console.log(`[StorageManager] ✅ Datos actualizados. Tamaño total: ${sizeKB} KB`)
     // Notificar a los listeners
     notifyStorageChange(mergedData)
     return mergedData
   } catch (error) {
     if (error.name === 'QuotaExceededError') {
       console.error(`[StorageManager] ❌ localStorage LLENO. No hay suficiente espacio`)
+    } else {
+      console.error('[StorageManager] Error actualizando localStorage:', error)
     }
-    console.error('Error actualizando localStorage:', error)
     return loadFromStorage() || {}
   }
 }

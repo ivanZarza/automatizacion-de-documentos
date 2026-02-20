@@ -12,9 +12,6 @@ export const useImageStore = defineStore('images', () => {
       return
     }
     images.value[fieldName] = base64Data
-    console.log(`[ImageStore] ✓ Imagen guardada: ${fieldName}, tamaño: ${base64Data.length} bytes`)
-    console.log(`[ImageStore] Total imágenes en store: ${Object.keys(images.value).length}`)
-    console.log(`[ImageStore] Contenido del store:`, Object.keys(images.value))
   }
 
   // Obtener una imagen por fieldName
@@ -30,19 +27,16 @@ export const useImageStore = defineStore('images', () => {
   // Eliminar una imagen específica
   const deleteImage = (fieldName) => {
     delete images.value[fieldName]
-    console.log(`[ImageStore] Imagen eliminada: ${fieldName}`)
   }
 
   // Limpiar todas las imágenes
   const clearAllImages = () => {
     images.value = {}
-    console.log('[ImageStore] Todas las imágenes eliminadas')
   }
 
   // Cargar múltiples imágenes a la vez
   const setImages = (imageData) => {
     images.value = { ...images.value, ...imageData }
-    console.log('[ImageStore] Imágenes cargadas:', Object.keys(imageData))
   }
 
   return {

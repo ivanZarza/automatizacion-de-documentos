@@ -54,18 +54,11 @@ const formData = ref({})
  * Función para cargar datos del localStorage (incluye imágenes)
  */
 const loadMasterData = () => {
-  console.log('[formulario-maestro] Cargando datos maestro...')
-  
   const savedData = loadFromStorage()
-  const savedImages = loadImagesFromStorage()
-  
-  console.log('[formulario-maestro] Datos cargados:', Object.keys(savedData))
-  console.log('[formulario-maestro] Imágenes cargadas:', Object.keys(savedImages))
   
   // Si hay datos guardados en localStorage, usarlos; si no, usar valores por defecto
   if (savedData && Object.keys(savedData).length > 0) {
-    formData.value = { ...savedData, ...savedImages }
-    console.log('📥 Datos + imágenes cargados del localStorage')
+    formData.value = { ...savedData }
   } else {
     formData.value = getMasterFormDefaultData()
   }
@@ -77,14 +70,10 @@ onMounted(() => {
 })
 
 const handleFormSubmit = (newData) => {
-  console.log('[formulario-maestro] Guardando datos del formulario...')
   formData.value = newData
   
-  // Guardar datos en localStorage (base de datos central, excluye imágenes automáticamente)
+  // Guardar datos en localStorage (base de datos central de todo: datos + imágenes)
   saveToStorage(newData)
-  
-  // Las imágenes YA están guardadas individuamente por DocumentForm al subirlas,
-  // así que no necesitamos hacer nada extra aquí
   
   // Redirigir a página de selección de documento
   router.push('/seleccionar-documento')
