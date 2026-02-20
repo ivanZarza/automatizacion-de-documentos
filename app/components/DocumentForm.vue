@@ -16,7 +16,7 @@
           <div v-if="expandedSections[subsectionName]" class="section-content">
             <div class="fields-grid">
               <div v-for="field in groupedFields" :key="field.name" class="field-wrapper">
-                <label class="field-label">{{ field.label }}</label>
+                <label v-if="field.type !== 'checkbox'" class="field-label">{{ field.label }}</label>
                 <input v-if="field.type === 'text' || field.type === 'email' || field.type === 'tel'" v-model="formData[field.name]" :type="field.type" :placeholder="field.placeholder" class="field-input" />
                 <div v-else-if="field.type === 'url' && field.preview" class="url-preview-wrapper">
                   <input v-model="formData[field.name]" type="url" :placeholder="field.placeholder" class="field-input" />
@@ -31,6 +31,10 @@
                   <option value="">{{ field.placeholder }}</option>
                   <option v-for="option in field.options" :key="option.value || option" :value="option.value || option">{{ option.label || option }}</option>
                 </select>
+                <div v-else-if="field.type === 'checkbox'" class="checkbox-wrapper">
+                  <input :id="field.name" v-model="formData[field.name]" type="checkbox" class="checkbox-input" />
+                  <label :for="field.name" class="checkbox-label">{{ field.label }}</label>
+                </div>
                 <div v-else-if="field.type === 'file'" class="file-wrapper">
                   <label :for="field.name" class="file-input-label">
                     <svg class="file-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -501,6 +505,27 @@ function getSubsectionLabel(subsection) {
   margin: 0;
   word-break: break-all;
   font-family: 'Courier New', monospace;
+}
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.checkbox-input {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #3b82f6;
+}
+
+.checkbox-label {
+  cursor: pointer;
+  font-size: 14px;
+  color: #374151;
+  user-select: none;
 }
 
 .form-submit {

@@ -470,21 +470,52 @@ const etiquetas = ref([
   // PÁGINA 2 - SECCIÓN 4
   {
     page: 2,
-    name: "figura",
+    name: "figuraTecnicoCompetente",
     // Coordenadas por defecto (puedes ajustar si lo necesitas)
-    x: 0,
-    y: 0,
+    x: 56,
+    y: 53.5,
     w: 80,
     h: 5,
     fontSize: 16,
     align: "left",
     value: "", // El valor real vendrá del input
     displayValue: "",
-    markers: {
-      "Tecnico competente": { x: 56, y: 53.5 },
-      "Instalador habilitado": { x: 56, y: 59.5 },
-      "Responsable tecnico": { x: 56, y: 65.8 },
-    },
+  },
+  {
+    page: 2,
+    name: "figuraInstaladorHabilitado",
+    x: 56,
+    y: 59.5,
+    w: 80,
+    h: 5,
+    fontSize: 16,
+    align: "left",
+    value: "x", // El valor real vendrá del input
+    displayValue: "",
+  },
+  {
+    page: 2,
+    name: "figuraResponsableTecnico",
+    x: 56,
+    y: 65.8,
+    w: 80,
+    h: 5,
+    fontSize: 16,
+    align: "left",
+    value: "x", // El valor real vendrá del input
+    displayValue: "",
+  },
+  {
+    page: 2,
+    name: "figuraResponsableTecnico",
+    x: 56,
+    y: 65.8,
+    w: 80,
+    h: 5,
+    fontSize: 16,
+    align: "left",
+    value: "", // El valor real vendrá del input
+    displayValue: "",
   },
   {
     page: 2,
