@@ -68,7 +68,7 @@
 import { ref, watch, computed } from 'vue'
 import Boton from './Boton.vue'
 import { masterFormFields } from '../config/masterFormFields'
-import { useImageStore } from '../stores/imageStore'
+import { saveImageToStorage } from '../utils/storageManager'
 
 const props = defineProps({
   title: {
@@ -93,8 +93,6 @@ const props = defineProps({
 
 const emit = defineEmits(['submit'])
 
-const imageStore = useImageStore()
-
 const formData = ref({ ...props.initialData })
 const expandedSections = ref({})
 
@@ -109,17 +107,91 @@ watch(() => props.initialData, (newData) => {
 // Guardar automáticamente en localStorage controlado por DocumentPage
 // (No auto-guardamos aquí para evitar loops infinitos con listeners)
 
-const handleFileUpload = (event, fieldName) => {
-  const file = event.target.files[0]
-  if (file) {
+// Comprimir imagen: redimensionar + reducir calidad
+const compressImage = (file) => {
+  return new Promise((resolve) => {
     const reader = new FileReader()
-    reader.onload = (e) => {
-      const base64Data = e.target.result
-      formData.value[fieldName] = base64Data
-      // Guardar imagen en Pinia store para que persista en la sesión
-      imageStore.setImage(fieldName, base64Data)
-    }
     reader.readAsDataURL(file)
+    reader.onload = (e) => {
+      const img = new Image()
+      img.src = e.target.result
+      img.onload = () => {
+        const canvas = document.createElement('canvas')
+        let width = img.width
+        let height = img.height
+        
+        // Redimensionar si es muy grande (máximo 800x600)
+        const MAX_WIDTH = 800
+        const MAX_HEIGHT = 600
+        
+        if (width > height) {
+          if (width > MAX_WIDTH) {
+            height = Math.round((height * MAX_WIDTH) / width)
+            width = MAX_WIDTH
+          }
+        } else {
+          if (height > MAX_HEIGHT) {
+            width = Math.round((width * MAX_HEIGHT) / height)
+            height = MAX_HEIGHT
+          }
+        }
+        
+        canvas.width = width
+        canvas.height = height
+        
+        const ctx = canvas.getContext('2d')
+        ctx.fillStyle = '#fff'
+        ctx.fillRect(0, 0, width, height)
+        ctx.drawImage(img, 0, 0, width, height)
+        
+        // Exportar como JPEG con 70% de calidad (reduce significativamente el tamaño)
+        const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.7)
+        
+        console.log(`[DocumentForm] Imagen comprimida: ${file.name}`)
+        console.log(`  Tamaño original: ${(file.size / 1024).toFixed(2)} KB`)
+        console.log(`  Tamaño comprimido: ${(compressedDataUrl.length / 1024).toFixed(2)} KB`)
+        console.log(`  Reducción: ${((1 - compressedDataUrl.length / (file.size * 1.33)) * 100).toFixed(1)}%`)
+        
+        resolve(compressedDataUrl)
+      }
+    }
+  })
+}
+
+const handleFileUpload = async (event, fieldName) => {
+  const file = event.target.files[0]
+  console.log('[DocumentForm] handleFileUpload iniciado:', { fieldName, fileName: file?.name, fileSize: file?.size, fileType: file?.type })
+  
+  if (file) {
+    try {
+      // Comprimir imagen si es tipo imagen
+      if (file.type.startsWith('image/')) {
+        console.log('[DocumentForm] Comprimiendo imagen...')
+        const compressedDataUrl = await compressImage(file)
+        console.log('[DocumentForm] Imagen comprimida, asignando a formData...')
+        formData.value[fieldName] = compressedDataUrl
+        
+        // Guardar imagen comprimida en localStorage
+        console.log('[DocumentForm] Llamando saveImageToStorage...')
+        saveImageToStorage(fieldName, compressedDataUrl)
+        console.log('[DocumentForm] saveImageToStorage completado')
+      } else {
+        // Para archivos no-imagen, guardar como está
+        console.log('[DocumentForm] Archivo no-imagen, procesando...')
+        const reader = new FileReader()
+        reader.onload = (e) => {
+          const base64Data = e.target.result
+          formData.value[fieldName] = base64Data
+          console.log('[DocumentForm] Llamando saveImageToStorage para archivo no-imagen...')
+          saveImageToStorage(fieldName, base64Data)
+        }
+        reader.readAsDataURL(file)
+      }
+    } catch (error) {
+      console.error('[DocumentForm] Error al comprimir imagen:', error)
+    }
+  } else {
+    console.warn('[DocumentForm] No se seleccionó archivo')
   }
 }
 

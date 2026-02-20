@@ -6,37 +6,139 @@
 import { notifyStorageChange } from './storageEvents'
 
 const STORAGE_KEY_MAESTRO = 'formDataMaestro'
+const STORAGE_KEY_IMAGES = 'formDataImages'
 
 /**
- * Guardar datos en localStorage (base de datos central)
- * NOTA: Excluye automáticamente los campos de tipo 'file' para evitar exceder la cuota
- * @param {Object} data - Datos a guardar
+ * Guardar una imagen comprimida en localStorage (en el mismo objeto maestro)
+ * @param {String} fieldName - Nombre del campo
+ * @param {String} base64Data - Datos en base64 de la imagen
  */
-export const saveToStorage = (data) => {
+export const saveImageToStorage = (fieldName, base64Data) => {
   try {
-    // Excluir campos de tipo 'file' conocidos para no abusar de localStorage
-    const fileFields = new Set([
+    const imageSizeKB = (base64Data.length / 1024).toFixed(2)
+    console.log(`[StorageManager] Guardando imagen: ${fieldName}, tamaño: ${imageSizeKB} KB`)
+    
+    // Actualizar el objeto maestro con la imagen
+    const currentData = loadFromStorage()
+    currentData[fieldName] = base64Data
+    
+    try {
+      localStorage.setItem(STORAGE_KEY_MAESTRO, JSON.stringify(currentData))
+      const totalSizeKB = (JSON.stringify(currentData).length / 1024).toFixed(2)
+      console.log(`[StorageManager] ✅ Imagen guardada en maestro. Tamaño total: ${totalSizeKB} KB`)
+    } catch (quotaError) {
+      console.error(`[StorageManager] ❌ localStorage LLENO - No se pudo guardar imagen`)
+      throw new Error(`localStorage lleno: ${quotaError.message}`)
+    }
+  } catch (error) {
+    console.error('[StorageManager] Error guardando imagen:', error.message)
+  }
+}
+
+/**
+ * Cargar todas las imágenes desde localStorage (del mismo objeto maestro)
+ * @returns {Object} Objeto con todas las imágenes {fieldName: base64Data}
+ */
+export const loadImagesFromStorage = () => {
+  try {
+    const allData = loadFromStorage()
+    const imageFields = new Set([
       'otros_imagenPlanoSituacion',
       'otros_imagenPlanoEmplazamiento',
       'otros_PlanoCubiertaNuevo',
       'h_esquemaUnifilar',
       'firma',
-      // Campos file de otros documentos
       'fotoCertificado',
       'imagenAdjunta'
     ])
     
-    const filteredData = {}
-    Object.entries(data).forEach(([key, value]) => {
-      if (!fileFields.has(key)) {
-        filteredData[key] = value
+    const images = {}
+    Object.entries(allData).forEach(([key, value]) => {
+      if (imageFields.has(key) && value && typeof value === 'string' && value.startsWith('data:')) {
+        images[key] = value
       }
     })
     
-    localStorage.setItem(STORAGE_KEY_MAESTRO, JSON.stringify(filteredData))
-    // Notificar a los listeners
-    notifyStorageChange(filteredData)
+    return images
   } catch (error) {
+    console.error('[StorageManager] Error cargando imágenes:', error)
+    return {}
+  }
+}
+
+/**
+ * Cargar una imagen específica desde localStorage
+ * @param {String} fieldName - Nombre del campo
+ * @returns {String|null} Datos en base64 o null
+ */
+export const getImageFromStorage = (fieldName) => {
+  const data = loadFromStorage()
+  const value = data[fieldName]
+  if (value && typeof value === 'string' && value.startsWith('data:')) {
+    return value
+  }
+  return null
+}
+
+/**
+ * Eliminar una imagen del localStorage
+ * @param {String} fieldName - Nombre del campo
+ */
+export const deleteImageFromStorage = (fieldName) => {
+  try {
+    const currentData = loadFromStorage()
+    delete currentData[fieldName]
+    localStorage.setItem(STORAGE_KEY_MAESTRO, JSON.stringify(currentData))
+    console.log(`[StorageManager] Imagen eliminada: ${fieldName}`)
+  } catch (error) {
+    console.error('[StorageManager] Error eliminando imagen:', error)
+  }
+}
+
+/**
+ * Limpiar todas las imágenes del localStorage
+ */
+export const clearImagesFromStorage = () => {
+  try {
+    const imageFields = new Set([
+      'otros_imagenPlanoSituacion',
+      'otros_imagenPlanoEmplazamiento',
+      'otros_PlanoCubiertaNuevo',
+      'h_esquemaUnifilar',
+      'firma',
+      'fotoCertificado',
+      'imagenAdjunta'
+    ])
+    
+    const currentData = loadFromStorage()
+    imageFields.forEach(field => {
+      delete currentData[field]
+    })
+    
+    localStorage.setItem(STORAGE_KEY_MAESTRO, JSON.stringify(currentData))
+    console.log('[StorageManager] Todas las imágenes eliminadas')
+  } catch (error) {
+    console.error('[StorageManager] Error limpiando imágenes:', error)
+  }
+}
+
+/**
+ * Guardar datos en localStorage (base de datos central)
+ * NOTA: Ahora incluye las imágenes en el mismo objeto
+ * @param {Object} data - Datos a guardar (incluyen imágenes si existen)
+ */
+export const saveToStorage = (data) => {
+  try {
+    console.log('[StorageManager] Guardando datos en localStorage...')
+    localStorage.setItem(STORAGE_KEY_MAESTRO, JSON.stringify(data))
+    const sizeKB = (JSON.stringify(data).length / 1024).toFixed(2)
+    console.log(`[StorageManager] ✅ Datos guardados. Tamaño total: ${sizeKB} KB`)
+    // Notificar a los listeners
+    notifyStorageChange(data)
+  } catch (error) {
+    if (error.name === 'QuotaExceededError') {
+      console.error(`[StorageManager] ❌ localStorage LLENO. No hay suficiente espacio`)
+    }
     console.error('Error guardando en localStorage:', error)
   }
 }
@@ -58,39 +160,26 @@ export const loadFromStorage = () => {
 /**
  * Actualizar parcialmente los datos en localStorage
  * Útil para actualizar solo campos específicos sin perder el resto
- * NOTA: Excluye automáticamente los campos de tipo 'file' para evitar exceder la cuota
- * @param {Object} newData - Datos parciales a actualizar
+ * NOTA: Ahora incluye las imágenes en el mismo objeto
+ * @param {Object} newData - Datos parciales a actualizar (pueden incluir imágenes)
  */
 export const updateStoragePartially = (newData) => {
   try {
-    // Excluir campos de tipo 'file' conocidos para no abusar de localStorage
-    const fileFields = new Set([
-      'otros_imagenPlanoSituacion',
-      'otros_imagenPlanoEmplazamiento',
-      'otros_PlanoCubiertaNuevo',
-      'h_esquemaUnifilar',
-      'firma',
-      // Campos file de otros documentos
-      'fotoCertificado',
-      'imagenAdjunta'
-    ])
-    
-    const filteredData = {}
-    Object.entries(newData).forEach(([key, value]) => {
-      if (!fileFields.has(key)) {
-        filteredData[key] = value
-      }
-    })
-    
+    console.log('[StorageManager] Actualizando datos en localStorage...')
     const currentData = loadFromStorage()
-    const mergedData = { ...currentData, ...filteredData }
+    const mergedData = { ...currentData, ...newData }
     localStorage.setItem(STORAGE_KEY_MAESTRO, JSON.stringify(mergedData))
+    const sizeKB = (JSON.stringify(mergedData).length / 1024).toFixed(2)
+    console.log(`[StorageManager] ✅ Datos actualizados. Tamaño total: ${sizeKB} KB`)
     // Notificar a los listeners
     notifyStorageChange(mergedData)
     return mergedData
   } catch (error) {
+    if (error.name === 'QuotaExceededError') {
+      console.error(`[StorageManager] ❌ localStorage LLENO. No hay suficiente espacio`)
+    }
     console.error('Error actualizando localStorage:', error)
-    return currentData || {}
+    return loadFromStorage() || {}
   }
 }
 

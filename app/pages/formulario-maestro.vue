@@ -43,25 +43,29 @@ import { useRouter } from 'vue-router'
 import DocumentForm from '../components/DocumentForm.vue'
 import Boton from '../components/Boton.vue'
 import { masterFormFields, getMasterFormDefaultData } from '../config/masterFormFields'
-import { loadFromStorage, saveToStorage, clearStorage } from '../utils/storageManager'
-import { useImageStore } from '../stores/imageStore'
+import { loadFromStorage, saveToStorage, clearStorage, loadImagesFromStorage, clearImagesFromStorage } from '../utils/storageManager'
 
 const router = useRouter()
-const imageStore = useImageStore()
 
 // Inicializar formData
 const formData = ref({})
 
 /**
- * Función para cargar datos del localStorage
+ * Función para cargar datos del localStorage (incluye imágenes)
  */
 const loadMasterData = () => {
+  console.log('[formulario-maestro] Cargando datos maestro...')
+  
   const savedData = loadFromStorage()
+  const savedImages = loadImagesFromStorage()
+  
+  console.log('[formulario-maestro] Datos cargados:', Object.keys(savedData))
+  console.log('[formulario-maestro] Imágenes cargadas:', Object.keys(savedImages))
   
   // Si hay datos guardados en localStorage, usarlos; si no, usar valores por defecto
   if (savedData && Object.keys(savedData).length > 0) {
-    formData.value = { ...savedData }
-    console.log('📥 Datos cargados del localStorage:', formData.value)
+    formData.value = { ...savedData, ...savedImages }
+    console.log('📥 Datos + imágenes cargados del localStorage')
   } else {
     formData.value = getMasterFormDefaultData()
   }
@@ -73,10 +77,14 @@ onMounted(() => {
 })
 
 const handleFormSubmit = (newData) => {
+  console.log('[formulario-maestro] Guardando datos del formulario...')
   formData.value = newData
   
-  // Guardar datos en localStorage (base de datos central)
+  // Guardar datos en localStorage (base de datos central, excluye imágenes automáticamente)
   saveToStorage(newData)
+  
+  // Las imágenes YA están guardadas individuamente por DocumentForm al subirlas,
+  // así que no necesitamos hacer nada extra aquí
   
   // Redirigir a página de selección de documento
   router.push('/seleccionar-documento')
@@ -88,6 +96,7 @@ const clearAllData = () => {
     '⚠️ ATENCIÓN: Estás a punto de borrar TODOS los datos guardados.\n\n' +
     'Esta acción:\n' +
     '• Elimina todos los datos del formulario maestro\n' +
+    '• Elimina todas las imágenes\n' +
     '• Elimina todos los datos de los documentos\n' +
     '• NO se puede deshacer\n\n' +
     '¿Estás seguro de que deseas continuar?'
@@ -96,9 +105,7 @@ const clearAllData = () => {
   if (confirmed) {
     // Limpiar localStorage
     clearStorage()
-    
-    // Limpiar imágenes del store de Pinia
-    imageStore.clearAllImages()
+    clearImagesFromStorage()
     
     // Reiniciar formulario con valores por defecto
     formData.value = getMasterFormDefaultData()

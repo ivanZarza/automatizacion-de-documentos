@@ -85,15 +85,12 @@ import DocumentForm from '../components/DocumentForm.vue'
 import { useDocument } from '../composables/useDocument'
 import { getMergedDocumentData } from '../utils/mergeFormData'
 import { getEditableFields } from '../config/editableFields'
-import { loadFromStorage, updateStoragePartially } from '../utils/storageManager'
-import { useImageStore } from '../stores/imageStore'
+import { loadFromStorage, updateStoragePartially, loadImagesFromStorage } from '../utils/storageManager'
 import { ref, onMounted, watch } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
 const router = useRouter()
 const route = useRoute()
-
-const imageStore = useImageStore()
 
 const props = defineProps({
   config: {
@@ -112,44 +109,50 @@ const showEdit = ref(false)
 const formData = ref({})
 const generatedDate = ref('')
 const editableFields = ref([])
-const inverseMapping = ref({})  // Guardar el mapeo inverso para usarlo en el watcher
 
 onMounted(() => {
+  console.log('[DocumentPage] Iniciando carga de datos...')
+  
   // Cargar datos de localStorage (base de datos central)
   const masterData = loadFromStorage()
-
+  console.log('[DocumentPage] Master data from localStorage:', masterData)
   
-  // Cargar imágenes del store de Pinia
-  const storedImages = imageStore.getAllImages()
-  console.log('[DocumentPage] Images from Pinia store:', storedImages)
+  // Cargar imágenes desde localStorage
+  const storedImages = loadImagesFromStorage()
+  console.log('[DocumentPage] Stored images from localStorage:', Object.keys(storedImages))
+  Object.entries(storedImages).forEach(([key, value]) => {
+    console.log(`  - ${key}: ${(value.length / 1024).toFixed(2)} KB`)
+  })
   
   // Fusionar con configuración del documento
   const mergedData = getMergedDocumentData(props.config)
   console.log('[DocumentPage] Merged data (master + document defaults):', mergedData)
-  console.log('[DocumentPage] Document config:', props.config.id)
+  console.log('[DocumentPage] Document config ID:', props.config.id)
   
-  // Aplicar fieldMapping inverso a las imágenes del store
+  // Aplicar fieldMapping inverso a las imágenes para que coincidan con los nombres de props del documento
   const mappedImages = {}
   const fieldMapping = props.config.fieldMapping || {}
   
   // Crear mapeo inverso: fieldMapping['representante'] = 'firma' → inverseMapping['firma'] = 'representante'
-  inverseMapping.value = {}
+  const inverseMapping = {}
   Object.entries(fieldMapping).forEach(([docField, masterField]) => {
     if (masterField) {
-      inverseMapping.value[masterField] = docField
+      inverseMapping[masterField] = docField
     }
   })
-  console.log('[DocumentPage] Inverse field mapping:', inverseMapping.value)
+  console.log('[DocumentPage] Inverse field mapping:', inverseMapping)
   
   // Mapear imágenes usando el inverseMapping
   Object.entries(storedImages).forEach(([fieldName, imageData]) => {
-    const mappedFieldName = inverseMapping.value[fieldName] || fieldName
+    const mappedFieldName = inverseMapping[fieldName] || fieldName
     mappedImages[mappedFieldName] = imageData
     console.log(`[DocumentPage] Mapped image: ${fieldName} → ${mappedFieldName}`)
   })
   
-  // Inicializar formData con los datos fusionados + imágenes mapeadas del store
+  // Inicializar formData con los datos fusionados + imágenes mapeadas desde localStorage
   formData.value = { ...mergedData, ...mappedImages }
+  console.log('[DocumentPage] Final formData keys:', Object.keys(formData.value))
+  console.log('[DocumentPage] formData representante:', formData.value.representante ? `${(formData.value.representante.length / 1024).toFixed(2)} KB` : 'vacío')
   
   // Obtener lista de campos editables para este documento
   editableFields.value = getEditableFields(props.config.id)
@@ -165,19 +168,6 @@ onMounted(() => {
     showEdit.value = false
   }
 })
-
-// Vigilar cambios en el store de imágenes para sincronizar con formData
-watch(() => imageStore.images, (newImages) => {
-  console.log('[DocumentPage] Watch: Imágenes del store cambiaron:', newImages)
-  // Actualizar formData con las nuevas imágenes, aplicando mapeo inverso
-  Object.keys(newImages).forEach(fieldName => {
-    if (newImages[fieldName]) {
-      const mappedFieldName = inverseMapping.value[fieldName] || fieldName
-      formData.value[mappedFieldName] = newImages[fieldName]
-      console.log(`[DocumentPage] Imagen sincronizada: ${fieldName} → ${mappedFieldName}`)
-    }
-  })
-}, { deep: true })
 
 const previewDocument = () => {
   showPreview.value = true
