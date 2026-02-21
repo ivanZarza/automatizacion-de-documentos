@@ -130,7 +130,6 @@
         <div class="firma-bloque">
           <div class="datos-firma">
             <p class="dato-firma">
-              <span class="etiqueta">Fecha:</span>
               <span class="valor rojo">En Sevilla a {{ dia }} de {{ mes }} de {{ anio }}</span>
             </p>
           </div>
