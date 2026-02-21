@@ -2487,6 +2487,7 @@ export const declaracionCompromisoTransversalesConfig = {
   category: 'aceptaciones'
 };
 
+import { certificadoPedidosConfig } from './justificaciones/certificadoPedidosConfig'
 import { justificacionPagoSubvencionConfigL3 } from './justificaciones/justificacionPagoSubvencionConfigL3'
 import { justificacionPagoSubvencionConfigL4 } from './justificaciones/justificacionPagoSubvencionConfigL4'
 import { memoriaEconomicaConfig } from './justificaciones/memoriaEconomicaConfig'
@@ -2520,7 +2521,8 @@ const documentConfigs = {
   'aceptacion-compromiso-transversales': declaracionCompromisoTransversalesConfig,
   'justificacion-pago-subvencion-l3': justificacionPagoSubvencionConfigL3,
   'justificacion-pago-subvencion-l4': justificacionPagoSubvencionConfigL4,
-  'memoria-economica': memoriaEconomicaConfig
+  'memoria-economica': memoriaEconomicaConfig,
+  'certificado-pedidos': certificadoPedidosConfig
 }
 
 /**

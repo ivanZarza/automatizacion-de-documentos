@@ -437,7 +437,7 @@ defineProps({
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 15px 0;
+  padding: 10px 0;
   border-bottom: 2px solid #333;
   margin-bottom: 20px;
 }
@@ -480,8 +480,8 @@ defineProps({
 /* ========== DATOS INICIALES ========== */
 .datos-iniciales {
   border: 1px solid #000000;
-  padding: 10px 15px;
-  margin-bottom: 20px;
+  padding: 5px 15px;
+  margin-bottom: 10px;
 }
 
 .dato-linea {
@@ -498,7 +498,7 @@ defineProps({
 }
 
 .dato-valor {
-  color: #d00;
+  color: rgb(8, 8, 8);
   font-weight: bold;
 }
 
@@ -581,7 +581,6 @@ defineProps({
 }
 
 .tabla-gastos th {
-  background-color: #f0f0f0;
   font-weight: bold;
   height: 35px;
   vertical-align: middle;
@@ -635,8 +634,7 @@ defineProps({
 }
 
 .input-tabla:focus {
-  outline: 1px solid #d00;
-  background: #fffef0;
+  outline: 1px solid rgb(0, 0, 0);
 }
 
 .texto-valor {
@@ -653,20 +651,12 @@ defineProps({
   padding: 2px 3px;
 }
 
-.fila-datos td {
-  background: white;
-}
-
-.fila-datos td:first-child {
-  background-color: #f9f9f9;
-}
-
 /* ========== TOTAL JUSTIFICADO ========== */
 .total-justificado {
   text-align: right;
   margin-top: 10px;
   font-size: 12px;
-  border-top: 2px solid #333;
+  border-top: 2px solid #000000;
   padding-top: 8px;
 }
 
@@ -683,10 +673,9 @@ defineProps({
 
 /* ========== DESVIACIONES ========== */
 .contenedor-desviaciones {
-  border: 1px solid #999;
+  border: 1px solid #000000;
   padding: 10px;
   margin-bottom: 10px;
-  background: #f9f9f9;
 }
 
 .concepto-desvio {
@@ -703,7 +692,7 @@ defineProps({
 }
 
 .valor-variable {
-  color: #d00;
+  color: rgb(0, 0, 0);
   font-weight: bold;
   margin-left: 15px;
 }
@@ -746,7 +735,7 @@ defineProps({
 }
 
 .dato-firma .valor {
-  color: #d00;
+  color: rgb(0, 0, 0);
   font-weight: bold;
   flex: 1;
   text-align: center;

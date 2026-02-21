@@ -210,21 +210,49 @@ export const masterFormFields = [
   { name: 'denominacionEstablecimiento', label: 'Denominación del Establecimiento', placeholder: 'Ej: Bar Los Amigos', type: 'text', subsection: 'LEGALIZACION' },
 
 
-  // ========== SECCIÓN ACEPTACION: ACEPTACIÓN Y CONFORMIDAD ==========
+  // ========== SECCIÓN ACEPTACION: ACEPTACIÓN Y JUSTIFICACIÓN ==========
+  //  ========== SECCIÓN ACEPTACION ==========
   { name: 'codigoEni', label: 'Código ENI', placeholder: 'Ej: ENI12345', type: 'text', subsection: 'ACEPTACION' },
   { name: 'expedienteEco', label: 'Expediente ECO', placeholder: 'Ej: ECO12345', type: 'text', subsection: 'ACEPTACION' },
   { name: 'potenciaProyecto', label: 'Potencia del Proyecto', placeholder: 'Ej: 5 kW', type: 'text', subsection: 'ACEPTACION' },
   { name: 'importeSubvencion', label: 'Importe de la Subvención', placeholder: 'Ej: 1500 €', type: 'text', subsection: 'ACEPTACION' },
   {
     name: 'edificioVivienda', label: 'Edificio o Vivienda', placeholder: 'Ej: selecciona una opción', type: 'select', options: [
-      { label: 'Edificio', value: '' },
-      { label: 'Vivienda', value: 'mejora de la eficiencia energética en viviendas' },
-
+      { label: 'Edificio', value: 'edificio' },
+      { label: 'Vivienda', value: 'vivienda' },
     ], subsection: 'ACEPTACION'
   },
-    // ========== SUBSECCIÓN JUSTIFICACIÓN ==========
-  { name: 'edificioViviendaJUS', label: 'Tipo de Edificio/Vivienda', type: 'select', options: ['edificio', 'vivienda'], subsection: 'justificacion' },
-
+  // ========== SECCIÓN JUSTIFICACION ==========
+  { name: 'expediente', label: 'Expediente', placeholder: 'Ej: EXP-2025-001', type: 'text', subsection: 'ACEPTACION' },
+  { name: 'l3l4', label: 'L3L4', placeholder: 'Ej: L3L4', type: 'select', options: ['Línea 3', 'Línea 4'], subsection: 'ACEPTACION' },
+  {
+    name: "parrafoTexto", label: 'Párrafo de Texto', placeholder: 'elije el texto segun la  linea', type: 'select', options: [
+      { label: 'Línea 3', value: 'Estas ayudas tienen por objeto la financiación de obras o actuaciones en los edificios de uso predominante residencial en las que se obtenga una mejora acreditada de la eficiencia energética, con especial atención a la envolvente edificatoria en edificios de tipología residencial colectiva, incluyendo sus viviendas, y en las viviendas unifamiliares.' },
+      { label: 'Línea 4', value: ' Estas ayudas tienen por objeto la financiación de actuaciones u obras de mejora de la eficiencia energética en las viviendas, ya sean unifamiliares o pertenecientes a edificios plurifamiliares. ' },
+    ], subsection: 'ACEPTACION'
+  },
+  { name: 'numeroFactura', label: 'Nº Factura', placeholder: 'Ej: 003832', type: 'text', subsection: 'ACEPTACION' },
+  { name: 'fechaFactura', label: 'Fecha Factura', placeholder: 'Ej: 06/10/23', type: 'date', subsection: 'ACEPTACION' },
+  { name: 'cf', label: 'CF', placeholder: 'Ej: B-003637D', type: 'text', subsection: 'ACEPTACION' },
+  { name: 'acreedor', label: 'Acreedor', placeholder: 'Ej: MAS SOL ENERGIA 15 S.L.U', type: 'text', subsection: 'ACEPTACION' },
+  { name: 'concepto', label: 'Concepto', placeholder: '', type: 'text', subsection: 'ACEPTACION' },
+  { name: 'fechaPago', label: 'Fecha Pago', placeholder: 'Ej: 24/07/2023', type: 'date', subsection: 'ACEPTACION' },
+  { name: 'importe', label: 'Importe', placeholder: 'Ej: 8.400,00', type: 'text', subsection: 'ACEPTACION' },
+  { name: 'totalCantidadJustificada', label: 'Total Cantidad Justificada', placeholder: 'Ej: 0,00', type: 'text', subsection: 'ACEPTACION' },
+  { name: 'presupuestoInicial', label: 'Presupuesto Inicial', placeholder: 'Ej: 0,00', type: 'text', subsection: 'ACEPTACION' },
+  { name: 'inversionRealizada', label: 'Inversión Realizada', placeholder: 'Ej: 0,00', type: 'text', subsection: 'ACEPTACION' },
+  { name: 'desviacion', label: 'Desviación (con IVA si es subvencionable)', placeholder: 'Ej: 0,00', type: 'text', subsection: 'ACEPTACION' },
+  { name: 'fechaFirmaJustificacion', label: 'Fecha Firma Justificación', placeholder: 'Ej: 24/07/2023', type: 'date', subsection: 'ACEPTACION' },
+  { name: 'proveedor', label: 'Proveedor', placeholder: 'Ej: MAS SOL ENERGIA 15 S.L.U', type: 'text', subsection: 'ACEPTACION' },
+  { name: 'idOferta', label: 'Id. Oferta', placeholder: 'Ej: OF-001', type: 'text', subsection: 'ACEPTACION' },
+  { name: 'fechaOferta', label: 'Fecha Oferta', placeholder: 'Ej: 15/07/2023', type: 'date', subsection: 'ACEPTACION' },
+  { name: 'importeOferta', label: 'Importe Oferta (€)', placeholder: 'Ej: 8.500,00', type: 'text', subsection: 'ACEPTACION' },
+  { name: 'idPedido', label: 'Id Pedido', placeholder: 'Ej: PE-001', type: 'text', subsection: 'ACEPTACION' },
+  { name: 'fechaPedido', label: 'Fecha Pedido', placeholder: 'Ej: 24/07/2023', type: 'date', subsection: 'ACEPTACION' },
+  { name: 'importePedido', label: 'Importe Pedido (€)', placeholder: 'Ej: 8.400,00', type: 'text', subsection: 'ACEPTACION' },
+  { name: 'diaPedido', label: 'Día  de pedido', placeholder: 'Ej: 24', type: 'text', subsection: 'ACEPTACION' },
+  { name: 'mesPedido', label: 'Mes de pedido', placeholder: 'Ej: Julio', type: 'text', subsection: 'ACEPTACION' },
+  { name: 'anioPedido', label: 'Año de pedido', placeholder: 'Ej: 2023', type: 'text', subsection: 'ACEPTACION' },
 ]
 
 export const getMasterFormDefaultData = () => {
