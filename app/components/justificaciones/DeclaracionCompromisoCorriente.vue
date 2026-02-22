@@ -263,6 +263,8 @@ const estiloEtiqueta = (etiqueta) => ({
   align-items: center;
   min-height: 100vh;
   background: #f0f0f0;
+  padding: 0;
+  margin: 0;
 }
 
 .pagina-documento {
@@ -270,49 +272,89 @@ const estiloEtiqueta = (etiqueta) => ({
   height: 297mm;
   position: relative;
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100% 100%;
+  background-position: 0 0;
+  background-size: cover;
+  background-attachment: scroll;
   font-family: Arial, sans-serif;
   font-size: 7.1pt;
   margin-bottom: 16mm;
   background-image: url("/documentos-oficiales/justificaciones/declaracion-compromiso-corriente.png");
+  box-sizing: border-box;
+  page-break-after: auto;
+  page-break-inside: avoid;
+  overflow: hidden;
 }
 
 .overlay-field {
   color: #000 !important;
+  font-family: Arial, sans-serif;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 @page {
   size: A4;
   margin: 0;
+  padding: 0;
 }
 
 @media print {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
   html,
   body {
     margin: 0;
     padding: 0;
-    background: #fff;
+    background: #fff !important;
+    width: 210mm;
+    height: 297mm;
   }
 
   .print-wrapper {
-    padding: 0;
-    background: #fff;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #fff !important;
+    width: 100%;
+    min-height: 100%;
   }
 
   .pagina-documento {
     --guide-color: transparent;
-    border: 0;
-    box-shadow: none;
-    margin: 0 auto;
+    border: 0 !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
     page-break-after: always;
-    page-break-inside: avoid;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+    page-break-inside: avoid !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    background-attachment: scroll !important;
+    background-position: 0 0 !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    overflow: hidden !important;
   }
 
   .pagina-documento:last-child {
     page-break-after: auto;
+  }
+
+  .overlay-field {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+@media screen {
+  .pagina-documento {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 }
 </style>
