@@ -195,7 +195,6 @@ export const masterFormFields = [
       { label: 'Malaga', value: 'A01041442' },
       { label: 'Sevilla', value: 'A01041444' },
       { name: 'nombreFirma', label: 'Nombre Firma', placeholder: 'Ej: Juan García López', type: 'text', subsection: 'LEGALIZACION' },
-
     ], subsection: 'LEGALIZACION'
   },
 
@@ -208,7 +207,6 @@ export const masterFormFields = [
   { name: 'nombreRepresentanteEntidad', label: 'Nombre del Representante de la Entidad', placeholder: 'Ej: Juan Pérez', type: 'text', fullWidth: true, subsection: 'LEGALIZACION' },
   { name: 'dniRepresentanteEntidad', label: 'DNI del Representante de la Entidad', placeholder: 'Ej: 12345678A', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'denominacionEstablecimiento', label: 'Denominación del Establecimiento', placeholder: 'Ej: Bar Los Amigos', type: 'text', subsection: 'LEGALIZACION' },
-
 
   // ========== SECCIÓN ACEPTACION: ACEPTACIÓN Y CONFORMIDAD ==========
   { name: 'codigoEni', label: 'Código ENI', placeholder: 'Ej: ENI12345', type: 'text', subsection: 'ACEPTACION' },
@@ -224,6 +222,26 @@ export const masterFormFields = [
   },
     // ========== SUBSECCIÓN JUSTIFICACIÓN ==========
   { name: 'edificioViviendaJUS', label: 'Tipo de Edificio/Vivienda', type: 'select', options: ['edificio', 'vivienda'], subsection: 'JUSTIFICACION' },
+    { name: 'l3l4', label: 'Línea de Subvención', type: 'text', placeholder: 'ej: Línea 3', subsection: 'JUSTIFICACION' },
+  { name: 'parrafoTexto', label: 'Párrafo Introducción', type: 'select', options: ['L3', 'L4'], subsection: 'JUSTIFICACION' },
+  { name: 'numeroFactura', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION' },
+  { name: 'fechaFactura', label: 'Fecha Factura', type: 'date', subsection: 'JUSTIFICACION' },
+  { name: 'cf', label: 'CF', type: 'text', subsection: 'JUSTIFICACION' },
+  { name: 'acreedor', label: 'Acreedor', type: 'text', subsection: 'JUSTIFICACION' },
+  { name: 'concepto', label: 'Concepto', type: 'text', subsection: 'JUSTIFICACION' },
+  { name: 'fechaPago', label: 'Fecha Pago', type: 'date', subsection: 'JUSTIFICACION' },
+  { name: 'importe', label: 'Importe', type: 'text', subsection: 'JUSTIFICACION' },
+  { name: 'totalCantidadJustificada', label: 'Total Cantidad Justificada', type: 'text', subsection: 'JUSTIFICACION' },
+  { name: 'presupuestoInicial', label: 'Presupuesto Inicial', type: 'text', subsection: 'JUSTIFICACION' },
+  { name: 'inversionRealizada', label: 'Inversión Realizada', type: 'text', subsection: 'JUSTIFICACION' },
+  { name: 'desviacion', label: 'Desviación (con IVA si es subvencionable)', type: 'text', subsection: 'JUSTIFICACION' },{ name: 'diaInicio', label: 'Día Inicio', placeholder: 'Ej: 03', type: 'text', subsection: 'JUSTIFICACION' },
+  { name: 'mesInicio', label: 'Mes Inicio', placeholder: 'Ej: 10', type: 'text', subsection: 'JUSTIFICACION' },
+  { name: 'anioInicio', label: 'Año Inicio', placeholder: 'Ej: 2023', type: 'text', subsection: 'JUSTIFICACION' },
+  { name: 'diaFirma', label: 'Día Firma', placeholder: 'Ej: 08', type: 'text', subsection: 'JUSTIFICACION' },
+  { name: 'mesFirma', label: 'Mes Firma', placeholder: 'Ej: 09', type: 'text', subsection: 'JUSTIFICACION' },
+  { name: 'anioFirma', label: 'Año Firma', placeholder: 'Ej: 2025', type: 'text', subsection: 'JUSTIFICACION' },
+  
+  // ========== SUBSECCIÓN JUSTIFICACIÓN: Facturación e Inversión ==========
 
 ]
 
