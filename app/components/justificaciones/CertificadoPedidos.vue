@@ -130,7 +130,7 @@
         <div class="firma-bloque">
           <div class="datos-firma">
             <p class="dato-firma">
-              <span class="valor rojo">En Sevilla a {{ dia }} de {{ mes }} de {{ anio }}</span>
+              <span class="valor rojo">En Sevilla a {{ diaPedido }} de {{ mesPedido }} de {{ anioPedido }}</span>
             </p>
           </div>
           <div v-if="firmaImagen" class="imagen-firma-contenedor">
@@ -157,9 +157,9 @@ defineProps({
   idPedido: String,
   fechaPedido: String,
   importePedido: String,
-  dia: String,
-  mes: String,
-  anio: String,
+  diaPedido: String,
+  mesPedido: String,
+  anioPedido: String,
   firmaImagen: String
 })
 </script>
