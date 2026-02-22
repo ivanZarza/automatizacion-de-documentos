@@ -223,7 +223,10 @@ export const masterFormFields = [
     // ========== SUBSECCIÓN JUSTIFICACIÓN ==========
   { name: 'edificioViviendaJUS', label: 'Tipo de Edificio/Vivienda', type: 'select', options: ['edificio', 'vivienda'], subsection: 'JUSTIFICACION' },
     { name: 'l3l4', label: 'Línea de Subvención', type: 'text', placeholder: 'ej: Línea 3', subsection: 'JUSTIFICACION' },
-  { name: 'parrafoTexto', label: 'Párrafo Introducción', type: 'select', options: ['L3', 'L4'], subsection: 'JUSTIFICACION' },
+  { name: 'parrafoTexto', label: 'Párrafo Introducción', type: 'select', options: [
+    { label: 'Línea 3', value: 'Estas ayudas tienen por objeto la financiación de obras o actuaciones en los edificios de uso predominante residencial en las que se obtenga una mejora acreditada de la eficiencia energética, con especial atención a la envolvente edificatoria en edificios de tipología residencial colectiva, incluyendo sus viviendas, y en las viviendas unifamiliares.' },
+    { label: 'Línea 4', value: 'Estas ayudas tienen por objeto la financiación de actuaciones u obras de mejora de la eficiencia energética en las viviendas, ya sean unifamiliares o pertenecientes a edificios plurifamiliares' }
+  ], subsection: 'JUSTIFICACION', fullWidth: true },
   { name: 'numeroFactura', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'fechaFactura', label: 'Fecha Factura', type: 'date', subsection: 'JUSTIFICACION' },
   { name: 'cf', label: 'CF', type: 'text', subsection: 'JUSTIFICACION' },

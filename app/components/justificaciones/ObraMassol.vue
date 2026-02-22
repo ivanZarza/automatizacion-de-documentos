@@ -69,6 +69,7 @@
 
 <script setup>
 defineProps({
+  potenciaInstalacion: String,
   emplazamientoCalle: String,
   numeroEmplazamiento: String,
   codigoPostalEmplazamiento: String,
