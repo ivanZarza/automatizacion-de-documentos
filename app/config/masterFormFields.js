@@ -223,7 +223,7 @@ export const masterFormFields = [
     ], subsection: 'ACEPTACION'
   },
     // ========== SUBSECCIÓN JUSTIFICACIÓN ==========
-  { name: 'edificioViviendaJUS', label: 'Tipo de Edificio/Vivienda', type: 'select', options: ['edificio', 'vivienda'], subsection: 'justificacion' },
+  { name: 'edificioViviendaJUS', label: 'Tipo de Edificio/Vivienda', type: 'select', options: ['edificio', 'vivienda'], subsection: 'JUSTIFICACION' },
 
 ]
 

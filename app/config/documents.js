@@ -2490,6 +2490,7 @@ export const declaracionCompromisoTransversalesConfig = {
 import { justificacionPagoSubvencionConfigL3 } from './justificaciones/justificacionPagoSubvencionConfigL3'
 import { justificacionPagoSubvencionConfigL4 } from './justificaciones/justificacionPagoSubvencionConfigL4'
 import { memoriaEconomicaConfig } from './justificaciones/memoriaEconomicaConfig'
+import { obraMassolConfig } from './justificaciones/obraMassolConfig'
 
 const documentConfigs = {
   'certificado-adecuacion': certificadoAdecuacionConfig,
@@ -2520,7 +2521,8 @@ const documentConfigs = {
   'aceptacion-compromiso-transversales': declaracionCompromisoTransversalesConfig,
   'justificacion-pago-subvencion-l3': justificacionPagoSubvencionConfigL3,
   'justificacion-pago-subvencion-l4': justificacionPagoSubvencionConfigL4,
-  'memoria-economica': memoriaEconomicaConfig
+  'memoria-economica': memoriaEconomicaConfig,
+  'obra-massol': obraMassolConfig
 }
 
 /**
