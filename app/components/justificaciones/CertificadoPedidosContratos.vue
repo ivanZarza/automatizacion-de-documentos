@@ -96,10 +96,7 @@
         </div>
       </div>
 
-      <!-- Pie de página -->
-      <div class="pie-pagina">
-        <p class="texto-pie">Página 1</p>
-      </div>
+
     </div>
   </div>
 </template>
@@ -335,48 +332,50 @@ table {
   border-collapse: collapse;
   font-size: 12px;
   line-height: 1.6;
-  table-layout: fixed;
+  border: 3px solid #009900;
 }
 
 thead {
-  background-color: #0066cc;
+  background-color: #00cc00;
   color: white;
+  border: 3px solid #009900;
 }
 
 .header-grupo th {
   padding: 12px 8px;
   text-align: center;
   font-weight: bold;
-  border: 1px solid #0066cc;
+  border: 2px solid #009900;
   font-size: 12px;
-  background-color: #0052a3;
+  background-color: #00cc00;
 }
 
 .grupo-ofertas {
-  border-right: 2px solid #003d7a ;
-  width: 30%;
+  border-right: 3px solid #009900 !important;
 }
 
 th {
   padding: 10px 8px;
   text-align: left;
   font-weight: bold;
-  border: 1px solid #0066cc;
+  border: 2px solid #009900;
   font-size: 11px;
   word-break: break-word;
+  background-color: #00cc00;
+  color: white;
 }
 
 /* Ancho de columnas */
 th:nth-child(1) {
-  width: 10%;
+  width: 9%;
 }
 td:nth-child(1) {
-  width: 20%;
+  width: 9%;
 }
 
 th:nth-child(2),
 td:nth-child(2) {
-  width: 8%;
+  width: 20%;
 }
 
 th:nth-child(3),
@@ -405,7 +404,7 @@ td:nth-child(8) {
 
 td {
   padding: 10px 8px;
-  border: 1px solid #ccc;
+  border: 2px solid #009900;
   height: auto;
   min-height: 55px;
   vertical-align: middle;
@@ -413,7 +412,7 @@ td {
 }
 
 tbody tr:nth-child(even) {
-  background-color: #f5f5f5;
+  background-color: #e8f5e9;
 }
 
 td.numero {
