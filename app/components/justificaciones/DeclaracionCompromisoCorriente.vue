@@ -45,8 +45,8 @@ const etiquetas = ref([
   // SECCIÓN PERSONA/ENTIDAD BENEFICIARIA
   {
     nombre: "apellidosNombreBeneficiario",
-    x: 30,
-    y: 80,
+    x: 60,
+    y: 90,
     w: 80,
     h: 6,
     fontSize: 10,
@@ -55,8 +55,8 @@ const etiquetas = ref([
   },
   {
     nombre: "dniBeneficiario",
-    x: 150,
-    y: 80,
+    x: 30,
+    y: 94.5,
     w: 50,
     h: 6,
     fontSize: 10,
@@ -65,8 +65,8 @@ const etiquetas = ref([
   },
   {
     nombre: "domicilioBeneficiario",
-    x: 30,
-    y: 92,
+    x: 90,
+    y: 94.5,
     w: 140,
     h: 6,
     fontSize: 10,
@@ -76,8 +76,8 @@ const etiquetas = ref([
   // SECCIÓN RAZÓN SOCIAL / NIF / DOMICILIO FISCAL
   {
     nombre: "razonSocial",
-    x: 30,
-    y: 120,
+    x: 45,
+    y: 103.3,
     w: 80,
     h: 6,
     fontSize: 10,
@@ -86,8 +86,8 @@ const etiquetas = ref([
   },
   {
     nombre: "nifEmpresa",
-    x: 150,
-    y: 120,
+    x: 30,
+    y: 107.9,
     w: 50,
     h: 6,
     fontSize: 10,
@@ -96,8 +96,8 @@ const etiquetas = ref([
   },
   {
     nombre: "domicilioFiscal",
-    x: 30,
-    y: 132,
+    x: 100.5,
+    y: 107.9,
     w: 140,
     h: 6,
     fontSize: 10,
@@ -278,7 +278,7 @@ const estiloEtiqueta = (etiqueta) => ({
   font-family: Arial, sans-serif;
   font-size: 7.1pt;
   margin-bottom: 16mm;
-  background-image: url("/documentos-oficiales/justificaciones/declaracion-compromiso-corriente.png");
+  background-image: url("/documentos-oficiales/justificaciones/declaracion-compromiso-corriente.jpg");
   box-sizing: border-box;
   page-break-after: auto;
   page-break-inside: avoid;
