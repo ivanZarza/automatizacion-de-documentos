@@ -2491,6 +2491,7 @@ import { justificacionPagoSubvencionConfigL3 } from './justificaciones/justifica
 import { justificacionPagoSubvencionConfigL4 } from './justificaciones/justificacionPagoSubvencionConfigL4'
 import { memoriaEconomicaConfig } from './justificaciones/memoriaEconomicaConfig'
 import { obraMassolConfig } from './justificaciones/obraMassolConfig'
+import { certificadoPedidosContratosConfig } from './justificaciones/certificadoPedidosContratosConfig'
 
 const documentConfigs = {
   'certificado-adecuacion': certificadoAdecuacionConfig,
@@ -2522,7 +2523,8 @@ const documentConfigs = {
   'justificacion-pago-subvencion-l3': justificacionPagoSubvencionConfigL3,
   'justificacion-pago-subvencion-l4': justificacionPagoSubvencionConfigL4,
   'memoria-economica': memoriaEconomicaConfig,
-  'obra-massol': obraMassolConfig
+  'obra-massol': obraMassolConfig,
+  'certificado-pedidos-contratos': certificadoPedidosContratosConfig
 }
 
 /**
