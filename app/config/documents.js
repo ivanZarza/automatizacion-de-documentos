@@ -2492,12 +2492,14 @@ import { justificacionPagoSubvencionConfigL4 } from './justificaciones/justifica
 import { memoriaEconomicaConfig } from './justificaciones/memoriaEconomicaConfig'
 import { obraMassolConfig } from './justificaciones/obraMassolConfig'
 import { certificadoPedidosContratosConfig } from './justificaciones/certificadoPedidosContratosConfig'
+import { declaracionCompromisoCorrienteConfig } from './justificaciones/declaracionCompromisoCorrienteConfig'
 
 const documentConfigs = {
   'certificado-adecuacion': certificadoAdecuacionConfig,
   'autorizacion-representacion': autorizacionRepresentacionConfig,
   'declaracion-habilitacion-profesional': declaracionHabilitacionProfesionalConfig,
   'declaracion-no-generacion-rcds': declaracionNoGeneracionRcdsConfig,
+  'declaracion-compromiso-corriente': declaracionCompromisoCorrienteConfig,
   'certificado-coplanar-teja': certificadoCoplanarTejaConfig,
   'certificado-cubierta-plan-aaporticada': certificadoCubiertaPlanAaporticadaConfig,
   'certificado-aporticada-teja': certificadoAporticadaTejConfig,
@@ -2524,7 +2526,8 @@ const documentConfigs = {
   'justificacion-pago-subvencion-l4': justificacionPagoSubvencionConfigL4,
   'memoria-economica': memoriaEconomicaConfig,
   'obra-massol': obraMassolConfig,
-  'certificado-pedidos-contratos': certificadoPedidosContratosConfig
+  'certificado-pedidos-contratos': certificadoPedidosContratosConfig,
+  'declaracion-compromiso-corriente': declaracionCompromisoCorrienteConfig
 }
 
 /**
