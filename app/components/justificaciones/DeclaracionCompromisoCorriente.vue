@@ -275,7 +275,7 @@ const estiloEtiqueta = (etiqueta) => ({
   font-family: Arial, sans-serif;
   font-size: 7.1pt;
   margin-bottom: 16mm;
-  background-image: url("/justificaciones/declaracion-compromiso-corriente.png");
+  background-image: url("/documentos-oficiales/justificaciones/declaracion-compromiso-corriente.png");
 }
 
 .overlay-field {
