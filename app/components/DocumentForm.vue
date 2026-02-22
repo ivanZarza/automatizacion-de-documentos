@@ -14,45 +14,57 @@
           </div>
           
           <div v-if="expandedSections[subsectionName]" class="section-content">
-            <div class="fields-grid">
-              <div v-for="field in groupedFields" :key="field.name" class="field-wrapper">
-                <label v-if="field.type !== 'checkbox'" class="field-label">{{ field.label }}</label>
-                <input v-if="field.type === 'text' || field.type === 'email' || field.type === 'tel'" v-model="formData[field.name]" :type="field.type" :placeholder="field.placeholder" class="field-input" />
-                <div v-else-if="field.type === 'url' && field.preview" class="url-preview-wrapper">
-                  <input v-model="formData[field.name]" type="url" :placeholder="field.placeholder" class="field-input" />
-                  <div v-if="formData[field.name]" class="file-preview">
-                    <img :src="formData[field.name]" class="file-preview-image" style="max-width:200px;max-height:100px;object-fit:contain;" />
-                  </div>
-                </div>
-                <input v-else-if="field.type === 'url'" v-model="formData[field.name]" type="url" :placeholder="field.placeholder" class="field-input" />
-                <input v-else-if="field.type === 'date'" v-model="formData[field.name]" type="date" class="field-input" />
-                <textarea v-else-if="field.type === 'textarea'" v-model="formData[field.name]" :placeholder="field.placeholder" :rows="field.rows || 3" class="field-input field-textarea"></textarea>
-                <select v-else-if="field.type === 'select'" v-model="formData[field.name]" class="field-input">
-                  <option value="">{{ field.placeholder }}</option>
-                  <option v-for="option in field.options" :key="option.value || option" :value="option.value || option">{{ option.label || option }}</option>
-                </select>
-                <div v-else-if="field.type === 'checkbox'" class="checkbox-wrapper">
-                  <input :id="field.name" v-model="formData[field.name]" type="checkbox" class="checkbox-input" />
-                  <label :for="field.name" class="checkbox-label">{{ field.label }}</label>
-                </div>
-                <div v-else-if="field.type === 'file'" class="file-wrapper">
-                  <label :for="field.name" class="file-input-label">
-                    <svg class="file-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                      <polyline points="17 8 12 3 7 8"></polyline>
-                      <line x1="12" y1="3" x2="12" y2="15"></line>
-                    </svg>
-                    <span>{{ formData[field.name] ? 'Cambiar archivo' : 'Seleccionar archivo' }}</span>
-                  </label>
-                  <input :id="field.name" :key="field.name" type="file" :accept="field.accept || '*'" class="file-input-hidden" @change="handleFileUpload($event, field.name)" />
-                  <div v-if="formData[field.name]" class="file-preview">
-                    <p class="file-preview-text">✓ Archivo seleccionado:</p>
-                    <img v-if="field.accept?.includes('image')" :src="formData[field.name]" class="file-preview-image" />
-                    <p v-else class="file-preview-name">{{ extractFileName(formData[field.name]) }}</p>
+            <!-- Agrupar campos por "group" si existen -->
+            <template v-for="(groupFields, groupName) in groupFieldsByGroup(groupedFields)" :key="groupName">
+              <!-- Header del grupo (colapsable si tiene group) -->
+              <div v-if="groupName !== '__sin-grupo__'" class="group-header" @click="toggleGroup(subsectionName, groupName)">
+                <span class="group-toggle-icon" :class="{ 'is-open': expandedGroups[`${subsectionName}-${groupName}`] }">▶</span>
+                <h4 class="group-title">{{ groupName }}</h4>
+              </div>
+
+              <!-- Contenido del grupo -->
+              <div v-if="groupName === '__sin-grupo__' || expandedGroups[`${subsectionName}-${groupName}`]" class="group-content">
+                <div class="fields-grid">
+                  <div v-for="field in groupFields" :key="field.name" class="field-wrapper">
+                    <label v-if="field.type !== 'checkbox'" class="field-label">{{ field.label }}</label>
+                    <input v-if="field.type === 'text' || field.type === 'email' || field.type === 'tel'" v-model="formData[field.name]" :type="field.type" :placeholder="field.placeholder" class="field-input" />
+                    <div v-else-if="field.type === 'url' && field.preview" class="url-preview-wrapper">
+                      <input v-model="formData[field.name]" type="url" :placeholder="field.placeholder" class="field-input" />
+                      <div v-if="formData[field.name]" class="file-preview">
+                        <img :src="formData[field.name]" class="file-preview-image" style="max-width:200px;max-height:100px;object-fit:contain;" />
+                      </div>
+                    </div>
+                    <input v-else-if="field.type === 'url'" v-model="formData[field.name]" type="url" :placeholder="field.placeholder" class="field-input" />
+                    <input v-else-if="field.type === 'date'" v-model="formData[field.name]" type="date" class="field-input" />
+                    <textarea v-else-if="field.type === 'textarea'" v-model="formData[field.name]" :placeholder="field.placeholder" :rows="field.rows || 3" class="field-input field-textarea"></textarea>
+                    <select v-else-if="field.type === 'select'" v-model="formData[field.name]" class="field-input">
+                      <option value="">{{ field.placeholder }}</option>
+                      <option v-for="option in field.options" :key="option.value || option" :value="option.value || option">{{ option.label || option }}</option>
+                    </select>
+                    <div v-else-if="field.type === 'checkbox'" class="checkbox-wrapper">
+                      <input :id="field.name" v-model="formData[field.name]" type="checkbox" class="checkbox-input" />
+                      <label :for="field.name" class="checkbox-label">{{ field.label }}</label>
+                    </div>
+                    <div v-else-if="field.type === 'file'" class="file-wrapper">
+                      <label :for="field.name" class="file-input-label">
+                        <svg class="file-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                          <polyline points="17 8 12 3 7 8"></polyline>
+                          <line x1="12" y1="3" x2="12" y2="15"></line>
+                        </svg>
+                        <span>{{ formData[field.name] ? 'Cambiar archivo' : 'Seleccionar archivo' }}</span>
+                      </label>
+                      <input :id="field.name" :key="field.name" type="file" :accept="field.accept || '*'" class="file-input-hidden" @change="handleFileUpload($event, field.name)" />
+                      <div v-if="formData[field.name]" class="file-preview">
+                        <p class="file-preview-text">✓ Archivo seleccionado:</p>
+                        <img v-if="field.accept?.includes('image')" :src="formData[field.name]" class="file-preview-image" />
+                        <p v-else class="file-preview-name">{{ extractFileName(formData[field.name]) }}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </template>
           </div>
         </div>
 
@@ -95,9 +107,15 @@ const emit = defineEmits(['submit'])
 
 const formData = ref({ ...props.initialData })
 const expandedSections = ref({})
+const expandedGroups = ref({})
 
 const toggleSection = (sectionLetter) => {
   expandedSections.value[sectionLetter] = !expandedSections.value[sectionLetter]
+}
+
+const toggleGroup = (subsectionName, groupName) => {
+  const groupKey = `${subsectionName}-${groupName}`
+  expandedGroups.value[groupKey] = !expandedGroups.value[groupKey]
 }
 
 watch(() => props.initialData, (newData) => {
@@ -236,6 +254,21 @@ const getSectionColor = (section) => {
   return sectionLineColorMap[section] || '#666'
 }
 
+// Agrupar campos por su propiedad 'group'
+const groupFieldsByGroup = (fields) => {
+  const grouped = {}
+  
+  fields.forEach(field => {
+    const groupName = field.group || '__sin-grupo__'
+    if (!grouped[groupName]) {
+      grouped[groupName] = []
+    }
+    grouped[groupName].push(field)
+  })
+  
+  return grouped
+}
+
 const groupedFieldsBySection = computed(() => {
   const grouped = {}
   const editable = filterEditableFields()
@@ -276,6 +309,22 @@ watch(() => Object.keys(groupedFieldsBySection.value), (sections) => {
     if (expandedSections.value[section] === undefined) {
       expandedSections.value[section] = false
     }
+    
+    // Inicializar también los grupos dentro de esta sección como cerrados
+    const sectionFields = groupedFieldsBySection.value[section] || []
+    const groups = new Set()
+    sectionFields.forEach(field => {
+      if (field.group && field.group !== '__sin-grupo__') {
+        groups.add(field.group)
+      }
+    })
+    
+    groups.forEach(groupName => {
+      const groupKey = `${section}-${groupName}`
+      if (expandedGroups.value[groupKey] === undefined) {
+        expandedGroups.value[groupKey] = false
+      }
+    })
   })
 }, { immediate: true })
 
@@ -608,6 +657,56 @@ function getSubsectionLabel(subsection) {
 
 .form-submit:active {
   background-color: #1d4ed8;
+}
+
+/* Estilos para grupos */
+.group-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  margin-bottom: 10px;
+  padding: 10px 12px;
+  background-color: #f3f4f6;
+  border-left: 3px solid #6366f1;
+  cursor: pointer;
+  user-select: none;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.group-header:hover {
+  background-color: #e5e7eb;
+}
+
+.group-toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #6366f1;
+  transform: rotate(0deg);
+  transition: transform 0.2s ease;
+  width: 16px;
+  height: 16px;
+}
+
+.group-toggle-icon.is-open {
+  transform: rotate(90deg);
+}
+
+.group-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  margin: 0;
+}
+
+.group-content {
+  padding-left: 12px;
+  border-left: 1px solid #d1d5db;
+  margin-left: 8px;
+  margin-bottom: 12px;
 }
 
 /* Colores suaves para cada sección */
