@@ -52,7 +52,11 @@ export const filterDataForDocument = (documentConfig, mergedData) => {
     
     // Si existe un mapeo para este campo, usar el campo mapeado
     if (fieldMapping[key]) {
-      masterValue = mergedData[fieldMapping[key]]
+        if (typeof fieldMapping[key] === 'function') {
+          masterValue = fieldMapping[key](mergedData)
+        } else {
+          masterValue = mergedData[fieldMapping[key]]
+        }
     } else {
       // Si no hay mapeo, buscar directamente en mergedData
       masterValue = mergedData[key]

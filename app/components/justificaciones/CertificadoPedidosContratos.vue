@@ -443,7 +443,6 @@ td.numero {
 }
 
 .linea-firma {
-  border-bottom: 1px solid #000;
   height: 60px;
   display: flex;
   align-items: flex-start;
@@ -490,6 +489,11 @@ td.numero {
 
   table {
     page-break-inside: avoid;
+  }
+
+  thead, th, .header-grupo th {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 }
 

@@ -127,15 +127,16 @@ export const certificadoPedidosContratosConfig = {
   },
 
   fieldMapping: {
-    personaBeneficiaria: 'personaBeneficiaria',
-    nif: 'nif',
-    direccion: 'direccion',
-    provincia: 'provincia',
+    personaBeneficiaria: 'apellidosNombre',
+    nif: 'nifCif',
+    direccion: (formData = {}) => {
+      return `${formData.emplazamientoCalle || ''} ${formData.numero || ''} -  ${formData.localidadEmplazamiento || ''}`.trim();
+    },
+    provincia: 'provinciaEmplazamiento',
     expediente: 'expediente',
-    ordenAnio: 'ordenAnio',
-    diaFirma: 'diaFirma',
-    mesFirma: 'mesFirma',
-    anioFirma: 'anioFirma',
+    diaFirma: 'diaFirmaJustificacion',
+    mesFirma: 'mesFirmaJustificacion',
+    anioFirma: 'anioFirmaJustificacion',
     firma: 'firma',
     pedido1Concepto: 'pedido1Concepto',
     pedido1Proveedor: 'pedido1Proveedor',

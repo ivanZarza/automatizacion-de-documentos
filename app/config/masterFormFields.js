@@ -216,18 +216,19 @@ export const masterFormFields = [
   {
     name: 'edificioVivienda', label: 'Edificio o Vivienda', placeholder: 'Ej: selecciona una opción', type: 'select', options: [
       { label: 'Edificio', value: '' },
-      { label: 'Vivienda', value: 'mejora de la eficiencia energética en viviendas' },
-
+      { label: 'Vivienda', value: '' },
     ], subsection: 'ACEPTACION'
   },
-    // ========== SUBSECCIÓN JUSTIFICACIÓN ==========
+  // ========== SUBSECCIÓN JUSTIFICACIÓN ==========
   { name: 'edificioViviendaJUS', label: 'Tipo de Edificio/Vivienda', type: 'select', options: ['edificio', 'vivienda'], subsection: 'JUSTIFICACION' },
-    { name: 'l3l4', label: 'Línea de Subvención', type: 'text', placeholder: 'ej: Línea 3', subsection: 'JUSTIFICACION' },
-  { name: 'parrafoTexto', label: 'Párrafo Introducción', type: 'select', options: [
-    { label: 'Línea 3', value: 'Estas ayudas tienen por objeto la financiación de obras o actuaciones en los edificios de uso predominante residencial en las que se obtenga una mejora acreditada de la eficiencia energética, con especial atención a la envolvente edificatoria en edificios de tipología residencial colectiva, incluyendo sus viviendas, y en las viviendas unifamiliares.' },
-    { label: 'Línea 4', value: 'Estas ayudas tienen por objeto la financiación de actuaciones u obras de mejora de la eficiencia energética en las viviendas, ya sean unifamiliares o pertenecientes a edificios plurifamiliares' }
-  ], subsection: 'JUSTIFICACION', fullWidth: true },
-  { name: 'numeroFactura', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION'},
+  { name: 'l3l4', label: 'Línea de Subvención', type: 'text', placeholder: 'ej: Línea 3', subsection: 'JUSTIFICACION' },
+  {
+    name: 'parrafoTexto', label: 'Párrafo Introducción', type: 'select', options: [
+      { label: 'Línea 3', value: 'Estas ayudas tienen por objeto la financiación de obras o actuaciones en los edificios de uso predominante residencial en las que se obtenga una mejora acreditada de la eficiencia energética, con especial atención a la envolvente edificatoria en edificios de tipología residencial colectiva, incluyendo sus viviendas, y en las viviendas unifamiliares.' },
+      { label: 'Línea 4', value: 'Estas ayudas tienen por objeto la financiación de actuaciones u obras de mejora de la eficiencia energética en las viviendas, ya sean unifamiliares o pertenecientes a edificios plurifamiliares' }
+    ], subsection: 'JUSTIFICACION', fullWidth: true
+  },
+  { name: 'numeroFactura', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'fechaFactura', label: 'Fecha Factura', type: 'date', subsection: 'JUSTIFICACION' },
   { name: 'cf', label: 'CF', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'acreedor', label: 'Acreedor', type: 'text', subsection: 'JUSTIFICACION' },
@@ -237,13 +238,19 @@ export const masterFormFields = [
   { name: 'totalCantidadJustificada', label: 'Total Cantidad Justificada', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'presupuestoInicial', label: 'Presupuesto Inicial', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'inversionRealizada', label: 'Inversión Realizada', type: 'text', subsection: 'JUSTIFICACION' },
-  { name: 'desviacion', label: 'Desviación (con IVA si es subvencionable)', type: 'text', subsection: 'JUSTIFICACION' },{ name: 'diaInicio', label: 'Día Inicio', placeholder: 'Ej: 03', type: 'text', subsection: 'JUSTIFICACION' },
+  { name: 'desviacion', label: 'Desviación (con IVA si es subvencionable)', type: 'text', subsection: 'JUSTIFICACION' },
+  { name: 'diaInicio', label: 'Día Inicio', placeholder: 'Ej: 03', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'mesInicio', label: 'Mes Inicio', placeholder: 'Ej: 10', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'anioInicio', label: 'Año Inicio', placeholder: 'Ej: 2023', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'diaFirma', label: 'Día Firma', placeholder: 'Ej: 08', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'mesFirma', label: 'Mes Firma', placeholder: 'Ej: 09', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'anioFirma', label: 'Año Firma', placeholder: 'Ej: 2025', type: 'text', subsection: 'JUSTIFICACION' },
-  
+  { name: 'denominacionEstablecimiento', label: 'Denominación del Establecimiento', placeholder: 'Ej: Bar Los Amigos', type: 'text', subsection: 'LEGALIZACION' },
+  { name: 'nombreRepresentanteEntidad', label: 'Nombre del Representante de la Entidad', placeholder: 'Ej: Juan Pérez', type: 'text', subsection: 'JUSTIFICACION' },
+  { name: 'dniRepresentanteEntidad', label: 'DNI del Representante de la Entidad', placeholder: 'Ej: 12345678A', type: 'text', subsection: 'JUSTIFICACION' },
+  { name: 'denominacionEstablecimiento', label: 'Denominación del Establecimiento', placeholder: 'Ej: Bar Los Amigos', type: 'text', subsection: 'JUSTIFICACION' },
+  { name: 'nifEmpresa', label: 'NIF Empresa', placeholder: 'Ej: B12345678', type: 'text', subsection: 'JUSTIFICACION' },
+
   // ========== SUBSECCIÓN JUSTIFICACIÓN: Pedidos y Contratos ==========
 
   // Pedido 1
