@@ -361,7 +361,7 @@ th {
   text-align: left;
   font-weight: bold;
   border: 2px solid #009900;
-  font-size: 11px;
+  font-size: 9px;
   word-break: break-word;
   background-color: #00cc00;
   color: white;
@@ -369,10 +369,10 @@ th {
 
 /* Ancho de columnas */
 th:nth-child(1) {
-  width: 9%;
+  width: 7%;
 }
 td:nth-child(1) {
-  width: 9%;
+  width: 7%;
 }
 
 th:nth-child(2),
@@ -405,12 +405,12 @@ td:nth-child(8) {
 }
 
 td {
-  padding: 10px 8px;
+  padding: 1px 5px;
   border: 2px solid #009900;
   height: auto;
   min-height: 55px;
   vertical-align: middle;
-  font-size: 12px;
+  font-size: 8px;
 }
 
 tbody tr:nth-child(even) {
@@ -424,13 +424,12 @@ td.numero {
 
 /* ========== PIE DE DOCUMENTO ========== */
 .pie-documento {
-  margin-top: 40px;
+  margin-top: 5px;
   text-align: center;
 }
 
 .lugar-fecha {
   font-weight: bold;
-  margin-bottom: 40px;
   font-size: 13px;
 }
 

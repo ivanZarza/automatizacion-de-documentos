@@ -222,7 +222,7 @@
 
 
 
-        <div class="logos-grupo" style="justify-content: flex-start;padding: 15px; margin: 20px 0px; border-bottom: 1px solid #000;">
+        <div class="logos-grupo" style="justify-content: flex-start;padding: 15px; margin: 170px 0px 20px 0px; border-bottom: 1px solid #000;">
           <img
             src="/logos/iconos-organizaciones.png"
             alt="Gobierno de España"
@@ -449,9 +449,9 @@ defineProps({
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 15px 0;
+  padding: 5px 0;
   border-bottom: 2px solid #333;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .encabezado-contenido {
@@ -493,7 +493,7 @@ defineProps({
 .datos-iniciales {
   border: 1px solid #000000;
   padding: 10px 15px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .dato-linea {
@@ -518,19 +518,19 @@ defineProps({
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
 
 /* ========== SECCIONES ========== */
 .seccion {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 .titulo-seccion {
   font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
-  margin: 10px 0;
+  margin: 5px 0;
   padding: 8px 0;
   border-top: 1px solid #000000;
   border-bottom: 1px solid #000000;
@@ -547,10 +547,6 @@ defineProps({
   flex-shrink: 0;
 }
 
-.checkbox-parrafo {
-  cursor: pointer;
-  margin-top: 2px;
-}
 
 .label-text {
   font-size: 10px;
@@ -569,6 +565,7 @@ defineProps({
 .texto-parrafo.parrafo-activo {
   opacity: 1;
   color: #000000;
+  min-height: 50px;
 }
 
 .texto-fijo {
