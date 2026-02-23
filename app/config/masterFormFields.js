@@ -184,7 +184,7 @@ export const masterFormFields = [
   { name: 'intensidadNominal', label: 'Intensidad nominal', placeholder: 'Ej: 30A / 63A', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'sensibilidadDiferencial', label: 'Sensibilidad (mA)', placeholder: 'Ej: 30', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'seccionFase', label: 'Sección Fase', placeholder: '', type: 'text', subsection: 'LEGALIZACION' },
-  { name: 'fechaElaboracion', label: 'Fecha de Elaboración Proyecto', placeholder: 'Ej: 16/10/2025', type: 'date', subsection: 'LEGALIZACION' },
+  { name: 'fechaElaboracion', label: 'Fecha de Elaboración Proyecto', placeholder: 'Ej: 16/10/2025', type: 'date', subsection: 'LEGALIZACION', group: 'Con proyecto' },
   { name: 'directorDeObra', label: 'Director de Obra', placeholder: 'Ej: Juan García López', type: 'select', options: ['Eduardo Rafael Rivera Cabezas', '   '], subsection: 'LEGALIZACION', group: 'Con proyecto' },
   {
     name: 'codigoDirectorio', label: 'Código Directorio (Ciudad)', placeholder: 'Selecciona una ciudad...', type: 'select', options: [
