@@ -5,25 +5,55 @@
       <!-- Encabezado con Logos -->
       <div class="encabezado-pagina">
         <div class="logos-grupo">
-          <img src="/logos/iconos-organizaciones.png" alt="Gobierno de España" class="logo" onerror="this.style.display = 'none'" />
-          <img src="/logos/icono-junta-andalucia.png" alt="Junta de Andalucía" class="logo" />
+          <img
+            src="/logos/iconos-organizaciones.png"
+            alt="Gobierno de España"
+            class="logo"
+            onerror="this.style.display = 'none'"
+          />
+          <img
+            src="/logos/icono-junta-andalucia.png"
+            alt="Junta de Andalucía"
+            class="logo"
+          />
         </div>
       </div>
 
       <div class="contenedor-principal">
         <!-- Título principal -->
-        <h1 class="titulo-principal">MEMORIA JUSTIFICATIVA DE LA ACTUACIÓN PARA LA MEJORA DE LA EFICIENCIA ENERGÉTICA EN
-        <span class="texto-verde">{{ tipoEdificio }}</span>EN LA COMUNIDAD AUTÓNOMA DE ANDALUCÍA
-        ({{l3/l4}})</h1>
+        <h1 class="titulo-principal">
+          MEMORIA JUSTIFICATIVA DE LA ACTUACIÓN PARA LA MEJORA DE LA EFICIENCIA
+          ENERGÉTICA EN <span class="texto-verde">{{ tipoEdificio }}</span
+          >EN LA COMUNIDAD AUTÓNOMA DE ANDALUCÍA ({{ l3 / l4 }})
+        </h1>
 
         <!-- Datos Iniciales -->
         <div class="datos-iniciales">
-          <p><span class="etiqueta">EXPEDIENTE:</span> <span class="texto-rojo">{{ expedienteEco }}</span></p>
-          <p><span class="etiqueta">NIF:</span> <span class="texto-rojo">{{ nif }}</span></p>
-          <p><span class="etiqueta">AGENTE GESTOR:</span> SOLAY INGENIEROS S.L.</p>
+          <p>
+            <span class="etiqueta">EXPEDIENTE:</span>
+            <span class="texto-rojo">{{ expedienteEco }}</span>
+          </p>
+          <p>
+            <span class="etiqueta">NIF:</span>
+            <span class="texto-rojo">{{ nif }}</span>
+          </p>
+          <p>
+            <span class="etiqueta">AGENTE GESTOR:</span> SOLAY INGENIEROS S.L.
+          </p>
           <p><span class="etiqueta">NIF AGENTE GESTOR:</span>B09848912</p>
-          <p><span class="etiqueta">DOMICILIO Y LOCALIDAD DE LA ACTUACIÓN:</span> <span class="texto-rojo">{{ domicilio }}</span></p>
-          <p><span class="etiqueta">TÉCNICO REDACTOR, TITULACIÓN Y Nº DE COLEGIADO:</span> <span>Miguel Ángel Rivas Zapata, Ingeniero Industrial, 4671 COIIAOC</span></p>
+          <p>
+            <span class="etiqueta">DOMICILIO Y LOCALIDAD DE LA ACTUACIÓN:</span>
+            <span class="texto-rojo">{{ domicilio }}</span>
+          </p>
+          <p>
+            <span class="etiqueta"
+              >TÉCNICO REDACTOR, TITULACIÓN Y Nº DE COLEGIADO:</span
+            >
+            <span
+              >Miguel Ángel Rivas Zapata, Ingeniero Industrial, 4671
+              COIIAOC</span
+            >
+          </p>
         </div>
 
         <!-- Sección 1: Introducción -->
@@ -32,61 +62,82 @@
           <h3 class="titulo-seccion">Introducción.</h3>
 
           <p class="texto-parrafo">
-            La presente memoria tiene por objeto justificar del cumplimiento de las condiciones impuestas en la concesión de la subvención, conforme a lo exigido en las bases reguladoras y la resolución de concesión de la subvención.
+            La presente memoria tiene por objeto justificar del cumplimiento de
+            las condiciones impuestas en la concesión de la subvención, conforme
+            a lo exigido en las bases reguladoras y la resolución de concesión
+            de la subvención, otorgada por la Comunidad Autónoma de Andalucía
+            para la mejora de la eficiencia energética en edificios en Andalucía
+            (Línea 3), de acuerdo con lo establecido en el apartado 23.b)1.g)
+            del cuadro resumen de las bases reguladoras aprobadas por Orden de 9
+            de junio de 2022 de la Consejería de Fomento, Articulación del
+            Territorio y Vivienda.
           </p>
 
           <p class="texto-parrafo">
-            Se ha realizado la instalación de una <span class="texto-verde">instalación fotovoltaica para autoconsumo</span> y <span v-if="aerotermia" class="texto-morado">bomba de calor aerotérmica</span> para la <span class="texto-verde">mejora de la eficiencia energética</span>.
+            <span class="texto-opcional">{{ textoOpcional1 }}</span> mediante la
+            ejecución de una instalación fotovoltaica para autoconsumo.<span
+              class="textoAerotermia"
+              >{{ textoAerotermia1 }}</span
+            >
           </p>
-
-          <!-- BLOQUE MORADO 1 -->
-          <div v-if="aerotermia" class="bloque-morado">
-            <p class="texto-parrafo" style="color: purple;">
-              Se ha instalado una bomba de calor aerotérmica de <span class="texto-rojo">{{ potenciaTermica }}</span> kW de potencia térmica con depósito incorporado de 200 litros para la producción de ACS.
-            </p>
-
-            <p style="color: purple; font-weight: bold; margin: 10px 0 5px 0;">Características técnicas del equipo aerotérmico:</p>
-            <ul style="color: purple; margin: 0 0 10px 20px;">
-              <li>Potencia térmica: <span class="texto-rojo">{{ potenciaTermica }}</span> kW</li>
-              <li>Resistencia eléctrica auxiliar: <span class="texto-rojo">{{ resistenciaElectrica }}</span> kW</li>
-              <li>Potencia total instalada: ≈ <span class="texto-rojo">{{ potenciaTotal }}</span> kW</li>
-            </ul>
-          </div>
         </div>
 
         <!-- Sección 2: Fecha de conclusión -->
         <div class="seccion">
           <h3 class="numero-seccion">2.</h3>
-          <h3 class="titulo-seccion">Fecha de conclusión de las actuaciones.</h3>
+          <h3 class="titulo-seccion">
+            Fecha de conclusión de las actuaciones.
+          </h3>
 
           <p class="texto-parrafo">
-            Las actuaciones se concluyeron el día <span class="texto-rojo">{{ fechaConclusionDia }}/{{ fechaConclusionMes }}/{{ fechaConclusionAnio }}</span>.
+            Las actuaciones objeto de la subvención se concluyeron completamente
+            y conforme a lo indicado en la presente memoria el día
+            <span class="texto-rojo"
+              >{{ fechaConclusionDia }} de {{ fechaConclusionMes }} de
+              {{ fechaConclusionAnio }}</span
+            >.
           </p>
         </div>
 
         <!-- Sección 3: Descripción de actividades -->
         <div class="seccion">
           <h3 class="numero-seccion">3.</h3>
-          <h3 class="titulo-seccion">Descripción de las actividades realizadas.</h3>
+          <h3 class="titulo-seccion">
+            Descripción de las actividades realizadas y resultados obtenidos.
+          </h3>
 
           <p class="texto-parrafo">
-            Las actividades realizadas para la ejecución de la instalación fotovoltaica, han consistido en las siguientes:
+            Las actividades realizadas para la ejecución de la instalación
+            fotovoltaica, han consistido en las siguientes:
           </p>
 
           <ul class="lista-actividades">
-            <li>Preparación del soporte de la cubierta <span class="texto-verde">{{ tipoSoporte }}</span>.</li>
-            <li>Anclaje de la estructura que soportará los paneles fotovoltaicos.</li>
-            <li>Instalación de los paneles fotovoltaicos, del inversor y de los elementos eléctricos complementarios.</li>
-            <li>Conexionado a la red eléctrica conforme al <span class="texto-rojo">REBT</span>.</li>
+            <li>
+              Preparación del soporte de la cubierta
+              <span class="texto-verde">{{ tipoSoporte }}</span
+              >.
+            </li>
+            <li>
+              Anclaje de la estructura que soportará los paneles fotovoltaicos.
+            </li>
+            <li>
+              Instalación de los paneles fotovoltaicos, del inversor y de los
+              elementos eléctricos complementarios.
+            </li>
+            <li>Conexionado a la red eléctrica conforme al REBT.</li>
             <li>Puesta a punto y legalización de la instalación.</li>
           </ul>
+          
+
+          <span class="textoAerotermia">{{ textoAerotermia2 }}</span>
 
           <!-- BLOQUE MORADO 2 -->
           <div v-if="aerotermia" class="bloque-morado">
-            <p class="texto-parrafo" style="color: purple;">
-              Las actividades realizadas para la ejecución de la bomba aerotérmica han consistido en:
+            <p class="texto-parrafo" style="color: purple">
+              Las actividades realizadas para la ejecución de la bomba
+              aerotérmica han consistido en:
             </p>
-            <ul class="lista-actividades" style="color: purple;">
+            <ul class="lista-actividades" style="color: purple">
               <li>Dimensionamiento de la demanda y selección de equipos.</li>
               <li>Instalación de unidad exterior y depósito de ACS.</li>
               <li>Conexiones hidráulicas, frigoríficas y eléctricas.</li>
@@ -95,8 +146,6 @@
           </div>
         </div>
       </div>
-
-      
     </div>
 
     <!-- PÁGINA 2 -->
@@ -104,8 +153,17 @@
       <!-- Encabezado con Logos -->
       <div class="encabezado-pagina">
         <div class="logos-grupo">
-          <img src="/logos/iconos-organizaciones.png" alt="Gobierno de España" class="logo" onerror="this.style.display = 'none'" />
-          <img src="/logos/icono-junta-andalucia.png" alt="Junta de Andalucía" class="logo" />
+          <img
+            src="/logos/iconos-organizaciones.png"
+            alt="Gobierno de España"
+            class="logo"
+            onerror="this.style.display = 'none'"
+          />
+          <img
+            src="/logos/icono-junta-andalucia.png"
+            alt="Junta de Andalucía"
+            class="logo"
+          />
         </div>
       </div>
 
@@ -132,7 +190,7 @@
               <td>OTROS COSTES</td>
               <td class="texto-rojo">{{ importeOtrosCostes }}</td>
             </tr>
-            <tr style="font-weight: bold; border-top: 2px solid black;">
+            <tr style="font-weight: bold; border-top: 2px solid black">
               <td>TOTAL</td>
               <td class="texto-rojo">{{ importeTotal }}</td>
             </tr>
@@ -142,10 +200,17 @@
         <!-- Sección 5: Acreditación -->
         <div class="seccion">
           <h3 class="numero-seccion">5.</h3>
-          <h3 class="titulo-seccion">Acreditación del cumplimiento de las condiciones.</h3>
+          <h3 class="titulo-seccion">
+            Acreditación del cumplimiento de las condiciones.
+          </h3>
 
           <p class="texto-parrafo">
-            El técnico firmante de la presente memoria acredita que con las actuaciones se ha conseguido una <span class="texto-rojo">mejora de eficiencia energética del 30%</span> como mínimo.
+            El técnico firmante de la presente memoria acredita que con las
+            actuaciones se ha conseguido una
+            <span class="texto-rojo"
+              >mejora de eficiencia energética del 30%</span
+            >
+            como mínimo.
           </p>
 
           <table class="tabla-acreditacion">
@@ -167,23 +232,32 @@
         <!-- Sección 6: Justificación normativa -->
         <div class="seccion">
           <h3 class="numero-seccion">6.</h3>
-          <h3 class="titulo-seccion">Justificación del cumplimiento de la normativa.</h3>
+          <h3 class="titulo-seccion">
+            Justificación del cumplimiento de la normativa.
+          </h3>
 
           <div class="subseccion">
             <h4 class="numero-subseccion">6.1.</h4>
-            <h4 class="titulo-subseccion">Cumplimiento del <span class="texto-rojo">REBT</span>.</h4>
+            <h4 class="titulo-subseccion">
+              Cumplimiento del <span class="texto-rojo">REBT</span>.
+            </h4>
 
             <p class="texto-parrafo">
-              La instalación fotovoltaica cumple con el Reglamento Electrotécnico de Baja Tensión, en concreto <span class="texto-rojo">ITC-BT-40</span>.
+              La instalación fotovoltaica cumple con el Reglamento
+              Electrotécnico de Baja Tensión, en concreto
+              <span class="texto-rojo">ITC-BT-40</span>.
             </p>
           </div>
 
           <div class="subseccion">
             <h4 class="numero-subseccion">6.2.</h4>
-            <h4 class="titulo-subseccion">Certificación de seguridad y solidez estructural.</h4>
+            <h4 class="titulo-subseccion">
+              Certificación de seguridad y solidez estructural.
+            </h4>
 
             <p class="texto-parrafo">
-              Se certifica que la estructura soporte cumple los requisitos normativos respecto a la seguridad y solidez estructural.
+              Se certifica que la estructura soporte cumple los requisitos
+              normativos respecto a la seguridad y solidez estructural.
             </p>
           </div>
 
@@ -193,13 +267,14 @@
             <h4 class="titulo-subseccion">DB HE 2 - INSTALACIONES TÉRMICAS.</h4>
 
             <p class="texto-parrafo">
-              Se certifica que la instalación cumple las condiciones de eficiencia energética establecidas en el <span class="texto-rojo">RITE (RD 1027/2007)</span> y en el CTE <span class="texto-rojo">DB HE2</span>.
+              Se certifica que la instalación cumple las condiciones de
+              eficiencia energética establecidas en el
+              <span class="texto-rojo">RITE (RD 1027/2007)</span> y en el CTE
+              <span class="texto-rojo">DB HE2</span>.
             </p>
           </div>
         </div>
       </div>
-
-      
     </div>
 
     <!-- PÁGINA 3 -->
@@ -207,8 +282,17 @@
       <!-- Encabezado con Logos -->
       <div class="encabezado-pagina">
         <div class="logos-grupo">
-          <img src="/logos/iconos-organizaciones.png" alt="Gobierno de España" class="logo" onerror="this.style.display = 'none'" />
-          <img src="/logos/icono-junta-andalucia.png" alt="Junta de Andalucía" class="logo" />
+          <img
+            src="/logos/iconos-organizaciones.png"
+            alt="Gobierno de España"
+            class="logo"
+            onerror="this.style.display = 'none'"
+          />
+          <img
+            src="/logos/icono-junta-andalucia.png"
+            alt="Junta de Andalucía"
+            class="logo"
+          />
         </div>
       </div>
 
@@ -216,14 +300,19 @@
         <!-- Sección 7: Sostenibilidad ambiental -->
         <div class="seccion">
           <h3 class="numero-seccion">7.</h3>
-          <h3 class="titulo-seccion">Cumplimiento de principios de sostenibilidad ambiental.</h3>
+          <h3 class="titulo-seccion">
+            Cumplimiento de principios de sostenibilidad ambiental.
+          </h3>
 
           <p class="texto-parrafo">
-            La actuación cumple con los objetivos medioambientales establecidos según el Reglamento (UE) 2020/852 relativo a la financiación sostenible.
+            La actuación cumple con los objetivos medioambientales establecidos
+            según el Reglamento (UE) 2020/852 relativo a la financiación
+            sostenible.
           </p>
 
           <p class="texto-parrafo">
-            Los residuos generados se han reciclado en un porcentaje superior al 70% (en peso).
+            Los residuos generados se han reciclado en un porcentaje superior al
+            70% (en peso).
           </p>
         </div>
 
@@ -233,48 +322,58 @@
           <h3 class="titulo-seccion">Conclusiones.</h3>
 
           <p class="texto-parrafo">
-            La presente memoria justificativa pone de manifiesto la correcta utilización de la subvención recibida para la mejora de la eficiencia energética en la Comunidad Autónoma de <span class="texto-rojo">Andalucía</span>.
+            La presente memoria justificativa pone de manifiesto la correcta
+            utilización de la subvención recibida para la mejora de la
+            eficiencia energética en la Comunidad Autónoma de
+            <span class="texto-rojo">Andalucía</span>.
           </p>
 
           <!-- Firma -->
           <div class="seccion-firma">
-            <p style="margin-top: 40px;"><span class="etiqueta">Fecha:</span> <span class="texto-rojo">{{ fechaConclusionDia }} de {{ mesNombre }} de {{ fechaConclusionAnio }}</span></p>
-            <p><span class="etiqueta">Firma:</span> <span class="texto-rojo">{{ nombreFirma }}</span></p>
+            <p style="margin-top: 40px">
+              <span class="etiqueta">Fecha:</span>
+              <span class="texto-rojo"
+                >{{ fechaConclusionDia }} de {{ mesNombre }} de
+                {{ fechaConclusionAnio }}</span
+              >
+            </p>
+            <p>
+              <span class="etiqueta">Firma:</span>
+              <span class="texto-rojo">{{ nombreFirma }}</span>
+            </p>
             <div v-if="firmaImagen" class="contenedor-firma-imagen">
               <img :src="firmaImagen" alt="Firma" class="imagen-firma" />
             </div>
           </div>
         </div>
       </div>
-
-      
     </div>
   </div>
 </template>
 
 <script setup>
 defineProps({
-  expediente: { type: String, default: '' },
-  nif: { type: String, default: '' },
-  tipoEdificio: { type: String, default: 'viviendas unifamiliares' },
-  domicilio: { type: String, default: '' },
-  zaharilla: { type: String, default: '' },
-  tecnicoRedactor: { type: String, default: '' },
-  potenciaTermica: { type: String, default: '1,84' },
-  resistenciaElectrica: { type: String, default: '1,5' },
-  potenciaTotal: { type: String, default: '3,3' },
-  tipoSoporte: { type: String, default: 'PLANA' },
-  fechaConclusionDia: { type: String, default: '' },
-  fechaConclusionMes: { type: String, default: '' },
-  fechaConclusionAnio: { type: String, default: '' },
-  importeCertificacion: { type: String, default: '' },
-  importeOtrosCostes: { type: String, default: '' },
-  importeTotal: { type: String, default: '' },
-  nombreFirma: { type: String, default: '' },
-  firmaImagen: { type: String, default: '' },
+  expediente: { type: String, default: "" },
+  nif: { type: String, default: "" },
+  tipoEdificio: { type: String, default: "viviendas unifamiliares" },
+  domicilio: { type: String, default: "" },
+  zaharilla: { type: String, default: "" },
+  tecnicoRedactor: { type: String, default: "" },
+  potenciaTermica: { type: String, default: "1,84" },
+  resistenciaElectrica: { type: String, default: "1,5" },
+  potenciaTotal: { type: String, default: "3,3" },
+  tipoSoporte: { type: String, default: "PLANA" },
+  fechaConclusionDia: { type: String, default: "" },
+  fechaConclusionMes: { type: String, default: "" },
+  fechaConclusionAnio: { type: String, default: "" },
+  importeCertificacion: { type: String, default: "" },
+  importeOtrosCostes: { type: String, default: "" },
+  importeTotal: { type: String, default: "" },
+  nombreFirma: { type: String, default: "" },
+  firmaImagen: { type: String, default: "" },
   aerotermia: { type: Boolean, default: false },
-  mesNombre: { type: String, default: 'febrero' }
-})
+  mesNombre: { type: String, default: "febrero" },
+});
 </script>
 
 <style scoped>
@@ -285,7 +384,7 @@ defineProps({
   margin: 0 auto;
   padding: 0;
   background-color: white;
-  font-family: 'Calibri', Arial, sans-serif;
+  font-family: "Calibri", Arial, sans-serif;
   color: #000;
   font-size: 11px;
   line-height: 1.5;
@@ -358,14 +457,16 @@ defineProps({
 }
 
 /* ========== DATOS ========== */
-.datos-iniciales, .domicilio-seccion {
+.datos-iniciales,
+.domicilio-seccion {
   border: 1px solid #000;
   padding: 10px;
   background-color: #f9f9f9;
   font-size: 10px;
 }
 
-.datos-iniciales p, .domicilio-seccion p {
+.datos-iniciales p,
+.domicilio-seccion p {
   margin: 3px 0;
 }
 
@@ -403,7 +504,8 @@ defineProps({
   margin-bottom: 20px;
 }
 
-.numero-seccion, .titulo-seccion {
+.numero-seccion,
+.titulo-seccion {
   display: inline;
   font-size: 12px;
   font-weight: bold;
@@ -418,7 +520,8 @@ defineProps({
   margin-top: 15px;
 }
 
-.numero-subseccion, .titulo-subseccion {
+.numero-subseccion,
+.titulo-subseccion {
   display: inline;
   font-size: 11px;
   font-weight: bold;
@@ -450,26 +553,31 @@ defineProps({
 }
 
 /* ========== TABLAS ========== */
-.tabla-costes, .tabla-acreditacion {
+.tabla-costes,
+.tabla-acreditacion {
   width: 100%;
   border-collapse: collapse;
   margin: 15px 0;
   font-size: 10px;
 }
 
-.tabla-costes th, .tabla-costes td,
-.tabla-acreditacion th, .tabla-acreditacion td {
+.tabla-costes th,
+.tabla-costes td,
+.tabla-acreditacion th,
+.tabla-acreditacion td {
   border: 1px solid #000;
   padding: 8px;
   text-align: center;
 }
 
-.tabla-costes th, .tabla-acreditacion th {
+.tabla-costes th,
+.tabla-acreditacion th {
   background-color: #e0e0e0;
   font-weight: bold;
 }
 
-.tabla-acreditacion th, .tabla-acreditacion td {
+.tabla-acreditacion th,
+.tabla-acreditacion td {
   font-size: 11px;
 }
 
