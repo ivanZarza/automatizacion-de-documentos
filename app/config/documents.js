@@ -34,7 +34,7 @@ export const autorizacionRepresentacionConfig = {
   fieldMapping: {
     autorizante: 'apellidosNombre',
     dniAutorizante: 'nifCif',
-    domicilioAutorizante: 'emplazamientoCalle',
+    domicilioAutorizante: (dataForm) => `${dataForm.emplazamientoCalle} ${dataForm.numero}`,
     localidad: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',
     organismo: 'localidadEmplazamiento',
@@ -2495,6 +2495,7 @@ export const declaracionCompromisoTransversalesConfig = {
 import { justificacionPagoSubvencionConfigL3 } from './justificaciones/justificacionPagoSubvencionConfigL3'
 import { justificacionPagoSubvencionConfigL4 } from './justificaciones/justificacionPagoSubvencionConfigL4'
 import { memoriaEconomicaConfig } from './justificaciones/memoriaEconomicaConfig'
+import { memoriaJustificativaActuacionConfig } from './justificaciones/memoriaJustificativaActuacionConfig'
 import { obraMassolConfig } from './justificaciones/obraMassolConfig'
 import { certificadoPedidosContratosConfig } from './justificaciones/certificadoPedidosContratosConfig'
 import { declaracionCompromisoCorrienteConfig } from './justificaciones/declaracionCompromisoCorrienteConfig'
@@ -2530,6 +2531,7 @@ const documentConfigs = {
   'justificacion-pago-subvencion-l3': justificacionPagoSubvencionConfigL3,
   'justificacion-pago-subvencion-l4': justificacionPagoSubvencionConfigL4,
   'memoria-economica': memoriaEconomicaConfig,
+  'memoria-justificativa-actuacion': memoriaJustificativaActuacionConfig,
   'obra-massol': obraMassolConfig,
   'certificado-pedidos-contratos': certificadoPedidosContratosConfig,
   'declaracion-compromiso-corriente': declaracionCompromisoCorrienteConfig

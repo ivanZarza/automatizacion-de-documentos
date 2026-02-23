@@ -311,7 +311,21 @@ export const masterFormFields = [
   { name: 'pedido2IdPedido', label: 'Id. Pedido', placeholder: 'Ej: PED-2025-002', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
   { name: 'pedido2FechaPedido', label: 'Fecha Pedido', placeholder: 'Ej: 17/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
   { name: 'pedido2ImportePedido', label: 'Importe Pedido (€)', placeholder: 'Ej: 2500', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
-
+  // ========== SUBSECCIÓN MEMORIA JUSTIFICATIVA ACTUACIÓN ==========
+  { name: 'potenciaTermica', label: 'Potencia Térmica (kW)', placeholder: 'Ej: 8.5', type: 'text', subsection: 'MEMORIA_JUSTIFICATIVA' },
+  { name: 'resistenciaElectrica', label: 'Resistencia Eléctrica (kW)', placeholder: 'Ej: 2.0', type: 'text', subsection: 'MEMORIA_JUSTIFICATIVA' },
+  { name: 'potenciaTotal', label: 'Potencia Total (kW)', placeholder: 'Ej: 10.5', type: 'text', subsection: 'MEMORIA_JUSTIFICATIVA' },
+  { name: 'tipoSoporte', label: 'Tipo de Soporte', type: 'select', options: ['PLANA', 'INCLINADA', 'AMBAS'], subsection: 'MEMORIA_JUSTIFICATIVA' },
+  { name: 'fechaConclusionDia', label: 'Día Conclusión', placeholder: 'Ej: 15', type: 'text', subsection: 'MEMORIA_JUSTIFICATIVA' },
+  { name: 'fechaConclusionMes', label: 'Mes Conclusión', placeholder: 'Ej: 03', type: 'text', subsection: 'MEMORIA_JUSTIFICATIVA' },
+  { name: 'fechaConclusionAnio', label: 'Año Conclusión', placeholder: 'Ej: 2025', type: 'text', subsection: 'MEMORIA_JUSTIFICATIVA' },
+  { name: 'mesNombre', label: 'Mes (Nombre)', placeholder: 'Ej: marzo', type: 'text', subsection: 'MEMORIA_JUSTIFICATIVA' },
+  { name: 'importeCertificacion', label: 'Importe Certificación', placeholder: 'Ej: 5000.00', type: 'text', subsection: 'MEMORIA_JUSTIFICATIVA' },
+  { name: 'importeOtrosCostes', label: 'Importe Otros Costes', placeholder: 'Ej: 500.00', type: 'text', subsection: 'MEMORIA_JUSTIFICATIVA' },
+  { name: 'importeTotal', label: 'Importe Total', placeholder: 'Ej: 5500.00', type: 'text', subsection: 'MEMORIA_JUSTIFICATIVA' },
+  { name: 'aerotermia', label: 'Incluir sección de Aerotermia', type: 'checkbox', subsection: 'MEMORIA_JUSTIFICATIVA' },
+  { name: 'tecnicoRedactor', label: 'Técnico Redactor', placeholder: 'Ej: Eduardo Rivera Cabezas', type: 'text', fullWidth: true, subsection: 'MEMORIA_JUSTIFICATIVA' },
+  { name: 'zaharilla', label: 'Zaharilla', placeholder: 'Ej: Datos ubicación', type: 'text', fullWidth: true, subsection: 'MEMORIA_JUSTIFICATIVA' },
   /*   // Pedido 3
     { name: 'pedido3Concepto', label: 'Concepto', placeholder: 'Ej: Estructura de montaje', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
     { name: 'pedido3Proveedor', label: 'Proveedor', placeholder: 'Ej: Empresa DEF', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
