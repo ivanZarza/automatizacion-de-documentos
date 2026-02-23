@@ -1,7 +1,7 @@
 export const memoriaEconomicaConfig = {
   id: 'memoria-economica',
-  title: 'Memoria Económica Justificativa',
-  description: 'Documento de memoria económica justificativa con aportación de justificantes de gasto de subvención',
+  title: 'Memoria Económica',
+  description: 'Documento de memoria económica con aportación de justificantes de gasto de subvención',
   fileName: 'memoria-economica.pdf',
   route: '/justificaciones/memoria-economica',
   fields: [

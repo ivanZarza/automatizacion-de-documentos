@@ -49,7 +49,7 @@ export const autorizacionRepresentacionConfig = {
 
 export const declaracionHabilitacionProfesionalConfig = {
   id: 'declaracion-habilitacion-profesional',
-  title: 'Declaración Responsable de Habilitación Profesional',
+  title: '9.- DR de Habilitación Profesional.pdf',
   description: 'Documento de declaración de habilitación profesional para colegiados',
   fileName: '9.- DR de Habilitación Profesional.pdf',
   route: '/declaracion-habilitacion-profesional',
@@ -90,9 +90,9 @@ export const declaracionHabilitacionProfesionalConfig = {
   }
 }
 
-export const certificadoCoplanarTejaConfig = {
+export const certificadoCoplanarTejaConfig = {  
   id: 'certificado-coplanar-teja',
-  title: 'Certificado de Solidez y Seguridad de la Cubierta - Coplanar Teja',
+  title: '7.- Certificado de solidez y seguridad.pdf',
   description: 'Documento de certificación de solidez y seguridad para instalaciones fotovoltaicas en cubierta de teja coplanar',
   fileName: '7.- Certificado de solidez y seguridad.pdf',
   route: '/certificado-coplanar-teja',
@@ -156,7 +156,7 @@ export const certificadoCoplanarTejaConfig = {
 
 export const certificadoCubiertaPlanAaporticadaConfig = {
   id: 'certificado-cubierta-plan-aaporticada',
-  title: 'Certificado de Solidez y Seguridad de la Cubierta - Plana Aportícada',
+  title: '7.- Certificado de solidez y seguridad.pdf',
   description: 'Documento de certificación de solidez y seguridad para instalaciones fotovoltaicas en cubierta plana con estructura aportícada',
   fileName: '7.- Certificado de solidez y seguridad.pdf',
   route: '/certificado-cubierta-plan-aaporticada',
@@ -220,7 +220,7 @@ export const certificadoCubiertaPlanAaporticadaConfig = {
 
 export const certificadoAporticadaTejConfig = {
   id: 'certificado-aporticada-teja',
-  title: 'Certificado de Solidez y Seguridad - Aporticada Teja',
+  title: '7.- Certificado de solidez y seguridad.pdf',
   description: 'Certificado de solidez y seguridad de la cubierta para instalación aporticada sobre teja',
   fileName: '7.- Certificado de solidez y seguridad.pdf',
   route: '/certificado-aporticada-teja',
@@ -280,7 +280,7 @@ export const certificadoAporticadaTejConfig = {
 
 export const certificadoChapasGrecadasAporticadaConfig = {
   id: 'certificado-chapas-grecadas-aporticada',
-  title: 'Certificado de Solidez y Seguridad - Chapas Grecadas Aporticada',
+  title: '7.- Certificado de solidez y seguridad.pdf',
   description: 'Certificado de solidez y seguridad de la cubierta para instalación aporticada sobre chapas grecadas',
   fileName: '7.- Certificado de solidez y seguridad.pdf',
   route: '/certificado-chapas-grecadas-aporticada',
@@ -340,7 +340,7 @@ export const certificadoChapasGrecadasAporticadaConfig = {
 
 export const certificadoParamentoVerticalConfig = {
   id: 'certificado-paramento-vertical',
-  title: 'Certificado de Solidez y Seguridad de la Cubierta - Paramento Vertical',
+  title: '7.- Certificado de solidez y seguridad.pdf',
   description: 'Documento de certificación de solidez y seguridad para instalaciones fotovoltaicas en paramento vertical',
   fileName: '7.- Certificado de solidez y seguridad.pdf',
   route: '/certificado-paramento-vertical',
@@ -400,7 +400,7 @@ export const certificadoParamentoVerticalConfig = {
 
 export const certificadoPergolaAporticadaConfig = {
   id: 'certificado-pergola-aporticada',
-  title: 'Certificado de Solidez y Seguridad de la Cubierta - Pérgola Aporticada',
+  title: '7.- Certificado de solidez y seguridad.pdf',
   description: 'Documento de certificación de solidez y seguridad para instalaciones fotovoltaicas sobre pérgola aporticada',
   fileName: '7.- Certificado de solidez y seguridad.pdf',
   route: '/certificado-pergola-aporticada',
@@ -470,7 +470,7 @@ export const certificadoPergolaAporticadaConfig = {
 
 export const memoriaTecnicaConfig = {
   id: 'mtd-instalacion-autoconsumo-monofasica-con-bateria',
-  title: 'Memoria Técnica de Instalación de Autoconsumo Monofásica con Batería',
+  title: '6.- MTD.pdf',
   description: 'Documento técnico para instalaciones fotovoltaicas en baja tensión',
   fileName: '6.- MTD.pdf',
   route: '/mtd-instalacion-autoconsumo-monofasica-con-bateria',
@@ -746,7 +746,7 @@ export const memoriaTecnicaConfig = {
 
 export const memoriaInstalacionAisladaConBateriaConfig = {
   id: 'mtd-instalacion-aislada-con-bateria',
-  title: 'Memoria Técnica de Instalación Aislada con Batería',
+  title: '6.- MTD.pdf',
   description: 'Documento técnico para instalaciones fotovoltaicas aisladas con almacenamiento',
   fileName: '6.- MTD.pdf',
   route: '/mtd-instalacion-aislada-con-bateria',
@@ -1024,7 +1024,7 @@ export const memoriaInstalacionAisladaConBateriaConfig = {
 
 export const memoriaTecnicaTrifasicaConBateriaConfig = {
   id: 'mtd-instalacion-autoconsumo-trifasica-con-bateria',
-  title: 'Memoria Técnica de Instalación de Autoconsumo Trifásica con Batería',
+  title: '6.- MTD.pdf',
   description: 'Documento técnico para instalaciones fotovoltaicas en baja tensión (trifásica con batería)',
   fileName: '6.- MTD.pdf',
   route: '/mtd-instalacion-autoconsumo-trifasica-con-bateria',
@@ -1167,7 +1167,7 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
 
 export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
   id: 'mtd-instalacion-autoconsumo-sin-bateria',
-  title: 'Memoria Técnica de Instalación Autoconsumo Sin Batería',
+  title: '6.- MTD.pdf',
   description: 'Documento técnico para instalaciones fotovoltaicas en baja tensión (autoconsumo sin batería)',
   fileName: '6.- MTD.pdf',
   route: '/mtd-instalacion-autoconsumo-sin-bateria',
@@ -1363,7 +1363,7 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
 
 export const memoriaTecnicaPuntoRecargaConfig = {
   id: 'mtd-instalacion-puntos-recarga',
-  title: 'Memoria Técnica de Instalación de Puntos de Recarga para Vehículos Eléctricos',
+  title: '6.- MTD.pdf',
   description: 'Documento técnico para instalaciones de recarga de vehículos eléctricos',
   fileName: '6.- MTD.pdf',
   route: '/mtd-instalacion-puntos-recarga',
@@ -1510,7 +1510,7 @@ export const memoriaTecnicaPuntoRecargaConfig = {
 
 export const declaracionNoGeneracionRcdsConfig = {
   id: 'declaracion-no-generacion-rcds',
-  title: 'Declaración Responsable de No Generación de RCDs',
+  title: '8.- DR No Generación de Residuos.pdf',
   description: 'Declaración de no generación de residuos de construcción y demolición',
   fileName: '8.- DR No Generación de Residuos.pdf',
   route: '/declaracion-no-generacion-rcds',
@@ -1555,7 +1555,7 @@ export const declaracionNoGeneracionRcdsConfig = {
 
 export const planosPlanosSituacionEmplazamientoCubiertaConfig = {
   id: 'planos-situacion-emplazamiento-cubierta',
-  title: 'Planos de Situación, Emplazamiento y Cubierta',
+  title: '12.- Planos de Situación, Emplazamiento y Cubierta.pdf',
   description: 'Documento con planos de ubicación, emplazamiento y disposición de módulos fotovoltaicos',
   fileName: '12.- Planos de Situación, Emplazamiento y Cubierta.pdf',
   route: '/planos-situacion-emplazamiento-cubierta',
@@ -1661,7 +1661,7 @@ export const planosPlanosSituacionEmplazamientoCubiertaConfig = {
 
 export const zCertificadoBRConfig = {
   id: 'z-certificado-br',
-  title: 'Certificado de Instalación Eléctrica de Baja Tensión',
+  title: '2.- CIE.pdf',
   description: 'Plantilla base para legalización con bloques preparados para posicionar variables sobre formulario.',
   fileName: '2.- CIE.pdf',
   route: '/z-certificado-br',
@@ -1810,7 +1810,7 @@ export const zCertificadoBRConfig = {
 
 export const autorizacionComunicacionConfig = {
   id: 'autorizacion-comunicacion',
-  title: 'Autorización para Comunicación de Puesta en Funcionamiento',
+  title: 'ANEXO III.pdf',
   description: 'ANEXO III - Junta de Andalucía. Autorización para presentar la comunicación de puesta en funcionamiento de establecimientos o instalaciones industriales.',
   fileName: 'ANEXO III.pdf',
   route: '/autorizacion-comunicacion',
@@ -1964,7 +1964,7 @@ export const autorizacionComunicacionConfig = {
 
 export const certificadoAdecuacionConfig = {
   id: 'certificado-adecuacion',
-  title: 'Certificado de Adecuación al Real Decreto 1699/2011',
+  title: '7.- Certificado de Adecuación al RD 1699-2011.pdf',
   description: 'Certificado de adecuación para instalaciones eléctricas según RD 1699/2011',
   fileName: '7.- Certificado de Adecuación al RD 1699-2011.pdf',
   route: '/certificado-adecuacion',
@@ -2014,7 +2014,7 @@ export const certificadoAdecuacionConfig = {
 
 export const zCertificadoDOACFVConfig = {
   id: 'z-certificado-doacfv',
-  title: 'Certificado de Dirección de Obra de Instalación de Equipos',
+  title: '3.- Certificado de Dirección de Obra.pdf',
   description: 'Certificado para dirección de obra de instalación solar fotovoltaica de autoconsumo',
   fileName: '3.- Certificado de Dirección de Obra.pdf',
   route: '/z-certificado-doacfv',
@@ -2067,7 +2067,7 @@ export const zCertificadoDOACFVConfig = {
 
 export const zDeclaracionDireccionObraConfig = {
   id: 'z-declaracion-direccion-obra',
-  title: 'Declaración Responsable Dirección de Obra',
+  title: '3.a- Declaración Responsable DO.pdf',
   description: 'Declaración responsable para la dirección de obra con campos sobre imagen de fondo',
   fileName: '3.a- Declaración Responsable DO.pdf',
   route: '/z-declaracion-direccion-obra',
@@ -2143,7 +2143,7 @@ export const zDeclaracionDireccionObraConfig = {
 
 export const zDeclaracionTecnicoCompetenteConfig = {
   id: 'z-declaracion-tecnico-competente',
-  title: 'Declaración Responsable Técnico Competente',
+  title: '1.1.a - DR Técnico Competente.pdf',
   description: 'Declaración responsable para técnico competente con campos sobre imagen de fondo',
   fileName: '1.1.a - DR Técnico Competente.pdf',
     route: '/z-declaracion-tecnico-competente',
@@ -2495,7 +2495,7 @@ export const declaracionCompromisoTransversalesConfig = {
 import { justificacionPagoSubvencionConfigL3 } from './justificaciones/justificacionPagoSubvencionConfigL3'
 import { justificacionPagoSubvencionConfigL4 } from './justificaciones/justificacionPagoSubvencionConfigL4'
 import { memoriaEconomicaConfig } from './justificaciones/memoriaEconomicaConfig'
-import { memoriaJustificativaActuacionConfig } from './justificaciones/memoriaJustificativaActuacionConfig'
+import { memoriaFvAerConfig } from './justificaciones/memoriaFvAerConfig'
 import { obraMassolConfig } from './justificaciones/obraMassolConfig'
 import { certificadoPedidosContratosConfig } from './justificaciones/certificadoPedidosContratosConfig'
 import { declaracionCompromisoCorrienteConfig } from './justificaciones/declaracionCompromisoCorrienteConfig'
@@ -2531,7 +2531,7 @@ const documentConfigs = {
   'justificacion-pago-subvencion-l3': justificacionPagoSubvencionConfigL3,
   'justificacion-pago-subvencion-l4': justificacionPagoSubvencionConfigL4,
   'memoria-economica': memoriaEconomicaConfig,
-  'memoria-justificativa-actuacion': memoriaJustificativaActuacionConfig,
+  'memoria-fv-aer': memoriaFvAerConfig,
   'obra-massol': obraMassolConfig,
   'certificado-pedidos-contratos': certificadoPedidosContratosConfig,
   'declaracion-compromiso-corriente': declaracionCompromisoCorrienteConfig
