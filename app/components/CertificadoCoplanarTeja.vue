@@ -108,12 +108,6 @@
               class="imagen-pdf-lado"
             />
           </div>
-          <div class="espacio-imagen-lado">
-            <img
-              :src="'/fotos-certificados/teja-coplanaria-2.png'"
-              class="imagen-pdf-lado"
-            />
-          </div>
         </div>
 
         <p class="parrafo-estructura">
@@ -123,7 +117,7 @@
           la <span class="texto-azul">perfilería</span> de aluminio mediante
           <span class="texto-azul">tornillería</span> de acero inoxidable.
         </p>
-
+ 
         <p class="parrafo-estructura">
           Dichas varillas son fijadas al tablero de
           <span class="texto-azul">rasillones</span> existente, mediante taco

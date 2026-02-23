@@ -224,6 +224,7 @@
 
       <!-- Firma -->
       <div class="contenedor-firmas">
+        <div class="fecha">En Bollullos de la Mitación, a {{ pse_dia }} de {{ pse_mes }} de {{ pse_anio }}</div>
         <div class="firma-bloque">
           <div class="linea-firma-imagen">
             <img src="/firma-solay.png" alt="Firma" class="imagen-firma" />
@@ -272,7 +273,10 @@ const props = defineProps({
   logos: {
     type: Object,
     default: () => ({})
-  }
+  },
+  pse_dia: String,
+  pse_mes: String,
+  pse_anio: String,
 })
 
 // Proporciona valores por defecto si faltan datos
@@ -299,7 +303,10 @@ const formattedData = computed(() => ({
   pse_descripcion: props.pse_descripcion || 'para Autoconsumo',
   imagenSituacion: props.pse_imagenSituacion || null,
   imagenEmplazamiento: props.pse_imagenEmplazamiento || null,
-  imagenCubierta: props.pse_imagenCubierta || null
+  imagenCubierta: props.pse_imagenCubierta || null,
+  pse_dia: props.pse_dia || 'día actual',
+  pse_mes: props.pse_mes || 'mes actual',
+  pse_anio: props.pse_anio || 'año actual',
 }))
 </script>
 
@@ -603,9 +610,17 @@ const formattedData = computed(() => ({
 /* ========== FIRMAS ========== */
 .contenedor-firmas {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  margin-top: 20px;
-  padding-top: 120px;
+  margin-top: 0px;
+  padding-top: 100px;
+}
+
+.fecha {
+  margin-bottom: 50px;
+  font-size: 12px;
+  color: #333;
 }
 
 .firma-bloque {
@@ -625,7 +640,7 @@ const formattedData = computed(() => ({
 .imagen-firma {
   height: 70px;
   object-fit: contain;
-  margin-top: -45px;
+  margin-top: -25px;
 }
 
 .etiqueta-firma {

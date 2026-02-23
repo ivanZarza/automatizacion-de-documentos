@@ -1593,6 +1593,9 @@ export const planosPlanosSituacionEmplazamientoCubiertaConfig = {
     // Otros datos
     { name: 'pse_fecha', label: 'Fecha', type: 'date' },
     { name: 'pse_autorProyecto', label: 'Autor del Proyecto', type: 'text', fullWidth: true },
+    { name: 'pse_dia', label: 'Día', type: 'text' },
+    { name: 'pse_mes', label: 'Mes', type: 'text' },
+    { name: 'pse_anio', label: 'Año', type: 'text' },
   ],
   defaultData: {
     pse_promotor: '',
@@ -1617,7 +1620,10 @@ export const planosPlanosSituacionEmplazamientoCubiertaConfig = {
     pse_descripcion: '',
     pse_imagenSituacion: '',
     pse_imagenEmplazamiento: '',
-    pse_imagenCubierta: ''
+    pse_imagenCubierta: '',
+    pse_dia: '',
+    pse_mes: '',
+    pse_anio: '',
   },
   fieldMapping: {
     pse_promotor: 'apellidosNombre',
@@ -1641,7 +1647,10 @@ export const planosPlanosSituacionEmplazamientoCubiertaConfig = {
     pse_descripcion: 'otros_descripcionProyecto',
     pse_imagenSituacion: 'otros_imagenPlanoSituacion',
     pse_imagenEmplazamiento: 'otros_imagenPlanoEmplazamiento',
-    pse_imagenCubierta: 'otros_PlanoCubiertaNuevo'
+    pse_imagenCubierta: 'otros_PlanoCubiertaNuevo',
+    pse_dia: 'dia',
+    pse_mes: 'mes',
+    pse_anio: 'anio'
   },
   capabilities: {
     canPreview: true,
