@@ -234,13 +234,7 @@ export const masterFormFields = [
     ], subsection: 'JUSTIFICACION', fullWidth: true
   },
   { name: 'tipoActuacion', label: 'Actua en calidad de...', type: 'text', placeholder: 'Ej: Propietario', subsection: 'JUSTIFICACION' },
-  { name: 'numeroFactura', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION' },
-  { name: 'fechaFactura', label: 'Fecha Factura', type: 'date', subsection: 'JUSTIFICACION' },
-  { name: 'cf', label: 'CF', type: 'text', subsection: 'JUSTIFICACION' },
-  { name: 'acreedor', label: 'Acreedor', type: 'text', subsection: 'JUSTIFICACION' },
-  { name: 'concepto', label: 'Concepto', type: 'text', subsection: 'JUSTIFICACION' },
-  { name: 'fechaPago', label: 'Fecha Pago', type: 'date', subsection: 'JUSTIFICACION' },
-  { name: 'importe', label: 'Importe', type: 'text', subsection: 'JUSTIFICACION' },
+
   { name: 'totalCantidadJustificada', label: 'Total Cantidad Justificada', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'presupuestoInicial', label: 'Presupuesto Inicial', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'inversionRealizada', label: 'Inversión Realizada', type: 'text', subsection: 'JUSTIFICACION' },
@@ -257,8 +251,47 @@ export const masterFormFields = [
   { name: 'denominacionEstablecimiento', label: 'Denominación del Establecimiento', placeholder: 'Ej: Bar Los Amigos', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'nifEmpresa', label: 'NIF Empresa', placeholder: 'Ej: B12345678', type: 'text', subsection: 'JUSTIFICACION' },
 
-  // ========== SUBSECCIÓN JUSTIFICACIÓN: Pedidos y Contratos ==========
-
+  // ========== SUBSECCIÓN JUSTIFICACIÓN: Pedidos y Facturas ==========
+  // Factura 1
+  { name: 'numeroFactura1', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 1' },
+  { name: 'fechaFactura1', label: 'Fecha Factura', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 1' },
+  { name: 'cf1', label: 'CF', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 1' },
+  { name: 'acreedor1', label: 'Acreedor', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 1' },
+  { name: 'concepto1', label: 'Concepto', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 1' },
+  { name: 'fechaPago1', label: 'Fecha Pago', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 1' },
+  { name: 'importe1', label: 'Importe', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 1' },
+  // Factura 2
+  { name: 'numeroFactura2', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 2' },
+  { name: 'fechaFactura2', label: 'Fecha Factura', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 2' },
+  { name: 'cf2', label: 'CF', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 2' },
+  { name: 'acreedor2', label: 'Acreedor', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 2' },
+  { name: 'concepto2', label: 'Concepto', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 2' },
+  { name: 'fechaPago2', label: 'Fecha Pago', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 2' },
+  { name: 'importe2', label: 'Importe', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 2' },
+  // Factura 3
+  { name: 'numeroFactura3', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 3' },
+  { name: 'fechaFactura3', label: 'Fecha Factura', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 3' },
+  { name: 'cf3', label: 'CF', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 3' },
+  { name: 'acreedor3', label: 'Acreedor', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 3' },
+  { name: 'concepto3', label: 'Concepto', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 3' },
+  { name: 'fechaPago3', label: 'Fecha Pago', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 3' },
+  { name: 'importe3', label: 'Importe', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 3' },
+  // Factura 4
+  { name: 'numeroFactura4', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 4' },
+  { name: 'fechaFactura4', label: 'Fecha Factura', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 4' },
+  { name: 'cf4', label: 'CF', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 4' },
+  { name: 'acreedor4', label: 'Acreedor', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 4' },
+  { name: 'concepto4', label: 'Concepto', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 4' },
+  { name: 'fechaPago4', label: 'Fecha Pago', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 4' },
+  { name: 'importe4', label: 'Importe', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 4' },
+  // Factura 5
+  { name: 'numeroFactura5', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 5' },
+  { name: 'fechaFactura5', label: 'Fecha Factura', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 5' },
+  { name: 'cf5', label: 'CF', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 5' },
+  { name: 'acreedor5', label: 'Acreedor', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 5' },
+  { name: 'concepto5', label: 'Concepto', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 5' },
+  { name: 'fechaPago5', label: 'Fecha Pago', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 5' },
+  { name: 'importe5', label: 'Importe', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 5' },
   // Pedido 1
   { name: 'pedido1Concepto', label: 'Concepto', placeholder: 'Ej: Módulos solares', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 1' },
   { name: 'pedido1Proveedor', label: 'Proveedor', placeholder: 'Ej: Empresa XYZ', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 1' },
