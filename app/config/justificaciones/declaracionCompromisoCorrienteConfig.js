@@ -27,6 +27,7 @@ export const declaracionCompromisoCorrienteConfig = {
     // Persona Representante
     { name: 'apellidosNombrePersonaRepresentante', label: 'Nombre Persona Representante', type: 'text' },
     { name: 'dniNiePersonaRepresentante', label: 'DNI/NIE Persona Representante', type: 'text' },
+    { name: 'lugar', label: 'Lugar', type: 'text' },
 
     // Fecha
     { name: 'dia', label: 'Día', type: 'text' },
@@ -50,6 +51,7 @@ export const declaracionCompromisoCorrienteConfig = {
     dniNieAgenteGestor: 'dniNieAgenteGestor',
     apellidosNombrePersonaRepresentante: 'apellidosNombrePersonaRepresentante',
     dniNiePersonaRepresentante: 'dniNiePersonaRepresentante',
+    lugar: 'lugar',
     dia: 'dia',
     mes: 'mes',
     anio: 'anio',
@@ -69,6 +71,7 @@ export const declaracionCompromisoCorrienteConfig = {
     dniNieAgenteGestor: 'dniNieAgenteGestor',
     apellidosNombrePersonaRepresentante: 'apellidosNombrePersonaRepresentante',
     dniNiePersonaRepresentante: 'dniNiePersonaRepresentante',
+    lugar: 'lugar',
     dia: 'dia',
     mes: 'mes',
     anio: 'anio',

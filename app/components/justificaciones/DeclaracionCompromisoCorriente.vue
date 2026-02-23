@@ -35,6 +35,7 @@ const props = defineProps({
   dniNieAgenteGestor: { type: String, default: "" },
   apellidosNombrePersonaRepresentante: { type: String, default: "" },
   dniNiePersonaRepresentante: { type: String, default: "" },
+  lugar: { type: String, default: "" },
   dia: { type: String, default: "" },
   mes: { type: String, default: "" },
   anio: { type: String, default: "" },
@@ -87,7 +88,7 @@ const etiquetas = ref([
   {
     nombre: "nifEmpresa",
     x: 30,
-    y: 107.9,
+    y: 107.7,
     w: 50,
     h: 6,
     fontSize: 10,
@@ -97,7 +98,7 @@ const etiquetas = ref([
   {
     nombre: "domicilioFiscal",
     x: 100.5,
-    y: 107.9,
+    y: 107.7,
     w: 140,
     h: 6,
     fontSize: 10,
@@ -107,8 +108,8 @@ const etiquetas = ref([
   // SECCIÓN REPRESENTANTE LEGAL
   {
     nombre: "apellidosNombreRepresentanteLegal",
-    x: 30,
-    y: 152,
+    x: 59,
+    y: 116,
     w: 80,
     h: 6,
     fontSize: 10,
@@ -117,8 +118,8 @@ const etiquetas = ref([
   },
   {
     nombre: "dniRepresentanteLegal",
-    x: 150,
-    y: 152,
+    x: 28,
+    y: 120.6,
     w: 50,
     h: 6,
     fontSize: 10,
@@ -128,8 +129,8 @@ const etiquetas = ref([
   // SECCIÓN AGENTE O GESTOR DE LA REHABILITACIÓN
   {
     nombre: "apellidosNombreAgenteGestor",
-    x: 30,
-    y: 172,
+    x: 106,
+    y: 133.7,
     w: 80,
     h: 6,
     fontSize: 10,
@@ -138,8 +139,8 @@ const etiquetas = ref([
   },
   {
     nombre: "dniNieAgenteGestor",
-    x: 150,
-    y: 172,
+    x: 44,
+    y: 138,
     w: 50,
     h: 6,
     fontSize: 10,
@@ -149,8 +150,8 @@ const etiquetas = ref([
   // SECCIÓN PERSONA REPRESENTANTE
   {
     nombre: "apellidosNombrePersonaRepresentante",
-    x: 30,
-    y: 192,
+    x: 107,
+    y: 142.5,
     w: 80,
     h: 6,
     fontSize: 10,
@@ -159,8 +160,8 @@ const etiquetas = ref([
   },
   {
     nombre: "dniNiePersonaRepresentante",
-    x: 150,
-    y: 192,
+    x: 35,
+    y: 147.2,
     w: 50,
     h: 6,
     fontSize: 10,
@@ -169,9 +170,19 @@ const etiquetas = ref([
   },
   // SECCIÓN FECHA
   {
+    nombre: "lugar",
+    x: 60,
+    y: 199.8,
+    w: 50,
+    h: 5,
+    fontSize: 10,
+    align: "left",
+    value: "",
+  },
+  {
     nombre: "dia",
-    x: 90,
-    y: 240,
+    x: 94,
+    y: 199.8,
     w: 15,
     h: 5,
     fontSize: 10,
@@ -180,8 +191,8 @@ const etiquetas = ref([
   },
   {
     nombre: "mes",
-    x: 120,
-    y: 240,
+    x: 113,
+    y: 199.8,
     w: 40,
     h: 5,
     fontSize: 10,
@@ -190,8 +201,8 @@ const etiquetas = ref([
   },
   {
     nombre: "anio",
-    x: 170,
-    y: 240,
+    x: 135,
+    y: 199.8,
     w: 20,
     h: 5,
     fontSize: 10,
@@ -201,8 +212,8 @@ const etiquetas = ref([
   // FIRMA
   {
     nombre: "firma",
-    x: 100,
-    y: 260,
+    x: 80,
+    y: 220,
     w: 50,
     h: 20,
     align: "center",
