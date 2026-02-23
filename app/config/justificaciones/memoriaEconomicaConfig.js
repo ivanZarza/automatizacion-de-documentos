@@ -21,7 +21,9 @@ export const memoriaEconomicaConfig = {
     { name: 'presupuestoInicial', label: 'Presupuesto Inicial', type: 'text' },
     { name: 'inversionRealizada', label: 'Inversión Realizada', type: 'text' },
     { name: 'desviacion', label: 'Desviación (con IVA si es subvencionable)', type: 'text' },
-    { name: 'fechaFirma', label: 'Fecha Firma', type: 'date' },
+    { name: 'diaFirmaJustificacion', label: 'Día Firma', type: 'text' },
+    { name: 'mesFirmaJustificacion', label: 'Mes Firma', type: 'text' },
+    { name: 'anioFirmaJustificacion', label: 'Año Firma', type: 'text' },
     { name: 'nombreFirma', label: 'Nombre Firma', type: 'text', fullWidth: true },
     { name: 'firmaImagen', label: 'Imagen de Firma', type: 'image' }
   ],
@@ -42,7 +44,9 @@ export const memoriaEconomicaConfig = {
     presupuestoInicial: '0,00',
     inversionRealizada: '0,00',
     desviacion: '0,00',
-    fechaFirma: 'fechaFirma',
+    diaFirmaJustificacion: 'diaFirmaJustificacion',
+    mesFirmaJustificacion: 'mesFirmaJustificacion',
+    anioFirmaJustificacion: 'anioFirmaJustificacion',
     nombreFirma: 'nombreFirma',
     firmaImagen: ''
   },
@@ -63,9 +67,11 @@ export const memoriaEconomicaConfig = {
     presupuestoInicial: 'presupuestoInicial',
     inversionRealizada: 'inversionRealizada',
     desviacion: 'desviacion',
-    fechaFirma: 'fechaFirma',
+    diaFirmaJustificacion: 'diaFirmaJustificacion',
+    mesFirmaJustificacion: 'mesFirmaJustificacion',
+    anioFirmaJustificacion: 'anioFirmaJustificacion',
     nombreFirma: 'nombreFirma',
-    firmaImagen: 'firmaImagen'
+    firmaImagen: 'firma'
   },
   capabilities: {
     canPreview: true,

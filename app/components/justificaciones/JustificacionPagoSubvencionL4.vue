@@ -217,7 +217,7 @@ const etiquetas = ref([
   {
     nombre: "personaFirma",
     page: 2,
-    x: 80,
+    x: 75,
     y: 273.5,
     w: 60,
     h: 6,
@@ -228,7 +228,7 @@ const etiquetas = ref([
   {
     nombre: "firma",
     page: 2,
-    x: 120,
+    x: 125,
     y: 258,
     w: 30,
     h: 15,

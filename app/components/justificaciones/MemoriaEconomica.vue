@@ -294,7 +294,7 @@
               <div class="datos-firma">
                 <p class="dato-firma">
                   <span class="etiqueta">Fecha:</span>
-                  <span class="valor">{{ fechaFirma }}</span>
+                  <span class="valor">A {{ diaFirmaJustificacion }} de {{ mesFirmaJustificacion }} de {{ anioFirmaJustificacion }}</span>
                 </p>
                 <p class="dato-firma">
                   <span class="etiqueta">Firma:</span>
@@ -365,6 +365,18 @@ defineProps({
     type: String,
     default: 'fechaFirma'
   },
+  diaFirmaJustificacion: {
+    type: String,
+    default: 'diaFirmaJustificacion'
+  },
+  mesFirmaJustificacion: {
+    type: String,
+    default: 'mesFirmaJustificacion'
+  },
+  anioFirmaJustificacion: {
+    type: String,
+    default: 'anioFirmaJustificacion'
+  },  
   nombreFirma: {
     type: String,
     default: 'nombreFirma'
@@ -498,7 +510,6 @@ defineProps({
 }
 
 .dato-valor {
-  color: #d00;
   font-weight: bold;
 }
 
@@ -634,10 +645,7 @@ defineProps({
   font-family: inherit;
 }
 
-.input-tabla:focus {
-  outline: 1px solid #d00;
-  background: #fffef0;
-}
+
 
 .texto-valor {
   font-size: 10px;
@@ -703,7 +711,6 @@ defineProps({
 }
 
 .valor-variable {
-  color: #d00;
   font-weight: bold;
   margin-left: 15px;
 }
@@ -746,7 +753,6 @@ defineProps({
 }
 
 .dato-firma .valor {
-  color: #d00;
   font-weight: bold;
   flex: 1;
   text-align: center;

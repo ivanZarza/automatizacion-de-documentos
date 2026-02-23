@@ -47,9 +47,9 @@ export const obraMassolConfig = {
     diaInicio: 'diaInicio',
     mesInicio: 'mesInicio',
     anioInicio: 'anioInicio',
-    diaFirma: 'diaFirma',
-    mesFirma: 'mesFirma',
-    anioFirma: 'anioFirma',
+    diaFirma: 'diaFirmaJustificacion',
+    mesFirma: 'mesFirmaJustificacion',
+    anioFirma: 'anioFirmaJustificacion',
     firma: 'firma'
   },
   capabilities: {

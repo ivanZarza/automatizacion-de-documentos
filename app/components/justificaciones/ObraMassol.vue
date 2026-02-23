@@ -193,10 +193,7 @@ defineProps({
   line-height: 1.6;
 }
 
-.texto-rojo {
-  color: #cc0000;
-  font-weight: bold;
-}
+
 
 /* ========== FECHA ========== */
 .parrafo-lugar-fecha {

@@ -300,11 +300,6 @@ const pedidos = computed(() => [
   min-width: 140px;
 }
 
-.campo span {
-  color: #cc0000;
-  font-weight: bold;
-}
-
 /* ========== PÁRRAFO CERTIFICADOR ========== */
 .parrafo-certificador {
   margin: 15px 0;
