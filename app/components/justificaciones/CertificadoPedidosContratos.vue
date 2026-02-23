@@ -279,8 +279,15 @@ const pedidos = computed(() => [
 
 .fila-datos {
   display: flex;
-  gap: 20px;
+  gap: 10px;
   margin-bottom: 8px;
+  }
+
+  .fila-datos > .campo:first-child {
+    flex: 0 0 60%;
+  }
+  .fila-datos > .campo:last-child {
+    flex: 0 0 20%;
 }
 
 .fila-datos:last-child {
@@ -296,8 +303,8 @@ const pedidos = computed(() => [
 
 .campo label {
   font-weight: bold;
-  margin-right: 8px;
-  min-width: 140px;
+  margin-right: 3px;
+  min-width: 130px;
 }
 
 /* ========== PÁRRAFO CERTIFICADOR ========== */
