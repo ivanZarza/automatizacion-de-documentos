@@ -99,91 +99,91 @@
               <tr class="fila-datos">
                 <td class="col-numero">1</td>
                 <td class="col-factura">
-                  <span class="texto-valor">{{ numeroFactura }}</span>
+                  <span class="texto-valor">{{ numeroFactura1 }}</span>
                 </td>
                 <td class="col-fecha">
-                  <span class="texto-valor">{{ fechaFactura }}</span>
+                  <span class="texto-valor">{{ fechaFactura1 }}</span>
                 </td>
                 <td class="col-cf">
-                  <span class="texto-valor">{{ cf }}</span>
+                  <span class="texto-valor">{{ cf1 }}</span>
                 </td>
                 <td class="col-acreedor">
-                  <span class="texto-valor">{{ acreedor }}</span>
+                  <span class="texto-valor">{{ acreedor1 }}</span>
                 </td>
                 <td class="col-concepto">
-                  <span class="texto-valor">{{ concepto }}</span>
+                  <span class="texto-valor">{{ concepto1 }}</span>
                 </td>
                 <td class="col-fecha-pago">
-                  <span class="texto-valor">{{ fechaPago }}</span>
+                  <span class="texto-valor">{{ fechaPago1 }}</span>
                 </td>
                 <td class="col-importe">
-                  <span class="texto-valor">{{ importe }}</span>
+                  <span class="texto-valor">{{ importe1 }}</span>
                 </td>
               </tr>
               <!-- Filas 2-5: Estáticas -->
               <tr class="fila-datos">
                 <td class="col-numero">2</td>
-                <td class="col-factura"><span class="texto-estacio"></span></td>
-                <td class="col-fecha"><span class="texto-estacio"></span></td>
-                <td class="col-cf"><span class="texto-estacio"></span></td>
+                <td class="col-factura"><span class="texto-estacio">{{ numeroFactura2 }}</span></td>
+                <td class="col-fecha"><span class="texto-estacio">{{ fechaFactura2 }}</span></td>
+                <td class="col-cf"><span class="texto-estacio">{{ cf2 }}</span></td>
                 <td class="col-acreedor">
-                  <span class="texto-estacio"></span>
+                  <span class="texto-estacio">{{ acreedor2 }}</span>
                 </td>
                 <td class="col-concepto">
-                  <span class="texto-estacio"></span>
+                  <span class="texto-estacio">{{ concepto2 }}</span>
                 </td>
                 <td class="col-fecha-pago">
-                  <span class="texto-estacio"></span>
+                  <span class="texto-estacio">{{ fechaPago2 }}</span>
                 </td>
-                <td class="col-importe"><span class="texto-estacio"></span></td>
+                <td class="col-importe"><span class="texto-estacio">{{ importe2 }}</span></td>
               </tr>
               <tr class="fila-datos">
                 <td class="col-numero">3</td>
-                <td class="col-factura"><span class="texto-estacio"></span></td>
-                <td class="col-fecha"><span class="texto-estacio"></span></td>
-                <td class="col-cf"><span class="texto-estacio"></span></td>
+                <td class="col-factura"><span class="texto-estacio">{{ numeroFactura3 }}</span></td>
+                <td class="col-fecha"><span class="texto-estacio">{{ fechaFactura3 }}</span></td>
+                <td class="col-cf"><span class="texto-estacio">{{ cf3 }}</span></td>
                 <td class="col-acreedor">
-                  <span class="texto-estacio"></span>
+                  <span class="texto-estacio">{{ acreedor3 }}</span>
                 </td>
                 <td class="col-concepto">
-                  <span class="texto-estacio"></span>
+                  <span class="texto-estacio">{{ concepto3 }}</span>
                 </td>
                 <td class="col-fecha-pago">
-                  <span class="texto-estacio"></span>
+                  <span class="texto-estacio">{{ fechaPago3 }}</span>
                 </td>
-                <td class="col-importe"><span class="texto-estacio"></span></td>
+                <td class="col-importe"><span class="texto-estacio">{{ importe3 }}</span></td>
               </tr>
               <tr class="fila-datos">
                 <td class="col-numero">4</td>
-                <td class="col-factura"><span class="texto-estacio"></span></td>
-                <td class="col-fecha"><span class="texto-estacio"></span></td>
-                <td class="col-cf"><span class="texto-estacio"></span></td>
+                <td class="col-factura"><span class="texto-estacio">{{ numeroFactura4 }}</span></td>
+                <td class="col-fecha"><span class="texto-estacio">{{ fechaFactura4 }}</span></td>
+                <td class="col-cf"><span class="texto-estacio">{{ cf4 }}</span></td>
                 <td class="col-acreedor">
-                  <span class="texto-estacio"></span>
+                  <span class="texto-estacio">{{ acreedor4 }}</span>
                 </td>
                 <td class="col-concepto">
-                  <span class="texto-estacio"></span>
+                  <span class="texto-estacio">{{ concepto4 }}</span>
                 </td>
                 <td class="col-fecha-pago">
-                  <span class="texto-estacio"></span>
+                  <span class="texto-estacio">{{ fechaPago4 }}</span>
                 </td>
-                <td class="col-importe"><span class="texto-estacio"></span></td>
+                <td class="col-importe"><span class="texto-estacio">{{ importe4 }}</span></td>
               </tr>
               <tr class="fila-datos">
                 <td class="col-numero">5</td>
-                <td class="col-factura"><span class="texto-estacio"></span></td>
-                <td class="col-fecha"><span class="texto-estacio"></span></td>
-                <td class="col-cf"><span class="texto-estacio"></span></td>
+                <td class="col-factura"><span class="texto-estacio">{{ numeroFactura5 }}</span></td>
+                <td class="col-fecha"><span class="texto-estacio">{{ fechaFactura5 }}</span></td>
+                <td class="col-cf"><span class="texto-estacio">{{ cf5 }}</span></td>
                 <td class="col-acreedor">
-                  <span class="texto-estacio"></span>
+                  <span class="texto-estacio">{{ acreedor5 }}</span>
                 </td>
                 <td class="col-concepto">
-                  <span class="texto-estacio"></span>
+                  <span class="texto-estacio">{{ concepto5 }}</span>
                 </td>
                 <td class="col-fecha-pago">
-                  <span class="texto-estacio"></span>
+                  <span class="texto-estacio">{{ fechaPago5 }}</span>
                 </td>
-                <td class="col-importe"><span class="texto-estacio"></span></td>
+                <td class="col-importe"><span class="texto-estacio">{{ importe5 }}</span></td>
               </tr>
             </tbody>
           </table>

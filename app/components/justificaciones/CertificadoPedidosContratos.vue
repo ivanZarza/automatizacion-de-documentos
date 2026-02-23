@@ -69,14 +69,14 @@
           </thead>
           <tbody>
             <tr v-for="(pedido, index) in pedidos" :key="index">
-              <td>{{ pedido.concepto }}</td>
-              <td>{{ pedido.proveedor }}</td>
-              <td>{{ pedido.idOferta }}</td>
-              <td>{{ pedido.fechaOferta }}</td>
-              <td class="numero">{{ pedido.importeOferta }}</td>
-              <td>{{ pedido.idPedido }}</td>
-              <td>{{ pedido.fechaPedido }}</td>
-              <td class="numero">{{ pedido.importePedido }}</td>
+              <td>{{ pedido.concepto || '\u00A0' }}</td>
+              <td>{{ pedido.proveedor || '\u00A0' }}</td>
+              <td>{{ pedido.idOferta || '\u00A0' }}</td>
+              <td>{{ pedido.fechaOferta || '\u00A0' }}</td>
+              <td class="numero">{{ pedido.importeOferta || '\u00A0' }}</td>
+              <td>{{ pedido.idPedido || '\u00A0' }}</td>
+              <td>{{ pedido.fechaPedido || '\u00A0' }}</td>
+              <td class="numero">{{ pedido.importePedido || '\u00A0' }}</td>
             </tr>
           </tbody>
         </table>
@@ -365,6 +365,11 @@ th {
   word-break: break-word;
   background-color: #00cc00;
   color: white;
+}
+
+.td {
+    min-height: 20px;
+
 }
 
 /* Ancho de columnas */

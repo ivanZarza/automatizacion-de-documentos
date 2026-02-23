@@ -133,7 +133,7 @@ export const certificadoPedidosContratosConfig = {
       return `${formData.emplazamientoCalle || ''} ${formData.numero || ''} -  ${formData.localidadEmplazamiento || ''}`.trim();
     },
     provincia: 'provinciaEmplazamiento',
-    expediente: 'expediente',
+    expediente: 'expedienteEco',
     diaFirma: 'diaFirmaJustificacion',
     mesFirma: 'mesFirmaJustificacion',
     anioFirma: 'anioFirmaJustificacion',

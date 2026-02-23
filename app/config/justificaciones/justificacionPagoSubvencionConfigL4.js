@@ -41,14 +41,14 @@ export const justificacionPagoSubvencionConfigL4 = {
     firma: ''
   },
   fieldMapping: {
-      expediente: 'expediente',
+    expediente: 'expedienteEco',
     apellidosNombre: 'apellidosNombre',
-    dni: 'dni',
+    dni: 'nifCif',
     telefono: 'telefono',
     correoElectronico: 'correoElectronicoEmplazamiento',
     apellidosNombreRepresentante: 'nombreRepresentanteEntidad',
     dniRepresentante: 'dniRepresentanteEntidad',
-    actuaCalidad: '/////',
+    actuaCalidad: 'tipoActuacion',
     telefonoRepresentante: 'telefono',
     correoElectronicoRepresentante: 'correoElectronicoEmplazamiento',
     provincia: 'provinciaEmplazamiento',

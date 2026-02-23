@@ -25,6 +25,8 @@ export const masterFormFields = [
   { name: 'provinciaEmplazamiento', label: 'Provincia del Emplazamiento', placeholder: 'Ej: Sevilla', type: 'text', subsection: 'A' },
   { name: 'codigoPostalEmplazamiento', label: 'Código Postal del Emplazamiento', placeholder: 'Ej: 41001', type: 'text', subsection: 'A' },
   { name: 'referenciaCatastral', label: 'Referencia Catastral', placeholder: 'Ej: 4127805SG0000200000CT', type: 'text', subsection: 'A' },
+  { name: 'denominacionEstablecimiento', label: 'Denominación del Establecimiento', placeholder: 'Ej: Bar Los Amigos', type: 'text', subsection: 'A' },
+  { name: 'nifEstablecimiento', label: 'NIF del Establecimiento', placeholder: 'Ej: B12345678', type: 'text', subsection: 'A' },
 
   /*   { name: 'tipoVia', label: 'Tipo de Vía', placeholder: 'Ej: Avenida, Calle, Plaza...', type: 'text', subsection: 'A' },
    */
@@ -207,7 +209,7 @@ export const masterFormFields = [
   { name: 'nombreRepresentanteEntidad', label: 'Nombre del Representante de la Entidad', placeholder: 'Ej: Juan Pérez', type: 'text', fullWidth: true, subsection: 'LEGALIZACION' },
   { name: 'dniRepresentanteEntidad', label: 'DNI del Representante de la Entidad', placeholder: 'Ej: 12345678A', type: 'text', subsection: 'LEGALIZACION' },
   { name: 'denominacionEstablecimiento', label: 'Denominación del Establecimiento', placeholder: 'Ej: Bar Los Amigos', type: 'text', subsection: 'LEGALIZACION' },
-
+  { name: 'nifEstablecimiento', label: 'NIF del Establecimiento', placeholder: 'Ej: B12345678', type: 'text', subsection: 'LEGALIZACION' },
   // ========== SECCIÓN ACEPTACION: ACEPTACIÓN Y CONFORMIDAD ==========
   { name: 'codigoEni', label: 'Código ENI', placeholder: 'Ej: ENI12345', type: 'text', subsection: 'ACEPTACION' },
   { name: 'expedienteEco', label: 'Expediente ECO', placeholder: 'Ej: ECO12345', type: 'text', subsection: 'ACEPTACION' },
@@ -215,19 +217,23 @@ export const masterFormFields = [
   { name: 'importeSubvencion', label: 'Importe de la Subvención', placeholder: 'Ej: 1500 €', type: 'text', subsection: 'ACEPTACION' },
   {
     name: 'edificioVivienda', label: 'Edificio o Vivienda', placeholder: 'Ej: selecciona una opción', type: 'select', options: [
-      { label: 'Edificio', value: '' },
-      { label: 'Vivienda', value: '' },
+      { label: 'Edificio', value: 'rehabilitacion a nivel de edificio' },
+      { label: 'Vivienda', value: 'mejora de la eficiencia energetica en viviendas' },
     ], subsection: 'ACEPTACION'
   },
+  { name: 'diaAceptacion', label: 'Día Aceptación', placeholder: 'Ej: 15', type: 'text', subsection: 'ACEPTACION' },
+  { name: 'mesAceptacion', label: 'Mes Aceptación', placeholder: 'Ej: 10', type: 'text', subsection: 'ACEPTACION' },
+  { name: 'anioAceptacion', label: 'Año Aceptación', placeholder: 'Ej: 2024', type: 'text', subsection: 'ACEPTACION' },
   // ========== SUBSECCIÓN JUSTIFICACIÓN ==========
   { name: 'edificioViviendaJUS', label: 'Tipo de Edificio/Vivienda', type: 'select', options: ['edificio', 'vivienda'], subsection: 'JUSTIFICACION' },
-  { name: 'l3l4', label: 'Línea de Subvención', type: 'text', placeholder: 'ej: Línea 3', subsection: 'JUSTIFICACION' },
+  { name: 'l3l4', label: 'Línea de Subvención', type: 'select',options: ['Línea 3', 'Línea 4'], placeholder: 'ej: Línea 3', subsection: 'JUSTIFICACION' },
   {
     name: 'parrafoTexto', label: 'Párrafo Introducción', type: 'select', options: [
       { label: 'Línea 3', value: 'Estas ayudas tienen por objeto la financiación de obras o actuaciones en los edificios de uso predominante residencial en las que se obtenga una mejora acreditada de la eficiencia energética, con especial atención a la envolvente edificatoria en edificios de tipología residencial colectiva, incluyendo sus viviendas, y en las viviendas unifamiliares.' },
       { label: 'Línea 4', value: 'Estas ayudas tienen por objeto la financiación de actuaciones u obras de mejora de la eficiencia energética en las viviendas, ya sean unifamiliares o pertenecientes a edificios plurifamiliares' }
     ], subsection: 'JUSTIFICACION', fullWidth: true
   },
+  { name: 'tipoActuacion', label: 'Actua en calidad de...', type: 'text', placeholder: 'Ej: Propietario', subsection: 'JUSTIFICACION' },
   { name: 'numeroFactura', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'fechaFactura', label: 'Fecha Factura', type: 'date', subsection: 'JUSTIFICACION' },
   { name: 'cf', label: 'CF', type: 'text', subsection: 'JUSTIFICACION' },
@@ -273,7 +279,7 @@ export const masterFormFields = [
   { name: 'pedido2FechaPedido', label: 'Fecha Pedido', placeholder: 'Ej: 17/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
   { name: 'pedido2ImportePedido', label: 'Importe Pedido (€)', placeholder: 'Ej: 2500', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
 
-  // Pedido 3
+/*   // Pedido 3
   { name: 'pedido3Concepto', label: 'Concepto', placeholder: 'Ej: Estructura de montaje', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
   { name: 'pedido3Proveedor', label: 'Proveedor', placeholder: 'Ej: Empresa DEF', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
   { name: 'pedido3IdOferta', label: 'Id. Oferta', placeholder: 'Ej: OF-2025-003', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
@@ -302,7 +308,7 @@ export const masterFormFields = [
   { name: 'pedido5IdPedido', label: 'Id. Pedido', placeholder: 'Ej: PED-2025-005', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
   { name: 'pedido5FechaPedido', label: 'Fecha Pedido', placeholder: 'Ej: 20/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
   { name: 'pedido5ImportePedido', label: 'Importe Pedido (€)', placeholder: 'Ej: 800', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
-
+ */
 ]
 
 export const getMasterFormDefaultData = () => {
