@@ -1754,7 +1754,7 @@ export const zCertificadoBRConfig = {
     terminacioAnual: 'terminacioAnual',
     nombre: 'apellidosNombre',
     nif: 'nifCif',
-    domicilio: 'emplazamientoCalle',
+    domicilio: (dataForm) => `${dataForm.emplazamientoCalle} ${dataForm.numero || ''}`.trim(),
     cp: 'codigoPostalEmplazamiento',
     localidad: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',
