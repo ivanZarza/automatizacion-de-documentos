@@ -7,7 +7,6 @@
         <div class="logos-grupo">
           <img src="/logos/iconos-organizaciones.png" alt="Gobierno de España" class="logo" onerror="this.style.display = 'none'" />
           <img src="/logos/icono-junta-andalucia.png" alt="Junta de Andalucía" class="logo" />
-          <img src="/logos/icono-ue.png" alt="Unión Europea" class="logo" onerror="this.style.display = 'none'" />
         </div>
       </div>
 
@@ -120,7 +119,6 @@
         <div class="logos-grupo">
           <img src="/logos/iconos-organizaciones.png" alt="Gobierno de España" class="logo" onerror="this.style.display = 'none'" />
           <img src="/logos/icono-junta-andalucia.png" alt="Junta de Andalucía" class="logo" />
-          <img src="/logos/icono-ue.png" alt="Unión Europea" class="logo" onerror="this.style.display = 'none'" />
         </div>
       </div>
 
@@ -245,7 +243,6 @@
         <div class="logos-grupo">
           <img src="/logos/iconos-organizaciones.png" alt="Gobierno de España" class="logo" onerror="this.style.display = 'none'" />
           <img src="/logos/icono-junta-andalucia.png" alt="Junta de Andalucía" class="logo" />
-          <img src="/logos/icono-ue.png" alt="Unión Europea" class="logo" onerror="this.style.display = 'none'" />
         </div>
       </div>
 
