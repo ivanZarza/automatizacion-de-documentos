@@ -175,7 +175,7 @@
         </div>
 
         <!-- PLANO DE CUBIERTA -->
-        <div class="seccion-plano">
+        <div class="seccion-plano" style="margin-bottom: 0;">
           <h2 class="titulo-seccion">Plano de Cubierta</h2>
           
           <div class="contenedor-plano-situacion">
@@ -505,7 +505,7 @@ const formattedData = computed(() => ({
 
 /* ========== PLANO DE SITUACIÓN ========== */
 .seccion-plano {
-  margin: 8px 0;
+  margin: 10px 0 250px 0;
 }
 
 .contenedor-plano-situacion {
@@ -577,7 +577,7 @@ const formattedData = computed(() => ({
 
 /* ========== LOGOS Y CERTIFICACIONES ========== */
 .seccion-logos {
-  margin: 40px 0;
+  margin: 40px 0 250px 0px;
   padding: 8px 0;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
