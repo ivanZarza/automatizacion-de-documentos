@@ -325,94 +325,57 @@
 
 // Props editables
 defineProps({
-  expediente: {
-    type: String,
-    default: '003832'
-  },
-  nif: {
-    type: String,
-    default: 'B-003637D'
-  },
-  edificioVivienda: {
-    type: String,
-    default: 'vivienda'
-  },
-  l3l4: {
-    type: String,
-    default: 'Línea 3'
-  },
-  parrafoTexto: {
-    type: String,
-    default: 'Estas ayudas tienen por objeto la financiación de obras o actuaciones en los edificios de uso predominante residencial en las que se obtenga una mejora acreditada de la eficiencia energética, con especial atención a la envolvente edificatoria en edificios de tipología residencial colectiva, incluyendo sus viviendas, y en las viviendas unifamiliares.'
-  },
-  totalCantidadJustificada: {
-    type: String,
-    default: '0,00'
-  },
-  presupuestoInicial: {
-    type: String,
-    default: '0,00'
-  },
-  inversionRealizada: {
-    type: String,
-    default: '0,00'
-  },
-  desviacion: {
-    type: String,
-    default: '0,00'
-  },
-  fechaFirma: {
-    type: String,
-    default: 'fechaFirma'
-  },
-  diaFirmaJustificacion: {
-    type: String,
-    default: 'diaFirmaJustificacion'
-  },
-  mesFirmaJustificacion: {
-    type: String,
-    default: 'mesFirmaJustificacion'
-  },
-  anioFirmaJustificacion: {
-    type: String,
-    default: 'anioFirmaJustificacion'
-  },  
-  nombreFirma: {
-    type: String,
-    default: 'nombreFirma'
-  },
-  firmaImagen: {
-    type: String,
-    default: ''
-  },
-  numeroFactura: {
-    type: String,
-    default: '003832'
-  },
-  fechaFactura: {
-    type: String,
-    default: '06/10/23'
-  },
-  cf: {
-    type: String,
-    default: 'B-003637D'
-  },
-  acreedor: {
-    type: String,
-    default: 'MAS SOL ENERGIA 15 S.L.U'
-  },
-  concepto: {
-    type: String,
-    default: ''
-  },
-  fechaPago: {
-    type: String,
-    default: '24/07/2023'
-  },
-  importe: {
-    type: String,
-    default: '8.400,00'
-  }
+  expediente: { type: String, default: '003832' },
+  nif: { type: String, default: 'B-003637D' },
+  edificioVivienda: { type: String, default: 'vivienda' },
+  l3l4: { type: String, default: 'Línea 3' },
+  parrafoTexto: { type: String, default: 'Estas ayudas tienen por objeto la financiación de obras o actuaciones en los edificios de uso predominante residencial en las que se obtenga una mejora acreditada de la eficiencia energética, con especial atención a la envolvente edificatoria en edificios de tipología residencial colectiva, incluyendo sus viviendas, y en las viviendas unifamiliares.' },
+  totalCantidadJustificada: { type: String, default: '0,00' },
+  presupuestoInicial: { type: String, default: '0,00' },
+  inversionRealizada: { type: String, default: '0,00' },
+  desviacion: { type: String, default: '0,00' },
+  fechaFirma: { type: String, default: 'fechaFirma' },
+  diaFirmaJustificacion: { type: String, default: 'diaFirmaJustificacion' },
+  mesFirmaJustificacion: { type: String, default: 'mesFirmaJustificacion' },
+  anioFirmaJustificacion: { type: String, default: 'anioFirmaJustificacion' },
+  nombreFirma: { type: String, default: 'nombreFirma' },
+  firmaImagen: { type: String, default: '' },
+  // Props para las filas de la tabla de gastos
+  numeroFactura1: { type: String, default: '' },
+  fechaFactura1: { type: String, default: '' },
+  cf1: { type: String, default: '' },
+  acreedor1: { type: String, default: '' },
+  concepto1: { type: String, default: '' },
+  fechaPago1: { type: String, default: '' },
+  importe1: { type: String, default: '' },
+  numeroFactura2: { type: String, default: '' },
+  fechaFactura2: { type: String, default: '' },
+  cf2: { type: String, default: '' },
+  acreedor2: { type: String, default: '' },
+  concepto2: { type: String, default: '' },
+  fechaPago2: { type: String, default: '' },
+  importe2: { type: String, default: '' },
+  numeroFactura3: { type: String, default: '' },
+  fechaFactura3: { type: String, default: '' },
+  cf3: { type: String, default: '' },
+  acreedor3: { type: String, default: '' },
+  concepto3: { type: String, default: '' },
+  fechaPago3: { type: String, default: '' },
+  importe3: { type: String, default: '' },
+  numeroFactura4: { type: String, default: '' },
+  fechaFactura4: { type: String, default: '' },
+  cf4: { type: String, default: '' },
+  acreedor4: { type: String, default: '' },
+  concepto4: { type: String, default: '' },
+  fechaPago4: { type: String, default: '' },
+  importe4: { type: String, default: '' },
+  numeroFactura5: { type: String, default: '' },
+  fechaFactura5: { type: String, default: '' },
+  cf5: { type: String, default: '' },
+  acreedor5: { type: String, default: '' },
+  concepto5: { type: String, default: '' },
+  fechaPago5: { type: String, default: '' },
+  importe5: { type: String, default: '' }
 });
 </script>
 
