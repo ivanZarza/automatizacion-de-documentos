@@ -1,8 +1,8 @@
 export const autorizacionRepresentacionConfig = {
   id: 'autorizacion-representacion',
-  title: 'Autorización de Representación',
+  title: '1.- Autorización de Representación',
   description: 'Documento válido para trámites administrativos',
-  fileName: 'autorizacion-representacion.pdf',
+  fileName: '1.- autorizacion-representacion.pdf',
   route: '/autorizacion-representacion',
   fields: [
     { type: 'subsection', label: 'Justificación', name: 'justificacion', description: 'Datos específicos para la justificación económica de la subvención.' },
@@ -51,7 +51,7 @@ export const declaracionHabilitacionProfesionalConfig = {
   id: 'declaracion-habilitacion-profesional',
   title: 'Declaración Responsable de Habilitación Profesional',
   description: 'Documento de declaración de habilitación profesional para colegiados',
-  fileName: 'declaracion-habilitacion-profesional.pdf',
+  fileName: '9.- DR de Habilitación Profesional.pdf',
   route: '/declaracion-habilitacion-profesional',
   fields: [
     { name: 'nombreProfesional', label: 'Nombre del Profesional', type: 'text', fullWidth: true },
@@ -94,7 +94,7 @@ export const certificadoCoplanarTejaConfig = {
   id: 'certificado-coplanar-teja',
   title: 'Certificado de Solidez y Seguridad de la Cubierta - Coplanar Teja',
   description: 'Documento de certificación de solidez y seguridad para instalaciones fotovoltaicas en cubierta de teja coplanar',
-  fileName: 'certificado-coplanar-teja.pdf',
+  fileName: '7.- Certificado de solidez y seguridad.pdf',
   route: '/certificado-coplanar-teja',
   fields: [
     { name: 'direccion', label: 'Dirección', type: 'text', fullWidth: true },
@@ -158,7 +158,7 @@ export const certificadoCubiertaPlanAaporticadaConfig = {
   id: 'certificado-cubierta-plan-aaporticada',
   title: 'Certificado de Solidez y Seguridad de la Cubierta - Plana Aportícada',
   description: 'Documento de certificación de solidez y seguridad para instalaciones fotovoltaicas en cubierta plana con estructura aportícada',
-  fileName: 'certificado-cubierta-plan-aaporticada.pdf',
+  fileName: '7.- Certificado de solidez y seguridad.pdf',
   route: '/certificado-cubierta-plan-aaporticada',
   fields: [
     { name: 'direccion', label: 'Dirección', type: 'text', fullWidth: true },
@@ -222,7 +222,7 @@ export const certificadoAporticadaTejConfig = {
   id: 'certificado-aporticada-teja',
   title: 'Certificado de Solidez y Seguridad - Aporticada Teja',
   description: 'Certificado de solidez y seguridad de la cubierta para instalación aporticada sobre teja',
-  fileName: 'certificado-aporticada-teja.pdf',
+  fileName: '7.- Certificado de solidez y seguridad.pdf',
   route: '/certificado-aporticada-teja',
   fields: [
     { name: 'direccion', label: 'Dirección', type: 'text', fullWidth: true },
@@ -282,7 +282,7 @@ export const certificadoChapasGrecadasAporticadaConfig = {
   id: 'certificado-chapas-grecadas-aporticada',
   title: 'Certificado de Solidez y Seguridad - Chapas Grecadas Aporticada',
   description: 'Certificado de solidez y seguridad de la cubierta para instalación aporticada sobre chapas grecadas',
-  fileName: 'certificado-chapas-grecadas-aporticada.pdf',
+  fileName: '7.- Certificado de solidez y seguridad.pdf',
   route: '/certificado-chapas-grecadas-aporticada',
   fields: [
     { name: 'direccion', label: 'Dirección', type: 'text', fullWidth: true },
@@ -342,7 +342,7 @@ export const certificadoParamentoVerticalConfig = {
   id: 'certificado-paramento-vertical',
   title: 'Certificado de Solidez y Seguridad de la Cubierta - Paramento Vertical',
   description: 'Documento de certificación de solidez y seguridad para instalaciones fotovoltaicas en paramento vertical',
-  fileName: 'certificado-paramento-vertical.pdf',
+  fileName: '7.- Certificado de solidez y seguridad.pdf',
   route: '/certificado-paramento-vertical',
   fields: [
     { name: 'direccion', label: 'Dirección', type: 'text', fullWidth: true },
@@ -402,7 +402,7 @@ export const certificadoPergolaAporticadaConfig = {
   id: 'certificado-pergola-aporticada',
   title: 'Certificado de Solidez y Seguridad de la Cubierta - Pérgola Aporticada',
   description: 'Documento de certificación de solidez y seguridad para instalaciones fotovoltaicas sobre pérgola aporticada',
-  fileName: 'certificado-pergola-aporticada.pdf',
+  fileName: '7.- Certificado de solidez y seguridad.pdf',
   route: '/certificado-pergola-aporticada',
   fields: [
     { name: 'direccion', label: 'Dirección', type: 'text', fullWidth: true },
@@ -472,7 +472,7 @@ export const memoriaTecnicaConfig = {
   id: 'mtd-instalacion-autoconsumo-monofasica-con-bateria',
   title: 'Memoria Técnica de Instalación de Autoconsumo Monofásica con Batería',
   description: 'Documento técnico para instalaciones fotovoltaicas en baja tensión',
-  fileName: '6-MTD-INSTALACION-AUTOCONSUMO-MONOFASICA-CON-BATERIA.pdf',
+  fileName: '6.- MTD.pdf',
   route: '/mtd-instalacion-autoconsumo-monofasica-con-bateria',
   defaultData: {
     // Expediente
@@ -748,7 +748,7 @@ export const memoriaInstalacionAisladaConBateriaConfig = {
   id: 'mtd-instalacion-aislada-con-bateria',
   title: 'Memoria Técnica de Instalación Aislada con Batería',
   description: 'Documento técnico para instalaciones fotovoltaicas aisladas con almacenamiento',
-  fileName: 'mtd-instalacion-aislada-con-bateria.pdf',
+  fileName: '6.- MTD.pdf',
   route: '/mtd-instalacion-aislada-con-bateria',
   defaultData: {
     // Expediente
@@ -1026,7 +1026,7 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
   id: 'mtd-instalacion-autoconsumo-trifasica-con-bateria',
   title: 'Memoria Técnica de Instalación de Autoconsumo Trifásica con Batería',
   description: 'Documento técnico para instalaciones fotovoltaicas en baja tensión (trifásica con batería)',
-  fileName: '6-MTD-INSTALACION-AUTOCONSUMO-TRIFASICA-CON-BATERIA.pdf',
+  fileName: '6.- MTD.pdf',
   route: '/mtd-instalacion-autoconsumo-trifasica-con-bateria',
   defaultData: {
     // Expediente
@@ -1169,7 +1169,7 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
   id: 'mtd-instalacion-autoconsumo-sin-bateria',
   title: 'Memoria Técnica de Instalación Autoconsumo Sin Batería',
   description: 'Documento técnico para instalaciones fotovoltaicas en baja tensión (autoconsumo sin batería)',
-  fileName: '6-MTD-INSTALACION-AUTOCONSUMO-SIN-BATERIA.pdf',
+  fileName: '6.- MTD.pdf',
   route: '/mtd-instalacion-autoconsumo-sin-bateria',
   defaultData: {
     // Expediente
@@ -1365,7 +1365,7 @@ export const memoriaTecnicaPuntoRecargaConfig = {
   id: 'mtd-instalacion-puntos-recarga',
   title: 'Memoria Técnica de Instalación de Puntos de Recarga para Vehículos Eléctricos',
   description: 'Documento técnico para instalaciones de recarga de vehículos eléctricos',
-  fileName: '6-MTD-INSTALACION-PUNTOS-RECARGA.pdf',
+  fileName: '6.- MTD.pdf',
   route: '/mtd-instalacion-puntos-recarga',
   defaultData: {
     // Expediente
@@ -1512,7 +1512,7 @@ export const declaracionNoGeneracionRcdsConfig = {
   id: 'declaracion-no-generacion-rcds',
   title: 'Declaración Responsable de No Generación de RCDs',
   description: 'Declaración de no generación de residuos de construcción y demolición',
-  fileName: 'declaracion-no-generacion-rcds.pdf',
+  fileName: '8.- DR No Generación de Residuos.pdf',
   route: '/declaracion-no-generacion-rcds',
   fields: [
     { name: 'direccion', label: 'Dirección', type: 'text', fullWidth: true },
@@ -1557,7 +1557,7 @@ export const planosPlanosSituacionEmplazamientoCubiertaConfig = {
   id: 'planos-situacion-emplazamiento-cubierta',
   title: 'Planos de Situación, Emplazamiento y Cubierta',
   description: 'Documento con planos de ubicación, emplazamiento y disposición de módulos fotovoltaicos',
-  fileName: 'planos-situacion-emplazamiento-cubierta.pdf',
+  fileName: '12.- Planos de Situación, Emplazamiento y Cubierta.pdf',
   route: '/planos-situacion-emplazamiento-cubierta',
   fields: [
     // Datos del Promotor
@@ -1663,7 +1663,7 @@ export const zCertificadoBRConfig = {
   id: 'z-certificado-br',
   title: 'Certificado de Instalación Eléctrica de Baja Tensión',
   description: 'Plantilla base para legalización con bloques preparados para posicionar variables sobre formulario.',
-  fileName: 'z-certificado-br.pdf',
+  fileName: '2.- CIE.pdf',
   route: '/z-certificado-br',
   fields: [
     { name: 'registro_instalacion', label: 'Registro instalación', type: 'text' },
@@ -1808,15 +1808,11 @@ export const zCertificadoBRConfig = {
   category: 'legalizacion'
 }
 
-/**
- * AUTORIZACIÓN PARA PRESENTAR LA COMUNICACIÓN DE PUESTA EN FUNCIONAMIENTO
- * Documento multi-página (3 páginas) - Junta de Andalucía ANEXO III
- */
 export const autorizacionComunicacionConfig = {
   id: 'autorizacion-comunicacion',
   title: 'Autorización para Comunicación de Puesta en Funcionamiento',
-  description: 'Formulario ANEXO III - Junta de Andalucía. Autorización para presentar la comunicación de puesta en funcionamiento de establecimientos o instalaciones industriales.',
-  fileName: 'autorización-comunicación.pdf',
+  description: 'ANEXO III - Junta de Andalucía. Autorización para presentar la comunicación de puesta en funcionamiento de establecimientos o instalaciones industriales.',
+  fileName: 'ANEXO III.pdf',
   route: '/autorizacion-comunicacion',
   pages: 3,
   fields: [
@@ -1970,7 +1966,7 @@ export const certificadoAdecuacionConfig = {
   id: 'certificado-adecuacion',
   title: 'Certificado de Adecuación al Real Decreto 1699/2011',
   description: 'Certificado de adecuación para instalaciones eléctricas según RD 1699/2011',
-  fileName: 'certificado-adecuacion.pdf',
+  fileName: '7.- Certificado de Adecuación al RD 1699-2011.pdf',
   route: '/certificado-adecuacion',
   fields: [
     { name: 'almacenamiento', label: 'Almacenamiento', type: 'text', fullWidth: true },
@@ -2020,7 +2016,7 @@ export const zCertificadoDOACFVConfig = {
   id: 'z-certificado-doacfv',
   title: 'Certificado de Dirección de Obra de Instalación de Equipos',
   description: 'Certificado para dirección de obra de instalación solar fotovoltaica de autoconsumo',
-  fileName: 'certificado-direccion-obra-instalacion-equipos.pdf',
+  fileName: '3.- Certificado de Dirección de Obra.pdf',
   route: '/z-certificado-doacfv',
   fields: [
     { name: 'titular', label: 'Titular/Promotor', type: 'text', fullWidth: true },
@@ -2073,7 +2069,7 @@ export const zDeclaracionDireccionObraConfig = {
   id: 'z-declaracion-direccion-obra',
   title: 'Declaración Responsable Dirección de Obra',
   description: 'Declaración responsable para la dirección de obra con campos sobre imagen de fondo',
-  fileName: 'declaracion-responsable-direccion-obra.pdf',
+  fileName: '3.a- Declaración Responsable DO.pdf',
   route: '/z-declaracion-direccion-obra',
   fields: [
     { name: 'potencia', label: 'Potencia', type: 'text' },
@@ -2149,9 +2145,9 @@ export const zDeclaracionTecnicoCompetenteConfig = {
   id: 'z-declaracion-tecnico-competente',
   title: 'Declaración Responsable Técnico Competente',
   description: 'Declaración responsable para técnico competente con campos sobre imagen de fondo',
-  fileName: 'declaracion-tecnico-competente.pdf',
-  route: '/z-declaracion-tecnico-competente',
-  fields: [
+  fileName: '1.1.a - DR Técnico Competente.pdf',
+    route: '/z-declaracion-tecnico-competente',
+    fields: [
     { name: 'potencia', label: 'Potencia', type: 'text' },
     { name: 'provincia', label: 'Provincia', type: 'text' },
     { name: 'fechaElaboracion', label: 'Fecha de Elaboración', type: 'date' },

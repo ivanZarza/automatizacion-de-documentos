@@ -173,7 +173,10 @@ const saveChanges = () => {
 
 const generatePDF = async () => {
   // Lógica para generar PDF
-  const { generatePDF: generatePDFUtil } = useDocument({ defaultData: formData.value })
+  const { generatePDF: generatePDFUtil } = useDocument({ 
+    defaultData: formData.value,
+    documentTitle: props.config.title 
+  })
   await generatePDFUtil()
 }
 

@@ -69,7 +69,7 @@ defineProps({
   },
   uso: {
     type: String,
-    default: 'doméstico o negocio'
+    default: ''
   },
   ciudadFirma: {
     type: String,
