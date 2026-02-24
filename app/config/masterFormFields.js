@@ -61,12 +61,18 @@ export const masterFormFields = [
   { name: 'disposicionModulos', label: 'DISPOSICIÓN DE LOS MÓDULOS', placeholder: 'Ej: En fila horizontal', type: 'select', options: ['Cubierta Teja - Aporticada', 'Cubierta Teja - Coplanar', 'Cubierta Plana', 'Pergola', 'Chapa Grecada - Aporticada', 'Chapa Grecada - Coplanar', 'Suelo', 'Paramento Vertical'], subsection: 'E2', group: 'Modulo' },
 
   // E2.4 Inversor
-  { name: 'e2_marcaModeloInversor', label: 'MARCA Y MODELO', placeholder: 'Ej: Fronius Symo', type: 'text', subsection: 'E2', group: 'Inversor' },
-  { name: 'e2_potenciaNominalInversor', label: 'POTENCIA NOMINAL (kW)', placeholder: 'Ej: 5000', type: 'text', subsection: 'E2', group: 'Inversor' },
-  { name: 'e2_relacionTensionInversor', label: 'RELACIÓN TENSIÓN  AC, Vn (V)', placeholder: 'Ej: 230V/400V', type: 'text', subsection: 'E2', group: 'Inversor' },
-  { name: 'e2_formaOndaSalidaInversor', label: 'Vcc MÁXIMA', placeholder: 'Ej: Senoidal Pura', type: 'text', subsection: 'E2', group: 'Inversor' },
-  { name: 'e2_frecuenciaNominalInversor', label: 'Vcc MÍNIMA ', placeholder: 'Ej: 50', type: 'text', subsection: 'E2', group: 'Inversor' },
-  { name: 'e2_tensionMaximaEntradaInversor', label: 'CONEXIÓN', placeholder: 'Ej: 65', type: 'text', subsection: 'E2', group: 'Inversor' },
+  { name: 'e2_marcaModeloInversor', label: 'MARCA Y MODELO 1', placeholder: 'Ej: Fronius Symo', type: 'text', subsection: 'E2', group: 'Inversor' },
+  { name: 'e2_potenciaNominalInversor', label: 'POTENCIA NOMINAL (kW) 1', placeholder: 'Ej: 5000', type: 'text', subsection: 'E2', group: 'Inversor' },
+  { name: 'e2_relacionTensionInversor', label: 'RELACIÓN TENSIÓN  AC, Vn (V) 1', placeholder: 'Ej: 230V/400V', type: 'text', subsection: 'E2', group: 'Inversor' },
+  { name: 'e2_formaOndaSalidaInversor', label: 'Vcc MÁXIMA 1', placeholder: 'Ej: Senoidal Pura', type: 'text', subsection: 'E2', group: 'Inversor' },
+  { name: 'e2_frecuenciaNominalInversor', label: 'Vcc MÍNIMA 1', placeholder: 'Ej: 50', type: 'text', subsection: 'E2', group: 'Inversor' },
+  { name: 'e2_tensionMaximaEntradaInversor', label: 'CONEXIÓN 1', placeholder: 'Ej: 65', type: 'text', subsection: 'E2', group: 'Inversor' },
+  { name: 'e2_marcaModeloInversor2', label: 'MARCA Y MODELO 2', placeholder: 'Ej: Fronius Symo', type: 'text', subsection: 'E2', group: 'Inversor' },
+  { name: 'e2_potenciaNominalInversor2', label: 'POTENCIA NOMINAL (kW) 2', placeholder: 'Ej: 5000', type: 'text', subsection: 'E2', group: 'Inversor' },
+  { name: 'e2_relacionTensionInversor2', label: 'RELACIÓN TENSIÓN  AC, Vn (V) 2', placeholder: 'Ej: 230V/400V', type: 'text', subsection: 'E2', group: 'Inversor' },
+  { name: 'e2_formaOndaSalidaInversor2', label: 'Vcc MÁXIMA 2', placeholder: 'Ej: Senoidal Pura', type: 'text', subsection: 'E2', group: 'Inversor' },
+  { name: 'e2_frecuenciaNominalInversor2', label: 'Vcc MÍNIMA 2', placeholder: 'Ej: 50', type: 'text', subsection: 'E2', group: 'Inversor' },
+  { name: 'e2_tensionMaximaEntradaInversor2', label: 'CONEXIÓN 2', placeholder: 'Ej: 65', type: 'text', subsection: 'E2', group: 'Inversor' },
   /*   { name: 'e2_tensionSalidaInversor', label: 'TENSIÓN SALIDA (V)', placeholder: 'Ej: 400', type: 'text', subsection: 'E2' },
     { name: 'e2_consumoVacioInversor', label: 'CONSUMO EN VACÍO', placeholder: 'Ej: 50', type: 'text', subsection: 'E2' }, */
 
@@ -270,7 +276,7 @@ export const masterFormFields = [
   { name: 'importeCertificacion', label: 'Importe Certificación', placeholder: 'Ej: 5000.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'importeOtrosCostes', label: 'Importe Otros Costes', placeholder: 'Ej: 500.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'importeTotal', label: 'Importe Total', placeholder: 'Ej: 5500.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'aerotermia', label: 'Incluir sección de Aerotermia', type: 'checkbox', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'aerotermia', label: 'Incluir sección de Aerotermia1', type: 'checkbox', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'tecnicoRedactor', label: 'Técnico Redactor', placeholder: 'Ej: Eduardo Rivera Cabezas', type: 'text', fullWidth: true, subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'zaharilla', label: 'Zaharilla', placeholder: 'Ej: Datos ubicación', type: 'text', fullWidth: true, subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
 

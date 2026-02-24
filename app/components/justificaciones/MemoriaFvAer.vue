@@ -74,12 +74,10 @@
           </p>
 
           <p class="texto-parrafo">
-            <span class="texto-opcional">{{ textoOpcional1 }}</span> mediante la
-            ejecución de una instalación fotovoltaica para autoconsumo.<span
-              class="textoAerotermia"
-              >{{ textoAerotermia1 }}</span
-            >
+            <span class="texto-opcional">{{ textoOpcional1 }}</span> mediante la{{ textoAerotermia1 }}
+            ejecución de una instalación fotovoltaica para autoconsumo.<span class="textoAerotermia">y montaje y conexionados eléctrico y de tuberías de ACS de una bomba de calor aerotérmica de {{ potenciaBomba }}1,8 kW de potencia térmica nominar (Calor) con depósito incorporado de {{ depositoLitros }} 200 litros para la producción de ACS, al tener menos de 5 Kw no es obligatorio registrarla en Industria.</span>
           </p>
+          <div v-if="caracteristicasAerotermia" class="caracteristicas-aerotermia">{{ caracteristicasAerotermia }}</div>
         </div>
 
         <!-- Sección 2: Fecha de conclusión -->
@@ -415,6 +413,7 @@ defineProps({
   fechaConclusionAnio: { type: String, default: "" },
   tipoSoporte: { type: String, default: "PLANA" },
   textoAerotermia2: { type: String, default: "" },
+  caracteristicasAerotermia: { type: String, default: "" },
   aerotermia: { type: Boolean, default: false },
   coincidencia: { type: String, default: "" },
   importeActuacionesSinIva: { type: String, default: "0,00 €" },
@@ -660,6 +659,23 @@ defineProps({
   text-align: center;
   font-weight: bold;
   color: red;
+}
+
+/* ========== TEXTO AEROTERMIA ========== */
+.textoAerotermia {
+  font-style: serif;
+  line-height: 1.4;
+}
+
+.caracteristicas-aerotermia {
+  white-space: pre-line;
+  margin: 10px 0 8px 0;
+  padding: 10px 15px;
+  background-color: #f5f5f5;
+  border-left: 3px solid purple;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #333;
 }
 
 /* ========== FIRMA ========== */

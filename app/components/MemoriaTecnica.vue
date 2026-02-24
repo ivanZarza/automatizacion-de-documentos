@@ -932,7 +932,7 @@
             <div class="fila-grid fila-2col">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">MARCA Y MODELO:</div>
-                <div class="valor">{{ marcaModeloInversor }}</div>
+                <div class="valor">{{ marcaModeloInversor }} </div>
               </div>
               <div class="celda">
                 <div class="etiqueta">POTENCIA AC NOMINAL (Kw):</div>
@@ -949,7 +949,7 @@
                 <div class="valor">{{ vccMaximaInversor }}</div>
               </div>
             </div>
-            <div class="fila-grid fila-2col fila-sin-borde">
+            <div class="fila-grid fila-2col fila-sin-borde"  style="border-bottom:3px solid black;">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">Vcc MÍNIMA (V):</div>
                 <div class="valor">{{ vccMinimaInversor }}</div>
@@ -957,6 +957,37 @@
               <div class="celda">
                 <div class="etiqueta">CONEXIÓN:</div>
                 <div class="valor">{{ tipoConexionInversor }}</div>
+              </div>
+            </div>
+            <!-- Segundo Inversor -->
+             <div class="fila-grid fila-2col">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta">MARCA Y MODELO:</div>
+                <div class="valor">{{ marcaModeloInversor2 }}</div>
+              </div>
+              <div class="celda">
+                <div class="etiqueta">POTENCIA AC NOMINAL (Kw):</div>
+                <div class="valor">{{ potenciaACInversor2 }}</div>
+              </div>
+            </div>
+            <div class="fila-grid fila-2col">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta">TENSIÓN NOMINAL AC, Vn (V):</div>
+                <div class="valor">{{ tensionNominalInversor2 }}</div>
+              </div>
+              <div class="celda">
+                <div class="etiqueta">Vcc MÁXIMA (V):</div>
+                <div class="valor">{{ vccMaximaInversor2 }}</div>
+              </div>
+            </div>
+            <div class="fila-grid fila-2col fila-sin-borde">
+              <div class="celda celda-izquierda">
+                <div class="etiqueta">Vcc MÍNIMA (V):</div>
+                <div class="valor">{{ vccMinimaInversor2 }}</div>
+              </div>
+              <div class="celda">
+                <div class="etiqueta">CONEXIÓN:</div>
+                <div class="valor">{{ tipoConexionInversor2 }}</div>
               </div>
             </div>
           </div>
@@ -1454,6 +1485,12 @@ defineProps({
   vccMaximaInversor: String,
   vccMinimaInversor: String,
   tipoConexionInversor: String,
+  marcaModeloInversor2: String,
+  potenciaACInversor2: String,
+  tensionNominalInversor2: String,
+  vccMaximaInversor2: String,
+  vccMinimaInversor2: String,
+  tipoConexionInversor2: String,
   // E2.5
   marcaModeloBateria: String,
   tipoBateria: String,
