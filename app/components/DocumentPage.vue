@@ -60,7 +60,7 @@
       <client-only>
         <component 
           :is="documentComponent" 
-          v-bind="formData"
+          v-bind="{ ...formData, ...(config.componentProps || {}) }"
           :generatedDate="generatedDate"
         />
       </client-only>

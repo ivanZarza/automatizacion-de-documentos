@@ -822,7 +822,7 @@
         <div class="cuerpo-seccion">
           <div class="titulo-subseccion-principal">
             <span class="subseccion-titulo-span">E2</span>. INSTALACIÓN
-            GENERADORA FOTOVOLTAICA INTERCONECTADA CON ALMACENAMIENTO
+            {{ tituloe2 }}
           </div>
 
           <!-- E2.1 Conexión a la Red -->
@@ -1306,6 +1306,7 @@ defineProps({
   // Títulos personalizables
   titulo: { type: String, default: 'MEMORIA TÉCNICA DE DISEÑO' },
   subtitulo: { type: String, default: 'INSTALACIONES FOTOVOLTAICAS EN BAJA TENSIÓN' },
+  tituloe2: { type: String, default: 'GENERADORA FOTOVOLTAICA INTERCONECTADA CON ALMACENAMIENTO' },
   // Expediente
   numeroExpediente: String,
   numeroRegistro: String,

@@ -474,6 +474,9 @@ export const memoriaTecnicaConfig = {
   description: 'Documento técnico para instalaciones fotovoltaicas en baja tensión',
   fileName: '6.- MTD.pdf',
   route: '/mtd-instalacion-autoconsumo-monofasica-con-bateria',
+  componentProps: {
+    tituloe2: 'GENERADORA FOTOVOLTAICA INTERCONECTADA CON ALMACENAMIENTO'
+  },
   defaultData: {
     // Expediente
     numeroExpediente: '',
@@ -750,6 +753,9 @@ export const memoriaInstalacionAisladaConBateriaConfig = {
   description: 'Documento técnico para instalaciones fotovoltaicas aisladas con almacenamiento',
   fileName: '6.- MTD.pdf',
   route: '/mtd-instalacion-aislada-con-bateria',
+  componentProps: {
+    tituloe2: 'INSTALACIÓN GENERADORA FOTOVOLTAICA AISLADA'
+  },
   defaultData: {
     // Expediente
     numeroExpediente: '',
@@ -1028,6 +1034,9 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
   description: 'Documento técnico para instalaciones fotovoltaicas en baja tensión (trifásica con batería)',
   fileName: '6.- MTD.pdf',
   route: '/mtd-instalacion-autoconsumo-trifasica-con-bateria',
+  componentProps: {
+    tituloe2: 'GENERADORA FOTOVOLTAICA INTERCONECTADA CON ALMACENAMIENTO'
+  },
   defaultData: {
     // Expediente
     numeroExpediente: '',
@@ -1172,6 +1181,9 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
   description: 'Documento técnico para instalaciones fotovoltaicas en baja tensión (autoconsumo sin batería)',
   fileName: '6.- MTD.pdf',
   route: '/mtd-instalacion-autoconsumo-sin-bateria',
+  componentProps: {
+    tituloe2: 'GENERADORA FOTOVOLTAICA INTERCONECTADA SIN ALMACENAMIENTO'
+  },
   defaultData: {
     // Expediente
     numeroExpediente: '',
@@ -1370,6 +1382,9 @@ export const memoriaTecnicaPuntoRecargaConfig = {
   description: 'Documento técnico para instalaciones de recarga de vehículos eléctricos',
   fileName: '6.- MTD.pdf',
   route: '/mtd-instalacion-puntos-recarga',
+  componentProps: {
+    tituloe2: 'GENERADORA FOTOVOLTAICA INTERCONECTADA - PUNTO DE RECARGA'
+  },
   defaultData: {
     // Expediente
     numeroExpediente: '',
