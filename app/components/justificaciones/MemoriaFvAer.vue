@@ -31,11 +31,11 @@
         <div class="datos-iniciales">
           <p>
             <span class="etiqueta">EXPEDIENTE:</span>
-            <span class="texto-rojo">{{ expedienteEco }}</span>
+            <span >{{ expedienteEco }}</span>
           </p>
           <p>
             <span class="etiqueta">NIF:</span>
-            <span class="texto-rojo">{{ nif }}</span>
+            <span >{{ nif }}</span>
           </p>
           <p>
             <span class="etiqueta">AGENTE GESTOR:</span> SOLAY INGENIEROS S.L.
@@ -43,7 +43,7 @@
           <p><span class="etiqueta">NIF AGENTE GESTOR:</span>B09848912</p>
           <p>
             <span class="etiqueta">DOMICILIO Y LOCALIDAD DE LA ACTUACIÓN:</span>
-            <span class="texto-rojo">{{ domicilio }}</span>
+            <span >{{ domicilio }}</span>
           </p>
           <p>
             <span class="etiqueta"
@@ -75,9 +75,9 @@
 
           <p class="texto-parrafo">
             <span class="texto-opcional">{{ textoOpcional1 }}</span> mediante la
-            ejecución de una instalación fotovoltaica para autoconsumo.<span v-if="caracteristicasAerotermia" class="textoAerotermia">y montaje y conexionados eléctrico y de tuberías de ACS de una bomba de calor aerotérmica de {{ potenciaBomba }} kW de potencia térmica nominar (Calor) con depósito incorporado de {{ depositoLitros }} litros para la producción de ACS, al tener menos de 5 Kw no es obligatorio registrarla en Industria.</span>
+            ejecución de una instalación fotovoltaica para autoconsumo.<span v-if="aerotermia" class="textoAerotermia">y montaje y conexionados eléctrico y de tuberías de ACS de una bomba de calor aerotérmica de {{ potenciaBomba }} kW de potencia térmica nominar (Calor) con depósito incorporado de {{ depositoLitros }} litros para la producción de ACS, al tener menos de 5 Kw no es obligatorio registrarla en Industria.</span>
           </p>
-          <div v-if="caracteristicasAerotermia" class="caracteristicas-aerotermia">{{ caracteristicasAerotermia }}</div>
+          <div v-if="aerotermia && caracteristicasAerotermia" class="caracteristicas-aerotermia">{{ caracteristicasAerotermia }}</div>
         </div>
 
         <!-- Sección 2: Fecha de conclusión -->
@@ -90,7 +90,7 @@
           <p class="texto-parrafo">
             Las actuaciones objeto de la subvención se concluyeron completamente
             y conforme a lo indicado en la presente memoria el día
-            <span class="texto-rojo"
+            <span 
               >{{ fechaConclusionDia }} de {{ fechaConclusionMes }} de
               {{ fechaConclusionAnio }}</span
             >.
@@ -127,14 +127,14 @@
           </ul>
 
           <!-- BLOQUE MORADO 2 -->
-          <span class="textoAerotermia">{{ textoAerotermia2 }}</span>
 
-          <div v-if="aerotermia" class="bloque-morado">
-            <p class="texto-parrafo" style="color: purple">
+
+          <div v-if="aerotermia" >
+            <p class="texto-parrafo" >
               Las actividades realizadas para la ejecución de la bomba
               aerotérmica han consistido en:
             </p>
-            <ul class="lista-actividades" style="color: purple">
+            <ul class="lista-actividades" >
               <li>Dimensionamiento de la demanda y selección de equipos.</li>
               <li>Instalación de unidad exterior y depósito de ACS.</li>
               <li>Conexiones hidráulicas, frigoríficas y eléctricas.</li>
@@ -192,28 +192,28 @@
             <tbody>
               <tr>
                 <td>ACTUACIONES DE REHABILITACIÓN (SIN RETIRADA DE AMIANTO)</td>
-                <td class="texto-rojo">{{ importeActuacionesSinIva }}</td>
-                <td class="texto-rojo">{{ importeActuacionesConIva }}</td>
+                <td >{{ importeActuacionesSinIva }}</td>
+                <td >{{ importeActuacionesConIva }}</td>
               </tr>
               <tr>
                 <td>HONORARIOS PROFESIONALES</td>
-                <td class="texto-rojo">0.00</td>
-                <td class="texto-rojo">0.00</td>
+                <td >0.00</td>
+                <td >0.00</td>
               </tr>
               <tr>
                 <td>GESTIÓN Y TRAMITACIÓN ADMINISTRATIVA</td>
-                <td class="texto-rojo">0.00</td>
-                <td class="texto-rojo">0.00</td>
+                <td >0.00</td>
+                <td >0.00</td>
               </tr>
               <tr>
                 <td>RETIRADA DE AMIANTO</td>
-                <td class="texto-rojo">0.00</td>
-                <td class="texto-rojo">0.00</td>
+                <td >0.00</td>
+                <td >0.00</td>
               </tr>
               <tr style="font-weight: bold; border-top: 2px solid black">
                 <td>TOTAL</td>
-                <td class="texto-rojo">{{ importeTotalSinIva }}</td>
-                <td class="texto-rojo">{{ importeTotalConIva }}</td>
+                <td >{{ importeActuacionesSinIva }}</td>
+                <td >{{ importeActuacionesSinIva }}</td>
               </tr>
             </tbody>
           </table>
@@ -233,7 +233,7 @@
             primaria no renovable de al menos un 30%, siendo en este caso, tal
             como se deduce de los resultados obtenidos en los certificados de
             eficiencia energética actual y previsto, del
-            <span class="texto-rojo">{{
+            <span >{{
               porcentajeMejoraEnergeticaAcreditado
             }}</span>
             La tabla de los importes subvencionados sería la siguiente:
@@ -303,17 +303,15 @@
 
           <!-- SECCIÓN 6.3 CONDICIONAL -->
 
-          <span class="textoaerotermia">{{ textoAerotermia3 }}</span>
+          <span v-if="aerotermia" class="textoaerotermia">{{ textoAerotermia3 }}</span>
           <div v-if="aerotermia" class="subseccion">
             <h4 class="numero-subseccion">6.3.</h4>
-            <h4 class="titulo-subseccion">DB HE 2 - INSTALACIONES TÉRMICAS.</h4>
+            <h4 class="titulo-subseccion">DB HE 2 – CONDICIONES DE LAS INSTALACIONES TÉRMICAS</h4>
 
-            <p class="texto-parrafo">
-              Se certifica que la instalación cumple las condiciones de
-              eficiencia energética establecidas en el
-              <span class="texto-rojo">RITE (RD 1027/2007)</span> y en el CTE
-              <span class="texto-rojo">DB HE2</span>.
-            </p>
+            <ul class="lista-actividades">
+              <li>Se certifica que la instalación cumple las condiciones de eficiencia energética y requisitos técnicos establecidos en el RITE (RD 1027/2007 y sus modificaciones), en virtud de lo dispuesto en el CTE DB HE2.</li>
+              <li>El equipo instalado dispone de marcado CE, certificado ErP y etiquetado energético clase A, garantizando la eficiencia exigida</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -380,14 +378,14 @@
           <div class="seccion-firma">
             <p style="margin-top: 40px">
               <span class="etiqueta">Fecha:</span>
-              <span class="texto-rojo"
+              <span 
                 >{{ dia }} de {{ mes }} de
                 {{ anio }}</span
               >
             </p>
             <p>
               <span class="etiqueta">Firma:</span>
-              <span class="texto-rojo">Miguel Ángel Rivas Zapata</span>
+              <span >Miguel Ángel Rivas Zapata</span>
             </p>
             <div v-if="firmaImagen" class="contenedor-firma-imagen">
               <img :src="firmaImagen" alt="Firma" class="imagen-firma" />
@@ -536,7 +534,6 @@ defineProps({
 
 /* ========== COLORES DE TEXTO ========== */
 .texto-rojo {
-  color: red;
   font-weight: bold;
 }
 
@@ -555,7 +552,6 @@ defineProps({
   background-color: #f0f0f0;
   padding: 10px;
   margin: 15px 0;
-  border-left: 4px solid purple;
 }
 
 /* ========== SECCIONES ========== */
@@ -662,7 +658,6 @@ defineProps({
 .valor-tabla {
   text-align: center;
   font-weight: bold;
-  color: red;
 }
 
 /* ========== TEXTO AEROTERMIA ========== */
@@ -676,7 +671,6 @@ defineProps({
   margin: 10px 0 8px 0;
   padding: 10px 15px;
   background-color: #f5f5f5;
-  border-left: 3px solid purple;
   font-size: 11px;
   line-height: 1.5;
   color: #333;
