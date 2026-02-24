@@ -64,7 +64,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 11,
     align: "left",
-    value: "alalala",
+    value: "",
   },
   {
     nombre: "apellidosNombre",
@@ -75,7 +75,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 10,
     align: "left",
-    value: "afasdf",
+    value: "",
   },
   {
     nombre: "dni",
@@ -86,7 +86,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 10,
     align: "left",
-    value: "asdffdsa",
+    value: "",
   },
   {
     nombre: "telefono",
@@ -97,7 +97,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 10,
     align: "left",
-    value: "asdffdsa",
+    value: "",
   },
   {
     nombre: "correoElectronico",
@@ -108,7 +108,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 10,
     align: "left",
-    value: "asdffdsa",
+    value: "",
   },
   {
     nombre: "apellidosNombreRepresentante",
@@ -119,7 +119,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 10,
     align: "left",
-    value: "asdffdsa",
+    value: "",
   },
   {
     nombre: "dniRepresentante",
@@ -130,7 +130,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 10,
     align: "left",
-    value: "asdffdsa",
+    value: "",
   },
   {
     nombre: "actuaCalidad",
@@ -141,7 +141,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 10,
     align: "left",
-    value: "asdffdsa",
+    value: "",
   },
   {
     nombre: "telefonoRepresentante",
@@ -152,7 +152,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 10,
     align: "left",
-    value: "asdffdsa",
+    value: "",
   },
   {
     nombre: "correoElectronicoRepresentante",
@@ -163,7 +163,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 10,
     align: "left",
-    value: "asdffdsa",
+    value: "",
   },
   {
     nombre: "provincia",
@@ -174,7 +174,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 10,
     align: "left",
-    value: "asdffdsa",
+    value: "",
   },
   // PÁGINA 2
   {
@@ -186,7 +186,7 @@ const etiquetas = ref([
     h: 4.5,
     fontSize: 10,
     align: "center",
-    value: "29",
+    value: "",
     background: "#fff",
   },
   {
@@ -198,7 +198,7 @@ const etiquetas = ref([
     h: 5,
     fontSize: 10,
     align: "left",
-    value: "septiembre",
+    value: "",
     background: "#fff",
   },
   {
@@ -210,7 +210,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 10,
     align: "center",
-    value: "2023",
+    value: "",
   },
   {
     nombre: "personaFirma",
@@ -221,7 +221,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 10,
     align: "left",
-    value: "asdffdsadfgdfgsdfsg",
+    value: "",
   },
   {
     nombre: "firma",
@@ -230,7 +230,7 @@ const etiquetas = ref([
     y: 270,
     w: 30,
     h: 15,
-    value: "/firma-solay.png",
+    value: "",
     align: "center",
   },
 ]);

@@ -1,3 +1,4 @@
+import { group } from "@nuxt/content/preview"
 
 export const masterFormFields = [
   // ========== SECCIÓN A ==========
@@ -175,7 +176,7 @@ export const masterFormFields = [
   { name: 'terminacioAnual', label: 'Terminación Anual', placeholder: 'Ej: 2025', type: 'select', options: ['26', '27', '28'], subsection: 'LEGALIZACION' },
   { name: 'almacenamiento', label: 'Almacenamiento', placeholder: 'Seleccionar tipo...', type: 'select', options: ['con almacenamiento', 'sin almacenamiento'], subsection: 'LEGALIZACION' },
   { name: 'observaciones', label: 'Observaciones', placeholder: 'Selecciona una opción', type: 'select', options: [{ label: 'con batería', value: 'Se trata de una instalación de generación para autoconsumo FV de B.T.con baterias conectado a la red con excedentes acogido a compensación' }, { label: 'sin batería', value: 'Se trata de una instalación de generación para autoconsumo FV de B.T. conectado a la red con excedentes acogido a compensación' }], subsection: 'LEGALIZACION' },
-  { name: 'usoDestino', label: 'Uso y Destino', placeholder: 'Ej: Autoconsumo para vivienda', type: 'select',options: ['vivienda', 'negocio'], subsection: 'LEGALIZACION' },
+  { name: 'usoDestino', label: 'Uso y Destino', placeholder: 'Ej: Autoconsumo para vivienda', type: 'select', options: ['vivienda', 'negocio'], subsection: 'LEGALIZACION' },
   { name: 'figuraTecnicoCompetente', label: 'Técnico Competente', type: 'checkbox', subsection: 'LEGALIZACION', group: 'anexo III' },
   { name: 'figuraInstaladorHabilitado', label: 'Instalador Habilitado', type: 'checkbox', subsection: 'LEGALIZACION', group: 'anexo III' },
   { name: 'figuraResponsableTecnico', label: 'Responsable Técnico', type: 'checkbox', subsection: 'LEGALIZACION', group: 'anexo III' },
@@ -199,7 +200,7 @@ export const masterFormFields = [
       { label: 'Malaga', value: 'A01041442' },
       { label: 'Sevilla', value: 'A01041444' },
       { name: 'nombreFirma', label: 'Nombre Firma', placeholder: 'Ej: Juan García López', type: 'text', subsection: 'LEGALIZACION', group: 'anexo III' },
-    ], subsection: 'LEGALIZACION', group: 'anexo III' 
+    ], subsection: 'LEGALIZACION', group: 'anexo III'
   },
 
   { name: 'titulacion', label: 'Titulación', placeholder: '', type: 'select', options: ['', 'Ingeniero Técnico Industrial'], subsection: 'LEGALIZACION', group: 'Con proyecto' },
@@ -215,7 +216,7 @@ export const masterFormFields = [
   // ========== SECCIÓN ACEPTACION: ACEPTACIÓN Y CONFORMIDAD ==========
   { name: 'codigoEni', label: 'Código ENI', placeholder: 'Ej: ENI12345', type: 'text', subsection: 'ACEPTACION' },
   { name: 'expedienteEco', label: 'Expediente ECO', placeholder: 'Ej: ECO12345', type: 'text', subsection: 'ACEPTACION' },
-  { name: 'potenciaProyecto', label: 'Potencia del Proyecto', placeholder: 'Ej: 5 kW', type: 'text', subsection: 'ACEPTACION' },
+  { name: 'e2_potenciaNominalInversores', label: 'POTENCIA NOMINAL TOTAL EN INVERSORES (kW)', placeholder: 'Ej: 5.5', type: 'text', subsection: 'ACEPTACION' },
   { name: 'importeSubvencion', label: 'Importe de la Subvención', placeholder: 'Ej: 1500 €', type: 'text', subsection: 'ACEPTACION' },
   {
     name: 'edificioVivienda', label: 'Edificio o Vivienda', placeholder: 'Ej: selecciona una opción', type: 'select', options: [
@@ -250,7 +251,7 @@ export const masterFormFields = [
   { name: 'nombreRepresentanteEntidad', label: 'Nombre del Representante de la Entidad', placeholder: 'Ej: Juan Pérez', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'dniRepresentanteEntidad', label: 'DNI del Representante de la Entidad', placeholder: 'Ej: 12345678A', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'nifEmpresa', label: 'NIF Empresa', placeholder: 'Ej: B12345678', type: 'text', subsection: 'JUSTIFICACION' },
-
+  { name: 'tipoEdificioFvAerotermia', label: 'Tipo de Edificio', type: 'select', options: [{ label: 'Edificio', value: 'EDIFICIO DE VIVIENDA UNIFAMILIAR' }, { label: 'Vivienda', value: 'VIVIENDAS' }], placeholder: 'ej: Edificio', subsection: 'JUSTIFICACION', group: 'Memoria FvAer' },
   // ========== SUBSECCIÓN JUSTIFICACIÓN: Pedidos y Facturas ==========
   // Factura 1
   { name: 'numeroFactura1', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 1' },
@@ -295,22 +296,22 @@ export const masterFormFields = [
   // Pedido 1
   { name: 'pedido1Concepto', label: 'Concepto', placeholder: 'Ej: Módulos solares', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 1' },
   { name: 'pedido1Proveedor', label: 'Proveedor', placeholder: 'Ej: Empresa XYZ', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 1' },
-  { name: 'pedido1IdOferta', label: 'Id. Oferta', placeholder: 'Ej: OF-2025-001', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 1' },
-  { name: 'pedido1FechaOferta', label: 'Fecha Oferta', placeholder: 'Ej: 15/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 1' },
-  { name: 'pedido1ImporteOferta', label: 'Importe Oferta (€)', placeholder: 'Ej: 5000', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 1' },
-  { name: 'pedido1IdPedido', label: 'Id. Pedido', placeholder: 'Ej: PED-2025-001', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 1' },
-  { name: 'pedido1FechaPedido', label: 'Fecha Pedido', placeholder: 'Ej: 16/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 1' },
-  { name: 'pedido1ImportePedido', label: 'Importe Pedido (€)', placeholder: 'Ej: 5000', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 1' },
+  { name: 'pedido1IdOferta', label: 'Id. Oferta (presupuesto)', placeholder: 'Ej: OF-2025-001', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 1' },
+  { name: 'pedido1FechaOferta', label: 'Fecha Oferta (presupuesto)', placeholder: 'Ej: 15/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 1' },
+  { name: 'pedido1ImporteOferta', label: 'Importe Oferta (€) (presupuesto)', placeholder: 'Ej: 5000', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 1' },
+  { name: 'pedido1IdPedido', label: 'Id. Pedido (factura)', placeholder: 'Ej: PED-2025-001', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 1' },
+  { name: 'pedido1FechaPedido', label: 'Fecha Pedido (factura)', placeholder: 'Ej: 16/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 1' },
+  { name: 'pedido1ImportePedido', label: 'Importe Pedido (€) (factura)', placeholder: 'Ej: 5000', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 1' },
 
   // Pedido 2
   { name: 'pedido2Concepto', label: 'Concepto', placeholder: 'Ej: Inversor solar', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
   { name: 'pedido2Proveedor', label: 'Proveedor', placeholder: 'Ej: Empresa ABC', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
-  { name: 'pedido2IdOferta', label: 'Id. Oferta', placeholder: 'Ej: OF-2025-002', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
-  { name: 'pedido2FechaOferta', label: 'Fecha Oferta', placeholder: 'Ej: 16/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
-  { name: 'pedido2ImporteOferta', label: 'Importe Oferta (€)', placeholder: 'Ej: 2500', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
-  { name: 'pedido2IdPedido', label: 'Id. Pedido', placeholder: 'Ej: PED-2025-002', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
-  { name: 'pedido2FechaPedido', label: 'Fecha Pedido', placeholder: 'Ej: 17/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
-  { name: 'pedido2ImportePedido', label: 'Importe Pedido (€)', placeholder: 'Ej: 2500', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
+  { name: 'pedido2IdOferta', label: 'Id. Oferta (presupuesto)', placeholder: 'Ej: OF-2025-002', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
+  { name: 'pedido2FechaOferta', label: 'Fecha Oferta (presupuesto)', placeholder: 'Ej: 16/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
+  { name: 'pedido2ImporteOferta', label: 'Importe Oferta (€) (presupuesto)', placeholder: 'Ej: 2500', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
+  { name: 'pedido2IdPedido', label: 'Id. Pedido (factura)', placeholder: 'Ej: PED-2025-002', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
+  { name: 'pedido2FechaPedido', label: 'Fecha Pedido (factura)', placeholder: 'Ej: 17/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
+  { name: 'pedido2ImportePedido', label: 'Importe Pedido (€) (factura)', placeholder: 'Ej: 2500', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
   // ========== SUBSECCIÓN MEMORIA FV + AEROTERMIA ==========
   { name: 'potenciaTermica', label: 'Potencia Térmica (kW)', placeholder: 'Ej: 8.5', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'resistenciaElectrica', label: 'Resistencia Eléctrica (kW)', placeholder: 'Ej: 2.0', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },

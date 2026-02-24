@@ -274,12 +274,13 @@ const pedidos = computed(() => [
   margin-bottom: 15px;
   border: 1px solid #ccc;
   background-color: #f9f9f9;
-  padding: 10px;
+  padding: 5px;
+  font-size: 10px;
 }
 
 .fila-datos {
   display: flex;
-  gap: 10px;
+  gap: 5px;
   margin-bottom: 8px;
   }
 
@@ -298,7 +299,7 @@ const pedidos = computed(() => [
   flex: 1;
   display: flex;
   align-items: center;
-  font-size: 13px;
+  font-size: 10px;
 }
 
 .campo label {

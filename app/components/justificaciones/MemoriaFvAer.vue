@@ -24,7 +24,7 @@
         <h1 class="titulo-principal">
           MEMORIA JUSTIFICATIVA DE LA ACTUACIÓN PARA LA MEJORA DE LA EFICIENCIA
           ENERGÉTICA EN <span class="texto-verde">{{ tipoEdificio }}</span
-          >EN LA COMUNIDAD AUTÓNOMA DE ANDALUCÍA ({{ l3 / l4 }})
+          >EN LA COMUNIDAD AUTÓNOMA DE ANDALUCÍA ({{ l3l4 }})
         </h1>
 
         <!-- Datos Iniciales -->
@@ -67,7 +67,7 @@
             a lo exigido en las bases reguladoras y la resolución de concesión
             de la subvención, otorgada por la Comunidad Autónoma de Andalucía
             para la mejora de la eficiencia energética en edificios en Andalucía
-            (Línea 3), de acuerdo con lo establecido en el apartado 23.b)1.g)
+            ({{l3l4 }}), de acuerdo con lo establecido en el apartado 23.b)1.g)
             del cuadro resumen de las bases reguladoras aprobadas por Orden de 9
             de junio de 2022 de la Consejería de Fomento, Articulación del
             Territorio y Vivienda.
@@ -383,8 +383,8 @@
             <p style="margin-top: 40px">
               <span class="etiqueta">Fecha:</span>
               <span class="texto-rojo"
-                >{{ fechaConclusionDia }} de {{ mesNombre }} de
-                {{ fechaConclusionAnio }}</span
+                >{{ dia }} de {{ mes }} de
+                {{ anio }}</span
               >
             </p>
             <p>
@@ -403,46 +403,32 @@
 
 <script setup>
 defineProps({
+  tipoEdificio: { type: String, default: "viviendas unifamiliares" },
   expedienteEco: { type: String, default: "" },
   nif: { type: String, default: "" },
-  tipoEdificio: { type: String, default: "viviendas unifamiliares" },
   domicilio: { type: String, default: "" },
-  zaharilla: { type: String, default: "" },
-  tecnicoRedactor: { type: String, default: "" },
-  potenciaTermica: { type: String, default: "1,84" },
-  resistenciaElectrica: { type: String, default: "1,5" },
-  potenciaTotal: { type: String, default: "3,3" },
-  tipoSoporte: { type: String, default: "PLANA" },
+  l3l4: { type: String, default: "" },
+  textoOpcional1: { type: String, default: "" },
+  textoAerotermia1: { type: String, default: "" },
   fechaConclusionDia: { type: String, default: "" },
   fechaConclusionMes: { type: String, default: "" },
   fechaConclusionAnio: { type: String, default: "" },
-  l3: { type: Number, default: 0 },
-  l4: { type: Number, default: 1 },
-  textoOpcional1: { type: String, default: "" },
-  textoAerotermia1: { type: String, default: "" },
+  tipoSoporte: { type: String, default: "PLANA" },
   textoAerotermia2: { type: String, default: "" },
-  textoAerotermia3: { type: String, default: "" },
+  aerotermia: { type: Boolean, default: false },
   coincidencia: { type: String, default: "" },
-  importeCertificacion: { type: String, default: "" },
-  importeOtrosCostes: { type: String, default: "" },
-  importeTotal: { type: String, default: "" },
   importeActuacionesSinIva: { type: String, default: "0,00 €" },
   importeActuacionesConIva: { type: String, default: "0,00 €" },
-  importeHonorariosSinIva: { type: String, default: "0,00 €" },
-  importeHonorariosConIva: { type: String, default: "0,00 €" },
-  importeGestionSinIva: { type: String, default: "0,00 €" },
-  importeGestionConIva: { type: String, default: "0,00 €" },
-  importeAmiantoSinIva: { type: String, default: "0,00 €" },
-  importeAmiantoConIva: { type: String, default: "0,00 €" },
   importeTotalSinIva: { type: String, default: "0,00 €" },
   importeTotalConIva: { type: String, default: "0,00 €" },
   porcentajeMejoraEnergeticaAcreditado: { type: String, default: "64,22%" },
   porcentajeSubvencionable: { type: String, default: "80,00%" },
   importeSubvencionResultante: { type: String, default: "9.920,00 €" },
-  nombreFirma: { type: String, default: "" },
-  firmaImagen: { type: String, default: "" },
-  aerotermia: { type: Boolean, default: false },
-  mesNombre: { type: String, default: "febrero" },
+  textoAerotermia3: { type: String, default: "" },
+  dia: { type: String, default: "" },
+  mes: { type: String, default: "" },
+  anio: { type: String, default: "" },
+  firmaImagen: { type: String, default: "" }
 });
 </script>
 
