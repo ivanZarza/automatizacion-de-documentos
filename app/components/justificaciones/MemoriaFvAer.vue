@@ -127,11 +127,10 @@
             <li>Conexionado a la red eléctrica conforme al REBT.</li>
             <li>Puesta a punto y legalización de la instalación.</li>
           </ul>
-          
-
-          <span class="textoAerotermia">{{ textoAerotermia2 }}</span>
 
           <!-- BLOQUE MORADO 2 -->
+          <span class="textoAerotermia">{{ textoAerotermia2 }}</span>
+
           <div v-if="aerotermia" class="bloque-morado">
             <p class="texto-parrafo" style="color: purple">
               Las actividades realizadas para la ejecución de la bomba
@@ -171,29 +170,54 @@
         <!-- Sección 4: Coste final -->
         <div class="seccion">
           <h3 class="numero-seccion">4.</h3>
-          <h3 class="titulo-seccion">Coste final de las actuaciones.</h3>
+          <h3 class="titulo-seccion">El coste final de las actuaciones:</h3>
+
+          <p>
+            <span
+              >{{ coincidencia }} Coincide con el coste previsto en la
+              documentación presentada con el Anexo II.</span
+            >
+          </p>
 
           <p class="texto-parrafo">
             El desglose de los costes ha sido el siguiente:
           </p>
 
-          <table class="tabla-costes">
-            <tr>
-              <th>CONCEPTO</th>
-              <th>IMPORTE</th>
-            </tr>
-            <tr>
-              <td>CERTIFICACIÓN DE LA ACTUACIÓN</td>
-              <td class="texto-rojo">{{ importeCertificacion }}</td>
-            </tr>
-            <tr>
-              <td>OTROS COSTES</td>
-              <td class="texto-rojo">{{ importeOtrosCostes }}</td>
-            </tr>
-            <tr style="font-weight: bold; border-top: 2px solid black">
-              <td>TOTAL</td>
-              <td class="texto-rojo">{{ importeTotal }}</td>
-            </tr>
+          <table class="tabla-costes-desglosada">
+            <thead>
+              <tr>
+                <th>CONCEPTO</th>
+                <th>IMPORTE TOTAL (SIN IVA)</th>
+                <th>IMPORTE TOTAL (CON IVA)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ACTUACIONES DE REHABILITACIÓN (SIN RETIRADA DE AMIANTO)</td>
+                <td class="texto-rojo">{{ importeActuacionesSinIva }}</td>
+                <td class="texto-rojo">{{ importeActuacionesConIva }}</td>
+              </tr>
+              <tr>
+                <td>HONORARIOS PROFESIONALES</td>
+                <td class="texto-rojo">0.00</td>
+                <td class="texto-rojo">0.00</td>
+              </tr>
+              <tr>
+                <td>GESTIÓN Y TRAMITACIÓN ADMINISTRATIVA</td>
+                <td class="texto-rojo">0.00</td>
+                <td class="texto-rojo">0.00</td>
+              </tr>
+              <tr>
+                <td>RETIRADA DE AMIANTO</td>
+                <td class="texto-rojo">0.00</td>
+                <td class="texto-rojo">0.00</td>
+              </tr>
+              <tr style="font-weight: bold; border-top: 2px solid black">
+                <td>TOTAL</td>
+                <td class="texto-rojo">{{ importeTotalSinIva }}</td>
+                <td class="texto-rojo">{{ importeTotalConIva }}</td>
+              </tr>
+            </tbody>
           </table>
         </div>
 
@@ -201,31 +225,44 @@
         <div class="seccion">
           <h3 class="numero-seccion">5.</h3>
           <h3 class="titulo-seccion">
-            Acreditación del cumplimiento de las condiciones.
+            Acreditación del cumplimiento de las condiciones impuestas e importe
+            de la subvención.
           </h3>
 
           <p class="texto-parrafo">
             El técnico firmante de la presente memoria acredita que con las
-            actuaciones se ha conseguido una
-            <span class="texto-rojo"
-              >mejora de eficiencia energética del 30%</span
-            >
-            como mínimo.
+            actuaciones se ha conseguido una reducción del consumo de energía
+            primaria no renovable de al menos un 30%, siendo en este caso, tal
+            como se deduce de los resultados obtenidos en los certificados de
+            eficiencia energética actual y previsto, del
+            <span class="texto-rojo">{{
+              porcentajeMejoraEnergeticaAcreditado
+            }}</span>
+            La tabla de los importes subvencionados sería la siguiente:
           </p>
 
           <table class="tabla-acreditacion">
-            <tr>
-              <th>DESCRIPCIÓN</th>
-              <th>VALOR</th>
-            </tr>
-            <tr>
-              <td>PORCENTAJE DE MEJORA ENERGÉTICA</td>
-              <td class="valor-tabla">64,22%</td>
-            </tr>
-            <tr>
-              <td>% PORCENTAJE SUBVENCIÓN</td>
-              <td class="valor-tabla">80,00%</td>
-            </tr>
+            <thead>
+              <tr>
+                <th colspan="2">IMPORTE SUBVENCIÓN</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>PORCENTAJE DE MEJORA ENERGÉTICA ACREDITADO</td>
+                <td class="valor-tabla">
+                  {{ porcentajeMejoraEnergeticaAcreditado }}
+                </td>
+              </tr>
+              <tr>
+                <td>PORCENTAJE SUBVENCIONABLE A APLICAR</td>
+                <td class="valor-tabla">{{ porcentajeSubvencionable }}</td>
+              </tr>
+              <tr>
+                <td>IMPORTE DE LA SUBVENCIÓN RESULTANTE (MÁXIMO 18.800,00€)</td>
+                <td class="valor-tabla">{{ importeSubvencionResultante }}</td>
+              </tr>
+            </tbody>
           </table>
         </div>
 
@@ -233,35 +270,42 @@
         <div class="seccion">
           <h3 class="numero-seccion">6.</h3>
           <h3 class="titulo-seccion">
-            Justificación del cumplimiento de la normativa.
+            Justificación del cumplimiento de la normativa de obligado
+            cumplimiento.
           </h3>
 
           <div class="subseccion">
             <h4 class="numero-subseccion">6.1.</h4>
-            <h4 class="titulo-subseccion">
-              Cumplimiento del <span class="texto-rojo">REBT</span>.
-            </h4>
+            <h4 class="titulo-subseccion">Justificación del REBT.</h4>
 
             <p class="texto-parrafo">
-              La instalación fotovoltaica cumple con el Reglamento
-              Electrotécnico de Baja Tensión, en concreto
-              <span class="texto-rojo">ITC-BT-40</span>.
+              Puesto que la actuación ha consistido en una instalación de
+              generación eléctrica fotovoltaica, se deberá justificar el
+              Reglamento Electrotécnico de Baja Tensión, en concreto la
+              ITC-BT-40. Para ello, se anexa el certificado de instalación
+              eléctrica firmado por instalador autorizado de la instalación
+              fotovoltaica objeto de la actuación.
             </p>
           </div>
 
           <div class="subseccion">
             <h4 class="numero-subseccion">6.2.</h4>
             <h4 class="titulo-subseccion">
-              Certificación de seguridad y solidez estructural.
+              Certificado de seguridad y solidez estructural.
             </h4>
 
             <p class="texto-parrafo">
-              Se certifica que la estructura soporte cumple los requisitos
-              normativos respecto a la seguridad y solidez estructural.
+              El técnico firmante de la presente memoria, CERTIFICA que la
+              estructura soporte de los elementos de la instalación,
+              especialmente la de los paneles fotovoltaicos, cumple todos los
+              requerimientos normativos respecto a la seguridad y solidez
+              estructural.
             </p>
           </div>
 
           <!-- SECCIÓN 6.3 CONDICIONAL -->
+
+          <span class="textoaerotermia">{{ textoAerotermia3 }}</span>
           <div v-if="aerotermia" class="subseccion">
             <h4 class="numero-subseccion">6.3.</h4>
             <h4 class="titulo-subseccion">DB HE 2 - INSTALACIONES TÉRMICAS.</h4>
@@ -301,18 +345,24 @@
         <div class="seccion">
           <h3 class="numero-seccion">7.</h3>
           <h3 class="titulo-seccion">
-            Cumplimiento de principios de sostenibilidad ambiental.
+            Cumplimento del principio de “No causar perjuicio significativo” al
+            medio ambiente.
           </h3>
 
           <p class="texto-parrafo">
-            La actuación cumple con los objetivos medioambientales establecidos
-            según el Reglamento (UE) 2020/852 relativo a la financiación
-            sostenible.
+            La actuación objeto de la subvención cumple los objetivos
+            medioambientales establecidos, según el artículo 17 del Reglamento
+            (UE) 2020/852, relativo al establecimiento de un marco para
+            facilitar las inversiones sostenibles mediante la implantación de un
+            sistema de clasificación de las actividades económicas
+            medioambientales sostenibles. Así mismo, se cumplen los requisitos
+            establecidos en el Real Decreto 853/2021.
           </p>
 
           <p class="texto-parrafo">
-            Los residuos generados se han reciclado en un porcentaje superior al
-            70% (en peso).
+            Los residuos generados en la actuación, han consistido
+            principalmente en cartonaje y plásticos, los cuales se han reciclado
+            en un porcentaje de al menos el 70% (en peso).
           </p>
         </div>
 
@@ -322,10 +372,10 @@
           <h3 class="titulo-seccion">Conclusiones.</h3>
 
           <p class="texto-parrafo">
-            La presente memoria justificativa pone de manifiesto la correcta
-            utilización de la subvención recibida para la mejora de la
-            eficiencia energética en la Comunidad Autónoma de
-            <span class="texto-rojo">Andalucía</span>.
+            La presente memoria justificativa de la actuación pone de manifiesto
+            la correcta utilización de la subvención recibida para la mejora de
+            la eficiencia energética de viviendas en la Comunidad Autónoma de
+            Andalucía.
           </p>
 
           <!-- Firma -->
@@ -353,7 +403,7 @@
 
 <script setup>
 defineProps({
-  expediente: { type: String, default: "" },
+  expedienteEco: { type: String, default: "" },
   nif: { type: String, default: "" },
   tipoEdificio: { type: String, default: "viviendas unifamiliares" },
   domicilio: { type: String, default: "" },
@@ -366,9 +416,29 @@ defineProps({
   fechaConclusionDia: { type: String, default: "" },
   fechaConclusionMes: { type: String, default: "" },
   fechaConclusionAnio: { type: String, default: "" },
+  l3: { type: Number, default: 0 },
+  l4: { type: Number, default: 1 },
+  textoOpcional1: { type: String, default: "" },
+  textoAerotermia1: { type: String, default: "" },
+  textoAerotermia2: { type: String, default: "" },
+  textoAerotermia3: { type: String, default: "" },
+  coincidencia: { type: String, default: "" },
   importeCertificacion: { type: String, default: "" },
   importeOtrosCostes: { type: String, default: "" },
   importeTotal: { type: String, default: "" },
+  importeActuacionesSinIva: { type: String, default: "0,00 €" },
+  importeActuacionesConIva: { type: String, default: "0,00 €" },
+  importeHonorariosSinIva: { type: String, default: "0,00 €" },
+  importeHonorariosConIva: { type: String, default: "0,00 €" },
+  importeGestionSinIva: { type: String, default: "0,00 €" },
+  importeGestionConIva: { type: String, default: "0,00 €" },
+  importeAmiantoSinIva: { type: String, default: "0,00 €" },
+  importeAmiantoConIva: { type: String, default: "0,00 €" },
+  importeTotalSinIva: { type: String, default: "0,00 €" },
+  importeTotalConIva: { type: String, default: "0,00 €" },
+  porcentajeMejoraEnergeticaAcreditado: { type: String, default: "64,22%" },
+  porcentajeSubvencionable: { type: String, default: "80,00%" },
+  importeSubvencionResultante: { type: String, default: "9.920,00 €" },
   nombreFirma: { type: String, default: "" },
   firmaImagen: { type: String, default: "" },
   aerotermia: { type: Boolean, default: false },
@@ -554,6 +624,7 @@ defineProps({
 
 /* ========== TABLAS ========== */
 .tabla-costes,
+.tabla-costes-desglosada,
 .tabla-acreditacion {
   width: 100%;
   border-collapse: collapse;
@@ -563,6 +634,8 @@ defineProps({
 
 .tabla-costes th,
 .tabla-costes td,
+.tabla-costes-desglosada th,
+.tabla-costes-desglosada td,
 .tabla-acreditacion th,
 .tabla-acreditacion td {
   border: 1px solid #000;
@@ -571,9 +644,20 @@ defineProps({
 }
 
 .tabla-costes th,
+.tabla-costes-desglosada th,
 .tabla-acreditacion th {
   background-color: #e0e0e0;
   font-weight: bold;
+}
+
+.tabla-costes-desglosada th:first-child,
+.tabla-costes-desglosada td:first-child {
+  text-align: left;
+}
+
+.tabla-acreditacion th:first-child,
+.tabla-acreditacion td:first-child {
+  text-align: left;
 }
 
 .tabla-acreditacion th,
