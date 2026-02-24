@@ -271,24 +271,25 @@ const pedidos = computed(() => [
 
 /* ========== DATOS PRINCIPALES ========== */
 .datos-principales {
-  margin-bottom: 15px;
+  margin-bottom: 8px;
   border: 1px solid #ccc;
   background-color: #f9f9f9;
-  padding: 5px;
+  padding: 3px;
   font-size: 10px;
 }
 
 .fila-datos {
   display: flex;
-  gap: 5px;
-  margin-bottom: 8px;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 3px;
   }
 
   .fila-datos > .campo:first-child {
-    flex: 0 0 60%;
+    flex: 1;
   }
   .fila-datos > .campo:last-child {
-    flex: 0 0 20%;
+    flex: 1;
 }
 
 .fila-datos:last-child {
@@ -299,12 +300,12 @@ const pedidos = computed(() => [
   flex: 1;
   display: flex;
   align-items: center;
-  font-size: 10px;
+  font-size: 15px;
 }
 
 .campo label {
   font-weight: bold;
-  margin-right: 3px;
+  margin-right: 2px;
   min-width: 130px;
 }
 
