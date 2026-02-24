@@ -74,8 +74,8 @@
           </p>
 
           <p class="texto-parrafo">
-            <span class="texto-opcional">{{ textoOpcional1 }}</span> mediante la{{ textoAerotermia1 }}
-            ejecución de una instalación fotovoltaica para autoconsumo.<span class="textoAerotermia">y montaje y conexionados eléctrico y de tuberías de ACS de una bomba de calor aerotérmica de {{ potenciaBomba }}1,8 kW de potencia térmica nominar (Calor) con depósito incorporado de {{ depositoLitros }} 200 litros para la producción de ACS, al tener menos de 5 Kw no es obligatorio registrarla en Industria.</span>
+            <span class="texto-opcional">{{ textoOpcional1 }}</span> mediante la
+            ejecución de una instalación fotovoltaica para autoconsumo.<span v-if="caracteristicasAerotermia" class="textoAerotermia">y montaje y conexionados eléctrico y de tuberías de ACS de una bomba de calor aerotérmica de {{ potenciaBomba }} kW de potencia térmica nominar (Calor) con depósito incorporado de {{ depositoLitros }} litros para la producción de ACS, al tener menos de 5 Kw no es obligatorio registrarla en Industria.</span>
           </p>
           <div v-if="caracteristicasAerotermia" class="caracteristicas-aerotermia">{{ caracteristicasAerotermia }}</div>
         </div>
@@ -424,6 +424,10 @@ defineProps({
   porcentajeSubvencionable: { type: String, default: "80,00%" },
   importeSubvencionResultante: { type: String, default: "9.920,00 €" },
   textoAerotermia3: { type: String, default: "" },
+  potenciaBomba: { type: String, default: "" },
+  depositoLitros: { type: String, default: "" },
+  resistenciaElectrica: { type: String, default: "" },
+  potenciaTotalInstalada: { type: String, default: "" },
   dia: { type: String, default: "" },
   mes: { type: String, default: "" },
   anio: { type: String, default: "" },
