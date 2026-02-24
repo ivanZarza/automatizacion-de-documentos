@@ -1,6 +1,6 @@
 
 export const memoriaFvAerConfig = {
-  id: 'memoria-fv-aer',
+  id: '1memoria-fv-aer',
   title: 'Memoria Justificativa FV + Aerotermia',
   description: 'Documento de memoria técnica justificativa de la actuación de fotovoltaica con aerotermia',
   fileName: 'memoria-fv-aer',
@@ -49,13 +49,13 @@ export const memoriaFvAerConfig = {
     { name: 'aerotermia', label: 'Incluir sección de Aerotermia', type: 'checkbox' }
   ],
   defaultData: {
-    expedienteEco: 'expedienteEco',
-    nif: 'nifCif',
-    tipoEdificio: 'Vivienda',
+    expedienteEco: '',
+    nif: '',
+    tipoEdificio: '',
     domicilio: '',
     l3l4: '',
-    tipoSoporte: 'PLANA',
-    textoOpcional1: 'textoOpcional1',
+    tipoSoporte: '',
+    textoOpcional1: '',
     textoAerotermia1: '',
     textoAerotermia2: '',
     textoAerotermia3: '',
@@ -80,7 +80,7 @@ export const memoriaFvAerConfig = {
     expedienteEco: 'expedienteEco',
     nif: 'nifCif',
     tipoEdificio: 'tipoEdificio',
-    direccion: (formData) => `${formData.direccionCompleta} - ${formData.codigoPostalEmplazamiento} - ${formData.localidadEmplazamiento} - ${formData.provinciaEmplazamiento}`,
+    domicilio: (formData) => `${formData.direccionCompleta} - ${formData.codigoPostalEmplazamiento} - ${formData.localidadEmplazamiento} - ${formData.provinciaEmplazamiento}`,
     l3l4: 'l3l4',
     tipoSoporte: 'tipoSoporte',
     textoOpcional1: 'textoOpcional1',
