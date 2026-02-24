@@ -175,7 +175,7 @@ const generatePDF = async () => {
   // Lógica para generar PDF
   const { generatePDF: generatePDFUtil } = useDocument({ 
     defaultData: formData.value,
-    documentTitle: props.config.title 
+    documentTitle: props.config.fileName 
   })
   await generatePDFUtil()
 }
