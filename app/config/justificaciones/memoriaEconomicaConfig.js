@@ -114,7 +114,7 @@ export const memoriaEconomicaConfig = {
   },
   fieldMapping: {
     expediente: 'expedienteEco',
-    nif: 'nif',
+    nif: 'nifCif',
     edificioVivienda: 'edificioViviendaJUS',
     l3l4: 'l3l4',
     parrafoTexto: 'parrafoTexto',
