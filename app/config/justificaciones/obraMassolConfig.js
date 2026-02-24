@@ -30,7 +30,7 @@ export const obraMassolConfig = {
   },
   fieldMapping: {
     potenciaInstalacion: 'e2_potenciaNominalInversores',
-    direccionCompleta: 'direccionCompleta',
+    direccion: (formData) => `${formData.direccionCompleta} - ${formData.codigoPostalEmplazamiento} - ${formData.localidadEmplazamiento} - ${formData.provinciaEmplazamiento}`,
     referenciaCatastral: 'referenciaCatastral',
     diaInicio: 'diaInicio',
     mesInicio: 'mesInicio',

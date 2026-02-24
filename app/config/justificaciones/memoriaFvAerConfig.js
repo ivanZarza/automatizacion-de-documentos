@@ -79,7 +79,7 @@ export const memoriaFvAerConfig = {
     expedienteEco: 'expedienteEco',
     nif: 'nifCif',
     tipoEdificio: 'tipoEdificio',
-    domicilio: (dataForm) => `${dataForm.emplazamientoCalle} ${dataForm.numero}, ${dataForm.codigoPostalEmplazamiento} ${dataForm.localidadEmplazamiento}, ${dataForm.provinciaEmplazamiento}`,
+    direccion: (formData) => `${formData.direccionCompleta} - ${formData.codigoPostalEmplazamiento} - ${formData.localidadEmplazamiento} - ${formData.provinciaEmplazamiento}`,
     l3l4: 'l3l4',
     tipoSoporte: 'tipoSoporte',
     textoOpcional1: 'textoOpcional1',

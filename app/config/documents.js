@@ -2211,9 +2211,9 @@ export const zDeclaracionTecnicoCompetenteConfig = {
 // --- Categoría: Aceptaciones ---
 export const aceptacionSubvencionConfig = {
   id: 'aceptacion-subvencion',
-  title: 'Aceptación de la Subvención Concedida',
+  title: '1.- Aceptación de la Subvención Concedida',
   description: 'Aceptación de la subvención concedida para instalación fotovoltaica',
-  fileName: 'aceptacion-subvencion.pdf',
+  fileName: '1.- Aceptación de la Subvención Concedida.pdf',
   route: '/aceptaciones/aceptacion-subvencion',
   fields: [
     { name: 'razonSocial', label: 'Razón Social', type: 'text', fullWidth: true },
@@ -2270,9 +2270,9 @@ export const aceptacionSubvencionConfig = {
 
 export const declaracionCesionTratamientoConfig = {
   id: 'aceptacion-cesion-tratamiento',
-  title: 'Declaración de Cesión y Tratamiento de Datos',
+  title: '2.- ANEXO A Declaracion de Cesión y Tratamiento de Datos',
   description: 'Declaración de cesión y tratamiento de datos para trámites de aceptación',
-  fileName: 'declaracion-cesion-tratamiento.pdf',
+  fileName: '2.- ANEXO A Declaracion de cesion de tratamiento de datos.pdf',
   route: '/aceptaciones/aceptacion-cesion-tratamiento',
   fields: [
     { name: 'nombreApellidos', label: 'Nombre y Apellidos', type: 'text', fullWidth: true },
@@ -2309,7 +2309,7 @@ export const declaracionCesionTratamientoConfig = {
   fieldMapping: {
     nombreApellidos: 'apellidosNombre',
     nif: 'nifCif',
-    direccion: 'emplazamientoCalle',
+    direccion: (formData) => `${formData.direccionCompleta} - ${formData.codigoPostalEmplazamiento} - ${formData.localidadEmplazamiento} - ${formData.provinciaEmplazamiento}`,
     ciudad: 'localidadEmplazamiento',
     nombreRepresentante: 'nombreRepresentanteEntidad',
     dniRepresentante: 'dniRepresentanteEntidad',
@@ -2332,9 +2332,9 @@ export const declaracionCesionTratamientoConfig = {
 
 export const declaracionCompromisoDerechosConfig = {
   id: 'aceptacion-compromiso-derechos',
-  title: 'Declaración de Compromiso a Conceder Derechos y Accesos',
+  title: '3.- ANEXO B Declaracion de compromiso a conceder los derechos y accesos necesarios',
   description: 'Declaración de compromiso a conceder los derechos y accesos necesarios',
-  fileName: 'declaracion-compromiso-derechos.pdf',
+  fileName: '3.- ANEXO B Declaracion de compromiso a conceder los derechos y accesos necesarios.pdf',
   route: '/aceptaciones/aceptacion-compromiso-derechos',
   fields: [
     { name: 'nombreApellidos', label: 'Nombre y Apellidos', type: 'text', fullWidth: true },
@@ -2371,7 +2371,7 @@ export const declaracionCompromisoDerechosConfig = {
   fieldMapping: {
     nombreApellidos: 'apellidosNombre',
     nif: 'nifCif',
-    direccion: 'emplazamientoCalle',
+    direccion: (formData) => `${formData.direccionCompleta} - ${formData.codigoPostalEmplazamiento} - ${formData.localidadEmplazamiento} - ${formData.provinciaEmplazamiento}`,
     ciudad: 'localidadEmplazamiento',
     nombreRepresentante: 'nombreRepresentanteEntidad',
     dniRepresentante: 'dniRepresentanteEntidad',
@@ -2394,9 +2394,9 @@ export const declaracionCompromisoDerechosConfig = {
 
 export const declaracionAusenciaConflictoInteresesConfig = {
   id: 'aceptacion-ausencia-conflicto-intereses',
-  title: 'Declaración de Ausencia de Conflicto de Intereses (DACI)',
+  title: '5.- DACI',
   description: 'Declaración de ausencia de conflicto de intereses del personal externo a la Administración Pública',
-  fileName: 'declaracion-ausencia-conflicto-intereses.pdf',
+  fileName: '5.- DACI.pdf',
   route: '/aceptaciones/aceptacion-ausencia-conflicto-intereses',
   fields: [
     { name: 'ciudad', label: 'Ciudad', type: 'text', fullWidth: true },
@@ -2432,9 +2432,9 @@ export const declaracionAusenciaConflictoInteresesConfig = {
 
 export const declaracionCompromisoTransversalesConfig = {
   id: 'aceptacion-compromiso-transversales',
-  title: 'Declaración de Compromiso de Cumplimiento de Principios Transversales',
+  title: '4.- ANEXO C Modelo de declaración de compromiso de cumplimiento de los principios transversales',
   description: 'Modelo de declaración de compromiso de cumplimiento de los principios transversales (PRTR)',
-  fileName: 'compromiso-transversales.pdf',
+  fileName: '4.- ANEXO C Modelo de declaración de compromiso de cumplimiento de los principios transversales.pdf',
   route: '/aceptaciones/aceptacion-compromiso-transversales',
   fields: [
     { name: 'nombreApellidos', label: 'Nombre y Apellidos', type: 'text', fullWidth: true },
@@ -2471,7 +2471,7 @@ export const declaracionCompromisoTransversalesConfig = {
   fieldMapping: {
     nombreApellidos: 'apellidosNombre',
     nif: 'nifCif',
-    direccion: 'emplazamientoCalle',
+    direccion: (formData) => `${formData.direccionCompleta} - ${formData.codigoPostalEmplazamiento} - ${formData.localidadEmplazamiento} - ${formData.provinciaEmplazamiento}`,
     ciudad: 'localidadEmplazamiento',
     nombreRepresentante: 'nombreRepresentanteEntidad',
     dniRepresentante: 'dniRepresentanteEntidad',
