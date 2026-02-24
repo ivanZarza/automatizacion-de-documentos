@@ -1,8 +1,8 @@
 export const obraMassolConfig = {
   id: 'obra-massol',
-  title: 'Declaración inicio de obra - Massol',
+  title: '9.- Declaración inicio de obras-Massol',
   description: 'Formulario para declarar el inicio de obra según el modelo de Massol.',
-  fileName: 'obra-massol.pdf',
+  fileName: '9.- Declaracion inicio de obras-Massol.pdf',
   route: '/justificaciones/obra-massol',
   fields: [
     { name: 'potenciaInstalacion', label: 'Potencia Instalación (ej: 5)', type: 'text' },

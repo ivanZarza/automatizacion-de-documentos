@@ -1,8 +1,8 @@
 export const certificadoPedidosContratosConfig = {
   id: 'certificado-pedidos-contratos',
-  title: 'Certificado de Pedidos y/o Contratos',
+  title: '8.- Certificado de Pedidos',
   description: 'Relación certificada de pedidos y/o contratos relativos a las actuaciones realizadas',
-  fileName: 'Certificado_Pedidos_Contratos.pdf',
+  fileName: '8.- Certificado Pedidos.pdf',
   route: '/justificaciones/certificado-pedidos-contratos',
   
   fields: [

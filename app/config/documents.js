@@ -2,7 +2,7 @@ export const autorizacionRepresentacionConfig = {
   id: 'autorizacion-representacion',
   title: '1.- Autorización de Representación',
   description: 'Documento válido para trámites administrativos',
-  fileName: '1.- autorizacion-representacion.pdf',
+  fileName: '1.- Autorización de Representación.pdf',
   route: '/autorizacion-representacion',
   fields: [
     { type: 'subsection', label: 'Justificación', name: 'justificacion', description: 'Datos específicos para la justificación económica de la subvención.' },
@@ -49,7 +49,7 @@ export const autorizacionRepresentacionConfig = {
 
 export const declaracionHabilitacionProfesionalConfig = {
   id: 'declaracion-habilitacion-profesional',
-  title: '9.- DR de Habilitación Profesional.pdf',
+  title: '9.- DR de Habilitación Profesional',
   description: 'Documento de declaración de habilitación profesional para colegiados',
   fileName: '9.- DR de Habilitación Profesional.pdf',
   route: '/declaracion-habilitacion-profesional',

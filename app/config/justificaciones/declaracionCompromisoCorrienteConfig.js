@@ -1,8 +1,8 @@
 export const declaracionCompromisoCorrienteConfig = {
   id: 'declaracion-compromiso-corriente',
-  title: 'Declaración de Compromiso de Pago - Corriente',
+  title: '10.- Declaración de Compromiso de Pago - Corriente',
   description: 'Declaración de compromiso de encontrarse al corriente de pago de obligaciones de reembolso',
-  fileName: 'Declaracion_Compromiso_Corriente.pdf',
+  fileName: '10.- Declaracion Compromiso Corriente.pdf',
   route: '/justificaciones/declaracion-compromiso-corriente',
 
   fields: [

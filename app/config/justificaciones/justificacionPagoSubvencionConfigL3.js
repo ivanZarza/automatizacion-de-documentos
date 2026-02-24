@@ -1,8 +1,8 @@
 export const justificacionPagoSubvencionConfigL3 = {
   id: 'justificacion-pago-subvencion-l3',
-  title: 'Justificación de Pago de Subvención - L3',
+  title: '1.- Formato para Pago previa justiicacion (100%)',
   description: 'Documento para justificar el pago de una subvención',
-  fileName: 'justificacion-pago-subvencion-l3.pdf',
+  fileName: '1.- Formato para Pago previa justiicacion (100%).pdf',
   route: '/justificaciones/justificacion-pago-subvencion-l3',
   fields: [
     { name: 'expediente', label: 'Expediente', type: 'text' },

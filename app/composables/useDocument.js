@@ -39,11 +39,21 @@ export const useDocument = (documentConfig = {}) => {
     // Esperar un poco para que el DOM se estabilice
     await new Promise((r) => setTimeout(r, 300))
     
+    // Limpiar el título: remover extensión .pdf si existe
+    let titleLimpio = documentTitle
+    if (titleLimpio.endsWith('.pdf')) {
+      titleLimpio = titleLimpio.replace('.pdf', '')
+    }
+    
+    // Log para verificar que el nombre llega correctamente
+    console.log('📄 Nombre del documento:', documentTitle)
+    console.log('📄 Nombre limpio (sin .pdf):', titleLimpio)
+    
     // Guardar título original
     const titleOriginal = document.title
     
     // Cambiar título al nombre del documento
-    document.title = documentTitle
+    document.title = titleLimpio
     
     // Ocultar botones antes de imprimir
     const buttons = document.querySelectorAll('button')
