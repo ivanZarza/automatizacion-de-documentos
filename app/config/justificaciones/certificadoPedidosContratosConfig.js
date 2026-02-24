@@ -129,9 +129,7 @@ export const certificadoPedidosContratosConfig = {
   fieldMapping: {
     personaBeneficiaria: 'apellidosNombre',
     nif: 'nifCif',
-    direccion: (formData = {}) => {
-      return `${formData.emplazamientoCalle || ''} ${formData.numero || ''} -  ${formData.localidadEmplazamiento || ''}`.trim();
-    },
+    direccion: 'direccionCompleta',
     provincia: 'provinciaEmplazamiento',
     expediente: 'expedienteEco',
     diaFirma: 'diaFirmaJustificacion',

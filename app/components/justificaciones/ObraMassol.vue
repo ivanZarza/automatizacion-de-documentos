@@ -28,7 +28,7 @@
             <span class="texto-rojo">{{ potenciaInstalacion }}kW</span> para
             autoconsumo individual con excedida a compensación que se ejecuta en
             la vivienda situada en
-            <span class="texto-rojo">{{ emplazamientoCalle }}-{{ numeroEmplazamiento }}-{{ codigoPostalEmplazamiento }} - {{ ciudadEmplazamiento }} - ({{ provinciaEmplazamiento }})</span
+            <span class="texto-rojo">{{ direccionCompleta }}</span
             >, cuya referencia catastral es:
             <span class="texto-rojo">{{ referenciaCatastral }}</span>
           </p>
@@ -70,11 +70,7 @@
 <script setup>
 defineProps({
   potenciaInstalacion: String,
-  emplazamientoCalle: String,
-  numeroEmplazamiento: String,
-  codigoPostalEmplazamiento: String,
-  ciudadEmplazamiento: String,
-  provinciaEmplazamiento: String,
+  direccionCompleta: String,
   referenciaCatastral: String,
   diaInicio: String,
   mesInicio: String,
