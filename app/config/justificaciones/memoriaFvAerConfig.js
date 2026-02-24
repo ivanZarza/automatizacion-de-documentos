@@ -1,3 +1,4 @@
+
 export const memoriaFvAerConfig = {
   id: 'memoria-fv-aer',
   title: 'Memoria Justificativa FV + Aerotermia',
@@ -8,7 +9,7 @@ export const memoriaFvAerConfig = {
     { type: 'subsection', label: 'Datos Generales', name: 'datosGenerales', description: 'Información básica del inmueble y proyecto' },
     { name: 'expedienteEco', label: 'Expediente Económico', type: 'text', fullWidth: true },
     { name: 'nif', label: 'NIF', type: 'text' },
-    { name: 'l3/l4', label: 'Línea 3 o Línea 4', type: 'select', options: ['Línea 3', 'Línea 4'] },
+    { name: 'l3l4', label: 'Línea 3 o Línea 4', type: 'select', options: ['Línea 3', 'Línea 4'] },
     { name: 'tipoEdificio', label: 'Tipo de Edificio', type: 'text', fullWidth: true },
     { name: 'domicilio', label: 'Domicilio', type: 'text', fullWidth: true },
     { name: 'tipoSoporte', label: 'Tipo de Soporte', type: 'select', options: ['PLANA', 'INCLINADA', 'AMBAS'] },
@@ -54,7 +55,7 @@ export const memoriaFvAerConfig = {
     domicilio: '',
     l3l4: '',
     tipoSoporte: 'PLANA',
-    textoOpcional1: '',
+    textoOpcional1: 'textoOpcional1',
     textoAerotermia1: '',
     textoAerotermia2: '',
     textoAerotermia3: '',

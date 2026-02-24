@@ -253,7 +253,26 @@ export const masterFormFields = [
   { name: 'nombreRepresentanteEntidad', label: 'Nombre del Representante de la Entidad', placeholder: 'Ej: Juan Pérez', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'dniRepresentanteEntidad', label: 'DNI del Representante de la Entidad', placeholder: 'Ej: 12345678A', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'nifEmpresa', label: 'NIF Empresa', placeholder: 'Ej: B12345678', type: 'text', subsection: 'JUSTIFICACION' },
-  { name: 'tipoEdificioFvAerotermia', label: 'Tipo de Edificio', type: 'select', options: [{ label: 'Edificio', value: 'EDIFICIO DE VIVIENDA UNIFAMILIAR' }, { label: 'Vivienda', value: 'VIVIENDAS' }], placeholder: 'ej: Edificio', subsection: 'JUSTIFICACION', group: 'Memoria FvAer' },
+
+  
+  // ========== SUBSECCIÓN MEMORIA FV + AEROTERMIA ==========
+    { name: 'tipoEdificioFvAerotermia', label: 'Tipo de Edificio', type: 'select', options: [{ label: 'Edificio', value: 'EDIFICIO DE VIVIENDA UNIFAMILIAR' }, { label: 'Vivienda', value: 'VIVIENDAS' }], placeholder: 'ej: Edificio', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+    { name: 'textoOpcional1', label: 'Texto Opcional 1', placeholder: 'Ej: Texto opcional', type: 'select',options:[{label: 'Línea 3', value: 'Estas ayudas tienen por objeto la financiación de actuaciones u obras de mejora de la eficiencia energética en edificios, en concreto en una vivienda unifamiliar no perteneciente a un bloque de viviendas '}, {label: 'Línea 4', value: 'Estas ayudas tienen por objeto la financiación de actuaciones u obras de mejora de la eficiencia energética en las viviendas, ya sean unifamiliares o pertenecientes a edificios plurifamiliares'}] , fullWidth: true, subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'potenciaTermica', label: 'Potencia Térmica (kW)', placeholder: 'Ej: 8.5', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'resistenciaElectrica', label: 'Resistencia Eléctrica (kW)', placeholder: 'Ej: 2.0', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'potenciaTotal', label: 'Potencia Total (kW)', placeholder: 'Ej: 10.5', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'tipoSoporte', label: 'Tipo de Soporte', type: 'select', options: ['PLANA', 'INCLINADA', 'AMBAS'], subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'fechaConclusionDia', label: 'Día Conclusión', placeholder: 'Ej: 15', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'fechaConclusionMes', label: 'Mes Conclusión', placeholder: 'Ej: 03', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'fechaConclusionAnio', label: 'Año Conclusión', placeholder: 'Ej: 2025', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'mesNombre', label: 'Mes (Nombre)', placeholder: 'Ej: marzo', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'importeCertificacion', label: 'Importe Certificación', placeholder: 'Ej: 5000.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'importeOtrosCostes', label: 'Importe Otros Costes', placeholder: 'Ej: 500.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'importeTotal', label: 'Importe Total', placeholder: 'Ej: 5500.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'aerotermia', label: 'Incluir sección de Aerotermia', type: 'checkbox', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'tecnicoRedactor', label: 'Técnico Redactor', placeholder: 'Ej: Eduardo Rivera Cabezas', type: 'text', fullWidth: true, subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'zaharilla', label: 'Zaharilla', placeholder: 'Ej: Datos ubicación', type: 'text', fullWidth: true, subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+
   // ========== SUBSECCIÓN JUSTIFICACIÓN: Pedidos y Facturas ==========
   // Factura 1
   { name: 'numeroFactura1', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 1' },
@@ -314,21 +333,6 @@ export const masterFormFields = [
   { name: 'pedido2IdPedido', label: 'Id. Pedido (factura)', placeholder: 'Ej: PED-2025-002', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
   { name: 'pedido2FechaPedido', label: 'Fecha Pedido (factura)', placeholder: 'Ej: 17/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
   { name: 'pedido2ImportePedido', label: 'Importe Pedido (€) (factura)', placeholder: 'Ej: 2500', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
-  // ========== SUBSECCIÓN MEMORIA FV + AEROTERMIA ==========
-  { name: 'potenciaTermica', label: 'Potencia Térmica (kW)', placeholder: 'Ej: 8.5', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'resistenciaElectrica', label: 'Resistencia Eléctrica (kW)', placeholder: 'Ej: 2.0', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'potenciaTotal', label: 'Potencia Total (kW)', placeholder: 'Ej: 10.5', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'tipoSoporte', label: 'Tipo de Soporte', type: 'select', options: ['PLANA', 'INCLINADA', 'AMBAS'], subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'fechaConclusionDia', label: 'Día Conclusión', placeholder: 'Ej: 15', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'fechaConclusionMes', label: 'Mes Conclusión', placeholder: 'Ej: 03', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'fechaConclusionAnio', label: 'Año Conclusión', placeholder: 'Ej: 2025', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'mesNombre', label: 'Mes (Nombre)', placeholder: 'Ej: marzo', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'importeCertificacion', label: 'Importe Certificación', placeholder: 'Ej: 5000.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'importeOtrosCostes', label: 'Importe Otros Costes', placeholder: 'Ej: 500.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'importeTotal', label: 'Importe Total', placeholder: 'Ej: 5500.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'aerotermia', label: 'Incluir sección de Aerotermia', type: 'checkbox', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'tecnicoRedactor', label: 'Técnico Redactor', placeholder: 'Ej: Eduardo Rivera Cabezas', type: 'text', fullWidth: true, subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'zaharilla', label: 'Zaharilla', placeholder: 'Ej: Datos ubicación', type: 'text', fullWidth: true, subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   /*   // Pedido 3
     { name: 'pedido3Concepto', label: 'Concepto', placeholder: 'Ej: Estructura de montaje', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
     { name: 'pedido3Proveedor', label: 'Proveedor', placeholder: 'Ej: Empresa DEF', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },

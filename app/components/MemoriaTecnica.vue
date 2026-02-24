@@ -43,7 +43,7 @@
 
         <div class="cuerpo-seccion-borde">
           <div class="etiqueta">DOMICILIO:</div>
-          <div class="valor">{{ domicilio }} {{ numero }}</div>
+          <div class="valor">{{ domicilio }}</div>
         </div>
 
         <div class="fila-grid fila-3col">

@@ -24,7 +24,7 @@
         <h1 class="titulo-principal">
           MEMORIA JUSTIFICATIVA DE LA ACTUACIÓN PARA LA MEJORA DE LA EFICIENCIA
           ENERGÉTICA EN <span class="texto-verde">{{ tipoEdificio }}</span
-          >EN LA COMUNIDAD AUTÓNOMA DE ANDALUCÍA ({{ l3l4 }})
+          >EN LA COMUNIDAD AUTÓNOMA DE ANDALUCÍA ({{l3l4}})
         </h1>
 
         <!-- Datos Iniciales -->
