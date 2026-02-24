@@ -90,7 +90,7 @@ export const declaracionHabilitacionProfesionalConfig = {
   }
 }
 
-export const certificadoCoplanarTejaConfig = {  
+export const certificadoCoplanarTejaConfig = {
   id: 'certificado-coplanar-teja',
   title: '7.- Certificado de solidez y seguridad.pdf',
   description: 'Documento de certificación de solidez y seguridad para instalaciones fotovoltaicas en cubierta de teja coplanar',
@@ -687,8 +687,7 @@ export const memoriaTecnicaConfig = {
     planoEmplazamiento: ''
   },
   fieldMapping: {
-    domicilio: 'emplazamientoCalle',
-    codigoPostal: 'codigoPostalEmplazamiento',
+    domicilio: (formData) => `${formData.emplazamientoCalle} ${formData.numero ? formData.numero : ''} ${formData.bloque ? 'Bloque ' + formData.bloque : ''} ${formData.escalera ? 'Escalera ' + formData.escalera : ''} ${formData.planta ? 'Planta ' + formData.planta : ''} ${formData.puerta ? 'Puerta ' + formData.puerta : ''}`.trim(), codigoPostal: 'codigoPostalEmplazamiento',
     localidad: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',
     correoElectronico: 'correoElectronicoEmplazamiento',
@@ -964,8 +963,7 @@ export const memoriaInstalacionAisladaConBateriaConfig = {
   },
   fieldMapping: {
     // Sección A - TITULAR
-    domicilio: 'emplazamientoCalle',
-    codigoPostal: 'codigoPostalEmplazamiento',
+    domicilio: (formData) => `${formData.emplazamientoCalle} ${formData.numero ? formData.numero : ''} ${formData.bloque ? 'Bloque ' + formData.bloque : ''} ${formData.escalera ? 'Escalera ' + formData.escalera : ''} ${formData.planta ? 'Planta ' + formData.planta : ''} ${formData.puerta ? 'Puerta ' + formData.puerta : ''}`.trim(), codigoPostal: 'codigoPostalEmplazamiento',
     localidad: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',
     correoElectronico: 'correoElectronicoEmplazamiento',
@@ -1111,8 +1109,7 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
   },
   fieldMapping: {
     // Sección A - TITULAR
-    domicilio: 'emplazamientoCalle',
-    codigoPostal: 'codigoPostalEmplazamiento',
+    domicilio: (formData) => `${formData.emplazamientoCalle} ${formData.numero ? formData.numero : ''} ${formData.bloque ? 'Bloque ' + formData.bloque : ''} ${formData.escalera ? 'Escalera ' + formData.escalera : ''} ${formData.planta ? 'Planta ' + formData.planta : ''} ${formData.puerta ? 'Puerta ' + formData.puerta : ''}`.trim(), codigoPostal: 'codigoPostalEmplazamiento',
     localidad: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',
     correoElectronico: 'correoElectronicoEmplazamiento',
@@ -1191,7 +1188,7 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
     numero: '',
     bloque: '',
     escalera: '',
-    piso: '',
+    planta: '',
     puerta: '',
     localidadEmplazamiento: '',
     provinciaEmplazamiento: '',
@@ -1307,7 +1304,7 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
   },
   fieldMapping: {
     // Sección A - TITULAR
-    domicilio: 'emplazamientoCalle',
+    domicilio: (formData) => `${formData.emplazamientoCalle} ${formData.numero ? formData.numero : ''} ${formData.bloque ? 'Bloque ' + formData.bloque : ''} ${formData.escalera ? 'Escalera ' + formData.escalera : ''} ${formData.piso ? 'Piso ' + formData.planta : ''} ${formData.puerta ? 'Puerta ' + formData.puerta : ''}`.trim(),
     codigoPostal: 'codigoPostalEmplazamiento',
     localidad: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',
@@ -1450,8 +1447,7 @@ export const memoriaTecnicaPuntoRecargaConfig = {
   },
   fieldMapping: {
     // Sección A - TITULAR
-    domicilio: 'emplazamientoCalle',
-    codigoPostal: 'codigoPostalEmplazamiento',
+    domicilio: (formData) => `${formData.emplazamientoCalle} ${formData.numero ? formData.numero : ''} ${formData.bloque ? 'Bloque ' + formData.bloque : ''} ${formData.escalera ? 'Escalera ' + formData.escalera : ''} ${formData.planta ? 'Planta ' + formData.planta : ''} ${formData.puerta ? 'Puerta ' + formData.puerta : ''}`.trim(), codigoPostal: 'codigoPostalEmplazamiento',
     localidad: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',
     correoElectronico: 'correoElectronicoEmplazamiento',
@@ -2146,8 +2142,8 @@ export const zDeclaracionTecnicoCompetenteConfig = {
   title: '1.1.a - DR Técnico Competente.pdf',
   description: 'Declaración responsable para técnico competente con campos sobre imagen de fondo',
   fileName: '1.1.a - DR Técnico Competente.pdf',
-    route: '/z-declaracion-tecnico-competente',
-    fields: [
+  route: '/z-declaracion-tecnico-competente',
+  fields: [
     { name: 'potencia', label: 'Potencia', type: 'text' },
     { name: 'provincia', label: 'Provincia', type: 'text' },
     { name: 'fechaElaboracion', label: 'Fecha de Elaboración', type: 'date' },
@@ -2505,7 +2501,6 @@ const documentConfigs = {
   'autorizacion-representacion': autorizacionRepresentacionConfig,
   'declaracion-habilitacion-profesional': declaracionHabilitacionProfesionalConfig,
   'declaracion-no-generacion-rcds': declaracionNoGeneracionRcdsConfig,
-  'declaracion-compromiso-corriente': declaracionCompromisoCorrienteConfig,
   'certificado-coplanar-teja': certificadoCoplanarTejaConfig,
   'certificado-cubierta-plan-aaporticada': certificadoCubiertaPlanAaporticadaConfig,
   'certificado-aporticada-teja': certificadoAporticadaTejConfig,
@@ -2532,9 +2527,11 @@ const documentConfigs = {
   'justificacion-pago-subvencion-l4': justificacionPagoSubvencionConfigL4,
   'memoria-economica': memoriaEconomicaConfig,
   'memoria-fv-aer': memoriaFvAerConfig,
-  'obra-massol': obraMassolConfig,
   'certificado-pedidos-contratos': certificadoPedidosContratosConfig,
-  'declaracion-compromiso-corriente': declaracionCompromisoCorrienteConfig
+/*   'declaracion-compromiso-corriente': declaracionCompromisoCorrienteConfig,
+ */  'obra-massol': obraMassolConfig,
+    'declaracion-compromiso-corriente': declaracionCompromisoCorrienteConfig,
+
 }
 
 /**
