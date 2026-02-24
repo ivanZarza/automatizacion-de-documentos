@@ -499,7 +499,7 @@ export const memoriaTecnicaConfig = {
     localidadEmplazamiento: '',
     provinciaEmplazamiento: '',
     correoElectronicoEmplazamiento: '',
-    tipoInstalacion: 'Fotovoltaica conectada a red interior',
+    tipoInstalacion: '',
     usoDestino: 'Autoconsumo para vivienda',
     tipoInstalacionSeleccionada: '',
     // Sección C - PERSONA QUE FIRMA
@@ -692,6 +692,7 @@ export const memoriaTecnicaConfig = {
     provincia: 'provinciaEmplazamiento',
     correoElectronico: 'correoElectronicoEmplazamiento',
     telefono: 'telefono',
+    tipoInstalacion: 'tipoInstalacion',
     // E2.1 - Conexión a la Red
     potenciaNominalInversores: 'e2_potenciaNominalInversores',
     tipoConexionRed: 'e2_tipoConexionRed',
@@ -968,6 +969,7 @@ export const memoriaInstalacionAisladaConBateriaConfig = {
     provincia: 'provinciaEmplazamiento',
     correoElectronico: 'correoElectronicoEmplazamiento',
     telefono: 'telefono',
+    tipoInstalacion: 'tipoInstalacion',
     // E2.1 - Conexión a la Red
     potenciaNominalInversores: 'e2_potenciaNominalInversores',
     tipoConexionRed: 'e2_tipoConexionRed',
@@ -1114,6 +1116,8 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
     provincia: 'provinciaEmplazamiento',
     correoElectronico: 'correoElectronicoEmplazamiento',
     telefono: 'telefono',
+    tipoInstalacion: 'tipoInstalacion',
+
     // E2.1 - Conexión a la Red
     potenciaNominalInversores: 'e2_potenciaNominalInversores',
     tipoConexionRed: 'e2_tipoConexionRed',
@@ -1310,6 +1314,8 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
     provincia: 'provinciaEmplazamiento',
     correoElectronico: 'correoElectronicoEmplazamiento',
     telefono: 'telefono',
+    tipoInstalacion: 'tipoInstalacion',
+
     // E2.1 - Conexión a la Red
     potenciaNominalInversores: 'e2_potenciaNominalInversores',
     tipoConexionRed: 'e2_tipoConexionRed',
@@ -1452,6 +1458,8 @@ export const memoriaTecnicaPuntoRecargaConfig = {
     provincia: 'provinciaEmplazamiento',
     correoElectronico: 'correoElectronicoEmplazamiento',
     telefono: 'telefono',
+    tipoInstalacion: 'tipoInstalacion',
+
     // E2.1 - Conexión a la Red
     potenciaNominalInversores: 'e2_potenciaNominalInversores',
     tipoConexionRed: 'e2_tipoConexionRed',
@@ -2530,7 +2538,7 @@ const documentConfigs = {
   'certificado-pedidos-contratos': certificadoPedidosContratosConfig,
 /*   'declaracion-compromiso-corriente': declaracionCompromisoCorrienteConfig,
  */  'obra-massol': obraMassolConfig,
-    'declaracion-compromiso-corriente': declaracionCompromisoCorrienteConfig,
+  'declaracion-compromiso-corriente': declaracionCompromisoCorrienteConfig,
 
 }
 

@@ -2,9 +2,9 @@
   <div data-pdf-content class="contenedor-principal">
     <!-- ENCABEZADO -->
     <div class="encabezado-documento-principal">
-      <h1 class="titulo-encabezado">MEMORIA TÉCNICA DE DISEÑO</h1>
+      <h1 class="titulo-encabezado">{{ titulo }}</h1>
       <p class="subtitulo-encabezado">
-        INSTALACIONES FOTOVOLTAICAS EN BAJA TENSIÓN
+        {{ subtitulo }}
       </p>
     </div>
 
@@ -142,7 +142,7 @@
         <div class="fila-grid fila-2col">
           <div class="celda celda-izquierda">
             <div class="etiqueta">TIPO DE INSTALACIÓN:</div>
-            <div class="valor">Fotovoltaica conectada a red interior</div>
+            <div class="valor">{{ tipoInstalacion }}</div>
           </div>
           <div class="celda celda-izquierda">
             <div class="etiqueta">USO AL QUE SE DESTINA:</div>
@@ -1303,6 +1303,9 @@
 
 <script setup>
 defineProps({
+  // Títulos personalizables
+  titulo: { type: String, default: 'MEMORIA TÉCNICA DE DISEÑO' },
+  subtitulo: { type: String, default: 'INSTALACIONES FOTOVOLTAICAS EN BAJA TENSIÓN' },
   // Expediente
   numeroExpediente: String,
   numeroRegistro: String,
