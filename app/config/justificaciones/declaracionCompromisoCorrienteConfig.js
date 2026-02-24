@@ -61,7 +61,9 @@ export const declaracionCompromisoCorrienteConfig = {
   fieldMapping: {
     apellidosNombreBeneficiario: 'apellidosNombre',
     dniBeneficiario: 'nifCif',
-    domicilioBeneficiario: 'emplazamientoCalle',
+    domicilioBeneficiario: (formData = {}) => {
+      return `${formData.emplazamientoCalle || ''} ${formData.numero || ''} ${formData.planta || ''} ${formData.puerta || ''} ${formData.bloque || ''} ${formData.escalera || ''} ${formData.puerta || ''} -  ${formData.localidadEmplazamiento || ''}`.trim();
+    },
     razonSocial: 'razonSocial',
     nifEmpresa: 'nifEmpresa',
     domicilioFiscal: 'domicilioFiscal',
