@@ -389,7 +389,7 @@
             </p>
             <p>
               <span class="etiqueta">Firma:</span>
-              <span class="texto-rojo">{{ nombreFirma }}</span>
+              <span class="texto-rojo">Miguel Ángel Rivas Zapata</span>
             </p>
             <div v-if="firmaImagen" class="contenedor-firma-imagen">
               <img :src="firmaImagen" alt="Firma" class="imagen-firma" />
