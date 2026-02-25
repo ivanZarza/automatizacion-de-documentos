@@ -1208,7 +1208,7 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
 
 export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
   id: 'mtd-instalacion-autoconsumo-sin-bateria',
-  title: '6.- MTD (Sin batería)',
+  title: '6.- MTD (Sin batería).pdf',
   description: 'Documento técnico para instalaciones fotovoltaicas en baja tensión (autoconsumo sin batería)',
   fileName: '6.- MTD',
   route: '/mtd-instalacion-autoconsumo-sin-bateria',
