@@ -66,13 +66,13 @@ export const masterFormFields = [
   { name: 'e2_relacionTensionInversor', label: 'RELACIÓN TENSIÓN  AC, Vn (V) 1', placeholder: 'Ej: 230V/400V', type: 'text', subsection: 'E2', group: 'Inversor' },
   { name: 'e2_formaOndaSalidaInversor', label: 'Vcc MÁXIMA 1', placeholder: 'Ej: Senoidal Pura', type: 'text', subsection: 'E2', group: 'Inversor' },
   { name: 'e2_frecuenciaNominalInversor', label: 'Vcc MÍNIMA 1', placeholder: 'Ej: 50', type: 'text', subsection: 'E2', group: 'Inversor' },
-  { name: 'e2_tipoConexionRed', label: 'CONEXIÓN 1', placeholder: 'Ej: Monofásica / Trifásica', type: 'select', options: ['Monofásica', 'Trifásica'], subsection: 'Inversor' },
+  { name: 'e2_tipoConexionRed', label: 'CONEXIÓN 1', placeholder: 'Ej: Monofásica / Trifásica', type: 'select', options: ['Monofásica', 'Trifásica'], subsection: 'E2', group: 'Inversor' },
   { name: 'e2_marcaModeloInversor2', label: 'MARCA Y MODELO 2', placeholder: 'Ej: Fronius Symo', type: 'text', subsection: 'E2', group: 'Inversor' },
   { name: 'e2_potenciaNominalInversor2', label: 'POTENCIA NOMINAL (kW) 2', placeholder: 'Ej: 5000', type: 'text', subsection: 'E2', group: 'Inversor' },
   { name: 'e2_relacionTensionInversor2', label: 'RELACIÓN TENSIÓN  AC, Vn (V) 2', placeholder: 'Ej: 230V/400V', type: 'text', subsection: 'E2', group: 'Inversor' },
   { name: 'e2_formaOndaSalidaInversor2', label: 'Vcc MÁXIMA 2', placeholder: 'Ej: Senoidal Pura', type: 'text', subsection: 'E2', group: 'Inversor' },
   { name: 'e2_frecuenciaNominalInversor2', label: 'Vcc MÍNIMA 2', placeholder: 'Ej: 50', type: 'text', subsection: 'E2', group: 'Inversor' },
-  { name: 'e2_tipoConexionRed2', label: 'CONEXIÓN 2', placeholder: 'Ej: Monofásica / Trifásica', type: 'select', options: ['Monofásica', 'Trifásica'], subsection: 'Inversor' },
+  { name: 'e2_tipoConexionRed2', label: 'CONEXIÓN 2', placeholder: 'Ej: Monofásica / Trifásica', type: 'select', options: ['Monofásica', 'Trifásica'], subsection: 'E2', group: 'Inversor' },
   /*   { name: 'e2_tensionSalidaInversor', label: 'TENSIÓN SALIDA (V)', placeholder: 'Ej: 400', type: 'text', subsection: 'E2' },
     { name: 'e2_consumoVacioInversor', label: 'CONSUMO EN VACÍO', placeholder: 'Ej: 50', type: 'text', subsection: 'E2' }, */
 
