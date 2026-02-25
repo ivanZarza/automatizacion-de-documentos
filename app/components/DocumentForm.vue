@@ -354,7 +354,7 @@ watch(() => Object.keys(groupedFieldsBySection.value), (sections) => {
   })
 }, { immediate: true })
 
-const submit = () => {
+const submit = async () => {
   // Filtrar solo campos con valor (evitar contaminar el maestro con vacíos)
   // Pero permitir false para checkboxes
   const filteredData = Object.fromEntries(
@@ -362,7 +362,38 @@ const submit = () => {
       (value !== '' && value !== null && value !== undefined) || value === false
     )
   )
-  emit('submit', filteredData)
+  const nombre = formData.value.apellidosNombre
+  if (!nombre || nombre.trim() === '') {
+    alert('Debes rellenar el campo "apellidosNombre" para guardar el formulario.')
+    return
+  }
+  // Comprobar si ya existe ese nombre
+  let existe = false
+  try {
+    const res = await $fetch('/api/forms?nombre=' + encodeURIComponent(nombre))
+    if (res && !res.error) {
+      existe = true
+    }
+  } catch {}
+  let mensaje = `¿Quieres guardar el formulario con el nombre: "${nombre}"?`
+  if (existe) {
+    mensaje += '\n¡OJO! Ya existe un formulario con ese nombre y se sobrescribirá.'
+  }
+  if (!confirm(mensaje)) {
+    return
+  }
+  $fetch('/api/forms', {
+    method: 'POST',
+    body: {
+      nombre,
+      formulario: filteredData
+    }
+  }).then(() => {
+    alert('Formulario guardado correctamente.')
+    emit('submit', filteredData)
+  }).catch(() => {
+    alert('Error al guardar el formulario.')
+  })
 }
 
 // Usar props.fields si llegan; si no, usar masterFormFields (respeta el orden)
