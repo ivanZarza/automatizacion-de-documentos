@@ -1,7 +1,8 @@
 // Ruta GET para recuperar formularios
 // Si se pasa ?nombre=... devuelve solo ese, si no, todos
 import { promises as fs } from 'fs'
-const DB_PATH = 'server/db/forms.json'
+import { join } from 'path'
+const DB_PATH = join(process.cwd(), 'server/db/forms.json')
 
 export default defineEventHandler(async (event) => {
   let data = []

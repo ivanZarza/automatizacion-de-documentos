@@ -3,6 +3,7 @@ import { ref, computed } from 'vue'
 import { getAllDocuments } from '../config/documents'
 import SectionCard from '../components/SectionCard.vue'
 import DocumentCard from '../components/DocumentCard.vue'
+import ToolsSection from '../components/ToolsSection.vue'
 
 
 
@@ -34,6 +35,9 @@ const documentosJustificaciones = computed(() =>
 
 <template>
   <div class="pagina-principal">
+    <!-- SECCIÓN HERRAMIENTAS -->
+    <ToolsSection />
+
     <!-- SECCIÓN FORMULARIO MAESTRO -->
     <SectionCard
       title="🚀 Formulario Maestro"

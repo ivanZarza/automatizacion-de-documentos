@@ -1,0 +1,38 @@
+[
+  {
+    "nombre": "Iván Zarza Estevez",
+    "formulario": {
+      "apellidosNombre": "Iván Zarza Estevez",
+      "telefono": "692801130",
+      "correoElectronicoEmplazamiento": "ivanzarzaestevez@gmail.com",
+      "emplazamientoCalle": "Calle Odiel Portal 5",
+      "numero": "2d",
+      "localidadEmplazamiento": "Camas",
+      "provinciaEmplazamiento": "Sevilla",
+      "codigoPostalEmplazamiento": "41900",
+      "direccionCompleta": "Calle Odiel",
+      "figuraTecnicoCompetente": false,
+      "figuraInstaladorHabilitado": false,
+      "figuraResponsableTecnico": false,
+      "aerotermia": false
+    }
+  },
+  {
+    "nombre": "ermenegildo suarez blanco",
+    "formulario": {
+      "apellidosNombre": "ermenegildo suarez blanco",
+      "telefono": "692801130",
+      "correoElectronicoEmplazamiento": "ivanzarzaestevez@gmail.com",
+      "emplazamientoCalle": "Calle Odiel Portal 5",
+      "numero": "2d",
+      "localidadEmplazamiento": "Camas",
+      "provinciaEmplazamiento": "Sevilla",
+      "codigoPostalEmplazamiento": "41900",
+      "direccionCompleta": "Calle Odiel",
+      "figuraTecnicoCompetente": false,
+      "figuraInstaladorHabilitado": false,
+      "figuraResponsableTecnico": false,
+      "aerotermia": false
+    }
+  }
+]
