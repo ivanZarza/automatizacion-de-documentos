@@ -2377,7 +2377,7 @@ export const declaracionCesionTratamientoConfig = {
   fieldMapping: {
     nombreApellidos: 'apellidosNombre',
     nif: 'nifCif',
-    direccion: (formData) => `${formData.direccionCompleta} - ${formData.codigoPostalEmplazamiento} - ${formData.localidadEmplazamiento} - ${formData.provinciaEmplazamiento}`,
+    direccion: (formData) => `${formData.direccionCompleta || ''} - ${formData.codigoPostalEmplazamiento || ''} - ${formData.localidadEmplazamiento || ''} - ${formData.provinciaEmplazamiento || ''  }`,
     ciudad: 'localidadEmplazamiento',
     nombreRepresentante: 'nombreRepresentanteEntidad',
     dniRepresentante: 'dniRepresentanteEntidad',
@@ -2439,7 +2439,7 @@ export const declaracionCompromisoDerechosConfig = {
   fieldMapping: {
     nombreApellidos: 'apellidosNombre',
     nif: 'nifCif',
-    direccion: (formData) => `${formData.direccionCompleta} - ${formData.codigoPostalEmplazamiento} - ${formData.localidadEmplazamiento} - ${formData.provinciaEmplazamiento}`,
+    direccion: (formData) => `${formData.direccionCompleta || ''} - ${formData.codigoPostalEmplazamiento || ''} - ${formData.localidadEmplazamiento || ''} - ${formData.provinciaEmplazamiento || ''}`,
     ciudad: 'localidadEmplazamiento',
     nombreRepresentante: 'nombreRepresentanteEntidad',
     dniRepresentante: 'dniRepresentanteEntidad',
