@@ -1,9 +1,9 @@
 
 export const memoriaFvAerConfig = {
   id: '1memoria-fv-aer',
-  title: 'Memoria Justificativa FV + Aerotermia',
+  title: '3.- Memoria Justificativa',
   description: 'Documento de memoria técnica justificativa de la actuación de fotovoltaica con aerotermia',
-  fileName: 'memoria-fv-aer',
+  fileName: '3.- Memoria Justificativa',
   route: '/justificaciones/memoria-fv-aer',
   fields: [
     { type: 'subsection', label: 'Datos Generales', name: 'datosGenerales', description: 'Información básica del inmueble y proyecto' },

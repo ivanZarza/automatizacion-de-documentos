@@ -92,7 +92,7 @@ export const declaracionHabilitacionProfesionalConfig = {
 
 export const certificadoCoplanarTejaConfig = {
   id: 'certificado-coplanar-teja',
-  title: '7.- Certificado de solidez y seguridad.pdf',
+  title: '7.- Certificado de solidez y seguridad (coplanar teja)',
   description: 'Documento de certificación de solidez y seguridad para instalaciones fotovoltaicas en cubierta de teja coplanar',
   fileName: '7.- Certificado de solidez y seguridad',
   route: '/certificado-coplanar-teja',
@@ -156,7 +156,7 @@ export const certificadoCoplanarTejaConfig = {
 
 export const certificadoCubiertaPlanAaporticadaConfig = {
   id: 'certificado-cubierta-plan-aaporticada',
-  title: '7.- Certificado de solidez y seguridad.pdf',
+  title: '7.- Certificado de solidez y seguridad (Cubierta plana)',
   description: 'Documento de certificación de solidez y seguridad para instalaciones fotovoltaicas en cubierta plana con estructura aportícada',
   fileName: '7.- Certificado de solidez y seguridad',
   route: '/certificado-cubierta-plan-aaporticada',
@@ -220,7 +220,7 @@ export const certificadoCubiertaPlanAaporticadaConfig = {
 
 export const certificadoAporticadaTejConfig = {
   id: 'certificado-aporticada-teja',
-  title: '7.- Certificado de solidez y seguridad.pdf',
+  title: '7.- Certificado de solidez y seguridad (aporticado teja)',
   description: 'Certificado de solidez y seguridad de la cubierta para instalación aporticada sobre teja',
   fileName: '7.- Certificado de solidez y seguridad',
   route: '/certificado-aporticada-teja',
@@ -280,7 +280,7 @@ export const certificadoAporticadaTejConfig = {
 
 export const certificadoChapasGrecadasAporticadaConfig = {
   id: 'certificado-chapas-grecadas-aporticada',
-  title: '7.- Certificado de solidez y seguridad.pdf',
+  title: '7.- Certificado de solidez y seguridad (chapa grecada aporticada)',
   description: 'Certificado de solidez y seguridad de la cubierta para instalación aporticada sobre chapas grecadas',
   fileName: '7.- Certificado de solidez y seguridad',
   route: '/certificado-chapas-grecadas-aporticada',
@@ -340,7 +340,7 @@ export const certificadoChapasGrecadasAporticadaConfig = {
 
 export const certificadoParamentoVerticalConfig = {
   id: 'certificado-paramento-vertical',
-  title: '7.- Certificado de solidez y seguridad.pdf',
+  title: '7.- Certificado de solidez y seguridad (paramento vertical)',
   description: 'Documento de certificación de solidez y seguridad para instalaciones fotovoltaicas en paramento vertical',
   fileName: '7.- Certificado de solidez y seguridad',
   route: '/certificado-paramento-vertical',
@@ -400,7 +400,7 @@ export const certificadoParamentoVerticalConfig = {
 
 export const certificadoPergolaAporticadaConfig = {
   id: 'certificado-pergola-aporticada',
-  title: '7.- Certificado de solidez y seguridad.pdf',
+  title: '7.- Certificado de solidez y seguridad (Pérgola)',
   description: 'Documento de certificación de solidez y seguridad para instalaciones fotovoltaicas sobre pérgola aporticada',
   fileName: '7.- Certificado de solidez y seguridad',
   route: '/certificado-pergola-aporticada',
@@ -470,7 +470,7 @@ export const certificadoPergolaAporticadaConfig = {
 
 export const memoriaTecnicaConfig = {
   id: 'mtd-instalacion-autoconsumo-monofasica-con-bateria',
-  title: '6.- MTD.pdf',
+  title: '6.- MTD (Con bateria)',
   description: 'Documento técnico para instalaciones fotovoltaicas en baja tensión',
   fileName: '6.- MTD',
   route: '/mtd-instalacion-autoconsumo-monofasica-con-bateria',
@@ -762,7 +762,7 @@ export const memoriaTecnicaConfig = {
 
 export const memoriaInstalacionAisladaConBateriaConfig = {
   id: 'mtd-instalacion-aislada-con-bateria',
-  title: '6.- MTD.pdf',
+  title: '6.- MTD (Aislada)',
   description: 'Documento técnico para instalaciones fotovoltaicas aisladas con almacenamiento',
   fileName: '6.- MTD',
   route: '/mtd-instalacion-aislada-con-bateria',
@@ -1055,7 +1055,7 @@ export const memoriaInstalacionAisladaConBateriaConfig = {
 
 export const memoriaTecnicaTrifasicaConBateriaConfig = {
   id: 'mtd-instalacion-autoconsumo-trifasica-con-bateria',
-  title: '6.- MTD.pdf',
+  title: '6.- MTD (Trifásica con batería)',
   description: 'Documento técnico para instalaciones fotovoltaicas en baja tensión (trifásica con batería)',
   fileName: '6.- MTD',
   route: '/mtd-instalacion-autoconsumo-trifasica-con-bateria',
@@ -1208,7 +1208,7 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
 
 export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
   id: 'mtd-instalacion-autoconsumo-sin-bateria',
-  title: '6.- MTD.pdf',
+  title: '6.- MTD (Sin batería)',
   description: 'Documento técnico para instalaciones fotovoltaicas en baja tensión (autoconsumo sin batería)',
   fileName: '6.- MTD',
   route: '/mtd-instalacion-autoconsumo-sin-bateria',
@@ -1421,7 +1421,7 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
 
 export const memoriaTecnicaPuntoRecargaConfig = {
   id: 'mtd-instalacion-puntos-recarga',
-  title: '6.- MTD.pdf',
+  title: '6.- MTD (Punto de recarga)',
   description: 'Documento técnico para instalaciones de recarga de vehículos eléctricos',
   fileName: '6.- MTD',
   route: '/mtd-instalacion-puntos-recarga',
