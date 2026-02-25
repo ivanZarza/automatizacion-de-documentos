@@ -192,28 +192,28 @@
             <tbody>
               <tr>
                 <td>ACTUACIONES DE REHABILITACIÓN (SIN RETIRADA DE AMIANTO)</td>
-                <td >{{ importeActuacionesSinIva }}</td>
-                <td >{{ importeActuacionesConIva }}</td>
+                <td >{{ importeActuacionesSinIva }}€</td>
+                <td >{{ importeActuacionesConIva }}€</td>
               </tr>
               <tr>
                 <td>HONORARIOS PROFESIONALES</td>
-                <td >0.00</td>
-                <td >0.00</td>
+                <td >0.00€</td>
+                <td >0.00€</td>
               </tr>
               <tr>
                 <td>GESTIÓN Y TRAMITACIÓN ADMINISTRATIVA</td>
-                <td >0.00</td>
-                <td >0.00</td>
+                <td >0.00€</td>
+                <td >0.00€</td>
               </tr>
               <tr>
                 <td>RETIRADA DE AMIANTO</td>
-                <td >0.00</td>
-                <td >0.00</td>
+                <td >0.00€</td>
+                <td >0.00€</td>
               </tr>
               <tr style="font-weight: bold; border-top: 2px solid black">
                 <td>TOTAL</td>
-                <td >{{ importeActuacionesSinIva }}</td>
-                <td >{{ importeActuacionesSinIva }}</td>
+                <td >{{ importeActuacionesSinIva }}€</td>
+                <td >{{ importeActuacionesConIva }}€</td>
               </tr>
             </tbody>
           </table>
@@ -235,7 +235,7 @@
             eficiencia energética actual y previsto, del
             <span >{{
               porcentajeMejoraEnergeticaAcreditado
-            }}</span>
+            }}%</span>
             La tabla de los importes subvencionados sería la siguiente:
           </p>
 
@@ -249,7 +249,7 @@
               <tr>
                 <td>PORCENTAJE DE MEJORA ENERGÉTICA ACREDITADO</td>
                 <td class="valor-tabla">
-                  {{ porcentajeMejoraEnergeticaAcreditado }}
+                  {{ porcentajeMejoraEnergeticaAcreditado }}%
                 </td>
               </tr>
               <tr>
@@ -258,7 +258,7 @@
               </tr>
               <tr>
                 <td>IMPORTE DE LA SUBVENCIÓN RESULTANTE (MÁXIMO 18.800,00€)</td>
-                <td class="valor-tabla">{{ importeSubvencionResultante }}</td>
+                <td class="valor-tabla">{{ importeSubvencionResultante }}€</td>
               </tr>
             </tbody>
           </table>
@@ -538,12 +538,10 @@ defineProps({
 }
 
 .texto-verde {
-  color: green;
   font-weight: bold;
 }
 
 .texto-morado {
-  color: purple;
   font-weight: bold;
 }
 

@@ -1169,7 +1169,7 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
     modulosEnSerie: 'e2_modulosEnSerie',
     ramasEnParalelo: '',
     // E2.4 - Inversor E2
- marcaModeloInversor: 'e2_marcaModeloInversor',
+    marcaModeloInversor: 'e2_marcaModeloInversor',
     potenciaACInversor: 'e2_potenciaNominalInversor',
     tensionNominalInversor: 'e2_relacionTensionInversor',
     vccMaximaInversor: 'e2_formaOndaSalidaInversor',
@@ -2377,7 +2377,7 @@ export const declaracionCesionTratamientoConfig = {
   fieldMapping: {
     nombreApellidos: 'apellidosNombre',
     nif: 'nifCif',
-    direccion: (formData) => `${formData.direccionCompleta || ''} - ${formData.codigoPostalEmplazamiento || ''} - ${formData.localidadEmplazamiento || ''} - ${formData.provinciaEmplazamiento || ''  }`,
+    direccion: (formData) => `${formData.direccionCompleta || ''} - ${formData.codigoPostalEmplazamiento || ''} - ${formData.localidadEmplazamiento || ''} - ${formData.provinciaEmplazamiento || ''}`,
     ciudad: 'localidadEmplazamiento',
     nombreRepresentante: 'nombreRepresentanteEntidad',
     dniRepresentante: 'dniRepresentanteEntidad',
@@ -2569,8 +2569,14 @@ import { certificadoPedidosContratosConfig } from './justificaciones/certificado
 import { declaracionCompromisoCorrienteConfig } from './justificaciones/declaracionCompromisoCorrienteConfig'
 
 const documentConfigs = {
-  'certificado-adecuacion': certificadoAdecuacionConfig,
   'autorizacion-representacion': autorizacionRepresentacionConfig,
+  'mtd-instalacion-autoconsumo-monofasica-con-bateria': memoriaTecnicaConfig,
+  'mtd-instalacion-aislada-con-bateria': memoriaInstalacionAisladaConBateriaConfig,
+  'mtd-instalacion-autoconsumo-trifasica-con-bateria': memoriaTecnicaTrifasicaConBateriaConfig,
+  'mtd-instalacion-autoconsumo-sin-bateria': memoriaTecnicaAutoconsumoSinBateriaConfig,
+  'mtd-instalacion-puntos-recarga': memoriaTecnicaPuntoRecargaConfig,
+  'planos-situacion-emplazamiento-cubierta': planosPlanosSituacionEmplazamientoCubiertaConfig,
+  'certificado-adecuacion': certificadoAdecuacionConfig,
   'declaracion-habilitacion-profesional': declaracionHabilitacionProfesionalConfig,
   'declaracion-no-generacion-rcds': declaracionNoGeneracionRcdsConfig,
   'certificado-coplanar-teja': certificadoCoplanarTejaConfig,
@@ -2579,12 +2585,6 @@ const documentConfigs = {
   'certificado-paramento-vertical': certificadoParamentoVerticalConfig,
   'certificado-chapas-grecadas-aporticada': certificadoChapasGrecadasAporticadaConfig,
   'certificado-pergola-aporticada': certificadoPergolaAporticadaConfig,
-  'mtd-instalacion-autoconsumo-monofasica-con-bateria': memoriaTecnicaConfig,
-  'mtd-instalacion-aislada-con-bateria': memoriaInstalacionAisladaConBateriaConfig,
-  'mtd-instalacion-autoconsumo-trifasica-con-bateria': memoriaTecnicaTrifasicaConBateriaConfig,
-  'mtd-instalacion-autoconsumo-sin-bateria': memoriaTecnicaAutoconsumoSinBateriaConfig,
-  'mtd-instalacion-puntos-recarga': memoriaTecnicaPuntoRecargaConfig,
-  'planos-situacion-emplazamiento-cubierta': planosPlanosSituacionEmplazamientoCubiertaConfig,
   'z-certificado-br': zCertificadoBRConfig,
   'autorizacion-comunicacion': autorizacionComunicacionConfig,
   'z-certificado-doacfv': zCertificadoDOACFVConfig,

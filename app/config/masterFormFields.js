@@ -277,9 +277,10 @@ export const masterFormFields = [
   /* { name: 'importeCertificacion', label: 'Importe Certificación', placeholder: 'Ej: 5000.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'importeOtrosCostes', label: 'Importe Otros Costes', placeholder: 'Ej: 500.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'importeTotal', label: 'Importe Total', placeholder: 'Ej: 5500.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' }, */{ name: 'importeTotalSinIva', label: 'Importe Total Sin IVA (€)', placeholder: 'Ej: 5500.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name:'coincidencia' , label: 'Coincidencia con presupuesto', type: 'select', options: ['No', ''], subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'importeTotalConIva', label: 'Importe Total Con IVA (€)', placeholder: 'Ej: 6655.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'porcentajeMejoraEnergeticaAcreditado', label: 'Porcentaje Mejora Energética Acreditado (%)', placeholder: 'Ej: 64.22', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'porcentajeSubvencionable', label: 'Porcentaje Subvencionable (%)', placeholder: 'Ej: 80.00', type: 'select', options: [40, 65, 80], subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'porcentajeSubvencionable', label: 'Porcentaje Subvencionable (%)', placeholder: 'Ej: 80.00', type: 'select', options: ['40%', '65%', '80%'], subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'importeSubvencionResultante', label: 'Importe Subvención Resultante (€)', placeholder: 'Ej: 9920.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'aerotermia', label: 'Incluir sección de Aerotermia 1', type: 'checkbox', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
 

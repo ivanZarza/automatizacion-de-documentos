@@ -1,7 +1,7 @@
 <template>
   <div data-pdf-content class="contenedor-pdf">
-    <!-- Contenedor principal con márgenes A4 -->
-    <div class="contenedor-principal">
+    <!-- ========== PÁGINA 1: ENCABEZADO, DATOS Y LOGOS ========== -->
+    <div class="contenedor-principal pagina-1">
       
       <!-- Encabezado con Logo -->
       <div class="encabezado">
@@ -23,7 +23,7 @@
       </div>
 
       <!-- Contenido Principal -->
-      <div class="contenido-principal">
+      <div class="contenido-principal contenido-pagina-1">
         <!-- DATOS DEL PROYECTO -->
         <div class="seccion-datos">
           <h2 class="titulo-seccion">DATOS DEL PROYECTO</h2>
@@ -84,8 +84,23 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- PLANO DE SITUACIÓN Y EMPLAZAMIENTO -->
+
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es</p>
+        <p class="texto-pie">Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110 Sevilla.</p>
+        <p class="texto-pie">Página 1</p>
+      </div>
+    </div>
+
+    <!-- ========== PÁGINA 2: PLANO DE SITUACIÓN Y EMPLAZAMIENTO ========== -->
+    <div class="contenedor-principal pagina-2">
+      
+      <div class="contenido-principal contenido-pagina-2">
+        <!-- PLANO DE SITUACIÓN -->
         <div class="seccion-plano">
           <h2 class="titulo-seccion">Plano de Situación</h2>
           
@@ -173,9 +188,22 @@
             </div>
           </div>
         </div>
+      </div>
 
+      <!-- Pie de página Página 2 -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es</p>
+        <p class="texto-pie">Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110 Sevilla.</p>
+        <p class="texto-pie">Página 2</p>
+      </div>
+    </div>
+
+    <!-- ========== PÁGINA 3: PLANO DE CUBIERTA ========== -->
+    <div class="contenedor-principal pagina-3">
+      
+      <div class="contenido-principal contenido-pagina-3">
         <!-- PLANO DE CUBIERTA -->
-        <div class="seccion-plano" style="margin-bottom: 0;">
+        <div class="seccion-plano">
           <h2 class="titulo-seccion">Plano de Cubierta</h2>
           
           <div class="contenedor-plano-situacion">
@@ -222,7 +250,7 @@
         </div>
       </div>
 
-      <!-- Firma -->
+            <!-- Firma -->
       <div class="contenedor-firmas">
         <div class="fecha">En Bollullos de la Mitación, a {{ pse_dia }} de {{ pse_mes }} de {{ pse_anio }}</div>
         <div class="firma-bloque">
@@ -233,11 +261,11 @@
         </div>
       </div>
 
-      <!-- Pie de página -->
+      <!-- Pie de página Página 3 -->
       <div class="pie-pagina">
         <p class="texto-pie">www.solay.es</p>
         <p class="texto-pie">Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110 Sevilla.</p>
-        <p class="texto-pie">Página 1</p>
+        <p class="texto-pie">Página 3</p>
       </div>
     </div>
   </div>
@@ -333,7 +361,13 @@ const formattedData = computed(() => ({
   display: flex;
   flex-direction: column;
   padding: 20mm;
-  margin-top: 20px;
+  margin-top: 10px;
+  page-break-after: always;
+}
+
+/* Última página sin salto */
+.pagina-3 {
+  page-break-after: avoid;
 }
 
 /* ========== ENCABEZADO ========== */
@@ -411,7 +445,7 @@ const formattedData = computed(() => ({
 .seccion-datos,
 .seccion-plano,
 .seccion-cubierta {
-  margin-bottom: 13px;
+  margin-bottom: 0px;
 }
 
 /* ========== TÍTULOS DE SECCIÓN ========== */
@@ -505,7 +539,19 @@ const formattedData = computed(() => ({
 
 /* ========== PLANO DE SITUACIÓN ========== */
 .seccion-plano {
+  margin: 10px 0 20px 0;
+}
+
+.contenido-pagina-1 .seccion-plano {
   margin: 10px 0 250px 0;
+}
+
+.contenido-pagina-2 .seccion-plano {
+  margin: 10px 0 20px 0;
+}
+
+.contenido-pagina-3 .seccion-plano {
+  margin: 10px 0 20px 0;
 }
 
 .contenedor-plano-situacion {
@@ -513,6 +559,12 @@ const formattedData = computed(() => ({
   gap: 10px;
   width: 100%;
   margin: 8px 0;
+  min-height: 280px;
+}
+
+.contenido-pagina-2 .contenedor-plano-situacion,
+.contenido-pagina-3 .contenedor-plano-situacion {
+  min-height: 320px;
 }
 
 .datos-plano {
@@ -555,10 +607,15 @@ const formattedData = computed(() => ({
   flex: 1;
   background-color: #f0f0f0;
   border: 2px solid #ddd;
-  min-height: 200px;
+  min-height: 320px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.contenido-pagina-2 .imagen-plano,
+.contenido-pagina-3 .imagen-plano {
+  min-height: 300px;
 }
 
 .placeholder-imagen {
@@ -581,6 +638,11 @@ const formattedData = computed(() => ({
   padding: 8px 0;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
+}
+
+.contenido-pagina-2 .seccion-logos,
+.contenido-pagina-3 .seccion-logos {
+  display: none;
 }
 
 .contenedor-logos {
@@ -615,6 +677,10 @@ const formattedData = computed(() => ({
   justify-content: center;
   margin-top: 0px;
   padding-top: 100px;
+}
+
+.pagina-2 .contenedor-firmas {
+  display: none;
 }
 
 .fecha {
