@@ -46,19 +46,27 @@
                       <label :for="field.name" class="checkbox-label">{{ field.label }}</label>
                     </div>
                     <div v-else-if="field.type === 'file'" class="file-wrapper">
-                      <label :for="field.name" class="file-input-label">
-                        <svg class="file-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                          <polyline points="17 8 12 3 7 8"></polyline>
-                          <line x1="12" y1="3" x2="12" y2="15"></line>
-                        </svg>
-                        <span>{{ formData[field.name] ? 'Cambiar archivo' : 'Seleccionar archivo' }}</span>
-                      </label>
-                      <input :id="field.name" :key="field.name" type="file" :accept="field.accept || '*'" class="file-input-hidden" @change="handleFileUpload($event, field.name)" />
-                      <div v-if="formData[field.name]" class="file-preview">
-                        <p class="file-preview-text">✓ Archivo seleccionado:</p>
-                        <img v-if="field.accept?.includes('image')" :src="formData[field.name]" class="file-preview-image" />
-                        <p v-else class="file-preview-name">{{ extractFileName(formData[field.name]) }}</p>
+                      <div
+                        class="file-drop-area"
+                        :class="{ 'drag-over': dragOverField === field.name }"
+                        @dragover.prevent="onDragOver(field.name)"
+                        @dragleave.prevent="onDragLeave"
+                        @drop.prevent="onDrop($event, field.name)"
+                      >
+                        <label :for="field.name" class="file-input-label">
+                          <svg class="file-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="17 8 12 3 7 8"></polyline>
+                            <line x1="12" y1="3" x2="12" y2="15"></line>
+                          </svg>
+                          <span>{{ formData[field.name] ? 'Cambiar archivo o arrastra aquí' : 'Seleccionar archivo o arrastra aquí' }}</span>
+                        </label>
+                        <input :id="field.name" :key="field.name" type="file" :accept="field.accept || '*'" class="file-input-hidden" @change="handleFileUpload($event, field.name)" />
+                        <div v-if="formData[field.name]" class="file-preview">
+                          <p class="file-preview-text">✓ Archivo seleccionado:</p>
+                          <img v-if="field.accept?.includes('image')" :src="formData[field.name]" class="file-preview-image" />
+                          <p v-else class="file-preview-name">{{ extractFileName(formData[field.name]) }}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -77,6 +85,24 @@
 </template>
 
 <script setup>
+const dragOverField = ref(null)
+
+function onDragOver(fieldName) {
+  dragOverField.value = fieldName
+}
+
+function onDragLeave() {
+  dragOverField.value = null
+}
+
+async function onDrop(event, fieldName) {
+  dragOverField.value = null
+  const files = event.dataTransfer.files
+  if (files && files.length > 0) {
+    const fakeEvent = { target: { files } }
+    await handleFileUpload(fakeEvent, fieldName)
+  }
+}
 import { ref, watch, computed } from 'vue'
 import Boton from './Boton.vue'
 import { masterFormFields } from '../config/masterFormFields'
@@ -555,6 +581,9 @@ function getSubsectionLabel(subsection) {
 }
 
 .file-input-label {
+}
+
+.file-drop-area {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -568,6 +597,11 @@ function getSubsectionLabel(subsection) {
   font-size: 14px;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+  
+.file-drop-area.drag-over {
+  border-color: #1e40af;
+  background: #e0e7ff;
 }
 
 .file-input-label:hover {
