@@ -260,31 +260,28 @@ export const masterFormFields = [
   { name: 'dniRepresentanteEntidad', label: 'DNI del Representante de la Entidad', placeholder: 'Ej: 12345678A', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'nifEmpresa', label: 'NIF Empresa', placeholder: 'Ej: B12345678', type: 'text', subsection: 'JUSTIFICACION' },
 
-  
+
   // ========== SUBSECCIÓN MEMORIA FV + AEROTERMIA ==========
-    { name: 'tipoEdificioFvAerotermia', label: 'Tipo de Edificio', type: 'select', options: [{ label: 'Edificio', value: 'EDIFICIO DE VIVIENDA UNIFAMILIAR' }, { label: 'Vivienda', value: 'VIVIENDAS' }], placeholder: 'ej: Edificio', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-    { name: 'textoOpcional1', label: 'Texto Opcional 1', placeholder: 'Ej: Texto opcional', type: 'select',options:[{label: 'Línea 3', value: 'Estas ayudas tienen por objeto la financiación de actuaciones u obras de mejora de la eficiencia energética en edificios, en concreto en una vivienda unifamiliar no perteneciente a un bloque de viviendas '}, {label: 'Línea 4', value: 'Estas ayudas tienen por objeto la financiación de actuaciones u obras de mejora de la eficiencia energética en las viviendas, ya sean unifamiliares o pertenecientes a edificios plurifamiliares'}] , fullWidth: true, subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-/*     {name: 'textoAerotermia1', label: 'Texto Aerotermia 1', placeholder: 'Ej: Texto aerotermia 1', type: 'select', options: [{ label: 'Línea 3', value: 'En el caso de que la instalación incluya una solución de aerotermia, se incluirá un párrafo adicional en la memoria justificativa que describa brevemente la solución adoptada y su contribución a la mejora de la eficiencia energética del edificio.' }, { label: 'Línea 4', value: 'En el caso de que la instalación incluya una solución de aerotermia, se incluirá un párrafo adicional en la memoria justificativa que describa brevemente la solución adoptada y su contribución a la mejora de la eficiencia energética del edificio.' }], fullWidth: true, subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' }, */
-  { name: 'potenciaBomba', label: 'Potencia Bomba (kW)', placeholder: 'Ej: 1.8', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'depositoLitros', label: 'Depósito (L)', placeholder: 'Ej: 200', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'potenciaTermica', label: 'Potencia Térmica (kW)', placeholder: 'Ej: 8.5', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'resistenciaElectrica', label: 'Resistencia Eléctrica (kW)', placeholder: 'Ej: 2.0', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'potenciaTotal', label: 'Potencia Total (kW)', placeholder: 'Ej: 10.5', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'tipoEdificioFvAerotermia', label: 'Tipo de Edificio', type: 'select', options: [{ label: 'Edificio', value: 'EDIFICIO DE VIVIENDA UNIFAMILIAR' }, { label: 'Vivienda', value: 'VIVIENDAS' }], placeholder: 'ej: Edificio', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'textoOpcional1', label: 'Texto Opcional 1', placeholder: 'Ej: Texto opcional', type: 'select', options: [{ label: 'Línea 3', value: 'Estas ayudas tienen por objeto la financiación de actuaciones u obras de mejora de la eficiencia energética en edificios, en concreto en una vivienda unifamiliar no perteneciente a un bloque de viviendas ' }, { label: 'Línea 4', value: 'Estas ayudas tienen por objeto la financiación de actuaciones u obras de mejora de la eficiencia energética en las viviendas, ya sean unifamiliares o pertenecientes a edificios plurifamiliares' }], fullWidth: true, subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  /*     {name: 'textoAerotermia1', label: 'Texto Aerotermia 1', placeholder: 'Ej: Texto aerotermia 1', type: 'select', options: [{ label: 'Línea 3', value: 'En el caso de que la instalación incluya una solución de aerotermia, se incluirá un párrafo adicional en la memoria justificativa que describa brevemente la solución adoptada y su contribución a la mejora de la eficiencia energética del edificio.' }, { label: 'Línea 4', value: 'En el caso de que la instalación incluya una solución de aerotermia, se incluirá un párrafo adicional en la memoria justificativa que describa brevemente la solución adoptada y su contribución a la mejora de la eficiencia energética del edificio.' }], fullWidth: true, subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' }, */
+  { name: 'potenciaBomba', label: 'Potencia Bomba (kW) (Aerotermia)', placeholder: 'Ej: 1.8', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'depositoLitros', label: 'Depósito (L) (Aerotermia)', placeholder: 'Ej: 200', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'potenciaTermica', label: 'Potencia Térmica (kW) (Aerotermia)', placeholder: 'Ej: 8.5', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'resistenciaElectrica', label: 'Resistencia Eléctrica (kW) (Aerotermia)', placeholder: 'Ej: 2.0', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'potenciaTotal', label: 'Potencia Total (kW) (Aerotermia)', placeholder: 'Ej: 10.5', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'tipoSoporte', label: 'Tipo de Soporte', type: 'select', options: ['PLANA', 'INCLINADA', 'AMBAS'], subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  /* { name: 'fechaConclusionAnio', label: 'Año Conclusión', placeholder: 'Ej: 2025', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'fechaConclusionDia', label: 'Día Conclusión', placeholder: 'Ej: 15', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'fechaConclusionMes', label: 'Mes Conclusión', placeholder: 'Ej: 03', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'fechaConclusionAnio', label: 'Año Conclusión', placeholder: 'Ej: 2025', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'importeCertificacion', label: 'Importe Certificación', placeholder: 'Ej: 5000.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'fechaConclusionMes', label: 'Mes Conclusión', placeholder: 'Ej: 03', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' }, */
+  /* { name: 'importeCertificacion', label: 'Importe Certificación', placeholder: 'Ej: 5000.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'importeOtrosCostes', label: 'Importe Otros Costes', placeholder: 'Ej: 500.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'importeTotal', label: 'Importe Total', placeholder: 'Ej: 5500.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'importeTotalSinIva', label: 'Importe Total Sin IVA (€)', placeholder: 'Ej: 5500.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'importeTotal', label: 'Importe Total', placeholder: 'Ej: 5500.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' }, */{ name: 'importeTotalSinIva', label: 'Importe Total Sin IVA (€)', placeholder: 'Ej: 5500.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'importeTotalConIva', label: 'Importe Total Con IVA (€)', placeholder: 'Ej: 6655.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'porcentajeMejoraEnergeticaAcreditado', label: 'Porcentaje Mejora Energética Acreditado (%)', placeholder: 'Ej: 64.22', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'porcentajeSubvencionable', label: 'Porcentaje Subvencionable (%)', placeholder: 'Ej: 80.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'porcentajeSubvencionable', label: 'Porcentaje Subvencionable (%)', placeholder: 'Ej: 80.00', type: 'select', options: [40, 65, 80], subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'importeSubvencionResultante', label: 'Importe Subvención Resultante (€)', placeholder: 'Ej: 9920.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'aerotermia', label: 'Incluir sección de Aerotermia 1', type: 'checkbox', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'tecnicoRedactor', label: 'Técnico Redactor', placeholder: 'Ej: Eduardo Rivera Cabezas', type: 'text', fullWidth: true, subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'zaharilla', label: 'Zaharilla', placeholder: 'Ej: Datos ubicación', type: 'text', fullWidth: true, subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
 
   // ========== SUBSECCIÓN JUSTIFICACIÓN: Pedidos y Facturas ==========
   // Factura 1

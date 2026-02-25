@@ -399,7 +399,7 @@
 
 <script setup>
 defineProps({
-  tipoEdificio: { type: String, default: "viviendas unifamiliares" },
+  tipoEdificio: { type: String, default: "" },
   expedienteEco: { type: String, default: "" },
   nif: { type: String, default: "" },
   domicilio: { type: String, default: "" },
@@ -409,7 +409,7 @@ defineProps({
   fechaConclusionDia: { type: String, default: "" },
   fechaConclusionMes: { type: String, default: "" },
   fechaConclusionAnio: { type: String, default: "" },
-  tipoSoporte: { type: String, default: "PLANA" },
+  tipoSoporte: { type: String, default: "" },
   textoAerotermia2: { type: String, default: "" },
   caracteristicasAerotermia: { type: String, default: "" },
   aerotermia: { type: Boolean, default: false },
@@ -418,9 +418,9 @@ defineProps({
   importeActuacionesConIva: { type: String, default: "0,00 €" },
   importeTotalSinIva: { type: String, default: "0,00 €" },
   importeTotalConIva: { type: String, default: "0,00 €" },
-  porcentajeMejoraEnergeticaAcreditado: { type: String, default: "64,22%" },
-  porcentajeSubvencionable: { type: String, default: "80,00%" },
-  importeSubvencionResultante: { type: String, default: "9.920,00 €" },
+  porcentajeMejoraEnergeticaAcreditado: { type: String, default: "" },
+  porcentajeSubvencionable: { type: String, default: "" },
+  importeSubvencionResultante: { type: String, default: "" },
   textoAerotermia3: { type: String, default: "" },
   potenciaBomba: { type: String, default: "" },
   depositoLitros: { type: String, default: "" },
