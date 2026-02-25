@@ -20,6 +20,9 @@ FROM node:20-alpine
 
 WORKDIR /app
 
+# Install curl for healthcheck
+RUN apk add --no-cache curl
+
 # Create non-root user
 RUN addgroup -g 1001 -S nodejs
 RUN adduser -S nuxt -u 1001
@@ -39,7 +42,7 @@ EXPOSE 3000
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
-  CMD node -e "require('http').get('http://localhost:3000/', (r) => {if (r.statusCode !== 200) throw new Error(r.statusCode)})"
+  CMD curl -f http://localhost:3000/ || exit 1
 
 # Start application
 CMD ["node", ".output/server/index.mjs"]
