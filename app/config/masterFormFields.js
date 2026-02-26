@@ -42,7 +42,7 @@ export const masterFormFields = [
 /*   { name: 'usoDestino', label: 'Uso y Destino', placeholder: 'Ej: Autoconsumo para vivienda', type: 'text', subsection: 'E2' },
  */ { name: 'e2_potenciaNominalInversores', label: 'POTENCIA NOMINAL TOTAL EN INVERSORES (kW)', placeholder: 'Ej: 5.5', type: 'text', subsection: 'E2' },
   { name: 'e2_tipoConexionRed', label: 'TIPO', placeholder: 'Ej: Monofásica / Trifásica', type: 'select', options: ['Monofásica', 'Trifásica'], subsection: 'E2' },
-
+  { name: 'presupuestoTotal', label: 'Presupuesto Total', placeholder: 'Ej: 10000', type: 'text', subsection: 'E2' },
   // E2.2 Módulo Fotovoltaico
 /*   { name: 'e2_tecnologiaCelulaModulo', label: 'TECNOLOGÍA DE LA CÉLULA', placeholder: 'Ej: Monocristalino -PERC-', type: 'text', subsection: 'E2' },
  */  { name: 'e2_marcaModeloModulo', label: 'MARCA Y MODELO', placeholder: 'Ej: JA Solar JAM72S30 450/MR', type: 'text', subsection: 'E2', group: 'Modulo' },
@@ -277,7 +277,7 @@ export const masterFormFields = [
   /* { name: 'importeCertificacion', label: 'Importe Certificación', placeholder: 'Ej: 5000.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'importeOtrosCostes', label: 'Importe Otros Costes', placeholder: 'Ej: 500.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'importeTotal', label: 'Importe Total', placeholder: 'Ej: 5500.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' }, */{ name: 'importeTotalSinIva', label: 'Importe Total Sin IVA (€)', placeholder: 'Ej: 5500.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name:'coincidencia' , label: 'Coincidencia con presupuesto', type: 'select', options: ['No', ''], subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'coincidencia', label: 'Coincidencia con presupuesto', type: 'select', options: ['No', ''], subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'importeTotalConIva', label: 'Importe Total Con IVA (€)', placeholder: 'Ej: 6655.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'porcentajeMejoraEnergeticaAcreditado', label: 'Porcentaje Mejora Energética Acreditado (%)', placeholder: 'Ej: 64.22', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'porcentajeSubvencionable', label: 'Porcentaje Subvencionable (%)', placeholder: 'Ej: 80.00', type: 'select', options: ['40%', '65%', '80%'], subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },

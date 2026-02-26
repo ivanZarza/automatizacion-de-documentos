@@ -2560,14 +2560,6 @@ export const declaracionCompromisoTransversalesConfig = {
   category: 'aceptaciones'
 };
 
-import { justificacionPagoSubvencionConfigL3 } from './justificaciones/justificacionPagoSubvencionConfigL3'
-import { justificacionPagoSubvencionConfigL4 } from './justificaciones/justificacionPagoSubvencionConfigL4'
-import { memoriaEconomicaConfig } from './justificaciones/memoriaEconomicaConfig'
-import { memoriaFvAerConfig } from './justificaciones/memoriaFvAerConfig'
-import { obraMassolConfig } from './justificaciones/obraMassolConfig'
-import { certificadoPedidosContratosConfig } from './justificaciones/certificadoPedidosContratosConfig'
-import { declaracionCompromisoCorrienteConfig } from './justificaciones/declaracionCompromisoCorrienteConfig'
-
 export const documento80PaginasConfig = {
   id: 'documento-80-paginas',
   title: 'Estudio Básico de Seguridad y Salud - 80 páginas',
@@ -2575,13 +2567,52 @@ export const documento80PaginasConfig = {
   fileName: 'Estudio Básico de Seguridad y Salud',
   route: '/documento-80-paginas',
   fields: [
-    { name: 'promocion', label: 'Promoción', type: 'text', fullWidth: true }
+    { name: 'nombre', label: 'Nombre del Promotor', type: 'text', fullWidth: true },
+    { name: 'direccion', label: 'Dirección', type: 'text', fullWidth: true },
+    { name: 'referenciaCatastral', label: 'Referencia Catastral', type: 'text', fullWidth: true },
+    { name: 'dia', label: 'Día', type: 'text', width: 50 },
+    { name: 'mes', label: 'Mes', type: 'text', width: 100 },
+    { name: 'anio', label: 'Año', type: 'text', width: 70 },
+    { name: 'localidad', label: 'Localidad', type: 'text', fullWidth: false },
+    { name: 'provincia', label: 'Provincia', type: 'text', fullWidth: false },
+    { name: 'dni', label: 'DNI', type: 'text', fullWidth: false },
+    { name: 'codigoPostal', label: 'Código Postal', type: 'text', fullWidth: false },
+    { name: 'presupuesto', label: 'Presupuesto', type: 'text', fullWidth: true },
+    { name: 'potencia', label: 'Potencia (kW)', type: 'text', fullWidth: false },
+    { name: 'potenciaTotal', label: 'Potencia Total (kW)', type: 'text', fullWidth: false },
+    { name: 'presupuesto', label: 'Presupuesto', type: 'text', fullWidth: true }
   ],
   defaultData: {
-    promocion: ''
+    nombre: '',
+    direccion: '',
+    referenciaCatastral: '',
+    dia: '',
+    mes: '',
+    anio: '',
+    localidad: '',
+    provincia: '',
+    dni: '',
+    codigoPostal: '',
+    presupuesto: '',
+    potencia: '',
+    potenciaTotal: '',
+    presupuesto: ''
   },
   fieldMapping: {
-    promocion: 'apellidosNombre'
+    nombre: 'apellidosNombre',
+    direccion: (formData) => `${formData.direccionCompleta || ''} - ${formData.codigoPostalEmplazamiento || ''} - ${formData.localidadEmplazamiento || ''} - ${formData.provinciaEmplazamiento || ''}`,
+    referenciaCatastral: 'referenciaCatastral',
+    dia: 'dia',
+    mes: 'mes',
+    anio: 'anio',
+    localidad: 'localidadEmplazamiento',
+    provincia: 'provinciaEmplazamiento',
+    dni: 'nifCif',
+    codigoPostal: 'codigoPostalEmplazamiento',
+    presupuesto: 'presupuesto',
+    potencia: 'e2_potenciaNominalInversores',
+    potenciaTotal: 'e2_potenciaPicoGenerador',
+    presupuesto: 'presupuestoTotal'
   },
   capabilities: {
     canPreview: true,
@@ -2590,6 +2621,46 @@ export const documento80PaginasConfig = {
   },
   category: 'proyecto'
 }
+
+export const documentoUltimaPaginaConfig = {
+  id: 'documento-ultima-pagina',
+  title: 'Última Página - Otras Informaciones Útiles',
+  description: 'Página final con información útil para trabajos posteriores',
+  fileName: 'Última Página',
+  route: '/documento-ultima-pagina',
+  fields: [
+    { name: 'ciudad', label: 'Ciudad', type: 'text', fullWidth: true },
+    { name: 'dia', label: 'Día', type: 'text', fullWidth: false },
+    { name: 'mes', label: 'Mes', type: 'text', fullWidth: false },
+    { name: 'anio', label: 'Año', type: 'text', fullWidth: false }
+  ],
+  defaultData: {
+    ciudad: '',
+    dia: '',
+    mes: '',
+    anio: ''
+  },
+  fieldMapping: {
+    ciudad: 'localidadEmplazamiento',
+    dia: 'diaFirmaJustificacion',
+    mes: 'mesFirmaJustificacion',
+    anio: 'anioFirmaJustificacion'
+  },
+  capabilities: {
+    canPreview: true,
+    canEdit: true,
+    canGeneratePDF: true
+  },
+  category: 'proyecto'
+}
+
+import { justificacionPagoSubvencionConfigL3 } from './justificaciones/justificacionPagoSubvencionConfigL3'
+import { justificacionPagoSubvencionConfigL4 } from './justificaciones/justificacionPagoSubvencionConfigL4'
+import { memoriaEconomicaConfig } from './justificaciones/memoriaEconomicaConfig'
+import { memoriaFvAerConfig } from './justificaciones/memoriaFvAerConfig'
+import { obraMassolConfig } from './justificaciones/obraMassolConfig'
+import { certificadoPedidosContratosConfig } from './justificaciones/certificadoPedidosContratosConfig'
+import { declaracionCompromisoCorrienteConfig } from './justificaciones/declaracionCompromisoCorrienteConfig'
 
 const documentConfigs = {
   'autorizacion-representacion': autorizacionRepresentacionConfig,
@@ -2624,6 +2695,7 @@ const documentConfigs = {
   'memoria-fv-aer': memoriaFvAerConfig,
   'certificado-pedidos-contratos': certificadoPedidosContratosConfig,
   'documento-80-paginas': documento80PaginasConfig,
+  'documento-ultima-pagina': documentoUltimaPaginaConfig,
 /*   'declaracion-compromiso-corriente': declaracionCompromisoCorrienteConfig,
  */  'obra-massol': obraMassolConfig,
   'declaracion-compromiso-corriente': declaracionCompromisoCorrienteConfig,

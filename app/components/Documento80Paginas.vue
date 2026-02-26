@@ -1,3 +1,64 @@
+<script setup>
+defineProps({
+  nombre: {
+    type: String,
+    default: 'Alejandra Klitzke Chacón'
+  },
+  direccion: {
+    type: String,
+    default: 'Calle Dolores, N.º 14 Es:1 Pl:00 Pt:01'
+  },
+  referenciaCatastral: {
+    type: String,
+    default: '56317070QA5653B0001SG'
+  },
+  dia: {
+    type: String,
+    default: '16'
+  },
+  mes: {
+    type: String,
+    default: 'Octubre'
+  },
+  anio: {
+    type: String,
+    default: '2025'
+  },
+  localidad: {
+    type: String,
+    default: 'Sevilla'
+  },
+  provincia: {
+    type: String,
+    default: 'Sevilla'
+  },
+  dni: {
+    type: String,
+    default: ''
+  },
+  codigoPostal: {
+    type: String,
+    default: '41940'
+  },
+  presupuesto: {
+    type: String,
+    default: '7.024,79 €'
+  },
+  potencia: {
+    type: String,
+    default: '5.0'
+  },
+  potenciaTotal: {
+    type: String,
+    default: '5.0'
+  },
+  potenciaModulos: {
+    type: String,
+    default: '3210'
+  }
+})
+</script>
+
 <template>
   <div class="contenedor-pdf">
     <div data-pdf-content class="contenedor-principal">
@@ -12,7 +73,7 @@
       <div class="contenido-principal">
         <div class="caja-destacada caja-instalacion">
           Instalación Solar Fotovoltaica de
-          <span class="texto-rojo">5.0</span> (kW) para Autoconsumo Individual
+          <span class="texto-rojo">{{ potencia }}</span> (kW) para Autoconsumo Individual
           con Excedentes Acogido a Compensación en Vivienda
         </div>
 
@@ -24,14 +85,14 @@
               <tr>
                 <td class="etiqueta-tabla">Promotor</td>
                 <td class="valor-tabla">
-                  <span class="texto-rojo">Alejandra Klitzke Chacón</span>
+                  <span class="texto-rojo">{{ nombre }}</span>
                 </td>
               </tr>
               <tr>
                 <td class="etiqueta-tabla">Dirección</td>
                 <td class="valor-tabla">
                   <span class="texto-rojo"
-                    >Calle Dolores, N.º 14 Es:1 Pl:00 Pt:01</span
+                    >{{ direccion }}</span
                   >
                 </td>
               </tr>
@@ -42,13 +103,13 @@
               <tr>
                 <td class="etiqueta-tabla">Ref. Catastral</td>
                 <td class="valor-tabla">
-                  <span class="texto-rojo">56317070QA5653B0001SG</span>
+                  <span class="texto-rojo">{{ referenciaCatastral }}</span>
                 </td>
               </tr>
               <tr>
                 <td class="etiqueta-tabla">Fecha</td>
                 <td class="valor-tabla">
-                  16 de <span style="color: #0066cc; text-decoration: underline;">Octubre</span> de 2025
+                  A {{ dia }} de {{ mes }} de {{ anio }}
                 </td>
               </tr>
             </tbody>
@@ -271,7 +332,7 @@
 
         <h3 class="titulo-subseccion">1.1. TIPO DE INSTALACIÓN PROYECTADA</h3>
 
-        <p class="parrafo-contenido">Las obras objeto del presente Estudio Básico de Seguridad y Salud, corresponden a la ejecución de una instalación solar fotovoltaica instalada en cubierta para la producción de energía eléctrica de <span class="texto-rojo">autoconsumo</span> de una potencia total de inversores de <span class="texto-rojo">5.0 kW</span> y una potencia total instalada de módulos de <span class="texto-rojo">3210 Wp</span> con posibilidad de volcado a red para la compensación de excedentes en la factura eléctrica.</p>
+        <p class="parrafo-contenido">Las obras objeto del presente Estudio Básico de Seguridad y Salud, corresponden a la ejecución de una instalación solar fotovoltaica instalada en cubierta para la producción de energía eléctrica de de una potencia total de inversores de <span class="texto-rojo">{{ potencia }} kW</span> y una potencia total instalada de módulos de <span class="texto-rojo">{{ potenciaModulos }} Wp</span> con posibilidad de volcado a red para la compensación de excedentes en la factura eléctrica.</p>
 
         <p class="parrafo-contenido">En la Memoria Descriptiva del Proyecto se realiza una descripción completa, tanto de las características de la instalación como de los trabajos a realizar.</p>
 
@@ -298,9 +359,9 @@
         <p class="parrafo-contenido">A continuación, se indica el emplazamiento de la instalación proyectada:</p>
 
         <ul class="lista-contenido">
-          <li>Dirección: <span class="texto-rojo">Calle Dolores, número 14 Es:1 Pl:00 Pt:01</span></li>
-          <li>Localidad: <span class="texto-rojo">Jerez de la Frontera</span></li>
-          <li>Provincia: <span class="texto-rojo">Cádiz</span></li>
+          <li>Dirección: <span class="texto-rojo">{{ direccion }}</span></li>
+          <li>Localidad: <span class="texto-rojo">{{ localidad }}</span></li>
+          <li>Provincia: <span class="texto-rojo">{{ provincia }}</span></li>
         </ul>
 
         <h3 class="titulo-subseccion">1.3. ACCESOS, COMUNICACIONES E INFRAESTRUCTURAS</h3>
@@ -336,12 +397,12 @@
 
         <h3 class="titulo-subseccion">1.5. PROMOTOR</h3>
         <ul class="lista-contenido">
-          <li>Promotor: <span class="texto-rojo">Alejandra Klitzke Chacón</span></li>
-          <li>DNI/CIF: <span class="texto-rojo">31.690.412-F</span></li>
-          <li>Dirección: <span class="texto-rojo">Calle Dolores, Nº 14 Es:1 Pl:00 Pt:01</span></li>
-          <li>Localidad: <span class="texto-rojo">Jerez de la Frontera</span></li>
-          <li>Provincia: <span class="texto-rojo">Cádiz</span></li>
-          <li>C. postal: <span class="texto-rojo">11401</span></li>
+          <li>Promotor: <span class="texto-rojo">{{ nombre }}</span></li>
+          <li>DNI/CIF: <span class="texto-rojo">{{ dni }}</span></li>
+          <li>Dirección: <span class="texto-rojo">{{ direccion }}</span></li>
+          <li>Localidad: <span class="texto-rojo">{{ localidad }}</span></li>
+          <li>Provincia: <span class="texto-rojo">{{ provincia }}</span></li>
+          <li>C. postal: <span class="texto-rojo">{{ codigoPostal }}</span></li>
         </ul>
 
         <h3 class="titulo-subseccion">1.6. AUTOR DEL ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h3>
@@ -374,12 +435,12 @@
 
       <div class="contenido-principal">
         <ul class="lista-contenido">
-          <li>Localidad: <span class="texto-rojo">Tomares</span></li>
-          <li>Provincia: <span class="texto-rojo">Sevilla</span></li>
+          <li>Localidad: Sevilla</li>
+          <li>Provincia: Sevilla</li>
         </ul>
 
         <h3 class="titulo-subseccion">1.7. PRESUPUESTO TOTAL DE EJECUCIÓN DE LA OBRA</h3>
-        <p class="parrafo-contenido">El presupuesto de ejecución material de la obra es <span class="texto-rojo">7.024,79 €</span></p>
+        <p class="parrafo-contenido">El presupuesto de ejecución material de la obra es <span class="texto-rojo">{{ presupuesto }}</span></p>
 
         <h3 class="titulo-subseccion">1.8. PLAZO DE EJECUCIÓN</h3>
         <p class="parrafo-contenido">El plazo de ejecución se ha previsto que sea de una semana.</p>
@@ -402,9 +463,6 @@
   </div>
 </template>
 
-<script setup>
-// Página 1 generada a partir de la captura. Esperando capturas 2..6.
-</script>
 
 <style scoped>
 /* ===== estilos base extraídos y adaptados de AutorizacionRepresentacion.vue ===== */
@@ -516,19 +574,18 @@
 }
 
 .texto-rojo {
-  color: #c00;
   font-weight: bold;
 }
 
 .logos-footer {
   display: flex;
   justify-content: center;
-  gap: 24px;
+  gap: 10px;
   margin: 40px 0 20px 0;
 }
 
 .logo-pequeno {
-  height: 48px;
+  height: 60px !important;
   object-fit: contain;
 }
 
@@ -572,7 +629,6 @@
 }
 
 .contenido-principal img,
-.logo-pequeno,
 .logo {
   max-width: 100%;
   height: auto;
@@ -624,6 +680,10 @@ table, thead, tbody, tr, td {
 
 .indice-seccion {
   margin-bottom: 16px;
+}
+
+.parrafo-contenido {
+  text-align: justify;
 }
 
 </style>
