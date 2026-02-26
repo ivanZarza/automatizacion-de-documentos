@@ -70,8 +70,6 @@ const formulariosFiltrados = computed(() => {
 })
 
 function cargarFormularios() {
-  console.log('📦 Cargando formularios desde localStorage...')
-  
   const formulariosLocales = []
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i)
@@ -88,7 +86,6 @@ function cargarFormularios() {
   }
 
   formularios.value = formulariosLocales
-  console.log(`✅ Total formularios locales cargados: ${formulariosLocales.length}`)
 }
 
 function normalizarTexto(texto) {
@@ -109,18 +106,14 @@ async function buscarEnBD() {
   buscando.value = true
   try {
     const textoBuscaNormalizado = normalizarTexto(busqueda.value)
-    console.log(`🔍 Buscando: "${busqueda.value}" (normalizado: "${textoBuscaNormalizado}")...`)
     
     const resultado = await $fetch('/api/forms', {
       query: { nombre: busqueda.value }
     })
     
-    console.log('📦 Respuesta de BD:', resultado)
-    
     if (resultado && resultado.error) {
       // Error en la respuesta
       formulariosBuscados.value = []
-      console.log('❌ No se encontró el formulario en BD')
       alert('❌ No se encontró ningún formulario en BD con ese nombre')
     } else if (resultado && resultado.nombre) {
       // El resultado es un único formulario (objeto)
@@ -128,7 +121,6 @@ async function buscarEnBD() {
         nombre: resultado.nombre,
         formulario: resultado.formulario || resultado.datos || {}
       }]
-      console.log(`✅ Formulario encontrado en BD: "${resultado.nombre}"`)
     } else if (Array.isArray(resultado) && resultado.length > 0) {
       // El resultado es un array de formularios
       // Filtramos por coincidencia normalizada local
@@ -141,15 +133,12 @@ async function buscarEnBD() {
           nombre: f.nombre,
           formulario: f.formulario || f.datos || {}
         }))
-        console.log(`✅ Se encontraron ${formulariosFiltrados.length} coincidencia(s) en BD`)
       } else {
         formulariosBuscados.value = []
-        console.log('❌ No se encontró coincidencia en BD')
         alert('❌ No se encontró ningún formulario en BD que coincida con ese nombre')
       }
     } else {
       formulariosBuscados.value = []
-      console.log('❌ Respuesta vacía de BD')
       alert('❌ No se encontró ningún formulario en BD')
     }
   } catch (err) {
@@ -183,7 +172,6 @@ function descargarFormulario(formulario) {
     link.download = `${formulario.nombre}.json`
     link.click()
     URL.revokeObjectURL(url)
-    console.log(`✅ Formulario "${formulario.nombre}" descargado`)
   } catch (err) {
     console.error('Error al descargar formulario:', err)
     alert('❌ Error al descargar el formulario')
