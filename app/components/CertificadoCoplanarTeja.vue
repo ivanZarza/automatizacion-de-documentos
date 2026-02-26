@@ -530,6 +530,9 @@ defineProps({
     padding: 10mm 20mm !important;
     margin: 0 !important;
     box-shadow: none !important;
+  }
+
+  .contenedor-principal:not(:last-child) {
     page-break-after: always;
   }
 

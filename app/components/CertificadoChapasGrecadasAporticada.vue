@@ -372,9 +372,12 @@ defineProps({
     height: 297mm;
     padding: 20mm;
     margin: 0;
-    page-break-after: always;
     box-sizing: border-box;
     overflow: hidden;
+  }
+
+  .contenedor-principal:not(:last-child) {
+    page-break-after: always;
   }
 
   .encabezado {
