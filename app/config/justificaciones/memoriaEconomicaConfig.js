@@ -160,7 +160,7 @@ export const memoriaEconomicaConfig = {
     diaFirmaJustificacion: 'diaFirmaJustificacion',
     mesFirmaJustificacion: 'mesFirmaJustificacion',
     anioFirmaJustificacion: 'anioFirmaJustificacion',
-    nombreFirma: 'nombreFirma',
+    nombreFirma: 'apellidosNombre',
     firmaImagen: 'firma'
   },
   capabilities: {

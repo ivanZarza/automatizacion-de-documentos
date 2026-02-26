@@ -338,7 +338,7 @@ defineProps({
   diaFirmaJustificacion: { type: String, default: 'diaFirmaJustificacion' },
   mesFirmaJustificacion: { type: String, default: 'mesFirmaJustificacion' },
   anioFirmaJustificacion: { type: String, default: 'anioFirmaJustificacion' },
-  nombreFirma: { type: String, default: 'nombreFirma' },
+  nombreFirma: { type: String, default: '' },
   firmaImagen: { type: String, default: '' },
   // Props para las filas de la tabla de gastos
   numeroFactura1: { type: String, default: '' },

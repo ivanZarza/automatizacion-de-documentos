@@ -113,7 +113,7 @@ export const memoriaFvAerConfig = {
     dia: 'diaFirmaJustificacion',
     mes: 'mesFirmaJustificacion',
     anio: 'anioFirmaJustificacion',
-    firmaImagen: 'firma',
+    firmaImagen: '',
     aerotermia: 'aerotermia'
   },
   capabilities: {
