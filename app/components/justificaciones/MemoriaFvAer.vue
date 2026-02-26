@@ -454,8 +454,11 @@ defineProps({
   flex-direction: column;
   padding: 0;
   margin: 0;
-  page-break-after: always;
   box-sizing: border-box;
+}
+
+.pagina:not(:last-child) {
+  page-break-after: always;
 }
 
 /* ========== ENCABEZADO ========== */
@@ -723,6 +726,9 @@ defineProps({
   .pagina {
     width: 210mm !important;
     min-height: 297mm !important;
+  }
+
+  .pagina:not(:last-child) {
     page-break-after: always !important;
   }
 
