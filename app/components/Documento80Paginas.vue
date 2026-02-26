@@ -1019,6 +1019,510 @@
         <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
       </div>
     </div>
+
+    <!-- PÁGINA 18: MONTAJE DE SOPORTES PARA PANELES FOTOVOLTAICOS -->
+    <div class="contenedor-principal">
+      <!-- Encabezado -->
+      <div class="encabezado">
+        <div class="encabezado-contenido">
+          <h1 class="titulo-principal">ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+          <p class="subtitulo">INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+        </div>
+        <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
+      </div>
+
+      <!-- Contenido Principal -->
+      <div class="contenido-principal">
+        <h2 class="titulo-seccion-grande">10. Montaje de soportes para paneles fotovoltaicos.</h2>
+
+        <p class="parrafo-contenido">
+          <strong>RIESGOS DETECTABLES MÁS COMUNES</strong>
+        </p>
+
+        <ul class="lista-contenido">
+          <li>Caídas al mismo o distinto nivel</li>
+          <li>Golpes o cortes con objetos o máquinas</li>
+          <li>Proyección de objetos.</li>
+          <li>Ruido.</li>
+          <li>Pisada sobre objetos punzantes</li>
+          <li>Caída de objetos o máquinas</li>
+          <li>Sobreesfuerzos.</li>
+          <li>Posturas forzadas.</li>
+          <li>Contactos eléctricos.</li>
+        </ul>
+
+        <h3 class="titulo-subseccion">NORMAS Y MEDIDAS PREVENTIVAS TIPO</h3>
+
+        <ul class="lista-contenido">
+          <li>Previamente a la realización de la tarea, comprobará la situación de la zona donde se va a actuar; si están instalados las protecciones colectivas necesarias, especialmente aquellas establecidas para trabajos en cubiertas. No iniciará ninguna tarea sin la existencia de estas protecciones.</li>
+          <li>Utilizará el medio o medios auxiliares previstos para la realización de la tarea y procederá a la comprobación de su estado.</li>
+          <li>Se prestará especial atención en todas aquellas tareas que requieran la colaboración o que impliquen a otros oficios y se coordinará con éstos para que se molesten lo mínimo posible.</li>
+          <li>La zona de trabajo se encontrará limpia y ordenada.</li>
+          <li>No se manipularán perfiles, piezas o soportes sin los equipos de protección indicados.</li>
+          <li>Siempre que sea posible se tendrá que haber previsto un transporte mecánico de las piezas. Cuando éste no sea posible, el transporte se hará manualmente en la distancia más corta posible. Si el peso que se tiene que transportar resulta excesivo para una sola persona, se solicitará la ayuda necesaria.</li>
+        </ul>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
+
+    <!-- PÁGINA 19: MONTAJE CONTINUACIÓN Y EQUIPOS PROTECCIÓN -->
+    <div class="contenedor-principal">
+      <!-- Encabezado -->
+      <div class="encabezado">
+        <div class="encabezado-contenido">
+          <h1 class="titulo-principal">ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+          <p class="subtitulo">INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+        </div>
+        <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
+      </div>
+
+      <!-- Contenido Principal -->
+      <div class="contenido-principal">
+        <p class="parrafo-contenido">
+          más corta posible. Si el peso que se tiene que transportar resulta excesivo para una sola persona, se solicitará la ayuda necesaria.
+        </p>
+
+        <ul class="lista-contenido">
+          <li>Deberá evitarse la manipulación de piezas con aristas que puedan provocar cortes.</li>
+          <li>En operaciones de corte se eliminará la rebaba existente en aristas.</li>
+          <li>No se situará bajo la zona de acción de las cargas en el momento que éstas estén siendo trasladadas con la grúa.</li>
+        </ul>
+
+        <h3 class="titulo-subseccion">EQUIPOS DE PROTECCIÓN INDIVIDUAL</h3>
+
+        <p class="parrafo-contenido">
+          Todas las prendas de protección personal deberán estar homologadas por los organismos correspondientes y a continuación se relacionan:
+        </p>
+
+        <ul class="lista-contenido">
+          <li>Casco de seguridad.</li>
+          <li>Botas de seguridad.</li>
+          <li>Arnés de seguridad, en caso de ser necesario.</li>
+          <li>Guantes de cuero.</li>
+          <li>Gafas de seguridad <span class="texto-rojo">atrapocabezadas</span></li>
+        </ul>
+
+        <h2 class="titulo-seccion-grande">11. Instalaciones eléctricas</h2>
+
+        <p class="parrafo-contenido">
+          <strong>RIESGOS DETECTABLES DURANTE LA INSTALACIÓN</strong>
+        </p>
+
+        <ul class="lista-contenido">
+          <li>Caídas de personas al mismo o a distinto nivel.</li>
+          <li>Cortes por manejo de herramientas manuales.</li>
+          <li>Lesiones por manejo de útiles específicos.</li>
+          <li>Lesiones por sobreesfuerzos y posturas forzadas continuadas.</li>
+          <li>Quemaduras.</li>
+        </ul>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
+
+    <!-- PÁGINA 20: INSTALACIONES ELÉCTRICAS PRUEBAS Y PUESTA EN SERVICIO -->
+    <div class="contenedor-principal">
+      <!-- Encabezado -->
+      <div class="encabezado">
+        <div class="encabezado-contenido">
+          <h1 class="titulo-principal">ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+          <p class="subtitulo">INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+        </div>
+        <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
+      </div>
+
+      <!-- Contenido Principal -->
+      <div class="contenido-principal">
+        <p class="parrafo-contenido">
+          Cualesquiera otros que conocidos por el contratista deban ser integrados en las medidas del Plan de Seguridad.
+        </p>
+
+        <p class="parrafo-contenido">
+          <strong>RIESGOS DETECTABLES DURANTE LAS PRUEBAS Y PUESTA EN SERVICIO</strong>
+        </p>
+
+        <ul class="lista-contenido">
+          <li>Electrocución o quemaduras por mala protección de los cuadros eléctricos, por maniobras incorrectas en las líneas, por uso de herramientas sin aislamiento, por puenteo de los mecanismos de protección, o por conexionados directos sin clavijas.</li>
+          <li>Incendios por incorrecta instalación de la red eléctrica.</li>
+        </ul>
+
+        <p class="parrafo-contenido">
+          Cualesquiera otros que conocidos por el contratista deban ser integrados en las medidas del Plan de Seguridad.
+        </p>
+
+        <h3 class="titulo-subseccion">NORMAS Y MEDIDAS PREVENTIVAS TIPO</h3>
+
+        <ul class="lista-contenido">
+          <li>El almacén para acopio del material eléctrico se ubicará en lugar adecuado al material contenido.</li>
+          <li>El montaje de aparatos eléctricos SIEMPRE se efectuará por personal especialista.</li>
+          <li>La iluminación de los tajos no será inferior a 100 lux medidos a 2 m del suelo.</li>
+          <li>La iluminación mediante portátiles se efectuará con amplios a la norma 3.1 y así votiós y portálámparas estancos con mango aislante y provistos de rejilla protectora.</li>
+          <li>Se prohíbe absolutamente el conexionado a los cuadros de suministro eléctrico sin la utilización de las clavijas adecuadas.</li>
+          <li>Las escaleras cumplirán las normas de seguridad, zapatas antideslizantes, cadena limitadora de apertura (tijeras) etc.</li>
+          <li>Se prohíbe la formación de andamios utilizando escaleras de mano.</li>
+          <li>Los trabajos de electricidad en general, cuando se realicen en zonas de huecos de escaleras, estarán afectos de las medidas de seguridad referentes a la utilización de redes protectoras.</li>
+          <li>De igual manera se procederá en terrazas, balcones, tribunas, etc.</li>
+          <li>Las herramientas utilizadas estarán protegidas con material aislante normalizado contra contactos de energía eléctrica.</li>
+        </ul>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
+
+    <!-- PÁGINA 21: EQUIPOS PROTECCIÓN INSTALACIONES ELÉCTRICAS CONTINUACIÓN -->
+    <div class="contenedor-principal">
+      <!-- Encabezado -->
+      <div class="encabezado">
+        <div class="encabezado-contenido">
+          <h1 class="titulo-principal">ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+          <p class="subtitulo">INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+        </div>
+        <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
+      </div>
+
+      <!-- Contenido Principal -->
+      <div class="contenido-principal">
+        <ul class="lista-contenido">
+          <li>Para evitar la conexión accidental a la red, el último cableado que se ejecute será el del cuadro general al del suministro.</li>
+          <li>Las pruebas de tensión se anunciarán convenientemente para conocimiento de todo el personal de la obra.</li>
+          <li>Antes de poner en carga la instalación total o parcialmente, se hará una revisión suficiente de las conexiones y mecanismos, protecciones y empalme de los cuadros generales y auxiliares, de acuerdo con la norma del reglamento electrotécnico.</li>
+          <li>La entrada en servicio de la celda de transformación, se efectuará con el edificio desalojado de personal, en presencia de la jefatura de obra y de la D. F.</li>
+          <li>Antes de poner en servicio la celda de transformación se procederá a comprobar la existencia en la sala de los elementos de seguridad indicados en el reglamento electrotécnico, banqueta, pértiga, extintores, botiquín y vestimenta de los propietarios. Una vez comprobado esto se procederá a la entrada en servicio.</li>
+        </ul>
+
+        <h3 class="titulo-subseccion">EQUIPOS DE PROTECCIÓN INDIVIDUAL</h3>
+
+        <p class="parrafo-contenido">
+          Todas las prendas de protección personal deberán estar homologadas por los organismos correspondientes y a continuación se relacionan:
+        </p>
+
+        <ul class="lista-contenido">
+          <li>Casco de polietileno.</li>
+          <li>Botas de seguridad (aislantes en su caso).</li>
+          <li>Guantes (aislantes en su caso).</li>
+          <li>Ropa adecuada de trabajo.</li>
+          <li>Cinturón de seguridad y/o faja elástica de cintura.</li>
+          <li>Banqueta de maniobra.</li>
+          <li>Alfombilla aislante.</li>
+          <li>Comprobadores de tensión.</li>
+          <li>Herramientas aisladas.</li>
+        </ul>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
+
+    <!-- PÁGINA 22: ANÁLISIS DE RIESGOS EMPLEO DE MAQUINARIA -->
+    <div class="contenedor-principal">
+      <!-- Encabezado -->
+      <div class="encabezado">
+        <div class="encabezado-contenido">
+          <h1 class="titulo-principal">ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+          <p class="subtitulo">INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+        </div>
+        <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
+      </div>
+
+      <!-- Contenido Principal -->
+      <div class="contenido-principal">
+        <h3 class="titulo-subseccion">1.16. ANÁLISIS DE RIESGOS Y PREVENCIÓN EN EL EMPLEO DE MAQUINARIA</h3>
+
+        <p class="parrafo-contenido">
+          Se realiza a continuación un análisis y evaluación inicial de riesgos asociados al empleo de la maquinaria más significativa a emplear en la ejecución de la obra, con indicación de las medidas preventivas a adoptar, y los equipos de protección a emplear.
+        </p>
+
+        <p class="parrafo-contenido">
+          Consideraos como más representativas las que se reseñan a continuación:
+        </p>
+
+        <ul class="lista-contenido">
+          <li>Camión Grúa Hidráulica Telescópica.</li>
+          <li>Hormigonera</li>
+          <li>Soldadura Eléctrica.</li>
+        </ul>
+
+        <p class="parrafo-contenido">
+          El empleo por el contratista de otro tipo de maquinaria deberá ser considerada e integrada en el Plan de Seguridad y Salud de la obra.
+        </p>
+
+        <p class="parrafo-contenido">
+          <strong>RIESGOS DETECTABLES COMUNES A TODAS LAS MÁQUINAS MÓVILES</strong>
+        </p>
+
+        <ul class="lista-contenido">
+          <li>Los derivados de su circulación: Vuelcos, atropellos, atrapamientos, proyecciones vibraciones y ruidos formación de polvo.</li>
+          <li>Los provocados por su uso específico característica de cada tipo de máquina y su trabajo realizado y los particulares de mantenimiento de sus mecanismos.</li>
+        </ul>
+
+        <h3 class="titulo-subseccion">NORMAS PREVENTIVAS GENERALES</h3>
+
+        <p class="parrafo-contenido">
+          Los vehículos estarán dotados de faros de marcha adelante y retroceso servofreno, freno de mano, bocina automática de retroceso, retrovisores a ambos lados del pórtico de seguridad antivuelco, cabinas <span class="texto-rojo">antiimpactos</span> y extintores.
+        </p>
+
+        <p class="parrafo-contenido">
+          Las máquinas serán revisadas diariamente comprobando su buen estado.
+        </p>
+
+        <ul class="lista-contenido">
+          <li>Periódicamente (determinar plazos) se reactará un parte de revisión que será controlado por el Vigilante de Seguridad y estará a disposición de la Dirección Facultativa.</li>
+          <li>Se prohíbe permanecer transitar o trabajar dentro del radio de acción de las máquinas en movimiento.</li>
+        </ul>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
+
+    <!-- PÁGINA 23: NORMAS PREVENTIVAS GENERALES CONTINUACIÓN -->
+    <div class="contenedor-principal">
+      <!-- Encabezado -->
+      <div class="encabezado">
+        <div class="encabezado-contenido">
+          <h1 class="titulo-principal">ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+          <p class="subtitulo">INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+        </div>
+        <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
+      </div>
+
+      <!-- Contenido Principal -->
+      <div class="contenido-principal">
+        <ul class="lista-contenido">
+          <li>Durante el período de paralización se señalizará su entorno con indicaciones de peligros prohibiendo expresamente la permanencia del personal sin conveniencia objeto.</li>
+          <li>La maquinaria no entrará en funcionamiento en tanto no se haya señalizado convenientemente la existencia de líneas eléctricas en Servicio</li>
+          <li>Se producirá un contacto de una máquina con una línea eléctrica teniendo la máquina rodadura de neumáticos el conductor permanecerá inmóvil en su asiento y solicitará auxilio por medio de la bocina. Acto seguido se inspeccionará es posible puenteo eléctrico con el terreno y de ser posible el salto, sin riesgo de contacto eléctrico; la maquinaria saltará fuera del vehículo, sin tocar al mismo tiempo la máquina y el terreno.</li>
+          <li>Antes del abandono de la máquina el conductor deberá apagar en consola el suelo el órgano móvil de la máquina y accionando el freno de mano y parado el motor.</li>
+          <li>Las pasarelas o pedalillos de acceso a las máquinas, permanecerán siempre limpios de barros grasos o aceites en evitación de lesiones.</li>
+          <li>Se prohíbe en estas máquinas el transporte de personas.</li>
+          <li>Se instalarán de manera adecuada donde sea necesario topes de recorrido y señalización de tráfico y circulación.</li>
+          <li>No se ejecutarán trabajos de replanteó o comprobación durante la permanencia de máquinas en movimiento en el tajo.</li>
+          <li>Dentro de los trabajos de mantenimiento de la maquinaria se revisar especialmente la presión de neumáticos y aceites de los mecanismos.</li>
+        </ul>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
+
+    <!-- PÁGINA 24: NORMAS DE SEGURIDAD GENERALES PARA ENTREGAR A MAQUINISTAS -->
+    <div class="contenedor-principal">
+      <!-- Encabezado -->
+      <div class="encabezado">
+        <div class="encabezado-contenido">
+          <h1 class="titulo-principal">ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+          <p class="subtitulo">INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+        </div>
+        <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
+      </div>
+
+      <!-- Contenido Principal -->
+      <div class="contenido-principal">
+        <h3 class="titulo-subseccion">NORMAS DE SEGURIDAD GENERALES PARA ENTREGAR A LOS MAQUINISTAS QUE HAYAN DE CONDUCIR MÁQUINAS MÓVILES</h3>
+
+        <ul class="lista-contenido">
+          <li>Para subir y bajar de la máquina utilice los peldaños y asideros de que dispone los vehículos se evitarán lesiones por caídas.</li>
+          <li>No acceder a la máquina encaramándose a través de la llanta al ordenar de las cubiertas.</li>
+          <li>Suba y baje del vehículo frontalmente por el acceso a la cabina agarrándose con ambas manos de forma segura.</li>
+          <li>No abandone el vehículo saltando desde el mismo si no existe situación de <span class="texto-rojo">peligro.No.</span> realizar "ajustes" con la máquina en movimiento o con el motor en marcha. Pare y efectúe las operaciones necesarias.</li>
+          <li>No permita el acceso a la máquina a ninguna persona no autorizada</li>
+          <li>No trabaje en situación de <span class="texto-rojo">semiembriaguez</span>. Corrija las deficiencias y continúe su trabajo.</li>
+          <li>En las operaciones de mantenimiento apoye los órganos móviles del vehículo en el suelo, pare el motor, accione el freno de mano y bloquee la máquina. Realice a continuación lo necesario.</li>
+          <li>No guarde trapos sucios o grasientos ni combustible en el vehículo, producen incendios.</li>
+          <li>No levante en caliente la tapa del radiador.</li>
+          <li>Protéjase con guantes para manejar líquidos. Use las gafas <span class="texto-rojo">anti-protecciones</span> y mascarilla antipolvo cuando sea necesario.</li>
+          <li>Para cambiar aceites del motor o de los sistemas hidráulico el hagalo en frío.</li>
+          <li>Los líquidos de las baterías son inflamables, recuérdelo.</li>
+          <li>Para manipular el sistema eléctrico, parar siempre el motor y ex traiga la llave de contacto.</li>
+          <li>-No libere los frenos en posición de parada sin antes haber colocado los calzos de las ruedas.</li>
+          <li>Si ha de arrancar el motor usando baterías de otro vehículo, evite saltos de corriente. Los electrolitos producen gases inflamables.</li>
+          <li>Vigile la presión de los neumáticos.</li>
+        </ul>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
+
+    <!-- PÁGINA 25: CONTINUACIÓN NORMAS Y PERSONAL MÁQUINAS -->
+    <div class="contenedor-principal">
+      <!-- Encabezado -->
+      <div class="encabezado">
+        <div class="encabezado-contenido">
+          <h1 class="titulo-principal">ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+          <p class="subtitulo">INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+        </div>
+        <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
+      </div>
+
+      <!-- Contenido Principal -->
+      <div class="contenido-principal">
+        <ul class="lista-contenido">
+          <li>Para llenar los neumáticos sitúese tras la banda de rodadura y previendo una rotura de la manguera.</li>
+          <li>Compruebe el buen funcionamiento de la máquina antes de empezar el trabajo después de cada parada.</li>
+          <li>Ajuste bien el asiento para alcanzar los controles con facilidad.</li>
+          <li>Si contacta con cables eléctricos proceda como sigue: Permanecerá inmóvil en su asiento y solicitará auxilio por medio de la bocina. Acto seguido se inspeccionará es posible puenteo eléctrico con el terreno y de ser posible el salto, sin riesgo de contacto eléctrico; la maquinaria saltará fuera del vehículo, sin tocar al mismo tiempo la máquina y el terreno.</li>
+          <li>No abandone el vehículo conel motor en marcha.</li>
+          <li>No abandone el vehículo sin haber dejado los órganos móviles apoyados en el suelo.</li>
+          <li>No transporte personas en la máquina ni en el interior de la cabina de conducción.</li>
+          <li>Compruebe el buen estado del arco de protección antivuelco de su vehículo.</li>
+          <li>Cumpla por su seguridad las instrucciones sobre el manejo de las máquinas durante la realización de los trabajos y adopte las medidas preventivas del PLAN DE SEGURIDAD.</li>
+        </ul>
+
+        <h2 class="titulo-seccion-grande">12. Camión Grúa Hidráulica Telescópica</h2>
+
+        <p class="parrafo-contenido">
+          Grúa sobre camión en el cual antes de iniciar las maniobras de carga, se instalarán cuñas de inmovilización en las ruedas y se fijarán los gatos estabilizadores.
+        </p>
+
+        <p class="parrafo-contenido">
+          Este tipo de grúa se considera adecuada para la naturaleza de las operaciones a realizar en la obra, siendo el medio más apropiado desde el punto de vista de la seguridad de manipulación de cargas.
+        </p>
+
+        <p class="parrafo-contenido">
+          <strong>RIESGOS DETECTABLES MÁS COMUNES</strong>
+        </p>
+
+        <ul class="lista-contenido">
+          <li>Vuelco del camión</li>
+          <li>Atrapamientos</li>
+          <li>Caídas al subir o al bajar</li>
+          <li>Atropello de personas</li>
+        </ul>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
+
+    <!-- PÁGINA 26: CAMIÓN GRÚA RIESGOS Y NORMAS PREVENTIVAS -->
+    <div class="contenedor-principal">
+      <!-- Encabezado -->
+      <div class="encabezado">
+        <div class="encabezado-contenido">
+          <h1 class="titulo-principal">ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+          <p class="subtitulo">INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+        </div>
+        <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
+      </div>
+
+      <!-- Contenido Principal -->
+      <div class="contenido-principal">
+        <ul class="lista-contenido">
+          <li>Desplome de la carga</li>
+          <li>Golpes por la caída de parámetros</li>
+          <li>Desplome de la estructura en montaje</li>
+          <li>Quemaduras al hacer el mantenimiento</li>
+          <li>Abandono de la máquina sin apagar el contacto.</li>
+        </ul>
+
+        <h3 class="titulo-subseccion">NORMAS PREVENTIVAS</h3>
+
+        <ul class="lista-contenido">
+          <li>Las maniobras en la grúa serán dirigidas por un especialista.</li>
+          <li>Los ganchos de la grúa tendrán cerradura de seguridad.</li>
+          <li>Se prohibirá sobrepasar la carga máxima admisible.</li>
+          <li>El gruista tendrá en todo momento la carga suspendida a la vista. Si eso no es posible las maniobras serán dirigidas por un especialista.</li>
+          <li>Las rampas de circulación no superarán en ningún caso una inclinación superior al 20 por 100.</li>
+          <li>Se prohibirá estacionar el camión a menos de 2 metros del borde superior de los taludes.</li>
+          <li>Se prohibirá arrrastrar cargas con el camión.</li>
+          <li>Se prohibirá la permanencia de personas a distancias inferiores a los 5 metros del camión.</li>
+          <li>Se prohibirá la permanencia de operarios bajo las cargas en suspensión.</li>
+          <li>El conductor tendrá el certificado de capacitación correspondiente.</li>
+          <li>Se extremarán las precauciones durante las maniobras de suspensión de objetos estructurales para su colocación en obra, ya que habrá operarios trabajando en el lugar, y un pequeño movimiento inesperado puede provocar graves accidentes.</li>
+        </ul>
+
+        <h3 class="titulo-subseccion">EQUIPOS DE PROTECCIÓN INDIVIDUAL</h3>
+
+        <p class="parrafo-contenido">
+          Todas las prendas de protección personal deberán estar homologadas por los organismos correspondientes y a continuación se relacionan:
+        </p>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
+
+    <!-- PÁGINA 27: EQUIPOS PROTECCIÓN CAMIÓN GRÚA Y HORMIGONERA -->
+    <div class="contenedor-principal">
+      <!-- Encabezado -->
+      <div class="encabezado">
+        <div class="encabezado-contenido">
+          <h1 class="titulo-principal">ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+          <p class="subtitulo">INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+        </div>
+        <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
+      </div>
+
+      <!-- Contenido Principal -->
+      <div class="contenido-principal">
+        <ul class="lista-contenido">
+          <li>Casco de seguridad (de uso obligatorio para abandonar la cabina).</li>
+          <li>Ropa de trabajo.</li>
+          <li>Guantes de cuero.</li>
+          <li>Cinturón elástico <span class="texto-rojo">antivibatorio</span>.</li>
+          <li>Calzado antideslizante.</li>
+        </ul>
+
+        <h2 class="titulo-seccion-grande">13. Hormigonera</h2>
+
+        <p class="parrafo-contenido">
+          La hormigonera es una máquina utilizada para la fabricación de morteros y hormigón previo mezclado de diferentes componentes tales como áridos de distinto tamaño y cemento básicamente.
+        </p>
+
+        <p class="parrafo-contenido">
+          Esta será empleada si fuera necesario para el hormigonado de apoyos.
+        </p>
+
+        <p class="parrafo-contenido">
+          <strong>RIESGOS DETECTABLES MÁS COMUNES</strong>
+        </p>
+
+        <ul class="lista-contenido">
+          <li>Atrapamientos por falta de protección de la carcasa.</li>
+          <li>Descargas eléctricas.</li>
+          <li>Sobreesfuerzos.</li>
+          <li>Golpes por elementos móviles.</li>
+          <li>Polvo ambiental.</li>
+          <li>Vuelcos y atropellos al transportarla.</li>
+        </ul>
+
+        <h3 class="titulo-subseccion">NORMAS PREVENTIVAS</h3>
+
+        <ul class="lista-contenido">
+          <li>Se comprobará el estado de los cables, palanca y accesorios con regularidad, así como los dispositivos de seguridad.</li>
+          <li>Estará situada en una superficie llana y horizontal.</li>
+          <li>Bajo ningún concepto, se introducirá el brazo o la pala en el tambor con movimiento.</li>
+        </ul>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
   </div>
 </template>
 
