@@ -1710,6 +1710,207 @@
         <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
       </div>
     </div>
+
+    <!-- Page 33: TERMINACIÓN HERRAMIENTAS ELÉCTRICAS Y SECTION 18 PLATAFORMA ELEVADORA -->
+    <div class="contenedor-principal">
+      <div class="encabezado">
+        <h1>ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+        <p>INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+      </div>
+
+      <div class="contenido-principal">
+        <ul class="lista-contenido">
+          <li>Al objeto de evitar posibles contactos eléctricos se usará la ropa reglamentaria, con mangas bajadas y se quitarán los adornos metálicos.</li>
+          <li>Las herramientas eléctricas se desconectarán al término de su utilización o pausa en el trabaja. En caso de revisión o reparación es elemental su previa desconexión.</li>
+          <li>Antes de emplear un taladro se incluirá el aguiero con un <span class="texto-rojo">grapetazo</span></li>
+        </ul>
+
+        <h2 class="titulo-seccion-grande">EQUIPOS DE PROTECCIÓN INDIVIDUAL</h2>
+
+        <ul class="lista-contenido">
+          <li>Casco de seguridad.</li>
+          <li>Guantes de protección.</li>
+          <li>Protecciones auditivas y oculares.</li>
+          <li>Botas de seguridad.</li>
+          <li>Gafas antipartículas, en caso necesario.</li>
+          <li>Chaleco reflectante, en caso necesario.</li>
+          <li>Siempre que las condiciones de trabajo exijan otros elementos de protección, se dotará a los trabajadores de los mismos.</li>
+        </ul>
+
+        <h3 class="titulo-subseccion">18. Medios auxiliares - Plataforma Elevadora</h3>
+
+        <p class="parrafo-contenido">
+          Se utilizará en esta obra la "Plataforma elevadora" para posicionar a los operarios en los distintos puntos donde se requiera un acceso en altura. Esta es posible mediante otros medios más seguros.
+        </p>
+
+        <p class="parrafo-contenido">
+          La plataforma elevadora ofrece, al mismo tiempo, un sistema de elevación de personas y de plataforma de trabajo, de esta forma, evita la necesidad de utilizar otros medios auxiliares o de cualquier tipo de maquinaria de elevación.
+        </p>
+
+        <p class="parrafo-contenido">
+          Siguiendo las especificaciones del fabricante, tienen la posibilidad de transportar/elevar personas, tanto horizontal como verticalmente, y levantar la carga máxima establecida para la misma.
+        </p>
+
+        <p class="parrafo-contenido">
+          <strong>RIESGOS DETECTABLES MÁS COMUNES</strong>
+        </p>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
+
+    <!-- Page 34: PLATAFORMA ELEVADORA - RIESGOS Y NORMAS -->
+    <div class="contenedor-principal">
+      <div class="encabezado">
+        <h1>ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+        <p>INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+      </div>
+
+      <div class="contenido-principal">
+        <ul class="lista-contenido">
+          <li>Atropello de personas</li>
+          <li>Vuelcos</li>
+          <li>Colisiones</li>
+          <li>Atrapamientos</li>
+          <li>Choque contra objetos o partes salientes del edificio</li>
+          <li>Vibraciones</li>
+          <li>Caída al subir o bajar de la plataforma</li>
+          <li>Contactos eléctricos directos</li>
+          <li>Contactos eléctricos indirectos</li>
+          <li>Quemaduras durante el mantenimiento</li>
+        </ul>
+
+        <p class="parrafo-contenido">
+          <strong>NORMAS PREVENTIVAS</strong>
+        </p>
+
+        <ul class="lista-contenido">
+          <li>El contratista se asegurará de que es manejada por trabajadores cuya competencia y conocimiento han sido adquiridos por medio de educación, formación y experiencia práctica relevante.</li>
+          <li>La utilización de este equipo se efectuará de acuerdo con el manual de instrucciones del fabricante. En caso de no disponer de dicho manual, deberá atenderse a las instrucciones elaboradas en el documento de adecuación del equipo al RD 1215/1997 redactado por personal competente.</li>
+          <li>La manipulación de cargas deberá efectuarse guardando siempre la relación dada por el fabricante entre la carga máxima y la altura a la que se ha de transportar y descargar.</li>
+          <li>La circulación de la máquina para variar de posición deberá hacerse sin carga.</li>
+          <li>Antes de iniciar la jornada el conductor debe realizar una inspección de la plataforma que contemple los puntos siguientes:<br/>
+            – Ruedas (banda de rodaje, presión, etc.).<br/>
+            – Fijación y estado de los brazos.<br/>
+            – Inexistencia de fugas en el circuito hidráulico.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
+
+    <!-- Page 35: PLATAFORMA ELEVADORA - NORMAS DETALLADAS -->
+    <div class="contenedor-principal">
+      <div class="encabezado">
+        <h1>ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+        <p>INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+      </div>
+
+      <div class="contenido-principal">
+        <ul class="lista-contenido">
+          <li>– Niveles de aceites diversos.</li>
+          <li>– Mandos en servicio.</li>
+          <li>– Protectores y dispositivos de seguridad.</li>
+          <li>– Frenos.</li>
+          <li>– Embrague, Dirección, etc.</li>
+          <li>– Avisadores acústicos y luces.</li>
+          <li>En caso de detectar alguna deficiencia deberá comunicarse al servicio de mantenimiento y no utilizarse hasta que no se haya reparado.</li>
+          <li>Toda plataforma en la que se detecte alguna deficiencia o se encuentre averiada deberá quedar claramente fuera de uso advirtiéndolo mediante señales especiales de importancia cuando la empresa realiza trabajo a turnos.</li>
+          <li>Se darán las siguientes regas genéricas a aplicar por parte del operador de la plataforma en la jornada de trabajo:<br/>
+            – No operar con ella personas no autorizadas.<br/>
+            – No permitir que suba ninguna persona en la plataforma sin tener conocimiento de los riesgos que entraña.<br/>
+            – Mirar siempre en la dirección de avance y mantener la vista en el camino que recorre durante la elevación de la plataforma.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
+
+    <!-- Page 36: PLATAFORMA ELEVADORA - VERIFICACIONES SEGURIDAD -->
+    <div class="contenedor-principal">
+      <div class="encabezado">
+        <h1>ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+        <p>INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+      </div>
+
+      <div class="contenido-principal">
+        <ul class="lista-contenido">
+          <li>– Evitar paradas y arranques bruscos y virajes rápidos.</li>
+          <li>– Transportar únicamente personas con la carga máxima establecida y preparada correctamente.</li>
+          <li>– Asegurarse que no chocará con techos, conductos, etc. por razón de altura.</li>
+          <li>– Cuando el operador abandona su carretilla debe asegurarse de que la plataforma está en punto muerto, motor parado, frenos echados, llave de contacto sacada o la toma de batería tirada. Si está la carretilla en pendiente se calzarán las ruedas.</li>
+          <li>– No guardar carburante ni trapos engrasados en la plataforma elevadora, se puede prender fuego.</li>
+          <li>– Vigilar constantemente la presión de los neumáticos.</li>
+          <li>– Tomar toda clase de precauciones al manipular con la plataforma elevadora.</li>
+        </ul>
+
+        <h2 class="titulo-seccion-grande">EQUIPOS DE PROTECCIÓN INDIVIDUAL</h2>
+
+        <ul class="lista-contenido">
+          <li>Casco de seguridad.</li>
+          <li>Ropa de trabajo.</li>
+          <li>Guantes de cuero.</li>
+          <li>Calzado antideslizante.</li>
+        </ul>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
+
+    <!-- Page 37: SECTION 19 ESCALERAS DE MANO -->
+    <div class="contenedor-principal">
+      <div class="encabezado">
+        <h1>ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+        <p>INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+      </div>
+
+      <div class="contenido-principal">
+        <h3 class="titulo-subseccion">19. Medios auxiliares-escaleras de mano</h3>
+
+        <p class="parrafo-contenido">
+          <strong>RIESGOS DETECTABLES MÁS COMUNES</strong>
+        </p>
+
+        <ul class="lista-contenido">
+          <li>Caída de personas a distinto nivel.</li>
+          <li>Caída de personas al mismo nivel.</li>
+          <li>Caída de objetos por desplome o derrumbamiento.</li>
+          <li>Golpes/cortes por objetos o herramientas transporte de cargas.</li>
+          <li>Atrapamiento por o entre objetos.</li>
+          <li>Contactos eléctricos directos.</li>
+          <li>Contactos eléctricos indirectos</li>
+        </ul>
+
+        <p class="parrafo-contenido">
+          <strong>MEDIDAS PREVENTIVAS DE APLICACIÓN GENERAL</strong>
+        </p>
+
+        <ul class="lista-contenido">
+          <li>No se debe trabajar desde una escalera simple de mano más que con herramientas que puedan ser fácilmente manipuladas con una sola mano.</li>
+          <li>Los trabajos a más de 2 metros de altura que requieran movimientos o esfuerzos peligrosos para la estabilidad del trabajador o de la escalera se efectuarán si se utiliza un equipo de protección individual anticaídas o se adopten otras medidas de protección alternativas.</li>
+          <li>Las escaleras metálicas o las de maderas, cuando están mojadas, son conductoras de electricidad y no deben usarse cuando se trabaje con equipos eléctricos.</li>
+        </ul>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
   </div>
 </template>
 
