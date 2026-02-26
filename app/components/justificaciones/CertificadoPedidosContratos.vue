@@ -80,7 +80,6 @@
             </tr>
           </tbody>
         </table>
-              <h1>ASI TE GUSTA MAS???</h1>
       </div>
 
 
