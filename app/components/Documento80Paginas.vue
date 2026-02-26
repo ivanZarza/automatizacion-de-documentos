@@ -1523,6 +1523,193 @@
         <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
       </div>
     </div>
+
+    <!-- Page 28: MEDIDAS PREVENTIVAS DE APLICACIÓN GENERAL -->
+    <div class="contenedor-principal">
+      <div class="encabezado">
+        <h1>ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+        <p>INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+      </div>
+
+      <div class="contenido-principal">
+        <h2 class="titulo-seccion-grande">MEDIDAS PREVENTIVAS DE APLICACIÓN GENERAL</h2>
+
+        <ul class="lista-contenido">
+          <li>Se utilizarán siempre herramientas apropiadas para el trabajo que vaya a realizarse. El capataz o jefe inmediato cuidará de que su personal esté dotado de las herramientas necesarias, así como el buen estado de dicha dotación, para la cual las revisará periódicamente.</li>
+          <li>Asimismo, el personal que vaya a utilizarlas, comprobará su estado antes de hacerse cargo de ellas, dando cuenta de los defectos que observe al jefe inmediato, quien las sustituirá si aprecia defectos, tales como:<br/>
+            – Mangos rajados, astillados o mal acoplados.<br/>
+            – Martillos con rebabas.<br/>
+            – Hojas rotas o con grietas.<br/>
+            – Mordazas que aprietn inadecuadamente.<br/>
+            – Bocas de llaves desgastadas o deterioradas.<br/>
+            – Carcasas y mangos de herramientas eléctricas, rajados o rotos.<br/>
+            – Brocas dobladas o con cabezas desgastadas o desprendidas.<br/>
+            – Mantenimiento deficiente, falta de afilado, triscado, reposición de escobillas en aparatos eléctricos, etc.
+          </li>
+          <li>Utilización de los repuestos inadecuados, rechazando las manipulaciones que pretendan una adaptación y que pueden ser origen de accidentes.</li>
+          <li>Las herramientas se transportarán en las bolsas o carteras sostenidas para tal fin o en el cinto porta herramientas. Queda prohibido transportarlas en los bolsillos o sujetas a la cintura.</li>
+          <li>Cada herramienta tiene una función determinada. No debe intentar simplificar una operación reduciendo el número de herramientas a emplear o transportar.</li>
+          <li>Es obligación del empleado la adecuada conservación de las herramientas de trabajo y serán objeto de especial cuidado las de corte por su fácil deterioro.</li>
+          <li>Ordenar adecuadamente las herramientas, tanto durante su uso como en su almacenamiento, procurando no mezciar las que sean de diferentes características.</li>
+        </ul>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
+
+    <!-- Page 29: Continuación MEDIDAS PREVENTIVAS Y EQUIPOS DE PROTECCIÓN INDIVIDUAL -->
+    <div class="contenedor-principal">
+      <div class="encabezado">
+        <h1>ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+        <p>INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+      </div>
+
+      <div class="contenido-principal">
+        <ul class="lista-contenido">
+          <li>En las herramientas con mango se vigilará su estado de solidez y el ajuste del mango en el Ojo de la herramienta. Los mangos no presentarán astillas ni habrá grietas.</li>
+          <li>Se prohíbe ajustar mangos mediante clavos o astillas. En caso de que por su uso se produzca fuguera, se podrá ajustar con curías adecuadas.</li>
+          <li>Durante su uso, las herramientas estarán limpias de aceite, grasa y otras sustancias deslizantes.</li>
+          <li>Guardar la distancia de seguridad respecto a otros compañeros, 2-3 metros, en los desplazamientos y en el trabajo.</li>
+          <li>Para darle la herramienta a otro compañero, siempre en la mano, NUNCA TIRARÁ para que la coja.</li>
+          <li>Trabajar a la altura correcta manteniendo la espalda recta, evitando las posturas incómodas y forzadas.</li>
+          <li>Mantener un ritmo de trabajo consistente adaptado a las condiciones del individuo para mantener controlada la situación en todo momento.</li>
+          <li>Cuando no se utilice la herramienta dejarla en sitio visible</li>
+          <li>Cuando existe posibilidad de que la herramienta queda o pueda quedar en algún momento, bajo tensión eléctrica, se utilizarán éstas con mangos aislantes y guantes también aislantes.</li>
+          <li>En cualquier caso, se emplearán siempre las herramientas asociadas con sus correspondientes medios de protección.</li>
+          <li>Cuando se trabaje en alturas se tendrá especial cuidado en disponerlas en lugares desde donde no puedan caerse y originar daños a terceros.</li>
+          <li>En caso de duda sobre la utilización correcta de una determinada herramienta, se pedirán las aclaraciones necesarias al jefe inmediato antes de procederá su uso, todos los mandos antes de entregar una herramienta al empleado se instruirán sobre su manejo.</li>
+          <li>Estas herramientas se revisarán detidamente por la persona que las facilite en el almacén tanto a la entrega como a la recogida de las mismas</li>
+        </ul>
+
+        <h2 class="titulo-seccion-grande">EQUIPOS DE PROTECCIÓN INDIVIDUAL</h2>
+
+        <ul class="lista-contenido">
+          <li>Gafas <span class="texto-rojo">antiprotecciones</span></li>
+          <li>Casco de seguridad.</li>
+          <li>Guantes de protección.</li>
+          <li>Polainas de protección al corte (en caso necesario).</li>
+          <li>Botas de seguridad3.</li>
+          <li>Chaleco reflectante, en caso necesario.</li>
+          <li>Siempre que las condiciones de trabajo exijan otros elementos de protección, se dotará a los trabajadores de los mismos.</li>
+        </ul>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
+
+    <!-- Page 30: Continuación EQUIPOS Y 17. HERRAMIENTAS MANUALES ELÉCTRICAS -->
+    <div class="contenedor-principal">
+      <div class="encabezado">
+        <h1>ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+        <p>INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+      </div>
+
+      <div class="contenido-principal">
+        <h3 class="titulo-subseccion">17. Herramientas manuales eléctricas</h3>
+
+        <p class="parrafo-contenido">
+          <strong>RIESGOS DETECTABLES MÁS COMUNES</strong>
+        </p>
+
+        <ul class="lista-contenido">
+          <li>Descargas eléctricas.</li>
+          <li>Proyección de partículas.</li>
+          <li>Caída en alturas.</li>
+          <li>Ruidos.</li>
+          <li>Explosiones e incendios.</li>
+          <li>Cortes en extremidades.</li>
+          <li>Sobreesfuerzos.</li>
+        </ul>
+
+        <p class="parrafo-contenido">
+          <strong>MEDIDAS PREVENTIVAS</strong>
+        </p>
+
+        <ul class="lista-contenido">
+          <li>Todas las herramientas manuales eléctricas, preferiblemente, tendrán doble aislamiento de seguridad.</li>
+          <li>El personal que use las herramientas conocerá las instrucciones de uso.</li>
+          <li>Las herramientas serán revisadas periódicamente.</li>
+          <li>Estarán acopiadas en el almacén de obra.</li>
+        </ul>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
+
+    <!-- Page 31: Continuación HERRAMIENTAS MANUALES ELÉCTRICAS -->
+    <div class="contenedor-principal">
+      <div class="encabezado">
+        <h1>ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+        <p>INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+      </div>
+
+      <div class="contenido-principal">
+        <ul class="lista-contenido">
+          <li>La desconexión no se hará con un tirón brusco.</li>
+          <li>Los trabajos con herramientas se realizarán en posición estable.</li>
+          <li>La tensión de alimentación de las herramientas eléctricas portátiles de cualquier tipo no podrá exceder de 250 V. con relación a la tierra.</li>
+          <li>El cable de alimentación se inspeccionará siempre antes de conectarlo. De encontrarlo defectuoso se sustituirá por otro.</li>
+          <li>Las conexiones se harán siempre por medio de clavijas o enchufes normalizados, nunca con hilos pelados o empalmes provisionales.</li>
+          <li>Los cables de alimentación de las herramientas eléctricas portátiles serán de tipo protegido con cubierta de material resistente que no se deteriore por rozces.</li>
+          <li>Al elegir el cable que deberá alimentar una determinada herramienta, se tendrán en cuenta las siguientes características:<br/>
+            – Capacidad adecuada a la potencia de la herramienta; nunca menor.<br/>
+            – Aislamiento suficiente, seguro y sin deterioro. Flexibilidad suficiente.<br/>
+            – No se utilizarán bajo ningún concepto otros conductores no apropiados tales como hilos de puente reparación, parafinados, etc., ello originaría una situación de peligro.
+          </li>
+          <li>-Se evitará en lo posible emplear cables de alimentación demasiado largos o que no estén en toda su longitud a la vista del empleado que lo utilice.</li>
+          <li>Se deberán instalar enchufes nuevos en puntos próximos para éstos casos.</li>
+          <li>Todas las herramientas eléctricas manuales, durante su utilización, deberán estar protegidas. La forma de conseguir esta protección puede ser cualquiera de las que se citan a continuación:<br/>
+            – Puesta a tierra de las armaduras de dicha herramienta, siempre que no sean de doble aislamiento<br/>
+            – Empleo de herramientas de doble aislamiento<br/>
+            – Alimentación a través de transformadores con separación de circuitos que mantengan aislados de tensión todos los conductores del circuito de utilización.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
+
+    <!-- Page 32: Continuación HERRAMIENTAS MANUALES ELÉCTRICAS -->
+    <div class="contenedor-principal">
+      <div class="encabezado">
+        <h1>ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+        <p>INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+      </div>
+
+      <div class="contenido-principal">
+        <ul class="lista-contenido">
+          <li>Utilización de disjuntores diferenciales de alta sensibilidad (30 mA). Es de destacar que éstos ofrecen una protección muy eficaz contra la derivación de energía eléctrica por defectos de aislamiento, a potencias muy bajas.</li>
+          <li>Periódicamente se comprobará el correcto funcionamiento de las protecciones.</li>
+          <li>En la utilización de herramientas provistas de dispositivo de puesta a tierra de los elementos metálicos accesibles, el empleado debe asegurarse de que el tercer hilo del cable de alimentación esté unido eléctricamente al borne de toma de tierra del enchufe.</li>
+          <li>Si la herramienta no está equipada para puesta a tierra se puede utilizar electromagnéticamente en el lugar de trabajo, siempre que no sea de doble aislamiento.</li>
+          <li>Esta operación de puesta a tierra se hará siempre antes de conectar la herramienta a la red de alimentación.</li>
+          <li>La conexión deberá hacerse con suficiente solidez, para evitar que se suelte durante el trabajo, utilizando pinzas, clavijas o enchufes que aseguren una unión adecuada.</li>
+          <li>Para desmontar este dispositivo accidental de puesta a tierra, deberá desconectarse primero la herramienta de la red de alimentación.</li>
+          <li>El encargado del equipo o en su caso la persona que tenga a su cargo el personal, deberá revisar periódicamente las herramientas eléctricas (soldadores, taladros, pistolas desatornilladores, etc.) para comprobar la ausencia de tensión respecto a tierra en las armaduras de las mismas, cuando se conecten a la red.</li>
+          <li>En caso de observarse tensión en la armadura deberá prohibirse la utilización de dicha herramienta hasta que sea reparada con suficientes garantías y si ésto no es factible, se desechará.</li>
+          <li>No se utilizará nunca una lámpara portátil sin protección. Son muy peligrosas esencialmente en lugares húmedos.</li>
+          <li>Tanto el mango como la cubierta del casquillo e incluso la malla que protege de los golpes la lámpara, deberán ser íntegramente aislantes.</li>
+          <li>No deberá dejarse el soldador caliente o conectado colgado de su propio cable de alimentación, en éstos casos se colocará la caperuza correspondiente existente para tal fin.</li>
+        </ul>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
   </div>
 </template>
 
