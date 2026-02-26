@@ -117,7 +117,7 @@
                   <span class="texto-valor">{{ fechaPago1 }}</span>
                 </td>
                 <td class="col-importe">
-                  <span class="texto-valor">{{ importe1 }}</span>
+                  <span class="texto-valor">{{ importe1 }}€</span>
                 </td>
               </tr>
               <!-- Filas 2-5: Estáticas -->
@@ -135,7 +135,7 @@
                 <td class="col-fecha-pago">
                   <span class="texto-estacio">{{ fechaPago2 }}</span>
                 </td>
-                <td class="col-importe"><span class="texto-estacio">{{ importe2 }}</span></td>
+                <td class="col-importe"><span class="texto-estacio">{{ importe2 }}€</span></td>
               </tr>
               <tr class="fila-datos">
                 <td class="col-numero">3</td>
@@ -151,7 +151,7 @@
                 <td class="col-fecha-pago">
                   <span class="texto-estacio">{{ fechaPago3 }}</span>
                 </td>
-                <td class="col-importe"><span class="texto-estacio">{{ importe3 }}</span></td>
+                <td class="col-importe"><span class="texto-estacio">{{ importe3 }}€</span></td>
               </tr>
               <tr class="fila-datos">
                 <td class="col-numero">4</td>
@@ -167,7 +167,7 @@
                 <td class="col-fecha-pago">
                   <span class="texto-estacio">{{ fechaPago4 }}</span>
                 </td>
-                <td class="col-importe"><span class="texto-estacio">{{ importe4 }}</span></td>
+                <td class="col-importe"><span class="texto-estacio">{{ importe4 }}€</span></td>
               </tr>
               <tr class="fila-datos">
                 <td class="col-numero">5</td>
@@ -183,14 +183,14 @@
                 <td class="col-fecha-pago">
                   <span class="texto-estacio">{{ fechaPago5 }}</span>
                 </td>
-                <td class="col-importe"><span class="texto-estacio">{{ importe5 }}</span></td>
+                <td class="col-importe"><span class="texto-estacio">{{ importe5 }}€</span></td>
               </tr>
             </tbody>
           </table>
 
           <div class="total-justificado">
             <p class="etiqueta">Total cantidad justificada:</p>
-            <p class="valor">{{ totalCantidadJustificada }}</p>
+            <p class="valor">{{ totalCantidadJustificada }}€</p>
           </div>
         </div>
 
@@ -203,11 +203,11 @@
           <div class="contenedor-desviaciones">
             <p class="concepto-desvio">
               <span>Presupuesto inicial</span>
-              <span class="valor-variable">{{ presupuestoInicial }}</span>
+              <span class="valor-variable">{{ presupuestoInicial }}€</span>
             </p>
             <p class="concepto-desvio">
               <span>Inversión realizada</span>
-              <span class="valor-variable">{{ inversionRealizada }}</span>
+              <span class="valor-variable">{{ inversionRealizada }}€</span>
             </p>
             <p class="concepto-desvio">
               <span
@@ -215,7 +215,7 @@
                   >Desviación (con IVA si es subvencionable)</strong
                 ></span
               >
-              <span class="valor-variable desvio">{{ desviacion }}</span>
+              <span class="valor-variable desvio">{{ desviacion }}€</span>
             </p>
           </div>
         </div>

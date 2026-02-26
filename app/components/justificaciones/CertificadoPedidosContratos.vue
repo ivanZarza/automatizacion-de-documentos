@@ -73,14 +73,17 @@
               <td>{{ pedido.proveedor || '\u00A0' }}</td>
               <td>{{ pedido.idOferta || '\u00A0' }}</td>
               <td>{{ pedido.fechaOferta || '\u00A0' }}</td>
-              <td class="numero">{{ pedido.importeOferta || '\u00A0' }}</td>
+              <td class="numero">{{ pedido.importeOferta || '\u00A0' }}€</td>
               <td>{{ pedido.idPedido || '\u00A0' }}</td>
               <td>{{ pedido.fechaPedido || '\u00A0' }}</td>
-              <td class="numero">{{ pedido.importePedido || '\u00A0' }}</td>
+              <td class="numero">{{ pedido.importePedido || '\u00A0' }}€</td>
             </tr>
           </tbody>
         </table>
+              <h1>ASI TE GUSTA MAS???</h1>
       </div>
+
+
 
       <!-- Pie de página con firma y fecha -->
       <div class="pie-documento">
@@ -379,7 +382,7 @@ th:nth-child(1) {
   width: 7%;
 }
 td:nth-child(1) {
-  width: 7%;
+  width: 8%;
 }
 
 th:nth-child(2),
