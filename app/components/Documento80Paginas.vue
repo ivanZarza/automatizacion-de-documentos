@@ -83,7 +83,7 @@
           />
         </div>
 
-        <div class="flex-fill"></div>
+        <p class="texto-pie" style="text-align:right">Página 1</p>
 
         <div class="pie-pagina">
           <p class="texto-pie">06 - Estudio Básico de Seguridad y Salud</p>
@@ -91,7 +91,54 @@
       </div>
     </div>
 
-    <!-- Página 2: Índice (transcripción de la captura 2) -->
+    <!-- Página 2: Logos (captura 2) -->
+    <div data-pdf-content class="contenedor-principal no-break">
+      <div class="encabezado">
+        <div class="encabezado-contenido">
+          <p class="subtitulo">ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</p>
+          <p class="subtitulo">INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+        </div>
+        <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
+      </div>
+
+      <div class="contenido-principal">
+        <div class="logos-footer">
+          <img
+            src="/logos/Icono renovables 1.png"
+            alt="Epym"
+            class="logo-pequeno"
+          />
+          <img
+            src="/logos/Icono renovables 2.png"
+            alt="EIC"
+            class="logo-pequeno"
+          />
+          <img
+            src="/logos/Icono renovables 3.png"
+            alt="Junta"
+            class="logo-pequeno"
+          />
+          <img
+            src="/logos/Icono renovables 4.png"
+            alt="Energia 100%"
+            class="logo-pequeno"
+          />
+          <img
+            src="/logos/Icono renovables 5.png"
+            alt="Energia 100%"
+            class="logo-pequeno"
+          />
+        </div>
+
+        <p class="texto-pie" style="text-align:right">Página 2</p>
+
+        <div class="pie-pagina">
+          <p class="texto-pie">06 - Estudio Básico de Seguridad y Salud</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Página 3: Índice (transcripción de la captura 3) -->
     <div data-pdf-content class="contenedor-principal no-break">
       <div class="encabezado">
         <div class="encabezado-contenido">
@@ -133,7 +180,7 @@
           </div>
         </div>
 
-        <div class="flex-fill"></div>
+        <p class="texto-pie" style="text-align:right">Página 3</p>
 
         <div class="pie-pagina">
           <p class="texto-pie">06 - Estudio Básico de Seguridad y Salud</p>
@@ -141,7 +188,7 @@
       </div>
     </div>
 
-    <!-- Página 3: continuación del índice (captura 3) -->
+    <!-- Página 4: continuación del índice (captura 4) -->
     <div data-pdf-content class="contenedor-principal no-break">
       <div class="encabezado">
         <div class="encabezado-contenido">
@@ -193,7 +240,7 @@
           </div>
         </div>
 
-        <div class="flex-fill"></div>
+        <p class="texto-pie" style="text-align:right">Página 4</p>
 
         <div class="pie-pagina">
           <p class="texto-pie">06 - Estudio Básico de Seguridad y Salud</p>
@@ -201,7 +248,7 @@
       </div>
     </div>
 
-    <!-- Página 4: Contenido (captura 4) -->
+    <!-- Página 5: Contenido (captura 5) -->
     <div data-pdf-content class="contenedor-principal no-break">
       <div class="encabezado">
         <div class="encabezado-contenido">
@@ -228,9 +275,7 @@
 
         <p class="parrafo-contenido">En la Memoria Descriptiva del Proyecto se realiza una descripción completa, tanto de las características de la instalación como de los trabajos a realizar.</p>
 
-        <div class="flex-fill"></div>
-
-        <p class="texto-pie" style="text-align:right">Página 4</p>
+        <p class="texto-pie" style="text-align:right">Página 5</p>
 
         <div class="pie-pagina">
           <p class="texto-pie">06 - Estudio Básico de Seguridad y Salud</p>
@@ -238,7 +283,7 @@
       </div>
     </div>
 
-    <!-- Página 5: Contenido (captura 5) -->
+    <!-- Página 6: Contenido (captura 6) -->
     <div data-pdf-content class="contenedor-principal no-break">
       <div class="encabezado">
         <div class="encabezado-contenido">
@@ -268,9 +313,7 @@
 
         <p class="parrafo-contenido">En la realización de las obras, no es necesario el corte de acceso de vehículos y de peatones en la zona de cubierta de los centros de enseñanza, salvo aquella que límite al acceso exclusivo a cubierta del personal autorizado para la obra.</p>
 
-        <div class="flex-fill"></div>
-
-        <p class="texto-pie" style="text-align:right">Página 5</p>
+        <p class="texto-pie" style="text-align:right">Página 6</p>
 
         <div class="pie-pagina">
           <p class="texto-pie">06 - Estudio Básico de Seguridad y Salud</p>
@@ -278,7 +321,7 @@
       </div>
     </div>
 
-    <!-- Página 6: Contenido (captura 6) -->
+    <!-- Página 7: Contenido (captura 7) -->
     <div data-pdf-content class="contenedor-principal no-break">
       <div class="encabezado">
         <div class="encabezado-contenido">
@@ -311,9 +354,7 @@
           <li>C. postal: <span class="valor-tabla">41940</span></li>
         </ul>
 
-        <div class="flex-fill"></div>
-
-        <p class="texto-pie" style="text-align:right">Página 6</p>
+        <p class="texto-pie" style="text-align:right">Página 7</p>
 
         <div class="pie-pagina">
           <p class="texto-pie">06 - Estudio Básico de Seguridad y Salud</p>
@@ -321,7 +362,7 @@
       </div>
     </div>
 
-    <!-- Página 7: Contenido (captura 9) -->
+    <!-- Página 8: Contenido (captura 9) -->
     <div data-pdf-content class="contenedor-principal no-break">
       <div class="encabezado">
         <div class="encabezado-contenido">
@@ -351,9 +392,7 @@
 
         <p class="parrafo-contenido">Por lo tanto, hay que comprobar que se dan todos los supuestos siguientes:</p>
 
-        <div class="flex-fill"></div>
-
-        <p class="texto-pie" style="text-align:right">Página 9</p>
+        <p class="texto-pie" style="text-align:right">Página 8</p>
 
         <div class="pie-pagina">
           <p class="texto-pie">06 - Estudio Básico de Seguridad y Salud</p>
@@ -371,24 +410,24 @@
 /* ===== estilos base extraídos y adaptados de AutorizacionRepresentacion.vue ===== */
 .contenedor-pdf {
   width: 210mm;
-  height: 297mm;
   margin: 0 auto;
   padding: 0;
   background-color: white;
   font-family: "Segoe UI", Arial, sans-serif;
   color: #333;
   font-size: 17px;
-  display: flex;
-  flex-direction: column;
 }
 
 .contenedor-principal {
-  flex: 1;
+  height: 297mm;
   display: flex;
   flex-direction: column;
   padding: 20mm;
   box-sizing: border-box;
   background: white;
+  page-break-after: always;
+  page-break-inside: avoid;
+  overflow: hidden;
 }
 
 .encabezado {
@@ -414,7 +453,7 @@
 
 .subtitulo {
   margin: 0;
-  font-size: 11px;
+  font-size: 18px;
   color: #666;
   text-align: left;
 }
@@ -448,7 +487,7 @@
 }
 
 .tabla-info {
-  width: 60%;
+  width: 75%;
   margin: 12px auto 24px auto;
   border: 1px solid #111;
   padding: 8px;
@@ -495,6 +534,7 @@
 
 .flex-fill {
   flex: 1;
+  min-height: 0;
 }
 
 .pie-pagina {
@@ -513,13 +553,15 @@
 @media print {
   .contenedor-pdf {
     width: 210mm;
-    height: 297mm;
+    margin: 0;
   }
+  
   .contenedor-principal {
+    height: 297mm;
+    width: 210mm;
+    margin: 0;
     padding: 20mm;
-  }
-  .pie-pagina {
-    page-break-after: always;
+    box-sizing: border-box;
   }
 }
 
@@ -564,7 +606,7 @@ table, thead, tbody, tr, td {
   align-items: baseline;
   border-bottom: 1px dotted #999;
   padding: 4px 0;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.4;
 }
 

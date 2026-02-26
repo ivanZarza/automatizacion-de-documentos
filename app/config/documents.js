@@ -2568,6 +2568,29 @@ import { obraMassolConfig } from './justificaciones/obraMassolConfig'
 import { certificadoPedidosContratosConfig } from './justificaciones/certificadoPedidosContratosConfig'
 import { declaracionCompromisoCorrienteConfig } from './justificaciones/declaracionCompromisoCorrienteConfig'
 
+export const documento80PaginasConfig = {
+  id: 'documento-80-paginas',
+  title: 'Estudio Básico de Seguridad y Salud - 80 páginas',
+  description: 'Documento completo de estudio básico de seguridad y salud para instalaciones fotovoltaicas',
+  fileName: 'Estudio Básico de Seguridad y Salud',
+  route: '/documento-80-paginas',
+  fields: [
+    { name: 'promocion', label: 'Promoción', type: 'text', fullWidth: true }
+  ],
+  defaultData: {
+    promocion: ''
+  },
+  fieldMapping: {
+    promocion: 'apellidosNombre'
+  },
+  capabilities: {
+    canPreview: true,
+    canEdit: false,
+    canGeneratePDF: true
+  },
+  category: 'proyecto'
+}
+
 const documentConfigs = {
   'autorizacion-representacion': autorizacionRepresentacionConfig,
   'mtd-instalacion-autoconsumo-monofasica-con-bateria': memoriaTecnicaConfig,
@@ -2600,6 +2623,7 @@ const documentConfigs = {
   'memoria-economica': memoriaEconomicaConfig,
   'memoria-fv-aer': memoriaFvAerConfig,
   'certificado-pedidos-contratos': certificadoPedidosContratosConfig,
+  'documento-80-paginas': documento80PaginasConfig,
 /*   'declaracion-compromiso-corriente': declaracionCompromisoCorrienteConfig,
  */  'obra-massol': obraMassolConfig,
   'declaracion-compromiso-corriente': declaracionCompromisoCorrienteConfig,
