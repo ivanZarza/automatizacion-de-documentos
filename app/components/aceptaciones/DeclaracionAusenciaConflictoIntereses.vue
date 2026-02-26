@@ -45,7 +45,7 @@ const etiquetas = ref([
     w: 60,
     h: 8,
     fontSize: 11,
-    value: "Jerez de la Frontera",
+    value: "",
     align: "left",
   },
   {
@@ -56,7 +56,7 @@ const etiquetas = ref([
     w: 20,
     h: 8,
     fontSize: 11,
-    value: "18",
+    value: "",
     align: "center",
   },
   {
@@ -67,7 +67,7 @@ const etiquetas = ref([
     w: 20,
     h: 8,
     fontSize: 11,
-    value: "Septiembre",
+    value: "",
     align: "center",
   },
   {
@@ -78,7 +78,7 @@ const etiquetas = ref([
     w: 30,
     h: 8,
     fontSize: 11,
-    value: "2025",
+    value: "",
     align: "center",
   },
   {
@@ -88,7 +88,7 @@ const etiquetas = ref([
     y: 92,
     w: 80,
     h: 19,
-    value: "/firma-solay.png",
+    value: "",
     align: "center",
   },
   {

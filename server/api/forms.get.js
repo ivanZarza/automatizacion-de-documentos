@@ -19,14 +19,20 @@ export default defineEventHandler(async (event) => {
     const query = getQuery(event)
     
     if (query && query.nombre) {
-      // Buscar un formulario específico por nombre
-      const selectQuery = 'SELECT * FROM generacion_docs WHERE nombre = $1'
-      const result = await client.query(selectQuery, [query.nombre])
+      // Buscar formularios por nombre con búsqueda parcial e insensible a mayúsculas
+      const selectQuery = 'SELECT * FROM generacion_docs WHERE nombre ILIKE $1 ORDER BY nombre ASC'
+      const searchTerm = `%${query.nombre}%`
+      const result = await client.query(selectQuery, [searchTerm])
       
       if (result.rows.length === 0) {
         return { error: 'No encontrado' }
       }
-      return result.rows[0]
+      // Si hay solo uno, devolverlo directamente
+      if (result.rows.length === 1) {
+        return result.rows[0]
+      }
+      // Si hay varios, devolverlos como array
+      return result.rows
     } else {
       // Retornar todos los formularios ordenados por fecha de creación
       const selectQuery = 'SELECT * FROM generacion_docs ORDER BY created_at DESC'
