@@ -41,7 +41,7 @@
           </div>
           <div class="firma-bloque">
             <div class="linea-firma-imagen">
-              <img src="/firma-solay.png" alt="Firma" class="imagen-firma" />
+              <img src="/firma-solay-miguel.jpeg" alt="Firma" class="imagen-firma" />
             </div>
             <p class="etiqueta-firma">FIRMA DEL REPRESENTANTE</p>
             <p class="nombre-firma">{{ representante }}</p>
