@@ -1911,6 +1911,223 @@
         <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
       </div>
     </div>
+
+    <!-- Page 38: ESCALERAS DE MANO - NORMAS PREVENTIVAS DETALLADAS -->
+    <div class="contenedor-principal">
+      <div class="encabezado">
+        <h1>ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+        <p>INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+      </div>
+
+      <div class="contenido-principal">
+        <ul class="lista-contenido">
+          <li>Para evitar cualquier tipo de accidente que pueda causar una escalera de mano, es fundamental conservar su buen estado, para lo cual se revisarán periódicamente retirándolas que estén en mal estado.</li>
+          <li>Evitar por todos los medios el pintar o someterlas a tratamientos que impidan descubrirá fácilmente sus defectos. Para su conservación, en todo caso, se pueden barnizar, si bien eligiendo un barniz transparente que permite ver sus defectos o deterioros si los hubiere.</li>
+          <li>Trabajar sobre una escalera presenta siempre un riesgo, conco consecuencia, se deben efectuar trabajos de corta duración.</li>
+          <li>Las escaleras no deben utilizarse para otros fines para los que han sido construidas. No están concebidas ni construidas para utilizarlas en posición horizontal (de puente o pasarela)</li>
+          <li>Para su transporte, es peligroso hacerlo horizontalmente sobre los hombros, ya que si una persona desembocar por una esquina bajos espuestos en el cara, la forma correcta de llevar las escaleras de mano es consiguiendo que el extremo delantero se encuentro como mínimo a 2 metros del suelo.</li>
+          <li>Las superficies sobre las se deben apoyarse serán planas, suficientemente resistentes y no deslizantes. Al respecto "se utilizarán zapatas antideslizantes" para reducir el peligro de resbalamiento.</li>
+          <li>Si hubiera que utilizarlas sobre terreno blando (con lo que existiría peligro de hundimiento de los largueros, con la consiguiente pérdida de equilibrio), los largueros se colocarán sobre durmientes de madera para repartir la carga.</li>
+          <li>Cuando se utilice como sistema de comunicación, la escalera deberá sobrepasarr 1 metro, como mínimo, el piso superior a donde se dirija la persona que la utilice.</li>
+          <li>Las escaleras de mano simples se colocarán, en la medida de lo posible, formando un ángulo aproximado de 75 grados con la horizontal.</li>
+          <li>Para evitar deslizamientos, la inclinación de la escalera será tal que la distancia de la pared a la base de ésta sea de un cuarto de su longitud, contando desde la base al punto de apoyo. Esta regla de seguridad es conocida por la "regla de 4 a 1"</li>
+          <li>Tanto para la subida como para el descenso, la cara debe estar siempre mirando hacia la escalera.</li>
+        </ul>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
+
+    <!-- Page 39: ESCALERAS - EQUIPOS DE PROTECCIÓN Y SECTION 20 SEÑALIZACIÓN -->
+    <div class="contenedor-principal">
+      <div class="encabezado">
+        <h1>ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+        <p>INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+      </div>
+
+      <div class="contenido-principal">
+        <h2 class="titulo-seccion-grande">EQUIPOS DE PROTECCIÓN INDIVIDUAL</h2>
+
+        <ul class="lista-contenido">
+          <li>Casco de seguridad.</li>
+          <li>Guantes de protección.</li>
+          <li>Botas de seguridad S3</li>
+          <li>Siempre que las condiciones de trabajo exijan otros elementos de protección distintos a los anteriormente descritos se dotará a los trabajadores de los mismos.</li>
+        </ul>
+
+        <h3 class="titulo-subseccion">20. SEÑALIZACIÓN DE LOS RIESGOS</h3>
+
+        <p class="parrafo-contenido">
+          Como complemento de la protección colectiva y de los equipos de protección individual anteriormente indicados, se ha previsto el empleo de una señalización normalizada, que recuerde en todo momento los riesgos existentes a todos los que trabajan en la obra. La señalización prevista es la del listado que se ofrece a continuación, a modo informativo.
+        </p>
+
+        <ul class="lista-contenido">
+          <li>Riesgo en el trabajo BANDA DE ADVERTENCIA DE PELIGRO.</li>
+          <li>Riesgo en el trabajo PROHIBIDO EL PASO.</li>
+          <li>Riesgo en el trabajo PROTECCIÓN OBLIGATORIA CABEZA</li>
+          <li>Riesgo en el trabajo PROTECCIÓN OBLIGATORIA MANOS.</li>
+          <li>Riesgo en el trabajo PROTECCIÓN OBLIGATORIA OÍDOS.</li>
+          <li>Riesgo en el trabajo PROTECCIÓN OBLIGATORIA PIES.</li>
+          <li>Riesgo en el trabajo PROTECCIÓN OBLIGATORIA OCULAR.</li>
+          <li>Riesgo en el trabajo PROTECCIÓN OBLIGATORIA USO DE CINTURÓN.</li>
+          <li>Riesgo en el trabajo PROTECCIÓN OBLIGATORIA USO DE CINTURÓN.</li>
+          <li>Riesgo en el trabajo PROTECCIÓN OBLIGATORIA USO DE CINTURÓN.</li>
+          <li>Riesgo en el trabajo ATENCIÓN RIESGO DE CAÍDAS A DISTINTO NIVEL.</li>
+          <li>Riesgo en el trabajo ATENCIÓN RIESGO DE CAÍDAS AL MISMO NIVEL.</li>
+          <li>Riesgo en el trabajo ATENCIÓN RIESGO ELÉCTRICO.</li>
+        </ul>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
+
+    <!-- Page 40: SECTION 21, 22 Y 1.18 PRIMEROS AUXILIOS INICIO -->
+    <div class="contenedor-principal">
+      <div class="encabezado">
+        <h1>ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+        <p>INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+      </div>
+
+      <div class="contenido-principal">
+        <h3 class="titulo-subseccion">21. INSTALACIONES PROVISIONALES PARA LOS TRABAJADORES</h3>
+
+        <p class="parrafo-contenido">
+          Las instalaciones provisionales para los trabajadores se alojarán en el interior de locales distribuidos a tal fin, que podrán ser prefabricados o ejecutados in situ. Deberán reunir las adecuadas condiciones higiénico-sanitarias, y disponer de las correspondientes comodidades de servicios (Electricidad, agua y saneamiento).
+        </p>
+
+        <p class="parrafo-contenido">
+          <strong>CUADRO INFORMATIVO DE EXIGENCIAS LEGALES VIGENTES</strong>
+        </p>
+
+        <p class="parrafo-contenido">
+          Superficie de aseo-vestuario: 2 m2 / trabajador<br/>
+          Nº de retretes: 1 Ud. / 25 trabajadores<br/>
+          Nº de lavabos: 1 Ud. / 10 trabajadores<br/>
+          Nº de duchas: 1 Ud. / 10 trabajadores
+        </p>
+
+        <h3 class="titulo-subseccion">22. PREVENCIÓN ASISTENCIAL EN CASO DE ACCIDENTE LABORAL</h3>
+
+        <h4 class="titulo-subseccion" style="font-size: 9.5px; margin-top: 4px;">1.18. PRIMEROS AUXILIOS</h4>
+
+        <p class="parrafo-contenido">
+          Será necesario disponer de un local con botiquín de primeros auxilios, en el que se den las primeras atenciones sanitarias a los posibles accidentados. El botiquín contendría como mínimo:
+        </p>
+
+        <ul class="lista-contenido">
+          <li>Un frasco conteniendo agua oxigenada.</li>
+          <li>Un frasco conteniendo alcohol de 95 grados.</li>
+          <li>Un frasco conteniendo tintura de yodo.</li>
+          <li>Un frasco conteniendo mercurio cromo.</li>
+          <li>Un frasco conteniendo amoníaco.</li>
+          <li>Una caja de gasa estéril.</li>
+          <li>Una caja de algodón hidrófilo estéril.</li>
+          <li>Un rollo de esparadrapo.</li>
+          <li>Un torniquete.</li>
+        </ul>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
+
+    <!-- Page 41: PRIMEROS AUXILIOS CONTINUACIÓN + SECTIONS 1.19, 1.20, 23 -->
+    <div class="contenedor-principal">
+      <div class="encabezado">
+        <h1>ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+        <p>INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+      </div>
+
+      <div class="contenido-principal">
+        <ul class="lista-contenido">
+          <li>Una bolsa para agua o hielo.</li>
+          <li>Una bolsa conteniendo guantes esterilizados.</li>
+          <li>Un termómetro clínico.</li>
+          <li>Una caja de apósitos autoadhesivos.</li>
+          <li>Una caja de analgésicos.</li>
+          <li>Un tubo de pomada para quemaduras</li>
+        </ul>
+
+        <h4 class="titulo-subseccion" style="font-size: 9.5px; margin-top: 4px;">1.19. MEDICINA PREVENTIVA</h4>
+
+        <p class="parrafo-contenido">
+          Con el fin de lograr evitar en lo posible las enfermedades profesionales en esta obra, así como los accidentes derivados de trastornos físicos, psíquicos, alcoholismo y resto de las toxicomanías peligrosas en cumplimiento de la legislación laboral vigente, se realizarán los reconocimientos médicos previos a la contratación de los trabajadores de la obra, y los preceptivos de ser realizados al alto de su contratación.
+        </p>
+
+        <h4 class="titulo-subseccion" style="font-size: 9.5px; margin-top: 4px;">1.20. EVACUACIÓN DE ACCIDENTADOS</h4>
+
+        <p class="parrafo-contenido">
+          La evacuación de accidentados se realizará siempre por personal sanitario especializado, bajo ningún concepto el accidentado será movilizado por personal incompetente con el fin de evitar posibles lesiones a agravar las ya producidas. En la zona de vestuario existe cartel donde quede recogido el Centro de Salud más próximo, así como teléfono y dirección del mismo.
+        </p>
+
+        <h3 class="titulo-subseccion">23. OBLIGACIONES DEL PROMOTOR</h3>
+
+        <p class="parrafo-contenido">
+          Antes del inicio de los trabajos, el promotor designa un Coordinador en materia de Seguridad y Salud, cuando en la ejecución de las obras intervengan más de una empresa, o una empresa y trabajadores autónomos o diversos trabajadores autónomos.
+        </p>
+
+        <p class="parrafo-contenido">
+          La designación del Coordinador en materia de Seguridad y Salud no eximirá al promotor de las responsabilidades.
+        </p>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
+
+    <!-- Page 42: SECTION 24 COORDINADOR Y SECTION 25 PLAN SEGURIDAD -->
+    <div class="contenedor-principal">
+      <div class="encabezado">
+        <h1>ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+        <p>INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+      </div>
+
+      <div class="contenido-principal">
+        <h3 class="titulo-subseccion">24. COORDINADOR EN MATERIA DE SEGURIDAD Y SALUD</h3>
+
+        <p class="parrafo-contenido">
+          La designación del Coordinador en la elaboración del proyecto y en la ejecución de la obra podrá recaer en la misma persona.
+        </p>
+
+        <p class="parrafo-contenido">
+          El Coordinador en materia de seguridsd y salud durante la ejecución de la obra, deberá desarrollar las siguientes funciones:
+        </p>
+
+        <ul class="lista-contenido">
+          <li>Coordinar la aplicación de los principios generales de prevención y seguridad.</li>
+          <li>Coordinar las actividades de la obra para garantizar que los contratistas y, en su caso, los trabajadores autónomos apliquen de manera coherente y responsables los principios de acción preventiva que se recojaen en el Artículo 15 de la Ley de Prevención de Riesgos Laborales durante la ejecución de la obra, y en particular, en las actividades a que se refiere el Artículo 10 del Real Decreto 1627/1997.</li>
+          <li>Informar el Plan de Seguridad y Salud elaborado por el contratista y, en su caso, las modificaciones introducidas en el mismo.</li>
+          <li>Organizar la coordinación de actividades empresariales previstas en el Artículo 24 de la Ley de Prevención de Riesgos Laborales.</li>
+          <li>Coordinar las acciones y funciones de control de la aplicación correcta de los métodos de trabajo.</li>
+          <li>Adoptar las medidas necesarias para que solo las personas autorizadas puedan acceder a la obra.</li>
+        </ul>
+
+        <p class="parrafo-contenido">
+          La Dirección Facultativa asumirá estas funciones cuando no fuera necesaria la designación del Coordinador.
+        </p>
+
+        <h3 class="titulo-subseccion">25. PLAN DE SEGURIDAD Y SALUD EN EL TRABAJO</h3>
+
+        <p class="parrafo-contenido">
+          En aplicación de este Estudio de Seguridad y Salud, cada contratista, antes del inicio de la obra, elaborará un Plan de Seguridad y Salud en el que se analicen, estudien, desarrollen y complementen las previsiones contenidas en este Estudio en función de su propio sistema de ejecución de obra. En dicho Plan se incluirán, en su caso, las propuestas de medidas alternativas de prevención que el contratista proponga con la correspondiente justificación
+        </p>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
   </div>
 </template>
 
