@@ -2128,6 +2128,292 @@
         <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
       </div>
     </div>
+
+    <!-- PÁGINA 50: PRIMEROS AUXILIOS Y OBLIGACIONES FINALES -->
+    <div class="contenedor-principal">
+      <!-- Encabezado -->
+      <div class="encabezado">
+        <div class="encabezado-contenido">
+          <h1 class="titulo-principal">ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+          <p class="subtitulo">INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+        </div>
+        <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
+      </div>
+
+      <!-- Contenido Principal -->
+      <div class="contenido-principal">
+        <ul class="lista-contenido">
+          <li>Una bolsa para agua o hielo.</li>
+          <li>Una bolsa conteniendo guantes esterilizados.</li>
+          <li>Un termómetro clínico.</li>
+          <li>Una caja de apósitos autoadhesivos.</li>
+          <li>Una caja de analgésicos.</li>
+          <li>Un tubo de pomada para quemaduras.</li>
+        </ul>
+
+        <h3 class="titulo-subseccion">1.19. MEDICINA PREVENTIVA</h3>
+
+        <p class="parrafo-contenido">
+          Con el fin de lograr evitar en lo posible las enfermedades profesionales en esta obra, así como los accidentes derivados de trastornos físicos, psíquicos, alcoholismo y resto de las toxicomanías peligrosas en cumplimiento de la legislación laboral vigente, se realizarán los reconocimientos médicos previos a la contratación de los trabajadores de la obra, y los preceptivos de ser realizados al año de su contratación.
+        </p>
+
+        <h3 class="titulo-subseccion">1.20. EVACUACIÓN DE ACCIDENTADOS</h3>
+
+        <p class="parrafo-contenido">
+          La evacuación de accidentados se realizará siempre por personal sanitario especializado, bajo ningún concepto el accidentado será movilizado por personal lego con el fin de evitar posibles lesiones o agravar las ya producidas. En la zona de vestuarios existirá cartel donde quede recogido el Centro de Salud más próximo, así como el teléfono y dirección del mismo.
+        </p>
+
+        <h3 class="titulo-subseccion">23. OBLIGACIONES DEL PROMOTOR</h3>
+
+        <p class="parrafo-contenido">
+          Antes del inicio de los trabajos, el promotor designa un Coordinador en materia de Seguridad y Salud, cuando en la ejecución de las obras intervengan más de una empresa, o una empresa y trabajadores autónomos o diversos trabajadores autónomos.
+        </p>
+
+        <p class="parrafo-contenido">
+          La designación del Coordinador en materia de Seguridad y Salud no exime al promotor de las responsabilidades.
+        </p>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
+
+    <!-- PÁGINA 51: COORDINADOR EN MATERIA DE SEGURIDAD Y SALUD -->
+    <div class="contenedor-principal">
+      <!-- Encabezado -->
+      <div class="encabezado">
+        <div class="encabezado-contenido">
+          <h1 class="titulo-principal">ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+          <p class="subtitulo">INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+        </div>
+        <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
+      </div>
+
+      <!-- Contenido Principal -->
+      <div class="contenido-principal">
+        <h3 class="titulo-subseccion">24. COORDINADOR EN MATERIA DE SEGURIDAD Y SALUD</h3>
+
+        <p class="parrafo-contenido">
+          La designación del Coordinador en la elaboración del proyecto y en la ejecución de la obra podrá recaer en la misma persona.
+        </p>
+
+        <p class="parrafo-contenido">
+          El Coordinador en materia de seguridez y salud durante la ejecución de la obra, deberá desarrollar las siguientes funciones:
+        </p>
+
+        <ul class="lista-contenido">
+          <li>Coordinar la aplicación de los principios generales de prevención y seguridad.</li>
+          <li>Coordinar las actividades de la obra para garantizar que los contratista apliquen de manera coherente y responsable los principios de acción preventiva que se recogen en el Artículo 15 de la Ley de Prevención de Riesgos Laborales durante la ejecución de la obra, y en particular, en las actividades a que se refiere el Artículo 10 del Real Decreto 1627/1997.</li>
+          <li>Informar al Plan de Seguridad y Salud elaborado por el contratista y, en su caso, las modificaciones introducidas en el mismo.</li>
+          <li>Organizar la coordinación de actividades empresariales previstas en el Artículo 24 de la Ley de Prevención de Riesgos Laborales.</li>
+          <li>Coordinar las acciones y funciones de control de la aplicación correcta de los métodos de trabajo.</li>
+          <li>Adoptar las medidas necesarias para que sólo las personas autorizadas puedan acceder a la obra.</li>
+        </ul>
+
+        <p class="parrafo-contenido">
+          La Dirección Facultativa asumirá estas funciones cuando no fuera necesario la designación del Coordinador.
+        </p>
+
+        <h3 class="titulo-subseccion">25. PLAN DE SEGURIDAD Y SALUD EN EL TRABAJO</h3>
+
+        <p class="parrafo-contenido">
+          En aplicación de este Estudio de Seguridad y Salud, cada contratista, antes del inicio de la obra, elaborará un Plan de Seguridad y Salud en el que se analicen, estudien, desarrollen y complementen las previsiones contenidas en este Estudio en función de su propio sistema de ejecución de obra. En dicho Plan se incluirán, en su caso, las propuestas de medidas alternativas de prevención que el contratista proponga con la correspondiente justificación
+        </p>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
+
+    <!-- PÁGINA 52: PLAN DE SEGURIDAD Y SALUD EN DETALLE -->
+    <div class="contenedor-principal">
+      <!-- Encabezado -->
+      <div class="encabezado">
+        <div class="encabezado-contenido">
+          <h1 class="titulo-principal">ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+          <p class="subtitulo">INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+        </div>
+        <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
+      </div>
+
+      <!-- Contenido Principal -->
+      <div class="contenido-principal">
+        <p class="parrafo-contenido">
+          técnica, y que no podrán implicar disminución de los niveles de protección previstos en este Estudio.
+        </p>
+
+        <p class="parrafo-contenido">
+          El Plan de Seguridad y Salud elaborado por el contratista deberá ser informado por el Coordinador en materia de Seguridad y Salud en fase de obra y, elevado a la Administración competente para, por parte de ésta, proceder a su aprobación antes del inicio de la obra. Este podrá ser modificado por el contratista en función del proceso de ejecución de la misma, y en su caso, por cambios en el mismo.
+        </p>
+
+        <p class="parrafo-contenido">
+          La ejecución de los trabajos y de las posibles incidencias o modificaciones que pudieran surgir a lo largo de la obra, pero siempre con la aprobación expresa, y el procedimiento antes indicado en la aprobación del Plan de Seguridad y Salud. Cuando no sea necesaria la designación del Coordinador, las funciones que se le atribuyen serán asumidas por la Dirección Facultativa.
+        </p>
+
+        <p class="parrafo-contenido">
+          Quienes intervengan en la ejecución de la obra, así como las personas u órganos con responsabilidades en materia de prevención en las empresas intervinientes en la misma y los representantes de los trabajadores, podrán presentar por escrito y de manera razonada, las sugerencias y alternativas que estimen oportunas. El Plan estará en la obra a disposición de la Dirección Facultativa.
+        </p>
+
+        <h3 class="titulo-subseccion">26. OBLIGACIONES DE CONTRATISTAS Y SUBCONTRATISTAS</h3>
+
+        <p class="parrafo-contenido">
+          El contratista y subcontratistas estarán obligados a:
+        </p>
+
+        <p class="parrafo-contenido">
+          1. Aplicar los principios de acción preventiva que se recojen en el Artículo 15 de la Ley de Prevención de Riesgos Laborales y en particular:
+        </p>
+
+        <ul class="lista-contenido">
+          <li>El mantenimiento de la obra en buen estado de limpieza.</li>
+          <li>La elección del emplazamiento de los puestos y áreas de trabajo, teniendo en cuenta sus condiciones de acceso y la determinación de las vías o zonas de circulación.</li>
+          <li>La manipulación de distintos materiales y la utilización de medios auxiliares.</li>
+          <li>El mantenimiento, el control previo a la puesta en servicio y control periódico de las instalaciones y dispositivos necesarios para la ejecución de la obra, con objeto de corregir los defectos que pudieran afectar a la seguridad y salud de los trabajadores.</li>
+          <li>La delimitación y acondicionamiento de las zonas de almacenamiento y depósito de materiales, en particular si se trata de materias peligrosas.</li>
+        </ul>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
+
+    <!-- PÁGINA 53: OBLIGACIONES CONTRATISTAS CONTINUACIÓN -->
+    <div class="contenedor-principal">
+      <!-- Encabezado -->
+      <div class="encabezado">
+        <div class="encabezado-contenido">
+          <h1 class="titulo-principal">ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+          <p class="subtitulo">INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+        </div>
+        <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
+      </div>
+
+      <!-- Contenido Principal -->
+      <div class="contenido-principal">
+        <ul class="lista-contenido">
+          <li>El almacenamiento y evacuación de residuos y escombros que puedan ser generados.</li>
+          <li>La recogida de materiales peligrosos utilizados.</li>
+          <li>La adaptación del período de tiempo efectivo que habrá de dedicarse a los distintos trabajos o fases de trabajo.</li>
+          <li>La cooperación entre todos los intervinientes en la obra.</li>
+          <li>Las interacciones o incompatibilidades con cualquier otro trabajo o actividad.</li>
+        </ul>
+
+        <p class="parrafo-contenido">
+          2. Cumplir y hacer cumplir a su personal lo establecido en el Plan de Seguridad y Salud.
+        </p>
+
+        <p class="parrafo-contenido">
+          3. Cumplir la normativa en materia de prevención de riesgos laborales, teniendo en cuenta las obligaciones sobre coordinación de las actividades empresariales previstas en la Ley de Prevención de Riesgos Laborales, así como cumplir las disposiciones mínimas establecidas en el Anexo IV del Real Decreto 1627/1997.
+        </p>
+
+        <p class="parrafo-contenido">
+          4. Informar y proporcionar las instrucciones adecuadas a los trabajadores autónomos sobre todas las medidas que hayan de adoptarse en lo que se refiere a seguridad y salud.
+        </p>
+
+        <p class="parrafo-contenido">
+          5. Atender las indicaciones y cumplir las instrucciones del Coordinador en materia de seguridad y salud durante la ejecución de la obra.
+        </p>
+
+        <p class="parrafo-contenido">
+          6. Informar, con al menos cinco días de antelación, al Coordinador en materia de seguridad y salud durante la ejecución de la obra, de las nuevas empresas y/o <span class="texto-rojo">trabajadores</span> <span class="underline">contratadas/os</span>.
+        </p>
+
+        <p class="parrafo-contenido">
+          7. Dispondrá en obra de la documentación identificativa y laboral del personal contratado.
+        </p>
+
+        <p class="parrafo-contenido">
+          Así como de las especificaciones técnicas y documentación de los equipos de protección individual, colectivos, maquinaria y medios auxiliares empleados en la obra.
+        </p>
+
+        <p class="parrafo-contenido">
+          Serán responsables de la ejecución correcta de las medidas preventivas fijadas en el Plan y en el relativo a las obligaciones que le correspondan directamente o, en su caso, a los trabajos autónomos por ello contratados. Además, responderán solidariamente de las consecuencias que se deriven del incumplimiento de las medidas previstas en el Plan.
+        </p>
+
+        <p class="parrafo-contenido">
+          Las responsabilidades del Coordinador, Dirección Facultativa y el Promotor no eximir\u00edn de sus responsabilidades a los contratistas y a los subcontratistas.
+        </p>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
+
+    <!-- PÁGINA 54: OBLIGACIONES TRABAJADORES AUTÓNOMOS -->
+    <div class="contenedor-principal">
+      <!-- Encabezado -->
+      <div class="encabezado">
+        <div class="encabezado-contenido">
+          <h1 class="titulo-principal">ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+          <p class="subtitulo">INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+        </div>
+        <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
+      </div>
+
+      <!-- Contenido Principal -->
+      <div class="contenido-principal">
+        <h3 class="titulo-subseccion">4 27. OBLIGACIONES DE LOS TRABAJADORES AUTÓNOMOS</h3>
+
+        <p class="parrafo-contenido">
+          Los trabajadores autónomos están obligados a:
+        </p>
+
+        <p class="parrafo-contenido">
+          1. Aplicar los principios de la acción preventiva que se recoge en el Artículo 15 de la Ley de Prevención de Riesgos Laborales, y en particular:
+        </p>
+
+        <ul class="lista-contenido">
+          <li>El mantenimiento de la obra en buen estado de orden y limpieza.</li>
+          <li>El almacenamiento y evacuación de residuos y escombros.</li>
+          <li>La recogida de materiales peligrosos utilizados.</li>
+          <li>La adaptación del período de tiempo efectivo que habrá de dedicarse a los distintos trabajos o fases de trabajo.</li>
+          <li>La cooperación entre todos los intervinientes en la obra.</li>
+          <li>Las interacciones o incompatibilidades con cualquier otro trabajo o actividad.</li>
+        </ul>
+
+        <p class="parrafo-contenido">
+          2. Cumplir las disposiciones mínimas establecidas en el Anexo IV del Real Decreto 1627/1997.
+        </p>
+
+        <p class="parrafo-contenido">
+          3. Auxiliar su actuación conforme a los deberes sobre coordinación de las actividades empresariales previstas en la Ley de Prevención de Riesgos Laborales, participando en particular en cualquier medida de su actuación coordinada que se hubiera establecido.
+        </p>
+
+        <p class="parrafo-contenido">
+          4. Cumplir con las obligaciones establecidas para los trabajadores en la Ley de Prevención de Riesgos Laborales.
+        </p>
+
+        <p class="parrafo-contenido">
+          5. Utilizar equipos de trabajo que se ajusten a lo dispuesto en el Real Decreto 1215/ 1997.
+        </p>
+
+        <p class="parrafo-contenido">
+          6. Elegir y utilizar equipos de protección individual en los términos previstos en el Real Decreto 773/1997.
+        </p>
+
+        <p class="parrafo-contenido">
+          7. Atender las indicaciones y cumplir las instrucciones del Coordinador en materia de seguridad y salud.
+        </p>
+
+        <p class="parrafo-contenido">
+          Los trabajadores autónomos deberán cumplir lo establecido en el Plan de Seguridad y Salud.
+        </p>
+      </div>
+
+      <!-- Pie de página -->
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es | Paseo de Bollullos de la Mitación 18. Sevilla.</p>
+      </div>
+    </div>
+
   </div>
 </template>
 
