@@ -61,8 +61,19 @@ const documentosJustificaciones = computed(() =>
       title="📁 Documentos de Proyecto"
       :isExpanded="isProyectoExpanded"
       @toggle="isProyectoExpanded = !isProyectoExpanded"
-      :count="documentosProyecto.length"
+      :count="documentosProyecto.length + 1"
     >
+      <!-- Botón Generar PDF Combinado -->
+      <div class="acceso-combinador">
+        <NuxtLink to="/generar-pdf-combinado" class="card-combinador">
+          <span class="icono">🔗</span>
+          <span class="titulo">Generar PDF Combinado</span>
+          <span class="descripcion">Crea un PDF con inicio + documento + final</span>
+          <span class="flecha">→</span>
+        </NuxtLink>
+      </div>
+
+      <!-- Tarjetas de documentos -->
       <div class="documentos-grid">
         <DocumentCard
           v-for="documento in documentosProyecto"
@@ -179,6 +190,74 @@ const documentosJustificaciones = computed(() =>
 .boton-maestro:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.acceso-combinador {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.card-combinador {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 131, 176, 0.3);
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-combinador::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: left 0.3s ease;
+}
+
+.card-combinador:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 131, 176, 0.4);
+}
+
+.card-combinador:hover::before {
+  left: 100%;
+}
+
+.card-combinador .icono {
+  font-size: 2.5rem;
+}
+
+.card-combinador .titulo {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.card-combinador .descripcion {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+.card-combinador .flecha {
+  font-size: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .documentos-grid {

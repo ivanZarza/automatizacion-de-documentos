@@ -43,30 +43,38 @@ const generarPDFcombinado = async () => {
   mensajeEstado.value = 'Generando PDF combinado...';
   
   try {
-    const html2canvas = (await import('html2canvas')).default;
     const { jsPDF } = await import('jspdf');
     const { PDFDocument } = await import('pdf-lib');
+    const html2pdf = (await import('html2pdf.js')).default;
 
-    // 1. Renderizar Documento80Paginas a PDF
+    // 1. Generar PDF del Documento80Paginas
     mensajeEstado.value = 'Generando documento de inicio...';
     const doc80Element = document.getElementById('documento-80-paginas-visible');
-    const canvas80 = await html2canvas(doc80Element, { scale: 2, useCORS: true, logging: false });
-    const pdf80 = new jsPDF('p', 'mm', 'a4');
-    const img80 = canvas80.toDataURL('image/png');
-    const altura80 = (canvas80.height * 210) / canvas80.width;
     
-    let posicion = 0;
-    let alturaRestante = altura80;
+    const pdf80Promise = new Promise((resolve, reject) => {
+      const options = {
+        margin: 0,
+        filename: 'temp1.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true, logging: false },
+        jsPDF: { orientation: 'p', unit: 'mm', format: 'a4' }
+      };
+      
+      html2pdf()
+        .set(options)
+        .from(doc80Element)
+        .toPdf()
+        .get('pdf')
+        .then((pdfObj) => {
+          resolve(pdfObj.output('arraybuffer'));
+        })
+        .catch((err) => {
+          console.error('Error en documento inicio:', err);
+          reject(err);
+        });
+    });
     
-    pdf80.addImage(img80, 'PNG', 0, 0, 210, altura80);
-    alturaRestante -= 297;
-    
-    while (alturaRestante > 0) {
-      pdf80.addPage();
-      posicion = -alturaRestante;
-      pdf80.addImage(img80, 'PNG', 0, posicion, 210, altura80);
-      alturaRestante -= 297;
-    }
+    const pdf80Buffer = await pdf80Promise;
 
     // 2. Cargar PDF original
     mensajeEstado.value = 'Cargando documento original...';
@@ -83,22 +91,41 @@ const generarPDFcombinado = async () => {
       mensajeEstado.value = '⚠️ Documento original no encontrado, continuando...';
     }
 
-    // 3. Renderizar DocumentoUltimaPagina a PDF
+    // 3. Generar PDF del DocumentoUltimaPagina
     mensajeEstado.value = 'Generando documento final...';
     const docFinalElement = document.getElementById('documento-ultima-pagina-visible');
-    const canvasFinal = await html2canvas(docFinalElement, { scale: 2, useCORS: true, logging: false });
-    const pdfFinal = new jsPDF('p', 'mm', 'a4');
-    const imgFinal = canvasFinal.toDataURL('image/png');
-    const alturaFinal = (canvasFinal.height * 210) / canvasFinal.width;
     
-    pdfFinal.addImage(imgFinal, 'PNG', 0, 0, 210, alturaFinal);
+    const pdfFinalPromise = new Promise((resolve, reject) => {
+      const options = {
+        margin: 0,
+        filename: 'temp2.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true, logging: false },
+        jsPDF: { orientation: 'p', unit: 'mm', format: 'a4' }
+      };
+      
+      html2pdf()
+        .set(options)
+        .from(docFinalElement)
+        .toPdf()
+        .get('pdf')
+        .then((pdfObj) => {
+          resolve(pdfObj.output('arraybuffer'));
+        })
+        .catch((err) => {
+          console.error('Error en documento final:', err);
+          reject(err);
+        });
+    });
+    
+    const pdfFinalBuffer = await pdfFinalPromise;
 
     // 4. Combinar todos los PDFs
     mensajeEstado.value = 'Combinando documentos...';
     const pdfCombinado = await PDFDocument.create();
     
-    const pdf80Doc = await PDFDocument.load(pdf80.output('arraybuffer'));
-    const pdfFinalDoc = await PDFDocument.load(pdfFinal.output('arraybuffer'));
+    const pdf80Doc = await PDFDocument.load(pdf80Buffer);
+    const pdfFinalDoc = await PDFDocument.load(pdfFinalBuffer);
     
     // Agregar páginas del inicio
     const paginas80 = await pdfCombinado.copyPages(pdf80Doc, pdf80Doc.getPageIndices());
@@ -127,7 +154,10 @@ const generarPDFcombinado = async () => {
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
     link.download = nombreSalida.value;
+    document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(link.href);
     
     mensajeEstado.value = '✅ PDF combinado descargado correctamente';
     
@@ -222,36 +252,44 @@ const generarPDFcombinado = async () => {
   gap: 20px;
   padding: 20px;
   background: #f5f5f5;
-  min-height: 100vh;
+  width: 100%;
+  max-height: calc(100vh - 200px);
 }
 
 /* Pestañas */
 .pestanas {
   display: flex;
   gap: 10px;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 3px solid #ddd;
   margin-bottom: 20px;
+  background: white;
+  padding: 0 0 0 20px;
+  border-radius: 4px 4px 0 0;
 }
 
 .pestana {
-  padding: 12px 20px;
+  padding: 14px 24px;
   background: #f0f0f0;
   border: none;
-  border-bottom: 3px solid transparent;
+  border-bottom: 4px solid transparent;
   cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
   transition: all 0.3s ease;
+  color: #666;
+  text-decoration: none;
 }
 
 .pestana:hover {
   background: #e0e0e0;
+  color: #333;
 }
 
 .pestana.activa {
   background: white;
   border-bottom-color: #0066cc;
   color: #0066cc;
+  border-radius: 4px 4px 0 0;
 }
 
 /* Contenedor de documentos */
@@ -262,19 +300,28 @@ const generarPDFcombinado = async () => {
   border-radius: 4px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
+  min-height: 600px;
+  max-height: 800px;
 }
 
 .documento-seccion h2 {
   margin-top: 0;
   margin-bottom: 20px;
   color: #333;
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .documento-preview {
   display: flex;
   justify-content: center;
   padding: 20px 0;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  background: #fafafa;
 }
 
 /* Panel de control */
@@ -293,12 +340,13 @@ const generarPDFcombinado = async () => {
   background-color: #28a745;
   color: white;
   border: none;
-  padding: 14px 30px;
-  border-radius: 4px;
+  padding: 16px 36px;
+  border-radius: 6px;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 16px;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
 }
 
 .btn-generar:hover:not(:disabled) {
