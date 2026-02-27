@@ -45,36 +45,62 @@ const generarPDFcombinado = async () => {
   try {
     const { jsPDF } = await import('jspdf');
     const { PDFDocument } = await import('pdf-lib');
-    const html2pdf = (await import('html2pdf.js')).default;
+    const html2canvas = (await import('html2canvas')).default;
 
-    // 1. Generar PDF del Documento80Paginas
+    // 1. Generar PDF del Documento80Paginas por cada página
     mensajeEstado.value = 'Generando documento de inicio...';
     const doc80Element = document.getElementById('documento-80-paginas-visible');
+    const contenedoresInicio = doc80Element.querySelectorAll('.contenedor-principal');
     
-    const pdf80Promise = new Promise((resolve, reject) => {
-      const options = {
-        margin: 0,
-        filename: 'temp1.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true, logging: false },
-        jsPDF: { orientation: 'p', unit: 'mm', format: 'a4' }
-      };
+    const pdf80 = new jsPDF('p', 'mm', 'a4');
+    let isFirstPage = true;
+    
+    for (let contenedor of contenedoresInicio) {
+      if (!isFirstPage) pdf80.addPage();
+      isFirstPage = false;
       
-      html2pdf()
-        .set(options)
-        .from(doc80Element)
-        .toPdf()
-        .get('pdf')
-        .then((pdfObj) => {
-          resolve(pdfObj.output('arraybuffer'));
-        })
-        .catch((err) => {
-          console.error('Error en documento inicio:', err);
-          reject(err);
+      try {
+        // Remover temporalmente estilos que causan saltos y espacios en blanco
+        const pageBreakStyle = contenedor.style.pageBreakAfter;
+        const paddingTopStyle = contenedor.style.paddingTop;
+        const paddingBottomStyle = contenedor.style.paddingBottom;
+        
+        contenedor.style.pageBreakAfter = 'auto';
+        contenedor.style.paddingTop = '10mm';
+        contenedor.style.paddingBottom = '10mm';
+        
+        const canvas = await html2canvas(contenedor, {
+          scale: 2,
+          useCORS: true,
+          logging: false,
+          backgroundColor: '#ffffff',
+          allowTaint: true,
+          ignoreElements: (element) => {
+            return element.classList && element.classList.contains('print-hide');
+          }
         });
-    });
-    
-    const pdf80Buffer = await pdf80Promise;
+        
+        // Restaurar estilos originales
+        contenedor.style.pageBreakAfter = pageBreakStyle || '';
+        contenedor.style.paddingTop = paddingTopStyle || '';
+        contenedor.style.paddingBottom = paddingBottomStyle || '';
+        
+        const imgData = canvas.toDataURL('image/jpeg', 0.95);
+        const altura = canvas.height;
+        const ancho = canvas.width;
+        const ratio = ancho / altura;
+        
+        // Ajustar a tamaño A4
+        const pdfWidth = 210;
+        const pdfHeight = pdfWidth / ratio;
+        
+        // No dividir, usar la altura calculada
+        pdf80.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+        
+      } catch (e) {
+        console.error('Error procesando contenedor:', e);
+      }
+    }
 
     // 2. Cargar PDF original
     mensajeEstado.value = 'Cargando documento original...';
@@ -94,38 +120,63 @@ const generarPDFcombinado = async () => {
     // 3. Generar PDF del DocumentoUltimaPagina
     mensajeEstado.value = 'Generando documento final...';
     const docFinalElement = document.getElementById('documento-ultima-pagina-visible');
+    const contenedoresFinales = docFinalElement.querySelectorAll('.contenedor-principal');
     
-    const pdfFinalPromise = new Promise((resolve, reject) => {
-      const options = {
-        margin: 0,
-        filename: 'temp2.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true, logging: false },
-        jsPDF: { orientation: 'p', unit: 'mm', format: 'a4' }
-      };
+    const pdfFinal = new jsPDF('p', 'mm', 'a4');
+    isFirstPage = true;
+    
+    for (let contenedor of contenedoresFinales) {
+      if (!isFirstPage) pdfFinal.addPage();
+      isFirstPage = false;
       
-      html2pdf()
-        .set(options)
-        .from(docFinalElement)
-        .toPdf()
-        .get('pdf')
-        .then((pdfObj) => {
-          resolve(pdfObj.output('arraybuffer'));
-        })
-        .catch((err) => {
-          console.error('Error en documento final:', err);
-          reject(err);
+      try {
+        // Remover temporalmente estilos que causan saltos y espacios en blanco
+        const pageBreakStyle = contenedor.style.pageBreakAfter;
+        const paddingTopStyle = contenedor.style.paddingTop;
+        const paddingBottomStyle = contenedor.style.paddingBottom;
+        
+        contenedor.style.pageBreakAfter = 'auto';
+        contenedor.style.paddingTop = '10mm';
+        contenedor.style.paddingBottom = '10mm';
+        
+        const canvas = await html2canvas(contenedor, {
+          scale: 2,
+          useCORS: true,
+          logging: false,
+          backgroundColor: '#ffffff',
+          allowTaint: true,
+          ignoreElements: (element) => {
+            return element.classList && element.classList.contains('print-hide');
+          }
         });
-    });
-    
-    const pdfFinalBuffer = await pdfFinalPromise;
+        
+        // Restaurar estilos originales
+        contenedor.style.pageBreakAfter = pageBreakStyle || '';
+        contenedor.style.paddingTop = paddingTopStyle || '';
+        contenedor.style.paddingBottom = paddingBottomStyle || '';
+        
+        const imgData = canvas.toDataURL('image/jpeg', 0.95);
+        const altura = canvas.height;
+        const ancho = canvas.width;
+        const ratio = ancho / altura;
+        
+        const pdfWidth = 210;
+        const pdfHeight = pdfWidth / ratio;
+        
+        // No dividir, usar la altura calculada
+        pdfFinal.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+        
+      } catch (e) {
+        console.error('Error procesando contenedor final:', e);
+      }
+    }
 
     // 4. Combinar todos los PDFs
     mensajeEstado.value = 'Combinando documentos...';
     const pdfCombinado = await PDFDocument.create();
     
-    const pdf80Doc = await PDFDocument.load(pdf80Buffer);
-    const pdfFinalDoc = await PDFDocument.load(pdfFinalBuffer);
+    const pdf80Doc = await PDFDocument.load(pdf80.output('arraybuffer'));
+    const pdfFinalDoc = await PDFDocument.load(pdfFinal.output('arraybuffer'));
     
     // Agregar páginas del inicio
     const paginas80 = await pdfCombinado.copyPages(pdf80Doc, pdf80Doc.getPageIndices());

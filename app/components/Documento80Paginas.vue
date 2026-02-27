@@ -480,7 +480,7 @@ defineProps({
   height: 297mm;
   display: flex;
   flex-direction: column;
-  padding: 20mm;
+  padding: 10mm 20mm;
   box-sizing: border-box;
   background: white;
   page-break-after: always;
