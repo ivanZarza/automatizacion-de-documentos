@@ -270,7 +270,7 @@ export const masterFormFields = [
   { name: 'potenciaTermica', label: 'Potencia Térmica (kW) (Aerotermia)', placeholder: 'Ej: 8.5', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'resistenciaElectrica', label: 'Resistencia Eléctrica (kW) (Aerotermia)', placeholder: 'Ej: 2.0', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'potenciaTotal', label: 'Potencia Total (kW) (Aerotermia)', placeholder: 'Ej: 10.5', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'tipoSoporte', label: 'Tipo de Soporte', type: 'select', options: ['PLANA', 'INCLINADA', 'AMBAS'], subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'tipoSoporte', label: 'Tipo de Soporte', type: 'select', options: [{ label: 'PLANA', value: 'PLANA' }, { label: 'INCLINADA', value: 'INCLINADA' }, { label: 'AMBAS', value: 'PLANA E INCLINADA' }], subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   /* { name: 'fechaConclusionAnio', label: 'Año Conclusión', placeholder: 'Ej: 2025', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'fechaConclusionDia', label: 'Día Conclusión', placeholder: 'Ej: 15', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'fechaConclusionMes', label: 'Mes Conclusión', placeholder: 'Ej: 03', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' }, */
