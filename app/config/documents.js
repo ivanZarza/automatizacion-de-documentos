@@ -2600,7 +2600,7 @@ export const documento80PaginasConfig = {
   },
   fieldMapping: {
     nombre: 'apellidosNombre',
-    direccion: (formData) => `${formData.direccionCompleta || ''} - ${formData.codigoPostalEmplazamiento || ''} - ${formData.localidadEmplazamiento || ''} - ${formData.provinciaEmplazamiento || ''}`,
+    direccion: (formData) => `${formData.emplazamientoCalle || ''} - ${formData.numero || ''}    ${formData.bloque || '' } ${formData.escalera || ''}  ${formData.piso || ''}  ${formData.puerta || ''}  `,
     referenciaCatastral: 'referenciaCatastral',
     dia: 'dia',
     mes: 'mes',
@@ -2642,9 +2642,9 @@ export const documentoUltimaPaginaConfig = {
   },
   fieldMapping: {
     ciudad: 'localidadEmplazamiento',
-    dia: 'diaFirmaJustificacion',
-    mes: 'mesFirmaJustificacion',
-    anio: 'anioFirmaJustificacion'
+    dia: 'dia',
+    mes: 'mes',
+    anio: 'anio'
   },
   capabilities: {
     canPreview: true,

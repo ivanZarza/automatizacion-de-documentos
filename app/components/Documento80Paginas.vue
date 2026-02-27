@@ -2,35 +2,35 @@
 defineProps({
   nombre: {
     type: String,
-    default: 'Alejandra Klitzke Chacón'
+    default: ''
   },
   direccion: {
     type: String,
-    default: 'Calle Dolores, N.º 14 Es:1 Pl:00 Pt:01'
+    default: ''
   },
   referenciaCatastral: {
     type: String,
-    default: '56317070QA5653B0001SG'
+    default: ''
   },
   dia: {
     type: String,
-    default: '16'
+    default: ''
   },
   mes: {
     type: String,
-    default: 'Octubre'
+    default: ''
   },
   anio: {
     type: String,
-    default: '2025'
+    default: ''
   },
   localidad: {
     type: String,
-    default: 'Sevilla'
+    default: ''
   },
   provincia: {
     type: String,
-    default: 'Sevilla'
+    default: ''
   },
   dni: {
     type: String,
@@ -38,23 +38,23 @@ defineProps({
   },
   codigoPostal: {
     type: String,
-    default: '41940'
+    default: ''
   },
   presupuesto: {
     type: String,
-    default: '7.024,79 €'
+    default: ''
   },
   potencia: {
     type: String,
-    default: '5.0'
+    default: ''
   },
   potenciaTotal: {
     type: String,
-    default: '5.0'
+    default: ''
   },
   potenciaModulos: {
     type: String,
-    default: '3210'
+    default: ''
   }
 })
 </script>
