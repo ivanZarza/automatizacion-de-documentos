@@ -41,6 +41,13 @@ export const useFormStore = defineStore('form', () => {
     saveToLocalStorage()
   }
 
+  // Acción: actualizar campos específicos sin perder los otros
+  const updateFormData = (data) => {
+    formData.value = { ...formData.value, ...data }
+    isFormSubmitted.value = true
+    saveToLocalStorage()
+  }
+
   // Acción: obtener datos del formulario
   const getFormData = () => {
     return formData.value
@@ -74,6 +81,7 @@ export const useFormStore = defineStore('form', () => {
     isFormSubmitted,
     hasData,
     setFormData,
+    updateFormData,
     getFormData,
     clearFormData,
     getField,

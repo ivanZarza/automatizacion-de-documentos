@@ -1363,7 +1363,7 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
   },
   fieldMapping: {
     // Sección A - TITULAR
-    domicilio: (formData) => `${formData.emplazamientoCalle} ${formData.numero ? formData.numero : ''} ${formData.bloque ? 'Bloque ' + formData.bloque : ''} ${formData.escalera ? 'Escalera ' + formData.escalera : ''} ${formData.piso ? 'Piso ' + formData.planta : ''} ${formData.puerta ? 'Puerta ' + formData.puerta : ''}`.trim(),
+    domicilio: (formData) => `${formData.emplazamientoCalle} ${formData.numero ? formData.numero : ''} ${formData.bloque ? 'Bloque ' + formData.bloque : ''} ${formData.escalera ? 'Escalera ' + formData.escalera : ''} ${formData.planta ? 'Planta ' + formData.planta : ''} ${formData.puerta ? 'Puerta ' + formData.puerta : ''}`.trim(),
     codigoPostal: 'codigoPostalEmplazamiento',
     localidad: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',

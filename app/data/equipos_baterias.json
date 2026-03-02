@@ -1,20 +1,26 @@
 [
   {
     "id": "bat_001",
-    "marca": "LG",
-    "modelo": "RESU10H",
-    "voltaje": "48V",
-    "capacidad": "10",
-    "especificacion": "Litio",
+    "marcaModelo": "LG RESU10H",
+    "tipoBateria": "Litio",
+    "tensionNominal": "48",
+    "profundidadDescarga": "90",
+    "tensionMaxima": "58",
+    "tensionMinima": "40",
+    "energiaTotal": "10",
+    "potenciaMaximaSalida": "5",
     "fechaCreacion": "2026-03-02T10:00:00Z"
   },
   {
     "id": "bat_002",
-    "marca": "Tesla",
-    "modelo": "Powerwall 2",
-    "voltaje": "220V",
-    "capacidad": "13.5",
-    "especificacion": "Litio",
+    "marcaModelo": "Tesla Powerwall 2",
+    "tipoBateria": "Litio",
+    "tensionNominal": "220",
+    "profundidadDescarga": "95",
+    "tensionMaxima": "265",
+    "tensionMinima": "180",
+    "energiaTotal": "13.5",
+    "potenciaMaximaSalida": "7",
     "fechaCreacion": "2026-03-02T10:05:00Z"
   }
 ]

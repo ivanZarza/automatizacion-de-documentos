@@ -3,16 +3,20 @@ import { ref } from 'vue'
 // Datos de equipos (definidos directamente en el composable)
 const DATOS_EQUIPOS = {
   inversores: [
-    { id: 'inv_001', marca: 'Fronius', modelo: 'Symo 5.0', potencia: '5.0', voltaje: '230V/400V', especificacion: 'Trifásico', fechaCreacion: '2026-03-02T10:00:00Z' },
-    { id: 'inv_002', marca: 'SMA', modelo: 'Sunny Boy 6.0', potencia: '6.0', voltaje: '230V', especificacion: 'Monofásico', fechaCreacion: '2026-03-02T10:05:00Z' }
+    { id: 'inv_001', marca: 'Fronius', modelo: 'Symo 5.0', potencia: '5.0', vccMaxima: '600V', vccMinima: '150V', conexion: 'Trifásica', fechaCreacion: '2026-03-02T10:00:00Z' },
+    { id: 'inv_002', marca: 'SMA', modelo: 'Sunny Boy 6.0', potencia: '6.0', vccMaxima: '550V', vccMinima: '125V', conexion: 'Monofásica', fechaCreacion: '2026-03-02T10:05:00Z' }
   ],
   generadores: [
     { id: 'gen_001', marca: 'Honda', modelo: 'EG6500', potencia: '5.5', especificacion: 'Gasolina', fechaCreacion: '2026-03-02T10:00:00Z' },
     { id: 'gen_002', marca: 'Yamaha', modelo: 'EF7200E', potencia: '7.2', especificacion: 'Gasolina', fechaCreacion: '2026-03-02T10:05:00Z' }
   ],
   baterias: [
-    { id: 'bat_001', marca: 'LG', modelo: 'RESU10H', voltaje: '48V', capacidad: '10', especificacion: 'Litio', fechaCreacion: '2026-03-02T10:00:00Z' },
-    { id: 'bat_002', marca: 'Tesla', modelo: 'Powerwall 2', voltaje: '220V', capacidad: '13.5', especificacion: 'Litio', fechaCreacion: '2026-03-02T10:05:00Z' }
+    { id: 'bat_001', marcaModelo: 'LG RESU10H', tipoBateria: 'Litio', tensionNominal: '48', profundidadDescarga: '90', tensionMaxima: '58', tensionMinima: '40', energiaTotal: '10', potenciaMaximaSalida: '5', fechaCreacion: '2026-03-02T10:00:00Z' },
+    { id: 'bat_002', marcaModelo: 'Tesla Powerwall 2', tipoBateria: 'Litio', tensionNominal: '220', profundidadDescarga: '95', tensionMaxima: '265', tensionMinima: '180', energiaTotal: '13.5', potenciaMaximaSalida: '7', fechaCreacion: '2026-03-02T10:05:00Z' }
+  ],
+  modulos: [
+    { id: 'mod_001', marca: 'JA Solar JAM72S30 450/MR', potenciaPicoModulo: '450', potenciaPicoGenerador: '4500', intensidadIpmp: '10', tensionVpmp: '400', orientacion: 'Sur', inclinacion: '30', totalModulos: '10', modulosEnSerie: '10', ramasEnParalelo: '1', disposicionModulos: 'Cubierta Teja - Aporticada', fechaCreacion: '2026-03-02T10:00:00Z' },
+    { id: 'mod_002', marca: 'Suntech STP390S', potenciaPicoModulo: '390', potenciaPicoGenerador: '3900', intensidadIpmp: '9.5', tensionVpmp: '380', orientacion: 'Sur', inclinacion: '25', totalModulos: '10', modulosEnSerie: '10', ramasEnParalelo: '1', disposicionModulos: 'Cubierta Plana', fechaCreacion: '2026-03-02T10:05:00Z' }
   ]
 }
 
@@ -22,10 +26,11 @@ export const EQUIPMENT_TYPES = {
     label: 'Inversores',
     fields: [
       { name: 'marca', label: 'Marca', placeholder: 'Ej: Fronius' },
-      { name: 'modelo', label: 'Modelo', placeholder: 'Ej: Symo' },
+      { name: 'modelo', label: 'Modelo', placeholder: 'Ej: Symo 5.0' },
       { name: 'potencia', label: 'Potencia (kW)', placeholder: 'Ej: 5.5' },
-      { name: 'voltaje', label: 'Voltaje (V)', placeholder: 'Ej: 230V/400V' },
-      { name: 'especificacion', label: 'Especificación', placeholder: 'Ej: Monofásico' }
+      { name: 'vccMaxima', label: 'Vcc MÁXIMA', placeholder: 'Ej: 600V' },
+      { name: 'vccMinima', label: 'Vcc MÍNIMA', placeholder: 'Ej: 150V' },
+      { name: 'conexion', label: 'Conexión', placeholder: 'Monofásica / Trifásica', type: 'select', options: ['Monofásica', 'Trifásica'] }
     ],
     storageKey: 'equipos_inversores',
     icon: '⚡',
@@ -46,15 +51,37 @@ export const EQUIPMENT_TYPES = {
   baterias: {
     label: 'Baterías',
     fields: [
-      { name: 'marca', label: 'Marca', placeholder: 'Ej: LG' },
-      { name: 'modelo', label: 'Modelo', placeholder: 'Ej: RESU10H' },
-      { name: 'voltaje', label: 'Voltaje (V)', placeholder: 'Ej: 48V' },
-      { name: 'capacidad', label: 'Capacidad (kWh)', placeholder: 'Ej: 10' },
-      { name: 'especificacion', label: 'Especificación', placeholder: 'Ej: Litio' }
+      { name: 'marcaModelo', label: 'MARCA Y MODELO', placeholder: 'Ej: LG RESU10H' },
+      { name: 'tipoBateria', label: 'TIPO DE BATERÍA', placeholder: 'Ej: Litio' },
+      { name: 'tensionNominal', label: 'TENSIÓN NOMINAL (V)', placeholder: 'Ej: 48' },
+      { name: 'profundidadDescarga', label: 'PROFUNDIDAD DE DESCARGA', placeholder: 'Ej: 90' },
+      { name: 'tensionMaxima', label: 'TENSIÓN MÁXIMA (V)', placeholder: 'Ej: 58' },
+      { name: 'tensionMinima', label: 'TENSIÓN MÍNIMA (V)', placeholder: 'Ej: 40' },
+      { name: 'energiaTotal', label: 'ENERGÍA TOTAL', placeholder: 'Ej: 10' },
+      { name: 'potenciaMaximaSalida', label: 'POTENCIA MÁXIMA SALIDA', placeholder: 'Ej: 5' }
     ],
     storageKey: 'equipos_baterias',
     icon: '🔋',
     datosDefault: DATOS_EQUIPOS.baterias
+  },
+  modulos: {
+    label: 'Módulos',
+    fields: [
+      { name: 'marca', label: 'MARCA Y MODELO', placeholder: 'Ej: JA Solar JAM72S30 450/MR' },
+      { name: 'potenciaPicoModulo', label: 'POTENCIA PICO (Wp) DEL MÓDULO', placeholder: 'Ej: 450' },
+      { name: 'potenciaPicoGenerador', label: 'POTENCIA PICO (Wp) DEL GENERADOR', placeholder: 'Ej: 4500' },
+      { name: 'intensidadIpmp', label: 'INTENSIDAD MÁXIMA POTENCIA, Ipmp (A)', placeholder: 'Ej: 10' },
+      { name: 'tensionVpmp', label: 'TENSIÓN MÁXIMA POTENCIA, Vpmp (V)', placeholder: 'Ej: 400' },
+      { name: 'orientacion', label: 'ORIENTACIÓN', placeholder: 'Ej: Sur' },
+      { name: 'inclinacion', label: 'INCLINACIÓN (º)', placeholder: 'Ej: 30' },
+      { name: 'totalModulos', label: 'Nº TOTAL MÓDULOS', placeholder: 'Ej: 10' },
+      { name: 'modulosEnSerie', label: 'Nº MÓDULOS EN SERIE', placeholder: 'Ej: 10' },
+      { name: 'ramasEnParalelo', label: 'Nº RAMAS EN PARALELO', placeholder: 'Ej: 1' },
+      { name: 'disposicionModulos', label: 'DISPOSICIÓN DE LOS MÓDULOS', placeholder: 'Seleccionar', type: 'select', options: ['Cubierta Teja - Aporticada', 'Cubierta Teja - Coplanar', 'Cubierta Plana', 'Pergola', 'Chapa Grecada - Aporticada', 'Chapa Grecada - Coplanar', 'Suelo', 'Paramento Vertical'] }
+    ],
+    storageKey: 'equipos_modulos',
+    icon: '☀️',
+    datosDefault: DATOS_EQUIPOS.modulos
   }
 }
 
@@ -70,38 +97,77 @@ export const useEquipmentManager = (tipo) => {
 
   // Cargar datos: primero intenta localStorage, si no hay usa archivos por defecto
   const cargar = () => {
+    console.log(`[${tipo}] Iniciando cargar datos...`)
+    
     try {
       if (typeof window !== 'undefined') {
         const datosGuardados = localStorage.getItem(config.storageKey)
+        console.log(`[${tipo}] localStorage.getItem('${config.storageKey}'):`, datosGuardados)
+        
         if (datosGuardados) {
-          equipos.value = JSON.parse(datosGuardados)
-          console.log(`✓ Datos cargados de localStorage para ${tipo}:`, equipos.value)
-          return
+          const parsed = JSON.parse(datosGuardados)
+          
+          // Validar estructura: si el primer item no tiene los campos esperados, limpiar
+          if (parsed.length > 0 && config.fields.length > 0) {
+            const primerItem = parsed[0]
+            const primerCampo = config.fields[0].name
+            
+            if (!primerItem.hasOwnProperty(primerCampo)) {
+              console.warn(`[${tipo}] ⚠️ Datos inconsistentes detectados - limpiando localStorage`)
+              localStorage.removeItem(config.storageKey)
+              console.log(`[${tipo}] localStorage limpiado`)
+              // NO retornar aquí, continuar para cargar datos por defecto
+            } else {
+              equipos.value = parsed
+              console.log(`✓ [${tipo}] Datos cargados de localStorage:`, equipos.value)
+              return
+            }
+          } else {
+            equipos.value = parsed
+            console.log(`✓ [${tipo}] Datos cargados de localStorage:`, equipos.value)
+            return
+          }
         }
       }
     } catch (e) {
-      console.warn('Error al cargar de localStorage:', e)
+      console.warn(`[${tipo}] Error al cargar de localStorage:`, e)
+      if (typeof window !== 'undefined') {
+        localStorage.removeItem(config.storageKey)
+      }
     }
 
     // Si no hay en localStorage, usar datos del archivo JSON
     try {
       const datosDefault = JSON.parse(JSON.stringify(config.datosDefault || []))
       equipos.value = datosDefault
-      console.log(`✓ Datos cargados del archivo para ${tipo}:`, equipos.value)
+      console.log(`✓ [${tipo}] Datos cargados por defecto:`, equipos.value)
+      // Guardar los datos por defecto en localStorage también
+      guardar()
     } catch (e) {
-      console.error('Error al cargar datos por defecto:', e)
+      console.error(`[${tipo}] Error al cargar datos por defecto:`, e)
       equipos.value = []
     }
   }
 
   // Guardar en localStorage
   const guardar = () => {
-    if (typeof window === 'undefined') return
+    if (typeof window === 'undefined') {
+      console.warn(`[${tipo}] Window no está disponible, no se puede guardar`)
+      return
+    }
 
     try {
-      localStorage.setItem(config.storageKey, JSON.stringify(equipos.value))
+      const datos = JSON.stringify(equipos.value)
+      localStorage.setItem(config.storageKey, datos)
+      console.log(`✓ [${tipo}] Datos guardados en localStorage (${config.storageKey}):`)
+      console.log(`  - Cantidad de items: ${equipos.value.length}`)
+      console.log(`  - Contenido: ${datos}`)
+      
+      // Verificar que se guardó correctamente
+      const verificar = localStorage.getItem(config.storageKey)
+      console.log(`✓ [${tipo}] Verificación post-guardado:`, JSON.parse(verificar))
     } catch (e) {
-      console.error('Error al guardar en localStorage:', e)
+      console.error(`[${tipo}] Error al guardar en localStorage:`, e)
     }
   }
 
@@ -112,13 +178,17 @@ export const useEquipmentManager = (tipo) => {
 
   // Agregar equipo
   const agregar = (datos) => {
+    console.log(`[${tipo}] >>> AGREGAR: Iniciando con datos:`, datos)
     const nuevoEquipo = {
       id: generarId(),
       ...datos,
       fechaCreacion: new Date().toISOString()
     }
+    console.log(`[${tipo}] >>> AGREGAR: Nuevo equipo creado:`, nuevoEquipo)
     equipos.value.push(nuevoEquipo)
+    console.log(`[${tipo}] >>> AGREGAR: Array antes de guardar (${equipos.value.length} items):`, equipos.value)
     guardar()
+    console.log(`[${tipo}] >>> AGREGAR: Guardado completado`)
     return nuevoEquipo
   }
 

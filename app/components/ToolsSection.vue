@@ -76,6 +76,15 @@
             </div>
             <div class="equipment-arrow">→</div>
           </NuxtLink>
+
+          <NuxtLink to="/herramientas/equipos/modulos" class="equipment-link">
+            <div class="equipment-icon">☀️</div>
+            <div class="equipment-text">
+              <strong>Módulos</strong>
+              <span>Gestiona módulos fotovoltaicos</span>
+            </div>
+            <div class="equipment-arrow">→</div>
+          </NuxtLink>
         </div>
       </div>
     </div>
