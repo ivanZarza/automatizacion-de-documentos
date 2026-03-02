@@ -5,22 +5,22 @@ import DocumentoUltimaPagina from './DocumentoUltimaPagina.vue';
 
 const props = defineProps({
   // Props para Documento80Paginas
-  nombre: { type: String, default: 'Alejandra Klitzke Chacón' },
-  direccion: { type: String, default: 'Calle Dolores, N.º 14 Es:1 Pl:00 Pt:01' },
-  referenciaCatastral: { type: String, default: '56317070QA5653B0001SG' },
-  dia: { type: String, default: '16' },
-  mes: { type: String, default: 'Octubre' },
-  anio: { type: String, default: '2025' },
-  localidad: { type: String, default: 'Sevilla' },
-  provincia: { type: String, default: 'Sevilla' },
+  nombre: { type: String, default: '' },
+  direccion: { type: String, default: '' },
+  referenciaCatastral: { type: String, default: '' },
+  dia: { type: String, default: '' },
+  mes: { type: String, default: '' },
+  anio: { type: String, default: '' },
+  localidad: { type: String, default: '' },
+  provincia: { type: String, default: '' },
   dni: { type: String, default: '' },
-  codigoPostal: { type: String, default: '41940' },
-  presupuesto: { type: String, default: '7.024,79 €' },
-  potencia: { type: String, default: '5.0' },
-  potenciaModulos: { type: String, default: '6.2' },
+  codigoPostal: { type: String, default: '' },
+  presupuesto: { type: String, default: '' },
+  potencia: { type: String, default: '' },
+  potenciaModulos: { type: String, default: '' },
   
   // Props para DocumentoUltimaPagina
-  ciudad: { type: String, default: 'Sevilla' },
+  ciudad: { type: String, default: '' },
   
   // Configuración de PDFs
   nombrePdfOriginal: { type: String, default: 'documento-original.pdf' },

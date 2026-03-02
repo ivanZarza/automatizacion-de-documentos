@@ -8,12 +8,35 @@
 
     <DocumentoCompletoCombinado 
       nombrePdfOriginal="11.- Estudio Básico de SYS Nucleo.pdf"
+      :nombre="formStore.getField('apellidosNombre')"
+      :direccion="formStore.getField('emplazamientoCalle')"
+      :referenciaCatastral="formStore.getField('referenciaCatastral')"
+      :dia="formStore.getField('dia')"
+      :mes="formStore.getField('mes')"
+      :anio="formStore.getField('anio')"
+      :localidad="formStore.getField('localidadEmplazamiento')"
+      :provincia="formStore.getField('provinciaEmplazamiento')"
+      :dni="formStore.getField('nifCif')"
+      :codigoPostal="formStore.getField('codigoPostalEmplazamiento')"
+      :presupuesto="formStore.getField('presupuestoTotal')"
+      :potencia="formStore.getField('e2_potenciaNominalInversores')"
+      :potenciaModulos="formStore.getField('e2_potenciaPicoGenerador')"
+      :ciudad="formStore.getField('localidadEmplazamiento')"
     />
   </div>
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
+import { useFormStore } from '../stores/formStore';
 import DocumentoCompletoCombinado from '../components/DocumentoCompletoCombinado.vue';
+
+const formStore = useFormStore();
+
+// Cargar datos al montar el componente
+onMounted(() => {
+  formStore.loadFromLocalStorage();
+});
 
 definePageMeta({
   layout: 'default'
