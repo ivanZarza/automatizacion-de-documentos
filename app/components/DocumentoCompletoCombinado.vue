@@ -47,8 +47,24 @@ const generarPDFcombinado = async () => {
     const { PDFDocument } = await import('pdf-lib');
     const html2canvas = (await import('html2canvas')).default;
 
+    // Función auxiliar para esperar a que se renderice
+    const esperar = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
     // 1. Generar PDF del Documento80Paginas por cada página
     mensajeEstado.value = 'Generando documento de inicio...';
+    
+    // Mostrar temporalmente el documento para capturar
+    const doc80Wrapper = document.querySelector('[id="documento-80-paginas-visible"]')?.parentElement;
+    if (doc80Wrapper) {
+      doc80Wrapper.style.display = 'block';
+      doc80Wrapper.style.visibility = 'visible';
+      doc80Wrapper.style.position = 'relative';
+      doc80Wrapper.style.zIndex = '-9999';
+      doc80Wrapper.style.opacity = '1';
+    }
+    
+    await esperar(800);
+    
     const doc80Element = document.getElementById('documento-80-paginas-visible');
     const contenedoresInicio = doc80Element.querySelectorAll('.contenedor-principal');
     
@@ -119,6 +135,24 @@ const generarPDFcombinado = async () => {
 
     // 3. Generar PDF del DocumentoUltimaPagina
     mensajeEstado.value = 'Generando documento final...';
+    
+    // Ocultar el primer documento
+    if (doc80Wrapper) {
+      doc80Wrapper.style.display = 'none';
+    }
+    
+    // Mostrar temporalmente el documento final para capturar
+    const docFinalWrapper = document.querySelector('[id="documento-ultima-pagina-visible"]')?.parentElement;
+    if (docFinalWrapper) {
+      docFinalWrapper.style.display = 'block';
+      docFinalWrapper.style.visibility = 'visible';
+      docFinalWrapper.style.position = 'relative';
+      docFinalWrapper.style.zIndex = '-9999';
+      docFinalWrapper.style.opacity = '1';
+    }
+    
+    await esperar(800);
+    
     const docFinalElement = document.getElementById('documento-ultima-pagina-visible');
     const contenedoresFinales = docFinalElement.querySelectorAll('.contenedor-principal');
     
@@ -216,6 +250,17 @@ const generarPDFcombinado = async () => {
     console.error('Error al generar PDF:', error);
     mensajeEstado.value = `❌ Error: ${error.message}`;
   } finally {
+    // Ocultar los documentos una vez terminado
+    const doc80Wrapper = document.querySelector('[id="documento-80-paginas-visible"]')?.parentElement;
+    const docFinalWrapper = document.querySelector('[id="documento-ultima-pagina-visible"]')?.parentElement;
+    
+    if (doc80Wrapper) {
+      doc80Wrapper.style.display = 'none';
+    }
+    if (docFinalWrapper) {
+      docFinalWrapper.style.display = 'none';
+    }
+    
     isGenerating.value = false;
   }
 };
