@@ -1,0 +1,15 @@
+[
+  {
+    "id": "INV001",
+    "marca": "Fronius",
+    "modelo": "Symo 5.0-3-M",
+    "potenciaNominal": 5000,
+    "relacionTension": "230V/400V",
+    "formaOnda": "Senoidal Pura",
+    "frecuencia": 50,
+    "tipoConexion": "Trifásica",
+    "vccMaxima": 1000,
+    "vccMinima": 200,
+    "createdAt": "2025-01-15T10:30:00Z"
+  }
+]

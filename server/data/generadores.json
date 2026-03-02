@@ -1,0 +1,18 @@
+[
+  {
+    "id": "GEN001",
+    "marcaModelo": "JA Solar JAM72S30 450/MR",
+    "potenciaPico": 450,
+    "tecnologia": "Monocristalino -PERC-",
+    "tonc": 45,
+    "totalModulos": 10,
+    "modulosEnSerie": 10,
+    "ramasEnParalelo": 1,
+    "orientacion": "Sur",
+    "inclinacion": 30,
+    "disposicion": "Cubierta Teja - Aporticada",
+    "intensidadMaxima": 10.5,
+    "tensionMaxima": 400,
+    "createdAt": "2025-01-15T10:35:00Z"
+  }
+]

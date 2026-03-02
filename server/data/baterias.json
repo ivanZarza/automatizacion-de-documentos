@@ -1,0 +1,16 @@
+[
+  {
+    "id": "BAT001",
+    "marca": "LG Chem",
+    "modelo": "RESU 10H",
+    "tipo": "Li-ion",
+    "tensionNominal": 48,
+    "profundidadDescarga": 95,
+    "energiaTotal": 10.0,
+    "tensionMaxima": 51.5,
+    "tensionMinima": 40.5,
+    "potenciaMaximaSalida": 5000,
+    "maximoPicoPotencia": 7000,
+    "createdAt": "2025-01-15T10:40:00Z"
+  }
+]
