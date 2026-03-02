@@ -1,0 +1,32 @@
+[
+  {
+    "id": "mod_001",
+    "marcaModelo": "JA Solar JAM72S30 450/MR",
+    "potenciaPicoModulo": "450",
+    "potenciaPicoGenerador": "4500",
+    "intensidadIpmp": "10",
+    "tensionVpmp": "400",
+    "orientacion": "Sur",
+    "inclinacion": "30",
+    "totalModulos": "10",
+    "modulosEnSerie": "10",
+    "ramasEnParalelo": "1",
+    "disposicionModulos": "Cubierta Teja - Aporticada",
+    "fechaCreacion": "2026-03-02T10:00:00Z"
+  },
+  {
+    "id": "mod_002",
+    "marcaModelo": "Suntech STP390S",
+    "potenciaPicoModulo": "390",
+    "potenciaPicoGenerador": "3900",
+    "intensidadIpmp": "9.5",
+    "tensionVpmp": "380",
+    "orientacion": "Sur",
+    "inclinacion": "25",
+    "totalModulos": "10",
+    "modulosEnSerie": "10",
+    "ramasEnParalelo": "1",
+    "disposicionModulos": "Cubierta Plana",
+    "fechaCreacion": "2026-03-02T10:05:00Z"
+  }
+]

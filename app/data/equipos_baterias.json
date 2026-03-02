@@ -1,20 +1,41 @@
 [
   {
     "id": "bat_001",
-    "marca": "LG",
-    "modelo": "RESU10H",
-    "voltaje": "48V",
-    "capacidad": "10",
-    "especificacion": "Litio",
+    "marcaModelo": "LG RESU10H",
+    "tipoBateria": "Litio LFP",
+    "tensionNominal": "48V",
+    "profundidadDescarga": "90%",
+    "tensionMaxima": "55V",
+    "tensionMinima": "40V",
+    "energiaTotal": "10kWh",
+    "potenciaMaximaSalida": "5kW",
+    "maximoPicoDePotencia": "10kW",
     "fechaCreacion": "2026-03-02T10:00:00Z"
   },
   {
     "id": "bat_002",
-    "marca": "Tesla",
-    "modelo": "Powerwall 2",
-    "voltaje": "220V",
-    "capacidad": "13.5",
-    "especificacion": "Litio",
+    "marcaModelo": "Tesla Powerwall 2",
+    "tipoBateria": "Litio NCA",
+    "tensionNominal": "220V",
+    "profundidadDescarga": "100%",
+    "tensionMaxima": "250V",
+    "tensionMinima": "200V",
+    "energiaTotal": "13.5kWh",
+    "potenciaMaximaSalida": "5kW",
+    "maximoPicoDePotencia": "7kW",
     "fechaCreacion": "2026-03-02T10:05:00Z"
+  },
+  {
+    "id": "bat_mm9e5zcnr9t3vkmg3d",
+    "marcaModelo": "Marca Modelo",
+    "tipoBateria": "Tipo Bateria",
+    "tensionNominal": "Tension Nominal",
+    "profundidadDescarga": "Profundidad Descarga",
+    "tensionMaxima": "Tension Maxima",
+    "tensionMinima": "Tension Minima",
+    "energiaTotal": "Energia Total",
+    "potenciaMaximaSalida": "Potencia Maxima Salida",
+    "maximoPicoDePotencia": "Maximo Pico De Potencia",
+    "fechaCreacion": "2026-03-02T16:26:50.808Z"
   }
 ]

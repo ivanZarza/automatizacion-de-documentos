@@ -1,20 +1,22 @@
 [
   {
     "id": "inv_001",
-    "marca": "Fronius",
-    "modelo": "Symo 5.0",
-    "potencia": "5.0",
-    "voltaje": "230V/400V",
-    "especificacion": "Trifásico",
+    "marcaModelo": "Fronius Symo 5.0",
+    "potenciaNominal": "5.0",
+    "relacionTension": "230V/400V",
+    "vccMaxima": "600V",
+    "vccMinima": "150V",
+    "tipoConexion": "Trifásica",
     "fechaCreacion": "2026-03-02T10:00:00Z"
   },
   {
     "id": "inv_002",
-    "marca": "SMA",
-    "modelo": "Sunny Boy 6.0",
-    "potencia": "6.0",
-    "voltaje": "230V",
-    "especificacion": "Monofásico",
+    "marcaModelo": "SMA Sunny Boy 6.0",
+    "potenciaNominal": "6.0",
+    "relacionTension": "230V",
+    "vccMaxima": "600V",
+    "vccMinima": "150V",
+    "tipoConexion": "Monofásica",
     "fechaCreacion": "2026-03-02T10:05:00Z"
   }
 ]
