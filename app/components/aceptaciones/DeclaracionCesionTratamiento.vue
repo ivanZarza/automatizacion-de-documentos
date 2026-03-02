@@ -130,7 +130,7 @@ const etiquetas = ref([
     value: "B09848912",
     align: "left",
   },
-  {
+/*   {
     nombre: "domicilioEntidad",
     page: 1,
     x: 91,
@@ -140,7 +140,7 @@ const etiquetas = ref([
     fontSize: 10,
     value: "Calle de la Paz, 12, 1ºA, 41001 Sevilla",
     align: "left",
-  },
+  }, */
 
   // PÁGINA 2
   {

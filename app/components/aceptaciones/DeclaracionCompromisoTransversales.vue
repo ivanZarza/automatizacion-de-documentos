@@ -111,7 +111,7 @@ const etiquetas = ref([
     value: "A12345678",
     align: "left",
   },
-  {
+/*   {
     nombre: "domicilioEntidad",
     x: 91,
     y: 105.5,
@@ -120,7 +120,7 @@ const etiquetas = ref([
     fontSize: 10,
     value: "Calle Falsa 123",
     align: "left",
-  },
+  }, */
   {
     nombre: "ciudad",
     x: 47,
