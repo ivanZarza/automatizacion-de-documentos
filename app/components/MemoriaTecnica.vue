@@ -112,7 +112,7 @@
             <div class="valor">{{ escalera }}</div>
           </div>
           <div class="celda celda-izquierda">
-            <div class="etiqueta etiqueta-pequena">PISO:</div>
+            <div class="etiqueta etiqueta-pequena">PLANTA:</div>
             <div class="valor">{{ piso }}</div>
           </div>
           <div class="celda celda-izquierda">

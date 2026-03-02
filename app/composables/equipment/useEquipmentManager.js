@@ -1,7 +1,20 @@
 import { ref } from 'vue'
-import equiposInversores from '../../data/equipos_inversores.json'
-import equiposGeneradores from '../../data/equipos_generadores.json'
-import equiposBaterias from '../../data/equipos_baterias.json'
+
+// Datos de equipos (definidos directamente en el composable)
+const DATOS_EQUIPOS = {
+  inversores: [
+    { id: 'inv_001', marca: 'Fronius', modelo: 'Symo 5.0', potencia: '5.0', voltaje: '230V/400V', especificacion: 'Trifásico', fechaCreacion: '2026-03-02T10:00:00Z' },
+    { id: 'inv_002', marca: 'SMA', modelo: 'Sunny Boy 6.0', potencia: '6.0', voltaje: '230V', especificacion: 'Monofásico', fechaCreacion: '2026-03-02T10:05:00Z' }
+  ],
+  generadores: [
+    { id: 'gen_001', marca: 'Honda', modelo: 'EG6500', potencia: '5.5', especificacion: 'Gasolina', fechaCreacion: '2026-03-02T10:00:00Z' },
+    { id: 'gen_002', marca: 'Yamaha', modelo: 'EF7200E', potencia: '7.2', especificacion: 'Gasolina', fechaCreacion: '2026-03-02T10:05:00Z' }
+  ],
+  baterias: [
+    { id: 'bat_001', marca: 'LG', modelo: 'RESU10H', voltaje: '48V', capacidad: '10', especificacion: 'Litio', fechaCreacion: '2026-03-02T10:00:00Z' },
+    { id: 'bat_002', marca: 'Tesla', modelo: 'Powerwall 2', voltaje: '220V', capacidad: '13.5', especificacion: 'Litio', fechaCreacion: '2026-03-02T10:05:00Z' }
+  ]
+}
 
 // Configuración de campos por tipo de equipo
 export const EQUIPMENT_TYPES = {
@@ -16,7 +29,7 @@ export const EQUIPMENT_TYPES = {
     ],
     storageKey: 'equipos_inversores',
     icon: '⚡',
-    datosDefault: equiposInversores
+    datosDefault: DATOS_EQUIPOS.inversores
   },
   generadores: {
     label: 'Generadores',
@@ -28,7 +41,7 @@ export const EQUIPMENT_TYPES = {
     ],
     storageKey: 'equipos_generadores',
     icon: '🔧',
-    datosDefault: equiposGeneradores
+    datosDefault: DATOS_EQUIPOS.generadores
   },
   baterias: {
     label: 'Baterías',
@@ -41,7 +54,7 @@ export const EQUIPMENT_TYPES = {
     ],
     storageKey: 'equipos_baterias',
     icon: '🔋',
-    datosDefault: equiposBaterias
+    datosDefault: DATOS_EQUIPOS.baterias
   }
 }
 
@@ -62,6 +75,7 @@ export const useEquipmentManager = (tipo) => {
         const datosGuardados = localStorage.getItem(config.storageKey)
         if (datosGuardados) {
           equipos.value = JSON.parse(datosGuardados)
+          console.log(`✓ Datos cargados de localStorage para ${tipo}:`, equipos.value)
           return
         }
       }
@@ -70,7 +84,14 @@ export const useEquipmentManager = (tipo) => {
     }
 
     // Si no hay en localStorage, usar datos del archivo JSON
-    equipos.value = JSON.parse(JSON.stringify(config.datosDefault || []))
+    try {
+      const datosDefault = JSON.parse(JSON.stringify(config.datosDefault || []))
+      equipos.value = datosDefault
+      console.log(`✓ Datos cargados del archivo para ${tipo}:`, equipos.value)
+    } catch (e) {
+      console.error('Error al cargar datos por defecto:', e)
+      equipos.value = []
+    }
   }
 
   // Guardar en localStorage

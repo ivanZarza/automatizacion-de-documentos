@@ -63,7 +63,6 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits } from 'vue'
 import EquipmentCard from './EquipmentCard.vue'
 import EquipmentActions from './EquipmentActions.vue'
 

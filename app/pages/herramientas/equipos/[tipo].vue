@@ -7,31 +7,42 @@
       <p class="descripcion" v-if="config">Gestiona {{ config.label.toLowerCase() }} para el formulario maestro</p>
     </div>
 
-    <!-- Formulario de entrada -->
-    <div v-if="gestor && config" class="contenedor-formulario">
-      <h2>➕ Agregar {{ config.label.slice(0, -1) }}</h2>
-      <EquipmentForm
-        :campos="config.fields || []"
-        :equipoEditando="equipoEditando"
-        @guardar="guardarEquipo"
-        @cancelar="cancelarEdicion"
-      />
+    <!-- Cargando -->
+    <div v-if="!cargando && (!gestor || !config)" class="loading">
+      <p>⚠️ Error cargando datos</p>
     </div>
 
-    <!-- Lista de equipos -->
-    <EquipmentList
-      v-if="gestor && config"
-      :equipos="gestor.equipos.value"
-      :config="config"
-      :editandoId="gestor.editandoId.value"
-      @llevar-al-formulario="llevarAlFormulario"
-      @editar="iniciarEdicion"
-      @guardar="guardarEquipo"
-      @eliminar="eliminarEquipo"
-      @importar="importarDatos"
-      @limpiar="limpiarTodo"
-      @restaurar-defecto="restaurarPorDefecto"
-    />
+    <!-- Cargando datos -->
+    <div v-else-if="cargando" class="loading">
+      <p>⏳ Cargando datos...</p>
+    </div>
+
+    <!-- Contenido -->
+    <template v-else>
+      <div class="contenedor-formulario">
+        <h2>➕ Agregar {{ config.label.slice(0, -1) }}</h2>
+        <EquipmentForm
+          :campos="config.fields || []"
+          :equipoEditando="equipoEditando"
+          @guardar="guardarEquipo"
+          @cancelar="cancelarEdicion"
+        />
+      </div>
+
+      <!-- Lista de equipos -->
+      <EquipmentList
+        :equipos="equiposList"
+        :config="config"
+        :editandoId="editandoId"
+        @llevar-al-formulario="llevarAlFormulario"
+        @editar="iniciarEdicion"
+        @guardar="guardarEquipo"
+        @eliminar="eliminarEquipo"
+        @importar="importarDatos"
+        @limpiar="limpiarTodo"
+        @restaurar-defecto="restaurarPorDefecto"
+      />
+    </template>
   </div>
 </template>
 
@@ -48,26 +59,65 @@ const route = useRoute()
 const router = useRouter()
 const formStore = useFormStore()
 
-const tipo = computed(() => route.params.tipo)
-const config = computed(() => EQUIPMENT_TYPES[tipo.value])
-
+const tipo = ref(null)
+const cargando = ref(true)
 const gestor = ref(null)
 const equipoEditando = ref(null)
 
-// Inicializar gestor
-const inicializar = () => {
-  if (!tipo.value || !EQUIPMENT_TYPES[tipo.value]) {
-    // Tipo inválido, redirigir
-    router.push('/')
-    return
-  }
+const config = computed(() => {
+  if (!tipo.value) return null
+  return EQUIPMENT_TYPES[tipo.value]
+})
 
-  gestor.value = useEquipmentManager(tipo.value)
-  gestor.value.cargar()
+const equiposList = computed(() => {
+  if (!gestor.value || !gestor.value.equipos) return []
+  return gestor.value.equipos.value || []
+})
+
+const editandoId = computed(() => {
+  if (!gestor.value || !gestor.value.editandoId) return null
+  return gestor.value.editandoId.value
+})
+
+// Inicializar gestor
+const inicializar = async () => {
+  try {
+    cargando.value = true
+    
+    // Obtener el tipo del parámetro de ruta
+    tipo.value = route.params.tipo
+    
+    if (!tipo.value) {
+      console.error('No hay tipo en parámetros')
+      router.push('/')
+      return
+    }
+    
+    if (!EQUIPMENT_TYPES[tipo.value]) {
+      console.error('Tipo de equipo no válido:', tipo.value)
+      router.push('/')
+      return
+    }
+
+    console.log('Creando gestor para:', tipo.value)
+    gestor.value = useEquipmentManager(tipo.value)
+    
+    console.log('Cargando datos...')
+    gestor.value.cargar()
+    
+    console.log('✅ Gestor inicializado correctamente')
+  } catch (error) {
+    console.error('Error al inicializar:', error)
+    router.push('/')
+  } finally {
+    cargando.value = false
+  }
 }
 
 // Guardar equipo (agregar o actualizar)
 const guardarEquipo = (datos) => {
+  if (!gestor.value) return
+  
   if (gestor.value.editandoId.value) {
     // Actualizando
     gestor.value.editar(gestor.value.editandoId.value, datos)
@@ -97,6 +147,8 @@ const cancelarEdicion = () => {
 
 // Eliminar equipo
 const eliminarEquipo = (equipo) => {
+  if (!gestor.value) return
+  
   gestor.value.eliminar(equipo.id)
   // Forzar reactividad
   gestor.value.equipos.value = [...gestor.value.equipos.value]
@@ -139,8 +191,11 @@ const mapearEquipoAFormulario = (tipoEquipo, equipo) => {
 
 // Importar datos desde JSON
 const importarDatos = (jsonString) => {
+  if (!gestor.value) return
+  
   if (gestor.value.importar(jsonString)) {
     alert('✅ Datos importados correctamente')
+    gestor.value.equipos.value = [...gestor.value.equipos.value]
   } else {
     alert('❌ Error al importar los datos')
   }
@@ -148,6 +203,8 @@ const importarDatos = (jsonString) => {
 
 // Limpiar todo
 const limpiarTodo = () => {
+  if (!gestor.value) return
+  
   gestor.value.limpiar()
   // Forzar reactividad
   gestor.value.equipos.value = [...gestor.value.equipos.value]
@@ -155,6 +212,8 @@ const limpiarTodo = () => {
 
 // Restaurar por defecto
 const restaurarPorDefecto = () => {
+  if (!gestor.value) return
+  
   gestor.value.restaurarPorDefecto()
   // Forzar reactividad
   gestor.value.equipos.value = [...gestor.value.equipos.value]
@@ -224,6 +283,13 @@ onMounted(() => {
   margin-bottom: 1.5rem;
   color: #333;
   font-size: 1.2rem;
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #666;
+  font-size: 1.1rem;
 }
 
 @media (max-width: 768px) {

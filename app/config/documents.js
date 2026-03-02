@@ -702,6 +702,7 @@ export const memoriaTecnicaConfig = {
     correoElectronico: 'correoElectronicoEmplazamiento',
     telefono: 'telefono',
     tipoInstalacion: 'tipoInstalacion',
+        piso: 'planta',
     // E2.1 - Conexión a la Red
     potenciaNominalInversores: 'e2_potenciaNominalInversores',
     tipoConexionRed: 'e2_tipoConexionRed',
@@ -995,6 +996,8 @@ export const memoriaInstalacionAisladaConBateriaConfig = {
     correoElectronico: 'correoElectronicoEmplazamiento',
     telefono: 'telefono',
     tipoInstalacion: 'tipoInstalacion',
+            piso: 'planta',
+
     // E2.1 - Conexión a la Red
     potenciaNominalInversores: 'e2_potenciaNominalInversores',
     tipoConexionRed: 'e2_tipoConexionRed',
@@ -1077,6 +1080,8 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
     telefono: '',
     representante: '',
     dniRepresentante: '',
+            piso: 'planta',
+
     // Sección B - EMPLAZAMIENTO
     emplazamientoCalle: '',
     numero: '',
@@ -1151,6 +1156,7 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
     correoElectronico: 'correoElectronicoEmplazamiento',
     telefono: 'telefono',
     tipoInstalacion: 'tipoInstalacion',
+        piso: 'planta',
 
     // E2.1 - Conexión a la Red
     potenciaNominalInversores: 'e2_potenciaNominalInversores',
@@ -1364,6 +1370,7 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
     correoElectronico: 'correoElectronicoEmplazamiento',
     telefono: 'telefono',
     tipoInstalacion: 'tipoInstalacion',
+        piso: 'planta',
 
     // E2.1 - Conexión a la Red
     potenciaNominalInversores: 'e2_potenciaNominalInversores',
@@ -1517,6 +1524,7 @@ export const memoriaTecnicaPuntoRecargaConfig = {
     correoElectronico: 'correoElectronicoEmplazamiento',
     telefono: 'telefono',
     tipoInstalacion: 'tipoInstalacion',
+        piso: 'planta',
 
     // E2.1 - Conexión a la Red
     potenciaNominalInversores: 'e2_potenciaNominalInversores',
