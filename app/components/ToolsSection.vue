@@ -46,9 +46,37 @@
         <p v-else>No se encontraron formularios con "{{ busqueda }}"</p>
       </div>
 
-      <!-- Espacio para futuras herramientas -->
+      <!-- Herramientas de equipos -->
       <div class="tools-extra">
-        <h4>Gestión de generadores, inversores y baterías (próximamente)</h4>
+        <h4>⚙️ Gestión de Equipos</h4>
+        <div class="tools-equipment">
+          <NuxtLink to="/herramientas/equipos/inversores" class="equipment-link">
+            <div class="equipment-icon">⚡</div>
+            <div class="equipment-text">
+              <strong>Inversores</strong>
+              <span>Gestiona inversores solares</span>
+            </div>
+            <div class="equipment-arrow">→</div>
+          </NuxtLink>
+
+          <NuxtLink to="/herramientas/equipos/generadores" class="equipment-link">
+            <div class="equipment-icon">🔧</div>
+            <div class="equipment-text">
+              <strong>Generadores</strong>
+              <span>Gestiona generadores eléctricos</span>
+            </div>
+            <div class="equipment-arrow">→</div>
+          </NuxtLink>
+
+          <NuxtLink to="/herramientas/equipos/baterias" class="equipment-link">
+            <div class="equipment-icon">🔋</div>
+            <div class="equipment-text">
+              <strong>Baterías</strong>
+              <span>Gestiona sistemas de almacenamiento</span>
+            </div>
+            <div class="equipment-arrow">→</div>
+          </NuxtLink>
+        </div>
       </div>
     </div>
   </SectionCard>
@@ -415,6 +443,91 @@ onMounted(cargarFormularios)
 
 .tools-extra {
   margin-top: 2rem;
-  color: #888;
+  padding-top: 2rem;
+  border-top: 2px solid #ddd;
+}
+
+.tools-extra h4 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+.tools-equipment {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.equipment-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.equipment-link:hover {
+  background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
+  border-color: #0066cc;
+  box-shadow: 0 4px 8px rgba(0, 102, 204, 0.15);
+  transform: translateX(4px);
+}
+
+.equipment-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.equipment-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.equipment-text strong {
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.equipment-text span {
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.equipment-arrow {
+  font-size: 1.2rem;
+  color: #0066cc;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .tools-equipment {
+    gap: 0.5rem;
+  }
+
+  .equipment-link {
+    padding: 0.75rem;
+    gap: 0.75rem;
+  }
+
+  .equipment-icon {
+    font-size: 1.2rem;
+  }
+
+  .equipment-text strong {
+    font-size: 0.9rem;
+  }
+
+  .equipment-text span {
+    font-size: 0.75rem;
+  }
 }
 </style>

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "inv_001",
+    "marca": "Fronius",
+    "modelo": "Symo 5.0",
+    "potencia": "5.0",
+    "voltaje": "230V/400V",
+    "especificacion": "Trifásico",
+    "fechaCreacion": "2026-03-02T10:00:00Z"
+  },
+  {
+    "id": "inv_002",
+    "marca": "SMA",
+    "modelo": "Sunny Boy 6.0",
+    "potencia": "6.0",
+    "voltaje": "230V",
+    "especificacion": "Monofásico",
+    "fechaCreacion": "2026-03-02T10:05:00Z"
+  }
+]

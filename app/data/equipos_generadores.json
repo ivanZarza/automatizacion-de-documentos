@@ -1,0 +1,18 @@
+[
+  {
+    "id": "gen_001",
+    "marca": "Honda",
+    "modelo": "EG6500",
+    "potencia": "5.5",
+    "especificacion": "Gasolina",
+    "fechaCreacion": "2026-03-02T10:00:00Z"
+  },
+  {
+    "id": "gen_002",
+    "marca": "Yamaha",
+    "modelo": "EF7200E",
+    "potencia": "7.2",
+    "especificacion": "Gasolina",
+    "fechaCreacion": "2026-03-02T10:05:00Z"
+  }
+]

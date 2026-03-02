@@ -1,0 +1,20 @@
+[
+  {
+    "id": "bat_001",
+    "marca": "LG",
+    "modelo": "RESU10H",
+    "voltaje": "48V",
+    "capacidad": "10",
+    "especificacion": "Litio",
+    "fechaCreacion": "2026-03-02T10:00:00Z"
+  },
+  {
+    "id": "bat_002",
+    "marca": "Tesla",
+    "modelo": "Powerwall 2",
+    "voltaje": "220V",
+    "capacidad": "13.5",
+    "especificacion": "Litio",
+    "fechaCreacion": "2026-03-02T10:05:00Z"
+  }
+]
