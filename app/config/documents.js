@@ -1839,7 +1839,7 @@ export const zCertificadoBRConfig = {
     terminacioAnual: 'terminacioAnual',
     nombre: 'apellidosNombre',
     nif: 'nifCif',
-    domicilio: (dataForm) => `${dataForm.emplazamientoCalle} ${dataForm.numero || ''}`.trim(),
+    domicilio: (formData) => `${formData.emplazamientoCalle} ${formData.numero ? formData.numero : ''} ${formData.bloque ? 'Bloque ' + formData.bloque : ''} ${formData.escalera ? 'Escalera ' + formData.escalera : ''} ${formData.planta ? 'Planta ' + formData.planta : ''} ${formData.puerta ? 'Puerta ' + formData.puerta : ''}`.trim(), codigoPostal: 'codigoPostalEmplazamiento',
     cp: 'codigoPostalEmplazamiento',
     localidad: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',
