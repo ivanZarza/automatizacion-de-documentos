@@ -368,47 +368,14 @@ const submit = async () => {
     return
   }
 
-  // ✅ PASO 1: Guardar en localStorage (SIEMPRE - local)
+  let savedInDB = false
+  let savedLocally = false
+
+  // ✅ PASO 1: Intentar guardar en BD primero (es la fuente de verdad)
   try {
-    const localData = {
-      nombre,
-      formulario: filteredData,
-      savedAt: new Date().toISOString(),
-      synced: false
-    }
-    localStorage.setItem(`form_${nombre}`, JSON.stringify(localData))
-  } catch (err) {
-    alert('❌ Error al guardar localmente.')
-    return
-  }
-
-  // ✅ PASO 2: Preguntar si guardar en BD (OPCIONAL - remoto)
-  const guardarEnBD = confirm(`¿Guardar formulario también en la base de datos?\n"${nombre}"`)
-  
-  if (!guardarEnBD) {
-    alert('✅ Formulario guardado localmente.')
-    emit('submit', filteredData)
-    return
-  }
-
-  // ✅ PASO 3: Intentar guardar en BD (puede fallar sin problemas)
-  try {
-    // Verificar si ya existe
-    let existe = false
-    try {
-      const res = await $fetch('/api/forms?nombre=' + encodeURIComponent(nombre))
-      if (res && !res.error) {
-        existe = true
-      }
-    } catch {}
-
-    let mensaje = `Guardando en BD: "${nombre}"`
-    if (existe) {
-      mensaje += '\n(Se sobrescribirá el existente)'
-    }
-    console.log(mensaje)
-
-    await $fetch('/api/forms', {
+    console.log(`[GUARDANDO] Intentando enviar a BD: "${nombre}"`)
+    
+    const response = await $fetch('/api/forms', {
       method: 'POST',
       body: {
         nombre,
@@ -416,23 +383,44 @@ const submit = async () => {
       }
     })
 
-    // ✅ BD guardada exitosamente - actualizar localStorage
-    const localData = {
-      nombre,
-      formulario: filteredData,
-      savedAt: new Date().toISOString(),
-      synced: true
+    if (response && !response.error) {
+      savedInDB = true
+      console.log(`[✅ BD] Guardado exitosamente en BD: "${nombre}"`)
+    } else {
+      console.log(`[❌ BD] Error en respuesta:`, response)
     }
-    localStorage.setItem(`form_${nombre}`, JSON.stringify(localData))
-    
-    alert('✅ Formulario guardado en BD correctamente.')
-    emit('submit', filteredData)
   } catch (err) {
-    // ❌ Error en BD - pero formulario ya está en localStorage
-    console.error('Error al guardar en BD:', err)
-    alert('⚠️ No se pudo guardar en BD, pero el formulario está guardado localmente.\n\nSe reintentará sincronizar cuando la conexión vuelva.')
-    emit('submit', filteredData)
+    console.error(`[❌ BD] Error al conectar/guardar en BD:`, err.message || err)
   }
+
+  // ✅ PASO 2: Guardar en localStorage SOLO si falló BD (fallback)
+  if (!savedInDB) {
+    try {
+      const localData = {
+        nombre,
+        formulario: filteredData,
+        savedAt: new Date().toISOString(),
+        synced: false
+      }
+      localStorage.setItem(`form_${nombre}`, JSON.stringify(localData))
+      savedLocally = true
+      console.log(`[✅ LOCAL] Guardado en localStorage como fallback: "${nombre}"`)
+    } catch (err) {
+      console.error(`[❌ LOCAL] Error al guardar localmente:`, err.message)
+    }
+  }
+
+  // ✅ PASO 3: Mostrar estado final
+  if (savedInDB) {
+    alert(`✅ Formulario guardado en BD correctamente.\n"${nombre}"`)
+  } else if (savedLocally) {
+    alert(`⚠️ No se pudo conectar a BD. Formulario guardado localmente.\n"${nombre}"\n\nSe sincronizará con la BD cuando esté disponible.`)
+  } else {
+    alert(`❌ Error: No se pudo guardar en ningún lado.\n"${nombre}"`)
+    return
+  }
+
+  emit('submit', filteredData)
 }
 
 // Usar props.fields si llegan; si no, usar masterFormFields (respeta el orden)
