@@ -22,5 +22,18 @@
     "energiaTotal": "13.5",
     "potenciaMaximaSalida": "7",
     "fechaCreacion": "2026-03-02T10:05:00Z"
+  },
+  {
+    "id": "bat_mm9e5zcnr9t3vkmg3d",
+    "marcaModelo": "Marca Modelo",
+    "tipoBateria": "Tipo Bateria",
+    "tensionNominal": "Tension Nominal",
+    "profundidadDescarga": "Profundidad Descarga",
+    "tensionMaxima": "Tension Maxima",
+    "tensionMinima": "Tension Minima",
+    "energiaTotal": "Energia Total",
+    "potenciaMaximaSalida": "Potencia Maxima Salida",
+    "maximoPicoDePotencia": "Maximo Pico De Potencia",
+    "fechaCreacion": "2026-03-02T16:26:50.808Z"
   }
 ]

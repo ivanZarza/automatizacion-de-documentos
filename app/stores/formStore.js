@@ -4,7 +4,7 @@ import { ref, computed } from 'vue'
 export const useFormStore = defineStore('form', () => {
   // Estado: almacena los datos del formulario completado
   const formData = ref({})
-  
+
   // Estado: almacena si hay un formulario activo
   const isFormSubmitted = ref(false)
 
