@@ -1,18 +1,12 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
-// Importar datos de los archivos
-import equiposInversores from '../data/equipos_inversores.json'
-import equiposGeneradores from '../data/equipos_generadores.json'
-import equiposBaterias from '../data/equipos_baterias.json'
-import equiposModulos from '../data/equipos_modulos.json'
-
 export const useEquipmentStore = defineStore('equipment', () => {
   // Estado: Arrays de equipos en memoria
-  const inversores = ref([...equiposInversores])
-  const generadores = ref([...equiposGeneradores])
-  const baterias = ref([...equiposBaterias])
-  const modulos = ref([...equiposModulos])
+  const inversores = ref([])
+  const generadores = ref([])
+  const baterias = ref([])
+  const modulos = ref([])
 
   // Getters por tipo
   const getEquipos = (tipo) => {
@@ -25,7 +19,19 @@ export const useEquipmentStore = defineStore('equipment', () => {
     return equiposMap[tipo] || ref([])
   }
 
-  // Acción: Agregar equipo nuevo (con persistencia)
+  // Acción: Cargar equipos de la BD
+  const cargarEquiposBD = async (tipo) => {
+    try {
+      const data = await $fetch(`/api/equipos/${tipo}/listar`)
+      const equiposArray = getEquipos(tipo)
+      equiposArray.value = [...data]
+      console.log(`📥 Equipos cargados de ${tipo}:`, data)
+    } catch (error) {
+      console.error(`❌ Error al cargar equipos de ${tipo}:`, error)
+    }
+  }
+
+  // Acción: Agregar equipo nuevo (con persistencia BD)
   const agregarEquipo = async (tipo, datos) => {
     try {
       const response = await $fetch(`/api/equipos/${tipo}/guardar`, {
@@ -33,10 +39,9 @@ export const useEquipmentStore = defineStore('equipment', () => {
         body: datos
       })
 
-      // Agregar a array en memoria
-      const equiposArray = getEquipos(tipo)
-      equiposArray.value.push(response.equipo)
-      
+      // Refrescar lista completa desde la BD para mantener sincronía
+      await cargarEquiposBD(tipo)
+
       console.log(`✅ Equipo agregado a ${tipo}:`, response.equipo)
       return response.equipo
     } catch (error) {
@@ -45,7 +50,7 @@ export const useEquipmentStore = defineStore('equipment', () => {
     }
   }
 
-  // Acción: Eliminar equipo (con persistencia)
+  // Acción: Eliminar equipo (con persistencia BD)
   const eliminarEquipo = async (tipo, id) => {
     try {
       await $fetch(`/api/equipos/${tipo}/eliminar`, {
@@ -53,39 +58,19 @@ export const useEquipmentStore = defineStore('equipment', () => {
         body: { id }
       })
 
-      const equiposArray = getEquipos(tipo)
-      const indice = equiposArray.value.findIndex(e => e.id === id)
-      if (indice !== -1) {
-        const eliminado = equiposArray.value.splice(indice, 1)
-        console.log(`🗑️ Equipo eliminado de ${tipo}:`, eliminado)
-        return true
-      }
-      return false
+      // Refrescar lista completa desde la BD
+      await cargarEquiposBD(tipo)
+      return true
     } catch (error) {
       console.error(`❌ Error al eliminar equipo:`, error)
       throw error
     }
   }
 
-  // Acción: Obtener equipo por ID
+  // Acción: Obtener equipo por ID (local)
   const obtenerEquipo = (tipo, id) => {
     const equiposArray = getEquipos(tipo)
     return equiposArray.value.find(e => e.id === id)
-  }
-
-  // Acción: Restaurar datos por defecto
-  const restaurarDatos = (tipo) => {
-    const datosDefault = {
-      inversores: equiposInversores,
-      generadores: equiposGeneradores,
-      baterias: equiposBaterias,
-      modulos: equiposModulos
-    }
-    
-    if (datosDefault[tipo]) {
-      getEquipos(tipo).value = [...datosDefault[tipo]]
-      console.log(`♻️ Datos restaurados para ${tipo}`)
-    }
   }
 
   return {
@@ -94,9 +79,9 @@ export const useEquipmentStore = defineStore('equipment', () => {
     baterias,
     modulos,
     getEquipos,
+    cargarEquiposBD,
     agregarEquipo,
     eliminarEquipo,
-    obtenerEquipo,
-    restaurarDatos
+    obtenerEquipo
   }
 })

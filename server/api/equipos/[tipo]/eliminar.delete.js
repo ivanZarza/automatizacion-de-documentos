@@ -1,9 +1,8 @@
-import fs from 'fs'
-import path from 'path'
+import { getDbPool } from '../../../utils/db'
 
 export default defineEventHandler(async (event) => {
   const { tipo } = event.context.params
-  
+
   try {
     const body = await readBody(event)
     const { id } = body
@@ -18,35 +17,30 @@ export default defineEventHandler(async (event) => {
       throw new Error(`Tipo de equipo no válido: ${tipo}`)
     }
 
-    // Ruta del archivo JSON
-    const filePath = path.join(process.cwd(), 'app', 'data', `equipos_${tipo}.json`)
-    
-    // Leer el archivo actual
-    if (!fs.existsSync(filePath)) {
-      throw new Error(`Archivo no encontrado: ${filePath}`)
-    }
+    const pool = getDbPool()
+    const client = await pool.connect()
 
-    const contenido = fs.readFileSync(filePath, 'utf-8')
-    let equipos = JSON.parse(contenido)
+    try {
+      const result = await client.query(`
+        DELETE FROM equipos 
+        WHERE id = $1 AND tipo = $2
+        RETURNING *
+      `, [id, tipo])
 
-    // Encontrar y eliminar el equipo
-    const indice = equipos.findIndex(e => e.id === id)
-    
-    if (indice === -1) {
-      throw new Error(`Equipo con ID ${id} no encontrado`)
-    }
+      if (result.rowCount === 0) {
+        throw new Error(`Equipo con ID ${id} no encontrado en la BD`)
+      }
 
-    const eliminado = equipos.splice(indice, 1)[0]
+      console.log(`🗑️ Equipo eliminado de ${tipo} en BD:`, result.rows[0])
 
-    // Guardar en archivo
-    fs.writeFileSync(filePath, JSON.stringify(equipos, null, 2))
+      return {
+        success: true,
+        equipo: result.rows[0],
+        message: `Equipo eliminado de ${tipo}`
+      }
 
-    console.log(`🗑️ Equipo eliminado de ${tipo}:`, eliminado)
-
-    return {
-      success: true,
-      equipo: eliminado,
-      message: `Equipo eliminado de ${tipo}`
+    } finally {
+      client.release()
     }
   } catch (error) {
     console.error(`❌ Error al eliminar equipo:`, error)

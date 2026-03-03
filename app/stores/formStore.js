@@ -48,6 +48,12 @@ export const useFormStore = defineStore('form', () => {
     saveToLocalStorage()
   }
 
+  // Acción: actualizar datos del formulario sin guardar en localStorage
+  const setFormDataUnsaved = (data) => {
+    formData.value = { ...formData.value, ...data }
+    isFormSubmitted.value = true
+  }
+
   // Acción: obtener datos del formulario
   const getFormData = () => {
     return formData.value
@@ -86,6 +92,7 @@ export const useFormStore = defineStore('form', () => {
     clearFormData,
     getField,
     loadFromLocalStorage,
-    saveToLocalStorage
+    saveToLocalStorage,
+    setFormDataUnsaved
   }
 })
