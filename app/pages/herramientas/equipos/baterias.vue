@@ -13,17 +13,28 @@ const cargando = ref(false)
 const formulario = ref<Record<string, any>>({
   marcaModelo: '',
   tipoBateria: '',
-  tensionNominal: ''
+  tensionNominal: '',
+  profundidadDescarga: '',
+  tensionMaxima: '',
+  tensionMinima: '',
+  energiaTotal: '',
+  potenciaMaxima: '',
+  maximoPicoPotencia: ''
 })
 
 const label = 'Baterías'
 const icon = '🔋'
-const campos = ['marcaModelo', 'tipoBateria', 'tensionNominal']
-const fieldsMapping = {
-  marcaModelo: 'marcaEquipo',
-  tipoBateria: 'tipoEquipo',
-  tensionNominal: 'tensionEquipo'
-}
+const campos = [
+  'marcaModelo', 
+  'tipoBateria', 
+  'tensionNominal', 
+  'profundidadDescarga', 
+  'tensionMaxima', 
+  'tensionMinima', 
+  'energiaTotal', 
+  'potenciaMaxima',
+  'maximoPicoPotencia'
+]
 
 const equipos = computed(() => equipmentStore.baterias || [])
 
@@ -39,7 +50,13 @@ const limpiarFormulario = () => {
   formulario.value = {
     marcaModelo: '',
     tipoBateria: '',
-    tensionNominal: ''
+    tensionNominal: '',
+    profundidadDescarga: '',
+    tensionMaxima: '',
+    tensionMinima: '',
+    energiaTotal: '',
+    potenciaMaxima: '',
+    maximoPicoPotencia: ''
   }
 }
 
@@ -71,7 +88,13 @@ const llevarAlFormulario = (equipo: Record<string, any>) => {
   const datos: Record<string, any> = {
     e2_marcaModelo: equipo.marcaModelo,
     e2_tipoDeBateria: equipo.tipoBateria,
-    e2_tensionNominal: equipo.tensionNominal
+    e2_tensionNominal: equipo.tensionNominal,
+    e2_profundidadDescarga: equipo.profundidadDescarga,
+    e2_tensionMaxima: equipo.tensionMaxima,
+    e2_tensionMinima: equipo.tensionMinima,
+    e2_energiaTotal: equipo.energiaTotal,
+    e2_potenciaMaximaSalida: equipo.potenciaMaxima,
+    e2_maximoPicoDePotencia: equipo.maximoPicoPotencia
   }
   
   formStore.setFormDataUnsaved(datos)

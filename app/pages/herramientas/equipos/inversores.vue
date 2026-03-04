@@ -11,17 +11,24 @@ const router = useRouter()
 const tipo = 'inversores'
 const cargando = ref(false)
 const formulario = ref<Record<string, any>>({
-  marca: '',
-  modelo: '',
+  marcaModelo: '',
   potencia: '',
   vccMaxima: '',
   vccMinima: '',
-  conexion: ''
+  conexion: '',
+  relacionTension: ''
 })
 
 const label = 'Inversores'
 const icon = '⚡'
-const campos = ['marca', 'modelo', 'potencia', 'vccMaxima', 'vccMinima', 'conexion']
+const campos = [
+  { id: 'marcaModelo', label: 'Marca y Modelo' },
+  { id: 'potencia', label: 'Potencia' },
+  { id: 'vccMaxima', label: 'Vcc Máxima' },
+  { id: 'vccMinima', label: 'Vcc Mínima' },
+  { id: 'conexion', label: 'Conexión', type: 'select', options: ['Monofásica', 'Trifásica'] },
+  { id: 'relacionTension', label: 'Relación Tensión', placeholder: 'Ej: 230/400' }
+]
 const fieldsMapping = {
   marca: 'marcaEquipo',
   modelo: 'modeloEquipo',
@@ -43,14 +50,8 @@ onMounted(async () => {
 const formatearLabel = (clave: string) => String(clave).replace(/([A-Z])/g, ' $1').replace(/^./, s => s.toUpperCase()).trim()
 
 const limpiarFormulario = () => {
-  formulario.value = {
-    marca: '',
-    modelo: '',
-    potencia: '',
-    vccMaxima: '',
-    vccMinima: '',
-    conexion: ''
-  }
+  formulario.value = {}
+  campos.forEach(c => formulario.value[c.id] = '')
 }
 
 const guardarEquipo = async () => {
@@ -79,11 +80,12 @@ const eliminarEquipo = async (id: string) => {
 
 const llevarAlFormulario = (equipo: Record<string, any>) => {
   const datos: Record<string, any> = {
-    e2_marcaModeloInversor: `${equipo.marca || ''} ${equipo.modelo || ''}`.trim(),
+    e2_marcaModeloInversor: equipo.marcaModelo || `${equipo.marca || ''} ${equipo.modelo || ''}`.trim(),
     e2_potenciaNominalInversor: equipo.potencia,
     e2_formaOndaSalidaInversor: equipo.vccMaxima,
     e2_frecuenciaNominalInversor: equipo.vccMinima,
-    e2_tipoConexionRed: equipo.conexion
+    e2_tipoConexionRed1: equipo.conexion,
+    e2_relacionTensionInversor: equipo.relacionTension
   }
 
   // Usamos el nuevo método que no guarda en localStorage
@@ -109,9 +111,15 @@ definePageMeta({ layout: 'default' })
         <h2>➕ Nuevo Inversor</h2>
         <form @submit.prevent="guardarEquipo">
           <div class="form-fields">
-            <div v-for="campo in campos" :key="campo" class="form-group">
-              <label :for="campo">{{ formatearLabel(campo) }}</label>
-              <input :id="campo" v-model="formulario[campo]" type="text" :placeholder="`Ingrese ${formatearLabel(campo)}`" />
+            <div v-for="campo in campos" :key="campo.id" class="form-group">
+              <label :for="campo.id">{{ campo.label || formatearLabel(campo.id) }}</label>
+              
+              <select v-if="campo.type === 'select'" :id="campo.id" v-model="formulario[campo.id]">
+                <option value="" disabled selected>Seleccione {{ campo.label }}</option>
+                <option v-for="opt in campo.options" :key="opt" :value="opt">{{ opt }}</option>
+              </select>
+              
+              <input v-else :id="campo.id" v-model="formulario[campo.id]" type="text" :placeholder="campo.placeholder || `Ingrese ${campo.label || formatearLabel(campo.id)}`" />
             </div>
           </div>
           <div class="form-buttons">
@@ -152,8 +160,8 @@ definePageMeta({ layout: 'default' })
 .loading{text-align:center;padding:3rem 1rem;color:#666}
 .contenedor-formulario,.contenedor-equipos{background:#f9f9f9;border-radius:8px;padding:2rem;border-left:4px solid #0066cc;margin-bottom:1.5rem}
 .form-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
-.form-group label{font-weight:600;margin-bottom:.5rem}
-.form-group input{padding:.75rem;border:1px solid #ddd;border-radius:4px}
+.form-group label{font-weight:600;margin-bottom:.5rem;display:block}
+.form-group input, .form-group select{width:100%;padding:.75rem;border:1px solid #ddd;border-radius:4px;box-sizing:border-box}
 .form-buttons{display:flex;gap:1rem;justify-content:flex-end}
 .btn{padding:.75rem 1.5rem;border-radius:4px;border:none;font-weight:600;cursor:pointer}
 .btn-guardar{background:#28a745;color:#fff}.btn-cancelar{background:#6c757d;color:#fff}
