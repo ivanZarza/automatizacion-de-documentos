@@ -511,14 +511,14 @@ defineProps({
     page-break-after: always;
   }
 
-  div[data-pdf-content] {
+  div[data-pdf-content]:not(:last-child) {
     font-size: 16px !important;
     width: 210mm !important;
     height: 297mm !important;
     box-shadow: none !important;
     margin: 0 !important;
     padding: 0 !important;
-    page-break-after: allways !important;
+    page-break-after: always !important;
     background: white !important;
   }
 

@@ -6,17 +6,9 @@
 
     <!-- PÁGINA 2 - CON CAMPOS -->
     <article class="pagina-documento pagina-2">
-      <span
-        v-for="et in etiquetasPage2Visibles"
-        :key="et.nombre"
-        class="overlay-field"
-        :style="estiloEtiqueta(et)"
-      >
-        <img
-          v-if="et.nombre === 'firma' && et.displayValue"
-          :src="et.displayValue"
-          style="width: 100%; height: 100%; object-fit: contain"
-        />
+      <span v-for="et in etiquetasPage2Visibles" :key="et.nombre" class="overlay-field" :style="estiloEtiqueta(et)">
+        <img v-if="et.nombre === 'firma' && et.displayValue" :src="et.displayValue"
+          style="width: 100%; height: 100%; object-fit: contain" />
         <span v-else>{{ et.displayValue }}</span>
       </span>
     </article>
@@ -152,7 +144,6 @@ function estiloEtiqueta(et) {
   margin: 0;
   padding: 0;
   page-break-inside: avoid;
-  page-break-after: always;
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: top left;
@@ -185,7 +176,7 @@ function estiloEtiqueta(et) {
     box-shadow: none;
   }
 
-  .pagina-1 {
+  .pagina-documento:not(:last-child) {
     page-break-after: always;
   }
 }

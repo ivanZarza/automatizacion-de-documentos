@@ -258,7 +258,7 @@
         <!-- Fecha -->
         <p class="parrafo-fecha">
           En <strong>{{ formattedData.localidad }}</strong>, a <strong>{{ pse_dia }} de {{ pse_mes }} de {{ pse_anio
-            }}</strong>.
+          }}</strong>.
         </p>
 
         <!-- Logo footer -->
@@ -376,12 +376,6 @@ const formattedData = computed(() => ({
   flex-direction: column;
   padding: 20mm;
   margin-top: 10px;
-  page-break-after: always;
-}
-
-/* Última página sin salto */
-.pagina-3 {
-  page-break-after: avoid;
 }
 
 /* ========== ENCABEZADO ========== */
@@ -747,6 +741,10 @@ const formattedData = computed(() => ({
     padding: 20mm !important;
     margin: 0 !important;
     box-shadow: none !important;
+  }
+
+  .contenedor-principal:not(:last-child) {
+    page-break-after: always;
   }
 
   div[data-pdf-content] {

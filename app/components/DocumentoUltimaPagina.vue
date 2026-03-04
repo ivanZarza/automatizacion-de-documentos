@@ -80,7 +80,6 @@ defineProps({
   padding: 10mm 20mm;
   box-sizing: border-box;
   background: white;
-  page-break-after: always;
   page-break-inside: avoid;
   overflow: hidden;
 }
@@ -197,6 +196,10 @@ defineProps({
     margin: 0;
     padding: 20mm;
     box-sizing: border-box;
+  }
+
+  .contenedor-principal:not(:last-child) {
+    page-break-after: always;
   }
 }
 

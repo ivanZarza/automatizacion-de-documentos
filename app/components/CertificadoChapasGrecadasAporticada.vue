@@ -214,7 +214,6 @@ defineProps({
   flex-direction: column;
   padding: 20mm;
   margin: 0 auto;
-  page-break-after: always;
 }
 
 /* ========== ENCABEZADO ========== */

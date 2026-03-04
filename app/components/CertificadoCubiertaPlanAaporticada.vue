@@ -391,6 +391,10 @@ defineProps({
     box-shadow: none !important;
   }
 
+  .contenedor-principal:not(:last-child) {
+    page-break-after: always;
+  }
+
   div[data-pdf-content] {
     font-size: 16px !important;
     width: 210mm !important;
