@@ -68,9 +68,11 @@ const eliminarEquipo = async (id: string) => {
 }
 
 const llevarAlFormulario = (equipo: Record<string, any>) => {
-  const mapping = fieldsMapping || {}
-  const datos: Record<string, any> = {}
-  Object.entries(mapping).forEach(([k, v]) => { if (equipo[k]) datos[v as string] = equipo[k] })
+  const datos: Record<string, any> = {
+    e2_marcaModelo: equipo.marcaModelo,
+    e2_tipoDeBateria: equipo.tipoBateria,
+    e2_tensionNominal: equipo.tensionNominal
+  }
   
   formStore.setFormDataUnsaved(datos)
   router.push('/formulario-maestro')

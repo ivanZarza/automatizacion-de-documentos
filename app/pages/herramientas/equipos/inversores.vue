@@ -78,10 +78,14 @@ const eliminarEquipo = async (id: string) => {
 }
 
 const llevarAlFormulario = (equipo: Record<string, any>) => {
-  const mapping = fieldsMapping || {}
-  const datos: Record<string, any> = {}
-  Object.entries(mapping).forEach(([k, v]) => { if (equipo[k]) datos[v as string] = equipo[k] })
-  
+  const datos: Record<string, any> = {
+    e2_marcaModeloInversor: `${equipo.marca || ''} ${equipo.modelo || ''}`.trim(),
+    e2_potenciaNominalInversor: equipo.potencia,
+    e2_formaOndaSalidaInversor: equipo.vccMaxima,
+    e2_frecuenciaNominalInversor: equipo.vccMinima,
+    e2_tipoConexionRed: equipo.conexion
+  }
+
   // Usamos el nuevo método que no guarda en localStorage
   formStore.setFormDataUnsaved(datos)
   router.push('/formulario-maestro')

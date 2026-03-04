@@ -60,12 +60,17 @@ const loadMasterData = () => {
   const savedData = loadFromStorage()
   const unsavedData = formStore.hasData ? formStore.getFormData() : {}
   
+  // Limpiar formData para forzar cambio de referencia si es necesario
+  const newData = {}
+  
   // Si hay datos guardados en localStorage, usarlos; si no, usar valores por defecto
   if (savedData && Object.keys(savedData).length > 0) {
-    formData.value = { ...savedData, ...unsavedData }
+    Object.assign(newData, savedData, unsavedData)
   } else {
-    formData.value = { ...getMasterFormDefaultData(), ...unsavedData }
+    Object.assign(newData, getMasterFormDefaultData(), unsavedData)
   }
+  
+  formData.value = newData
 }
 
 onMounted(() => {

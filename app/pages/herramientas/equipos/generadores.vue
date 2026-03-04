@@ -71,9 +71,10 @@ const eliminarEquipo = async (id: string) => {
 }
 
 const llevarAlFormulario = (equipo: Record<string, any>) => {
-  const mapping = fieldsMapping || {}
-  const datos: Record<string, any> = {}
-  Object.entries(mapping).forEach(([k, v]) => { if (equipo[k]) datos[v as string] = equipo[k] })
+  const datos: Record<string, any> = {
+    // El formulario maestro asume que "Generador" es "Generador Fotovoltaico"
+    e2_potenciaPicoGenerador: equipo.potencia
+  }
   
   formStore.setFormDataUnsaved(datos)
   router.push('/formulario-maestro')
