@@ -104,7 +104,7 @@
         </div>
 
         <p class="parrafo-fecha">
-          En {{ ciudadFirma }}, a <span class="texto-rojo">{{ fecha }}</span>.
+          En {{ ciudadFirma }}, a <span class="texto-rojo">{{ dia }} de {{ mes }} de {{ anio }}</span>.
         </p>
       </div>
 
@@ -132,7 +132,9 @@ defineProps({
   peso: String,
   marcaModelo: String,
   ciudadFirma: String,
-  fecha: String
+  dia: String,
+  mes: String,
+  anio: String
 })
 </script>
 
