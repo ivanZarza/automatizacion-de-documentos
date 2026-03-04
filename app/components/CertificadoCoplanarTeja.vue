@@ -211,7 +211,7 @@
         </div>
               <p class="parrafo-fecha">
         En <span class="texto-editable">{{ ciudadFirma }}</span
-        >, a <span class="texto-editable">{{ fecha }}</span
+        >, a <span class="texto-editable">{{ dia }} de {{ mes }} de {{ anio }}</span
         >.
       </p>
       </div>
@@ -243,7 +243,9 @@ defineProps({
   marcaModelo: String,
   modelo: String,
   ciudadFirma: String,
-  fecha: String,
+  dia: String,
+  mes: String,
+  anio: String,
   foto1: String,
   foto2: String,
   provincia: String,
