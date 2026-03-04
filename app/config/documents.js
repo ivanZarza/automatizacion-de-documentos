@@ -1647,7 +1647,9 @@ export const declaracionNoGeneracionRcdsConfig = {
     { name: 'municipio', label: 'Municipio', type: 'text' },
     { name: 'provincia', label: 'Provincia', type: 'text' },
     { name: 'ciudadFirma', label: 'Ciudad de Firma', type: 'text' },
-    { name: 'fecha', label: 'Fecha', type: 'date' }
+    { name: 'dia', label: 'Día', type: 'text' },
+    { name: 'mes', label: 'Mes', type: 'text' },
+    { name: 'anio', label: 'Año', type: 'text' }
   ],
   defaultData: {
     direccion: '',
@@ -1658,7 +1660,9 @@ export const declaracionNoGeneracionRcdsConfig = {
     municipio: '',
     provincia: '',
     ciudadFirma: '',
-    fecha: ''
+    dia: '18',
+    mes: 'noviembre',
+    anio: '2025'
   },
   fieldMapping: {
     direccionAutorizante: (dataForm) => `${dataForm.emplazamientoCalle} ${dataForm.numero ? formData.numero : ''} ${dataForm.bloque ? 'Bloque ' + formData.bloque : ''} ${dataForm.escalera ? 'Escalera ' + formData.escalera : ''} ${dataForm.planta ? 'Planta ' + formData.planta : ''} ${formData.puerta ? 'Puerta ' + formData.puerta : ''}`.trim(), codigoPostal: 'codigoPostalEmplazamiento',
@@ -1668,7 +1672,9 @@ export const declaracionNoGeneracionRcdsConfig = {
     provincia: 'provinciaEmplazamiento',
     referenciaCatastral: 'referenciaCatastral',
     ciudadFirma: 'localidadEmplazamiento',
-    fecha: 'fecha'
+    dia: 'dia',
+    mes: 'mes',
+    anio: 'anio'
   },
   capabilities: {
     canPreview: true,

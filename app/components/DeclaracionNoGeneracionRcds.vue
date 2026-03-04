@@ -48,7 +48,7 @@
 
         <!-- Fecha -->
         <p class="parrafo-fecha">
-          En <strong>{{ ciudadFirma }}</strong>, a <strong>{{ fecha }}</strong>.
+          En <strong>{{ ciudadFirma }}</strong>, a <strong>{{ dia }} de {{ mes }} de {{ anio }}</strong>.
         </p>
       </div>
 
@@ -71,7 +71,9 @@ defineProps({
   municipio: String,
   provincia: String,
   ciudadFirma: String,
-  fecha: String
+  dia: String,
+  mes: String,
+  anio: String
 })
 </script>
 
