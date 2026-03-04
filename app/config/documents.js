@@ -1462,10 +1462,57 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
     // E2.5.1 - Protecciones Externas
     intensidadInterruptorGeneral: 'e2_intensidadNominalInterruptor',
     poderCorteInterruptor: 'e2_poderCorteInterruptor',
+    proteccionFrecuenciaTension: 'e2_proteccionFrecuenciaTension',
+    // F - Medidas de Protección
+    medidaContactosDirectos: 'f_medidaContactoDirecto',
+    parteInstalacionDirectos: 'f_parteContactoDirecto',
+    medidaContactosIndirectos: 'f_medidaContactoIndirecto',
+    parteInstalacionIndirectos: 'f_parteContactoIndirecto',
+    medidaSobretensiones: 'f_medidaSobretensiones',
+    parteInstalacionSobretensiones: 'f_parteSobretensiones',
+    medidaPuntoCaliente: 'f_medidaPuntoCaliente',
+    parteInstalacionPuntoCaliente: 'f_partePuntoCaliente',
+    medidaExplosion: 'f_medidaExplosion',
+    parteInstalacionExplosion: 'f_parteExplosion',
+    medidaCorrosion: 'f_medidaCorrosion',
+    parteInstalacionCorrosion: 'f_parteCorrosion',
+    otrasProtecciones: 'f_otrasProtecciones',
     // G - Características de Líneas y Circuitos
+    potenciaGeneradorRegulador: 'g_generadorReguladorPotencia',
+    longitudGeneradorRegulador: 'g_generadorReguladorLongitud',
+    materialGeneradorRegulador: 'g_generadorReguladorSeccion',
+    intensidadGeneradorRegulador: 'g_generadorReguladorIntensidad',
+    caidaTensionGeneradorRegulador: 'g_generadorReguladorCaidaTension',
+
+    potenciaReguladorBateria: 'g_reguladorBateriaPotencia',
+    longitudReguladorBateria: 'g_reguladorBateriaLongitud',
+    materialReguladorBateria: 'g_reguladorBateriaSeccion',
+    intensidadReguladorBateria: 'g_reguladorBateriaIntensidad',
+    caidaTensionReguladorBateria: 'g_reguladorBateriaCaidaTension',
+
+    potenciaSalidaRegulador: 'g_reguladorInversorPotencia',
+    longitudSalidaRegulador: 'g_reguladorInversorLongitud',
+    materialSalidaRegulador: 'g_reguladorInversorSeccion',
+    intensidadSalidaRegulador: 'g_reguladorInversorIntensidad',
+    caidaTensionSalidaRegulador: 'g_reguladorInversorCaidaTension',
+
     potenciaBateriaInversor: 'g_bateriaDiRectaInversorPotencia',
+    longitudBateriaInversor: 'g_bateriaDiRectaInversorLongitud',
+    materialBateriaInversor: 'g_bateriaDiRectaInversorSeccion',
+    intensidadBateriaInversor: 'g_bateriaDiRectaInversorIntensidad',
+    caidaTensionBateriaInversor: 'g_bateriaDiRectaInversorCaidaTension',
+
     potenciaGeneradorInversorDirecto: 'g_generadorDirectoInversorPotencia',
+    longitudGeneradorInversorDirecto: 'g_generadorDirectoInversorLongitud',
+    materialGeneradorInversorDirecto: 'g_generadorDirectoInversorSeccion',
+    intensidadGeneradorInversorDirecto: 'g_generadorDirectoInversorIntensidad',
+    caidaTensionGeneradorInversorDirecto: 'g_generadorDirectoInversorCaidaTension',
+
     potenciaSalidaInversorRed: 'g_inversorRedPotencia',
+    longitudSalidaInversorRed: 'g_inversorRedLongitud',
+    materialSalidaInversorRed: 'g_inversorRedSeccion',
+    intensidadSalidaInversorRed: 'g_inversorRedIntensidad',
+    caidaTensionSalidaInversorRed: 'g_inversorRedCaidaTension',
     // H - Esquema Unifilar
     esquemaUnifilar: 'h_esquemaUnifilar',
     // I - Plano de Emplazamiento

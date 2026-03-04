@@ -32,14 +32,12 @@
 
         <p class="parrafo-certifico">
           que el estado de la cubierta de teja de la vivienda sita en
-          <span class="texto-editable">{{ direccion }}</span
-          >,
+          <span class="texto-editable">{{ direccion }}</span>,
           <span class="texto-editable">{{ otrosDatosDireccion }}</span> – código
-          postal <span class="texto-editable">{{ codigoPostal }}</span
-          >, localidad de <span class="texto-editable">{{ localidad }}</span
-          >, provincia de {{ provincia }}, con Referencia Catastral
-          <span class="texto-editable">{{ referenciaCatastral }}</span
-          >, es el adecuado para soportar de forma sólida y segura el generador
+          postal <span class="texto-editable">{{ codigoPostal }}</span>, localidad de <span class="texto-editable">{{
+            localidad }}</span>, provincia de {{ provincia }}, con Referencia Catastral
+          <span class="texto-editable">{{ referenciaCatastral }}</span>, es el adecuado para soportar de forma sólida y
+          segura el generador
           fotovoltaico para <span class="texto-azul">Autoconsumo</span> que se
           tiene previsto instalar, a la vista de la inspección ocular realizada
           <span class="texto-azul">in situ</span>, de la revisión del proyecto
@@ -103,10 +101,7 @@
         <!-- Espacio para dos imágenes - Página 2 -->
         <div class="contenedor-dos-imagenes">
           <div class="espacio-imagen-lado">
-            <img
-              :src="'/fotos-certificados/teja-complanaria-1.png'"
-              class="imagen-pdf-lado"
-            />
+            <img :src="'/fotos-certificados/teja-complanaria-1.png'" class="imagen-pdf-lado" />
           </div>
         </div>
 
@@ -117,7 +112,7 @@
           la <span class="texto-azul">perfilería</span> de aluminio mediante
           <span class="texto-azul">tornillería</span> de acero inoxidable.
         </p>
- 
+
         <p class="parrafo-estructura">
           Dichas varillas son fijadas al tablero de
           <span class="texto-azul">rasillones</span> existente, mediante taco
@@ -190,33 +185,23 @@
           técnico competente.
         </p>
 
+        <p class="parrafo-fecha">
+          En <span class="texto-editable">{{ ciudadFirma }}</span>, a <span class="texto-editable"> {{ dia }} de {{ mes
+          }} de {{ anio }}</span>.
+        </p>
+        <div class="logo-footer">
+          <img src="/firma-solay.png" alt="Logo Solay Footer" class="logo-footer-img" />
+        </div>
         <div class="contenedor-firmas">
           <div class="firma-bloque">
             <p class="nombre-firma">
-              Eduardo Rivera Cabezas<br />670308856<br /><span
-                class="texto-azul"
-                >erivera@solay.es</span
-              ><br />Calle El Peñón 5 – 41940 – Tomares – Sevilla
+              Eduardo Rivera Cabezas<br />670308856<br /><span class="texto-azul">erivera@solay.es</span><br />Calle El
+              Peñón 5 – 41940 – Tomares – Sevilla
             </p>
           </div>
         </div>
 
-        <div class="logo-footer">
-          <img
-            src="/firma-solay.png"
-            alt="Logo Solay Footer"
-            class="logo-footer-img"
-          />
-          
-        </div>
-              <p class="parrafo-fecha">
-        En <span class="texto-editable">{{ ciudadFirma }}</span
-        >, a <span class="texto-editable"> {{ dia }} de {{ mes }} de {{ anio }}</span
-        >.
-      </p>
       </div>
-
-
 
       <div class="pie-pagina">
         <p class="texto-pie">www.solay.es</p>
@@ -472,6 +457,7 @@ defineProps({
   justify-content: center;
   margin: 10px;
 }
+
 .firma-bloque {
   text-align: center;
   width: 220px;
@@ -549,7 +535,7 @@ defineProps({
     background: white !important;
   }
 
-  div[data-pdf-content] > div {
+  div[data-pdf-content]>div {
     height: auto !important;
   }
 
