@@ -185,21 +185,23 @@
           técnico competente.
         </p>
 
+        <!-- Fecha -->
         <p class="parrafo-fecha">
-          En <span class="texto-editable">{{ ciudadFirma }}</span>, a <span class="texto-editable"> {{ dia }} de {{ mes
-          }} de {{ anio }}</span>.
+          En <strong>{{ ciudadFirma }}</strong>, a <strong>{{ dia }} de {{ mes }} de {{ anio }}</strong>.
         </p>
+
+        <!-- Logo footer -->
         <div class="logo-footer">
           <img src="/firma-solay.png" alt="Logo Solay Footer" class="logo-footer-img" />
         </div>
-        <div class="contenedor-firmas">
-          <div class="firma-bloque">
-            <p class="nombre-firma">
-              Eduardo Rivera Cabezas<br />670308856<br /><span class="texto-azul">erivera@solay.es</span><br />Calle El
-              Peñón 5 – 41940 – Tomares – Sevilla
-            </p>
-          </div>
-        </div>
+
+        <!-- Firma y datos -->
+        <p class="parrafo-firmante">
+          <strong>Eduardo Rivera Cabezas</strong><br>
+          <strong>670308856</strong><br>
+          <strong>erivera@solay.es</strong><br>
+          <strong>Calle El Peñón 5 – 41940 – Tomares – Sevilla</strong>
+        </p>
 
       </div>
 
@@ -339,7 +341,7 @@ defineProps({
 .parrafo-fecha {
   text-align: center;
   font-weight: bold;
-  margin: 15px 0;
+  margin: 10px 0 0 0;
   font-size: 15px;
 }
 
@@ -451,34 +453,23 @@ defineProps({
   object-fit: contain;
 }
 
-/* ========== FIRMAS ========== */
-.contenedor-firmas {
-  display: flex;
-  justify-content: center;
-  margin: 10px;
-}
-
-.firma-bloque {
+/* ========== DATOS FIRMANTE ========== */
+.parrafo-firmante {
   text-align: center;
-  width: 220px;
-}
-
-.nombre-firma {
-  font-size: 14px;
-  color: #000;
   margin: 0;
-  line-height: 1.5;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 /* ========== LOGO FOOTER ========== */
 .logo-footer {
   display: flex;
   justify-content: center;
-  margin-top: 5px;
+  margin: 0;
 }
 
 .logo-footer-img {
-  width: 200px;
+  width: 150px;
   height: auto;
 }
 

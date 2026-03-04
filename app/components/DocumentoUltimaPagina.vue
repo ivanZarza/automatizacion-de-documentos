@@ -32,10 +32,13 @@ defineProps({
 
       <div class="contenido-principal">
         <h3 class="titulo-subseccion">1.27. OTRAS INFORMACIONES ÚTILES PARA TRABAJOS POSTERIORES</h3>
-        
-        <p class="parrafo-contenido">La instalación de fotovoltaica se ha proyectado pensando en las necesidades de espacio que se requerirán para llevar a cabo de forma segura las distintas operaciones de mantenimiento, y/o otras informaciones útiles para la realización de los mismos se dispone en los planos de proyecto, donde se definen las características de las diferentes obras y el trazado de canalizaciones de infraestructuras.</p>
 
-        <p class="parrafo-ubicacion">En {{ ciudad }}, {{ dia }} de {{ mes }} de {{ anio }}</p>
+        <p class="parrafo-contenido">La instalación de fotovoltaica se ha proyectado pensando en las necesidades de
+          espacio que se requerirán para llevar a cabo de forma segura las distintas operaciones de mantenimiento, y/o
+          otras informaciones útiles para la realización de los mismos se dispone en los planos de proyecto, donde se
+          definen las características de las diferentes obras y el trazado de canalizaciones de infraestructuras.</p>
+
+        <p class="parrafo-ubicacion">En {{ ciudad }},a {{ dia }} de {{ mes }} de {{ anio }}</p>
 
         <div class="logo-centro">
           <img src="/firma-solay.png" alt="Firma Solay" class="logo-centro-img" />
@@ -44,7 +47,8 @@ defineProps({
         <div class="datos-autor">
           <p class="nombre-autor">Eduardo Rivera Cabezas</p>
           <p class="titulacion-autor">Ingeniero Industrial</p>
-          <p class="colegiado-autor">Colegiado 4654 del Colegio Oficial de Ingenieros Industriales de Andalucía Occidental</p>
+          <p class="colegiado-autor">Colegiado 4654 del Colegio Oficial de Ingenieros Industriales de Andalucía
+            Occidental</p>
         </div>
 
         <p class="texto-pie" style="text-align:right">Página 81</p>
@@ -198,7 +202,7 @@ defineProps({
     width: 210mm;
     margin: 0;
   }
-  
+
   .contenedor-principal {
     height: 297mm;
     width: 210mm;

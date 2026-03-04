@@ -47,23 +47,17 @@
           y estar habilitado para el ejercicio de la profesión.
         </p>
 
-        <!-- FECHA Y LUGAR -->
+        <!-- Fecha y lugar -->
         <p class="parrafo-fecha">
-          En
-          <span class="texto-editable">{{ ciudadFirma }}</span>,
-          a
-          <span class="texto-editable">{{ dia }} de {{ mes }} de {{ anio }}</span>.
+          En <strong>{{ ciudadFirma }}</strong>, a <strong>{{ dia }} de {{ mes }} de {{ anio }}</strong>.
         </p>
 
-        <!-- FIRMA -->
-        <div class="contenedor-firmas">
-          <div class="firma-bloque">
-            <div class="linea-firma-imagen">
-              <img src="/firma-solay.png" alt="Firma" class="imagen-firma" />
-            </div>
-            <p class="etiqueta-firma">FIRMA</p>
-          </div>
+        <!-- Logo footer -->
+        <div class="logo-footer">
+          <img src="/firma-solay.png" alt="Logo Solay Footer" class="logo-footer-img" />
         </div>
+
+        <!-- Firma y datos -->
         <p class="parrafo-firmante">
           <strong>Eduardo Rivera Cabezas</strong><br>
           <strong>670308856</strong><br>
@@ -192,7 +186,7 @@ defineProps({
 .parrafo-fecha {
   text-align: center;
   font-weight: bold;
-  margin: 50px 0 70px 0;
+  margin: 10px 0 0 0;
   font-size: 15px;
 }
 
@@ -219,38 +213,33 @@ defineProps({
   font-weight: bold;
 }
 
-/* ========== FIRMAS ========== */
-.contenedor-firmas {
-  display: flex;
-  justify-content: center;
-  margin-top: auto;
-  padding-top: 30px;
-}
-
+/* ========== FIRMA BLOQUE ========== */
 .firma-bloque {
-  text-align: center;
-  width: 200px;
-}
-
-.linea-firma-imagen {
-  border-bottom: 1px solid #000;
-  height: 60px;
-  margin-bottom: 10px;
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  /* Ajusta el margen superior según sea necesario */
 }
 
-.imagen-firma {
-  height: 80px;
-  object-fit: contain;
-  margin-top: -50px;
-}
-
-.etiqueta-firma {
+/* ========== DATOS FIRMANTE ========== */
+.parrafo-firmante {
+  text-align: center;
   margin: 0;
-  font-weight: bold;
   font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ========== LOGO FOOTER ========== */
+.logo-footer {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.logo-footer-img {
+  width: 150px;
+  height: auto;
 }
 
 /* ========== PIE DE PÁGINA ========== */

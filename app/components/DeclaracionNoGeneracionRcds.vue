@@ -193,7 +193,7 @@ defineProps({
 /* ========== DATOS FIRMANTE ========== */
 .parrafo-firmante {
   text-align: center;
-  margin: 20px 0 20px 0;
+  margin: 0;
   font-size: 14px;
   line-height: 1.6;
 }
@@ -202,7 +202,7 @@ defineProps({
 .logo-footer {
   display: flex;
   justify-content: center;
-  margin: 20px 0;
+  margin: 0;
 }
 
 .logo-footer-img {
@@ -214,7 +214,7 @@ defineProps({
 .parrafo-fecha {
   text-align: center;
   font-weight: bold;
-  margin: 30px 0 20px 0;
+  margin: 10px 0 0 0;
   font-size: 15px;
 }
 

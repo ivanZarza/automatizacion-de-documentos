@@ -254,19 +254,25 @@
       </div>
 
       <!-- Firma -->
-      <div class="contenedor-firmas">
-        <div class="fecha">En Bollullos de la Mitación, a {{ pse_dia }} de {{ pse_mes }} de {{ pse_anio }}</div>
-        <div class="firma-bloque">
-          <div class="linea-firma-imagen">
-            <img src="/firma-solay.png" alt="Firma" class="imagen-firma" />
-          </div>
-          <p class="parrafo-firmante">
-            <strong>Eduardo Rivera Cabezas</strong><br>
-            <strong>670308856</strong><br>
-            <strong>erivera@solay.es</strong><br>
-            <strong>Calle El Peñón 5 – 41940 – Tomares – Sevilla</strong>
-          </p>
+      <div class="contenido-principal">
+        <!-- Fecha -->
+        <p class="parrafo-fecha">
+          En <strong>{{ formattedData.localidad }}</strong>, a <strong>{{ pse_dia }} de {{ pse_mes }} de {{ pse_anio
+            }}</strong>.
+        </p>
+
+        <!-- Logo footer -->
+        <div class="logo-footer">
+          <img src="/firma-solay.png" alt="Logo Solay Footer" class="logo-footer-img" />
         </div>
+
+        <!-- Firma y datos -->
+        <p class="parrafo-firmante">
+          <strong>Eduardo Rivera Cabezas</strong><br>
+          <strong>670308856</strong><br>
+          <strong>erivera@solay.es</strong><br>
+          <strong>Calle El Peñón 5 – 41940 – Tomares – Sevilla</strong>
+        </p>
       </div>
 
       <!-- Pie de página Página 3 -->
@@ -677,50 +683,32 @@ const formattedData = computed(() => ({
   object-fit: contain;
 }
 
-/* ========== FIRMAS ========== */
-.contenedor-firmas {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 0px;
-  padding-top: 100px;
-}
-
-.pagina-2 .contenedor-firmas {
-  display: none;
-}
-
-.fecha {
-  margin-bottom: 50px;
-  font-size: 12px;
-  color: #333;
-}
-
-.firma-bloque {
+/* ========== DATOS FIRMANTE ========== */
+.parrafo-firmante {
   text-align: center;
-  width: 200px;
-}
-
-.linea-firma-imagen {
-  border-bottom: 1px solid #000;
-  height: 50px;
-  margin-bottom: 8px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-.imagen-firma {
-  height: 70px;
-  object-fit: contain;
-  margin-top: -25px;
-}
-
-.etiqueta-firma {
   margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ========== LOGO FOOTER ========== */
+.logo-footer {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.logo-footer-img {
+  width: 150px;
+  height: auto;
+}
+
+/* ========== FECHA ========== */
+.parrafo-fecha {
+  text-align: center;
   font-weight: bold;
-  font-size: 12px;
+  margin: 10px 0 0 0;
+  font-size: 15px;
 }
 
 /* ========== PIE DE PÁGINA ========== */

@@ -139,21 +139,22 @@
       </div>
 
       <div class="contenido-principal">
-        <div class="contenedor-logo-centro">
-          <img src="/firma-solay.png" alt="Firma Solay" class="firma-solay" />
+        <!-- Fecha -->
+        <p class="parrafo-fecha">
+          En <strong>{{ ciudadFirma }}</strong>, a <strong>{{ dia }} de {{ mes }} de {{ anio }}</strong>.
+        </p>
+
+        <!-- Logo footer -->
+        <div class="logo-footer">
+          <img src="/firma-solay.png" alt="Logo Solay Footer" class="logo-footer-img" />
         </div>
 
-        <p class="parrafo-fecha">
-          En <span class="texto-rojo">{{ ciudadFirma }}, a {{ dia }} de {{ mes }} de {{ anio }}</span>.
-        </p>
-      </div>
-
-      <div class="contenido-principal">
-        <p class="parrafo-tecnico">
-          <strong>Eduardo Rivera Cabezas</strong><br />
-          67030856<br />
-          rivera@solay.es<br />
-          Calle El Peñón 5 – 41940 – Tomares – Sevilla
+        <!-- Firma y datos -->
+        <p class="parrafo-firmante">
+          <strong>Eduardo Rivera Cabezas</strong><br>
+          <strong>670308856</strong><br>
+          <strong>erivera@solay.es</strong><br>
+          <strong>Calle El Peñón 5 – 41940 – Tomares – Sevilla</strong>
         </p>
       </div>
 
@@ -275,9 +276,9 @@ defineProps({
 
 .parrafo-fecha {
   text-align: center;
-  font-size: 14px;
-  margin: 60px 0;
   font-weight: bold;
+  margin: 10px 0 0 0;
+  font-size: 15px;
 }
 
 /* ========== TEXTOS ESPECIALES ========== */
@@ -287,19 +288,24 @@ defineProps({
 }
 
 
-/* ========== LOGO CENTRO ========== */
-.contenedor-logo-centro {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 80px 0;
+/* ========== DATOS FIRMANTE ========== */
+.parrafo-firmante {
+  text-align: center;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
-.firma-solay {
+/* ========== LOGO FOOTER ========== */
+.logo-footer {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.logo-footer-img {
   width: 150px;
   height: auto;
-  border: 1px solid #ccc;
-  padding: 10px;
 }
 
 /* ========== TÍTULO CERTIFICO ========== */

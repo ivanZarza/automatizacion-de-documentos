@@ -119,21 +119,25 @@
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
       </div>
-      <p class="parrafo-fecha">
-        En {{ ciudadFirma }}, a <span class="texto-rojo">{{ dia }} de {{ mes }} de {{ anio }}</span>.
-      </p>
       <div class="contenido-principal">
+        <!-- Fecha -->
+        <p class="parrafo-fecha">
+          En <strong>{{ ciudadFirma }}</strong>, a <strong>{{ dia }} de {{ mes }} de {{ anio }}</strong>.
+        </p>
 
-        <div class="contenedor-logo-centro">
-          <img src="/firma-solay.png" alt="Firma Solay" class="firma-solay" />
+        <!-- Logo footer -->
+        <div class="logo-footer">
+          <img src="/firma-solay.png" alt="Logo Solay Footer" class="logo-footer-img" />
         </div>
+
+        <!-- Firma y datos -->
+        <p class="parrafo-firmante">
+          <strong>Eduardo Rivera Cabezas</strong><br>
+          <strong>670308856</strong><br>
+          <strong>erivera@solay.es</strong><br>
+          <strong>Calle El Peñón 5 – 41940 – Tomares – Sevilla</strong>
+        </p>
       </div>
-      <p class="parrafo-tecnico">
-        <strong>Eduardo Rivera Cabezas</strong><br />
-        67030856<br />
-        rivera@solay.es<br />
-        Calle El Peñón 5 – 41940 – Tomares – Sevilla
-      </p>
 
       <div class="pie-pagina">
         <p class="texto-pie">www.solay.es</p>
@@ -267,6 +271,26 @@ defineProps({
   font-weight: bold;
 }
 
+
+/* ========== DATOS FIRMANTE ========== */
+.parrafo-firmante {
+  text-align: center;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ========== LOGO FOOTER ========== */
+.logo-footer {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.logo-footer-img {
+  width: 150px;
+  height: auto;
+}
 
 /* ========== LOGO CENTRO ========== */
 .contenedor-logo-centro {
