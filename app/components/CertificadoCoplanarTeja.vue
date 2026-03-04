@@ -211,7 +211,7 @@
         </div>
               <p class="parrafo-fecha">
         En <span class="texto-editable">{{ ciudadFirma }}</span
-        >, a <span class="texto-editable">{{ dia }} de {{ mes }} de {{ anio }}</span
+        >, a <span class="texto-editable">a {{ dia }} de {{ mes }} de {{ anio }}</span
         >.
       </p>
       </div>

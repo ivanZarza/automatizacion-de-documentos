@@ -186,7 +186,9 @@ export const certificadoCubiertaPlanAaporticadaConfig = {
     { name: 'marcaModelo', label: 'Marca y Modelo', type: 'text', fullWidth: true },
     { name: 'modelo', label: 'Modelo', type: 'text' },
     { name: 'ciudadFirma', label: 'Ciudad de Firma', type: 'text' },
-    { name: 'fecha', label: 'Fecha', type: 'date' },
+    { name: 'dia', label: 'Día', type: 'text' },
+    { name: 'mes', label: 'Mes', type: 'text' },
+    { name: 'anio', label: 'Año', type: 'text' },
     { name: 'foto1', label: 'Foto Certificado 1', type: 'file', accept: 'image/*,.pdf' },
     { name: 'foto2', label: 'Foto Certificado 2', type: 'file', accept: 'image/*,.pdf' }
   ],
@@ -204,7 +206,9 @@ export const certificadoCubiertaPlanAaporticadaConfig = {
     marcaModelo: '',
     modelo: '',
     ciudadFirma: '',
-    fecha: '',
+    dia: '18',
+    mes: 'noviembre',
+    anio: '2025',
     foto1: null,
     foto2: null
   },
@@ -219,7 +223,9 @@ export const certificadoCubiertaPlanAaporticadaConfig = {
     peso: 'peso',
     marcaModelo: 'e2_marcaModeloModulo',
     ciudadFirma: 'ciudadFirma',
-    fecha: 'fecha',
+    dia: 'dia',
+    mes: 'mes',
+    anio: 'anio',
     foto1: 'otros_foto1',
     foto2: 'otros_foto2'
   },
