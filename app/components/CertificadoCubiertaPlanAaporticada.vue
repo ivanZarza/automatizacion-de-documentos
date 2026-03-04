@@ -5,28 +5,50 @@
       <div class="encabezado">
         <div class="encabezado-contenido">
           <h1 class="titulo-principal">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA</h1>
-          <h3 class="titulo-secundario">AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE CUBIERTA PLANA, <span class="texto-azul">APORTÍCADA</span></h3>
+          <h3 class="titulo-secundario">AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE CUBIERTA PLANA, <span
+              class="texto-azul">APORTÍCADA</span></h3>
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
       </div>
 
       <div class="contenido-principal">
         <p class="parrafo-intro">
-          Por la presente, <span class="texto-fijo">Eduardo Rivera Cabezas</span>, con NIF <span class="texto-fijo">28.818.007-L</span>, Ingeniero Industrial colegiado número <span class="texto-fijo">4654</span> en el Colegio Oficial de Ingenieros Industriales de <span class="texto-azul">Andalucía Occidental</span>, y con domicilio en <span class="texto-fijo">Calle El Peñón 5 - 41940</span>, localidad de <span class="texto-fijo">Tomares</span>, provincia de <span class="texto-fijo">Sevilla</span>
+          Por la presente, <span class="texto-fijo">Eduardo Rivera Cabezas</span>, con NIF <span
+            class="texto-fijo">28.818.007-L</span>, Ingeniero Industrial colegiado número <span
+            class="texto-fijo">4654</span> en el Colegio Oficial de Ingenieros Industriales de <span
+            class="texto-azul">Andalucía Occidental</span>, y con domicilio en <span class="texto-fijo">Calle El Peñón 5
+            - 41940</span>, localidad de <span class="texto-fijo">Tomares</span>, provincia de <span
+            class="texto-fijo">Sevilla</span>
         </p>
 
         <h2 class="titulo-declara">CERTIFICO</h2>
 
         <p class="parrafo-certifico">
-          que el estado de la cubierta de la vivienda sita en <span class="texto-editable">{{ direccion }}</span>, <span class="texto-editable">{{ otrosDatosDireccion }}</span> – código postal <span class="texto-editable">{{ codigoPostal }}</span>, localidad de <span class="texto-editable">{{ localidad }}</span>, provincia de {{ provincia }}, con Referencia Catastral <span class="texto-editable">{{ referenciaCatastral }}</span>, es el adecuado para soportar de forma sólida y segura el generador fotovoltaico para <span class="texto-azul">Autoconsumo</span> que se tiene previsto instalar, a la vista de la inspección ocular realizada <span class="texto-azul">in situ</span>, de la revisión del proyecto constructivo de la misma, y de la disposición sobre la cubierta de los módulos fotovoltaicos.
+          que el estado de la cubierta de la vivienda sita en <span class="texto-editable">{{ direccion }}</span>, <span
+            class="texto-editable">{{ otrosDatosDireccion }}</span> – código postal <span class="texto-editable">{{
+              codigoPostal }}</span>, localidad de <span class="texto-editable">{{ localidad }}</span>, provincia de {{
+              provincia }}, con Referencia Catastral <span class="texto-editable">{{ referenciaCatastral }}</span>, es el
+          adecuado para soportar de forma sólida y segura el generador fotovoltaico para <span
+            class="texto-azul">Autoconsumo</span> que se tiene previsto instalar, a la vista de la inspección ocular
+          realizada <span class="texto-azul">in situ</span>, de la revisión del proyecto constructivo de la misma, y de
+          la disposición sobre la cubierta de los módulos fotovoltaicos.
         </p>
 
         <p class="parrafo-datos">
-          El generador fotovoltaico ha sido dimensionado mediante Memoria Técnica de Diseño según requiere la reglamentación, y está compuesto por <span class="texto-editable">{{ numModulos }}</span> módulos fotovoltaicos de <span class="texto-editable">{{ potencia }}</span> Wp de potencia eléctrica y <span class="texto-editable">{{ peso }}</span> de peso cada uno, del fabricante y modelo <span class="texto-editable">{{ marcaModelo }}</span>.
+          El generador fotovoltaico ha sido dimensionado mediante Memoria Técnica de Diseño según requiere la
+          reglamentación, y está compuesto por <span class="texto-editable">{{ numModulos }}</span> módulos
+          fotovoltaicos de <span class="texto-editable">{{ potencia }}</span> Wp de potencia eléctrica y <span
+            class="texto-editable">{{ peso }}</span> de peso cada uno, del fabricante y modelo <span
+            class="texto-editable">{{ marcaModelo }}</span>.
         </p>
 
         <p class="parrafo-estructura">
-          La estructura de soporte de dichos módulos fotovoltaicos será del tipo <span class="texto-azul">APORTÍCADA</span> PARA CUBIERTA PLANA mediante <span class="texto-editable">perfilería</span> de aluminio ligero del modelo 11V de la empresa <span class="texto-azul">SUNFER ESTRUCTURAS, S.L.</span>, especializada en soportes para generadores fotovoltaicos con Certificado de Garantía y Marcado CE de sus productos (se adjuntan en la Memoria Técnica de Diseño, así como la Ficha Técnica y Plano de Montaje).
+          La estructura de soporte de dichos módulos fotovoltaicos será del tipo <span
+            class="texto-azul">APORTÍCADA</span> PARA CUBIERTA PLANA mediante <span
+            class="texto-editable">perfilería</span> de aluminio ligero del modelo 11V de la empresa <span
+            class="texto-azul">SUNFER ESTRUCTURAS, S.L.</span>, especializada en soportes para generadores fotovoltaicos
+          con Certificado de Garantía y Marcado CE de sus productos (se adjuntan en la Memoria Técnica de Diseño, así
+          como la Ficha Técnica y Plano de Montaje).
         </p>
 
         <p class="parrafo-imagen">
@@ -46,7 +68,8 @@
       <div class="encabezado">
         <div class="encabezado-contenido">
           <h1 class="titulo-principal">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA</h1>
-          <h3 class="titulo-secundario">AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE CUBIERTA PLANA, <span class="texto-azul">APORTÍCADA</span></h3>
+          <h3 class="titulo-secundario">AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE CUBIERTA PLANA, <span
+              class="texto-azul">APORTÍCADA</span></h3>
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
       </div>
@@ -58,23 +81,36 @@
         </div>
 
         <p class="parrafo-estructura">
-          Dicha <span class="texto-azul">ESTRUCTURA APORTÍCADA</span> será fijada a la cubierta mediante varias varillas roscadas (según procedimiento del fabricante), sólidamente fijadas a la <span class="texto-azul">perfilería</span> de aluminio mediante <span class="texto-azul">tornillería</span> de acero inoxidable.
+          Dicha <span class="texto-azul">ESTRUCTURA APORTÍCADA</span> será fijada a la cubierta mediante varias varillas
+          roscadas (según procedimiento del fabricante), sólidamente fijadas a la <span
+            class="texto-azul">perfilería</span> de aluminio mediante <span class="texto-azul">tornillería</span> de
+          acero inoxidable.
         </p>
 
         <p class="parrafo-estructura">
-          Dicha estructura metálica en acero galvanizado será fijada sobre unos lastres de 22 kg de peso cada uno, mediante varillas roscadas (según procedimiento del fabricante), sólidamente fijadas a la <span class="texto-azul">perfilería</span> de aluminio mediante <span class="texto-azul">tornillería</span> de acero inoxidable; todo ello según los procedimientos de instalación establecidos en la ficha técnica del producto, guardando las distancias previstas entre las perforaciones y respetando los pares de apriete de la <span class="texto-azul">tornillería</span>.
+          Dicha estructura metálica en acero galvanizado será fijada sobre unos lastres de 22 kg de peso cada uno,
+          mediante varillas roscadas (según procedimiento del fabricante), sólidamente fijadas a la <span
+            class="texto-azul">perfilería</span> de aluminio mediante <span class="texto-azul">tornillería</span> de
+          acero inoxidable; todo ello según los procedimientos de instalación establecidos en la ficha técnica del
+          producto, guardando las distancias previstas entre las perforaciones y respetando los pares de apriete de la
+          <span class="texto-azul">tornillería</span>.
         </p>
 
         <p class="parrafo-estructura">
-          El plano formado por los módulos fotovoltaicos tendrá una disposición de <span class="texto-editable">20º</span> con respecto a la superficie de la cubierta plana, pero la azotea está rodeada por pretil de 1,20 m de altura, por lo que prácticamente se evitan tanto fuerzas de compresión sobre la propia cubierta.
+          El plano formado por los módulos fotovoltaicos tendrá una disposición de <span
+            class="texto-editable">20º</span> con respecto a la superficie de la cubierta plana, pero la azotea está
+          rodeada por pretil de 1,20 m de altura, por lo que prácticamente se evitan tanto fuerzas de compresión sobre
+          la propia cubierta.
         </p>
 
         <p class="parrafo-estructura">
-          La <span class="texto-azul">perfilería</span> de aluminio está unida solidariamente a los módulos fotovoltaicos mediante elementos de presión y fijación con tornillo a las distancias y pares de apriete marcados por el fabricante.
+          La <span class="texto-azul">perfilería</span> de aluminio está unida solidariamente a los módulos
+          fotovoltaicos mediante elementos de presión y fijación con tornillo a las distancias y pares de apriete
+          marcados por el fabricante.
         </p>
       </div>
 
-<!--       <div class="pie-pagina">
+      <!--       <div class="pie-pagina">
         <p class="texto-pie">www.solay.es</p>
         <p class="texto-pie">Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110 Sevilla.</p>
         <p class="texto-pie">Página 2</p>
@@ -86,32 +122,36 @@
       <div class="encabezado">
         <div class="encabezado-contenido">
           <h1 class="titulo-principal">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA</h1>
-          <h3 class="titulo-secundario">AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE CUBIERTA PLANA, <span class="texto-azul">APORTÍCADA</span></h3>
+          <h3 class="titulo-secundario">AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE CUBIERTA PLANA, <span
+              class="texto-azul">APORTÍCADA</span></h3>
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
       </div>
 
       <div class="contenido-principal">
         <p class="parrafo-estructura">
-          El estado de la cubierta de la vivienda es el adecuado para soportar de forma sólida y segura el generador fotovoltaico para <span class="texto-azul">Autoconsumo</span> que se tiene previsto instalar, con ausencia de afección estructural, a la vista de la inspección ocular realizada <span class="texto-azul">in situ</span>, de la revisión del proyecto constructivo de la misma, y de la disposición sobre la cubierta de los módulos fotovoltaicos.
+          El estado de la cubierta de la vivienda es el adecuado para soportar de forma sólida y segura el generador
+          fotovoltaico para <span class="texto-azul">Autoconsumo</span> que se tiene previsto instalar, con ausencia de
+          afección estructural, a la vista de la inspección ocular realizada <span class="texto-azul">in situ</span>, de
+          la revisión del proyecto constructivo de la misma, y de la disposición sobre la cubierta de los módulos
+          fotovoltaicos.
         </p>
 
         <p class="parrafo-estructura">
           La mencionada Memoria Técnica de Diseño ha sido redactada por mí como técnico competente.
         </p>
-
-        <div class="contenedor-firmas">
-          <div class="firma-bloque">
-            <p class="nombre-firma">Eduardo Rivera Cabezas<br />670308856<br /><span class="texto-azul">erivera@solay.es</span><br />Calle El Peñón 5 – 41940 – Tomares – Sevilla</p>
-          </div>
-        </div>
-
         <p class="parrafo-fecha">
-          En <span class="texto-editable">{{ ciudadFirma }}</span>, a <span class="texto-editable">{{ dia }} de {{ mes }} de {{ anio }}</span>.
+          En <span class="texto-editable">{{ ciudadFirma }}</span>, a <span class="texto-editable">{{ dia }} de {{ mes
+            }} de {{ anio }}</span>.
         </p>
-
         <div class="logo-footer">
           <img src="/firma-solay.png" alt="Logo Solay Footer" class="logo-footer-img" />
+        </div>
+      </div>
+      <div class="contenedor-firmas">
+        <div class="firma-bloque">
+          <p class="nombre-firma">Eduardo Rivera Cabezas<br />670308856<br /><span
+              class="texto-azul">erivera@solay.es</span><br />Calle El Peñón 5 – 41940 – Tomares – Sevilla</p>
         </div>
       </div>
 
@@ -372,7 +412,7 @@ defineProps({
     background: white !important;
   }
 
-  div[data-pdf-content] > div {
+  div[data-pdf-content]>div {
     height: auto !important;
   }
 

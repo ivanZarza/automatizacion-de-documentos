@@ -25,12 +25,10 @@
 
         <p class="parrafo-tecnico">
           que el estado de la cubierta sita en
-          <span class="texto-rojo"
-            >{{ direccion }},({{ localidad }}) – código
+          <span class="texto-rojo">{{ direccion }},({{ localidad }}) – código
             postal {{ codigoPostal }}, localidad de {{ localidad }}, provincia
             de {{ provincia }}, referencia Catastral
-            {{ referenciaCatastral }}</span
-          >, es el adecuado para soportar de forma sólida y segura el generador
+            {{ referenciaCatastral }}</span>, es el adecuado para soportar de forma sólida y segura el generador
           fotovoltaico para Autoconsumo que se tiene previsto instalar, a la
           vista de la inspección ocular realizada in situ, de la revisión del
           proyecto constructivo de la misma, y de la disposición sobre la
@@ -41,19 +39,15 @@
           El generador fotovoltaico ha sido dimensionado mediante Memoria
           Técnica de Diseño según requiera la reglamentación, y está compuesto
           por
-          <span class="texto-rojo"
-            >{{ numModulos }} módulos fotovoltaicos de {{ potencia }} Wp de
-            potencia eléctrica y 28.00 kg de peso cada uno</span
-          >, del <span class="texto-rojo">fabricante {{ marcaModelo }}</span
-          >.
+          <span class="texto-rojo">{{ numModulos }} módulos fotovoltaicos de {{ potencia }} Wp de
+            potencia eléctrica y 28.00 kg de peso cada uno</span>, del <span class="texto-rojo">fabricante {{
+              marcaModelo }}</span>.
         </p>
 
         <p class="parrafo-tecnico">
           La estructura de soporte de dichos módulos fotovoltaicos es de
-          <span class="texto-rojo"
-            >perfilería de aluminio ligero del modelo TIV de la empresa SUNFER
-            ESTRUCTURAS, S.L.</span
-          >, especializada en soportes para generadores fotovoltaicos con
+          <span class="texto-rojo">perfilería de aluminio ligero del modelo TIV de la empresa SUNFER
+            ESTRUCTURAS, S.L.</span>, especializada en soportes para generadores fotovoltaicos con
           Certificado de Garantía y Marcado CE de sus productos (se ajustan en
           la Memoria Técnica de Diseño, así como la Ficha Técnica y Plano de
           Montaje).
@@ -62,7 +56,7 @@
       <div class="contenido-principal">
         <!-- Espacio para imagen -->
         <div class="contenedor-imagen-grande">
-          <img  :src="'/fotos-certificados/grecada-coplanaria.png'" class="imagen-pdf-grande" />
+          <img :src="'/fotos-certificados/grecada-coplanaria.png'" class="imagen-pdf-grande" />
         </div>
 
         <div class="pie-pagina">
@@ -90,9 +84,7 @@
 
         <p class="parrafo-estructura">
           Dicha
-          <span class="texto-azul"
-            >ESTRUCTURA SOPORTE PARA CHAPA GRECADA APORTICADA</span
-          >
+          <span class="texto-azul">ESTRUCTURA SOPORTE PARA CHAPA GRECADA APORTICADA</span>
           según procedimiento del fabricante, sólidamente fijadas a la
           <span class="texto-azul">perfilería</span> de aluminio mediante
           <span class="texto-azul">tornillería</span> de acero inoxidable; todo
@@ -152,11 +144,19 @@
         </div>
 
         <p class="parrafo-fecha">
-          En <span class="texto-rojo">{{ ciudadFirma }}, a {{ dia }} de {{ mes }} de {{ anio }}</span
-          >.
+          En <span class="texto-rojo">{{ ciudadFirma }}, a {{ dia }} de {{ mes }} de {{ anio }}</span>.
         </p>
       </div>
-      
+
+      <div class="contenido-principal">
+        <p class="parrafo-tecnico">
+          <strong>Eduardo Rivera Cabezas</strong><br />
+          67030856<br />
+          rivera@solay.es<br />
+          Calle El Peñón 5 – 41940 – Tomares – Sevilla
+        </p>
+      </div>
+
       <div class="pie-pagina">
         <p class="texto-pie">www.solay.es</p>
         <p class="texto-pie">

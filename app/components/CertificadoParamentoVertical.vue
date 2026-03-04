@@ -4,28 +4,40 @@
     <div class="contenedor-principal">
       <div class="encabezado">
         <div class="encabezado-contenido">
-          <h3 class="titulo-secundario">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA<br />AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE PARAMENTO VERTICAL</h3>
+          <h3 class="titulo-secundario">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA<br />AUTOCONSUMO
+            FOTOVOLTAICO<br />INSTALACIÓN SOBRE PARAMENTO VERTICAL</h3>
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
       </div>
 
       <div class="contenido-principal">
         <p class="parrafo-tecnico">
-          Por la presente, Eduardo Rivera Cabezas, con NIF 28.818.007-I, Ingeniero Industrial colegiado número 4654 en el Colegio Oficial de Ingenieros Industriales de Andalucía Occidental, y con domicilio en Calle El Peñón 5 -41940, localidad de Tomares, provincia de Sevilla
+          Por la presente, Eduardo Rivera Cabezas, con NIF 28.818.007-I, Ingeniero Industrial colegiado número 4654 en
+          el Colegio Oficial de Ingenieros Industriales de Andalucía Occidental, y con domicilio en Calle El Peñón 5
+          -41940, localidad de Tomares, provincia de Sevilla
         </p>
 
         <h2 class="titulo-certificado">CERTIFICO</h2>
 
         <p class="parrafo-tecnico">
-          que el estado del paramento vertical de la vivienda sita en <span class="texto-rojo">{{ direccion }}, {{ localidad }}, {{ codigoPostal }}, {{ provincia }}</span>, con referencia catastral <span class="texto-rojo">{{ referenciaCatastral }}</span>, es el adecuado para soportar de forma sólida y segura el generador fotovoltaico para Autoconsumo que se tiene previsto instalar, a la vista de la inspección ocular realizada in situ, de la revisión del proyecto constructivo de la misma, y de la disposición de los módulos fotovoltaicos sobre el paramento.
+          que el estado del paramento vertical de la vivienda sita en <span class="texto-rojo">{{ direccion }}, {{
+            localidad }}, {{ codigoPostal }}, {{ provincia }}</span>, con referencia catastral <span
+            class="texto-rojo">{{ referenciaCatastral }}</span>, es el adecuado para soportar de forma sólida y segura
+          el generador fotovoltaico para Autoconsumo que se tiene previsto instalar, a la vista de la inspección ocular
+          realizada in situ, de la revisión del proyecto constructivo de la misma, y de la disposición de los módulos
+          fotovoltaicos sobre el paramento.
         </p>
 
         <p class="parrafo-tecnico">
-          El generador fotovoltaico ha sido dimensionado mediante Memoria Técnica de Diseño según requiera la reglamentación, y está compuesto por <span class="texto-rojo">{{ numModulos }}</span> módulos fotovoltaicos de <span class="texto-rojo">{{ potencia }}</span> Wp de potencia eléctrica y {{ peso }} kg de peso cada uno, del fabricante <span class="texto-rojo">{{ marcaModelo }}</span>.
+          El generador fotovoltaico ha sido dimensionado mediante Memoria Técnica de Diseño según requiera la
+          reglamentación, y está compuesto por <span class="texto-rojo">{{ numModulos }}</span> módulos fotovoltaicos de
+          <span class="texto-rojo">{{ potencia }}</span> Wp de potencia eléctrica y {{ peso }} kg de peso cada uno, del
+          fabricante <span class="texto-rojo">{{ marcaModelo }}</span>.
         </p>
 
         <p class="parrafo-tecnico">
-          La estructura de soporte para instalación sobre paramento vertical será de perfilería metálica diseñada según el procedimiento del fabricante, con anclajes y fijaciones adecuados para montaje en paramento vertical.
+          La estructura de soporte para instalación sobre paramento vertical será de perfilería metálica diseñada según
+          el procedimiento del fabricante, con anclajes y fijaciones adecuados para montaje en paramento vertical.
         </p>
 
       </div>
@@ -41,7 +53,8 @@
     <div class="contenedor-principal">
       <div class="encabezado">
         <div class="encabezado-contenido">
-          <h3 class="titulo-secundario">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA<br />AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE PARAMENTO VERTICAL</h3>
+          <h3 class="titulo-secundario">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA<br />AUTOCONSUMO
+            FOTOVOLTAICO<br />INSTALACIÓN SOBRE PARAMENTO VERTICAL</h3>
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
       </div>
@@ -55,15 +68,21 @@
         </div>
 
         <p class="parrafo-estructura">
-          Dicha estructura de soporte será anclada al <span class="texto-azul">PARAMENTO VERTICAL</span> según procedimiento del fabricante, y será sólidamente fijada a la perfilería de aluminio/metálica mediante tornillería de acero inoxidable, todo ello según los procedimientos de instalación establecidos en la ficha técnica del producto.
+          Dicha estructura de soporte será anclada al <span class="texto-azul">PARAMENTO VERTICAL</span> según
+          procedimiento del fabricante, y será sólidamente fijada a la perfilería de aluminio/metálica mediante
+          tornillería de acero inoxidable, todo ello según los procedimientos de instalación establecidos en la ficha
+          técnica del producto.
         </p>
 
         <p class="parrafo-estructura">
-          Las varillas/anclajes serán fijadas al paramento mediante taco químico o anclaje mecánico según la naturaleza del soporte, guardando las distancias previstas entre las perforaciones y respetando los pares de apriete marcados por el fabricante.
+          Las varillas/anclajes serán fijadas al paramento mediante taco químico o anclaje mecánico según la naturaleza
+          del soporte, guardando las distancias previstas entre las perforaciones y respetando los pares de apriete
+          marcados por el fabricante.
         </p>
 
         <p class="parrafo-estructura">
-          La mencionada <span class="texto-azul">Memoria Técnica de Diseño</span> ha sido redactada por mí como técnico competente.
+          La mencionada <span class="texto-azul">Memoria Técnica de Diseño</span> ha sido redactada por mí como técnico
+          competente.
         </p>
       </div>
 
@@ -78,25 +97,23 @@
     <div class="contenedor-principal">
       <div class="encabezado">
         <div class="encabezado-contenido">
-          <h3 class="titulo-secundario">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA<br />AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE PARAMENTO VERTICAL</h3>
+          <h3 class="titulo-secundario">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA<br />AUTOCONSUMO
+            FOTOVOLTAICO<br />INSTALACIÓN SOBRE PARAMENTO VERTICAL</h3>
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
       </div>
-
+      <p class="parrafo-fecha">
+        En {{ ciudadFirma }}, a <span class="texto-rojo">{{ dia }} de {{ mes }} de {{ anio }}</span>.
+      </p>
+      <div class="contenedor-logo-centro">
+        <img src="/firma-solay.png" alt="Firma Solay" class="firma-solay" />
+      </div>
       <div class="contenido-principal">
         <p class="parrafo-tecnico">
           <strong>Eduardo Rivera Cabezas</strong><br />
           67030856<br />
           rivera@solay.es<br />
           Calle El Peñón 5 – 41940 – Tomares – Sevilla
-        </p>
-
-        <div class="contenedor-logo-centro">
-          <img src="/firma-solay.png" alt="Firma Solay" class="firma-solay" />
-        </div>
-
-        <p class="parrafo-fecha">
-          En {{ ciudadFirma }}, a <span class="texto-rojo">{{ dia }} de {{ mes }} de {{ anio }}</span>.
         </p>
       </div>
 
@@ -206,7 +223,7 @@ defineProps({
 }
 
 .parrafo-estructura {
-  margin: 10px 0 ;
+  margin: 10px 0;
   text-align: justify;
   font-size: 15px;
   line-height: 1.5;

@@ -12,21 +12,37 @@
 
       <div class="contenido-principal">
         <p class="parrafo-intro">
-          Por la presente, <span class="texto-fijo">Eduardo Rivera Cabezas</span>, con NIF <span class="texto-fijo">28.818.007-L</span>, Ingeniero Industrial colegiado número <span class="texto-fijo">4654</span> en el Colegio Oficial de Ingenieros Industriales de Andalucía Occidental, y con domicilio en <span class="texto-fijo">Calle El Peñón 5 - 41940</span>, localidad de <span class="texto-fijo">Tomares</span>, provincia de <span class="texto-fijo">Sevilla</span>
+          Por la presente, <span class="texto-fijo">Eduardo Rivera Cabezas</span>, con NIF <span
+            class="texto-fijo">28.818.007-L</span>, Ingeniero Industrial colegiado número <span
+            class="texto-fijo">4654</span> en el Colegio Oficial de Ingenieros Industriales de Andalucía Occidental, y
+          con domicilio en <span class="texto-fijo">Calle El Peñón 5 - 41940</span>, localidad de <span
+            class="texto-fijo">Tomares</span>, provincia de <span class="texto-fijo">Sevilla</span>
         </p>
 
         <h2 class="titulo-declara">CERTIFICO</h2>
 
         <p class="parrafo-certifico">
-          que el estado de la <span class="texto-editable">{{ cubiertaTipo }}</span> de la vivienda sita en <span class="texto-editable">{{ direccion }}</span>, número <span class="texto-editable">{{ numero }}</span> <span class="texto-editable">{{ otrosDatosDireccion }}</span> – código postal <span class="texto-editable">{{ codigoPostal }}</span>, localidad de <span class="texto-editable">{{ localidad }}</span>, provincia de <span class="texto-editable">{{ provincia }}</span>, con Referencia Catastral <span class="texto-editable">{{ referenciaCatastral }}</span>, es el adecuado para soportar de forma sólida y segura el generador fotovoltaico para <span class="texto-azul">Autoconsumo</span> que se tiene previsto instalar, a la vista de la inspección ocular realizada <span class="texto-azul">in situ</span>, de la revisión del proyecto constructivo de la misma, y de la disposición sobre la estructura aporticada.
+          que el estado de la <span class="texto-editable">{{ cubiertaTipo }}</span> de la vivienda sita en <span
+            class="texto-editable">{{ direccion }}</span>, número <span class="texto-editable">{{ numero }}</span> <span
+            class="texto-editable">{{ otrosDatosDireccion }}</span> – código postal <span class="texto-editable">{{
+              codigoPostal }}</span>, localidad de <span class="texto-editable">{{ localidad }}</span>, provincia de <span
+            class="texto-editable">{{ provincia }}</span>, con Referencia Catastral <span class="texto-editable">{{
+              referenciaCatastral }}</span>, es el adecuado para soportar de forma sólida y segura el generador
+          fotovoltaico para <span class="texto-azul">Autoconsumo</span> que se tiene previsto instalar, a la vista de la
+          inspección ocular realizada <span class="texto-azul">in situ</span>, de la revisión del proyecto constructivo
+          de la misma, y de la disposición sobre la estructura aporticada.
         </p>
 
         <p class="parrafo-datos">
-          El generador fotovoltaico ha sido dimensionado mediante Memoria Técnica de Diseño según requiere la reglamentación, y está compuesto por <span class="texto-editable">{{ numModulos }}</span> módulos fotovoltaicos de <span class="texto-editable">{{ potencia }}</span> Wp de potencia eléctrica cada uno, del fabricante y modelo <span class="texto-editable">{{ marcaModelo }}</span>.
+          El generador fotovoltaico ha sido dimensionado mediante Memoria Técnica de Diseño según requiere la
+          reglamentación, y está compuesto por <span class="texto-editable">{{ numModulos }}</span> módulos
+          fotovoltaicos de <span class="texto-editable">{{ potencia }}</span> Wp de potencia eléctrica cada uno, del
+          fabricante y modelo <span class="texto-editable">{{ marcaModelo }}</span>.
         </p>
 
         <p class="parrafo-estructura">
-          La estructura de soporte para la pérgola es metálica galvanizada, diseñada y fabricada según procedimientos del fabricante y anclada al soporte mediante elementos de fijación adecuados.
+          La estructura de soporte para la pérgola es metálica galvanizada, diseñada y fabricada según procedimientos
+          del fabricante y anclada al soporte mediante elementos de fijación adecuados.
         </p>
 
       </div>
@@ -43,22 +59,40 @@
       <div class="encabezado">
         <div class="encabezado-contenido">
           <h1 class="titulo-principal">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA</h1>
-          <h3 class="titulo-secundario">AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE PÉRGOLA, <span class="texto-azul">APORTICADA</span></h3>
+          <h3 class="titulo-secundario">AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE PÉRGOLA, <span
+              class="texto-azul">APORTICADA</span></h3>
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
       </div>
 
       <div class="contenido-principal">
         <p class="parrafo-estructura">
-          La estructura se ancla mediante tornillería y anclajes químicos/mecánicos según la naturaleza del soporte. Se respetarán las distancias y pares de apriete marcados por el fabricante.
+          La estructura se ancla mediante tornillería y anclajes químicos/mecánicos según la naturaleza del soporte. Se
+          respetarán las distancias y pares de apriete marcados por el fabricante.
         </p>
 
         <p class="parrafo-estructura">
-          Orientación prevista: <span class="texto-editable">{{ orientacion }}</span>. Inclinación de los paneles: <span class="texto-editable">{{ inclinacion }}</span>.
+          Orientación prevista: <span class="texto-editable">{{ orientacion }}</span>. Inclinación de los paneles: <span
+            class="texto-editable">{{ inclinacion }}</span>.
         </p>
 
         <p class="parrafo-estructura">
           La mencionada Memoria Técnica de Diseño ha sido redactada por mí como técnico competente.
+        </p>
+      </div>
+      <div class="contenido-principal">
+        <p class="parrafo-fecha">
+          En <span class="texto-editable">{{ ciudadFirma }}</span>, a <span class="texto-editable">{{ dia }} de {{ mes
+          }} de {{ anio }}</span>.
+        </p>
+        <div class="contenedor-logo-centro">
+          <img src="/firma-solay.png" alt="Firma Solay" class="firma-solay" />
+        </div>
+        <p class="parrafo-estructura">
+          <strong>Eduardo Rivera Cabezas</strong><br />
+          67030856<br />
+          rivera@solay.es<br />
+          Calle El Peñón 5 – 41940 – Tomares – Sevilla
         </p>
       </div>
 
@@ -69,39 +103,7 @@
       </div>
     </div>
 
-    <!-- PÁGINA 3: FIRMA -->
-    <div class="contenedor-principal">
-      <div class="encabezado">
-        <div class="encabezado-contenido">
-          <h1 class="titulo-principal">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA</h1>
-          <h3 class="titulo-secundario">AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE PÉRGOLA, <span class="texto-azul">APORTICADA</span></h3>
-        </div>
-        <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
-      </div>
 
-      <div class="contenido-principal">
-        <p class="parrafo-estructura">
-          <strong>Eduardo Rivera Cabezas</strong><br />
-          67030856<br />
-          rivera@solay.es<br />
-          Calle El Peñón 5 – 41940 – Tomares – Sevilla
-        </p>
-
-        <div class="contenedor-logo-centro">
-          <img src="/firma-solay.png" alt="Firma Solay" class="firma-solay" />
-        </div>
-
-        <p class="parrafo-fecha">
-          En <span class="texto-editable">{{ ciudadFirma }}</span>, a <span class="texto-editable">{{ dia }} de {{ mes }} de {{ anio }}</span>.
-        </p>
-      </div>
-
-      <div class="pie-pagina">
-        <p class="texto-pie">www.solay.es</p>
-        <p class="texto-pie">Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110 Sevilla.</p>
-        <p class="texto-pie">Página 3</p>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -308,10 +310,30 @@ defineProps({
 
 /* ========== MEDIA QUERY PRINT ========== */
 @media print {
-  * { margin:0; padding:0; box-sizing:border-box }
-  body { margin: 0; padding:0; width: 210mm }
-  .contenedor-pdf { width: 210mm }
-  .contenedor-principal { width:210mm; height:297mm; padding: 20mm }
-  .logo { width: 120px }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    width: 210mm
+  }
+
+  .contenedor-pdf {
+    width: 210mm
+  }
+
+  .contenedor-principal {
+    width: 210mm;
+    height: 297mm;
+    padding: 20mm
+  }
+
+  .logo {
+    width: 120px
+  }
 }
 </style>
