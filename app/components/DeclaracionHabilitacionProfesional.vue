@@ -2,7 +2,7 @@
   <div data-pdf-content class="contenedor-pdf">
     <!-- Contenedor principal con márgenes A4 -->
     <div class="contenedor-principal">
-      
+
       <!-- Encabezado con Logo -->
       <div class="encabezado">
         <div class="encabezado-contenido">
@@ -16,42 +16,42 @@
       <div class="contenido-principal">
         <!-- PÁRRAFO INTRODUCTORIO -->
         <p class="parrafo-intro">
-          Por la presente, 
-          <span class="texto-fijo">{{ datosProfesional.nombreProfesional }}</span>, 
-          con NIF 
-          <span class="texto-fijo">{{ datosProfesional.nifProfesional }}</span>, 
-          <span class="texto-fijo">{{ datosProfesional.profesionTitulo }}</span> 
-          colegiado número 
-          <span class="texto-fijo">{{ datosProfesional.numeroColegiado }}</span> 
-          en el 
-          <span class="texto-fijo">{{ datosProfesional.nombreColegio }}</span>, 
-          y con domicilio en 
-          <span class="texto-fijo">{{ datosProfesional.domicilioProfesional }}</span> - 
-          <span class="texto-fijo">{{ datosProfesional.codigoPostalProfesional }}</span>, 
-          localidad de 
-          <span class="texto-fijo">{{ datosProfesional.localidadProfesional }}</span>, 
-          provincia de 
+          Por la presente,
+          <span class="texto-fijo">{{ datosProfesional.nombreProfesional }}</span>,
+          con NIF
+          <span class="texto-fijo">{{ datosProfesional.nifProfesional }}</span>,
+          <span class="texto-fijo">{{ datosProfesional.profesionTitulo }}</span>
+          colegiado número
+          <span class="texto-fijo">{{ datosProfesional.numeroColegiado }}</span>
+          en el
+          <span class="texto-fijo">{{ datosProfesional.nombreColegio }}</span>,
+          y con domicilio en
+          <span class="texto-fijo">{{ datosProfesional.domicilioProfesional }}</span> -
+          <span class="texto-fijo">{{ datosProfesional.codigoPostalProfesional }}</span>,
+          localidad de
+          <span class="texto-fijo">{{ datosProfesional.localidadProfesional }}</span>,
+          provincia de
           <span class="texto-fijo">{{ datosProfesional.provinciaProfesional }}</span>
         </p>
 
         <!-- DECLARA -->
         <h2 class="titulo-declara">DECLARA</h2>
-        
+
         <p class="parrafo-declara">
-          Poseer la titulación de 
-          <span class="texto-fijo">{{ datosProfesional.profesionTitulo }}</span>, 
-          colegiado en el 
-          <span class="texto-fijo">{{ datosProfesional.nombreColegio }}</span> 
-          con número de colegiado 
-          <span class="texto-fijo">{{ datosProfesional.numeroColegiado }}</span> 
+          Poseer la titulación de
+          <span class="texto-fijo">{{ datosProfesional.profesionTitulo }}</span>,
+          colegiado en el
+          <span class="texto-fijo">{{ datosProfesional.nombreColegio }}</span>
+          con número de colegiado
+          <span class="texto-fijo">{{ datosProfesional.numeroColegiado }}</span>
           y estar habilitado para el ejercicio de la profesión.
         </p>
 
         <!-- FECHA Y LUGAR -->
         <p class="parrafo-fecha">
-          En 
-          <span class="texto-editable">{{ ciudadFirma }}</span>, 
-          a 
+          En
+          <span class="texto-editable">{{ ciudadFirma }}</span>,
+          a
           <span class="texto-editable">{{ dia }} de {{ mes }} de {{ anio }}</span>.
         </p>
 
@@ -64,6 +64,12 @@
             <p class="etiqueta-firma">FIRMA</p>
           </div>
         </div>
+        <p class="parrafo-firmante">
+          <strong>Eduardo Rivera Cabezas</strong><br>
+          <strong>670308856</strong><br>
+          <strong>erivera@solay.es</strong><br>
+          <strong>Calle El Peñón 5 – 41940 – Tomares – Sevilla</strong>
+        </p>
       </div>
 
       <!-- Pie de página -->
@@ -296,7 +302,7 @@ defineProps({
     background: white !important;
   }
 
-  div[data-pdf-content] > div {
+  div[data-pdf-content]>div {
     height: auto !important;
   }
 

@@ -2,7 +2,7 @@
   <div data-pdf-content class="contenedor-pdf">
     <!-- ========== PÁGINA 1: ENCABEZADO, DATOS Y LOGOS ========== -->
     <div class="contenedor-principal pagina-1">
-      
+
       <!-- Encabezado con Logo -->
       <div class="encabezado">
         <div class="encabezado-contenido">
@@ -27,7 +27,7 @@
         <!-- DATOS DEL PROYECTO -->
         <div class="seccion-datos">
           <h2 class="titulo-seccion">DATOS DEL PROYECTO</h2>
-          
+
           <table class="tabla-datos">
             <tbody>
               <tr>
@@ -56,7 +56,7 @@
                 <td class="label">Tipo Instalación:</td>
                 <td class="valor">{{ formattedData.tipoInstalacion }}</td>
               </tr>
-              <tr >
+              <tr>
                 <td class="label">Autor proyecto:</td>
                 <td class="valor" colspan="3">Eduardo Rafael Rivera Cabezas-4654</td>
               </tr>
@@ -98,34 +98,34 @@
 
     <!-- ========== PÁGINA 2: PLANO DE SITUACIÓN Y EMPLAZAMIENTO ========== -->
     <div class="contenedor-principal pagina-2">
-      
+
       <div class="contenido-principal contenido-pagina-2">
         <!-- PLANO DE SITUACIÓN -->
         <div class="seccion-plano">
           <h2 class="titulo-seccion">Plano de Situación</h2>
-          
+
           <div class="contenedor-plano-situacion">
             <!-- Datos a la izquierda -->
             <div class="datos-plano">
               <div class="dato-bloque">
                 <p class="dato-titulo">Plano de situación geográfica de la instalación.</p>
               </div>
-              
+
               <div class="dato-bloque">
                 <p class="dato-label"><strong>Datos Generales:</strong></p>
                 <p class="dato-item"><span class="dato-label-inline">E2 - Instalación Generadora Fotovoltaica</span></p>
               </div>
-              
+
               <div class="dato-bloque">
                 <p class="dato-label"><strong>Provincia:</strong></p>
                 <p class="dato-item">{{ formattedData.provincia }}</p>
               </div>
-              
+
               <div class="dato-bloque">
                 <p class="dato-label"><strong>Localidad:</strong></p>
                 <p class="dato-item">{{ formattedData.localidad }}</p>
               </div>
-              
+
               <div class="dato-bloque">
                 <p class="dato-label"><strong>Referencia Catastral</strong></p>
                 <p class="dato-item">{{ formattedData.referenciaCatastral }}</p>
@@ -134,7 +134,8 @@
 
             <!-- Imagen a la derecha (placeholder) -->
             <div class="imagen-plano">
-              <img v-if="formattedData.imagenSituacion" :src="formattedData.imagenSituacion" alt="Plano de Situación" class="imagen-contenido" />
+              <img v-if="formattedData.imagenSituacion" :src="formattedData.imagenSituacion" alt="Plano de Situación"
+                class="imagen-contenido" />
               <div v-else class="placeholder-imagen">
                 [MAPA DE SITUACIÓN]
               </div>
@@ -145,34 +146,34 @@
         <!-- PLANO DE EMPLAZAMIENTO -->
         <div class="seccion-plano">
           <h2 class="titulo-seccion">Plano de Emplazamiento</h2>
-          
+
           <div class="contenedor-plano-situacion">
             <!-- Datos a la izquierda -->
             <div class="datos-plano">
               <div class="dato-bloque">
                 <p class="dato-titulo">Plano de emplazamiento de la instalación.</p>
               </div>
-              
+
               <div class="dato-bloque">
                 <p class="dato-label"><strong>Dirección:</strong></p>
-                <p class="dato-item" >{{ formattedData.direccion }}</p>
+                <p class="dato-item">{{ formattedData.direccion }}</p>
               </div>
-              
+
               <div class="dato-bloque">
                 <p class="dato-label"><strong>Número:</strong></p>
-                <p class="dato-item" >{{ formattedData.numero }}</p>
+                <p class="dato-item">{{ formattedData.numero }}</p>
               </div>
-              
+
               <div class="dato-bloque">
                 <p class="dato-label"><strong>Código Postal:</strong></p>
-                <p class="dato-item" >{{ formattedData.codigoPostal }}</p>
+                <p class="dato-item">{{ formattedData.codigoPostal }}</p>
               </div>
-              
+
               <div class="dato-bloque">
                 <p class="dato-label"><strong>Provincia:</strong></p>
                 <p class="dato-item">{{ formattedData.provincia }}</p>
               </div>
-              
+
               <div class="dato-bloque">
                 <p class="dato-label"><strong>Localidad:</strong></p>
                 <p class="dato-item">{{ formattedData.localidad }}</p>
@@ -181,7 +182,8 @@
 
             <!-- Imagen a la derecha (placeholder) -->
             <div class="imagen-plano">
-              <img v-if="formattedData.imagenEmplazamiento" :src="formattedData.imagenEmplazamiento" alt="Plano de Emplazamiento" class="imagen-contenido" />
+              <img v-if="formattedData.imagenEmplazamiento" :src="formattedData.imagenEmplazamiento"
+                alt="Plano de Emplazamiento" class="imagen-contenido" />
               <div v-else class="placeholder-imagen">
                 [FOTO AÉREA/PLANO]
               </div>
@@ -200,39 +202,39 @@
 
     <!-- ========== PÁGINA 3: PLANO DE CUBIERTA ========== -->
     <div class="contenedor-principal pagina-3">
-      
+
       <div class="contenido-principal contenido-pagina-3">
         <!-- PLANO DE CUBIERTA -->
         <div class="seccion-plano">
           <h2 class="titulo-seccion">Plano de Cubierta</h2>
-          
+
           <div class="contenedor-plano-situacion">
             <!-- Datos a la izquierda -->
             <div class="datos-plano">
               <div class="dato-bloque">
                 <p class="dato-titulo">Plano de detalle de la instalación fotovoltaica en cubierta.</p>
               </div>
-              
+
               <div class="dato-bloque">
                 <p class="dato-label"><strong>Total nº de módulos:</strong></p>
-                <p class="dato-item" >{{ formattedData.totalModulos }}</p>
+                <p class="dato-item">{{ formattedData.totalModulos }}</p>
               </div>
-              
+
               <div class="dato-bloque">
                 <p class="dato-label"><strong>Potencia de los módulos (Wp):</strong></p>
-                <p class="dato-item" >{{ formattedData.potenciaModulos }}</p>
+                <p class="dato-item">{{ formattedData.potenciaModulos }}</p>
               </div>
-              
+
               <div class="dato-bloque">
                 <p class="dato-label"><strong>Potencia pico del generador (Wp):</strong></p>
-                <p class="dato-item" >{{ formattedData.potenciaPicoGenerador }}</p>
+                <p class="dato-item">{{ formattedData.potenciaPicoGenerador }}</p>
               </div>
-              
+
               <div class="dato-bloque">
                 <p class="dato-label"><strong>Disposición de los módulos:</strong></p>
-                <p class="dato-item" >{{ formattedData.disposicionModulos }}</p>
+                <p class="dato-item">{{ formattedData.disposicionModulos }}</p>
               </div>
-              
+
               <div class="dato-bloque">
                 <p class="dato-label"><strong>Dirección:</strong></p>
                 <p class="dato-item">{{ formattedData.provincia }}</p>
@@ -241,7 +243,8 @@
 
             <!-- Imagen a la derecha (placeholder) -->
             <div class="imagen-plano">
-              <img v-if="formattedData.imagenCubierta" :src="formattedData.imagenCubierta" alt="Plano de Cubierta" class="imagen-contenido" />
+              <img v-if="formattedData.imagenCubierta" :src="formattedData.imagenCubierta" alt="Plano de Cubierta"
+                class="imagen-contenido" />
               <div v-else class="placeholder-imagen">
                 [FOTO DE CUBIERTA]
               </div>
@@ -250,14 +253,19 @@
         </div>
       </div>
 
-            <!-- Firma -->
+      <!-- Firma -->
       <div class="contenedor-firmas">
         <div class="fecha">En Bollullos de la Mitación, a {{ pse_dia }} de {{ pse_mes }} de {{ pse_anio }}</div>
         <div class="firma-bloque">
           <div class="linea-firma-imagen">
             <img src="/firma-solay.png" alt="Firma" class="imagen-firma" />
           </div>
-          <p class="etiqueta-firma">FIRMA DEL TÉCNICO</p>
+          <p class="parrafo-firmante">
+            <strong>Eduardo Rivera Cabezas</strong><br>
+            <strong>670308856</strong><br>
+            <strong>erivera@solay.es</strong><br>
+            <strong>Calle El Peñón 5 – 41940 – Tomares – Sevilla</strong>
+          </p>
         </div>
       </div>
 
@@ -764,7 +772,7 @@ const formattedData = computed(() => ({
     background: white !important;
   }
 
-  div[data-pdf-content] > div {
+  div[data-pdf-content]>div {
     height: auto !important;
   }
 

@@ -2,7 +2,7 @@
   <div data-pdf-content class="contenedor-pdf">
     <!-- Contenedor principal con márgenes A4 -->
     <div class="contenedor-principal">
-      
+
       <!-- Encabezado con Logo -->
       <div class="encabezado">
         <div class="encabezado-contenido">
@@ -14,25 +14,45 @@
       <!-- Contenido Principal -->
       <div class="contenido-principal">
         <p class="parrafo-intro">
-          Por la presente, <strong>Eduardo Rivera Cabezas</strong>, con NIF <strong>28.818.007-L</strong>, Ingeniero Industrial colegiado número <strong>4654</strong> en el Colegio Oficial de Ingenieros Industriales de <strong>Andalucía Occidental</strong>, y con domicilio en <strong>Calle El Peñón 5 - 41940</strong>, localidad de <strong>Tomares</strong>, provincia de <strong>Sevilla</strong>
+          Por la presente, <strong>Eduardo Rivera Cabezas</strong>, con NIF <strong>28.818.007-L</strong>, Ingeniero
+          Industrial colegiado número <strong>4654</strong> en el Colegio Oficial de Ingenieros Industriales de
+          <strong>Andalucía Occidental</strong>, y con domicilio en <strong>Calle El Peñón 5 - 41940</strong>, localidad
+          de <strong>Tomares</strong>, provincia de <strong>Sevilla</strong>
         </p>
 
         <h2 class="titulo-declara">DECLARA QUE</h2>
 
         <p class="parrafo-declaracion">
-          La instalación fotovoltaica a realizar en <strong>{{ direccion }}</strong> , <strong>{{ otrosDatos }}</strong> – código postal <strong>{{ codigoPostal }}</strong>, con Referencia Catastral <strong>{{ referenciaCatastral }}</strong>, en el término municipal de <strong>{{ municipio }}</strong>, provincia de <strong>{{ provincia }}</strong>:
+          La instalación fotovoltaica a realizar en <strong>{{ direccion }}</strong> , <strong>{{ otrosDatos }}</strong>
+          – código postal <strong>{{ codigoPostal }}</strong>, con Referencia Catastral <strong>{{ referenciaCatastral
+          }}</strong>, en el término municipal de <strong>{{ municipio }}</strong>, provincia de <strong>{{ provincia
+            }}</strong>:
         </p>
 
         <div class="lista-declaracion">
           <p class="item-declaracion">
-            <span class="numero-item">1.</span> Debido a su escasa entidad, no generará residuos de la construcción que, por volumen y naturaleza deban ser entregados a un gestor autorizado o al concesionario de la Mancomunidad.
+            <span class="numero-item">1.</span> Debido a su escasa entidad, no generará residuos de la construcción que,
+            por volumen y naturaleza deban ser entregados a un gestor autorizado o al concesionario de la Mancomunidad.
           </p>
-          
+
           <p class="item-declaracion">
-            <span class="numero-item">2.</span> Que los residuos que se produzcan serán depositados en Puntos Limpios en aras de conseguir una alta protección del medio ambiente y una adecuada preservación de la naturaleza y el paisaje.
+            <span class="numero-item">2.</span> Que los residuos que se produzcan serán depositados en Puntos Limpios en
+            aras de conseguir una alta protección del medio ambiente y una adecuada preservación de la naturaleza y el
+            paisaje.
           </p>
         </div>
 
+        <!-- Fecha -->
+        <p class="parrafo-fecha">
+          En <strong>{{ ciudadFirma }}</strong>, a <strong>{{ dia }} de {{ mes }} de {{ anio }}</strong>.
+        </p>
+
+
+
+        <!-- Logo footer -->
+        <div class="logo-footer">
+          <img src="/firma-solay.png" alt="Logo Solay Footer" class="logo-footer-img" />
+        </div>
         <!-- Firma y datos -->
         <p class="parrafo-firmante">
           <strong>Eduardo Rivera Cabezas</strong><br>
@@ -41,15 +61,6 @@
           <strong>Calle El Peñón 5 – 41940 – Tomares – Sevilla</strong>
         </p>
 
-        <!-- Logo footer -->
-        <div class="logo-footer">
-          <img src="/firma-solay.png" alt="Logo Solay Footer" class="logo-footer-img" />
-        </div>
-
-        <!-- Fecha -->
-        <p class="parrafo-fecha">
-          En <strong>{{ ciudadFirma }}</strong>, a <strong>{{ dia }} de {{ mes }} de {{ anio }}</strong>.
-        </p>
       </div>
 
       <!-- Pie de página -->
@@ -255,7 +266,7 @@ defineProps({
     background: white !important;
   }
 
-  div[data-pdf-content] > div {
+  div[data-pdf-content]>div {
     height: auto !important;
   }
 
