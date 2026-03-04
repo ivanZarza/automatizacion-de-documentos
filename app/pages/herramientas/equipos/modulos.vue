@@ -12,16 +12,33 @@ const tipo = 'modulos'
 const cargando = ref(false)
 const formulario = ref<Record<string, any>>({
   marca: '',
-  potenciaPicoModulo: ''
+  potenciaPicoModulo: '',
+  potenciaPicoGenerador: '',
+  intensidadIpmp: '',
+  tensionVpmp: '',
+  orientacion: '',
+  inclinacion: '',
+  totalModulos: '',
+  modulosEnSerie: '',
+  ramasEnParalelo: '',
+  disposicionModulos: ''
 })
 
 const label = 'Módulos'
 const icon = '☀️'
-const campos = ['marca', 'potenciaPicoModulo']
-const fieldsMapping = {
-  marca: 'marcaEquipo',
-  potenciaPicoModulo: 'potenciaPicoGenerador'
-}
+const campos = [
+  { id: 'marca', label: 'Marca y Modelo' },
+  { id: 'potenciaPicoModulo', label: 'Potencia Pico (Wp) del Módulo' },
+  { id: 'potenciaPicoGenerador', label: 'Potencia Pico (Wp) del Generador' },
+  { id: 'intensidadIpmp', label: 'Intensidad Máxima Potencia, Ipmp (A)' },
+  { id: 'tensionVpmp', label: 'Tensión Máxima Potencia, Vpmp (V)' },
+  { id: 'orientacion', label: 'Orientación' },
+  { id: 'inclinacion', label: 'Inclinación (º)' },
+  { id: 'totalModulos', label: 'Nº Total Módulos' },
+  { id: 'modulosEnSerie', label: 'Nº Módulos en Serie' },
+  { id: 'ramasEnParalelo', label: 'Nº Ramas en Paralelo' },
+  { id: 'disposicionModulos', label: 'Disposición de los Módulos', type: 'select', options: ['Cubierta Teja - Aporticada', 'Cubierta Teja - Coplanar', 'Cubierta Plana', 'Pergola', 'Chapa Grecada - Aporticada', 'Chapa Grecada - Coplanar', 'Suelo', 'Paramento Vertical'] }
+]
 
 const equipos = computed(() => equipmentStore.modulos || [])
 
@@ -34,10 +51,8 @@ onMounted(async () => {
 const formatearLabel = (clave: string) => String(clave).replace(/([A-Z])/g, ' $1').replace(/^./, s => s.toUpperCase()).trim()
 
 const limpiarFormulario = () => {
-  formulario.value = {
-    marca: '',
-    potenciaPicoModulo: ''
-  }
+  formulario.value = {}
+  campos.forEach(c => formulario.value[c.id] = '')
 }
 
 const guardarEquipo = async () => {
@@ -67,7 +82,16 @@ const eliminarEquipo = async (id: string) => {
 const llevarAlFormulario = (equipo: Record<string, any>) => {
   const datos: Record<string, any> = {
     e2_marcaModeloModulo: equipo.marca,
-    e2_potenciaPicoModulo: equipo.potenciaPicoModulo
+    e2_potenciaPicoModulo: equipo.potenciaPicoModulo,
+    e2_potenciaPicoGenerador: equipo.potenciaPicoGenerador,
+    e2_intensidadIpmpGenerador: equipo.intensidadIpmp,
+    e2_tensionVpmpGenerador: equipo.tensionVpmp,
+    e2_orientacionGenerador: equipo.orientacion,
+    e2_inclinacionGenerador: equipo.inclinacion,
+    e2_totalModulos: equipo.totalModulos,
+    e2_modulosEnSerie: equipo.modulosEnSerie,
+    e2_ramasEnParalelo: equipo.ramasEnParalelo,
+    disposicionModulos: equipo.disposicionModulos
   }
   
   formStore.setFormDataUnsaved(datos)
@@ -92,9 +116,15 @@ definePageMeta({ layout: 'default' })
         <h2>➕ Nuevo Módulo</h2>
         <form @submit.prevent="guardarEquipo">
           <div class="form-fields">
-            <div v-for="campo in campos" :key="campo" class="form-group">
-              <label :for="campo">{{ formatearLabel(campo) }}</label>
-              <input :id="campo" v-model="formulario[campo]" type="text" :placeholder="`Ingrese ${formatearLabel(campo)}`" />
+            <div v-for="campo in campos" :key="campo.id" class="form-group">
+              <label :for="campo.id">{{ campo.label || formatearLabel(campo.id) }}</label>
+              
+              <select v-if="campo.type === 'select'" :id="campo.id" v-model="formulario[campo.id]">
+                <option value="" disabled selected>Seleccione {{ campo.label }}</option>
+                <option v-for="opt in campo.options" :key="opt" :value="opt">{{ opt }}</option>
+              </select>
+              
+              <input v-else :id="campo.id" v-model="formulario[campo.id]" type="text" :placeholder="campo.placeholder || `Ingrese ${campo.label || formatearLabel(campo.id)}`" />
             </div>
           </div>
           <div class="form-buttons">
@@ -135,8 +165,8 @@ definePageMeta({ layout: 'default' })
 .loading{text-align:center;padding:3rem 1rem;color:#666}
 .contenedor-formulario,.contenedor-equipos{background:#f9f9f9;border-radius:8px;padding:2rem;border-left:4px solid #0066cc;margin-bottom:1.5rem}
 .form-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
-.form-group label{font-weight:600;margin-bottom:.5rem}
-.form-group input{padding:.75rem;border:1px solid #ddd;border-radius:4px}
+.form-group label{font-weight:600;margin-bottom:.5rem;display:block}
+.form-group input, .form-group select{width:100%;padding:.75rem;border:1px solid #ddd;border-radius:4px;box-sizing:border-box}
 .form-buttons{display:flex;gap:1rem;justify-content:flex-end}
 .btn{padding:.75rem 1.5rem;border-radius:4px;border:none;font-weight:600;cursor:pointer}
 .btn-guardar{background:#28a745;color:#fff}.btn-cancelar{background:#6c757d;color:#fff}
