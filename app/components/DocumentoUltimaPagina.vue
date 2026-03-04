@@ -38,18 +38,18 @@ defineProps({
           otras informaciones útiles para la realización de los mismos se dispone en los planos de proyecto, donde se
           definen las características de las diferentes obras y el trazado de canalizaciones de infraestructuras.</p>
 
-        <p class="parrafo-ubicacion">En {{ ciudad }},a {{ dia }} de {{ mes }} de {{ anio }}</p>
+        <p class="parrafo-fecha">En {{ ciudad }}, a {{ dia }} de {{ mes }} de {{ anio }}</p>
 
-        <div class="logo-centro">
-          <img src="/firma-solay.png" alt="Firma Solay" class="logo-centro-img" />
+        <div class="logo-footer">
+          <img src="/firma-solay.png" alt="Firma Solay" class="logo-footer-img" />
         </div>
 
-        <div class="datos-autor">
-          <p class="nombre-autor">Eduardo Rivera Cabezas</p>
-          <p class="titulacion-autor">Ingeniero Industrial</p>
-          <p class="colegiado-autor">Colegiado 4654 del Colegio Oficial de Ingenieros Industriales de Andalucía
-            Occidental</p>
-        </div>
+        <p class="parrafo-firmante">
+          <strong>Eduardo Rivera Cabezas</strong><br>
+          <strong>670308856</strong><br>
+          <strong>erivera@solay.es</strong><br>
+          <strong>Calle El Peñón 5 – 41940 – Tomares – Sevilla</strong>
+        </p>
 
         <p class="texto-pie" style="text-align:right">Página 81</p>
 
@@ -144,44 +144,32 @@ defineProps({
   font-size: 14px;
 }
 
-.parrafo-ubicacion {
-  margin: 30px 0 20px 0;
+/* ========== FECHA ========== */
+.parrafo-fecha {
   text-align: center;
-  font-size: 14px;
   font-weight: bold;
+  margin: 10px 0 0 0;
+  font-size: 15px;
 }
 
-.logo-centro {
+/* ========== LOGO FOOTER ========== */
+.logo-footer {
   display: flex;
   justify-content: center;
-  margin: 30px 0;
-}
-
-.logo-centro-img {
-  height: 80px;
-  object-fit: contain;
-}
-
-.datos-autor {
-  text-align: center;
-  margin: 30px 0;
-}
-
-.nombre-autor {
-  margin: 0 0 8px 0;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.titulacion-autor {
-  margin: 0 0 8px 0;
-  font-size: 14px;
-}
-
-.colegiado-autor {
   margin: 0;
-  font-size: 12px;
-  line-height: 1.4;
+}
+
+.logo-footer-img {
+  width: 150px;
+  height: auto;
+}
+
+/* ========== DATOS FIRMANTE ========== */
+.parrafo-firmante {
+  text-align: center;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
 .pie-pagina {

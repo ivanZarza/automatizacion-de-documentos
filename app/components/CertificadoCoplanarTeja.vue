@@ -421,9 +421,7 @@ defineProps({
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f5f5f5;
   font-size: 11px;
-  color: #666;
   overflow: hidden;
 }
 
@@ -440,10 +438,8 @@ defineProps({
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f5f5f5;
   margin: 10mm 0 10px 0;
   font-size: 12px;
-  color: #666;
   overflow: hidden;
 }
 

@@ -322,7 +322,6 @@ defineProps({
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f5f5f5;
   margin: 20px 0;
   min-height: 200px;
   overflow: hidden;

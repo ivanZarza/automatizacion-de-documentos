@@ -288,13 +288,11 @@ defineProps({
 }
 
 .espacio-imagen-lado {
-  width: 45%;
-  border: 1px solid #ccc;
+  width: 60%;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 200px;
-  background-color: #f9f9f9;
 }
 
 .imagen-pdf-lado {

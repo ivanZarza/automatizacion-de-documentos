@@ -324,8 +324,6 @@ defineProps({
   justify-content: center;
   align-items: center;
   margin: 20px 0;
-  border: 1px solid #ccc;
-  background-color: #f9f9f9;
   min-height: 300px;
 }
 
