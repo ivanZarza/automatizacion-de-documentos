@@ -26,7 +26,7 @@
         <p class="parrafo-tecnico">
           que el estado de la cubierta sita en
           <span class="texto-rojo"
-            >{{ direccion }}, número {{ numero }} ({{ localidad }}) – código
+            >{{ direccion }},({{ localidad }}) – código
             postal {{ codigoPostal }}, localidad de {{ localidad }}, provincia
             de {{ provincia }}, referencia Catastral
             {{ referenciaCatastral }}</span

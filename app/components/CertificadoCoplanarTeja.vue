@@ -33,7 +33,7 @@
         <p class="parrafo-certifico">
           que el estado de la cubierta de teja de la vivienda sita en
           <span class="texto-editable">{{ direccion }}</span
-          >, número <span class="texto-editable">{{ numero }}</span>
+          >,
           <span class="texto-editable">{{ otrosDatosDireccion }}</span> – código
           postal <span class="texto-editable">{{ codigoPostal }}</span
           >, localidad de <span class="texto-editable">{{ localidad }}</span
@@ -211,7 +211,7 @@
         </div>
               <p class="parrafo-fecha">
         En <span class="texto-editable">{{ ciudadFirma }}</span
-        >, a <span class="texto-editable">a {{ dia }} de {{ mes }} de {{ anio }}</span
+        >, a <span class="texto-editable"> {{ dia }} de {{ mes }} de {{ anio }}</span
         >.
       </p>
       </div>
