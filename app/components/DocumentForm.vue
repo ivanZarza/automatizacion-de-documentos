@@ -42,22 +42,30 @@
                       <option v-for="option in field.options" :key="option.value || option" :value="option.value || option">{{ option.label || option }}</option>
                     </select>
                     <div v-else-if="field.type === 'equipment-autocomplete'" class="autocomplete-wrapper" style="width: 100%;">
-                      <input 
+                      <select 
                         :id="field.name" 
                         v-model="formData[field.name]" 
-                        type="text" 
-                        :placeholder="field.placeholder" 
                         class="field-input" 
-                        :list="`list-${field.name}`"
                         @change="handleEquipmentSelect($event.target.value, field)"
-                      />
-                      <datalist :id="`list-${field.name}`">
+                      >
+                        <option value="">{{ field.placeholder || 'Seleccione equipo...' }}</option>
+                        
+                        <!-- Si el dato guardado localmente no está en la base de datos de Pinia, lo mantenemos como opción personalizada para no perderlo -->
+                        <option 
+                          v-if="formData[field.name] && !(equipmentStore[field.equipmentType] || []).some(eq => (eq.marcaModelo || `${eq.marca || ''} ${eq.modelo || ''}`.trim()) === formData[field.name])"
+                          :value="formData[field.name]"
+                        >
+                          {{ formData[field.name] }} (Personalizado)
+                        </option>
+                        
                         <option 
                           v-for="eq in (equipmentStore[field.equipmentType] || [])" 
                           :key="eq.id" 
                           :value="eq.marcaModelo || `${eq.marca || ''} ${eq.modelo || ''}`.trim()"
-                        ></option>
-                      </datalist>
+                        >
+                          {{ eq.marcaModelo || `${eq.marca || ''} ${eq.modelo || ''}`.trim() }}
+                        </option>
+                      </select>
                     </div>
                     <div v-else-if="field.type === 'checkbox'" class="checkbox-wrapper">
                       <input :id="field.name" v-model="formData[field.name]" type="checkbox" class="checkbox-input" />
