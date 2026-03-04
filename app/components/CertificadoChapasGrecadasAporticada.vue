@@ -152,11 +152,11 @@
         </div>
 
         <p class="parrafo-fecha">
-          En <span class="texto-rojo">{{ ciudadFirma }}, a {{ fecha }}</span
+          En <span class="texto-rojo">{{ ciudadFirma }}, a {{ dia }} de {{ mes }} de {{ anio }}</span
           >.
         </p>
       </div>
-
+      
       <div class="pie-pagina">
         <p class="texto-pie">www.solay.es</p>
         <p class="texto-pie">
@@ -184,7 +184,9 @@ defineProps({
   peso: String,
   marcaModelo: String,
   ciudadFirma: String,
-  fecha: String,
+  dia: String,
+  mes: String,
+  anio: String,
 });
 </script>
 
