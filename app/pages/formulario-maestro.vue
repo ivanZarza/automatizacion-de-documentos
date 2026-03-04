@@ -42,10 +42,13 @@ import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import DocumentForm from '../components/DocumentForm.vue'
 import Boton from '../components/Boton.vue'
+import { useFormStore } from '../stores/formStore'
 import { masterFormFields, getMasterFormDefaultData } from '../config/masterFormFields'
 import { loadFromStorage, saveToStorage, clearStorage, loadImagesFromStorage, clearImagesFromStorage } from '../utils/storageManager'
 
+
 const router = useRouter()
+const formStore = useFormStore()
 
 // Inicializar formData
 const formData = ref({})
@@ -55,12 +58,13 @@ const formData = ref({})
  */
 const loadMasterData = () => {
   const savedData = loadFromStorage()
+  const unsavedData = formStore.hasData ? formStore.getFormData() : {}
   
   // Si hay datos guardados en localStorage, usarlos; si no, usar valores por defecto
   if (savedData && Object.keys(savedData).length > 0) {
-    formData.value = { ...savedData }
+    formData.value = { ...savedData, ...unsavedData }
   } else {
-    formData.value = getMasterFormDefaultData()
+    formData.value = { ...getMasterFormDefaultData(), ...unsavedData }
   }
 }
 
