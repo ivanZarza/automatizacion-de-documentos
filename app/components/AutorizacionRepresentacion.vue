@@ -30,7 +30,7 @@
           </p>
         </div>
 
-        <p class="parrafo-fecha">En {{ localidad }} a {{ fecha }}</p>
+        <p class="parrafo-fecha">En {{ localidad }} a {{ dia }} de {{ mes }} de {{ anio }}</p>
 
         <!-- Firmas lado a lado compacto -->
         <div class="contenedor-firmas">
@@ -69,7 +69,9 @@ defineProps({
   domicilioRepresentante: String,
   organismo: String,
   gestiones: String,
-  fecha: String,
+  dia: String,
+  mes: String,
+  anio: String,
   localidad: String,
   provincia: String,
   generatedDate: {

@@ -16,7 +16,9 @@ export const autorizacionRepresentacionConfig = {
     { name: 'domicilioRepresentante', label: 'Domicilio del Representante', type: 'text', fullWidth: true },
     { name: 'organismo', label: 'Organismo', type: 'text', fullWidth: true },
     { name: 'gestiones', label: 'Gestiones a Realizar', type: 'textarea', rows: 3, fullWidth: true },
-    { name: 'fecha', label: 'Fecha', type: 'date' }
+    { name: 'dia', label: 'Día', type: 'text' },
+    { name: 'mes', label: 'Mes', type: 'text' },
+    { name: 'anio', label: 'Año', type: 'text' }
   ],
   defaultData: {
     autorizante: '',
@@ -29,16 +31,20 @@ export const autorizacionRepresentacionConfig = {
     domicilioRepresentante: 'Calle Ebro, 35 – 41012, Sevilla, Sevilla',
     organismo: '',
     gestiones: 'SOLICITUD DE LICENCIA DE OBRA MENOR CON DECLARACIÓN RESPONSABLE O AUTORIZACIÓN URBANÍSTICA',
-    fecha: '18/11/2025'
+    dia: '18',
+    mes: 'noviembre',
+    anio: '2025'
   },
   fieldMapping: {
     autorizante: 'apellidosNombre',
     dniAutorizante: 'nifCif',
-    domicilioAutorizante: (dataForm) => `${dataForm.emplazamientoCalle} ${dataForm.numero}`,
+    domicilioAutorizante: (formData) => `${formData.emplazamientoCalle} ${formData.numero ? formData.numero : ''} ${formData.bloque ? 'Bloque ' + formData.bloque : ''} ${formData.escalera ? 'Escalera ' + formData.escalera : ''} ${formData.planta ? 'Planta ' + formData.planta : ''} ${formData.puerta ? 'Puerta ' + formData.puerta : ''}`.trim(), codigoPostal: 'codigoPostalEmplazamiento',
     localidad: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',
     organismo: 'localidadEmplazamiento',
-    fecha: 'fecha'
+    dia: 'dia',
+    mes: 'mes',
+    anio: 'anio'
   },
   capabilities: {
     canPreview: true,
@@ -133,7 +139,7 @@ export const certificadoCoplanarTejaConfig = {
     foto2: null
   },
   fieldMapping: {
-    direccion: 'emplazamientoCalle',
+    direccionAutorizante: (dataForm) => `${dataForm.emplazamientoCalle} ${dataForm.numero ? formData.numero : ''} ${dataForm.bloque ? 'Bloque ' + formData.bloque : ''} ${dataForm.escalera ? 'Escalera ' + formData.escalera : ''} ${dataForm.planta ? 'Planta ' + formData.planta : ''} ${formData.puerta ? 'Puerta ' + formData.puerta : ''}`.trim(), codigoPostal: 'codigoPostalEmplazamiento',
     numero: 'numero',
     codigoPostal: 'codigoPostalEmplazamiento',
     localidad: 'localidadEmplazamiento',
@@ -197,7 +203,7 @@ export const certificadoCubiertaPlanAaporticadaConfig = {
     foto2: null
   },
   fieldMapping: {
-    direccion: 'emplazamientoCalle',
+    direccionAutorizante: (dataForm) => `${dataForm.emplazamientoCalle} ${dataForm.numero ? formData.numero : ''} ${dataForm.bloque ? 'Bloque ' + formData.bloque : ''} ${dataForm.escalera ? 'Escalera ' + formData.escalera : ''} ${dataForm.planta ? 'Planta ' + formData.planta : ''} ${formData.puerta ? 'Puerta ' + formData.puerta : ''}`.trim(), codigoPostal: 'codigoPostalEmplazamiento',
     numero: 'numero',
     codigoPostal: 'codigoPostalEmplazamiento',
     localidad: 'localidadEmplazamiento',
@@ -257,7 +263,7 @@ export const certificadoAporticadaTejConfig = {
     foto2: null
   },
   fieldMapping: {
-    direccion: 'emplazamientoCalle',
+    direccionAutorizante: (dataForm) => `${dataForm.emplazamientoCalle} ${dataForm.numero ? formData.numero : ''} ${dataForm.bloque ? 'Bloque ' + formData.bloque : ''} ${dataForm.escalera ? 'Escalera ' + formData.escalera : ''} ${dataForm.planta ? 'Planta ' + formData.planta : ''} ${formData.puerta ? 'Puerta ' + formData.puerta : ''}`.trim(), codigoPostal: 'codigoPostalEmplazamiento',
     numero: 'numero',
     codigoPostal: 'codigoPostalEmplazamiento',
     localidad: 'localidadEmplazamiento',
@@ -317,7 +323,7 @@ export const certificadoChapasGrecadasAporticadaConfig = {
     foto2: null
   },
   fieldMapping: {
-    direccion: 'emplazamientoCalle',
+    direccionAutorizante: (dataForm) => `${dataForm.emplazamientoCalle} ${dataForm.numero ? formData.numero : ''} ${dataForm.bloque ? 'Bloque ' + formData.bloque : ''} ${dataForm.escalera ? 'Escalera ' + formData.escalera : ''} ${dataForm.planta ? 'Planta ' + formData.planta : ''} ${formData.puerta ? 'Puerta ' + formData.puerta : ''}`.trim(), codigoPostal: 'codigoPostalEmplazamiento',
     numero: 'numero',
     codigoPostal: 'codigoPostalEmplazamiento',
     localidad: 'localidadEmplazamiento',
@@ -377,7 +383,7 @@ export const certificadoParamentoVerticalConfig = {
     foto2: null
   },
   fieldMapping: {
-    direccion: 'emplazamientoCalle',
+    direccionAutorizante: (dataForm) => `${dataForm.emplazamientoCalle} ${dataForm.numero ? formData.numero : ''} ${dataForm.bloque ? 'Bloque ' + formData.bloque : ''} ${dataForm.escalera ? 'Escalera ' + formData.escalera : ''} ${dataForm.planta ? 'Planta ' + formData.planta : ''} ${formData.puerta ? 'Puerta ' + formData.puerta : ''}`.trim(), codigoPostal: 'codigoPostalEmplazamiento',
     numero: 'numero',
     codigoPostal: 'codigoPostalEmplazamiento',
     localidad: 'localidadEmplazamiento',
@@ -443,7 +449,7 @@ export const certificadoPergolaAporticadaConfig = {
     foto2: null
   },
   fieldMapping: {
-    direccion: 'emplazamientoCalle',
+    direccionAutorizante: (dataForm) => `${dataForm.emplazamientoCalle} ${dataForm.numero ? formData.numero : ''} ${dataForm.bloque ? 'Bloque ' + formData.bloque : ''} ${dataForm.escalera ? 'Escalera ' + formData.escalera : ''} ${dataForm.planta ? 'Planta ' + formData.planta : ''} ${formData.puerta ? 'Puerta ' + formData.puerta : ''}`.trim(), codigoPostal: 'codigoPostalEmplazamiento',
     numero: 'numero',
     codigoPostal: 'codigoPostalEmplazamiento',
     localidad: 'localidadEmplazamiento',
@@ -702,7 +708,7 @@ export const memoriaTecnicaConfig = {
     correoElectronico: 'correoElectronicoEmplazamiento',
     telefono: 'telefono',
     tipoInstalacion: 'tipoInstalacion',
-        piso: 'planta',
+    piso: 'planta',
     // E2.1 - Conexión a la Red
     potenciaNominalInversores: 'e2_potenciaNominalInversores',
     tipoConexionRed: 'e2_tipoConexionRed',
@@ -996,7 +1002,7 @@ export const memoriaInstalacionAisladaConBateriaConfig = {
     correoElectronico: 'correoElectronicoEmplazamiento',
     telefono: 'telefono',
     tipoInstalacion: 'tipoInstalacion',
-            piso: 'planta',
+    piso: 'planta',
 
     // E2.1 - Conexión a la Red
     potenciaNominalInversores: 'e2_potenciaNominalInversores',
@@ -1080,7 +1086,7 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
     telefono: '',
     representante: '',
     dniRepresentante: '',
-            piso: 'planta',
+    piso: 'planta',
 
     // Sección B - EMPLAZAMIENTO
     emplazamientoCalle: '',
@@ -1156,7 +1162,7 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
     correoElectronico: 'correoElectronicoEmplazamiento',
     telefono: 'telefono',
     tipoInstalacion: 'tipoInstalacion',
-        piso: 'planta',
+    piso: 'planta',
 
     // E2.1 - Conexión a la Red
     potenciaNominalInversores: 'e2_potenciaNominalInversores',
@@ -1370,7 +1376,7 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
     correoElectronico: 'correoElectronicoEmplazamiento',
     telefono: 'telefono',
     tipoInstalacion: 'tipoInstalacion',
-        piso: 'planta',
+    piso: 'planta',
 
     // E2.1 - Conexión a la Red
     potenciaNominalInversores: 'e2_potenciaNominalInversores',
@@ -1524,7 +1530,7 @@ export const memoriaTecnicaPuntoRecargaConfig = {
     correoElectronico: 'correoElectronicoEmplazamiento',
     telefono: 'telefono',
     tipoInstalacion: 'tipoInstalacion',
-        piso: 'planta',
+    piso: 'planta',
 
     // E2.1 - Conexión a la Red
     potenciaNominalInversores: 'e2_potenciaNominalInversores',
@@ -1613,8 +1619,8 @@ export const declaracionNoGeneracionRcdsConfig = {
     fecha: ''
   },
   fieldMapping: {
-    direccion: 'emplazamientoCalle',
-    numero: 'numero',
+    direccionAutorizante: (dataForm) => `${dataForm.emplazamientoCalle} ${dataForm.numero ? formData.numero : ''} ${dataForm.bloque ? 'Bloque ' + formData.bloque : ''} ${dataForm.escalera ? 'Escalera ' + formData.escalera : ''} ${dataForm.planta ? 'Planta ' + formData.planta : ''} ${formData.puerta ? 'Puerta ' + formData.puerta : ''}`.trim(), codigoPostal: 'codigoPostalEmplazamiento',
+    numero: '',
     codigoPostal: 'codigoPostalEmplazamiento',
     municipio: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',
@@ -1704,8 +1710,8 @@ export const planosPlanosSituacionEmplazamientoCubiertaConfig = {
   fieldMapping: {
     pse_promotor: 'apellidosNombre',
     pse_nif: 'nifCif',
-    pse_direccion: 'emplazamientoCalle',
-    pse_numero: 'numero',
+    pse_direccion: (dataForm) => `${dataForm.emplazamientoCalle}`,
+    pse_numero: (dataForm) => `${dataForm.numero},${dataForm.bloque ? 'Bloque ' + formData.bloque : ''} ${dataForm.escalera ? 'Escalera ' + formData.escalera : ''} ${dataForm.planta ? 'Planta ' + formData.planta : ''} ${formData.puerta ? 'Puerta ' + formData.puerta : ''}`.trim(),
     pse_localidad: 'localidadEmplazamiento',
     pse_codigoPostal: 'codigoPostalEmplazamiento',
     pse_provincia: 'provinciaEmplazamiento',
@@ -2608,7 +2614,7 @@ export const documento80PaginasConfig = {
   },
   fieldMapping: {
     nombre: 'apellidosNombre',
-    direccion: (formData) => `${formData.emplazamientoCalle || ''} - ${formData.numero || ''}    ${formData.bloque || '' } ${formData.escalera || ''}  ${formData.piso || ''}  ${formData.puerta || ''}  `,
+    direccion: (formData) => `${formData.emplazamientoCalle || ''} - ${formData.numero || ''}    ${formData.bloque || ''} ${formData.escalera || ''}  ${formData.piso || ''}  ${formData.puerta || ''}  `,
     referenciaCatastral: 'referenciaCatastral',
     dia: 'dia',
     mes: 'mes',
