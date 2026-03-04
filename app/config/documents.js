@@ -70,7 +70,9 @@ export const declaracionHabilitacionProfesionalConfig = {
     { name: 'localidadProfesional', label: 'Localidad', type: 'text' },
     { name: 'provinciaProfesional', label: 'Provincia', type: 'text' },
     { name: 'ciudadFirma', label: 'Ciudad de Firma', type: 'text' },
-    { name: 'fecha', label: 'Fecha', type: 'date' }
+    { name: 'dia', label: 'Día', type: 'text' },
+    { name: 'mes', label: 'Mes', type: 'text' },
+    { name: 'anio', label: 'Año', type: 'text' }
   ],
   defaultData: {
     nombreProfesional: 'Eduardo Rivera Cabezas',
@@ -83,11 +85,15 @@ export const declaracionHabilitacionProfesionalConfig = {
     localidadProfesional: 'Tomares',
     provinciaProfesional: 'Sevilla',
     ciudadFirma: 'Jerez de la Frontera',
-    fecha: '16/10/2025'
+    dia: '18',
+    mes: 'noviembre',
+    anio: '2025'
   },
   fieldMapping: {
     ciudadFirma: 'localidadEmplazamiento',
-    fecha: 'fecha'
+    dia: 'dia',
+    mes: 'mes',
+    anio: 'anio'
   },
   capabilities: {
     canPreview: true,

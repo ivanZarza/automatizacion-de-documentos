@@ -52,7 +52,7 @@
           En 
           <span class="texto-editable">{{ ciudadFirma }}</span>, 
           a 
-          <span class="texto-editable">{{ fecha }}</span>.
+          <span class="texto-editable">{{ dia }} de {{ mes }} de {{ anio }}</span>.
         </p>
 
         <!-- FIRMA -->
@@ -90,10 +90,12 @@ const datosProfesional = {
   provinciaProfesional: 'Sevilla'
 }
 
-// Props editables (solo fecha y ciudad de firma)
+// Props editables (solo fechas y ciudad de firma)
 defineProps({
   ciudadFirma: String,
-  fecha: String
+  dia: String,
+  mes: String,
+  anio: String
 })
 </script>
 
