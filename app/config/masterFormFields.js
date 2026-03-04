@@ -45,7 +45,28 @@ export const masterFormFields = [
   { name: 'presupuestoTotal', label: 'Presupuesto Total', placeholder: 'Ej: 10000', type: 'text', subsection: 'E2' },
   // E2.2 Módulo Fotovoltaico
 /*   { name: 'e2_tecnologiaCelulaModulo', label: 'TECNOLOGÍA DE LA CÉLULA', placeholder: 'Ej: Monocristalino -PERC-', type: 'text', subsection: 'E2' },
- */  { name: 'e2_marcaModeloModulo', label: 'MARCA Y MODELO', placeholder: 'Ej: JA Solar JAM72S30 450/MR', type: 'text', subsection: 'E2', group: 'Modulo' },
+ */  {
+    name: 'e2_marcaModeloModulo',
+    label: 'MARCA Y MODELO',
+    placeholder: 'Ej: JA Solar JAM72S30 450/MR',
+    type: 'equipment-autocomplete',
+    equipmentType: 'modulos',
+    mapping: {
+      marca: 'e2_marcaModeloModulo',
+      potenciaPicoModulo: 'e2_potenciaPicoModulo',
+      potenciaPicoGenerador: 'e2_potenciaPicoGenerador',
+      intensidadIpmp: 'e2_intensidadIpmpGenerador',
+      tensionVpmp: 'e2_tensionVpmpGenerador',
+      orientacion: 'e2_orientacionGenerador',
+      inclinacion: 'e2_inclinacionGenerador',
+      totalModulos: 'e2_totalModulos',
+      modulosEnSerie: 'e2_modulosEnSerie',
+      ramasEnParalelo: 'e2_ramasEnParalelo',
+      disposicionModulos: 'disposicionModulos'
+    },
+    subsection: 'E2',
+    group: 'Modulo'
+  },
   { name: 'e2_potenciaPicoModulo', label: 'POTENCIA PICO (Wp) DEL MÓDULO', placeholder: 'Ej: 450', type: 'text', subsection: 'E2', group: 'Modulo' },
   /*   { name: 'e2_toncModulo', label: 'TONC (ºC)', placeholder: 'Ej: 45', type: 'text', subsection: 'E2' },
    */
@@ -61,13 +82,45 @@ export const masterFormFields = [
   { name: 'disposicionModulos', label: 'DISPOSICIÓN DE LOS MÓDULOS', placeholder: 'Ej: En fila horizontal', type: 'select', options: ['Cubierta Teja - Aporticada', 'Cubierta Teja - Coplanar', 'Cubierta Plana', 'Pergola', 'Chapa Grecada - Aporticada', 'Chapa Grecada - Coplanar', 'Suelo', 'Paramento Vertical'], subsection: 'E2', group: 'Modulo' },
 
   // E2.4 Inversor
-  { name: 'e2_marcaModeloInversor', label: 'MARCA Y MODELO 1', placeholder: 'Ej: Fronius Symo', type: 'text', subsection: 'E2', group: 'Inversor' },
+  {
+    name: 'e2_marcaModeloInversor',
+    label: 'MARCA Y MODELO 1',
+    placeholder: 'Ej: Fronius Symo',
+    type: 'equipment-autocomplete',
+    equipmentType: 'inversores',
+    mapping: {
+      marcaModelo: 'e2_marcaModeloInversor',
+      potencia: 'e2_potenciaNominalInversor',
+      vccMaxima: 'e2_formaOndaSalidaInversor',
+      vccMinima: 'e2_frecuenciaNominalInversor',
+      conexion: 'e2_tipoConexionRed1',
+      relacionTension: 'e2_relacionTensionInversor'
+    },
+    subsection: 'E2',
+    group: 'Inversor'
+  },
   { name: 'e2_potenciaNominalInversor', label: 'POTENCIA NOMINAL (kW) 1', placeholder: 'Ej: 5000', type: 'text', subsection: 'E2', group: 'Inversor' },
   { name: 'e2_relacionTensionInversor', label: 'RELACIÓN TENSIÓN  AC, Vn (V) 1', placeholder: 'Ej: 230V/400V', type: 'text', subsection: 'E2', group: 'Inversor' },
   { name: 'e2_formaOndaSalidaInversor', label: 'Vcc MÁXIMA 1', placeholder: 'Ej: Senoidal Pura', type: 'text', subsection: 'E2', group: 'Inversor' },
   { name: 'e2_frecuenciaNominalInversor', label: 'Vcc MÍNIMA 1', placeholder: 'Ej: 50', type: 'text', subsection: 'E2', group: 'Inversor' },
   { name: 'e2_tipoConexionRed1', label: 'CONEXIÓN 1', placeholder: 'Ej: Monofásica / Trifásica', type: 'select', options: ['Monofásica', 'Trifásica'], subsection: 'E2', group: 'Inversor' },
-  { name: 'e2_marcaModeloInversor2', label: 'MARCA Y MODELO 2', placeholder: 'Ej: Fronius Symo', type: 'text', subsection: 'E2', group: 'Inversor' },
+  {
+    name: 'e2_marcaModeloInversor2',
+    label: 'MARCA Y MODELO 2',
+    placeholder: 'Ej: Fronius Symo',
+    type: 'equipment-autocomplete',
+    equipmentType: 'inversores',
+    mapping: {
+      marcaModelo: 'e2_marcaModeloInversor2',
+      potencia: 'e2_potenciaNominalInversor2',
+      vccMaxima: 'e2_formaOndaSalidaInversor2',
+      vccMinima: 'e2_frecuenciaNominalInversor2',
+      conexion: 'e2_tipoConexionRed2',
+      relacionTension: 'e2_relacionTensionInversor2'
+    },
+    subsection: 'E2',
+    group: 'Inversor'
+  },
   { name: 'e2_potenciaNominalInversor2', label: 'POTENCIA NOMINAL (kW) 2', placeholder: 'Ej: 5000', type: 'text', subsection: 'E2', group: 'Inversor' },
   { name: 'e2_relacionTensionInversor2', label: 'RELACIÓN TENSIÓN  AC, Vn (V) 2', placeholder: 'Ej: 230V/400V', type: 'text', subsection: 'E2', group: 'Inversor' },
   { name: 'e2_formaOndaSalidaInversor2', label: 'Vcc MÁXIMA 2', placeholder: 'Ej: Senoidal Pura', type: 'text', subsection: 'E2', group: 'Inversor' },
@@ -77,7 +130,26 @@ export const masterFormFields = [
     { name: 'e2_consumoVacioInversor', label: 'CONSUMO EN VACÍO', placeholder: 'Ej: 50', type: 'text', subsection: 'E2' }, */
 
   // E2.5 Otros
-  { name: 'e2_marcaModelo', label: 'MARCA Y MODELO', placeholder: 'Opcional', type: 'text', subsection: 'E2', group: 'Bateria' },
+  {
+    name: 'e2_marcaModelo',
+    label: 'MARCA Y MODELO',
+    placeholder: 'Opcional',
+    type: 'equipment-autocomplete',
+    equipmentType: 'baterias',
+    mapping: {
+      marcaModelo: 'e2_marcaModelo',
+      tipoBateria: 'e2_tipoDeBateria',
+      tensionNominal: 'e2_tensionNominal',
+      profundidadDescarga: 'e2_profundidadDescarga',
+      tensionMaxima: 'e2_tensionMaxima',
+      tensionMinima: 'e2_tensionMinima',
+      energiaTotal: 'e2_energiaTotal',
+      potenciaMaxima: 'e2_potenciaMaximaSalida',
+      maximoPicoPotencia: 'e2_maximoPicoDePotencia'
+    },
+    subsection: 'E2',
+    group: 'Bateria'
+  },
   { name: 'e2_tipoDeBateria', label: 'TIPO DE BATERÍA', placeholder: 'Opcional', type: 'text', subsection: 'E2', group: 'Bateria' },
   { name: 'e2_tensionNominal', label: 'TENSIÓN NOMINAL (V)', placeholder: 'Opcional', type: 'text', subsection: 'E2', fullWidth: true, group: 'Bateria' },
   { name: 'e2_profundidadDescarga', label: 'PROFUNDIDAD DE DESCARGA', placeholder: 'Opcional', type: 'text', subsection: 'E2', fullWidth: true, group: 'Bateria' },

@@ -38,9 +38,27 @@
                     <input v-else-if="field.type === 'date'" v-model="formData[field.name]" type="date" class="field-input" />
                     <textarea v-else-if="field.type === 'textarea'" v-model="formData[field.name]" :placeholder="field.placeholder" :rows="field.rows || 3" class="field-input field-textarea"></textarea>
                     <select v-else-if="field.type === 'select'" v-model="formData[field.name]" class="field-input">
-                      <option value="">{{ field.placeholder }}</option>
+                      <option value="">{{ field.placeholder || 'Seleccionar...' }}</option>
                       <option v-for="option in field.options" :key="option.value || option" :value="option.value || option">{{ option.label || option }}</option>
                     </select>
+                    <div v-else-if="field.type === 'equipment-autocomplete'" class="autocomplete-wrapper" style="width: 100%;">
+                      <input 
+                        :id="field.name" 
+                        v-model="formData[field.name]" 
+                        type="text" 
+                        :placeholder="field.placeholder" 
+                        class="field-input" 
+                        :list="`list-${field.name}`"
+                        @change="handleEquipmentSelect($event.target.value, field)"
+                      />
+                      <datalist :id="`list-${field.name}`">
+                        <option 
+                          v-for="eq in (equipmentStore[field.equipmentType] || [])" 
+                          :key="eq.id" 
+                          :value="eq.marcaModelo || `${eq.marca || ''} ${eq.modelo || ''}`.trim()"
+                        ></option>
+                      </datalist>
+                    </div>
                     <div v-else-if="field.type === 'checkbox'" class="checkbox-wrapper">
                       <input :id="field.name" v-model="formData[field.name]" type="checkbox" class="checkbox-input" />
                       <label :for="field.name" class="checkbox-label">{{ field.label }}</label>
@@ -103,10 +121,38 @@ async function onDrop(event, fieldName) {
     await handleFileUpload(fakeEvent, fieldName)
   }
 }
-import { ref, watch, computed } from 'vue'
+import { ref, watch, computed, onMounted } from 'vue'
 import Boton from './Boton.vue'
 import { masterFormFields } from '../config/masterFormFields'
 import { saveImageToStorage } from '../utils/storageManager'
+import { useEquipmentStore } from '../stores/equipmentStore'
+
+const equipmentStore = useEquipmentStore()
+
+onMounted(async () => {
+  await equipmentStore.cargarEquiposBD('inversores')
+  await equipmentStore.cargarEquiposBD('baterias')
+  await equipmentStore.cargarEquiposBD('modulos')
+})
+
+const handleEquipmentSelect = (value, field) => {
+  if (!value || !field.mapping || !field.equipmentType) return;
+  
+  const equiposDelTipo = equipmentStore[field.equipmentType] || []
+  const selectedEq = equiposDelTipo.find(eq => {
+    const nombreVisual = eq.marcaModelo || `${eq.marca || ''} ${eq.modelo || ''}`.trim()
+    return nombreVisual === value
+  })
+  
+  if (selectedEq) {
+    Object.entries(field.mapping).forEach(([origen, destino]) => {
+      if (selectedEq[origen] !== undefined && selectedEq[origen] !== null && selectedEq[origen] !== '') {
+        formData.value[destino] = selectedEq[origen]
+      }
+    })
+    console.log(`[DocumentForm] Auto-completado aplicado para ${field.name} desde equipo ${selectedEq.id}`)
+  }
+}
 
 const props = defineProps({
   title: {
