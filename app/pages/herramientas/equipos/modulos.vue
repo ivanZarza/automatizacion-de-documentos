@@ -10,39 +10,28 @@ const router = useRouter()
 
 const tipo = 'modulos'
 const cargando = ref(false)
-const formulario = ref<Record<string, any>>({
-  marca: '',
-  potenciaPicoModulo: '',
-  potenciaPicoGenerador: '',
-  intensidadIpmp: '',
-  tensionVpmp: '',
-  orientacion: '',
-  inclinacion: '',
-  totalModulos: '',
-  modulosEnSerie: '',
-  ramasEnParalelo: '',
-  disposicionModulos: ''
-})
+const formulario = ref<Record<string, any>>({})
 
 const label = 'Módulos'
 const icon = '☀️'
 const campos = [
   { id: 'marca', label: 'Marca y Modelo' },
   { id: 'potenciaPicoModulo', label: 'Potencia Pico (Wp) del Módulo' },
-  { id: 'potenciaPicoGenerador', label: 'Potencia Pico (Wp) del Generador' },
+  // { id: 'potenciaPicoGenerador', label: 'Potencia Pico (Wp) del Generador' },
   { id: 'intensidadIpmp', label: 'Intensidad Máxima Potencia, Ipmp (A)' },
-  { id: 'tensionVpmp', label: 'Tensión Máxima Potencia, Vpmp (V)' },
-  { id: 'orientacion', label: 'Orientación' },
-  { id: 'inclinacion', label: 'Inclinación (º)' },
-  { id: 'totalModulos', label: 'Nº Total Módulos' },
-  { id: 'modulosEnSerie', label: 'Nº Módulos en Serie' },
-  { id: 'ramasEnParalelo', label: 'Nº Ramas en Paralelo' },
-  { id: 'disposicionModulos', label: 'Disposición de los Módulos', type: 'select', options: ['Cubierta Teja - Aporticada', 'Cubierta Teja - Coplanar', 'Cubierta Plana', 'Pergola', 'Chapa Grecada - Aporticada', 'Chapa Grecada - Coplanar', 'Suelo', 'Paramento Vertical'] }
+  // { id: 'tensionVpmp', label: 'Tensión Máxima Potencia, Vpmp (V)' },
+  // { id: 'orientacion', label: 'Orientación' },
+  // { id: 'inclinacion', label: 'Inclinación (º)' },
+  // { id: 'totalModulos', label: 'Nº Total Módulos' },
+  // { id: 'modulosEnSerie', label: 'Nº Módulos en Serie' },
+  { id: 'ramasEnParalelo', label: 'Nº Ramas en Paralelo', value: '1' },
+  // { id: 'disposicionModulos', label: 'Disposición de los Módulos', type: 'select', options: ['Cubierta Teja - Aporticada', 'Cubierta Teja - Coplanar', 'Cubierta Plana', 'Pergola', 'Chapa Grecada - Aporticada', 'Chapa Grecada - Coplanar', 'Suelo', 'Paramento Vertical'] }
 ]
 
 const equipos = computed(() => equipmentStore.modulos || [])
 
 onMounted(async () => {
+  limpiarFormulario()
   cargando.value = true
   await equipmentStore.cargarEquiposBD(tipo)
   cargando.value = false
@@ -52,7 +41,7 @@ const formatearLabel = (clave: string) => String(clave).replace(/([A-Z])/g, ' $1
 
 const limpiarFormulario = () => {
   formulario.value = {}
-  campos.forEach(c => formulario.value[c.id] = '')
+  campos.forEach(c => formulario.value[c.id] = c.value ?? '')
 }
 
 const guardarEquipo = async () => {
@@ -70,12 +59,12 @@ const guardarEquipo = async () => {
 
 const eliminarEquipo = async (id: string) => {
   if (!confirm('¿Eliminar equipo?')) return
-  try { 
-    await equipmentStore.eliminarEquipo(tipo, id); 
-    alert('Eliminado') 
-  } catch (e: any) { 
-    console.error('Error al eliminar:', e); 
-    alert(`❌ Error al eliminar el equipo: ${e?.message || e}`) 
+  try {
+    await equipmentStore.eliminarEquipo(tipo, id);
+    alert('Eliminado')
+  } catch (e: any) {
+    console.error('Error al eliminar:', e);
+    alert(`❌ Error al eliminar el equipo: ${e?.message || e}`)
   }
 }
 
@@ -93,7 +82,7 @@ const llevarAlFormulario = (equipo: Record<string, any>) => {
     e2_ramasEnParalelo: equipo.ramasEnParalelo,
     disposicionModulos: equipo.disposicionModulos
   }
-  
+
   formStore.setFormDataUnsaved(datos)
   router.push('/formulario-maestro')
 }
@@ -109,7 +98,9 @@ definePageMeta({ layout: 'default' })
       <p class="descripcion">Gestiona módulos para el formulario maestro</p>
     </div>
 
-    <div v-if="cargando" class="loading"><p>⏳ Cargando...</p></div>
+    <div v-if="cargando" class="loading">
+      <p>⏳ Cargando...</p>
+    </div>
 
     <div v-else class="content">
       <div class="contenedor-formulario">
@@ -118,13 +109,14 @@ definePageMeta({ layout: 'default' })
           <div class="form-fields">
             <div v-for="campo in campos" :key="campo.id" class="form-group">
               <label :for="campo.id">{{ campo.label || formatearLabel(campo.id) }}</label>
-              
+
               <select v-if="campo.type === 'select'" :id="campo.id" v-model="formulario[campo.id]">
                 <option value="" disabled selected>Seleccione {{ campo.label }}</option>
                 <option v-for="opt in campo.options" :key="opt" :value="opt">{{ opt }}</option>
               </select>
-              
-              <input v-else :id="campo.id" v-model="formulario[campo.id]" type="text" :placeholder="campo.placeholder || `Ingrese ${campo.label || formatearLabel(campo.id)}`" />
+
+              <input v-else :id="campo.id" v-model="formulario[campo.id]" type="text"
+                :placeholder="campo.placeholder || `Ingrese ${campo.label || formatearLabel(campo.id)}`" />
             </div>
           </div>
           <div class="form-buttons">
@@ -136,7 +128,9 @@ definePageMeta({ layout: 'default' })
 
       <div class="contenedor-equipos">
         <h2>{{ icon }} {{ label }} Registrados ({{ equipos.length }})</h2>
-        <div v-if="equipos.length === 0" class="sin-equipos"><p>📭 No hay módulos registrados aún</p></div>
+        <div v-if="equipos.length === 0" class="sin-equipos">
+          <p>📭 No hay módulos registrados aún</p>
+        </div>
         <div v-else class="equipos-grid">
           <div v-for="e in (equipos as Record<string, any>[])" :key="e.id" class="equipment-card">
             <div class="card-header"><strong>{{ e.marcaModelo || e.marca || 'Sin nombre' }}</strong></div>
@@ -158,24 +152,156 @@ definePageMeta({ layout: 'default' })
 </template>
 
 <style scoped>
-.pagina-equipos{max-width:1200px;margin:0 auto;padding:2rem 1rem}
-.header-content{margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:2px solid #eee}
-.volver{color:#0066cc;text-decoration:none;font-weight:600;margin-bottom:1rem;display:inline-block}
-.descripcion{color:#666}
-.loading{text-align:center;padding:3rem 1rem;color:#666}
-.contenedor-formulario,.contenedor-equipos{background:#f9f9f9;border-radius:8px;padding:2rem;border-left:4px solid #0066cc;margin-bottom:1.5rem}
-.form-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
-.form-group label{font-weight:600;margin-bottom:.5rem;display:block}
-.form-group input, .form-group select{width:100%;padding:.75rem;border:1px solid #ddd;border-radius:4px;box-sizing:border-box}
-.form-buttons{display:flex;gap:1rem;justify-content:flex-end}
-.btn{padding:.75rem 1.5rem;border-radius:4px;border:none;font-weight:600;cursor:pointer}
-.btn-guardar{background:#28a745;color:#fff}.btn-cancelar{background:#6c757d;color:#fff}
-.equipos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(350px,1fr));gap:1.5rem}
-.equipment-card{background:#fff;border:1px solid #ddd;border-radius:8px;overflow:hidden}
-.card-header{padding:1rem;background:#f0f0f0;border-bottom:1px solid #ddd}
-.card-details{padding:1rem}
-.detail{display:flex;justify-content:space-between;padding:.5rem 0;border-bottom:1px solid #f0f0f0}
-.card-actions{display:flex;gap:.5rem;padding:1rem;background:#fafafa}
-.btn-llevar{flex:1;background:#2196f3;color:#fff;padding:.6rem 1rem}.btn-eliminar{flex:1;background:#dc3545;color:#fff;padding:.6rem 1rem}
-@media(max-width:768px){.form-fields{grid-template-columns:1fr}.form-buttons{flex-direction:column}.btn{width:100%}.equipos-grid{grid-template-columns:1fr}}
+.pagina-equipos {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem
+}
+
+.header-content {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #eee
+}
+
+.volver {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  display: inline-block
+}
+
+.descripcion {
+  color: #666
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #666
+}
+
+.contenedor-formulario,
+.contenedor-equipos {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 2rem;
+  border-left: 4px solid #0066cc;
+  margin-bottom: 1.5rem
+}
+
+.form-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: .5rem;
+  display: block
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: .75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box
+}
+
+.form-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end
+}
+
+.btn {
+  padding: .75rem 1.5rem;
+  border-radius: 4px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer
+}
+
+.btn-guardar {
+  background: #28a745;
+  color: #fff
+}
+
+.btn-cancelar {
+  background: #6c757d;
+  color: #fff
+}
+
+.equipos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem
+}
+
+.equipment-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden
+}
+
+.card-header {
+  padding: 1rem;
+  background: #f0f0f0;
+  border-bottom: 1px solid #ddd
+}
+
+.card-details {
+  padding: 1rem
+}
+
+.detail {
+  display: flex;
+  justify-content: space-between;
+  padding: .5rem 0;
+  border-bottom: 1px solid #f0f0f0
+}
+
+.card-actions {
+  display: flex;
+  gap: .5rem;
+  padding: 1rem;
+  background: #fafafa
+}
+
+.btn-llevar {
+  flex: 1;
+  background: #2196f3;
+  color: #fff;
+  padding: .6rem 1rem
+}
+
+.btn-eliminar {
+  flex: 1;
+  background: #dc3545;
+  color: #fff;
+  padding: .6rem 1rem
+}
+
+@media(max-width:768px) {
+  .form-fields {
+    grid-template-columns: 1fr
+  }
+
+  .form-buttons {
+    flex-direction: column
+  }
+
+  .btn {
+    width: 100%
+  }
+
+  .equipos-grid {
+    grid-template-columns: 1fr
+  }
+}
 </style>

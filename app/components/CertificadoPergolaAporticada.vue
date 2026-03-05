@@ -30,19 +30,78 @@
               referenciaCatastral }}</span>, es el adecuado para soportar de forma sólida y segura el generador
           fotovoltaico para <span class="texto-azul">Autoconsumo</span> que se tiene previsto instalar, a la vista de la
           inspección ocular realizada <span class="texto-azul">in situ</span>, de la revisión del proyecto constructivo
-          de la misma, y de la disposición sobre la estructura aporticada.
+          de la misma, y de la disposición sobre la cubierta de los módulos fotovoltaicos.
         </p>
 
         <p class="parrafo-datos">
           El generador fotovoltaico ha sido dimensionado mediante Memoria Técnica de Diseño según requiere la
           reglamentación, y está compuesto por <span class="texto-editable">{{ numModulos }}</span> módulos
-          fotovoltaicos de <span class="texto-editable">{{ potencia }}</span> Wp de potencia eléctrica cada uno, del
-          fabricante y modelo <span class="texto-editable">{{ marcaModelo }}</span>.
+          fotovoltaicos de <span class="texto-editable">{{ potencia }}</span> Wp de potencia eléctrica y <span
+            class="texto-editable">{{ peso }}</span> kg de peso cada uno, del fabricante y modelo <span
+            class="texto-editable">{{ marcaModelo }}</span>.
+        </p>
+
+        <h3 class="titulo-seccion">Estructura Primaria</h3>
+
+        <p class="parrafo-estructura">
+          Los paneles fotovoltaicos se situarán sobre una estructura primaria consistente en EN UNA PÉRGOLA DE ACERO
+          GALVANIZADO. Esta estructura tendrá una altura máxima de 1,8 m, una orientación de <span
+            class="texto-editable">{{ orientacion }}</span> y una inclinación de <span class="texto-editable">{{
+            inclinacion }}</span>, posicionándose los paneles formando un plano inclinado.
         </p>
 
         <p class="parrafo-estructura">
-          La estructura de soporte para la pérgola es metálica galvanizada, diseñada y fabricada según procedimientos
-          del fabricante y anclada al soporte mediante elementos de fijación adecuados.
+          La estructura primaria o pérgola de acero galvanizado, servirá de base para la estructura secundaria,
+          consistente en una perfilería de aluminio ligero de la empresa SUNFER ESTRUCTURAS, S.L., especializada en
+          soportes para generadores fotovoltaicos con Certificado de Garantía y Marcado CE de sus productos (se
+          adjuntan en la Memoria Técnica de Diseño, así como la Ficha Técnica y Plano de Montaje).
+        </p>
+
+        <h3 class="titulo-seccion">Estructura Secundaria</h3>
+
+        <p class="parrafo-estructura">
+          La perfilería secundaria de aluminio estará finalmente unida solidariamente a los módulos fotovoltaicos
+          mediante elementos de presión y fijación con tornillo a las distancias y pares de apriete marcados por el
+          fabricante.
+        </p>
+
+        <h3 class="titulo-seccion">Fijación y lastres</h3>
+
+        <p class="parrafo-estructura">
+          Para la sujeción de la pérgola, ésta será fijada sobre unos lastres de 22 kg de peso cada uno, mediante
+          varillas roscadas (según procedimiento del fabricante), sólidamente fijadas a la perfilería secundaria de
+          aluminio mediante tornillería de acero inoxidable; todo ello según los procedimientos de instalación
+          establecidos en la ficha técnica del producto, guardando las distancias previstas entre las perforaciones y
+          respetando los pares de apriete de la tornillería.
+        </p>
+
+        <p class="parrafo-estructura">
+          Mediante estos lastres se garantiza que la instalación está protegida contra desprendimientos debido tanto
+          a las fuerzas de tracción como de compresión sobre la propia cubierta.
+        </p>
+
+        <p class="parrafo-estructura">
+          Se ha comprobado que la actuación a realizar no desvirtúa el carácter arquitectónico de la edificación,
+          garantizando su adecuada integración en la estética del edificio tanto de los paneles y la estructura
+          metálica como de cualquier tubería o canalización perteneciente a dicha instalación, evitando expresamente
+          el trazado visible por las fachadas.
+        </p>
+
+        <p class="parrafo-estructura">
+          Los paneles fotovoltaicos cumplen la normativa UNE-EN 61215 para módulos de silicio monocristalino, además
+          al ir conectada a la red cuenta con los subsistemas de control y regulación, desconexión e inversión,
+          seguridad e inyección a la red eléctrica destinataria de la electricidad generada. En cualquier caso,
+          certifico que la actuación cumplirá las Ordenanzas reguladoras de las instalaciones de captación solar en
+          <span class="texto-editable">{{ localidad }}</span>.
+        </p>
+
+        <p class="parrafo-estructura">
+          El estado de la <span class="texto-editable">{{ cubiertaTipo }}</span> de la edificación es el adecuado
+          para soportar de forma sólida y segura el generador fotovoltaico para <span
+            class="texto-azul">Autoconsumo</span> que se tiene previsto instalar, con ausencia de afección
+          estructural, a la vista de la inspección ocular realizada <span class="texto-azul">in situ</span>, de la
+          revisión del proyecto constructivo de la misma, y de la disposición sobre la cubierta de los módulos
+          fotovoltaicos.
         </p>
 
       </div>
@@ -66,15 +125,7 @@
       </div>
 
       <div class="contenido-principal">
-        <p class="parrafo-estructura">
-          La estructura se ancla mediante tornillería y anclajes químicos/mecánicos según la naturaleza del soporte. Se
-          respetarán las distancias y pares de apriete marcados por el fabricante.
-        </p>
 
-        <p class="parrafo-estructura">
-          Orientación prevista: <span class="texto-editable">{{ orientacion }}</span>. Inclinación de los paneles: <span
-            class="texto-editable">{{ inclinacion }}</span>.
-        </p>
 
         <p class="parrafo-estructura">
           La mencionada Memoria Técnica de Diseño ha sido redactada por mí como técnico competente.
@@ -250,6 +301,13 @@ defineProps({
   padding: 10px 0;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
+}
+
+.titulo-seccion {
+  font-size: 16px;
+  font-weight: bold;
+  color: #0066cc;
+  margin: 15px 0 5px 0;
 }
 
 /* ========== TEXTO ========== */
