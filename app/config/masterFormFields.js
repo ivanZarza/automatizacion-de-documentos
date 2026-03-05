@@ -79,7 +79,7 @@ export const masterFormFields = [
   { name: 'e2_totalModulos', label: 'Nº TOTAL MÓDULOS', placeholder: 'Ej: 10', type: 'text', subsection: 'E2', group: 'Modulo' },
   { name: 'e2_modulosEnSerie', label: 'Nº MÓDULOS EN SERIE', placeholder: 'Ej: 10', type: 'text', subsection: 'E2', group: 'Modulo' },
   { name: 'e2_ramasEnParalelo', label: 'Nº RAMAS EN PARALELO', placeholder: 'Ej: 1', type: 'text', subsection: 'E2', group: 'Modulo' },
-  { name: 'disposicionModulos', label: 'DISPOSICIÓN DE LOS MÓDULOS', placeholder: 'Ej: En fila horizontal', type: 'select', options: ['Cubierta Teja - Aporticada', 'Cubierta Teja - Coplanar', 'Cubierta Plana', 'Pergola', 'Chapa Grecada - Aporticada', 'Chapa Grecada - Coplanar', 'Suelo', 'Paramento Vertical'], subsection: 'E2', group: 'Modulo' },
+  { name: 'disposicionModulos', label: 'DISPOSICIÓN DE LOS MÓDULOS', placeholder: 'Ej: En fila horizontal', type: 'select', options: ['Cubierta Teja - Aporticada', 'Cubierta Teja - Coplanar', 'Cubierta Plana', 'Pérgola', 'Chapa Grecada - Aporticada', 'Chapa Grecada - Coplanar', 'Suelo', 'Paramento Vertical'], subsection: 'E2', group: 'Modulo' },
 
   // E2.4 Inversor
   {

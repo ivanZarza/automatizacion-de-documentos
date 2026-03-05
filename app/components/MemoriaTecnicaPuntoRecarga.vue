@@ -21,8 +21,9 @@
 
       <!-- SECCIÓN A: TITULAR -->
       <div class="seccion" style="border-top: 1px solid #000;">
-        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">A</span> | TITULAR</div>
-        
+        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">A</span>
+          | TITULAR</div>
+
         <div class="fila-grid fila-2col">
           <div class="celda celda-izquierda">
             <div class="etiqueta">APELLIDOS Y NOMBRE/RAZÓN SOCIAL:</div>
@@ -79,8 +80,9 @@
 
       <!-- SECCIÓN B: EMPLAZAMIENTO -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">B</span> | EMPLAZAMIENTO DE LA INSTALACIÓN Y USO AL QUE SE DESTINA</div>
-        
+        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">B</span>
+          | EMPLAZAMIENTO DE LA INSTALACIÓN Y USO AL QUE SE DESTINA</div>
+
         <div class="cuerpo-seccion-borde">
           <div class="etiqueta">CALLE/AVENIDA:</div>
           <div class="valor">{{ emplazamientoCalle }}</div>
@@ -136,15 +138,18 @@
           <div class="etiqueta-grande" style="border-bottom: none">INSTALACIÓN:</div>
           <div class="opciones-checkbox">
             <div class="opcion-checkbox">
-              <input type="checkbox" :checked="tipoInstalacionSeleccionada === 'Nueva'" @change="tipoInstalacionSeleccionada = 'Nueva'">
+              <input type="checkbox" :checked="tipoInstalacionSeleccionada === 'Nueva'"
+                @change="tipoInstalacionSeleccionada = 'Nueva'">
               <label>Nueva</label>
             </div>
             <div class="opcion-checkbox">
-              <input type="checkbox" :checked="tipoInstalacionSeleccionada === 'Ampliación'" @change="tipoInstalacionSeleccionada = 'Ampliación'">
+              <input type="checkbox" :checked="tipoInstalacionSeleccionada === 'Ampliación'"
+                @change="tipoInstalacionSeleccionada = 'Ampliación'">
               <label>Ampliación</label>
             </div>
             <div class="opcion-checkbox">
-              <input type="checkbox" :checked="tipoInstalacionSeleccionada === 'Modificación'" @change="tipoInstalacionSeleccionada = 'Modificación'">
+              <input type="checkbox" :checked="tipoInstalacionSeleccionada === 'Modificación'"
+                @change="tipoInstalacionSeleccionada = 'Modificación'">
               <label>Modificación</label>
             </div>
           </div>
@@ -153,12 +158,13 @@
 
       <!-- SECCIÓN C: PERSONA QUE FIRMA -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">C</span> | IDENTIFICACIÓN DE LA PERSONA QUE FIRMA LA MTD</div>
-        
+        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">C</span>
+          | IDENTIFICACIÓN DE LA PERSONA QUE FIRMA LA MTD</div>
+
         <!-- Técnico Instalador Autorizado -->
         <div class="subseccion">
           <div class="etiqueta-grande">MEMORIA REALIZADA POR INSTALADOR ELÉCTRICO AUTORIZADO:</div>
-          
+
           <div class="fila-grid fila-2col">
             <div class="celda celda-izquierda">
               <div class="etiqueta">NOMBRE:</div>
@@ -208,7 +214,7 @@
             <input type="checkbox" style="width: 14px; height: 14px; cursor: pointer;">
             <span>MEMORIA REALIZADA POR TÉCNICO COMPETENTE:</span>
           </div>
-          
+
           <div class="fila-grid fila-2col">
             <div class="celda celda-izquierda valor-grande">
               <div class="etiqueta">NOMBRE:</div>
@@ -271,8 +277,9 @@
 
       <!-- SECCIÓN D: MODALIDADES -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">D</span> | MODALIDADES DE INSTALACIÓN</div>
-        
+        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">D</span>
+          | MODALIDADES DE INSTALACIÓN</div>
+
         <div class="cuerpo-seccion">
           <div class="etiqueta-grande" style="border-bottom: none;">MODALIDADES BÁSICAS:</div>
           <div class="grid-modalidades">
@@ -294,8 +301,9 @@
 
       <!-- SECCIÓN E: INSTALACIÓN PARA LA RECARGA DE VEHÍCULO ELÉCTRICO -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">E</span> | INSTALACIÓN PARA LA RECARGA DE VEHÍCULO ELÉCTRICO</div>
-        
+        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">E</span>
+          | INSTALACIÓN PARA LA RECARGA DE VEHÍCULO ELÉCTRICO</div>
+
         <!-- E.1 CARGADOR -->
         <div class="subseccion">
           <div class="subseccion-titulo"><span class="subseccion-titulo-span">E.1</span> CARGADOR</div>
@@ -323,7 +331,8 @@
 
         <!-- E.2 INFRAESTRUCTURA DE RECARGA -->
         <div class="subseccion">
-          <div class="subseccion-titulo" style="border-top: 1px solid #000;"><span class="subseccion-titulo-span">E.2</span> INFRAESTRUCTURA DE RECARGA</div>
+          <div class="subseccion-titulo" style="border-top: 1px solid #000;"><span
+              class="subseccion-titulo-span">E.2</span> INFRAESTRUCTURA DE RECARGA</div>
           <div class="fila-grid fila-2col">
             <div class="celda celda-izquierda">
               <div class="etiqueta">NÚMERO DE PUNTOS DE CARGA:</div>
@@ -362,12 +371,22 @@
 
         <!-- E.3 CUADRO DE MANDO Y PROTECCIÓN -->
         <div class="subseccion">
-          <div class="subseccion-titulo"><span class="subseccion-titulo-span">E.3</span> CUADRO DE MANDO Y PROTECCIÓN</div>
-          <p class="texto-protecciones">Protecciones de cabecera en la línea de alimentación del cargador de VE de acuerdo con ITC BT 52:</p>
+          <div class="subseccion-titulo"><span class="subseccion-titulo-span">E.3</span> CUADRO DE MANDO Y PROTECCIÓN
+          </div>
+          <p class="texto-protecciones">Protecciones de cabecera en la línea de alimentación del cargador de VE de
+            acuerdo con ITC BT 52:</p>
           <ul class="lista-protecciones">
-            <li><strong>INTERRUPTOR GENERAL MAGNETOTÉRMICO {{ interruptorGeneralAmperaje }} A:</strong> Con protección contra sobretensiones temporales/permanentes en el mismo dispositivo. Este será situado en cabecera con el fin de proteger la instalación contra sobrecargas y cortocircuitos. El calibre será seleccionado y calculado en base al circuito que proteja. Se instalará uno por línea de curva C.</li>
-            <li><strong>INTERRUPTOR DIFERENCIAL CLASE A SUPER INMUNIZADO {{ interruptorDiferencialAmperaje }} A {{ interruptorDiferencialSensibilidad }} mA:</strong> Irá situado en cabecera con el fin de proteger a la instalación y a las personas de posibles derivaciones directas o indirectas. Se instalará uno por línea de clase A y {{ interruptorDiferencialSensibilidad }} mA</li>
-            <li><strong>DESCARGADOR DE SOBRETENSIONES TRANSITORIAS:</strong> Con el fin de proteger a los equipos y la instalación contra sobretensiones transitorias inducidas tipo 1 y tipo 2 por descargas atmosféricas en cabecera (CGMP) y no siendo superior la distancia a los puntos de recarga a 10 m</li>
+            <li><strong>INTERRUPTOR GENERAL MAGNETOTÉRMICO {{ interruptorGeneralAmperaje }} A:</strong> Con protección
+              contra sobretensiones temporales/permanentes en el mismo dispositivo. Este será situado en cabecera con el
+              fin de proteger la instalación contra sobrecargas y cortocircuitos. El calibre será seleccionado y
+              calculado en base al circuito que proteja. Se instalará uno por línea de curva C.</li>
+            <li><strong>INTERRUPTOR DIFERENCIAL CLASE A SUPER INMUNIZADO {{ interruptorDiferencialAmperaje }} A {{
+              interruptorDiferencialSensibilidad }} mA:</strong> Irá situado en cabecera con el fin de proteger a la
+              instalación y a las personas de posibles derivaciones directas o indirectas. Se instalará uno por línea de
+              clase A y {{ interruptorDiferencialSensibilidad }} mA</li>
+            <li><strong>DESCARGADOR DE SOBRETENSIONES TRANSITORIAS:</strong> Con el fin de proteger a los equipos y la
+              instalación contra sobretensiones transitorias inducidas tipo 1 y tipo 2 por descargas atmosféricas en
+              cabecera (CGMP) y no siendo superior la distancia a los puntos de recarga a 10 m</li>
             <li><strong>PUESTA A TIERRA:</strong> {{ puestaATierra }}</li>
           </ul>
         </div>
@@ -375,8 +394,9 @@
 
       <!-- SECCIÓN F: CARACTERÍSTICAS DE LAS LÍNEAS Y CIRCUITOS -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">F</span> | CARACTERÍSTICAS DE LAS LÍNEAS Y CIRCUITOS</div>
-        
+        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">F</span>
+          | CARACTERÍSTICAS DE LAS LÍNEAS Y CIRCUITOS</div>
+
         <div class="cuerpo-seccion" style="overflow-x: auto;">
           <table class="tabla-circuitos">
             <thead>
@@ -405,8 +425,9 @@
 
       <!-- SECCIÓN G: ESQUEMA UNIFILAR -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">G</span> | ESQUEMA UNIFILAR DE LA INSTALACIÓN (PROTECCIONES INCLUIDAS)</div>
-        
+        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">G</span>
+          | ESQUEMA UNIFILAR DE LA INSTALACIÓN (PROTECCIONES INCLUIDAS)</div>
+
         <div class="contenedor-esquema">
           <img v-if="esquemaUnifilar" :src="esquemaUnifilar" class="imagen-esquema" />
           <div v-else class="placeholder-esquema">Esquema eléctrico unifilar de la instalación</div>
@@ -415,12 +436,43 @@
 
       <!-- SECCIÓN H: PLANO DE EMPLAZAMIENTO -->
       <div class="seccion">
-        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">H</span> | PLANO DE EMPLAZAMIENTO Y CROQUIS DE ACCESO</div>
-        
+        <div class="encabezado-seccion"><span class="subseccion-titulo-span" style="background-color: #FFA02A;">H</span>
+          | PLANO DE EMPLAZAMIENTO Y CROQUIS DE ACCESO</div>
+
         <div class="contenedor-esquema">
           <img v-if="planoEmplazamiento" :src="planoEmplazamiento" class="imagen-esquema" />
           <div v-else class="placeholder-esquema">Plano de emplazamiento y acceso a la instalación</div>
         </div>
+      </div>
+
+      <!-- FIRMA Y DATOS -->
+      <div class="seccion-firma-final">
+        <p class="parrafo-fecha-firma">
+          En <strong>{{ ciudadFirma || 'Sevilla' }}</strong>, a <strong>{{ dia || '' }} de {{ mes || '' }} de {{ anio ||
+            '' }}</strong>.
+        </p>
+
+        <div class="logo-footer-firma">
+          <img src="/firma-solay.png" alt="Firma Solay" style="height: 80px; object-fit: contain;" />
+        </div>
+
+        <p class="parrafo-firmante-datos">
+          <strong>Eduardo Rivera Cabezas</strong><br>
+          <strong>670308856</strong><br>
+          <strong>erivera@solay.es</strong><br>
+          <strong>Calle El Peñón 5 – 41940 – Tomares – Sevilla</strong>
+        </p>
+      </div>
+
+      <!-- PIE DE PÁGINA -->
+      <div class="pie-pagina">
+        <div style="margin-bottom: 5px">
+          <img src="/logo-solay.png" alt="Solay" style="height: 40px; margin: 0 auto" />
+        </div>
+        <p style="margin: 5px 0">Solay Fotovoltaica</p>
+        <p style="margin: 3px 0; font-size: 8px">
+          Paseo de Bollullos de la Mitación 18. Pol. El Pibo - 41110 Bollullos de la Mitación (Sevilla)
+        </p>
       </div>
     </div>
   </div>
@@ -502,6 +554,11 @@ defineProps({
   // Sección G y H: ESQUEMAS
   esquemaUnifilar: String,
   planoEmplazamiento: String,
+  // Firma
+  ciudadFirma: String,
+  dia: String,
+  mes: String,
+  anio: String,
   generatedDate: String
 })
 </script>
@@ -566,7 +623,7 @@ defineProps({
   background-color: var(--color-orange-medium-strong);
   font-weight: bold;
   font-size: 10px;
-    padding: 5px;
+  padding: 5px;
 
 }
 
@@ -731,7 +788,8 @@ defineProps({
 .grid-modalidades {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 4px;}
+  gap: 4px;
+}
 
 .modalidad-item {
   display: flex;
@@ -927,6 +985,30 @@ defineProps({
   color: #000;
 }
 
+.seccion-firma-final {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 20px;
+}
+
+.parrafo-fecha-firma {
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.logo-footer-firma {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.parrafo-firmante-datos {
+  text-align: center;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
 /* ========== GRID DE CHECKBOXES (Sección D) ========== */
 .grid-checkboxes {
   display: grid;
@@ -958,28 +1040,28 @@ defineProps({
     margin: 0;
     padding: 0;
   }
-  
+
   button {
     display: none;
   }
-  
+
   /* Forzar impresión de colores */
   * {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
-  
+
   /* Evitar que se corten las secciones entre páginas */
   .seccion {
     page-break-inside: avoid;
     break-inside: avoid;
   }
-  
+
   .subseccion {
     page-break-inside: avoid;
     break-inside: avoid;
   }
-  
+
   /* Forzar salto de página antes de E1.7 para evitar cortes */
   .subseccion-e1-7 {
     page-break-inside: avoid;
@@ -987,28 +1069,28 @@ defineProps({
     page-break-before: always;
     margin-top: 20px;
   }
-  
+
   .subseccion-e2 {
     page-break-inside: avoid;
     break-inside: avoid;
   }
-  
+
   .fila-grid {
     page-break-inside: avoid;
     break-inside: avoid;
   }
-  
+
   .tabla-protecciones,
   .tabla-circuitos {
     page-break-inside: avoid;
     break-inside: avoid;
   }
-  
+
   .contenedor-esquema {
     page-break-inside: avoid;
     break-inside: avoid;
   }
-  
+
   /* Permitir saltos de página antes de secciones principales */
   .encabezado-seccion {
     page-break-before: auto;

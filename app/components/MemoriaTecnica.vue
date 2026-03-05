@@ -24,9 +24,7 @@
       <!-- SECCIÓN A: TITULAR -->
       <div class="seccion">
         <div class="encabezado-seccion">
-          <span class="subseccion-titulo-span" style="background-color: #ffa02a"
-            >A</span
-          >
+          <span class="subseccion-titulo-span" style="background-color: #ffa02a">A</span>
           | TITULAR
         </div>
 
@@ -87,9 +85,7 @@
       <!-- SECCIÓN B: EMPLAZAMIENTO -->
       <div class="seccion">
         <div class="encabezado-seccion">
-          <span class="subseccion-titulo-span" style="background-color: #ffa02a"
-            >B</span
-          >
+          <span class="subseccion-titulo-span" style="background-color: #ffa02a">B</span>
           | EMPLAZAMIENTO DE LA INSTALACIÓN Y USO AL QUE SE DESTINA
         </div>
 
@@ -154,27 +150,18 @@
           <div class="etiqueta-grande">INSTALACIÓN:</div>
           <div class="opciones-checkbox">
             <div class="opcion-checkbox">
-              <input
-                type="checkbox"
-                :checked="tipoInstalacionSeleccionada === 'Nueva'"
-                @change="tipoInstalacionSeleccionada = 'Nueva'"
-              />
+              <input type="checkbox" :checked="tipoInstalacionSeleccionada === 'Nueva'"
+                @change="tipoInstalacionSeleccionada = 'Nueva'" />
               <label>Nueva</label>
             </div>
             <div class="opcion-checkbox">
-              <input
-                type="checkbox"
-                :checked="tipoInstalacionSeleccionada === 'Ampliación'"
-                @change="tipoInstalacionSeleccionada = 'Ampliación'"
-              />
+              <input type="checkbox" :checked="tipoInstalacionSeleccionada === 'Ampliación'"
+                @change="tipoInstalacionSeleccionada = 'Ampliación'" />
               <label>Ampliación</label>
             </div>
             <div class="opcion-checkbox">
-              <input
-                type="checkbox"
-                :checked="tipoInstalacionSeleccionada === 'Modificación'"
-                @change="tipoInstalacionSeleccionada = 'Modificación'"
-              />
+              <input type="checkbox" :checked="tipoInstalacionSeleccionada === 'Modificación'"
+                @change="tipoInstalacionSeleccionada = 'Modificación'" />
               <label>Modificación</label>
             </div>
           </div>
@@ -184,9 +171,7 @@
       <!-- SECCIÓN C: PERSONA QUE FIRMA -->
       <div class="seccion">
         <div class="encabezado-seccion">
-          <span class="subseccion-titulo-span" style="background-color: #ffa02a"
-            >C</span
-          >
+          <span class="subseccion-titulo-span" style="background-color: #ffa02a">C</span>
           | IDENTIFICACIÓN DE LA PERSONA QUE FIRMA LA MTD
         </div>
 
@@ -315,11 +300,7 @@
         <div class="seccion-firma">
           <div class="fecha-firma">En Sevilla a {{ generatedDate }}</div>
           <div class="imagen-firma">
-            <img
-              src="/firma-solay.png"
-              alt="Firma"
-              style="height: 60px; object-fit: contain"
-            />
+            <img src="/firma-solay.png" alt="Firma" style="height: 60px; object-fit: contain" />
           </div>
           <div class="nombre-firmante">
             Firma del Instalador Autorizado / Técnico Titulado
@@ -337,9 +318,7 @@
       <!-- SECCIÓN D: CATEGORÍA Y ESPECIALIDAD -->
       <div class="seccion">
         <div class="encabezado-seccion">
-          <span class="subseccion-titulo-span" style="background-color: #ffa02a"
-            >D</span
-          >
+          <span class="subseccion-titulo-span" style="background-color: #ffa02a">D</span>
           | CATEGORÍA Y ESPECIALIDAD DEL INSTALADOR
         </div>
 
@@ -367,51 +346,27 @@
           <div class="etiqueta-grande">CATEGORÍA ESPECIALISTA:</div>
           <div class="grid-checkboxes">
             <div class="item-checkbox">
-              <input
-                type="checkbox"
-                :checked="modalidadEspecialistaM4"
-                disabled
-              />
+              <input type="checkbox" :checked="modalidadEspecialistaM4" disabled />
               <span>M4 - Pequeña potencia (15-100kWp)</span>
             </div>
             <div class="item-checkbox">
-              <input
-                type="checkbox"
-                :checked="modalidadEspecialistaM5"
-                disabled
-              />
+              <input type="checkbox" :checked="modalidadEspecialistaM5" disabled />
               <span>M5 - Mediana potencia (100-500kWp)</span>
             </div>
             <div class="item-checkbox">
-              <input
-                type="checkbox"
-                :checked="modalidadEspecialistaM6"
-                disabled
-              />
+              <input type="checkbox" :checked="modalidadEspecialistaM6" disabled />
               <span>M6 - Gran potencia (&gt;500kWp)</span>
             </div>
             <div class="item-checkbox">
-              <input
-                type="checkbox"
-                :checked="modalidadEspecialistaM7"
-                disabled
-              />
+              <input type="checkbox" :checked="modalidadEspecialistaM7" disabled />
               <span>M7 - Almacenamiento (15-100kWp)</span>
             </div>
             <div class="item-checkbox">
-              <input
-                type="checkbox"
-                :checked="modalidadEspecialistaM8"
-                disabled
-              />
+              <input type="checkbox" :checked="modalidadEspecialistaM8" disabled />
               <span>M8 - Almacenamiento mediano (100-500kWp)</span>
             </div>
             <div class="item-checkbox">
-              <input
-                type="checkbox"
-                :checked="modalidadEspecialistaM9"
-                disabled
-              />
+              <input type="checkbox" :checked="modalidadEspecialistaM9" disabled />
               <span>M9 - Almacenamiento gran escala (&gt;500kWp)</span>
             </div>
           </div>
@@ -421,9 +376,7 @@
       <!-- <!-- SECCIÓN E: MEMORIA DESCRIPTIVA -->
       <div class="seccion">
         <div class="encabezado-seccion">
-          <span class="subseccion-titulo-span" style="background-color: #ffa02a"
-            >E</span
-          >
+          <span class="subseccion-titulo-span" style="background-color: #ffa02a">E</span>
           | MEMORIA DESCRIPTIVA
         </div>
 
@@ -949,7 +902,7 @@
                 <div class="valor">{{ vccMaximaInversor }}</div>
               </div>
             </div>
-            <div class="fila-grid fila-2col fila-sin-borde"  style="border-bottom:3px solid black;">
+            <div class="fila-grid fila-2col fila-sin-borde" style="border-bottom:3px solid black;">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">Vcc MÍNIMA (V):</div>
                 <div class="valor">{{ vccMinimaInversor }}</div>
@@ -960,7 +913,7 @@
               </div>
             </div>
             <!-- Segundo Inversor -->
-             <div class="fila-grid fila-2col">
+            <div class="fila-grid fila-2col">
               <div class="celda celda-izquierda">
                 <div class="etiqueta">MARCA Y MODELO:</div>
                 <div class="valor">{{ marcaModeloInversor2 }}</div>
@@ -1048,11 +1001,7 @@
           <!-- E2.5 Protecciones Externas -->
           <div class="subseccion">
             <div class="subseccion-titulo">
-              <span
-                class="subseccion-titulo-span"
-                style="background-color: #ffa02a"
-                >E2.6</span
-              >
+              <span class="subseccion-titulo-span" style="background-color: #ffa02a">E2.6</span>
               PROTECCIONES EXTERNAS
             </div>
             <div class="cuerpo-subseccion">
@@ -1096,9 +1045,7 @@
       <!-- SECCIÓN F: MEDIDAS DE PROTECCIÓN EMPLEADAS -->
       <div class="seccion">
         <div class="encabezado-seccion">
-          <span class="subseccion-titulo-span" style="background-color: #ffa02a"
-            >F</span
-          >
+          <span class="subseccion-titulo-span" style="background-color: #ffa02a">F</span>
           | MEDIDAS DE PROTECCIÓN EMPLEADAS
         </div>
 
@@ -1166,9 +1113,7 @@
       <!-- SECCIÓN G: CARACTERÍSTICAS DE LAS LÍNEAS Y CIRCUITOS -->
       <div class="seccion">
         <div class="encabezado-seccion">
-          <span class="subseccion-titulo-span" style="background-color: #ffa02a"
-            >G</span
-          >
+          <span class="subseccion-titulo-span" style="background-color: #ffa02a">G</span>
           | CARACTERÍSTICAS DE LAS LÍNEAS Y CIRCUITOS
         </div>
 
@@ -1274,18 +1219,12 @@
       <!-- SECCIÓN H: ESQUEMA UNIFILAR -->
       <div class="seccion">
         <div class="encabezado-seccion">
-          <span class="subseccion-titulo-span" style="background-color: #ffa02a"
-            >H</span
-          >
+          <span class="subseccion-titulo-span" style="background-color: #ffa02a">H</span>
           | ESQUEMA UNIFILAR DE LA INSTALACIÓN (PROTECCIONES INCLUIDAS)
         </div>
 
         <div class="contenedor-esquema">
-          <img
-            v-if="esquemaUnifilar"
-            :src="esquemaUnifilar"
-            class="imagen-esquema"
-          />
+          <img v-if="esquemaUnifilar" :src="esquemaUnifilar" class="imagen-esquema" />
           <div v-else class="placeholder-esquema">
             Esquema eléctrico unifilar de la instalación
           </div>
@@ -1295,32 +1234,41 @@
       <!-- SECCIÓN I: PLANO DE EMPLAZAMIENTO -->
       <div class="seccion">
         <div class="encabezado-seccion">
-          <span class="subseccion-titulo-span" style="background-color: #ffa02a"
-            >I</span
-          >
+          <span class="subseccion-titulo-span" style="background-color: #ffa02a">I</span>
           | PLANO DE EMPLAZAMIENTO Y CROQUIS DE ACCESO
         </div>
 
         <div class="contenedor-esquema">
-          <img
-            v-if="planoEmplazamiento"
-            :src="planoEmplazamiento"
-            class="imagen-esquema"
-          />
+          <img v-if="planoEmplazamiento" :src="planoEmplazamiento" class="imagen-esquema" />
           <div v-else class="placeholder-esquema">
             Plano de emplazamiento y croquis de acceso
           </div>
         </div>
       </div>
 
+      <!-- FIRMA Y DATOS -->
+      <div class="seccion-firma-final">
+        <p class="parrafo-fecha-firma">
+          En <strong>{{ ciudadFirma || 'Sevilla' }}</strong>, a <strong>{{ dia || '' }} de {{ mes || '' }} de {{ anio ||
+            '' }}</strong>.
+        </p>
+
+        <div class="logo-footer-firma">
+          <img src="/firma-solay.png" alt="Firma Solay" style="height: 80px; object-fit: contain;" />
+        </div>
+
+        <p class="parrafo-firmante-datos">
+          <strong>Eduardo Rivera Cabezas</strong><br>
+          <strong>670308856</strong><br>
+          <strong>erivera@solay.es</strong><br>
+          <strong>Calle El Peñón 5 – 41940 – Tomares – Sevilla</strong>
+        </p>
+      </div>
+
       <!-- PIE DE PÁGINA -->
       <div class="pie-pagina">
         <div style="margin-bottom: 5px">
-          <img
-            src="/logo-solay.png"
-            alt="Solay"
-            style="height: 40px; margin: 0 auto"
-          />
+          <img src="/logo-solay.png" alt="Solay" style="height: 40px; margin: 0 auto" />
         </div>
         <p style="margin: 5px 0">Solay Fotovoltaica</p>
         <p style="margin: 3px 0; font-size: 8px">
@@ -1554,6 +1502,11 @@ defineProps({
   esquemaUnifilar: String,
   // Sección I: PLANO EMPLAZAMIENTO
   planoEmplazamiento: String,
+  // Firma
+  ciudadFirma: String,
+  dia: String,
+  mes: String,
+  anio: String,
   // Generado
   generatedDate: {
     type: String,
@@ -2009,6 +1962,30 @@ const tipoInstalacionSeleccionada = ref("Nueva");
   text-align: center;
   font-size: 9px;
   color: #000;
+}
+
+.seccion-firma-final {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 20px;
+}
+
+.parrafo-fecha-firma {
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: 15px;
+}
+
+.logo-footer-firma {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.parrafo-firmante-datos {
+  text-align: center;
+  font-size: 11px;
+  line-height: 1.6;
 }
 
 /* ========== GRID DE CHECKBOXES (Sección D) ========== */
