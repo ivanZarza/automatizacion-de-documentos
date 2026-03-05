@@ -47,7 +47,7 @@
           Los paneles fotovoltaicos se situarán sobre una estructura primaria consistente en EN UNA PÉRGOLA DE ACERO
           GALVANIZADO. Esta estructura tendrá una altura máxima de 1,8 m, una orientación de <span
             class="texto-editable">{{ orientacion }}</span> y una inclinación de <span class="texto-editable">{{
-            inclinacion }}</span>, posicionándose los paneles formando un plano inclinado.
+              inclinacion }}</span>, posicionándose los paneles formando un plano inclinado.
         </p>
 
         <p class="parrafo-estructura">
@@ -65,6 +65,26 @@
           fabricante.
         </p>
 
+      </div>
+
+      <div class="pie-pagina">
+        <p class="texto-pie">www.solay.es</p>
+        <p class="texto-pie">Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110 Sevilla.</p>
+        <p class="texto-pie">Página 1</p>
+      </div>
+    </div>
+
+    <!-- PÁGINA 2: FIJACIÓN Y LASTRES -->
+    <div class="contenedor-principal">
+      <div class="encabezado">
+        <div class="encabezado-contenido">
+          <h1 class="titulo-principal">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA</h1>
+          <h3 class="titulo-secundario">AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE PÉRGOLA</h3>
+        </div>
+        <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
+      </div>
+
+      <div class="contenido-principal">
         <h3 class="titulo-seccion">Fijación y lastres</h3>
 
         <p class="parrafo-estructura">
@@ -104,33 +124,28 @@
           fotovoltaicos.
         </p>
 
+        <p class="parrafo-estructura">
+          La mencionada Memoria Técnica de Diseño ha sido redactada por mí como técnico competente.
+        </p>
       </div>
 
       <div class="pie-pagina">
         <p class="texto-pie">www.solay.es</p>
         <p class="texto-pie">Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110 Sevilla.</p>
-        <p class="texto-pie">Página 1</p>
+        <p class="texto-pie">Página 2</p>
       </div>
     </div>
 
-    <!-- PÁGINA 2: IMÁGENES / ESTRUCTURA -->
+    <!-- PÁGINA 3: FIRMA Y DATOS -->
     <div class="contenedor-principal">
       <div class="encabezado">
         <div class="encabezado-contenido">
           <h1 class="titulo-principal">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA</h1>
-          <h3 class="titulo-secundario">AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE PÉRGOLA, <span
-              class="texto-azul">APORTICADA</span></h3>
+          <h3 class="titulo-secundario">AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE PÉRGOLA</h3>
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
       </div>
 
-      <div class="contenido-principal">
-
-
-        <p class="parrafo-estructura">
-          La mencionada Memoria Técnica de Diseño ha sido redactada por mí como técnico competente.
-        </p>
-      </div>
       <div class="contenido-principal">
         <!-- Fecha -->
         <p class="parrafo-fecha">
@@ -154,7 +169,7 @@
       <div class="pie-pagina">
         <p class="texto-pie">www.solay.es</p>
         <p class="texto-pie">Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110 Sevilla.</p>
-        <p class="texto-pie">Página 2</p>
+        <p class="texto-pie">Página 3</p>
       </div>
     </div>
 
@@ -264,19 +279,19 @@ defineProps({
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 50px 0px;
+  gap: 5px 0px;
 }
 
 /* ========== PÁRRAFOS ========== */
 .parrafo-intro {
-  margin: 0 0 25px 0;
+  margin: 0 0 8px 0;
   text-align: justify;
 }
 
 .parrafo-certifico,
 .parrafo-datos,
 .parrafo-estructura {
-  margin: 20px 0 25px 0;
+  margin: 4px 0;
   text-align: justify;
 }
 
@@ -297,7 +312,7 @@ defineProps({
   font-size: 18px;
   font-weight: bold;
   color: #0066cc;
-  margin: 20px 0;
+  margin: 8px 0;
   padding: 10px 0;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
@@ -307,7 +322,7 @@ defineProps({
   font-size: 16px;
   font-weight: bold;
   color: #0066cc;
-  margin: 15px 0 5px 0;
+  margin: 5px 0 2px 0;
 }
 
 /* ========== TEXTO ========== */
