@@ -800,7 +800,11 @@ export const memoriaTecnicaConfig = {
     // H - Esquema Unifilar
     esquemaUnifilar: 'h_esquemaUnifilar',
     // I - Plano de Emplazamiento
-    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento'
+    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento',
+    ciudadFirma: 'ciudadFirma',
+    dia: 'dia',
+    mes: 'mes',
+    anio: 'anio'
   },
   capabilities: {
     canPreview: true,
@@ -1095,7 +1099,11 @@ export const memoriaInstalacionAisladaConBateriaConfig = {
     // H - Esquema Unifilar
     esquemaUnifilar: 'h_esquemaUnifilar',
     // I - Plano de Emplazamiento
-    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento'
+    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento',
+    ciudadFirma: 'ciudadFirma',
+    dia: 'dia',
+    mes: 'mes',
+    anio: 'anio'
   },
   capabilities: {
     canPreview: true,
@@ -1324,7 +1332,11 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
     // H - Esquema Unifilar
     esquemaUnifilar: 'h_esquemaUnifilar',
     // I - Plano de Emplazamiento
-    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento'
+    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento',
+    ciudadFirma: 'ciudadFirma',
+    dia: 'dia',
+    mes: 'mes',
+    anio: 'anio'
   },
   capabilities: { ...memoriaTecnicaConfig.capabilities }
 }
@@ -1585,7 +1597,11 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
     // H - Esquema Unifilar
     esquemaUnifilar: 'h_esquemaUnifilar',
     // I - Plano de Emplazamiento
-    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento'
+    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento',
+    ciudadFirma: 'ciudadFirma',
+    dia: 'dia',
+    mes: 'mes',
+    anio: 'anio'
   },
   capabilities: { ...memoriaTecnicaConfig.capabilities }
 }
@@ -1739,7 +1755,11 @@ export const memoriaTecnicaPuntoRecargaConfig = {
     // H - Esquema Unifilar
     esquemaUnifilar: 'h_esquemaUnifilar',
     // I - Plano de Emplazamiento
-    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento'
+    planoEmplazamiento: 'otros_imagenPlanoEmplazamiento',
+    ciudadFirma: 'ciudadFirma',
+    dia: 'dia',
+    mes: 'mes',
+    anio: 'anio'
   },
   capabilities: {
     canPreview: true,

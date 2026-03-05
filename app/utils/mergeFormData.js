@@ -17,16 +17,16 @@ import { loadFromStorage } from './storageManager'
 export const mergeMasterDataWithDocument = (documentConfig) => {
   // Obtener datos maestros de localStorage
   const masterData = loadFromStorage()
-  
+
   // Obtener datos por defecto del documento
   const documentDefaults = documentConfig.defaultData || {}
-  
+
   // Fusionar: primero defaults, luego maestro (maestro sobrescribe si existe)
   const mergedData = {
     ...documentDefaults,
     ...masterData
   }
-  
+
   return mergedData
 }
 
@@ -41,7 +41,7 @@ export const filterDataForDocument = (documentConfig, mergedData) => {
   const documentDefaults = documentConfig.defaultData || {}
   const fieldMapping = documentConfig.fieldMapping || {}
   const filtered = {}
-  
+
   // Para cada campo en el documento:
   // 1. Si existe mapeo, buscar el valor en el campo mapeado
   // 2. Si existe en maestro Y no está vacío → usa maestro
@@ -49,21 +49,21 @@ export const filterDataForDocument = (documentConfig, mergedData) => {
   // 4. Si no existe en maestro → usa default
   Object.keys(documentDefaults).forEach(key => {
     let masterValue
-    
+
     // Si existe un mapeo para este campo, usar el campo mapeado
     if (fieldMapping[key]) {
-        if (typeof fieldMapping[key] === 'function') {
-          masterValue = fieldMapping[key](mergedData)
-        } else {
-          masterValue = mergedData[fieldMapping[key]]
-        }
+      if (typeof fieldMapping[key] === 'function') {
+        masterValue = fieldMapping[key](mergedData)
+      } else {
+        masterValue = mergedData[fieldMapping[key]]
+      }
     } else {
       // Si no hay mapeo, buscar directamente en mergedData
       masterValue = mergedData[key]
     }
-    
+
     const defaultValue = documentDefaults[key]
-    
+
     // Si el maestro tiene valor (no vacío, no null, no undefined)
     if (masterValue !== undefined && masterValue !== null && masterValue !== '') {
       filtered[key] = masterValue
@@ -72,7 +72,7 @@ export const filterDataForDocument = (documentConfig, mergedData) => {
       filtered[key] = defaultValue
     }
   })
-  
+
   return filtered
 }
 
@@ -93,7 +93,7 @@ export const getMergedDocumentData = (documentConfig) => {
  */
 export const useDocumentData = (documentConfig) => {
   const mergedData = getMergedDocumentData(documentConfig)
-  
+
   return {
     /**
      * Obtener valor de un campo, con fallback
@@ -104,13 +104,13 @@ export const useDocumentData = (documentConfig) => {
     getField: (fieldName, defaultValue = '') => {
       return mergedData[fieldName] !== undefined ? mergedData[fieldName] : defaultValue
     },
-    
+
     /**
      * Obtener todos los datos fusionados
      * @returns {Object} Datos completos
      */
     getAllData: () => mergedData,
-    
+
     /**
      * Verificar si existe un campo
      * @param {string} fieldName - Nombre del campo

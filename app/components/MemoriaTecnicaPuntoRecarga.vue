@@ -263,7 +263,8 @@
 
         <!-- Firma y Fecha -->
         <div class="seccion-firma">
-          <div class="fecha-firma">En Sevilla a {{ generatedDate }}</div>
+          <div class="fecha-firma">En Sevilla a {{ dia || '' }} de {{ mes || '' }} de {{ anio ||
+            '' }}</div>
           <div class="imagen-firma">
             <img src="/firma-solay.png" alt="Firma" style="height: 60px; object-fit: contain;" />
           </div>
@@ -443,25 +444,6 @@
           <img v-if="planoEmplazamiento" :src="planoEmplazamiento" class="imagen-esquema" />
           <div v-else class="placeholder-esquema">Plano de emplazamiento y acceso a la instalación</div>
         </div>
-      </div>
-
-      <!-- FIRMA Y DATOS -->
-      <div class="seccion-firma-final">
-        <p class="parrafo-fecha-firma">
-          En <strong>{{ ciudadFirma || 'Sevilla' }}</strong>, a <strong>{{ dia || '' }} de {{ mes || '' }} de {{ anio ||
-            '' }}</strong>.
-        </p>
-
-        <div class="logo-footer-firma">
-          <img src="/firma-solay.png" alt="Firma Solay" style="height: 80px; object-fit: contain;" />
-        </div>
-
-        <p class="parrafo-firmante-datos">
-          <strong>Eduardo Rivera Cabezas</strong><br>
-          <strong>670308856</strong><br>
-          <strong>erivera@solay.es</strong><br>
-          <strong>Calle El Peñón 5 – 41940 – Tomares – Sevilla</strong>
-        </p>
       </div>
 
       <!-- PIE DE PÁGINA -->
