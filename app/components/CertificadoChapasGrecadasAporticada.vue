@@ -67,77 +67,73 @@
           </p>
           <p class="texto-pie">Página 1</p>
         </div>
+      </div> <!-- Cierre contenido-principal decorativo (fotos) -->
+    </div> <!-- FIN PÁGINA 1 -->
+
+    <!-- PÁGINA 2: ESTRUCTURA SOPORTE PARA CHAPA GRECADA APORTICADA -->
+    <div class="contenedor-principal">
+      <div class="encabezado">
+        <div class="encabezado-contenido">
+          <h3 class="titulo-secundario">
+            CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA<br />AUTOCONSUMO
+            FOTOVOLTAICO<br />CHAPA GRECADA -
+            <span class="texto-azul">APORTICADA</span>
+          </h3>
+        </div>
+        <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
       </div>
 
+      <div class="contenido-principal">
 
-
-
-      <!-- PÁGINA 2: ESTRUCTURA SOPORTE PARA CHAPA GRECADA APORTICADA -->
-      <div class="contenedor-principal">
-        <div class="encabezado">
-          <div class="encabezado-contenido">
-            <h3 class="titulo-secundario">
-              CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA<br />AUTOCONSUMO
-              FOTOVOLTAICO<br />CHAPA GRECADA -
-              <span class="texto-azul">APORTICADA</span>
-            </h3>
-          </div>
-          <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
-        </div>
-
-        <div class="contenido-principal">
-
-          <p class="parrafo-estructura">
-            Dicha
-            <span class="texto-azul">ESTRUCTURA SOPORTE PARA CHAPA GRECADA APORTICADA</span>
-            según procedimiento del fabricante, sólidamente fijadas a la
-            <span class="texto-azul">perfilería</span> de aluminio mediante
-            <span class="texto-azul">tornillería</span> de acero inoxidable; todo
-            ello según los procedimientos de instalación establecidos en la ficha
-            técnica del producto, guardando las distancias previstas entre las
-            perforaciones y respetando los pares de apriete de la
-            <span class="texto-azul">tornillería</span>.
-          </p>
-
-          <p class="parrafo-estructura">
-            La <span class="texto-azul">perfilería</span> de aluminio será unida
-            sólidamente a los módulos fotovoltaicos mediante elementos de presión
-            y fijación con <span class="texto-azul">tornillo</span> a las
-            distancias y pares de apriete marcados por el fabricante.
-          </p>
-
-          <p class="parrafo-estructura">
-            El estado de la cubierta es el adecuado para soportar de forma sólida
-            y segura el generador fotovoltaico para
-            <span class="texto-azul">Autoconsumo</span> que se tiene previsto
-            instalar, conforme a lo previsto en el presente certificado, con
-            acuerdo a vista de la inspección ocular realizada
-            <span class="texto-azul">in situ</span>, de la revisión del proyecto
-            constructivo de la misma, y de la disposición sobre la cubierta de los
-            módulos fotovoltaicos. La mencionada
-            <span class="texto-azul">Memoria Técnica de Diseño</span> ha sido
-            redactada por mí como técnico competente.
-          </p>
-        </div>
-        <!-- Fecha -->
-        <p class="parrafo-fecha">
-          En <strong>{{ localidad }}</strong>, a <strong>{{ dia }} de {{ mes }} de {{ anio }}</strong>.
+        <p class="parrafo-estructura">
+          Dicha
+          <span class="texto-azul">ESTRUCTURA SOPORTE PARA CHAPA GRECADA APORTICADA</span>
+          según procedimiento del fabricante, sólidamente fijadas a la
+          <span class="texto-azul">perfilería</span> de aluminio mediante
+          <span class="texto-azul">tornillería</span> de acero inoxidable; todo
+          ello según los procedimientos de instalación establecidos en la ficha
+          técnica del producto, guardando las distancias previstas entre las
+          perforaciones y respetando los pares de apriete de la
+          <span class="texto-azul">tornillería</span>.
         </p>
 
-        <!-- Logo footer -->
-        <div class="logo-footer">
-          <img src="/firma-solay.png" alt="Logo Solay Footer" class="logo-footer-img" />
-        </div>
+        <p class="parrafo-estructura">
+          La <span class="texto-azul">perfilería</span> de aluminio será unida
+          sólidamente a los módulos fotovoltaicos mediante elementos de presión
+          y fijación con <span class="texto-azul">tornillo</span> a las
+          distancias y pares de apriete marcados por el fabricante.
+        </p>
 
-        <!-- Firma y datos -->
-        <p class="parrafo-firmante">
-          <strong>Eduardo Rivera Cabezas</strong><br>
-          <strong>670308856</strong><br>
-          <strong>erivera@solay.es</strong><br>
-          <strong>Calle El Peñón 5 – 41940 – Tomares – Sevilla</strong>
+        <p class="parrafo-estructura">
+          El estado de la cubierta es el adecuado para soportar de forma sólida
+          y segura el generador fotovoltaico para
+          <span class="texto-azul">Autoconsumo</span> que se tiene previsto
+          instalar, conforme a lo previsto en el presente certificado, con
+          acuerdo a vista de la inspección ocular realizada
+          <span class="texto-azul">in situ</span>, de la revisión del proyecto
+          constructivo de la misma, y de la disposición sobre la cubierta de los
+          módulos fotovoltaicos. La mencionada
+          <span class="texto-azul">Memoria Técnica de Diseño</span> ha sido
+          redactada por mí como técnico competente.
         </p>
       </div>
+      <!-- Fecha -->
+      <p class="parrafo-fecha">
+        En <strong>{{ localidad }}</strong>, a <strong>{{ dia }} de {{ mes }} de {{ anio }}</strong>.
+      </p>
 
+      <!-- Logo footer -->
+      <div class="logo-footer">
+        <img src="/firma-solay.png" alt="Logo Solay Footer" class="logo-footer-img" />
+      </div>
+
+      <!-- Firma y datos -->
+      <p class="parrafo-firmante">
+        <strong>Eduardo Rivera Cabezas</strong><br>
+        <strong>670308856</strong><br>
+        <strong>erivera@solay.es</strong><br>
+        <strong>Calle El Peñón 5 – 41940 – Tomares – Sevilla</strong>
+      </p>
       <div class="pie-pagina">
         <p class="texto-pie">www.solay.es</p>
         <p class="texto-pie">
@@ -146,8 +142,8 @@
         </p>
         <p class="texto-pie">Página 2</p>
       </div>
-    </div>
-  </div>
+    </div> <!-- FIN PÁGINA 2 -->
+  </div> <!-- FIN contenedor-pdf -->
 </template>
 
 <script setup>
@@ -240,8 +236,8 @@ defineProps({
 
 /* ========== PÁRRAFOS ========== */
 .parrafo-tecnico {
-  margin: 20px 0 20px 0;
-  text-align: center;
+  margin: 10px 0;
+  text-align: justify;
   font-size: 15px;
   line-height: 1.5;
 }
@@ -262,7 +258,7 @@ defineProps({
 
 /* ========== TEXTOS ESPECIALES ========== */
 .texto-azul {
-  color: #0066cc;
+  color: #000000;
   font-weight: bold;
 }
 
@@ -273,6 +269,11 @@ defineProps({
   margin: 0;
   font-size: 14px;
   line-height: 1.6;
+}
+
+.texto-rojo {
+  color: #000000;
+  font-weight: bold;
 }
 
 /* ========== LOGO FOOTER ========== */
@@ -387,8 +388,9 @@ defineProps({
 
   .parrafo-tecnico,
   .parrafo-estructura {
-    margin: 5px 0;
+    margin: 10px 0;
     font-size: 14px;
+    text-align: justify;
   }
 
   .pie-pagina {
