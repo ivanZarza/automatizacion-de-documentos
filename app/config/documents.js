@@ -741,7 +741,10 @@ export const memoriaTecnicaConfig = {
     // Sección H - Esquema Unifilar
     esquemaUnifilar: '',
     // Sección I - Plano de Emplazamiento
-    planoEmplazamiento: ''
+    planoEmplazamiento: '',
+    dia: '',
+    mes: '',
+    anio: ''
   },
   fieldMapping: {
     domicilio: (formData) => `${formData.emplazamientoCalle} ${formData.numero ? formData.numero : ''} ${formData.bloque ? 'Bloque ' + formData.bloque : ''} ${formData.escalera ? 'Escalera ' + formData.escalera : ''} ${formData.planta ? 'Planta ' + formData.planta : ''} ${formData.puerta ? 'Puerta ' + formData.puerta : ''}`.trim(), codigoPostal: 'codigoPostalEmplazamiento',
@@ -1038,7 +1041,10 @@ export const memoriaInstalacionAisladaConBateriaConfig = {
     // Sección H - Esquema Unifilar
     esquemaUnifilar: '',
     // Sección I - Plano de Emplazamiento
-    planoEmplazamiento: ''
+    planoEmplazamiento: '',
+    dia: '',
+    mes: '',
+    anio: ''
   },
   fieldMapping: {
     // Sección A - TITULAR
@@ -1271,7 +1277,10 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
     // Sección H - Esquema Unifilar
     esquemaUnifilar: '',
     // Sección I - Plano de Emplazamiento
-    planoEmplazamiento: ''
+    planoEmplazamiento: '',
+    dia: '',
+    mes: '',
+    anio: ''
   },
   fieldMapping: {
     // Sección A - TITULAR
@@ -1488,7 +1497,10 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
     // Sección H - Esquema Unifilar
     esquemaUnifilar: '',
     // Sección I - Plano de Emplazamiento
-    planoEmplazamiento: ''
+    planoEmplazamiento: '',
+    dia: '',
+    mes: '',
+    anio: ''
   },
   fieldMapping: {
     // Sección A - TITULAR
@@ -1694,7 +1706,10 @@ export const memoriaTecnicaPuntoRecargaConfig = {
     // Sección G - Esquema Unifilar
     esquemaUnifilar: '',
     // Sección H - Plano de Emplazamiento
-    planoEmplazamiento: ''
+    planoEmplazamiento: '',
+    dia: '',
+    mes: '',
+    anio: ''
   },
   fieldMapping: {
     // Sección A - TITULAR

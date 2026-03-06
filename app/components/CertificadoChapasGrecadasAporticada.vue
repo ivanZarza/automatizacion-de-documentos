@@ -69,6 +69,9 @@
         </div>
       </div>
 
+
+
+
       <!-- PÁGINA 2: ESTRUCTURA SOPORTE PARA CHAPA GRECADA APORTICADA -->
       <div class="contenedor-principal">
         <div class="encabezado">
@@ -82,63 +85,40 @@
           <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
         </div>
 
-        <p class="parrafo-estructura">
-          Dicha
-          <span class="texto-azul">ESTRUCTURA SOPORTE PARA CHAPA GRECADA APORTICADA</span>
-          según procedimiento del fabricante, sólidamente fijadas a la
-          <span class="texto-azul">perfilería</span> de aluminio mediante
-          <span class="texto-azul">tornillería</span> de acero inoxidable; todo
-          ello según los procedimientos de instalación establecidos en la ficha
-          técnica del producto, guardando las distancias previstas entre las
-          perforaciones y respetando los pares de apriete de la
-          <span class="texto-azul">tornillería</span>.
-        </p>
+        <div class="contenido-principal">
 
-        <p class="parrafo-estructura">
-          La <span class="texto-azul">perfilería</span> de aluminio será unida
-          sólidamente a los módulos fotovoltaicos mediante elementos de presión
-          y fijación con <span class="texto-azul">tornillo</span> a las
-          distancias y pares de apriete marcados por el fabricante.
-        </p>
+          <p class="parrafo-estructura">
+            Dicha
+            <span class="texto-azul">ESTRUCTURA SOPORTE PARA CHAPA GRECADA APORTICADA</span>
+            según procedimiento del fabricante, sólidamente fijadas a la
+            <span class="texto-azul">perfilería</span> de aluminio mediante
+            <span class="texto-azul">tornillería</span> de acero inoxidable; todo
+            ello según los procedimientos de instalación establecidos en la ficha
+            técnica del producto, guardando las distancias previstas entre las
+            perforaciones y respetando los pares de apriete de la
+            <span class="texto-azul">tornillería</span>.
+          </p>
 
-        <p class="parrafo-estructura">
-          El estado de la cubierta es el adecuado para soportar de forma sólida
-          y segura el generador fotovoltaico para
-          <span class="texto-azul">Autoconsumo</span> que se tiene previsto
-          instalar, conforme a lo previsto en el presente certificado, con
-          acuerdo a vista de la inspección ocular realizada
-          <span class="texto-azul">in situ</span>, de la revisión del proyecto
-          constructivo de la misma, y de la disposición sobre la cubierta de los
-          módulos fotovoltaicos. La mencionada
-          <span class="texto-azul">Memoria Técnica de Diseño</span> ha sido
-          redactada por mí como técnico competente.
-        </p>
-      </div>
+          <p class="parrafo-estructura">
+            La <span class="texto-azul">perfilería</span> de aluminio será unida
+            sólidamente a los módulos fotovoltaicos mediante elementos de presión
+            y fijación con <span class="texto-azul">tornillo</span> a las
+            distancias y pares de apriete marcados por el fabricante.
+          </p>
 
-      <div class="pie-pagina">
-        <p class="texto-pie">www.solay.es</p>
-        <p class="texto-pie">
-          Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110
-          Sevilla.
-        </p>
-        <p class="texto-pie">Página 2</p>
-      </div>
-    </div>
-
-    <!-- PÁGINA 3: FIRMA Y DATOS -->
-    <div class="contenedor-principal">
-      <div class="encabezado">
-        <div class="encabezado-contenido">
-          <h3 class="titulo-secundario">
-            CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA<br />AUTOCONSUMO
-            FOTOVOLTAICO<br />CHAPA GRECADA -
-            <span class="texto-azul">APORTICADA</span>
-          </h3>
+          <p class="parrafo-estructura">
+            El estado de la cubierta es el adecuado para soportar de forma sólida
+            y segura el generador fotovoltaico para
+            <span class="texto-azul">Autoconsumo</span> que se tiene previsto
+            instalar, conforme a lo previsto en el presente certificado, con
+            acuerdo a vista de la inspección ocular realizada
+            <span class="texto-azul">in situ</span>, de la revisión del proyecto
+            constructivo de la misma, y de la disposición sobre la cubierta de los
+            módulos fotovoltaicos. La mencionada
+            <span class="texto-azul">Memoria Técnica de Diseño</span> ha sido
+            redactada por mí como técnico competente.
+          </p>
         </div>
-        <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
-      </div>
-
-      <div class="contenido-principal">
         <!-- Fecha -->
         <p class="parrafo-fecha">
           En <strong>{{ localidad }}</strong>, a <strong>{{ dia }} de {{ mes }} de {{ anio }}</strong>.
@@ -164,7 +144,7 @@
           Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110
           Sevilla.
         </p>
-        <p class="texto-pie">Página 3</p>
+        <p class="texto-pie">Página 2</p>
       </div>
     </div>
   </div>
