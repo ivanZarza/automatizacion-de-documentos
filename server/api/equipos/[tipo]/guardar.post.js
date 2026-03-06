@@ -12,34 +12,51 @@ export default defineEventHandler(async (event) => {
       throw new Error(`Tipo de equipo no válido: ${tipo}`)
     }
 
-    // Crear nuevo equipo con ID y nombre
-    const id = `${tipo.slice(0, 3)}_${Date.now().toString(36)}${Math.random().toString(36).substring(2, 7)}`
-    const nombre = body.marcaModelo || body.marca || 'Sin nombre'
+    const idEnviado = body.id
+    const id = idEnviado || `${tipo.slice(0, 3)}_${Date.now().toString(36)}${Math.random().toString(36).substring(2, 7)}`
+    const nombre = body.marcaModelo || body.marca || body.nombre || 'Sin nombre'
 
     const pool = getDbPool()
     const client = await pool.connect()
 
     try {
-      await client.query(`
-        INSERT INTO equipos (id, tipo, nombre, datos)
-        VALUES ($1, $2, $3, $4)
-      `, [id, tipo, nombre, body])
+      if (idEnviado) {
+        // ACTUALIZAR existente
+        await client.query(`
+          UPDATE equipos 
+          SET nombre = $1, datos = $2, tipo = $3
+          WHERE id = $4
+        `, [nombre, body, tipo, id])
 
-      const nuevoEquipo = {
-        id,
-        tipo,
-        fechaCreacion: new Date().toISOString(),
-        ...body
+        console.log(`✅ Equipo actualizado en BD (${tipo}):`, id)
+
+        return {
+          success: true,
+          equipo: { id, tipo, ...body },
+          message: `Equipo ${tipo} actualizado`
+        }
+      } else {
+        // INSERTAR nuevo
+        await client.query(`
+          INSERT INTO equipos (id, tipo, nombre, datos)
+          VALUES ($1, $2, $3, $4)
+        `, [id, tipo, nombre, body])
+
+        const nuevoEquipo = {
+          id,
+          tipo,
+          fechaCreacion: new Date().toISOString(),
+          ...body
+        }
+
+        console.log(`✅ Equipo guardado en BD (${tipo}):`, nuevoEquipo)
+
+        return {
+          success: true,
+          equipo: nuevoEquipo,
+          message: `Equipo agregado a ${tipo}`
+        }
       }
-
-      console.log(`✅ Equipo guardado en BD (${tipo}):`, nuevoEquipo)
-
-      return {
-        success: true,
-        equipo: nuevoEquipo,
-        message: `Equipo agregado a ${tipo}`
-      }
-
     } finally {
       client.release()
     }

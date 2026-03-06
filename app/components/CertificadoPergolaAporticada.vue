@@ -23,9 +23,9 @@
 
         <p class="parrafo-certifico">
           que el estado de la <span class="texto-editable">{{ cubiertaTipo }}</span> de la vivienda sita en <span
-            class="texto-editable">{{ direccion }}</span>, número <span class="texto-editable">{{ numero }}</span> <span
-            class="texto-editable">{{ otrosDatosDireccion }}</span> – código postal <span class="texto-editable">{{
-              codigoPostal }}</span>, localidad de <span class="texto-editable">{{ localidad }}</span>, provincia de <span
+            class="texto-editable">{{ direccion }}</span>, <span class="texto-editable">{{ otrosDatosDireccion }}</span>
+          – código postal <span class="texto-editable">{{
+            codigoPostal }}</span>, localidad de <span class="texto-editable">{{ localidad }}</span>, provincia de <span
             class="texto-editable">{{ provincia }}</span>, con Referencia Catastral <span class="texto-editable">{{
               referenciaCatastral }}</span>, es el adecuado para soportar de forma sólida y segura el generador
           fotovoltaico para <span class="texto-azul">Autoconsumo</span> que se tiene previsto instalar, a la vista de la

@@ -141,7 +141,7 @@
       <div class="contenido-principal">
         <!-- Fecha -->
         <p class="parrafo-fecha">
-          En <strong>{{ ciudadFirma }}</strong>, a <strong>{{ dia }} de {{ mes }} de {{ anio }}</strong>.
+          En <strong>{{ localidad }}</strong>, a <strong>{{ dia }} de {{ mes }} de {{ anio }}</strong>.
         </p>
 
         <!-- Logo footer -->

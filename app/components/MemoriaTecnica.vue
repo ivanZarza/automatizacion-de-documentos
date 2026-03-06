@@ -298,8 +298,7 @@
 
         <!-- Firma y Fecha -->
         <div class="seccion-firma">
-          <div class="fecha-firma">En Sevilla a {{ dia || '' }} de {{ mes || '' }} de {{ anio ||
-            '' }}</div>
+          <div class="fecha-firma">En Sevilla a {{ dia }} de {{ mes }} de {{ anio }}</div>
           <div class="imagen-firma">
             <img src="/firma-solay.png" alt="Firma" style="height: 60px; object-fit: contain" />
           </div>

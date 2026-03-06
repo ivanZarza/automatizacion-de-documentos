@@ -28,6 +28,9 @@ const campos = [
   // { id: 'disposicionModulos', label: 'Disposición de los Módulos', type: 'select', options: ['Cubierta Teja - Aporticada', 'Cubierta Teja - Coplanar', 'Cubierta Plana', 'Pergola', 'Chapa Grecada - Aporticada', 'Chapa Grecada - Coplanar', 'Suelo', 'Paramento Vertical'] }
 ]
 
+const modoEdicion = ref(false)
+const idEditable = ref<string | null>(null)
+
 const equipos = computed(() => equipmentStore.modulos || [])
 
 onMounted(async () => {
@@ -42,15 +45,33 @@ const formatearLabel = (clave: string) => String(clave).replace(/([A-Z])/g, ' $1
 const limpiarFormulario = () => {
   formulario.value = {}
   campos.forEach(c => formulario.value[c.id] = c.value ?? '')
+  modoEdicion.value = false
+  idEditable.value = null
+}
+
+const editarEquipo = (equipo: any) => {
+  modoEdicion.value = true
+  idEditable.value = equipo.id
+  // Rellenar formulario con los datos del equipo
+  campos.forEach(c => {
+    formulario.value[c.id] = equipo[c.id] || ''
+  })
+  // Scroll al formulario
+  window.scrollTo({ top: 0, behavior: 'smooth' })
 }
 
 const guardarEquipo = async () => {
   const tieneData = Object.values(formulario.value).some(v => v && String(v).trim() !== '')
   if (!tieneData) { alert('Por favor rellena al menos un campo'); return }
   try {
-    await equipmentStore.agregarEquipo(tipo, { ...formulario.value })
+    const datosEnvio = { ...formulario.value }
+    if (modoEdicion.value && idEditable.value) {
+      datosEnvio.id = idEditable.value
+    }
+
+    await equipmentStore.agregarEquipo(tipo, datosEnvio)
     limpiarFormulario()
-    alert('Equipo guardado')
+    alert(modoEdicion.value ? 'Equipo actualizado' : 'Equipo guardado')
   } catch (e: any) {
     console.error(e)
     alert('Error al guardar')
@@ -104,7 +125,7 @@ definePageMeta({ layout: 'default' })
 
     <div v-else class="content">
       <div class="contenedor-formulario">
-        <h2>➕ Nuevo Módulo</h2>
+        <h2>{{ modoEdicion ? '✏️ Editar Módulo' : '➕ Nuevo Módulo' }}</h2>
         <form @submit.prevent="guardarEquipo">
           <div class="form-fields">
             <div v-for="campo in campos" :key="campo.id" class="form-group">
@@ -120,8 +141,8 @@ definePageMeta({ layout: 'default' })
             </div>
           </div>
           <div class="form-buttons">
-            <button type="submit" class="btn btn-guardar">💾 Guardar</button>
-            <button type="button" @click="limpiarFormulario" class="btn btn-cancelar">❌ Limpiar</button>
+            <button type="submit" class="btn btn-guardar">{{ modoEdicion ? '💾 Actualizar' : '💾 Guardar' }}</button>
+            <button type="button" @click="limpiarFormulario" class="btn btn-cancelar">{{ modoEdicion ? '❌ Cancelar' : '❌ Limpiar' }}</button>
           </div>
         </form>
       </div>
@@ -142,6 +163,7 @@ definePageMeta({ layout: 'default' })
             </div>
             <div class="card-actions">
               <button @click="llevarAlFormulario(e)" class="btn-llevar">📋 Llevar</button>
+              <button @click="editarEquipo(e)" class="btn-editar">✏️ Editar</button>
               <button @click="eliminarEquipo(e.id)" class="btn-eliminar">🗑️ Eliminar</button>
             </div>
           </div>

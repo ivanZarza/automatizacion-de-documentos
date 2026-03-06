@@ -753,7 +753,7 @@ export const memoriaTecnicaConfig = {
     piso: 'planta',
     // E2.1 - Conexión a la Red
     potenciaNominalInversores: 'e2_potenciaNominalInversores',
-    tipoConexionRed: 'e2_tipoConexionRed',
+    tipoConexionRed: 'e2_tipoConexionRed1',
     // E2.2 - Módulo Fotovoltaico
     tecnologiaCelulaModulo: 'e2_tecnologiaCelulaModulo',
     marcaModeloModulo: 'e2_marcaModeloModulo',
@@ -772,7 +772,7 @@ export const memoriaTecnicaConfig = {
     tensionNominalInversor: 'e2_relacionTensionInversor',
     vccMaximaInversor: 'e2_formaOndaSalidaInversor',
     vccMinimaInversor: 'e2_frecuenciaNominalInversor',
-    tipoConexionInversor: 'e2_tipoConexionRed',
+    tipoConexionInversor: 'e2_tipoConexionRed1',
     marcaModeloInversor2: 'e2_marcaModeloInversor2',
     potenciaACInversor2: 'e2_potenciaNominalInversor2',
     tensionNominalInversor2: 'e2_relacionTensionInversor2',
@@ -1052,7 +1052,7 @@ export const memoriaInstalacionAisladaConBateriaConfig = {
 
     // E2.1 - Conexión a la Red
     potenciaNominalInversores: 'e2_potenciaNominalInversores',
-    tipoConexionRed: 'e2_tipoConexionRed',
+    tipoConexionRed: 'e2_tipoConexionRed1',
     // E2.2 - Módulo Fotovoltaico
     tecnologiaCelulaModulo: 'e2_tecnologiaCelulaModulo',
     marcaModeloModulo: 'e2_marcaModeloModulo',
@@ -1072,7 +1072,7 @@ export const memoriaInstalacionAisladaConBateriaConfig = {
     tensionNominalInversor: 'e2_relacionTensionInversor',
     vccMaximaInversor: 'e2_formaOndaSalidaInversor',
     vccMinimaInversor: 'e2_frecuenciaNominalInversor',
-    tipoConexionInversor: 'e2_tipoConexionRed',
+    tipoConexionInversor: 'e2_tipoConexionRed1',
     marcaModeloInversor2: 'e2_marcaModeloInversor2',
     potenciaACInversor2: 'e2_potenciaNominalInversor2',
     tensionNominalInversor2: 'e2_relacionTensionInversor2',
@@ -1285,7 +1285,7 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
 
     // E2.1 - Conexión a la Red
     potenciaNominalInversores: 'e2_potenciaNominalInversores',
-    tipoConexionRed: 'e2_tipoConexionRed',
+    tipoConexionRed: 'e2_tipoConexionRed1',
     // E2.2 - Módulo Fotovoltaico
     tecnologiaCelulaModulo: 'e2_tecnologiaCelulaModulo',
     marcaModeloModulo: 'e2_marcaModeloModulo',
@@ -1305,7 +1305,7 @@ export const memoriaTecnicaTrifasicaConBateriaConfig = {
     tensionNominalInversor: 'e2_relacionTensionInversor',
     vccMaximaInversor: 'e2_formaOndaSalidaInversor',
     vccMinimaInversor: 'e2_frecuenciaNominalInversor',
-    tipoConexionInversor: 'e2_tipoConexionRed',
+    tipoConexionInversor: 'e2_tipoConexionRed1',
     marcaModeloInversor2: 'e2_marcaModeloInversor2',
     potenciaACInversor2: 'e2_potenciaNominalInversor2',
     tensionNominalInversor2: 'e2_relacionTensionInversor2',
@@ -1503,7 +1503,7 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
 
     // E2.1 - Conexión a la Red
     potenciaNominalInversores: 'e2_potenciaNominalInversores',
-    tipoConexionRed: 'e2_tipoConexionRed',
+    tipoConexionRed: 'e2_tipoConexionRed1',
     // E2.2 - Módulo Fotovoltaico
     tecnologiaCelulaModulo: 'e2_tecnologiaCelulaModulo',
     marcaModeloModulo: 'e2_marcaModeloModulo',
@@ -1523,7 +1523,7 @@ export const memoriaTecnicaAutoconsumoSinBateriaConfig = {
     tensionNominalInversor: 'e2_relacionTensionInversor',
     vccMaximaInversor: 'e2_formaOndaSalidaInversor',
     vccMinimaInversor: 'e2_frecuenciaNominalInversor',
-    tipoConexionInversor: 'e2_tipoConexionRed',
+    tipoConexionInversor: 'e2_tipoConexionRed1',
     marcaModeloInversor2: 'e2_marcaModeloInversor2',
     potenciaACInversor2: 'e2_potenciaNominalInversor2',
     tensionNominalInversor2: 'e2_relacionTensionInversor2',
@@ -1708,7 +1708,7 @@ export const memoriaTecnicaPuntoRecargaConfig = {
 
     // E2.1 - Conexión a la Red
     potenciaNominalInversores: 'e2_potenciaNominalInversores',
-    tipoConexionRed: 'e2_tipoConexionRed',
+    tipoConexionRed: 'e2_tipoConexionRed1',
     // E2.2 - Módulo Fotovoltaico
     tecnologiaCelulaModulo: 'e2_tecnologiaCelulaModulo',
     marcaModeloModulo: 'e2_marcaModeloModulo',
@@ -1728,7 +1728,7 @@ export const memoriaTecnicaPuntoRecargaConfig = {
     tensionNominalInversor: 'e2_relacionTensionInversor',
     vccMaximaInversor: 'e2_formaOndaSalidaInversor',
     vccMinimaInversor: 'e2_frecuenciaNominalInversor',
-    tipoConexionInversor: 'e2_tipoConexionRed',
+    tipoConexionInversor: 'e2_tipoConexionRed1',
     marcaModeloInversor2: 'e2_marcaModeloInversor2',
     potenciaACInversor2: 'e2_potenciaNominalInversor2',
     tensionNominalInversor2: 'e2_relacionTensionInversor2',
@@ -2048,7 +2048,7 @@ export const zCertificadoBRConfig = {
     UsoAlQueSeDestinaEmplazamiento: '',
     cups: 'cups',
     instalacionTipo: 'instalacion',
-    fase: 'e2_tipoConexionRed',
+    fase: 'e2_tipoConexionRed1',
     potenciaPrevista: 'e2_potenciaNominalInversores',
     Superficie: 'superficie',
     registro: 'registro',
