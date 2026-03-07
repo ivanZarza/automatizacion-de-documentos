@@ -4,9 +4,9 @@ export const masterFormFields = [
   // ========== SECCIÓN A ==========
 
   { name: 'fecha', label: 'Fecha', placeholder: 'Ej: 16/10/2025', type: 'date', subsection: 'A' },
-  { name: 'dia', label: 'Día', placeholder: 'Ej: 15', type: 'text', subsection: 'A' },
-  { name: 'mes', label: 'Mes(En letra joder!) ', placeholder: 'Ej: 02', type: 'text', subsection: 'A' },
-  { name: 'anio', label: 'Año', placeholder: 'Ej: 2026', type: 'text', subsection: 'A' },
+  { name: 'dia', label: 'Día (Licencia)', placeholder: 'Ej: 15', type: 'text', subsection: 'A' },
+  { name: 'mes', label: 'Mes (Licencia)', placeholder: 'Ej: 02', type: 'text', subsection: 'A' },
+  { name: 'anio', label: 'Año (Licencia)', placeholder: 'Ej: 2026', type: 'text', subsection: 'A' },
   { name: 'apellidosNombre', label: 'Apellidos y Nombre del Titular', placeholder: 'Ej: García López, Juan', type: 'text', subsection: 'A' },
   { name: 'nifCif', label: 'NIF/CIF del Titular', placeholder: 'Ej: 12.345.678-A', type: 'text', subsection: 'A' },
   { name: 'telefono', label: 'Teléfono Móvil', placeholder: 'Ej: 654 123 456', type: 'tel', subsection: 'A' },
@@ -297,7 +297,7 @@ export const masterFormFields = [
   { name: 'codigoEni', label: 'Código ENI', placeholder: 'Ej: ENI12345', type: 'text', subsection: 'ACEPTACION' },
   { name: 'expedienteEco', label: 'Expediente ECO', placeholder: 'Ej: ECO12345', type: 'text', subsection: 'ACEPTACION' },
   { name: 'e2_potenciaNominalInversores', label: 'POTENCIA NOMINAL TOTAL EN INVERSORES (kW)', placeholder: 'Ej: 5.5', type: 'text', subsection: 'ACEPTACION' },
-  { name: 'importeSubvencion', label: 'Importe de la Subvención', placeholder: 'Ej: 1500 €', type: 'text', subsection: 'ACEPTACION' },
+  { name: 'importeSubvencionResultante', label: 'Importe de la Subvención', placeholder: 'Ej: 1500 €', type: 'text', subsection: 'ACEPTACION' },
   {
     name: 'edificioVivienda', label: 'Edificio o Vivienda', placeholder: 'Ej: selecciona una opción', type: 'select', options: [
       { label: 'Edificio', value: 'rehabilitacion a nivel de edificio' },
@@ -316,11 +316,10 @@ export const masterFormFields = [
       { label: 'Línea 4', value: 'Estas ayudas tienen por objeto la financiación de actuaciones u obras de mejora de la eficiencia energética en las viviendas, ya sean unifamiliares o pertenecientes a edificios plurifamiliares' }
     ], subsection: 'JUSTIFICACION', fullWidth: true
   },
-  { name: 'tipoActuacion', label: 'Actua en calidad de...', type: 'text', placeholder: 'Ej: Propietario', subsection: 'JUSTIFICACION' },
 
   { name: 'totalCantidadJustificada', label: 'Total Cantidad Justificada', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'presupuestoInicial', label: 'Presupuesto Inicial', type: 'text', subsection: 'JUSTIFICACION' },
-  { name: 'inversionRealizada', label: 'Inversión Realizada', type: 'text', subsection: 'JUSTIFICACION' },
+  { name: 'inversionRealizada', label: 'Inversión Realizada (Factura)', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'desviacion', label: 'Desviación (con IVA si es subvencionable)', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'diaInicio', label: 'Día Inicio', placeholder: 'Ej: 03', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'mesInicio', label: 'Mes Inicio', placeholder: 'Ej: 10', type: 'text', subsection: 'JUSTIFICACION' },
@@ -331,6 +330,7 @@ export const masterFormFields = [
   { name: 'nombreRepresentanteEntidad', label: 'Nombre del Representante de la Entidad', placeholder: 'Ej: Juan Pérez', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'dniRepresentanteEntidad', label: 'DNI del Representante de la Entidad', placeholder: 'Ej: 12345678A', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'nifEmpresa', label: 'NIF Empresa', placeholder: 'Ej: B12345678', type: 'text', subsection: 'JUSTIFICACION' },
+  { name: 'tipoActuacion', label: 'Actua en calidad de...', type: 'text', placeholder: 'Ej: Propietario', subsection: 'JUSTIFICACION' },
 
 
   // ========== SUBSECCIÓN MEMORIA FV + AEROTERMIA ==========
@@ -350,7 +350,7 @@ export const masterFormFields = [
   { name: 'importeOtrosCostes', label: 'Importe Otros Costes', placeholder: 'Ej: 500.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'importeTotal', label: 'Importe Total', placeholder: 'Ej: 5500.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' }, */{ name: 'importeTotalSinIva', label: 'Importe Total Sin IVA (€)', placeholder: 'Ej: 5500.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'coincidencia', label: 'Coincidencia con presupuesto', type: 'select', options: ['No', ''], subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
-  { name: 'importeTotalConIva', label: 'Importe Total Con IVA (€)', placeholder: 'Ej: 6655.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
+  { name: 'inversionRealizada', label: 'Factura Total Con IVA (€)', placeholder: 'Ej: 6655.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'porcentajeMejoraEnergeticaAcreditado', label: 'Porcentaje Mejora Energética Acreditado (%)', placeholder: 'Ej: 64.22', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'porcentajeSubvencionable', label: 'Porcentaje Subvencionable (%)', placeholder: 'Ej: 80.00', type: 'select', options: ['40%', '65%', '80%'], subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },
   { name: 'importeSubvencionResultante', label: 'Importe Subvención Resultante (€)', placeholder: 'Ej: 9920.00', type: 'text', subsection: 'JUSTIFICACION', group: 'Memoria FV+Aer' },

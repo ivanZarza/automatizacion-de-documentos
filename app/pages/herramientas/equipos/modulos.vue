@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useFormStore } from '../../../stores/formStore'
@@ -10,7 +10,7 @@ const router = useRouter()
 
 const tipo = 'modulos'
 const cargando = ref(false)
-const formulario = ref<Record<string, any>>({})
+const formulario = ref({})
 
 const label = 'Módulos'
 const icon = '☀️'
@@ -29,7 +29,7 @@ const campos = [
 ]
 
 const modoEdicion = ref(false)
-const idEditable = ref<string | null>(null)
+const idEditable = ref(null)
 
 const equipos = computed(() => equipmentStore.modulos || [])
 
@@ -40,7 +40,7 @@ onMounted(async () => {
   cargando.value = false
 })
 
-const formatearLabel = (clave: string) => String(clave).replace(/([A-Z])/g, ' $1').replace(/^./, s => s.toUpperCase()).trim()
+const formatearLabel = (clave) => String(clave).replace(/([A-Z])/g, ' $1').replace(/^./, s => s.toUpperCase()).trim()
 
 const limpiarFormulario = () => {
   formulario.value = {}
@@ -49,7 +49,7 @@ const limpiarFormulario = () => {
   idEditable.value = null
 }
 
-const editarEquipo = (equipo: any) => {
+const editarEquipo = (equipo) => {
   modoEdicion.value = true
   idEditable.value = equipo.id
   // Rellenar formulario con los datos del equipo
@@ -72,25 +72,25 @@ const guardarEquipo = async () => {
     await equipmentStore.agregarEquipo(tipo, datosEnvio)
     limpiarFormulario()
     alert(modoEdicion.value ? 'Equipo actualizado' : 'Equipo guardado')
-  } catch (e: any) {
+  } catch (e) {
     console.error(e)
     alert('Error al guardar')
   }
 }
 
-const eliminarEquipo = async (id: string) => {
+const eliminarEquipo = async (id) => {
   if (!confirm('¿Eliminar equipo?')) return
   try {
     await equipmentStore.eliminarEquipo(tipo, id);
     alert('Eliminado')
-  } catch (e: any) {
+  } catch (e) {
     console.error('Error al eliminar:', e);
     alert(`❌ Error al eliminar el equipo: ${e?.message || e}`)
   }
 }
 
-const llevarAlFormulario = (equipo: Record<string, any>) => {
-  const datos: Record<string, any> = {
+const llevarAlFormulario = (equipo) => {
+  const datos = {
     e2_marcaModeloModulo: equipo.marca,
     e2_potenciaPicoModulo: equipo.potenciaPicoModulo,
     e2_potenciaPicoGenerador: equipo.potenciaPicoGenerador,
@@ -153,7 +153,7 @@ definePageMeta({ layout: 'default' })
           <p>📭 No hay módulos registrados aún</p>
         </div>
         <div v-else class="equipos-grid">
-          <div v-for="e in (equipos as Record<string, any>[])" :key="e.id" class="equipment-card">
+          <div v-for="e in equipos" :key="e.id" class="equipment-card">
             <div class="card-header"><strong>{{ e.marcaModelo || e.marca || 'Sin nombre' }}</strong></div>
             <div class="card-details">
               <div v-for="(v, k) in e" :key="k" v-show="k !== 'id' && k !== 'fechaCreacion'" class="detail">
