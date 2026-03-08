@@ -242,7 +242,7 @@ defineProps({
 
 /* ========== TEXTOS ESPECIALES ========== */
 .texto-azul {
-  color: #0066cc;
+  color: #000000;
   font-weight: bold;
 }
 
@@ -324,7 +324,7 @@ defineProps({
 }
 
 .texto-pie a {
-  color: #0066cc;
+  color: #000000;
   text-decoration: none;
 }
 

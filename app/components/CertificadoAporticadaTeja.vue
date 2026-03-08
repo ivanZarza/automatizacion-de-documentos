@@ -239,6 +239,7 @@ defineProps({
 /* ========== PÁRRAFOS ========== */
 .parrafo-tecnico {
   margin: 20px 0 20px 0;
+  text-align: justify;
   font-size: 15px;
   line-height: 1.5;
 }
@@ -266,7 +267,7 @@ defineProps({
 
 /* ========== TEXTOS ESPECIALES ========== */
 .texto-azul {
-  color: #0066cc;
+  color: #000000;
   font-weight: bold;
 }
 

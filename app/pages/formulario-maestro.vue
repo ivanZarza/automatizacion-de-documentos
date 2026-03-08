@@ -3,34 +3,22 @@
     <!-- Título Principal -->
     <div class="max-w-6xl mx-auto mb-8">
       <h1 class="text-4xl font-bold text-blue-600 mb-2">Formulario Maestro - Memoria Técnica</h1>
-      <p class="text-gray-600">Completa todos los campos técnicos de la instalación. Luego podrás seleccionar el documento a generar.</p>
+      <p class="text-gray-600">Completa todos los campos técnicos de la instalación. Al guardar, volverás a la página
+        principal para seleccionar el documento que desees.</p>
     </div>
 
     <!-- Componente Formulario -->
     <div class="max-w-6xl mx-auto">
-      <DocumentForm
-        title="Datos Técnicos de la Instalación"
-        :fields="masterFormFields"
-        :initialData="formData"
-        :columns="2"
-        submitButtonText="Guardar Datos y Continuar"
-        @submit="handleFormSubmit"
-      />
+      <DocumentForm title="Datos Técnicos de la Instalación" :fields="masterFormFields" :initialData="formData"
+        :columns="2" submitButtonText="Guardar y Volver al Inicio" @submit="handleFormSubmit" />
     </div>
 
     <!-- Botones Sticky -->
     <div class="sticky-buttons">
-      <Boton 
-        @click="goToIndex"
-        variant="secondary"
-      >
+      <Boton @click="goToIndex" variant="secondary">
         ← Volver
       </Boton>
-      <Boton 
-        @click="clearAllData"
-        variant="danger"
-        class="mt-2"
-      >
+      <Boton @click="clearAllData" variant="danger" class="mt-2">
         🗑️ Borrar Todos los Datos
       </Boton>
     </div>
@@ -59,17 +47,17 @@ const formData = ref({})
 const loadMasterData = () => {
   const savedData = loadFromStorage()
   const unsavedData = formStore.hasData ? formStore.getFormData() : {}
-  
+
   // Limpiar formData para forzar cambio de referencia si es necesario
   const newData = {}
-  
+
   // Si hay datos guardados en localStorage, usarlos; si no, usar valores por defecto
   if (savedData && Object.keys(savedData).length > 0) {
     Object.assign(newData, savedData, unsavedData)
   } else {
     Object.assign(newData, getMasterFormDefaultData(), unsavedData)
   }
-  
+
   formData.value = newData
 }
 
@@ -80,12 +68,12 @@ onMounted(() => {
 
 const handleFormSubmit = (newData) => {
   formData.value = newData
-  
+
   // Guardar datos en localStorage (base de datos central de todo: datos + imágenes)
   saveToStorage(newData)
-  
-  // Redirigir a página de selección de documento
-  router.push('/seleccionar-documento')
+
+  // Redirigir a página principal
+  router.push('/')
 }
 
 const clearAllData = () => {
@@ -99,15 +87,15 @@ const clearAllData = () => {
     '• NO se puede deshacer\n\n' +
     '¿Estás seguro de que deseas continuar?'
   )
-  
+
   if (confirmed) {
     // Limpiar localStorage
     clearStorage()
     clearImagesFromStorage()
-    
+
     // Reiniciar formulario con valores por defecto
     formData.value = getMasterFormDefaultData()
-    
+
     // Mostrar mensaje de confirmación
     alert('✓ Todos los datos han sido borrados correctamente.')
   }

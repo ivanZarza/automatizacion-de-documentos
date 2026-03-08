@@ -250,7 +250,7 @@ defineProps({
 }
 
 .texto-azul {
-  color: #0066cc;
+  color: #000000;
   font-weight: bold;
 }
 
