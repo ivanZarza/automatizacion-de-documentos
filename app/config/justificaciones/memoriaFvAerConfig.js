@@ -13,7 +13,7 @@ export const memoriaFvAerConfig = {
     { name: 'tipoEdificio', label: 'Tipo de Edificio', type: 'text', fullWidth: true },
     { name: 'domicilio', label: 'Domicilio', type: 'text', fullWidth: true },
     { name: 'tipoSoporte', label: 'Tipo de Soporte', type: 'select', options: ['PLANA', 'INCLINADA', 'AMBAS'] },
-    
+
     { type: 'subsection', label: 'Textos Condicionales', name: 'textosCondicionales', description: 'Textos opcionales según actuación' },
     { name: 'textoOpcional1', label: 'Texto Opcional (Sección 1)', type: 'textarea', rows: 2, fullWidth: true },
     { name: 'textoAerotermia1', label: 'Texto Aerotermia (Sección 1)', type: 'textarea', rows: 2, fullWidth: true },
@@ -24,20 +24,20 @@ export const memoriaFvAerConfig = {
     { name: 'resistenciaElectrica', label: 'Resistencia Eléctrica (kW)', type: 'text' },
     { name: 'potenciaTotalInstalada', label: 'Potencia Total (kW)', type: 'text' },
     { name: 'coincidencia', label: 'Texto de Coincidencia de Costes', type: 'text', fullWidth: true },
-    
+
     { type: 'subsection', label: 'Desglose de Costes SIN IVA', name: 'costosSinIva', description: 'Importes sin IVA' },
     { name: 'importeActuacionesSinIva', label: 'Actuaciones sin Retirada de Amianto (Sin IVA)', type: 'text' },
     { name: 'importeTotalSinIva', label: 'Importe Total (Sin IVA)', type: 'text' },
-    
+
     { type: 'subsection', label: 'Desglose de Costes CON IVA', name: 'costosConIva', description: 'Importes con IVA' },
     { name: 'importeActuacionesConIva', label: 'Actuaciones sin Retirada de Amianto (Con IVA)', type: 'text' },
     { name: 'importeTotalConIva', label: 'Importe Total (Con IVA)', type: 'text' },
-    
+
     { type: 'subsection', label: 'Acreditación de Subvención', name: 'acreditacionSubvencion', description: 'Datos de mejora energética y subvención' },
     { name: 'porcentajeMejoraEnergeticaAcreditado', label: 'Porcentaje de Mejora Energética Acreditado', type: 'text' },
     { name: 'porcentajeSubvencionable', label: 'Porcentaje Subvencionable a Aplicar', type: 'text' },
     { name: 'importeSubvencionResultante', label: 'Importe de la Subvención Resultante', type: 'text' },
-    
+
     { type: 'subsection', label: 'Fechas', name: 'fechas', description: 'Información temporal' },
     { name: 'fechaConclusionDia', label: 'Día Conclusión', type: 'text' },
     { name: 'fechaConclusionMes', label: 'Mes Conclusión', type: 'text' },
@@ -45,10 +45,10 @@ export const memoriaFvAerConfig = {
     { name: 'dia', label: 'Día (Firma)', type: 'text' },
     { name: 'mes', label: 'Mes (Firma)', type: 'text' },
     { name: 'anio', label: 'Año (Firma)', type: 'text' },
-    
+
     { type: 'subsection', label: 'Firma y Documentación', name: 'firmaYDocumentacion', description: 'Datos del firmante' },
     { name: 'firmaImagen', label: 'Imagen de Firma', type: 'image' },
-    
+
     { type: 'subsection', label: 'Opciones', name: 'opciones', description: 'Configuración adicional' },
     { name: 'aerotermia', label: 'Incluir sección de Aerotermia', type: 'checkbox' }
   ],
