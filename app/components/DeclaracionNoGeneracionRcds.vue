@@ -14,10 +14,10 @@
       <!-- Contenido Principal -->
       <div class="contenido-principal">
         <p class="parrafo-intro">
-          Por la presente, <strong>Eduardo Rivera Cabezas</strong>, con NIF <strong>28.818.007-L</strong>, Ingeniero
-          Industrial colegiado número <strong>4654</strong> en el Colegio Oficial de Ingenieros Industriales de
-          <strong>Andalucía Occidental</strong>, y con domicilio en <strong>Calle El Peñón 5 - 41940</strong>, localidad
-          de <strong>Tomares</strong>, provincia de <strong>Sevilla</strong>
+          Por la presente, Eduardo Rivera Cabezas, con NIF 28.818.007-L, Ingeniero
+          Industrial colegiado número 4654 en el Colegio Oficial de Ingenieros Industriales de
+          Andalucía Occidental, y con domicilio en Calle El Peñón 5 - 41940, localidad
+          de Tomares, provincia de Sevilla
         </p>
 
         <h2 class="titulo-declara">DECLARA QUE</h2>
@@ -159,13 +159,11 @@ defineProps({
 
 .titulo-declara {
   text-align: center;
-  font-size: 18px;
+  font-size: 25px;
   font-weight: bold;
-  color: #0066cc;
+  color: #333;
   margin: 20px 0;
-  padding: 10px 0;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  text-transform: uppercase;
 }
 
 .parrafo-declaracion {

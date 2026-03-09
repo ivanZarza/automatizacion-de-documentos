@@ -4,11 +4,13 @@
     <div class="contenedor-principal">
       <div class="encabezado">
         <div class="encabezado-contenido">
-          <h3 class="titulo-secundario">
-            CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA<br />AUTOCONSUMO
-            FOTOVOLTAICO<br />CHAPA GRECADA -
-            <span class="texto-azul">APORTICADA</span>
+          <h3 class="titulo-principal">
+            CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA<br /></h3>
+          <h3 class="titulo-secundario">AUTOCONSUMO
+            FOTOVOLTAICO<br />INSTALACION SOBRE CHAPA GRECADA,
+            APORTICADA
           </h3>
+
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
       </div>
@@ -74,11 +76,13 @@
     <div class="contenedor-principal">
       <div class="encabezado">
         <div class="encabezado-contenido">
-          <h3 class="titulo-secundario">
-            CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA<br />AUTOCONSUMO
-            FOTOVOLTAICO<br />CHAPA GRECADA -
-            <span class="texto-azul">APORTICADA</span>
+          <h3 class="titulo-principal">
+            CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA<br /></h3>
+          <h3 class="titulo-secundario">AUTOCONSUMO
+            FOTOVOLTAICO<br />INSTALACION SOBRE CHAPA GRECADA,
+            APORTICADA
           </h3>
+
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
       </div>
@@ -112,8 +116,10 @@
           acuerdo a vista de la inspección ocular realizada
           <span class="texto-azul">in situ</span>, de la revisión del proyecto
           constructivo de la misma, y de la disposición sobre la cubierta de los
-          módulos fotovoltaicos. La mencionada
-          <span class="texto-azul">Memoria Técnica de Diseño</span> ha sido
+          módulos fotovoltaicos.
+        </p>
+        <p> La mencionada
+          Memoria Técnica de Diseño ha sido
           redactada por mí como técnico competente.
         </p>
       </div>
@@ -196,24 +202,32 @@ defineProps({
 .encabezado {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 18px 0;
   border-bottom: 2px solid #0066cc;
-  margin-bottom: 50px;
-  width: 100%;
-  gap: 30px;
+  margin-bottom: 17px;
 }
 
 .encabezado-contenido {
   flex: 1;
 }
 
-.titulo-secundario {
+.titulo-principal {
   margin: 0;
-  font-size: 19px;
+  font-size: 26px;
   font-weight: bold;
-  color: #333;
-  line-height: 1.4;
+  color: #000;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.titulo-secundario {
+  margin: 5px 0 0 0;
+  font-size: 18px;
+  color: #000;
+  text-align: center;
+  font-weight: bold;
+  line-height: 1.3;
 }
 
 .logo {
@@ -228,8 +242,7 @@ defineProps({
   display: flex;
   flex-direction: column;
   line-height: 1.6;
-  font-size: 15px;
-  gap: 15px;
+  font-size: 16px;
   width: 100%;
   overflow-wrap: break-word;
 }
@@ -238,14 +251,14 @@ defineProps({
 .parrafo-tecnico {
   margin: 10px 0;
   text-align: justify;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.5;
 }
 
 .parrafo-estructura {
   margin: 10px 0;
   text-align: justify;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.5;
 }
 

@@ -58,7 +58,7 @@
               </tr>
               <tr>
                 <td class="label">Autor proyecto:</td>
-                <td class="valor" colspan="3">Eduardo Rafael Rivera Cabezas-4654</td>
+                <td class="valor" colspan="3">Eduardo Rafael Rivera Cabezas - 4654</td>
               </tr>
             </tbody>
           </table>
@@ -258,7 +258,7 @@
         <!-- Fecha -->
         <p class="parrafo-fecha">
           En <strong>{{ formattedData.localidad }}</strong>, a <strong>{{ pse_dia }} de {{ pse_mes }} de {{ pse_anio
-          }}</strong>.
+            }}</strong>.
         </p>
 
         <!-- Logo footer -->
@@ -394,18 +394,20 @@ const formattedData = computed(() => ({
 
 .titulo-principal {
   margin: 0;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: bold;
-  color: #ff9900;
+  color: #000;
   text-align: center;
+  line-height: 1.3;
 }
 
 .titulo-secundario {
   margin: 5px 0 0 0;
   font-size: 18px;
-  font-weight: bold;
-  color: #ff9900;
+  color: #000;
   text-align: center;
+  font-weight: bold;
+  line-height: 1.3;
 }
 
 .logo {
@@ -418,16 +420,16 @@ const formattedData = computed(() => ({
 /* ========== TÍTULO DESCRIPTIVO ========== */
 .titulo-descriptivo {
   padding: 12px 15px;
-  margin: 30px 0;
   border-radius: 4px;
   text-align: center;
+  background-color: #e2e2e2;
 }
 
 .texto-descriptivo {
   margin: 0;
   color: #333;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 17px;
   line-height: 1.5;
 }
 
@@ -459,13 +461,11 @@ const formattedData = computed(() => ({
 /* ========== TÍTULOS DE SECCIÓN ========== */
 .titulo-seccion {
   text-align: center;
-  font-size: 16px;
+  font-size: 25px;
   font-weight: bold;
-  color: #0066cc;
-  margin: 15px 0 12px 0;
-  padding: 10px 0;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  color: #333;
+  margin: 20px 0;
+  text-transform: uppercase;
 }
 
 /* ========== TABLA DE DATOS ========== */
@@ -513,7 +513,7 @@ const formattedData = computed(() => ({
 /* ========== BLOQUES DE INFORMACIÓN ========== */
 .info-bloque {
   background-color: #f9f9f9;
-  border-left: 4px solid #0066cc;
+  border-left: 4px solid #000000;
   padding: 12px;
   border-radius: 4px;
   font-size: 13px;
@@ -581,6 +581,7 @@ const formattedData = computed(() => ({
   flex-direction: column;
   gap: 5px;
   font-size: 12px;
+  background-color: #f5f5f5;
 }
 
 .dato-bloque {
@@ -589,7 +590,6 @@ const formattedData = computed(() => ({
 
 .dato-titulo {
   font-style: italic;
-  color: #0066cc;
   margin: 0 0 5px 0;
   font-size: 12px;
 }
@@ -601,7 +601,6 @@ const formattedData = computed(() => ({
 }
 
 .dato-label-inline {
-  color: #0066cc;
   font-weight: normal;
 }
 

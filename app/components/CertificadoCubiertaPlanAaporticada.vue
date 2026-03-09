@@ -6,7 +6,7 @@
         <div class="encabezado-contenido">
           <h1 class="titulo-principal">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA</h1>
           <h3 class="titulo-secundario">AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE CUBIERTA PLANA, <span
-              class="texto-azul">APORTÍCADA</span></h3>
+              class="texto-azul">APORTICADA</span></h3>
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
       </div>
@@ -15,8 +15,8 @@
         <p class="parrafo-intro">
           Por la presente, <span class="texto-fijo">Eduardo Rivera Cabezas</span>, con NIF <span
             class="texto-fijo">28.818.007-L</span>, Ingeniero Industrial colegiado número <span
-            class="texto-fijo">4654</span> en el Colegio Oficial de Ingenieros Industriales de <span
-            class="texto-azul">Andalucía Occidental</span>, y con domicilio en <span class="texto-fijo">Calle El Peñón 5
+            class="texto-fijo">4654</span> en el Colegio Oficial de Ingenieros Industriales de
+          Andalucía Occidental, y con domicilio en <span class="texto-fijo">Calle El Peñón 5
             - 41940</span>, localidad de <span class="texto-fijo">Tomares</span>, provincia de <span
             class="texto-fijo">Sevilla</span>
         </p>
@@ -43,10 +43,10 @@
         </p>
 
         <p class="parrafo-estructura">
-          La estructura de soporte de dichos módulos fotovoltaicos será del tipo <span
-            class="texto-azul">APORTÍCADA</span> PARA CUBIERTA PLANA mediante <span
-            class="texto-editable">perfilería</span> de aluminio ligero del modelo 11V de la empresa <span
-            class="texto-azul">SUNFER ESTRUCTURAS, S.L.</span>, especializada en soportes para generadores fotovoltaicos
+          La estructura de soporte de dichos módulos fotovoltaicos será del tipo <span class="texto-azul">APORTICADA
+            PARA CUBIERTA PLANA</span> mediante <span class="texto-editable">perfilería</span> de aluminio ligero del
+          modelo 11V de la empresa <span class="texto-azul">SUNFER ESTRUCTURAS, S.L.</span>, especializada en soportes
+          para generadores fotovoltaicos
           con Certificado de Garantía y Marcado CE de sus productos (se adjuntan en la Memoria Técnica de Diseño, así
           como la Ficha Técnica y Plano de Montaje).
         </p>
@@ -69,7 +69,7 @@
         <div class="encabezado-contenido">
           <h1 class="titulo-principal">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA</h1>
           <h3 class="titulo-secundario">AUTOCONSUMO FOTOVOLTAICO<br />INSTALACIÓN SOBRE CUBIERTA PLANA, <span
-              class="texto-azul">APORTÍCADA</span></h3>
+              class="texto-azul">APORTICADA</span></h3>
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
       </div>
@@ -81,7 +81,7 @@
         </div>
 
         <p class="parrafo-estructura">
-          Dicha <span class="texto-azul">ESTRUCTURA APORTÍCADA</span> será fijada a la cubierta mediante varias varillas
+          Dicha <span class="texto-azul">ESTRUCTURA APORTICADA</span> será fijada a la cubierta mediante varias varillas
           roscadas (según procedimiento del fabricante), sólidamente fijadas a la <span
             class="texto-azul">perfilería</span> de aluminio mediante <span class="texto-azul">tornillería</span> de
           acero inoxidable.
@@ -297,19 +297,16 @@ defineProps({
 /* ========== TÍTULOS ========== */
 .titulo-declara {
   text-align: center;
-  font-size: 18px;
+  font-size: 25px;
   font-weight: bold;
-  color: #0066cc;
+  color: #333;
   margin: 20px 0;
-  padding: 10px 0;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  text-transform: uppercase;
 }
 
 /* ========== TEXTO ========== */
 .texto-fijo {
   color: #000;
-  font-weight: normal;
 }
 
 .texto-editable {

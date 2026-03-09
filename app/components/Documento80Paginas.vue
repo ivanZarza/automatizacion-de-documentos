@@ -64,8 +64,8 @@ defineProps({
     <div data-pdf-content class="contenedor-principal">
       <div class="encabezado">
         <div class="encabezado-contenido">
-          <p class="subtitulo">ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</p>
-          <p class="subtitulo">INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+          <h1 class="titulo-principal"> ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+          <h3 class="titulo-secundario">INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</h3>
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
       </div>
@@ -77,7 +77,7 @@ defineProps({
           con Excedentes Acogido a Compensación en Vivienda
         </div>
 
-        <h1 class="titulo-principal">ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</h1>
+        <h1 class="titulo-seccion">DATOS DEL PROYECTO</h1>
 
         <div class="tabla-info">
           <table class="tabla-datos">
@@ -134,8 +134,8 @@ defineProps({
     <div data-pdf-content class="contenedor-principal no-break">
       <div class="encabezado">
         <div class="encabezado-contenido">
-          <p class="subtitulo">ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</p>
-          <p class="subtitulo">INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
+          <p class="titulo-principal">ESTUDIO BÁSICO DE SEGURIDAD Y SALUD</p>
+          <p class="titulo-secundario">INSTALACIÓN DE AUTOCONSUMO FOTOVOLTAICO</p>
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
       </div>
@@ -457,7 +457,7 @@ defineProps({
 
         <h3 class="titulo-subseccion">1.7. PRESUPUESTO TOTAL DE EJECUCIÓN DE LA OBRA</h3>
         <p class="parrafo-contenido">El presupuesto de ejecución material de la obra es <span class="texto-rojo">{{
-            presupuesto }}</span></p>
+          presupuesto }}</span></p>
 
         <h3 class="titulo-subseccion">1.8. PLAZO DE EJECUCIÓN</h3>
         <p class="parrafo-contenido">El plazo de ejecución se ha previsto que sea de una semana.</p>
@@ -526,18 +526,21 @@ defineProps({
 }
 
 .titulo-principal {
-  margin: 0 0 8px 0;
-  font-size: 24px;
+  margin: 0;
+  font-size: 26px;
   font-weight: bold;
-  color: #333;
+  color: #000;
   text-align: center;
+  line-height: 1.3;
 }
 
-.subtitulo {
-  margin: 0;
+.titulo-secundario {
+  margin: 5px 0 0 0;
   font-size: 18px;
-  color: #666;
-  text-align: left;
+  color: #000;
+  text-align: center;
+  font-weight: bold;
+  line-height: 1.3;
 }
 
 .logo {
@@ -555,6 +558,15 @@ defineProps({
   flex-direction: column;
 }
 
+.titulo-seccion {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: #333;
+  margin: 20px 0;
+  text-transform: uppercase;
+}
+
 .caja-destacada {
   background-color: #f0f0f0;
   border: 1px solid #ddd;
@@ -564,13 +576,13 @@ defineProps({
 }
 
 .caja-instalacion {
-  margin: 8px auto 18px auto;
+  margin: 0px auto 0px auto;
   width: 80%;
 }
 
 .tabla-info {
   width: 75%;
-  margin: 12px auto 24px auto;
+  margin: 0px auto 24px auto;
   border: 1px solid #111;
   padding: 8px;
 }

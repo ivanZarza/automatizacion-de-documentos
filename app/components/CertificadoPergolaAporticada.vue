@@ -44,9 +44,11 @@
         <h3 class="titulo-seccion">Estructura Primaria</h3>
 
         <p class="parrafo-estructura">
-          Los paneles fotovoltaicos se situarán sobre una estructura primaria consistente en EN UNA PÉRGOLA DE ACERO
-          GALVANIZADO. Esta estructura tendrá una altura máxima de 1,8 m, una orientación de <span
-            class="texto-editable">{{ orientacion }}</span> y una inclinación de <span class="texto-editable">{{
+          Los paneles fotovoltaicos se situarán sobre una estructura primaria consistente en <span
+            class="texto-editable">EN UNA PÉRGOLA DE ACERO
+            GALVANIZADO</span>. Esta estructura tendrá una altura máxima de <span class="texto-editable">1,8 m</span>,
+          una orientación de <span class="texto-editable">{{ orientacion }}</span> y una inclinación de <span
+            class="texto-editable">{{
               inclinacion }}</span>, posicionándose los paneles formando un plano inclinado.
         </p>
 
@@ -124,9 +126,7 @@
           fotovoltaicos.
         </p>
 
-        <p class="parrafo-estructura">
-          La mencionada Memoria Técnica de Diseño ha sido redactada por mí como técnico competente.
-        </p>
+
       </div>
 
       <div class="pie-pagina">
@@ -147,6 +147,9 @@
       </div>
 
       <div class="contenido-principal">
+        <p class="parrafo-estructura">
+          La mencionada Memoria Técnica de Diseño ha sido redactada por mí como técnico competente.
+        </p>
         <!-- Fecha -->
         <p class="parrafo-fecha">
           En <strong>{{ localidad }}</strong>, a <strong>{{ dia }} de {{ mes }} de {{ anio }}</strong>.
@@ -309,19 +312,17 @@ defineProps({
 /* ========== TÍTULOS ========== */
 .titulo-declara {
   text-align: center;
-  font-size: 18px;
+  font-size: 25px;
   font-weight: bold;
-  color: #0066cc;
-  margin: 8px 0;
-  padding: 10px 0;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  color: #333;
+  margin: 20px 0;
+  text-transform: uppercase;
 }
 
 .titulo-seccion {
   font-size: 16px;
   font-weight: bold;
-  color: #0066cc;
+  color: #000000;
   margin: 5px 0 2px 0;
 }
 

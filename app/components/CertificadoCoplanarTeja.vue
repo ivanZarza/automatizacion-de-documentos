@@ -22,7 +22,7 @@
           <span class="texto-fijo">28.818.007-L</span>, Ingeniero Industrial
           colegiado número <span class="texto-fijo">4654</span> en el Colegio
           Oficial de Ingenieros Industriales de
-          <span class="texto-azul">Andalucía Occidental</span>, y con domicilio
+          Andalucía Occidental, y con domicilio
           en <span class="texto-fijo">Calle El Peñón 5 - 41940</span>, localidad
           de <span class="texto-fijo">Tomares</span>, provincia de
           <span class="texto-fijo">Sevilla</span>
@@ -348,13 +348,11 @@ defineProps({
 /* ========== TÍTULOS ========== */
 .titulo-declara {
   text-align: center;
-  font-size: 18px;
+  font-size: 25px;
   font-weight: bold;
-  color: #0066cc;
-  margin: 10px 0;
-  padding: 10px 0;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  color: #333;
+  margin: 20px 0;
+  text-transform: uppercase;
 }
 
 /* ========== TEXTO ========== */

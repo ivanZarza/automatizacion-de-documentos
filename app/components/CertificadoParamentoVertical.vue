@@ -4,8 +4,10 @@
     <div class="contenedor-principal">
       <div class="encabezado">
         <div class="encabezado-contenido">
-          <h3 class="titulo-secundario">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA<br />AUTOCONSUMO
-            FOTOVOLTAICO<br />INSTALACIÓN SOBRE PARAMENTO VERTICAL</h3>
+          <h1 class="titulo-principal">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA</h1><br />
+          <h3 class="titulo-secundario">AUTOCONSUMO
+            FOTOVOLTAICO<br />
+            INSTALACIÓN SOBRE PARAMENTO VERTICAL</h3>
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
       </div>
@@ -39,17 +41,33 @@
           La estructura de soporte para instalación sobre paramento vertical será de perfilería metálica diseñada según
           el procedimiento del fabricante, con anclajes y fijaciones adecuados para montaje en paramento vertical.
         </p>
+        <div class="contenido-principal">
+          <!-- Espacio para imagenes: una grande y una secundaria -->
+          <div class="contenedor-dos-imagenes">
+            <div class="espacio-imagen-lado">
+              <img :src="'/fotos-certificados/paramento-vertical.png'" class="imagen-pdf-lado" />
+            </div>
+          </div>
+        </div>
 
+        <div class="pie-pagina">
+          <p class="texto-pie">www.solay.es</p>
+          <p class="texto-pie">Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110 Sevilla.</p>
+          <p class="texto-pie">Página 1</p>
+        </div>
       </div>
 
-      <div class="pie-pagina">
-        <p class="texto-pie">www.solay.es</p>
-        <p class="texto-pie">Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110 Sevilla.</p>
-        <p class="texto-pie">Página 1</p>
-      </div>
+      <!-- PÁGINA 2: ESTRUCTURA / IMÁGENES -->
+
+
+
+
+
     </div>
 
-    <!-- PÁGINA 2: ESTRUCTURA / IMÁGENES -->
+
+
+    <!-- PÁGINA 3: FIRMA Y DATOS -->
     <div class="contenedor-principal">
       <div class="encabezado">
         <div class="encabezado-contenido">
@@ -58,14 +76,7 @@
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
       </div>
-
       <div class="contenido-principal">
-        <!-- Espacio para imagenes: una grande y una secundaria -->
-        <div class="contenedor-dos-imagenes">
-          <div class="espacio-imagen-lado">
-            <img :src="'/fotos-certificados/paramento-vertical.png'" class="imagen-pdf-lado" />
-          </div>
-        </div>
 
         <p class="parrafo-estructura">
           Dicha estructura de soporte será anclada al <span class="texto-azul">PARAMENTO VERTICAL</span> según
@@ -81,28 +92,9 @@
         </p>
 
         <p class="parrafo-estructura">
-          La mencionada <span class="texto-azul">Memoria Técnica de Diseño</span> ha sido redactada por mí como técnico
+          La mencionada Memoria Técnica de Diseño ha sido redactada por mí como técnico
           competente.
         </p>
-      </div>
-
-      <div class="pie-pagina">
-        <p class="texto-pie">www.solay.es</p>
-        <p class="texto-pie">Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110 Sevilla.</p>
-        <p class="texto-pie">Página 2</p>
-      </div>
-    </div>
-
-    <!-- PÁGINA 3: FIRMA Y DATOS -->
-    <div class="contenedor-principal">
-      <div class="encabezado">
-        <div class="encabezado-contenido">
-          <h3 class="titulo-secundario">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA<br />AUTOCONSUMO
-            FOTOVOLTAICO<br />INSTALACIÓN SOBRE PARAMENTO VERTICAL</h3>
-        </div>
-        <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
-      </div>
-      <div class="contenido-principal">
         <!-- Fecha -->
         <p class="parrafo-fecha">
           En <strong>{{ ciudadFirma }}</strong>, a <strong>{{ dia }} de {{ mes }} de {{ anio }}</strong>.
@@ -125,7 +117,7 @@
       <div class="pie-pagina">
         <p class="texto-pie">www.solay.es</p>
         <p class="texto-pie">Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110 Sevilla.</p>
-        <p class="texto-pie">Página 3</p>
+        <p class="texto-pie">Página 2</p>
       </div>
     </div>
   </div>
@@ -181,24 +173,32 @@ defineProps({
 .encabezado {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 18px 0;
   border-bottom: 2px solid #0066cc;
-  margin-bottom: 50px;
-  width: 100%;
-  gap: 30px;
+  margin-bottom: 17px;
 }
 
 .encabezado-contenido {
   flex: 1;
 }
 
+.titulo-principal {
+  margin: 0;
+  font-size: 26px;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  line-height: 1.3;
+}
+
 .titulo-secundario {
   margin: 0;
-  font-size: 19px;
+  font-size: 18px;
+  color: #000;
+  text-align: center;
   font-weight: bold;
-  color: #333;
-  line-height: 1.4;
+  line-height: 1.3;
 }
 
 .logo {
@@ -214,7 +214,6 @@ defineProps({
   flex-direction: column;
   line-height: 1.6;
   font-size: 15px;
-  gap: 15px;
   width: 100%;
   overflow-wrap: break-word;
 }
@@ -224,6 +223,8 @@ defineProps({
   margin: 20px 0 20px 0;
   font-size: 15px;
   line-height: 1.5;
+  text-align: justify;
+
 }
 
 .parrafo-estructura {

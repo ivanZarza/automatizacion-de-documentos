@@ -143,7 +143,7 @@ defineProps({
   margin: 0;
   font-size: 26px;
   font-weight: bold;
-  color: #ff9900;
+
   text-align: center;
 }
 
@@ -151,7 +151,6 @@ defineProps({
   margin: 5px 0 0 0;
   font-size: 18px;
   font-weight: bold;
-  color: #ff9900;
   text-align: center;
 }
 
@@ -169,17 +168,16 @@ defineProps({
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 50px 0px;
 }
 
 /* ========== PÁRRAFOS ========== */
 .parrafo-intro {
-  margin: 0 0 25px 0;
+  margin: 0 0 10px 0;
   text-align: justify;
 }
 
 .parrafo-declara {
-  margin: 20px 0 25px 0;
+  margin: 10px 0 10px 0;
   text-align: justify;
 }
 
@@ -193,13 +191,11 @@ defineProps({
 /* ========== TÍTULOS ========== */
 .titulo-declara {
   text-align: center;
-  font-size: 18px;
+  font-size: 25px;
   font-weight: bold;
-  color: #0066cc;
+  color: #333;
   margin: 20px 0;
-  padding: 10px 0;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  text-transform: uppercase;
 }
 
 /* ========== TEXTO ========== */

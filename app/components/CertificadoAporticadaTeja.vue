@@ -4,7 +4,10 @@
     <div class="contenedor-principal">
       <div class="encabezado">
         <div class="encabezado-contenido">
-          <h3 class="titulo-secundario">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA<br />AUTOCONSUMO
+          <h3 class="titulo-principal">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA
+          </h3>
+          <br />
+          <h3 class="titulo-secundario">AUTOCONSUMO
             FOTOVOLTAICO<br />INSTALACIÓN SOBRE TEJA, <span class="texto-azul">APORTICADA</span></h3>
         </div>
         <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
@@ -21,7 +24,7 @@
 
         <p class="parrafo-tecnico">
           que el estado de la cubierta de teja de la vivienda sita en <span class="texto-rojo">{{ direccion }}, {{
-            localidad }}, {{ codigoPostal }}, {{ provincia }}</span>, referencia Catastral <span class="texto-rojo">{{
+            localidad }}, {{ codigoPostal }}, {{ provincia }}, referencia Catastral {{
               referenciaCatastral }}</span>, es el adecuado para soportar de forma sólida y segura el generador
           fotovoltaico para Autoconsumo que se tiene previsto instalar, a la vista de la inspección ocular realizada in
           situ, de la revisión del proyecto constructivo de la misma, y de la disposición sobre la cubierta de los
@@ -40,7 +43,11 @@
           empresa SUNFER ESTRUCTURAS, S.L., especializada en soportes para generadores fotovoltaicos con Certificado de
           Garantía y Marcado CE de sus productos.
         </p>
-
+        <div class="contenedor-dos-imagenes">
+          <div class="espacio-imagen-lado">
+            <img :src="'/fotos-certificados/teja-aporticada.png'" class="imagen-pdf-lado" />
+          </div>
+        </div>
 
       </div>
 
@@ -63,11 +70,6 @@
 
       <div class="contenido-principal">
         <!-- Espacio para dos imágenes -->
-        <div class="contenedor-dos-imagenes">
-          <div class="espacio-imagen-lado">
-            <img :src="'/fotos-certificados/teja-aporticada.png'" class="imagen-pdf-lado" />
-          </div>
-        </div>
         <p class="parrafo-estructura">
           Dicha <span class="texto-azul">ESTRUCTURA APORTICADA</span> será fijada a la cubierta inclinada de teja
           mediante <span class="texto-azul">varillas roscadas</span> (según procedimiento del fabricante), sólidamente
@@ -98,28 +100,9 @@
         </p>
 
         <p class="parrafo-estructura">
-          La mencionada <span class="texto-azul">Memoria Técnica de Diseño</span> ha sido redactada por mí como técnico
+          La mencionada Memoria Técnica de Diseño ha sido redactada por mí como técnico
           competente.
         </p>
-      </div>
-
-      <div class="pie-pagina">
-        <p class="texto-pie">www.solay.es</p>
-        <p class="texto-pie">Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110 Sevilla.</p>
-        <p class="texto-pie">Página 2</p>
-      </div>
-    </div>
-
-    <!-- PÁGINA 3: FIRMA Y DATOS -->
-    <div class="contenedor-principal">
-      <div class="encabezado">
-        <div class="encabezado-contenido">
-          <h3 class="titulo-secundario">CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA<br />AUTOCONSUMO
-            FOTOVOLTAICO<br />INSTALACIÓN SOBRE TEJA, <span class="texto-azul">APORTICADA</span></h3>
-        </div>
-        <img src="/logo-solay.png" alt="Logo Solay" class="logo" />
-      </div>
-      <div class="contenido-principal">
         <!-- Fecha -->
         <p class="parrafo-fecha">
           En <strong>{{ ciudadFirma }}</strong>, a <strong>{{ dia }} de {{ mes }} de {{ anio }}</strong>.
@@ -142,7 +125,7 @@
       <div class="pie-pagina">
         <p class="texto-pie">www.solay.es</p>
         <p class="texto-pie">Paseo de Bollullos de la Mitación 18. Parque Industrial PIBO. 41110 Sevilla.</p>
-        <p class="texto-pie">Página 3</p>
+        <p class="texto-pie">Página 2</p>
       </div>
     </div>
   </div>
@@ -179,7 +162,7 @@ defineProps({
   background-color: white;
   font-family: 'Segoe UI', Arial, sans-serif;
   color: #333;
-  font-size: 16px;
+  font-size: 17px;
   display: flex;
   flex-direction: column;
 }
@@ -194,28 +177,40 @@ defineProps({
   margin: 0 auto;
 }
 
+.titulo-secundario {
+  font-size: 18px;
+}
+
 /* ========== ENCABEZADO ========== */
 .encabezado {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 18px 0;
   border-bottom: 2px solid #0066cc;
-  margin-bottom: 50px;
-  width: 100%;
-  gap: 30px;
+  margin-bottom: 17px;
 }
 
 .encabezado-contenido {
   flex: 1;
 }
 
-.titulo-secundario {
+.titulo-principal {
   margin: 0;
-  font-size: 19px;
+  font-size: 26px;
   font-weight: bold;
-  color: #333;
-  line-height: 1.4;
+  color: #000;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.titulo-secundario {
+  margin: 0px;
+  font-size: 18px;
+  color: #000;
+  text-align: center;
+  font-weight: bold;
+  line-height: 1.3;
 }
 
 .logo {
@@ -230,15 +225,14 @@ defineProps({
   display: flex;
   flex-direction: column;
   line-height: 1.6;
-  font-size: 15px;
-  gap: 15px;
+  font-size: 26px;
   width: 100%;
   overflow-wrap: break-word;
 }
 
 /* ========== PÁRRAFOS ========== */
 .parrafo-tecnico {
-  margin: 20px 0 20px 0;
+  margin: 10px 0 10px 0;
   text-align: justify;
   font-size: 15px;
   line-height: 1.5;
@@ -267,6 +261,11 @@ defineProps({
 
 /* ========== TEXTOS ESPECIALES ========== */
 .texto-azul {
+  color: #000000;
+  font-weight: bold;
+}
+
+.texto-rojo {
   color: #000000;
   font-weight: bold;
 }
