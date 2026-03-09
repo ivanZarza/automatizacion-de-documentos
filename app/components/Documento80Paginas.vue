@@ -12,6 +12,10 @@ defineProps({
     type: String,
     default: ''
   },
+  numero: {
+    type: String,
+    default: ''
+  },
   dia: {
     type: String,
     default: ''
@@ -91,7 +95,7 @@ defineProps({
               <tr>
                 <td class="etiqueta-tabla">Dirección</td>
                 <td class="valor-tabla">
-                  <span class="texto-rojo">{{ direccion }}</span>
+                  <span class="texto-rojo">{{ direccion }} {{ numero }}</span>
                 </td>
               </tr>
               <tr>
@@ -367,7 +371,7 @@ defineProps({
         <p class="parrafo-contenido">A continuación, se indica el emplazamiento de la instalación proyectada:</p>
 
         <ul class="lista-contenido">
-          <li>Dirección: <span class="texto-rojo">{{ direccion }}</span></li>
+          <li>Dirección: <span class="texto-rojo">{{ direccion }} {{ numero }}</span></li>
           <li>Localidad: <span class="texto-rojo">{{ localidad }}</span></li>
           <li>Provincia: <span class="texto-rojo">{{ provincia }}</span></li>
         </ul>
@@ -415,7 +419,7 @@ defineProps({
         <ul class="lista-contenido">
           <li>Promotor: <span class="texto-rojo">{{ nombre }}</span></li>
           <li>DNI/CIF: <span class="texto-rojo">{{ dni }}</span></li>
-          <li>Dirección: <span class="texto-rojo">{{ direccion }}</span></li>
+          <li>Dirección: <span class="texto-rojo">{{ direccion }} {{ numero }}</span></li>
           <li>Localidad: <span class="texto-rojo">{{ localidad }}</span></li>
           <li>Provincia: <span class="texto-rojo">{{ provincia }}</span></li>
           <li>C. postal: <span class="texto-rojo">{{ codigoPostal }}</span></li>
