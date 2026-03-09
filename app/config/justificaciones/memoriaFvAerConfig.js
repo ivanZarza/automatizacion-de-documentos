@@ -103,7 +103,7 @@ export const memoriaFvAerConfig = {
     caracteristicasAerotermia: (formData) => formData.aerotermia ? `• Las características técnicas del equipo aerotérmico son las siguientes:\n• Potencia térmica de la bomba de calor: ${formData.potenciaBomba}kW\n• Resistencia eléctrica auxiliar: ${formData.resistenciaElectrica}kW\n• Potencia total instalada: ≈ ${formData.potenciaTotalInstalada}kW` : '',
     coincidencia: 'coincidencia',
     importeActuacionesSinIva: 'importeTotalSinIva',
-    importeActuacionesConIva: 'importeTotalConIva',
+    importeActuacionesConIva: 'inversionRealizada',
     porcentajeMejoraEnergeticaAcreditado: 'porcentajeMejoraEnergeticaAcreditado',
     porcentajeSubvencionable: 'porcentajeSubvencionable',
     importeSubvencionResultante: 'importeSubvencionResultante',
