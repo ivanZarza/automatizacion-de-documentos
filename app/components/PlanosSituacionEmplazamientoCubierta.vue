@@ -581,7 +581,7 @@ const formattedData = computed(() => ({
   flex-direction: column;
   gap: 5px;
   font-size: 12px;
-  background-color: #f5f5f5;
+  background-color: #f0f0f0;
 }
 
 .dato-bloque {
