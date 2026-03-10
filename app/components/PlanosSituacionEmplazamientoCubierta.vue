@@ -258,7 +258,7 @@
         <!-- Fecha -->
         <p class="parrafo-fecha">
           En <strong>{{ formattedData.localidad }}</strong>, a <strong>{{ pse_dia }} de {{ pse_mes }} de {{ pse_anio
-            }}</strong>.
+          }}</strong>.
         </p>
 
         <!-- Logo footer -->
@@ -732,6 +732,8 @@ const formattedData = computed(() => ({
     margin: 0 !important;
     padding: 0 !important;
     background: white !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
   .contenedor-principal {

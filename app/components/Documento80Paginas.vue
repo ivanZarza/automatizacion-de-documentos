@@ -651,6 +651,8 @@ defineProps({
   .contenedor-pdf {
     width: 210mm;
     margin: 0;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
   .contenedor-principal {
