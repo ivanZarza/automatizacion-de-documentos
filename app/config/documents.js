@@ -2848,6 +2848,7 @@ export const documento80PaginasConfig = {
   fields: [
     { name: 'nombre', label: 'Nombre del Promotor', type: 'text', fullWidth: true },
     { name: 'direccion', label: 'Dirección', type: 'text', fullWidth: true },
+    { name: 'numero', label: 'Número', type: 'text', fullWidth: false },
     { name: 'referenciaCatastral', label: 'Referencia Catastral', type: 'text', fullWidth: true },
     { name: 'dia', label: 'Día', type: 'text', width: 50 },
     { name: 'mes', label: 'Mes', type: 'text', width: 100 },
@@ -2864,6 +2865,7 @@ export const documento80PaginasConfig = {
   defaultData: {
     nombre: '',
     direccion: '',
+    numero: '',
     referenciaCatastral: '',
     dia: '',
     mes: '',
@@ -2880,6 +2882,7 @@ export const documento80PaginasConfig = {
   fieldMapping: {
     nombre: 'apellidosNombre',
     direccion: (formData) => `${formData.emplazamientoCalle || ''} - ${formData.numero || ''}    ${formData.bloque || ''} ${formData.escalera || ''}  ${formData.planta || ''}  ${formData.puerta || ''}  `,
+    numero: 'numero',
     referenciaCatastral: 'referenciaCatastral',
     dia: 'dia',
     mes: 'mes',

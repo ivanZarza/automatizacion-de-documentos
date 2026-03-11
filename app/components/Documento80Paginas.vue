@@ -1,5 +1,5 @@
 <script setup>
-defineProps({
+const props = defineProps({
   nombre: {
     type: String,
     default: ''
@@ -61,6 +61,13 @@ defineProps({
     default: ''
   }
 })
+
+console.log('Props Documento 80 páginas:', {
+  nombre: props.nombre,
+  direccion: props.direccion,
+  numero: props.numero
+})
+
 </script>
 
 <template>
