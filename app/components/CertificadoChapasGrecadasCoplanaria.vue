@@ -91,7 +91,7 @@
 
         <p class="parrafo-estructura">
           Dicha
-          <span class="texto-azul">ESTRUCTURA SOPORTE PARA CHAPA COPLANARIA COPLANARIA</span>
+          <span class="texto-azul">ESTRUCTURA SOPORTE PARA CHAPA GRECADA COPLANAR</span>
           según procedimiento del fabricante, sólidamente fijadas a la
           <span class="texto-azul">perfilería</span> de aluminio mediante
           <span class="texto-azul">tornillería</span> de acero inoxidable; todo

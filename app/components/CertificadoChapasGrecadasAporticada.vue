@@ -58,7 +58,7 @@
       <div class="contenido-principal">
         <!-- Espacio para imagen -->
         <div class="contenedor-imagen-grande">
-          <img :src="'/fotos-certificados/grecada-coplanaria.png'" class="imagen-pdf-grande" />
+          <img :src="'/fotos-certificados/cubierta-plana-aporticada.png'" class="imagen-pdf-grande" />
         </div>
 
         <div class="pie-pagina">
