@@ -18,10 +18,11 @@ const props = defineProps({
   presupuesto: { type: String, default: '' },
   potencia: { type: String, default: '' },
   potenciaModulos: { type: String, default: '' },
-  
+  numero: { type: String, default: '' },
+
   // Props para DocumentoUltimaPagina
   ciudad: { type: String, default: '' },
-  
+
   // Configuración de PDFs
   nombrePdfOriginal: { type: String, default: 'documento-original.pdf' },
   carpetaPdfs: { type: String, default: '/pdfs' }
@@ -41,7 +42,7 @@ const nombreSalida = computed(() => {
 const generarPDFcombinado = async () => {
   isGenerating.value = true;
   mensajeEstado.value = 'Generando PDF combinado...';
-  
+
   try {
     const { jsPDF } = await import('jspdf');
     const { PDFDocument } = await import('pdf-lib');
@@ -52,7 +53,7 @@ const generarPDFcombinado = async () => {
 
     // 1. Generar PDF del Documento80Paginas por cada página
     mensajeEstado.value = 'Generando documento de inicio...';
-    
+
     // Mostrar temporalmente el documento para capturar
     const doc80Wrapper = document.querySelector('[id="documento-80-paginas-visible"]')?.parentElement;
     if (doc80Wrapper) {
@@ -62,29 +63,29 @@ const generarPDFcombinado = async () => {
       doc80Wrapper.style.zIndex = '-9999';
       doc80Wrapper.style.opacity = '1';
     }
-    
+
     await esperar(800);
-    
+
     const doc80Element = document.getElementById('documento-80-paginas-visible');
     const contenedoresInicio = doc80Element.querySelectorAll('.contenedor-principal');
-    
+
     const pdf80 = new jsPDF('p', 'mm', 'a4');
     let isFirstPage = true;
-    
+
     for (let contenedor of contenedoresInicio) {
       if (!isFirstPage) pdf80.addPage();
       isFirstPage = false;
-      
+
       try {
         // Remover temporalmente estilos que causan saltos y espacios en blanco
         const pageBreakStyle = contenedor.style.pageBreakAfter;
         const paddingTopStyle = contenedor.style.paddingTop;
         const paddingBottomStyle = contenedor.style.paddingBottom;
-        
+
         contenedor.style.pageBreakAfter = 'auto';
         contenedor.style.paddingTop = '10mm';
         contenedor.style.paddingBottom = '10mm';
-        
+
         const canvas = await html2canvas(contenedor, {
           scale: 2,
           useCORS: true,
@@ -95,24 +96,24 @@ const generarPDFcombinado = async () => {
             return element.classList && element.classList.contains('print-hide');
           }
         });
-        
+
         // Restaurar estilos originales
         contenedor.style.pageBreakAfter = pageBreakStyle || '';
         contenedor.style.paddingTop = paddingTopStyle || '';
         contenedor.style.paddingBottom = paddingBottomStyle || '';
-        
+
         const imgData = canvas.toDataURL('image/jpeg', 0.95);
         const altura = canvas.height;
         const ancho = canvas.width;
         const ratio = ancho / altura;
-        
+
         // Ajustar a tamaño A4
         const pdfWidth = 210;
         const pdfHeight = pdfWidth / ratio;
-        
+
         // No dividir, usar la altura calculada
         pdf80.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
-        
+
       } catch (e) {
         console.error('Error procesando contenedor:', e);
       }
@@ -135,12 +136,12 @@ const generarPDFcombinado = async () => {
 
     // 3. Generar PDF del DocumentoUltimaPagina
     mensajeEstado.value = 'Generando documento final...';
-    
+
     // Ocultar el primer documento
     if (doc80Wrapper) {
       doc80Wrapper.style.display = 'none';
     }
-    
+
     // Mostrar temporalmente el documento final para capturar
     const docFinalWrapper = document.querySelector('[id="documento-ultima-pagina-visible"]')?.parentElement;
     if (docFinalWrapper) {
@@ -150,29 +151,29 @@ const generarPDFcombinado = async () => {
       docFinalWrapper.style.zIndex = '-9999';
       docFinalWrapper.style.opacity = '1';
     }
-    
+
     await esperar(800);
-    
+
     const docFinalElement = document.getElementById('documento-ultima-pagina-visible');
     const contenedoresFinales = docFinalElement.querySelectorAll('.contenedor-principal');
-    
+
     const pdfFinal = new jsPDF('p', 'mm', 'a4');
     isFirstPage = true;
-    
+
     for (let contenedor of contenedoresFinales) {
       if (!isFirstPage) pdfFinal.addPage();
       isFirstPage = false;
-      
+
       try {
         // Remover temporalmente estilos que causan saltos y espacios en blanco
         const pageBreakStyle = contenedor.style.pageBreakAfter;
         const paddingTopStyle = contenedor.style.paddingTop;
         const paddingBottomStyle = contenedor.style.paddingBottom;
-        
+
         contenedor.style.pageBreakAfter = 'auto';
         contenedor.style.paddingTop = '10mm';
         contenedor.style.paddingBottom = '10mm';
-        
+
         const canvas = await html2canvas(contenedor, {
           scale: 2,
           useCORS: true,
@@ -183,23 +184,23 @@ const generarPDFcombinado = async () => {
             return element.classList && element.classList.contains('print-hide');
           }
         });
-        
+
         // Restaurar estilos originales
         contenedor.style.pageBreakAfter = pageBreakStyle || '';
         contenedor.style.paddingTop = paddingTopStyle || '';
         contenedor.style.paddingBottom = paddingBottomStyle || '';
-        
+
         const imgData = canvas.toDataURL('image/jpeg', 0.95);
         const altura = canvas.height;
         const ancho = canvas.width;
         const ratio = ancho / altura;
-        
+
         const pdfWidth = 210;
         const pdfHeight = pdfWidth / ratio;
-        
+
         // No dividir, usar la altura calculada
         pdfFinal.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
-        
+
       } catch (e) {
         console.error('Error procesando contenedor final:', e);
       }
@@ -208,14 +209,14 @@ const generarPDFcombinado = async () => {
     // 4. Combinar todos los PDFs
     mensajeEstado.value = 'Combinando documentos...';
     const pdfCombinado = await PDFDocument.create();
-    
+
     const pdf80Doc = await PDFDocument.load(pdf80.output('arraybuffer'));
     const pdfFinalDoc = await PDFDocument.load(pdfFinal.output('arraybuffer'));
-    
+
     // Agregar páginas del inicio
     const paginas80 = await pdfCombinado.copyPages(pdf80Doc, pdf80Doc.getPageIndices());
     paginas80.forEach(page => pdfCombinado.addPage(page));
-    
+
     // Agregar PDF original si existe
     if (pdfOriginal) {
       try {
@@ -226,7 +227,7 @@ const generarPDFcombinado = async () => {
         console.warn('Error al cargar PDF original:', error);
       }
     }
-    
+
     // Agregar páginas del final
     const paginasFinal = await pdfCombinado.copyPages(pdfFinalDoc, pdfFinalDoc.getPageIndices());
     paginasFinal.forEach(page => pdfCombinado.addPage(page));
@@ -234,7 +235,7 @@ const generarPDFcombinado = async () => {
     // 5. Descargar PDF combinado
     mensajeEstado.value = 'Descargando...';
     const pdfBytes = await pdfCombinado.save();
-    
+
     const blob = new Blob([pdfBytes], { type: 'application/pdf' });
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
@@ -243,9 +244,9 @@ const generarPDFcombinado = async () => {
     link.click();
     document.body.removeChild(link);
     URL.revokeObjectURL(link.href);
-    
+
     mensajeEstado.value = '✅ PDF combinado descargado correctamente';
-    
+
   } catch (error) {
     console.error('Error al generar PDF:', error);
     mensajeEstado.value = `❌ Error: ${error.message}`;
@@ -253,14 +254,14 @@ const generarPDFcombinado = async () => {
     // Ocultar los documentos una vez terminado
     const doc80Wrapper = document.querySelector('[id="documento-80-paginas-visible"]')?.parentElement;
     const docFinalWrapper = document.querySelector('[id="documento-ultima-pagina-visible"]')?.parentElement;
-    
+
     if (doc80Wrapper) {
       doc80Wrapper.style.display = 'none';
     }
     if (docFinalWrapper) {
       docFinalWrapper.style.display = 'none';
     }
-    
+
     isGenerating.value = false;
   }
 };
@@ -270,42 +271,25 @@ const generarPDFcombinado = async () => {
   <div class="documento-combinado-wrapper">
     <!-- Pestañas de navegación -->
     <div class="pestanas">
-      <button 
-        :class="['pestana', { activa: pestanaActiva === 'documento1' }]"
-        @click="pestanaActiva = 'documento1'"
-      >
+      <button :class="['pestana', { activa: pestanaActiva === 'documento1' }]" @click="pestanaActiva = 'documento1'">
         📄 Documento Inicio
       </button>
-      <button 
-        :class="['pestana', { activa: pestanaActiva === 'documento2' }]"
-        @click="pestanaActiva = 'documento2'"
-      >
+      <button :class="['pestana', { activa: pestanaActiva === 'documento2' }]" @click="pestanaActiva = 'documento2'">
         📄 Documento Final
       </button>
     </div>
 
     <!-- Contenedor de documentos -->
     <div class="contenedor-documentos">
-      
+
       <!-- DOCUMENTO 1: Documento80Paginas (Rellenable) -->
       <div v-show="pestanaActiva === 'documento1'" class="documento-seccion">
         <h2>Documento de Inicio - Rellenar</h2>
         <div id="documento-80-paginas-visible" class="documento-preview">
-          <Documento80Paginas 
-            :nombre="nombre"
-            :direccion="direccion"
-            :referenciaCatastral="referenciaCatastral"
-            :dia="dia"
-            :mes="mes"
-            :anio="anio"
-            :localidad="localidad"
-            :provincia="provincia"
-            :dni="dni"
-            :codigoPostal="codigoPostal"
-            :presupuesto="presupuesto"
-            :potencia="potencia"
-            :potenciaModulos="potenciaModulos"
-          />
+          <Documento80Paginas :nombre="nombre" :direccion="direccion" :referenciaCatastral="referenciaCatastral"
+            :dia="dia" :mes="mes" :anio="anio" :localidad="localidad" :provincia="provincia" :dni="dni"
+            :codigoPostal="codigoPostal" :presupuesto="presupuesto" :potencia="potencia"
+            :potenciaModulos="potenciaModulos" :numero="numero" />
         </div>
       </div>
 
@@ -313,12 +297,7 @@ const generarPDFcombinado = async () => {
       <div v-show="pestanaActiva === 'documento2'" class="documento-seccion">
         <h2>Documento Final - Rellenar</h2>
         <div id="documento-ultima-pagina-visible" class="documento-preview">
-          <DocumentoUltimaPagina 
-            :ciudad="ciudad"
-            :dia="dia"
-            :mes="mes"
-            :anio="anio"
-          />
+          <DocumentoUltimaPagina :ciudad="ciudad" :dia="dia" :mes="mes" :anio="anio" />
         </div>
       </div>
 
@@ -326,14 +305,10 @@ const generarPDFcombinado = async () => {
 
     <!-- Panel de control -->
     <div class="panel-control">
-      <button 
-        @click="generarPDFcombinado" 
-        :disabled="isGenerating"
-        class="btn-generar"
-      >
+      <button @click="generarPDFcombinado" :disabled="isGenerating" class="btn-generar">
         {{ isGenerating ? '⏳ ' + mensajeEstado : '📥 Generar y Descargar PDF Completo' }}
       </button>
-      
+
       <p v-if="mensajeEstado" :class="['mensaje', mensajeEstado.includes('❌') ? 'error' : 'exito']">
         {{ mensajeEstado }}
       </p>

@@ -61,13 +61,6 @@ const props = defineProps({
     default: ''
   }
 })
-
-console.log('Props Documento 80 páginas:', {
-  nombre: props.nombre,
-  direccion: props.direccion,
-  numero: props.numero
-})
-
 </script>
 
 <template>
@@ -102,7 +95,7 @@ console.log('Props Documento 80 páginas:', {
               <tr>
                 <td class="etiqueta-tabla">Dirección</td>
                 <td class="valor-tabla">
-                  <span class="texto-rojo">{{ direccion }} {{ numero }}</span>
+                  <span class="texto-rojo">{{ direccion }}</span>
                 </td>
               </tr>
               <tr>
@@ -378,7 +371,7 @@ console.log('Props Documento 80 páginas:', {
         <p class="parrafo-contenido">A continuación, se indica el emplazamiento de la instalación proyectada:</p>
 
         <ul class="lista-contenido">
-          <li>Dirección: <span class="texto-rojo">{{ direccion }} {{ numero }}</span></li>
+          <li>Dirección: <span class="texto-rojo">{{ direccion }}</span></li>
           <li>Localidad: <span class="texto-rojo">{{ localidad }}</span></li>
           <li>Provincia: <span class="texto-rojo">{{ provincia }}</span></li>
         </ul>
@@ -426,7 +419,7 @@ console.log('Props Documento 80 páginas:', {
         <ul class="lista-contenido">
           <li>Promotor: <span class="texto-rojo">{{ nombre }}</span></li>
           <li>DNI/CIF: <span class="texto-rojo">{{ dni }}</span></li>
-          <li>Dirección: <span class="texto-rojo">{{ direccion }} {{ numero }}</span></li>
+          <li>Dirección: <span class="texto-rojo">{{ direccion }}</span></li>
           <li>Localidad: <span class="texto-rojo">{{ localidad }}</span></li>
           <li>Provincia: <span class="texto-rojo">{{ provincia }}</span></li>
           <li>C. postal: <span class="texto-rojo">{{ codigoPostal }}</span></li>

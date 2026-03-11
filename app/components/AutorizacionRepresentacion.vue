@@ -2,7 +2,7 @@
   <div data-pdf-content class="contenedor-pdf">
     <!-- Contenedor principal con márgenes A4 -->
     <div class="contenedor-principal">
-      
+
       <!-- Encabezado con Logo -->
       <div class="encabezado">
         <div class="encabezado-contenido">
@@ -15,13 +15,18 @@
       <!-- Contenido Principal -->
       <div class="contenido-principal">
         <p class="parrafo-intro">
-          Yo, <strong>{{ autorizante }}</strong>, con DNI/NIF <strong>{{ dniAutorizante }}</strong>, y con domicilio en <strong>{{ domicilioAutorizante }}</strong>, localidad <strong>{{ localidad }}</strong>, provincia de <strong>{{ provincia }}</strong>, actuando en nombre propio,
+          Yo, <strong>{{ autorizante }}</strong>, con DNI/NIF <strong>{{ dniAutorizante }}</strong>, y con domicilio en
+          <strong>{{ domicilioAutorizante }}</strong>, localidad <strong>{{ localidad }}</strong>, provincia de
+          <strong>{{ provincia }}</strong>, actuando en nombre propio,
         </p>
 
         <h2 class="titulo-autorizo">AUTORIZO A</h2>
 
         <p class="parrafo-autorizacion">
-          <strong>{{ representante }}</strong>, con DNI/NIF <strong>{{ dniRepresentante }}</strong>, y con domicilio en <strong>{{ domicilioRepresentante }}</strong>, localidad Sevilla, provincia de Sevilla, ante el ayuntamiento de <strong>{{ organismo }}</strong>, para realizar en mi nombre las gestiones de <strong>{{ gestiones }}</strong>.
+          <strong>{{ representante }}</strong>, con DNI/NIF <strong>{{ dniRepresentante }}</strong>, y con domicilio en
+          <strong>{{ domicilioRepresentante }}</strong>, localidad Sevilla, provincia de Sevilla, ante el ayuntamiento
+          de <strong>{{ organismo }}</strong>, para realizar en mi nombre las gestiones de <strong>{{ gestiones
+            }}</strong>.
         </p>
 
         <div class="caja-validez">
@@ -130,7 +135,7 @@ const hideButtonsOnPrint = () => {
   margin: 0;
   font-size: 24px;
   font-weight: bold;
-  color: #ff9900;
+  color: #000000;
   text-align: center;
 }
 
@@ -298,7 +303,7 @@ p {
     background: white !important;
   }
 
-  div[data-pdf-content] > div {
+  div[data-pdf-content]>div {
     height: auto !important;
   }
 

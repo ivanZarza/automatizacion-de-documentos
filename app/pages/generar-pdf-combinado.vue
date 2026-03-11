@@ -6,23 +6,17 @@
       <p class="descripcion">Rellenar documentos y descargar PDF unificado</p>
     </div>
 
-    <DocumentoCompletoCombinado 
-      nombrePdfOriginal="11.- Estudio Básico de SYS Nucleo.pdf"
-      :nombre="formStore.getField('apellidosNombre')"
-      :direccion="formStore.getField('emplazamientoCalle')"
-      :referenciaCatastral="formStore.getField('referenciaCatastral')"
-      :dia="formStore.getField('dia')"
-      :mes="formStore.getField('mes')"
-      :anio="formStore.getField('anio')"
+    <DocumentoCompletoCombinado nombrePdfOriginal="11.- Estudio Básico de SYS Nucleo.pdf"
+      :nombre="formStore.getField('apellidosNombre')" :direccion="formStore.getField('emplazamientoCalle')"
+      :referenciaCatastral="formStore.getField('referenciaCatastral')" :dia="formStore.getField('dia')"
+      :mes="formStore.getField('mes')" :anio="formStore.getField('anio')"
       :localidad="formStore.getField('localidadEmplazamiento')"
-      :provincia="formStore.getField('provinciaEmplazamiento')"
-      :dni="formStore.getField('nifCif')"
+      :provincia="formStore.getField('provinciaEmplazamiento')" :dni="formStore.getField('nifCif')"
       :codigoPostal="formStore.getField('codigoPostalEmplazamiento')"
       :presupuesto="formStore.getField('presupuestoTotal')"
       :potencia="formStore.getField('e2_potenciaNominalInversores')"
-      :potenciaModulos="formStore.getField('e2_potenciaPicoGenerador')"
-      :ciudad="formStore.getField('localidadEmplazamiento')"
-    />
+      :potenciaModulos="formStore.getField('e2_potenciaPicoGenerador')" :numero="formStore.getField('numero')"
+      :ciudad="formStore.getField('localidadEmplazamiento')" />
   </div>
 </template>
 
