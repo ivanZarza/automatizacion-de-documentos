@@ -374,6 +374,72 @@ export const certificadoChapasGrecadasAporticadaConfig = {
   }
 }
 
+export const certificadoChapasGrecadasCoplanariaConfig = {
+  id: 'certificado-chapas-grecadas-coplanaria',
+  title: '7.- Certificado de solidez y seguridad (chapa grecada coplanaria)',
+  description: 'Certificado de solidez y seguridad de la cubierta para instalación coplanaria sobre chapas grecadas',
+  fileName: '7.- Certificado de solidez y seguridad',
+  route: '/certificado-chapas-grecadas-coplanaria',
+  fields: [
+    { name: 'direccion', label: 'Dirección', type: 'text', fullWidth: true },
+    { name: 'numero', label: 'Número', type: 'text' },
+    { name: 'codigoPostal', label: 'Código Postal', type: 'text' },
+    { name: 'localidad', label: 'Localidad', type: 'text' },
+    { name: 'provincia', label: 'Provincia', type: 'text' },
+    { name: 'referenciaCatastral', label: 'Referencia Catastral', type: 'text', fullWidth: true },
+    { name: 'numModulos', label: 'Número de Módulos', type: 'text' },
+    { name: 'potencia', label: 'Potencia', type: 'text' },
+    { name: 'peso', label: 'Peso', type: 'text' },
+    { name: 'marcaModelo', label: 'Marca y Modelo', type: 'text', fullWidth: true },
+    { name: 'ciudadFirma', label: 'Ciudad de Firma', type: 'text' },
+    { name: 'dia', label: 'Día', type: 'text' },
+    { name: 'mes', label: 'Mes', type: 'text' },
+    { name: 'anio', label: 'Año', type: 'text' },
+    { name: 'foto1', label: 'Foto Certificado 1', type: 'file', accept: 'image/*,.pdf' },
+    { name: 'foto2', label: 'Foto Certificado 2', type: 'file', accept: 'image/*,.pdf' }
+  ],
+  defaultData: {
+    direccion: ' ',
+    numero: '',
+    codigoPostal: '',
+    localidad: '',
+    provincia: '',
+    referenciaCatastral: '',
+    numModulos: '',
+    potencia: '',
+    peso: '',
+    marcaModelo: '',
+    ciudadFirma: '',
+    dia: '18',
+    mes: 'noviembre',
+    anio: '2025',
+    foto1: null,
+    foto2: null
+  },
+  fieldMapping: {
+    direccion: (dataForm) => `${dataForm.emplazamientoCalle} ${dataForm.numero ? dataForm.numero : ''} ${dataForm.bloque ? 'Bloque ' + dataForm.bloque : ''} ${dataForm.escalera ? 'Escalera ' + dataForm.escalera : ''} ${dataForm.planta ? 'Planta ' + dataForm.planta : ''} ${dataForm.puerta ? 'Puerta ' + dataForm.puerta : ''}`.trim(), codigoPostal: 'codigoPostalEmplazamiento',
+    numero: 'numero',
+    codigoPostal: 'codigoPostalEmplazamiento',
+    localidad: 'localidadEmplazamiento',
+    provincia: 'provinciaEmplazamiento',
+    numModulos: 'e2_totalModulos',
+    potencia: 'e2_potenciaPicoModulo',
+    peso: 'peso',
+    marcaModelo: 'e2_marcaModeloModulo',
+    ciudadFirma: 'ciudadFirma',
+    dia: 'dia',
+    mes: 'mes',
+    anio: 'anio',
+    foto1: 'otros_foto1',
+    foto2: 'otros_foto2'
+  },
+  capabilities: {
+    canPreview: true,
+    canEdit: true,
+    canGeneratePDF: true
+  }
+}
+
 export const certificadoParamentoVerticalConfig = {
   id: 'certificado-paramento-vertical',
   title: '7.- Certificado de solidez y seguridad (paramento vertical)',
@@ -2888,6 +2954,7 @@ const documentConfigs = {
   'certificado-aporticada-teja': certificadoAporticadaTejConfig,
   'certificado-paramento-vertical': certificadoParamentoVerticalConfig,
   'certificado-chapas-grecadas-aporticada': certificadoChapasGrecadasAporticadaConfig,
+  'certificado-chapas-grecadas-coplanaria': certificadoChapasGrecadasCoplanariaConfig,
   'certificado-pergola-aporticada': certificadoPergolaAporticadaConfig,
   'declaracion-no-generacion-rcds': declaracionNoGeneracionRcdsConfig,
   'declaracion-habilitacion-profesional': declaracionHabilitacionProfesionalConfig,
