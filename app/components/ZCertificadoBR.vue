@@ -1,21 +1,11 @@
 <template>
   <div class="print-wrapper">
     <article class="pagina-br">
-      <span
-        v-for="et in etiquetasVisibles"
-        :key="et.name"
-        class="overlay-field"
-        :style="estiloEtiqueta(et)"
-      >
+      <span v-for="et in etiquetasVisibles" :key="et.name" class="overlay-field" :style="estiloEtiqueta(et)">
         {{ et.displayValue }}
       </span>
       <!-- Marcadores condicionales (X) -->
-      <span
-        v-for="m in marcadores"
-        :key="`marker-${m.name}`"
-        class="overlay-marker"
-        :style="estiloMarcador(m)"
-      >
+      <span v-for="m in marcadores" :key="`marker-${m.name}`" class="overlay-marker" :style="estiloMarcador(m)">
         X
       </span>
     </article>
@@ -84,14 +74,14 @@ const debug = ref(true);
 const etiquetas = ref([
   {
     name: "registro_instalacion",
-    x: 81,
-    y: 31,
+    x: 84.3,
+    y: 31.5,
     w: 20,
     h: 6,
-    fontSize: 15,
+    fontSize: 13,
     align: "center",
     value: "",
-  },  
+  },
   {
     name: "terminacioAnual",
     x: 131,
@@ -497,7 +487,7 @@ const etiquetas = ref([
     align: "right",
     value: "111111",
   },
-    {
+  {
     name: "organismoControl",
     x: 11,
     y: 197,
@@ -508,7 +498,7 @@ const etiquetas = ref([
     align: "right",
     value: "organismoControl",
   },
-      {
+  {
     name: "numeroNotificacion",
     x: 89,
     y: 197,
@@ -519,7 +509,7 @@ const etiquetas = ref([
     align: "right",
     value: "numeroNotificacion",
   },
-        {
+  {
     name: "referenciaFechaInspeccion",
     x: 126,
     y: 197,
@@ -712,13 +702,11 @@ const estiloMarcador = (m) => ({
   pointer-events: none;
 }
 
-@page {
-  size: A4;
-  /* Deja un margen mínimo para evitar que navegadores recorten contenido. */
-  margin: 6mm;
-}
-
 @media print {
+  .print-wrapper {
+    min-height: auto !important;
+    padding: 0 !important;
+  }
 }
 </style>
 
@@ -729,16 +717,20 @@ const estiloMarcador = (m) => ({
 }
 
 @media print {
+
   html,
   body {
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
     background: #fff;
+    overflow: hidden;
   }
 
   .print-wrapper {
     padding: 0;
+    margin: 0;
     background: #fff;
+    min-height: auto !important;
   }
 
   .pagina-br {
@@ -746,8 +738,11 @@ const estiloMarcador = (m) => ({
     border: 0;
     box-shadow: none;
     margin: 0 auto;
+    /* Centra la caja de 200mm dentro del A4 de 210mm */
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+    page-break-inside: avoid;
+    page-break-after: avoid;
   }
 }
 </style>

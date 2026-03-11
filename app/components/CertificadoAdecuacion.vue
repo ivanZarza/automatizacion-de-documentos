@@ -1,10 +1,8 @@
-
-
 <template>
   <div data-pdf-content class="contenedor-pdf">
     <!-- Contenedor principal con márgenes A4 -->
     <div class="contenedor-principal">
-      
+
       <!-- Encabezado con Logo -->
       <div class="encabezado">
         <div class="encabezado-contenido">
@@ -18,15 +16,19 @@
         <p>
           SOLAY INGENIEROS, S.L. empresa instaladora habilitada en baja tensión con C.I.F. B-09.848.912,
           <b>CERTIFICA</b> que la instalación eléctrica generadora fotovoltaica <b>{{ almacenamiento }}</b>, situada en
-          <b>{{ direccion }}</b>, nº <b>{{ numero }}</b>, en la localidad de <b>{{ localidad }}</b>, de la Provincia de <b>{{ provincia }}</b>,
-          y cuyo uso al que se destina es <b>{{ uso }}</b>, cumple con todos y cada uno de los requisitos y disposiciones reglamentarias en lo que a instalaciones eléctricas en baja tensión se refiere el:
+          <b>{{ direccion }}</b>, nº <b>{{ numero }}</b>, en la localidad de <b>{{ localidad }}</b>, de la Provincia de
+          <b>{{ provincia }}</b>,
+          y cuyo uso al que se destina es <b>{{ uso }}</b>, cumple con todos y cada uno de los requisitos y
+          disposiciones reglamentarias en lo que a instalaciones eléctricas en baja tensión se refiere el:
         </p>
         <ul>
           <li>R.D. 842/2002 Reglamento Electrotécnico para Baja Tensión.</li>
-          <li>R.D. 1699/2011 Que regula la conexión a red de instalaciones de producción de energía eléctrica de pequeña potencia.</li>
+          <li>R.D. 1699/2011 Que regula la conexión a red de instalaciones de producción de energía eléctrica de pequeña
+            potencia.</li>
         </ul>
         <p>
-          Y para que así conste y sirva de justificante, expido el presente certificado en {{ ciudadFirma }}, a <b>{{ dia }}</b> de <b>{{ mes }}</b> de <b>{{ anio }}</b>.
+          Y para que así conste y sirva de justificante, expido el presente certificado en {{ ciudadFirma }}, a <b>{{
+            dia }}</b> de <b>{{ mes }}</b> de <b>{{ anio }}</b>.
         </p>
         <div class="logo-footer">
           <img src="/firma-solay.png" alt="Firma Solay" class="logo-solay-footer" />
@@ -131,7 +133,7 @@ defineProps({
   margin: 0;
   font-size: 24px;
   font-weight: bold;
-  color: #ff9900;
+  color: #000000;
   text-align: center;
 }
 
@@ -149,6 +151,7 @@ defineProps({
   flex: 1;
   display: flex;
   flex-direction: column;
+  text-align: justify;
 }
 
 
@@ -223,7 +226,7 @@ ul {
     background: white !important;
   }
 
-  div[data-pdf-content] > div {
+  div[data-pdf-content]>div {
     height: auto !important;
   }
 
