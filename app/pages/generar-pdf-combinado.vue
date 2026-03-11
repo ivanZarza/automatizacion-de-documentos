@@ -7,7 +7,7 @@
     </div>
 
     <DocumentoCompletoCombinado nombrePdfOriginal="11.- Estudio Básico de SYS Nucleo.pdf"
-      :nombre="formStore.getField('apellidosNombre')" :direccion="formStore.getField('emplazamientoCalle')"
+      :nombre="formStore.getField('apellidosNombre')" :direccion="direccionCompleta"
       :referenciaCatastral="formStore.getField('referenciaCatastral')" :dia="formStore.getField('dia')"
       :mes="formStore.getField('mes')" :anio="formStore.getField('anio')"
       :localidad="formStore.getField('localidadEmplazamiento')"
@@ -21,11 +21,22 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, computed } from 'vue';
 import { useFormStore } from '../stores/formStore';
 import DocumentoCompletoCombinado from '../components/DocumentoCompletoCombinado.vue';
 
 const formStore = useFormStore();
+
+const direccionCompleta = computed(() => {
+  const calle = formStore.getField('emplazamientoCalle') || '';
+  const numero = formStore.getField('numero') || '';
+  const bloque = formStore.getField('bloque') || '';
+  const escalera = formStore.getField('escalera') || '';
+  const planta = formStore.getField('planta') || '';
+  const puerta = formStore.getField('puerta') || '';
+
+  return `${calle} - ${numero}  ${bloque} ${escalera}  ${planta}  ${puerta}  `;
+});
 
 // Cargar datos al montar el componente
 onMounted(() => {
