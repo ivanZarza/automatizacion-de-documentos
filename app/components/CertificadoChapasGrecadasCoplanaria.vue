@@ -7,8 +7,8 @@
           <h3 class="titulo-principal">
             CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA<br /></h3>
           <h3 class="titulo-secundario">AUTOCONSUMO
-            FOTOVOLTAICO<br />INSTALACION SOBRE CHAPA COPLANARIA,
-            APORTICADA
+            FOTOVOLTAICO<br />INSTALACION SOBRE CHAPA GRECADA,
+            COPLANARIA
           </h3>
 
         </div>
@@ -72,15 +72,15 @@
       </div> <!-- Cierre contenido-principal decorativo (fotos) -->
     </div> <!-- FIN PÁGINA 1 -->
 
-    <!-- PÁGINA 2: ESTRUCTURA SOPORTE PARA CHAPA COPLANARIA APORTICADA -->
+    <!-- PÁGINA 2: ESTRUCTURA SOPORTE PARA CHAPA GRECADA COPLANARIA -->
     <div class="contenedor-principal">
       <div class="encabezado">
         <div class="encabezado-contenido">
           <h3 class="titulo-principal">
             CERTIFICADO DE SOLIDEZ Y SEGURIDAD DE LA CUBIERTA<br /></h3>
           <h3 class="titulo-secundario">AUTOCONSUMO
-            FOTOVOLTAICO<br />INSTALACION SOBRE CHAPA COPLANARIA,
-            APORTICADA
+            FOTOVOLTAICO<br />INSTALACION SOBRE CHAPA GRECADA,
+            COPLANARIA
           </h3>
 
         </div>
