@@ -2599,7 +2599,7 @@ export const aceptacionSubvencionConfig = {
     codigoEni: 'codigoEni',
     provincia: 'provinciaEmplazamiento',
     edificioVivienda: 'edificioVivienda',
-    importeSubvencion: 'importeSubvencion',
+    importeSubvencion: 'importeSubvencionResultante',
     ciudad: 'localidadEmplazamiento',
     dia: 'diaAceptacion',
     mes: 'mesAceptacion',
