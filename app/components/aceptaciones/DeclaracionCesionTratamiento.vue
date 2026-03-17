@@ -309,3 +309,22 @@ const estiloEtiqueta = (etiqueta) => ({
   }
 }
 </style>
+
+<style>
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  .print-wrapper {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .pagina-documento {
+    margin: 0 auto !important;
+  }
+}
+</style>

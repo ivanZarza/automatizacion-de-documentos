@@ -560,11 +560,11 @@ defineProps({
 }
 
 .col-acreedor {
-  width: 140px;
+  width: 170px;
 }
 
 .col-concepto {
-  width: 80px;
+  width: 50px;
 }
 
 .col-fecha-pago {
@@ -737,7 +737,7 @@ defineProps({
   .contenedor-pdf {
     width: 210mm !important;
     height: auto !important;
-    margin: 0 !important;
+    margin: 0 auto !important;
     padding: 0 !important;
     background: white !important;
   }
@@ -776,5 +776,12 @@ defineProps({
     background: white;
     padding: 10mm;
   }
+}
+</style>
+
+<style>
+@page {
+  size: A4;
+  margin: 0;
 }
 </style>
