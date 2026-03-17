@@ -7,17 +7,9 @@
         <div class="encabezado-contenido">
           <!-- logos-grupo   -->
           <div class="logos-grupo">
-            <img
-              src="/logos/iconos-organizaciones.png"
-              alt="Gobierno de España"
-              class="logo"
-              onerror="this.style.display = 'none'"
-            />
-            <img
-              src="/logos/icono-junta-andalucia.png"
-              alt="Junta de Andalucía"
-              class="logo"
-            />
+            <img src="/logos/iconos-organizaciones.png" alt="Gobierno de España" class="logo"
+              onerror="this.style.display = 'none'" />
+            <img src="/logos/icono-junta-andalucia.png" alt="Junta de Andalucía" class="logo" />
           </div>
           <h1 class="titulo-principal">MEMORIA ECONÓMICA JUSTIFICATIVA</h1>
           <h3 class="titulo-secundario">
@@ -44,9 +36,7 @@
         </p>
         <p class="dato-linea">
           <span class="dato-label">NIF AGENTE GESTOR:</span>
-          <span
-            class="dato-valor"
-          >B09848912</span>
+          <span class="dato-valor">B09848912</span>
         </p>
       </div>
 
@@ -61,7 +51,8 @@
               La presente memoria tiene por objeto justificar la utilización de
               la subvención otorgada por la Comunidad Autónoma de Andalucía para
               la rehabilitación a nivel de
-              <span class="texto-fijo">{{ edificioVivienda }}</span> (<span class="texto-fijo">{{ l3l4 }}</span>), de acuerdo con lo establecido en el apartado 25 del cuadro
+              <span class="texto-fijo">{{ edificioVivienda }}</span> (<span class="texto-fijo">{{ l3l4 }}</span>), de
+              acuerdo con lo establecido en el apartado 25 del cuadro
               resumen de las bases reguladoras aprobadas por Orden de 9 de junio
               de 2022 de la Consejería de Fomento, Articulación del Territorio y
               Vivienda.
@@ -210,11 +201,7 @@
               <span class="valor-variable">{{ inversionRealizada }}€</span>
             </p>
             <p class="concepto-desvio">
-              <span
-                ><strong
-                  >Desviación (con IVA si es subvencionable)</strong
-                ></span
-              >
+              <span><strong>Desviación (con IVA si es subvencionable)</strong></span>
               <span class="valor-variable desvio">{{ desviacion }}€</span>
             </p>
           </div>
@@ -222,24 +209,17 @@
 
 
 
-        <div class="logos-grupo" style="justify-content: flex-start;padding: 15px; margin: 170px 0px 20px 0px; border-bottom: 1px solid #000;">
-          <img
-            src="/logos/iconos-organizaciones.png"
-            alt="Gobierno de España"
-            class="logo"
-            onerror="this.style.display = 'none'"
-          />
-          <img
-            src="/logos/icono-junta-andalucia.png"
-            alt="Junta de Andalucía"
-            class="logo"
-          />
+        <div class="logos-grupo"
+          style="justify-content: flex-start;padding: 15px; margin: 170px 0px 20px 0px; border-bottom: 1px solid #000;">
+          <img src="/logos/iconos-organizaciones.png" alt="Gobierno de España" class="logo"
+            onerror="this.style.display = 'none'" />
+          <img src="/logos/icono-junta-andalucia.png" alt="Junta de Andalucía" class="logo" />
         </div>
 
         <!-- DOCUMENTACIÓN -->
         <div class="seccion">
 
-                  <p class="texto-parrafo">
+          <p class="texto-parrafo">
             En caso de haberse producido desviaciones en el presupuesto
             derivadas de la ejecución de las actuaciones, indicar la cantidad,
             indicando o solicitando el IVA ser subvencionable, a que asciende
@@ -294,7 +274,8 @@
               <div class="datos-firma">
                 <p class="dato-firma">
                   <span class="etiqueta">Fecha:</span>
-                  <span class="valor">A {{ diaFirmaJustificacion }} de {{ mesFirmaJustificacion }} de {{ anioFirmaJustificacion }}</span>
+                  <span class="valor">A {{ diaFirmaJustificacion }} de {{ mesFirmaJustificacion }} de {{
+                    anioFirmaJustificacion }}</span>
                 </p>
                 <p class="dato-firma">
                   <span class="etiqueta">Firma:</span>
@@ -547,7 +528,6 @@ defineProps({
 .tabla-gastos th,
 .tabla-gastos td {
   border: 1px solid #000000;
-  padding: 6px 4px;
   text-align: center;
 }
 
