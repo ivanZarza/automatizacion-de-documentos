@@ -2,17 +2,9 @@
   <div class="print-wrapper">
     <!-- PÁGINA ÚNICA -->
     <article class="pagina-documento pagina-compromiso-transversales">
-      <span
-        v-for="et in etiquetasVisibles"
-        :key="et.nombre"
-        class="overlay-field"
-        :style="estiloEtiqueta(et)"
-      >
-        <img
-          v-if="et.nombre === 'firma' && et.displayValue"
-          :src="et.displayValue"
-          style="width: 100%; height: 100%; object-fit: contain"
-        />
+      <span v-for="et in etiquetasVisibles" :key="et.nombre" class="overlay-field" :style="estiloEtiqueta(et)">
+        <img v-if="et.nombre === 'firma' && et.displayValue" :src="et.displayValue"
+          style="width: 100%; height: 100%; object-fit: contain" />
         <span v-else>{{ et.displayValue }}</span>
       </span>
     </article>
@@ -111,16 +103,16 @@ const etiquetas = ref([
     value: "A12345678",
     align: "left",
   },
-/*   {
-    nombre: "domicilioEntidad",
-    x: 91,
-    y: 105.5,
-    w: 60,
-    h: 8,
-    fontSize: 10,
-    value: "Calle Falsa 123",
-    align: "left",
-  }, */
+  /*   {
+      nombre: "domicilioEntidad",
+      x: 91,
+      y: 105.5,
+      w: 60,
+      h: 8,
+      fontSize: 10,
+      value: "Calle Falsa 123",
+      align: "left",
+    }, */
   {
     nombre: "ciudad",
     x: 47,
@@ -230,22 +222,23 @@ const estiloEtiqueta = (etiqueta) => ({
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background: #f0f0f0;
+  justify-content: center;
+  margin: 20px auto;
+  padding: 0;
 }
 
 .pagina-documento {
   width: 210mm;
   height: 297mm;
   position: relative;
-  background-repeat: no-repeat;
-  background-position: center;
+  margin: 0;
+  padding: 0;
+  page-break-inside: avoid;
   background-size: 100% 100%;
-  font-family: Arial, sans-serif;
-  font-size: 7.1pt;
-  margin-bottom: 16mm;
+  background-repeat: no-repeat;
+  background-position: top left;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Imagen de fondo */
@@ -258,38 +251,21 @@ const estiloEtiqueta = (etiqueta) => ({
   color: #000 !important;
 }
 
-/* IMPRESIÓN */
-@page {
-  size: A4;
-  margin: 0;
-}
-
 @media print {
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-    background: #fff;
-  }
-
   .print-wrapper {
-    padding: 0;
-    background: #fff;
+    width: 210mm;
+    height: auto;
+    margin: 0;
   }
 
   .pagina-documento {
-    --guide-color: transparent;
-    border: 0;
-    box-shadow: none;
-    margin: 0 auto;
-    page-break-after: always;
-    page-break-inside: avoid;
-    -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    box-shadow: none;
   }
 
-  .pagina-documento:last-child {
-    page-break-after: auto;
+  .pagina-documento:not(:last-child) {
+    page-break-after: always;
   }
 }
 </style>

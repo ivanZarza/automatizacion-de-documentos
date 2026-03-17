@@ -129,7 +129,7 @@ async function onDrop(event, fieldName) {
     await handleFileUpload(fakeEvent, fieldName)
   }
 }
-import { ref, watch, computed, onMounted } from 'vue'
+import { ref, watch, computed, onMounted, nextTick } from 'vue'
 import Boton from './Boton.vue'
 import { masterFormFields } from '../config/masterFormFields'
 import { saveImageToStorage } from '../utils/storageManager'
@@ -200,6 +200,67 @@ const toggleGroup = (subsectionName, groupName) => {
 
 watch(() => props.initialData, (newData) => {
   formData.value = { ...newData }
+}, { deep: true })
+
+// Lógica de sincronización automática (Edificio/L3 vs Vivienda/L4)
+const syncConfig = {
+  edificio: {
+    edificioVivienda: 'rehabilitacion a nivel de edificio',
+    edificioViviendaJUS: 'edificio',
+    l3l4: 'Línea 3',
+    tipoEdificioFvAerotermia: 'EDIFICIO DE VIVIENDA UNIFAMILIAR',
+    parrafoTexto: 'Estas ayudas tienen por objeto la financiación de obras o actuaciones en los edificios de uso predominante residencial en las que se obtenga una mejora acreditada de la eficiencia energética, con especial atención a la envolvente edificatoria en edificios de tipología residencial colectiva, incluyendo sus viviendas, y en las viviendas unifamiliares.',
+    textoOpcional1: 'Estas ayudas tienen por objeto la financiación de actuaciones u obras de mejora de la eficiencia energética en edificios, en concreto en una vivienda unifamiliar no perteneciente a un bloque de viviendas '
+  },
+  vivienda: {
+    edificioVivienda: 'mejora de la eficiencia energetica en viviendas',
+    edificioViviendaJUS: 'vivienda',
+    l3l4: 'Línea 4',
+    tipoEdificioFvAerotermia: 'VIVIENDAS',
+    parrafoTexto: 'Estas ayudas tienen por objeto la financiación de actuaciones u obras de mejora de la eficiencia energética en las viviendas, ya sean unifamiliares o pertenecientes a edificios plurifamiliares',
+    textoOpcional1: 'Estas ayudas tienen por objeto la financiación de actuaciones u obras de mejora de la eficiencia energética en las viviendas, ya sean unifamiliares o pertenecientes a edificios plurifamiliares'
+  }
+}
+
+const triggerFields = ['edificioVivienda', 'edificioViviendaJUS', 'l3l4', 'tipoEdificioFvAerotermia']
+let isInternalChange = false
+// Clon para detectar qué campo cambió específicamente (en deep watch newVal == oldVal)
+let lastTriggerValues = { ...Object.fromEntries(triggerFields.map(f => [f, formData.value[f]])) }
+
+watch(formData, (newVal) => {
+  if (isInternalChange) return
+
+  // Buscar si alguno de los campos trigger ha cambiado comparando con el último estado guardado
+  const changedField = triggerFields.find(field => newVal[field] !== lastTriggerValues[field])
+  if (!changedField) return
+
+  const value = newVal[changedField]
+  
+  // Actualizar el estado previo para la próxima comparación
+  triggerFields.forEach(f => lastTriggerValues[f] = newVal[f])
+
+  if (!value) return
+
+  // Determinar el "modo" detectado
+  let detectedMode = null
+  if (Object.values(syncConfig.edificio).includes(value)) detectedMode = 'edificio'
+  else if (Object.values(syncConfig.vivienda).includes(value)) detectedMode = 'vivienda'
+
+  if (detectedMode) {
+    console.log(`[DocumentForm] Sincronización activada: Modo detectado "${detectedMode}" por cambio en ${changedField}`)
+    isInternalChange = true
+    const config = syncConfig[detectedMode]
+    Object.keys(config).forEach(field => {
+      formData.value[field] = config[field]
+      // Sincronizar también lastTriggerValues para evitar re-disparos inmediatos
+      if (triggerFields.includes(field)) {
+        lastTriggerValues[field] = config[field]
+      }
+    })
+    nextTick(() => {
+      isInternalChange = false
+    })
+  }
 }, { deep: true })
 
 // Guardar automáticamente en localStorage controlado por DocumentPage

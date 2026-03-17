@@ -1,19 +1,12 @@
 <template>
-  <div class="min-h-screen bg-gray-50 p-4">
+  <div :class="['min-h-screen bg-gray-50 p-4', { 'force-a4-print': isA4Document }]">
     <!-- Vista Principal -->
     <div v-if="!showPreview && !showEdit" class="max-w-4xl mx-auto">
       <div class="flex items-center gap-3">
-        <Boton 
-          @click="previewDocument"
-          variant="primary"
-          class="inline-flex items-center"
-        >
+        <Boton @click="previewDocument" variant="primary" class="inline-flex items-center">
           📋 {{ config.title }}
         </Boton>
-        <Boton
-          @click="goToMasterForm"
-          variant="secondary"
-        >
+        <Boton @click="goToMasterForm" variant="secondary">
           🧾 Formulario Maestro
         </Boton>
       </div>
@@ -21,18 +14,10 @@
 
     <!-- Botón Sticky de Volver -->
     <div class="sticky-back-button">
-      <Boton 
-        @click="goToIndex"
-        variant="secondary"
-        class="w-full"
-      >
+      <Boton @click="goToIndex" variant="secondary" class="w-full">
         ← Inicio
       </Boton>
-      <Boton
-        @click="goToMasterForm"
-        variant="secondary"
-        class="w-full mt-2"
-      >
+      <Boton @click="goToMasterForm" variant="secondary" class="w-full mt-2">
         🧾 Formulario Maestro
       </Boton>
     </div>
@@ -41,40 +26,24 @@
     <div v-if="showPreview" class="max-w-4xl mx-auto">
       <!-- Botones Sticky (Editar y PDF) -->
       <div class="sticky-pdf-buttons">
-        <Boton 
-          v-if="config.fields && config.fields.length > 0"
-          @click="editDocument"
-          variant="secondary"
-          class="sticky-pdf-button"
-        >
+        <Boton v-if="config.fields && config.fields.length > 0" @click="editDocument" variant="secondary"
+          class="sticky-pdf-button">
           ✏️ Editar
         </Boton>
-        <Boton 
-          @click="generatePDF"
-          variant="success"
-          class="sticky-pdf-button"
-        >
+        <Boton @click="generatePDF" variant="success" class="sticky-pdf-button">
           📄 PDF
         </Boton>
       </div>
       <client-only>
-        <component 
-          :is="documentComponent" 
-          v-bind="{ ...formData, ...(config.componentProps || {}) }"
-          :generatedDate="generatedDate"
-        />
+        <component :is="documentComponent" v-bind="{ ...formData, ...(config.componentProps || {}) }"
+          :generatedDate="generatedDate" />
       </client-only>
     </div>
 
     <!-- Vista Editar -->
     <div v-if="showEdit && config.fields && config.fields.length > 0" class="max-w-4xl mx-auto">
-      <DocumentForm 
-        :title="`Editar ${config.title}`"
-        :fields="config.fields"
-        :editableFieldNames="editableFields"
-        :initialData="formData"
-        @submit="handleFormSubmit"
-      />
+      <DocumentForm :title="`Editar ${config.title}`" :fields="config.fields" :editableFieldNames="editableFields"
+        :initialData="formData" @submit="handleFormSubmit" />
     </div>
   </div>
 </template>
@@ -86,7 +55,7 @@ import { useDocument } from '../composables/useDocument'
 import { getMergedDocumentData } from '../utils/mergeFormData'
 import { getEditableFields } from '../config/editableFields'
 import { loadFromStorage, updateStoragePartially, loadImagesFromStorage } from '../utils/storageManager'
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted, watch, computed } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
 const router = useRouter()
@@ -110,20 +79,30 @@ const formData = ref({})
 const generatedDate = ref('')
 const editableFields = ref([])
 
+// Detectar si el documento actual requiere forzar A4 (Docs 2, 3 y 4)
+const isA4Document = computed(() => {
+  const a4Ids = [
+    'aceptacion-cesion-tratamiento',
+    'aceptacion-compromiso-derechos',
+    'aceptacion-compromiso-transversales'
+  ]
+  return a4Ids.includes(props.config.id)
+})
+
 onMounted(() => {
   // Cargar datos de localStorage (base de datos central)
   const masterData = loadFromStorage()
-  
+
   // Cargar imágenes desde localStorage
   const storedImages = loadImagesFromStorage()
-  
+
   // Fusionar con configuración del documento
   const mergedData = getMergedDocumentData(props.config)
-  
+
   // Aplicar fieldMapping inverso a las imágenes para que coincidan con los nombres de props del documento
   const mappedImages = {}
   const fieldMapping = props.config.fieldMapping || {}
-  
+
   // Crear mapeo inverso: fieldMapping['representante'] = 'firma' → inverseMapping['firma'] = 'representante'
   const inverseMapping = {}
   Object.entries(fieldMapping).forEach(([docField, masterField]) => {
@@ -131,21 +110,21 @@ onMounted(() => {
       inverseMapping[masterField] = docField
     }
   })
-  
+
   // Mapear imágenes usando el inverseMapping
   Object.entries(storedImages).forEach(([fieldName, imageData]) => {
     const mappedFieldName = inverseMapping[fieldName] || fieldName
     mappedImages[mappedFieldName] = imageData
   })
-  
+
   // Inicializar formData con los datos fusionados + imágenes mapeadas desde localStorage
   formData.value = { ...mergedData, ...mappedImages }
-  
+
   // Obtener lista de campos editables para este documento
   editableFields.value = getEditableFields(props.config.id)
-  
+
   generatedDate.value = new Date().toLocaleDateString('es-ES')
-  
+
   // Detectar si viene del query parameter edit=true
   if (route.query.edit === 'true') {
     showEdit.value = true
@@ -173,9 +152,9 @@ const saveChanges = () => {
 
 const generatePDF = async () => {
   // Lógica para generar PDF
-  const { generatePDF: generatePDFUtil } = useDocument({ 
+  const { generatePDF: generatePDFUtil } = useDocument({
     defaultData: formData.value,
-    documentTitle: props.config.fileName 
+    documentTitle: props.config.fileName
   })
   await generatePDFUtil()
 }
@@ -189,12 +168,12 @@ const handleFormSubmit = (newData) => {
     }
   })
   formData.value = mergedData
-  
+
   // Guardar en localStorage (base de datos central)
   // NOTA: updateStoragePartially filtra automáticamente los campos de tipo 'file'
   // para evitar exceder la cuota de localStorage
   updateStoragePartially(mergedData)
-  
+
   saveChanges()
 }
 
@@ -232,12 +211,26 @@ const goToMasterForm = () => {
 }
 
 @media print {
-  .sticky-back-button {
-    display: none !important;
-  }
-  
+
+
+  .sticky-back-button,
   .sticky-pdf-buttons {
     display: none !important;
+  }
+
+  /* Solo para los documentos marcados, dejamos que el componente interno maneje su propio print-wrapper */
+  div.force-a4-print.min-h-screen {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: white !important;
+    min-height: 0 !important;
+  }
+
+  .force-a4-print div.max-w-4xl {
+    max-width: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 }
 </style>
