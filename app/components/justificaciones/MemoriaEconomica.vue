@@ -560,11 +560,11 @@ defineProps({
 }
 
 .col-acreedor {
-  width: 100px;
+  width: 140px;
 }
 
 .col-concepto {
-  width: 120px;
+  width: 80px;
 }
 
 .col-fecha-pago {
