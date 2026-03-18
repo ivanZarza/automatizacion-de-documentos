@@ -247,16 +247,32 @@ const estiloEtiqueta = (etiqueta) => ({
 }
 
 @media print {
+  * {
+    max-width: none !important;
+    width: auto !important;
+  }
+
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
   .print-wrapper {
-    width: 200mm;
+    width: 100% !important;
     height: auto;
-    margin: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
   }
 
   .pagina-documento {
+    width: 210mm !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    box-shadow: none !important;
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
-    box-shadow: none;
   }
 
   .pagina-documento:not(:last-child) {
@@ -267,6 +283,25 @@ const estiloEtiqueta = (etiqueta) => ({
 @page {
   size: A4;
   margin: 0;
+}
+</style>
+
+<style scoped>
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+  .print-wrapper {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .pagina-documento {
+    margin: 0 auto !important;
+  }
 }
 </style>
 
