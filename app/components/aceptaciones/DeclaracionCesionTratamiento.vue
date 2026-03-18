@@ -258,7 +258,7 @@ const estiloEtiqueta = (etiqueta) => ({
 }
 
 .pagina-documento {
-  width: 200mm;
+  width: 210mm;
   height: 297mm;
   position: relative;
   margin: 0;
@@ -301,5 +301,10 @@ const estiloEtiqueta = (etiqueta) => ({
   .pagina-documento:not(:last-child) {
     page-break-after: always;
   }
+}
+
+@page {
+  size: A4;
+  margin: 0;
 }
 </style>
