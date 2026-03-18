@@ -138,8 +138,8 @@ function estiloEtiqueta(et) {
 }
 
 .pagina-documento {
-  width: 210mm;
-  height: 297mm;
+  width: 200mm;
+  height: 287mm;
   position: relative;
   margin: 0;
   padding: 0;
@@ -165,7 +165,7 @@ function estiloEtiqueta(et) {
 
 @media print {
   .print-wrapper {
-    width: 210mm;
+    width: 200mm;
     height: auto;
     margin: 0;
   }

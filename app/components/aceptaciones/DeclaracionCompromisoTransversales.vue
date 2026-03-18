@@ -201,19 +201,12 @@ const estiloEtiqueta = (etiqueta) => ({
   position: "absolute",
   left: `${etiqueta.x}mm`,
   top: `${etiqueta.y}mm`,
-  minWidth: `${etiqueta.w}mm`,
-  width: "auto",
+  width: `${etiqueta.w}mm`,
   height: `${etiqueta.h}mm`,
-  fontSize: `${etiqueta.fontSize}pt`,
-  display: "inline-block",
-  direction: "ltr",
+  fontSize: `${etiqueta.fontSize}px`,
   textAlign: etiqueta.align || "left",
-  padding: "0 1mm",
-  boxSizing: "border-box",
+  overflow: "hidden",
   whiteSpace: "nowrap",
-  overflow: "visible",
-  fontFamily: "Arial, sans-serif",
-  lineHeight: "1",
 });
 </script>
 
@@ -229,8 +222,8 @@ const estiloEtiqueta = (etiqueta) => ({
 }
 
 .pagina-documento {
-  width: 210mm;
-  height: 297mm;
+  width: 200mm;
+  height: 287mm;
   position: relative;
   margin: 0;
   padding: 0;
@@ -248,12 +241,13 @@ const estiloEtiqueta = (etiqueta) => ({
 
 /* Campos overlay */
 .overlay-field {
-  color: #000 !important;
+  display: inline-block;
+  box-sizing: border-box;
 }
 
 @media print {
   .print-wrapper {
-    width: 210mm;
+    width: 200mm;
     height: auto;
     margin: 0;
   }
@@ -266,25 +260,6 @@ const estiloEtiqueta = (etiqueta) => ({
 
   .pagina-documento:not(:last-child) {
     page-break-after: always;
-  }
-}
-</style>
-
-<style>
-@page {
-  size: A4;
-  margin: 0;
-}
-
-@media print {
-  .print-wrapper {
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  .pagina-documento {
-    margin: 0 auto !important;
   }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div :class="['min-h-screen bg-gray-50 p-4', { 'force-a4-print': isA4Document }]">
+  <div class="min-h-screen bg-gray-50 p-4">
     <!-- Vista Principal -->
     <div v-if="!showPreview && !showEdit" class="max-w-4xl mx-auto">
       <div class="flex items-center gap-3">
@@ -79,15 +79,7 @@ const formData = ref({})
 const generatedDate = ref('')
 const editableFields = ref([])
 
-// Detectar si el documento actual requiere forzar A4 (Docs 2, 3 y 4)
-const isA4Document = computed(() => {
-  const a4Ids = [
-    'aceptacion-cesion-tratamiento',
-    'aceptacion-compromiso-derechos',
-    'aceptacion-compromiso-transversales'
-  ]
-  return a4Ids.includes(props.config.id)
-})
+
 
 onMounted(() => {
   // Cargar datos de localStorage (base de datos central)
@@ -216,21 +208,6 @@ const goToMasterForm = () => {
   .sticky-back-button,
   .sticky-pdf-buttons {
     display: none !important;
-  }
-
-  /* Solo para los documentos marcados, dejamos que el componente interno maneje su propio print-wrapper */
-  div.force-a4-print.min-h-screen {
-    padding: 0 !important;
-    margin: 0 !important;
-    background: white !important;
-    min-height: 0 !important;
-  }
-
-  .force-a4-print div.max-w-4xl {
-    max-width: none !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
   }
 }
 </style>
