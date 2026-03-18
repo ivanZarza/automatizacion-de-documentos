@@ -259,7 +259,7 @@ const estiloEtiqueta = (etiqueta) => ({
 
 .pagina-documento {
   width: 200mm;
-  height: 287mm;
+  height: 297mm;
   position: relative;
   margin: 0;
   padding: 0;
