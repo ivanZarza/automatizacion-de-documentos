@@ -2342,7 +2342,7 @@ export const certificadoAdecuacionConfig = {
   fieldMapping: {
     almacenamiento: '',
     numero: 'numero',
-    direccion: 'emplazamientoCalle',
+    direccion: (dataForm) => `${dataForm.emplazamientoCalle} ${dataForm.numero ? dataForm.numero : ''} ${dataForm.bloque ? 'Bloque ' + dataForm.bloque : ''} ${dataForm.escalera ? 'Escalera ' + dataForm.escalera : ''} ${dataForm.planta ? 'Planta ' + dataForm.planta : ''} ${dataForm.puerta ? 'Puerta ' + dataForm.puerta : ''}`.trim(), codigoPostal: 'codigoPostalEmplazamiento',
     localidad: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',
     uso: 'usoDestino',
@@ -2394,7 +2394,7 @@ export const zCertificadoDOACFVConfig = {
   fieldMapping: {
     titular: 'titular',
     nifTitular: 'nifTitular',
-    localizacion: 'emplazamientoCalle',
+    localizacion: (formData) => `${formData.emplazamientoCalle || ''} - ${formData.numero || ''}  ${formData.bloque || ''} ${formData.escalera || ''}  ${formData.planta || ''}  ${formData.puerta || ''}  `,
     cp: 'codigoPostalEmplazamiento',
     localidad: 'localidadEmplazamiento',
     provincia: 'provinciaEmplazamiento',
