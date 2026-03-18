@@ -32,8 +32,8 @@ const etiquetas = ref([
   {
     nombre: "ciudad",
     page: 2,
-    x: 95,
-    y: 80.5,
+    x: 93,
+    y: 77,
     w: 60,
     h: 8,
     fontSize: 11,
@@ -43,8 +43,8 @@ const etiquetas = ref([
   {
     nombre: "dia",
     page: 2,
-    x: 127,
-    y: 80.5,
+    x: 123,
+    y: 77,
     w: 20,
     h: 8,
     fontSize: 11,
@@ -54,8 +54,8 @@ const etiquetas = ref([
   {
     nombre: "mes",
     page: 2,
-    x: 150,
-    y: 80.5,
+    x: 145,
+    y: 77,
     w: 20,
     h: 8,
     fontSize: 11,
@@ -65,8 +65,8 @@ const etiquetas = ref([
   {
     nombre: "anio",
     page: 2,
-    x: 173,
-    y: 80.5,
+    x: 162,
+    y: 77,
     w: 30,
     h: 8,
     fontSize: 11,
@@ -77,7 +77,7 @@ const etiquetas = ref([
     nombre: "firma",
     page: 2,
     x: 65,
-    y: 92,
+    y: 88,
     w: 80,
     h: 19,
     value: "",
@@ -87,7 +87,7 @@ const etiquetas = ref([
     nombre: "nombreFirma",
     page: 2,
     x: 68,
-    y: 108.5,
+    y: 104.5,
     w: 80,
     h: 8,
     fontSize: 11,
@@ -148,6 +148,7 @@ function estiloEtiqueta(et) {
   background-repeat: no-repeat;
   background-position: top left;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  image-rendering: crisp-edges;
 }
 
 .pagina-1 {

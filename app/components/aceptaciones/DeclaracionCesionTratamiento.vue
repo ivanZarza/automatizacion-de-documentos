@@ -155,7 +155,7 @@ const etiquetas = ref([
   {
     nombre: "mes",
     page: 2,
-    x: 130,
+    x: 125,
     y: 100.5,
     w: 20,
     h: 8,
@@ -252,14 +252,14 @@ const estiloEtiqueta = (etiqueta) => ({
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 20px auto;
   padding: 0;
 }
 
 .pagina-documento {
   width: 210mm;
-  height: 297mm;
+  height: 296mm;
   position: relative;
   margin: 0;
   padding: 0;
@@ -306,7 +306,8 @@ const estiloEtiqueta = (etiqueta) => ({
   }
 
   .pagina-documento {
-    width: 210mm !important;
+    width: 195mm !important;
+    height: 295mm !important;
     margin: 0 auto !important;
     padding: 0 !important;
     box-shadow: none !important;

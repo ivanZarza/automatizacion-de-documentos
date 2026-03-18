@@ -125,8 +125,8 @@ const etiquetas = ref([
   },
   {
     nombre: "dia",
-    x: 107,
-    y: 179.5,
+    x: 109,
+    y: 181,
     w: 20,
     h: 8,
     fontSize: 10,
@@ -136,7 +136,7 @@ const etiquetas = ref([
   {
     nombre: "mes",
     x: 130,
-    y: 179.5,
+    y: 181,
     w: 20,
     h: 8,
     fontSize: 10,
@@ -146,7 +146,7 @@ const etiquetas = ref([
   {
     nombre: "anio",
     x: 148,
-    y: 179.5,
+    y: 181,
     w: 30,
     h: 8,
     fontSize: 10,
@@ -266,7 +266,7 @@ const estiloEtiqueta = (etiqueta) => ({
   }
 
   .pagina-documento {
-    width: 210mm !important;
+    width: 200mm !important;
     margin: 0 auto !important;
     padding: 0 !important;
     box-shadow: none !important;
