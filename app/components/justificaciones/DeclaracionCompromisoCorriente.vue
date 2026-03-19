@@ -2,17 +2,9 @@
   <div class="print-wrapper">
     <!-- PÁGINA ÚNICA -->
     <article class="pagina-documento">
-      <span
-        v-for="et in etiquetasVisibles"
-        :key="et.nombre"
-        class="overlay-field"
-        :style="estiloEtiqueta(et)"
-      >
-        <img
-          v-if="et.nombre === 'firma' && et.displayValue"
-          :src="et.displayValue"
-          style="width: 100%; height: 100%; object-fit: contain"
-        />
+      <span v-for="et in etiquetasVisibles" :key="et.nombre" class="overlay-field" :style="estiloEtiqueta(et)">
+        <img v-if="et.nombre === 'firma' && et.displayValue" :src="et.displayValue"
+          style="width: 100%; height: 100%; object-fit: contain" />
         <span v-else>{{ et.displayValue }}</span>
       </span>
     </article>
@@ -68,11 +60,12 @@ const etiquetas = ref([
     nombre: "domicilioBeneficiario",
     x: 90,
     y: 94.5,
-    w: 140,
-    h: 6,
+    w: 90,
+    h: 10,
     fontSize: 10,
     align: "left",
     value: "",
+    whiteSpace: "normal",
   },
   // SECCIÓN RAZÓN SOCIAL / NIF / DOMICILIO FISCAL
   {
@@ -99,11 +92,12 @@ const etiquetas = ref([
     nombre: "domicilioFiscal",
     x: 100.5,
     y: 107.7,
-    w: 140,
-    h: 6,
+    w: 80,
+    h: 10,
     fontSize: 10,
     align: "left",
     value: "",
+    whiteSpace: "normal",
   },
   // SECCIÓN REPRESENTANTE LEGAL
   {
@@ -248,8 +242,7 @@ const estiloEtiqueta = (etiqueta) => ({
   position: "absolute",
   left: `${etiqueta.x}mm`,
   top: `${etiqueta.y}mm`,
-  minWidth: `${etiqueta.w}mm`,
-  width: "auto",
+  width: `${etiqueta.w}mm`,
   height: `${etiqueta.h}mm`,
   fontSize: `${etiqueta.fontSize}pt`,
   display: "inline-block",
@@ -257,10 +250,10 @@ const estiloEtiqueta = (etiqueta) => ({
   textAlign: etiqueta.align || "left",
   padding: "0 1mm",
   boxSizing: "border-box",
-  whiteSpace: "nowrap",
+  whiteSpace: etiqueta.whiteSpace || "nowrap",
   overflow: "visible",
   fontFamily: "Arial, sans-serif",
-  lineHeight: "1",
+  lineHeight: "1.1",
   background: `${etiqueta.background || "transparent"}`,
 });
 </script>
