@@ -129,7 +129,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 10,
     align: "left",
-    value: "",
+    value: "SOLAY INGENIEROS S.L.",
   },
   {
     nombre: "dniNieAgenteGestor",
@@ -139,7 +139,7 @@ const etiquetas = ref([
     h: 6,
     fontSize: 10,
     align: "left",
-    value: "",
+    value: "B09848912",
   },
   // SECCIÓN PERSONA REPRESENTANTE
   {
@@ -150,7 +150,17 @@ const etiquetas = ref([
     h: 6,
     fontSize: 10,
     align: "left",
-    value: "",
+    value: "Miguel Angel Rivas Zapata",
+  },
+  {
+    nombre: "dniNiePersonaRepresentante",
+    x: 35,
+    y: 147.2,
+    w: 50,
+    h: 6,
+    fontSize: 10,
+    align: "left",
+    value: "28888418G",
   },
   {
     nombre: "dniNiePersonaRepresentante",
