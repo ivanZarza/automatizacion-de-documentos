@@ -2762,7 +2762,7 @@ export const declaracionAusenciaConflictoInteresesConfig = {
     firma: ''
   },
   fieldMapping: {
-    ciudad: 'localidadEmplazamiento',
+    ciudad: 'provinciaEmplazamiento',
     dia: 'diaAceptacion',
     mes: 'mesAceptacion',
     anio: 'anioAceptacion',
