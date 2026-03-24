@@ -2943,6 +2943,8 @@ import { memoriaFvAerConfig } from './justificaciones/memoriaFvAerConfig'
 import { obraMassolConfig } from './justificaciones/obraMassolConfig'
 import { certificadoPedidosContratosConfig } from './justificaciones/certificadoPedidosContratosConfig'
 import { declaracionCompromisoCorrienteConfig } from './justificaciones/declaracionCompromisoCorrienteConfig'
+import { cartelL3Config } from './justificaciones/cartelL3Config'
+import { cartelL4Config } from './justificaciones/cartelL4Config'
 
 const documentConfigs = {
   'autorizacion-representacion': autorizacionRepresentacionConfig,
@@ -2982,6 +2984,8 @@ const documentConfigs = {
 /*   'declaracion-compromiso-corriente': declaracionCompromisoCorrienteConfig,
  */  'obra-massol': obraMassolConfig,
   'declaracion-compromiso-corriente': declaracionCompromisoCorrienteConfig,
+  'cartel-l3': cartelL3Config,
+  'cartel-l4': cartelL4Config,
 
 }
 
