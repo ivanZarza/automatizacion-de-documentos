@@ -2,109 +2,133 @@
   <div class="form-container">
     <div class="form-wrapper">
       <h2 class="form-title">{{ title }}</h2>
-      <form @submit.prevent="submit" class="form-content">
-        <div v-for="(groupedFields, subsectionName) in groupedFieldsBySection" :key="subsectionName" class="section-container" :data-section="subsectionName" :style="{ borderLeftColor: getSectionColor(subsectionName) }">
-          <div 
-            class="section-header"
-            @click="toggleSection(subsectionName)"
-            :style="{ backgroundColor: sectionColorMap[subsectionName] }"
-          >
-            <span class="section-toggle-icon" :class="{ 'is-open': expandedSections[subsectionName] }">●</span>
-            <h3 class="section-title">{{ getSubsectionLabel(subsectionName) }}</h3>
-          </div>
-          
-          <div v-if="expandedSections[subsectionName]" class="section-content">
-            <!-- Agrupar campos por "group" si existen -->
-            <template v-for="(groupFields, groupName) in groupFieldsByGroup(groupedFields)" :key="groupName">
-              <!-- Header del grupo (colapsable si tiene group) -->
-              <div v-if="groupName !== '__sin-grupo__'" class="group-header" @click="toggleGroup(subsectionName, groupName)">
-                <span class="group-toggle-icon" :class="{ 'is-open': expandedGroups[`${subsectionName}-${groupName}`] }">▶</span>
-                <h4 class="group-title">{{ groupName }}</h4>
-              </div>
 
-              <!-- Contenido del grupo -->
-              <div v-if="groupName === '__sin-grupo__' || expandedGroups[`${subsectionName}-${groupName}`]" class="group-content">
-                <div class="fields-grid">
-                  <div v-for="field in groupFields" :key="field.name" class="field-wrapper">
-                    <label v-if="field.type !== 'checkbox'" class="field-label">{{ field.label }}</label>
-                    <input v-if="field.type === 'text' || field.type === 'email' || field.type === 'tel'" v-model="formData[field.name]" :type="field.type" :placeholder="field.placeholder" class="field-input" />
-                    <div v-else-if="field.type === 'url' && field.preview" class="url-preview-wrapper">
-                      <input v-model="formData[field.name]" type="url" :placeholder="field.placeholder" class="field-input" />
-                      <div v-if="formData[field.name]" class="file-preview">
-                        <img :src="formData[field.name]" class="file-preview-image" style="max-width:200px;max-height:100px;object-fit:contain;" />
-                      </div>
-                    </div>
-                    <input v-else-if="field.type === 'url'" v-model="formData[field.name]" type="url" :placeholder="field.placeholder" class="field-input" />
-                    <input v-else-if="field.type === 'date'" v-model="formData[field.name]" type="date" class="field-input" />
-                    <textarea v-else-if="field.type === 'textarea'" v-model="formData[field.name]" :placeholder="field.placeholder" :rows="field.rows || 3" class="field-input field-textarea"></textarea>
-                    <select v-else-if="field.type === 'select'" v-model="formData[field.name]" class="field-input">
-                      <option value="">{{ field.placeholder || 'Seleccionar...' }}</option>
-                      <option v-for="option in field.options" :key="option.value || option" :value="option.value || option">{{ option.label || option }}</option>
-                    </select>
-                    <div v-else-if="field.type === 'equipment-autocomplete'" class="autocomplete-wrapper" style="width: 100%;">
-                      <select 
-                        :id="field.name" 
-                        v-model="formData[field.name]" 
-                        class="field-input" 
-                        @change="handleEquipmentSelect($event.target.value, field)"
-                      >
-                        <option value="">{{ field.placeholder || 'Seleccione equipo...' }}</option>
-                        
-                        <!-- Si el dato guardado localmente no está en la base de datos de Pinia, lo mantenemos como opción personalizada para no perderlo -->
-                        <option 
-                          v-if="formData[field.name] && !(equipmentStore[field.equipmentType] || []).some(eq => (eq.marcaModelo || `${eq.marca || ''} ${eq.modelo || ''}`.trim()) === formData[field.name])"
-                          :value="formData[field.name]"
-                        >
-                          {{ formData[field.name] }} (Personalizado)
-                        </option>
-                        
-                        <option 
-                          v-for="eq in (equipmentStore[field.equipmentType] || [])" 
-                          :key="eq.id" 
-                          :value="eq.marcaModelo || `${eq.marca || ''} ${eq.modelo || ''}`.trim()"
-                        >
-                          {{ eq.marcaModelo || `${eq.marca || ''} ${eq.modelo || ''}`.trim() }}
-                        </option>
-                      </select>
-                    </div>
-                    <div v-else-if="field.type === 'checkbox'" class="checkbox-wrapper">
-                      <input :id="field.name" v-model="formData[field.name]" type="checkbox" class="checkbox-input" />
-                      <label :for="field.name" class="checkbox-label">{{ field.label }}</label>
-                    </div>
-                    <div v-else-if="field.type === 'file'" class="file-wrapper">
-                      <div
-                        class="file-drop-area"
-                        :class="{ 'drag-over': dragOverField === field.name }"
-                        @dragover.prevent="onDragOver(field.name)"
-                        @dragleave.prevent="onDragLeave"
-                        @drop.prevent="onDrop($event, field.name)"
-                      >
-                        <label :for="field.name" class="file-input-label">
-                          <svg class="file-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="17 8 12 3 7 8"></polyline>
-                            <line x1="12" y1="3" x2="12" y2="15"></line>
-                          </svg>
-                          <span>{{ formData[field.name] ? 'Cambiar archivo o arrastra aquí' : 'Seleccionar archivo o arrastra aquí' }}</span>
-                        </label>
-                        <input :id="field.name" :key="field.name" type="file" :accept="field.accept || '*'" class="file-input-hidden" @change="handleFileUpload($event, field.name)" />
+      <!-- NAVEGACIÓN POR SUBSECCIONES (TABS) -->
+      <div class="tabs-container">
+        <div class="tabs-wrapper">
+          <button v-for="(_, subsectionName) in groupedFieldsBySection" :key="subsectionName" type="button"
+            class="tab-button" :class="{ 'active': activeSubsection === subsectionName }"
+            @click="activeSubsection = subsectionName" :style="{ borderBottomColor: getSectionColor(subsectionName) }">
+            <span class="tab-label">{{ getSubsectionLabel(subsectionName) }}</span>
+          </button>
+        </div>
+      </div>
+
+      <form @submit.prevent="submit" class="form-content">
+        <Transition name="fade" mode="out-in">
+          <div :key="activeSubsection" v-if="activeSubsection && groupedFieldsBySection[activeSubsection]"
+            class="section-container" :style="{ borderLeftColor: getSectionColor(activeSubsection) }">
+
+            <div class="section-content">
+              <!-- Agrupar campos por "group" si existen -->
+              <template v-for="(groupFields, groupName) in groupFieldsByGroup(groupedFieldsBySection[activeSubsection])"
+                :key="groupName">
+                <!-- Header del grupo (colapsable si tiene group) -->
+                <div v-if="groupName !== '__sin-grupo__'" class="group-header"
+                  @click="toggleGroup(activeSubsection, groupName)">
+                  <span class="group-toggle-icon"
+                    :class="{ 'is-open': expandedGroups[`${activeSubsection}-${groupName}`] }">▶</span>
+                  <h4 class="group-title">{{ groupName }}</h4>
+                </div>
+
+                <!-- Contenido del grupo -->
+                <div v-if="groupName === '__sin-grupo__' || expandedGroups[`${activeSubsection}-${groupName}`]"
+                  class="group-content">
+                  <div class="fields-grid">
+                    <div v-for="field in groupFields" :key="field.name" class="field-wrapper">
+                      <label v-if="field.type !== 'checkbox'" class="field-label">{{ field.label }}</label>
+                      <input v-if="field.type === 'text' || field.type === 'email' || field.type === 'tel'"
+                        v-model="formData[field.name]" :type="field.type" :placeholder="field.placeholder"
+                        class="field-input" />
+                      <div v-else-if="field.type === 'url' && field.preview" class="url-preview-wrapper">
+                        <input v-model="formData[field.name]" type="url" :placeholder="field.placeholder"
+                          class="field-input" />
                         <div v-if="formData[field.name]" class="file-preview">
-                          <p class="file-preview-text">✓ Archivo seleccionado:</p>
-                          <img v-if="field.accept?.includes('image')" :src="formData[field.name]" class="file-preview-image" />
-                          <p v-else class="file-preview-name">{{ extractFileName(formData[field.name]) }}</p>
+                          <img :src="formData[field.name]" class="file-preview-image"
+                            style="max-width:200px;max-height:100px;object-fit:contain;" />
+                        </div>
+                      </div>
+                      <input v-else-if="field.type === 'url'" v-model="formData[field.name]" type="url"
+                        :placeholder="field.placeholder" class="field-input" />
+                      <input v-else-if="field.type === 'date'" v-model="formData[field.name]" type="date"
+                        class="field-input" />
+                      <textarea v-else-if="field.type === 'textarea'" v-model="formData[field.name]"
+                        :placeholder="field.placeholder" :rows="field.rows || 3"
+                        class="field-input field-textarea"></textarea>
+                      <select v-else-if="field.type === 'select'" v-model="formData[field.name]" class="field-input">
+                        <option value="">{{ field.placeholder || 'Seleccionar...' }}</option>
+                        <option v-for="option in field.options" :key="option.value || option"
+                          :value="option.value || option">{{ option.label || option }}</option>
+                      </select>
+                      <div v-else-if="field.type === 'equipment-autocomplete'" class="autocomplete-wrapper"
+                        style="width: 100%;">
+                        <select :id="field.name" v-model="formData[field.name]" class="field-input"
+                          @change="handleEquipmentSelect($event.target.value, field)">
+                          <option value="">{{ field.placeholder || 'Seleccione equipo...' }}</option>
+
+                          <option
+                            v-if="formData[field.name] && !(equipmentStore[field.equipmentType] || []).some(eq => (eq.marcaModelo || `${eq.marca || ''} ${eq.modelo || ''}`.trim()) === formData[field.name])"
+                            :value="formData[field.name]">
+                            {{ formData[field.name] }} (Personalizado)
+                          </option>
+
+                          <option v-for="eq in (equipmentStore[field.equipmentType] || [])" :key="eq.id"
+                            :value="eq.marcaModelo || `${eq.marca || ''} ${eq.modelo || ''}`.trim()">
+                            {{ eq.marcaModelo || `${eq.marca || ''} ${eq.modelo || ''}`.trim() }}
+                          </option>
+                        </select>
+                      </div>
+                      <div v-else-if="field.type === 'checkbox'" class="checkbox-wrapper">
+                        <input :id="field.name" v-model="formData[field.name]" type="checkbox" class="checkbox-input" />
+                        <label :for="field.name" class="checkbox-label">{{ field.label }}</label>
+                      </div>
+                      <div v-else-if="field.type === 'file'" class="file-wrapper">
+                        <div class="file-drop-area" :class="{ 'drag-over': dragOverField === field.name }"
+                          @dragover.prevent="onDragOver(field.name)" @dragleave.prevent="onDragLeave"
+                          @drop.prevent="onDrop($event, field.name)">
+                          <label :for="field.name" class="file-input-label">
+                            <svg class="file-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                              stroke-linecap="round" stroke-linejoin="round">
+                              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                              <polyline points="17 8 12 3 7 8"></polyline>
+                              <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <span>{{ formData[field.name] ? `Cambiar archivo o arrastra aquí` : `Seleccionar archivo o
+                              arrastra aquí` }}</span>
+                          </label>
+                          <input :id="field.name" :key="field.name" type="file" :accept="field.accept || '*'"
+                            class="file-input-hidden" @change="handleFileUpload($event, field.name)" />
+                          <div v-if="formData[field.name]" class="file-preview">
+                            <p class="file-preview-text">✓ Archivo seleccionado:</p>
+                            <img v-if="field.accept?.includes('image')" :src="formData[field.name]"
+                              class="file-preview-image" />
+                            <p v-else class="file-preview-name">{{ extractFileName(formData[field.name]) }}</p>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </template>
-          </div>
-        </div>
+              </template>
+            </div>
 
-        <Boton type="submit" variant="success" class="form-submit">
-          {{ submitButtonText }}
-        </Boton>
+            <!-- BOTONES DE ACCIÓN ESPECÍFICOS -->
+            <div v-if="activeSubsection === 'PRESENTACIÓN'" class="automation-actions">
+              <Boton type="button" variant="primary" class="btn-launch-automation" @click="handleLaunchAutomation">
+                🚀 Lanzar Automatización (Junta de Andalucía)
+              </Boton>
+              <p class="automation-hint">Se abrirá una ventana del navegador para completar la firma con su certificado.
+              </p>
+            </div>
+          </div>
+        </Transition>
+
+        <div class="form-actions">
+          <Boton type="submit" variant="success" class="form-submit">
+            {{ submitButtonText }}
+          </Boton>
+        </div>
       </form>
     </div>
   </div>
@@ -145,13 +169,13 @@ onMounted(async () => {
 
 const handleEquipmentSelect = (value, field) => {
   if (!value || !field.mapping || !field.equipmentType) return;
-  
+
   const equiposDelTipo = equipmentStore[field.equipmentType] || []
   const selectedEq = equiposDelTipo.find(eq => {
     const nombreVisual = eq.marcaModelo || `${eq.marca || ''} ${eq.modelo || ''}`.trim()
     return nombreVisual === value
   })
-  
+
   if (selectedEq) {
     Object.entries(field.mapping).forEach(([origen, destino]) => {
       if (selectedEq[origen] !== undefined && selectedEq[origen] !== null && selectedEq[origen] !== '') {
@@ -186,12 +210,8 @@ const props = defineProps({
 const emit = defineEmits(['submit'])
 
 const formData = ref({ ...props.initialData })
-const expandedSections = ref({})
+const activeSubsection = ref('')
 const expandedGroups = ref({})
-
-const toggleSection = (sectionLetter) => {
-  expandedSections.value[sectionLetter] = !expandedSections.value[sectionLetter]
-}
 
 const toggleGroup = (subsectionName, groupName) => {
   const groupKey = `${subsectionName}-${groupName}`
@@ -235,7 +255,7 @@ watch(formData, (newVal) => {
   if (!changedField) return
 
   const value = newVal[changedField]
-  
+
   // Actualizar el estado previo para la próxima comparación
   triggerFields.forEach(f => lastTriggerValues[f] = newVal[f])
 
@@ -263,6 +283,26 @@ watch(formData, (newVal) => {
   }
 }, { deep: true })
 
+// Lógica de sincronización automática 'mapFrom' para automatización
+watch(formData, (newVal, oldVal) => {
+  if (isInternalChange) return
+
+  masterFormFields.forEach(field => {
+    if (field.mapFrom) {
+      const sourceValue = newVal[field.mapFrom]
+      const targetValue = newVal[field.name]
+      const sourceOldValue = oldVal ? oldVal[field.mapFrom] : null
+
+      // Si el origen ha cambiado y el destino está vacío o era igual al origen anterior...
+      if (sourceOldValue !== undefined && sourceValue !== sourceOldValue) {
+        if (!targetValue || targetValue === sourceOldValue) {
+          formData.value[field.name] = sourceValue
+        }
+      }
+    }
+  })
+}, { deep: true })
+
 // Guardar automáticamente en localStorage controlado por DocumentPage
 // (No auto-guardamos aquí para evitar loops infinitos con listeners)
 
@@ -278,11 +318,11 @@ const compressImage = (file) => {
         const canvas = document.createElement('canvas')
         let width = img.width
         let height = img.height
-        
+
         // Redimensionar si es muy grande (máximo 800x600)
         const MAX_WIDTH = 800
         const MAX_HEIGHT = 600
-        
+
         if (width > height) {
           if (width > MAX_WIDTH) {
             height = Math.round((height * MAX_WIDTH) / width)
@@ -294,18 +334,18 @@ const compressImage = (file) => {
             height = MAX_HEIGHT
           }
         }
-        
+
         canvas.width = width
         canvas.height = height
-        
+
         const ctx = canvas.getContext('2d')
         ctx.fillStyle = '#fff'
         ctx.fillRect(0, 0, width, height)
         ctx.drawImage(img, 0, 0, width, height)
-        
+
         // Exportar como JPEG con 70% de calidad (reduce significativamente el tamaño)
         const compressedDataUrl = canvas.toDataURL('image/jpeg', 0.7)
-        
+
         resolve(compressedDataUrl)
       }
     }
@@ -314,14 +354,14 @@ const compressImage = (file) => {
 
 const handleFileUpload = async (event, fieldName) => {
   const file = event.target.files[0]
-  
+
   if (file) {
     try {
       // Comprimir imagen si es tipo imagen
       if (file.type.startsWith('image/')) {
         const compressedDataUrl = await compressImage(file)
         formData.value[fieldName] = compressedDataUrl
-        
+
         // Guardar imagen comprimida en localStorage
         saveImageToStorage(fieldName, compressedDataUrl)
       } else {
@@ -356,21 +396,9 @@ const filterEditableFields = () => {
 
 // Colores suave por subsección
 const sectionColorMap = {
-  'ACEPTACION': '#E8F4F8',
-  'A': '#E8F4F8',
-  'E1': '#FFE8F0',
-  'E1.3': '#FFE8F0',
-  'E1.4': '#FFD6E8',
-  'E1.5': '#FFCCE0',
-  'E1.6': '#FFC2D8',
-  'E1.7': '#FFB8D0',
-  'E2': '#FFF0E8',
-  'F': '#FFE8E8',
-  'G': '#E8F0FF',
-  'H': '#FFFFF0',
-  'I': '#F0E8FF',
   'IMAGEN': '#E8F8E8',
-  'LEGALIZACION': '#F8E8F8'
+  'LEGALIZACION': '#F8E8F8',
+  'PRESENTACIÓN': '#F5F3FF'
 }
 
 const sectionLineColorMap = {
@@ -388,7 +416,8 @@ const sectionLineColorMap = {
   'H': '#B8860B',
   'I': '#7C3AED',
   'IMAGEN': '#2E952E',
-  'LEGALIZACION': '#8B5A8B'
+  'LEGALIZACION': '#8B5A8B',
+  'PRESENTACIÓN': '#7C3AED'
 }
 
 const getSectionColor = (section) => {
@@ -398,7 +427,7 @@ const getSectionColor = (section) => {
 // Agrupar campos por su propiedad 'group'
 const groupFieldsByGroup = (fields) => {
   const grouped = {}
-  
+
   fields.forEach(field => {
     const groupName = field.group || '__sin-grupo__'
     if (!grouped[groupName]) {
@@ -406,14 +435,14 @@ const groupFieldsByGroup = (fields) => {
     }
     grouped[groupName].push(field)
   })
-  
+
   return grouped
 }
 
 const groupedFieldsBySection = computed(() => {
   const grouped = {}
   const editable = filterEditableFields()
-  
+
   editable.forEach(field => {
     const section = field.subsection || 'Sin sección'
     if (!grouped[section]) {
@@ -421,36 +450,36 @@ const groupedFieldsBySection = computed(() => {
     }
     grouped[section].push(field)
   })
-  
+
   // Ordenar secciones con ACEPTACION al final
-  const sortOrder = ['A', 'E1', 'E1.1', 'E1.2', 'E1.3', 'E1.4', 'E1.5', 'E1.6', 'E1.7', 
-                     'E2', 'E2.1', 'E2.2', 'E2.3', 'E2.4', 'E2.5', 'E2.6',
-                     'F', 'G', 'H', 'I', 'IMAGEN', 'LEGALIZACION', 'ACEPTACION']
-  
+  const sortOrder = ['A', 'E1', 'E1.1', 'E1.2', 'E1.3', 'E1.4', 'E1.5', 'E1.6', 'E1.7',
+    'E2', 'E2.1', 'E2.2', 'E2.3', 'E2.4', 'E2.5', 'E2.6',
+    'F', 'G', 'H', 'I', 'IMAGEN', 'LEGALIZACION', 'ACEPTACION']
+
   const sorted = {}
   sortOrder.forEach(key => {
     if (grouped[key]) {
       sorted[key] = grouped[key]
     }
   })
-  
+
   // Agregar cualquier sección no incluida en el orden
   Object.keys(grouped).forEach(key => {
     if (!sorted[key]) {
       sorted[key] = grouped[key]
     }
   })
-  
+
   return sorted
 })
 
 // Inicializar todas las secciones como cerradas cuando se calcula groupedFieldsBySection
 watch(() => Object.keys(groupedFieldsBySection.value), (sections) => {
+  if (sections.length > 0 && !activeSubsection.value) {
+    activeSubsection.value = sections[0]
+  }
+
   sections.forEach(section => {
-    if (expandedSections.value[section] === undefined) {
-      expandedSections.value[section] = false
-    }
-    
     // Inicializar también los grupos dentro de esta sección como cerrados
     const sectionFields = groupedFieldsBySection.value[section] || []
     const groups = new Set()
@@ -459,7 +488,7 @@ watch(() => Object.keys(groupedFieldsBySection.value), (sections) => {
         groups.add(field.group)
       }
     })
-    
+
     groups.forEach(groupName => {
       const groupKey = `${section}-${groupName}`
       if (expandedGroups.value[groupKey] === undefined) {
@@ -469,11 +498,16 @@ watch(() => Object.keys(groupedFieldsBySection.value), (sections) => {
   })
 }, { immediate: true })
 
+const handleLaunchAutomation = () => {
+  console.log('[Automation] Lanzando Playwright con los datos:', formData.value)
+  alert('🚀 Preparando entorno de automatización... Playwright se instalará en el siguiente paso.')
+}
+
 const submit = async () => {
   // Filtrar solo campos con valor (evitar contaminar el maestro con vacíos)
   // Pero permitir false para checkboxes
   const filteredData = Object.fromEntries(
-    Object.entries(formData.value).filter(([_, value]) => 
+    Object.entries(formData.value).filter(([_, value]) =>
       (value !== '' && value !== null && value !== undefined) || value === false
     )
   )
@@ -489,7 +523,7 @@ const submit = async () => {
   // ✅ PASO 1: Intentar guardar en BD primero (es la fuente de verdad)
   try {
     console.log(`[GUARDANDO] Intentando enviar a BD: "${nombre}"`)
-    
+
     const response = await $fetch('/api/forms', {
       method: 'POST',
       body: {
@@ -590,7 +624,7 @@ function getSubsectionLabel(subsection) {
 <style scoped>
 .form-container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
   padding: 20px;
   background: #ffffff;
@@ -665,6 +699,7 @@ function getSubsectionLabel(subsection) {
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -699,7 +734,7 @@ function getSubsectionLabel(subsection) {
   gap: 16px;
 }
 
-.fields-grid > .field-wrapper:nth-child(odd):last-child {
+.fields-grid>.field-wrapper:nth-child(odd):last-child {
   grid-column: 1 / 2;
 }
 
@@ -753,9 +788,6 @@ function getSubsectionLabel(subsection) {
   gap: 12px;
 }
 
-.file-input-label {
-}
-
 .file-drop-area {
   display: inline-flex;
   align-items: center;
@@ -771,7 +803,7 @@ function getSubsectionLabel(subsection) {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-  
+
 .file-drop-area.drag-over {
   border-color: #1e40af;
   background: #e0e7ff;
@@ -916,70 +948,169 @@ function getSubsectionLabel(subsection) {
   margin-bottom: 12px;
 }
 
+/* TABS STYLING */
+.tabs-container {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 0.75rem 0;
+  border-bottom: 2px solid #f3f4f6;
+  margin-bottom: 1.5rem;
+}
+
+.tabs-wrapper {
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: thin;
+}
+
+.tab-button {
+  display: flex;
+  align-items: center;
+  padding: 0.6rem 1.25rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  border-bottom-width: 3px;
+  background: #f9fafb;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  color: #6b7280;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+
+.tab-button:hover {
+  background: #f3f4f6;
+  color: #374151;
+  transform: translateY(-1px);
+}
+
+.tab-button.active {
+  background: white;
+  color: #111827;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.section-container {
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  border-left-width: 6px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.section-content {
+  padding: 0;
+}
+
+.form-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid #f3f4f6;
+  padding-top: 2rem;
+}
+
+/* ANIMATIONS */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
 /* Colores suaves para cada sección */
 .section-container[data-section="A"] {
   background-color: #f0f9ff;
-  border-left-color: #2e7d95;
 }
 
 .section-container[data-section="B"] {
   background-color: #f0fdf4;
-  border-left-color: #2e952e;
 }
 
 .section-container[data-section="C"] {
   background-color: #fffbf0;
-  border-left-color: #d97706;
 }
 
 .section-container[data-section="D"] {
   background-color: #faf5ff;
-  border-left-color: #8b5a8b;
 }
 
 .section-container[data-section="E"],
 .section-container[data-section="E1"],
 .section-container[data-section="E2"] {
   background-color: #fdf2f8;
-  border-left-color: #d97706;
 }
 
 .section-container[data-section="F"] {
   background-color: #fef2f2;
-  border-left-color: #dc2626;
 }
 
 .section-container[data-section="G"] {
   background-color: #f0f9ff;
-  border-left-color: #0369a1;
 }
 
 .section-container[data-section="H"] {
   background-color: #fffef2;
-  border-left-color: #b8860b;
 }
 
 .section-container[data-section="I"] {
   background-color: #faf5ff;
-  border-left-color: #7c3aed;
 }
 
-.subsection-container {
-  background: #f0f0f0;
-  border-left: 3px solid #8b5a8b;
-  margin-bottom: 18px;
-  padding: 12px 18px;
-  border-radius: 6px;
+.section-container[data-section="PRESENTACIÓN"] {
+  background-color: #f5f3ff;
 }
 
-.subsection-title {
-  font-size: 14px;
-  font-weight: bold;
-  color: #8b5a8b;
-  margin-bottom: 10px;
+/* AUTOMATION ACTIONS */
+.automation-actions {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  border: 1px dashed #7c3aed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
-/* Responsive */
+.btn-launch-automation {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 15px -3px rgba(124, 58, 237, 0.3);
+}
+
+.btn-launch-automation:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 25px -5px rgba(124, 58, 237, 0.4);
+}
+
+.automation-hint {
+  font-size: 0.875rem;
+  color: #6b7280;
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   .fields-grid {
     grid-template-columns: 1fr;
@@ -995,6 +1126,10 @@ function getSubsectionLabel(subsection) {
 
   .section-container {
     padding: 16px;
+  }
+
+  .tabs-wrapper {
+    padding-bottom: 12px;
   }
 }
 </style>

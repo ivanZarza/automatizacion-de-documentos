@@ -1,4 +1,6 @@
 import { group } from "@nuxt/content/preview"
+import { cnaeOptions } from "./cnaeOptions"
+import { tipoViaOptions } from "./tipoViaOptions"
 
 export const masterFormFields = [
   // ========== SECCIÓN A ==========
@@ -445,15 +447,79 @@ export const masterFormFields = [
     { name: 'pedido5FechaPedido', label: 'Fecha Pedido', placeholder: 'Ej: 20/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
     { name: 'pedido5ImportePedido', label: 'Importe Pedido (€)', placeholder: 'Ej: 800', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
    */
+  // --- SECCIÓN PRESENTACIÓN (PLAYWRIGHT) ---
+  { name: 'cod_delegacion', label: 'Delegación Territorial', type: 'select', subsection: 'PRESENTACIÓN', group: 'Datos Titular (Robot)', value: '41', options: [{ value: '04', label: 'ALMERÍA' }, { value: '11', label: 'CÁDIZ' }, { value: '14', label: 'CÓRDOBA' }, { value: '18', label: 'GRANADA' }, { value: '21', label: 'HUELVA' }, { value: '23', label: 'JAÉN' }, { value: '29', label: 'MÁLAGA' }, { value: '41', label: 'SEVILLA' }] },
+  { name: 'tipo_documento_presentador', label: 'Tipo Documento', type: 'select', subsection: 'PRESENTACIÓN', group: 'Datos Titular (Robot)', value: 'NIF', options: [{ value: 'NIF', label: 'NIF - Persona Física' }, { value: 'NIE', label: 'NIE - Extranjero' }, { value: 'CIF', label: 'CIF - Persona Jurídica' }] },
+  { name: 'nif_presentador', label: 'NIF/CIF Titular', type: 'text', subsection: 'PRESENTACIÓN', group: 'Datos Titular (Robot)', mapFrom: 'nifCif' },
+  { name: 'sexo_presentador', label: 'Sexo Titular', type: 'select', subsection: 'PRESENTACIÓN', group: 'Datos Titular (Robot)', value: 'H', options: [{ value: 'H', label: 'Hombre' }, { value: 'M', label: 'Mujer' }] },
+  { name: 'nombre_presentador', label: 'Nombre Titular', type: 'text', subsection: 'PRESENTACIÓN', group: 'Datos Titular (Robot)', mapFrom: 'apellidosNombre' },
+  { name: 'apellido1_presentador', label: 'Primer Apellido Titular', type: 'text', subsection: 'PRESENTACIÓN', group: 'Datos Titular (Robot)' },
+  { name: 'apellido2_presentador', label: 'Segundo Apellido Titular', type: 'text', subsection: 'PRESENTACIÓN', group: 'Datos Titular (Robot)' },
+
+  { name: 'tipo_via_presentador', label: 'Tipo de Vía', type: 'select', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)', value: 'CL', options: tipoViaOptions },
+  { name: 'nombre_via_presentador', label: 'Nombre de la Vía', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)', mapFrom: 'emplazamientoCalle' },
+  { name: 'tipo_numeracion_presentador', label: 'Tipo Numeración', type: 'select', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)', value: 'NUM', options: [{ value: 'NUM', label: 'Número' }, { value: 'KM', label: 'Kilómetro' }, { value: 'SN', label: 'Sin Número' }] },
+  { name: 'numero_presentador', label: 'Número / Km', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)', mapFrom: 'numero' },
+  { name: 'calificador_numero_presentador', label: 'Calificador (Bis, Duplicado...)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)' },
+  { name: 'bloque_presentador', label: 'Bloque', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)' },
+  { name: 'escalera_presentador', label: 'Escalera', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)' },
+  { name: 'piso_presentador', label: 'Piso', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)' },
+  { name: 'puerta_presentador', label: 'Puerta', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)' },
+  { name: 'margen_presentador', label: 'Margen', type: 'select', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)', value: 'D', options: [{ value: 'D', label: 'Derecha' }, { value: 'I', label: 'Izquierda' }] },
+  { name: 'provincia_presentador', label: 'Provincia', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)', mapFrom: 'provinciaEmplazamiento' },
+  { name: 'municipio_presentador', label: 'Municipio', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)', mapFrom: 'localidadEmplazamiento' },
+  { name: 'poblacion_presentador', label: 'Población', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)', mapFrom: 'localidadEmplazamiento' },
+  { name: 'cp_presentador', label: 'Código Postal', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)', mapFrom: 'codigoPostalEmplazamiento' },
+  { name: 'telefono_presentador', label: 'Teléfono Fijo', type: 'tel', subsection: 'PRESENTACIÓN', group: 'Contacto (Robot)' },
+  { name: 'movil_presentador', label: 'Móvil', type: 'tel', subsection: 'PRESENTACIÓN', group: 'Contacto (Robot)' },
+  { name: 'email_presentador', label: 'Email', type: 'email', subsection: 'PRESENTACIÓN', group: 'Contacto (Robot)' },
+
+  { name: 'con_representante_legal', label: '¿Tiene Representante Legal?', type: 'checkbox', subsection: 'PRESENTACIÓN', group: 'Representante Legal (Robot)' },
+  { name: 'rep_leg_tipo_documento', label: 'Tipo Documento (R.Leg.)', type: 'select', subsection: 'PRESENTACIÓN', group: 'Representante Legal (Robot)', value: 'NIF', options: ['NIF', 'NIE', 'CIF'] },
+  { name: 'rep_leg_nif', label: 'NIF/CIF (R.Leg.)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Representante Legal (Robot)' },
+  { name: 'rep_leg_sexo', label: 'Sexo (R.Leg.)', type: 'select', subsection: 'PRESENTACIÓN', group: 'Representante Legal (Robot)', value: 'H', options: [{ value: 'H', label: 'Hombre' }, { value: 'M', label: 'Mujer' }] },
+  { name: 'rep_leg_nombre', label: 'Nombre (R.Leg.)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Representante Legal (Robot)' },
+  { name: 'rep_leg_apellido1', label: 'Primer Apellido (R.Leg.)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Representante Legal (Robot)' },
+  { name: 'rep_leg_apellido2', label: 'Segundo Apellido (R.Leg.)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Representante Legal (Robot)' },
+
+  { name: 'con_persona_autorizada', label: '¿Tiene Persona Autorizada?', type: 'checkbox', subsection: 'PRESENTACIÓN', group: 'Persona Autorizada (Robot)' },
+  { name: 'per_aut_tipo_documento', label: 'Tipo Documento (P.Aut.)', type: 'select', subsection: 'PRESENTACIÓN', group: 'Persona Autorizada (Robot)', value: 'NIF', options: ['NIF', 'NIE', 'CIF'] },
+  { name: 'per_aut_nif', label: 'NIF/CIF (P.Aut.)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Persona Autorizada (Robot)' },
+  { name: 'per_aut_sexo', label: 'Sexo (P.Aut.)', type: 'select', subsection: 'PRESENTACIÓN', group: 'Persona Autorizada (Robot)', value: 'H', options: [{ value: 'H', label: 'Hombre' }, { value: 'M', label: 'Mujer' }] },
+  { name: 'per_aut_nombre', label: 'Nombre (P.Aut.)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Persona Autorizada (Robot)' },
+  { name: 'per_aut_apellido1', label: 'Primer Apellido (P.Aut.)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Persona Autorizada (Robot)' },
+  { name: 'per_aut_apellido2', label: 'Segundo Apellido (P.Aut.)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Persona Autorizada (Robot)' },
+
+  { name: 'cnae_rite', label: 'Actividad CNAE / RITE', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', options: cnaeOptions },
+  { name: 'numero_empresa_instaladora', label: 'Nº de Empresa Instaladora (RIIA)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)' },
+  { name: 'codigo_ccaa', label: 'Comunidad Autónoma', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: '01', options: [{ value: '01', label: 'Andalucía' }, { value: '02', label: 'Aragón' }, { value: '03', label: 'Asturias' }, { value: '04', label: 'Balears' }, { value: '05', label: 'Canarias' }, { value: '06', label: 'Cantabria' }, { value: '07', label: 'Castilla y León' }, { value: '08', label: 'Castilla - La Mancha' }, { value: '09', label: 'Cataluña' }, { value: '10', label: 'Valencia' }, { value: '11', label: 'Extremadura' }, { value: '12', label: 'Galicia' }, { value: '13', label: 'Madrid' }, { value: '14', label: 'Murcia' }, { value: '15', label: 'Navarra' }, { value: '16', label: 'País Vasco' }, { value: '17', label: 'Rioja' }, { value: '18', label: 'Ceuta' }, { value: '19', label: 'Melilla' }] },
+
+  { name: 'cups_presentador', label: 'CUPS', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'cups' },
+  { name: 'cau_presentador', label: 'CAU', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'cau' },
+  { name: 'potencia_instalacion', label: 'Potencia (kW)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'e2_potenciaNominalInversores' },
+  { name: 'tipo_suministro', label: 'Tipo Suministro', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'Monofásico', options: ['Monofásico', 'Trifásico'] },
+  { name: 'tension_red', label: 'Tensión de la Red (V)', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: '230', options: ['230', '400', '20000', '66000'] },
+  { name: 'es_autoconsumo', label: '¿Es Autoconsumo?', type: 'checkbox', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: true },
+  { name: 'potencia_instalada_ficha', label: 'Potencia Instalada (kW)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'e2_potenciaPicoGenerador' },
+  { name: 'tiene_acumulacion', label: '¿Tiene Acumulación (Baterías)?', type: 'checkbox', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'almacenamiento' },
+  { name: 'potencia_acumulacion', label: 'Potencia Acumulación (kW)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'e2_potenciaMaximaSalida' },
+  { name: 'energia_almacenada', label: 'Energía Máx. Almacenada (kWh)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'e2_energiaTotal' },
+  { name: 'uso_instalacion', label: 'Uso de la instalación', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'vivienda', options: [{ value: 'vivienda', label: 'Vivienda' }, { value: 'industrial', label: 'Industrial / Producción' }, { value: 'comercial', label: 'Comercial' }] },
+  { name: 'empresa_distribuidora', label: 'Empresa Distribuidora', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'empresaDistribuidora' },
+  { name: 'nombre_empresa_instaladora', label: 'Nombre Empresa Instaladora', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)' },
+  { name: 'empresa_instaladora_doc_tipo', label: 'Tipo Doc. Empresa', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'CIF', options: ['CIF', 'NIF', 'NIE'] },
+  { name: 'empresa_instaladora_doc', label: 'Nº Doc. Empresa', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)' }
 ]
 
 export const getMasterFormDefaultData = () => {
   const defaultData = {}
   masterFormFields.forEach(field => {
-    if (field.type === 'checkbox') {
-      defaultData[field.name] = false
+    // Si tiene un valor predefinido (value), lo usamos. 
+    // Si no, vacío (o false para checks)
+    if (field.value !== undefined) {
+      defaultData[field.name] = field.value
     } else {
-      defaultData[field.name] = ''
+      defaultData[field.name] = (field.type === 'checkbox' ? false : '')
     }
   })
   return defaultData
