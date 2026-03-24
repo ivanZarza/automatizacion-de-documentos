@@ -20,7 +20,7 @@ const props = defineProps({
 const etiquetas = ref([
   {
     nombre: "costeActuacion",
-    x: 70, // Ajuste inicial basado en la captura
+    x: 69.6, // Ajuste inicial basado en la captura
     y: 115,
     w: 27,
     h: 7,
@@ -32,7 +32,7 @@ const etiquetas = ref([
   },
   {
     nombre: "cuantiaSubvencion",
-    x: 81,
+    x: 80.6,
     y: 124.5,
     w: 28,
     h: 7,
@@ -131,23 +131,58 @@ const estiloEtiqueta = (etiqueta) => ({
   }
 
   .print-wrapper {
-    background: white;
-    padding: 0;
+    background: white !important;
+    padding: 0 !important;
     width: 210mm !important;
-    height: 210mm !important;
+    height: 209.7mm !important;
+    /* Un poco menos para evitar desbordamiento */
+    max-height: 209.7mm !important;
     display: block !important;
-    margin: 0 0 0 -2mm !important;
-    /* Desplazamos 2mm a la izquierda */
+    margin: 0 !important;
+    overflow: hidden !important;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
   }
 
   .pagina-documento {
     width: 210mm !important;
-    height: 210mm !important;
-    box-shadow: none;
+    height: 209.7mm !important;
+    box-shadow: none !important;
     margin: 0 !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-    background-size: contain;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    background-size: contain !important;
+    overflow: hidden !important;
+  }
+}
+</style>
+
+<style>
+/* Reset global solo durante la impresión de este componente */
+@media print {
+
+  html,
+  body {
+    height: 210mm !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+  }
+
+  .min-h-screen {
+    min-height: 0 !important;
+    height: 210mm !important;
+    padding: 0 !important;
+    background: transparent !important;
+    overflow: hidden !important;
+  }
+
+  /* Ocultamos cualquier otro elemento que Nuxt pueda insertar */
+  #__nuxt,
+  #__layout {
+    padding: 0 !important;
+    margin: 0 !important;
   }
 }
 </style>

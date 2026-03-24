@@ -204,7 +204,6 @@ const goToMasterForm = () => {
 
 @media print {
 
-
   .sticky-back-button,
   .sticky-pdf-buttons {
     display: none !important;
