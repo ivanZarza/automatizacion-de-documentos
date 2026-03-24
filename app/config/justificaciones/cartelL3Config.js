@@ -15,18 +15,9 @@ export const cartelL3Config = {
     entidadUbicacion: '',
   },
   fieldMapping: {
-    costeActuacion: (data) => data.presupuestoTotal ? `${data.presupuestoTotal} €` : '',
-    cuantiaSubvencion: (data) => data.importeSubvencionResultante ? `${data.importeSubvencionResultante} €` : '',
-    entidadUbicacion: (data) => {
-      const parts = [
-        data.apellidosNombre,
-        data.emplazamientoCalle,
-        data.numero ? `nº ${data.numero}` : '',
-        data.localidadEmplazamiento,
-        data.provinciaEmplazamiento ? `[${data.provinciaEmplazamiento}]` : ''
-      ].filter(Boolean);
-      return parts.join(' - ');
-    }
+    costeActuacion: 'totalCantidadJustificada',
+    cuantiaSubvencion: 'importeSubvencionResultante',
+    entidadUbicacion: (formData) => `${formData.direccionCompleta} - ${formData.codigoPostalEmplazamiento} - ${formData.localidadEmplazamiento} - ${formData.provinciaEmplazamiento}`
   },
   capabilities: {
     canPreview: true,
