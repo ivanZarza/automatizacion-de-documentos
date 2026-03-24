@@ -125,14 +125,29 @@ const estiloEtiqueta = (etiqueta) => ({
 }
 
 @media print {
+  @page {
+    size: 210mm 210mm;
+    margin: 0;
+  }
+
   .print-wrapper {
     background: white;
     padding: 0;
+    width: 210mm !important;
+    height: 210mm !important;
+    display: block !important;
+    margin: 0 0 0 -2mm !important;
+    /* Desplazamos 2mm a la izquierda */
   }
 
   .pagina-documento {
+    width: 210mm !important;
+    height: 210mm !important;
     box-shadow: none;
-    margin: 0;
+    margin: 0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background-size: contain;
   }
 }
 </style>
