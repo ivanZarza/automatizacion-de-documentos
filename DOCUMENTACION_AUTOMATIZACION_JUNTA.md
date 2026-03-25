@@ -52,14 +52,27 @@ Una de las decisiones arquitectónicas más importantes implementadas es **EVITA
 
 ---
 
-## 🚀 5. Próximos Pasos (Para Futuro Testeo / Producción)
+---
 
-1.  **Validación de Pantalla Intermedia Nueva**: El flujo base sin certificado está portado 1:1. Cuando se obtengan los accesos con Certificado Digital Real (`prueba_con_certificado.js`), simplemente hay que incrustar el logueo de "Fase 0" en el script `juntaService.js`.
-2.  **Montaje en Producción (Coolify)**: Modificar el constante `const dir = path.join(process.cwd(), formData?.apellidosNombre)` en `juntaService.js` por la ruta absoluta de anclaje del volumen Docker. Por ahora, probar en local creando simplemente una carpeta con el nombre en el root del proyecto y correr `yarn dev` para probar el ciclo completo desde la UI.
+## 🔐 5. Gestión de Certificados Digitales y Firma (Fase 0)
+
+Hemos implementado una arquitectura de **Automatización Híbrida**:
+
+1.  **Perfil Persistente:** Playwright utiliza una carpeta de usuario persistente (`playwright_junta_profile`) para que el navegador Chrome "recuerde" los certificados instalados en el sistema operativo.
+2.  **Login Asistido:** El script navega automáticamente hasta el portal de la Junta, pero se detiene (`page.pause()`) para que el usuario seleccione su certificado digital en el diálogo de AutoFirma. Una vez hecho el login, el robot recupera el control.
+3.  **Firma de Ficha Técnica:** Tras rellenar los datos técnicos en el iframe, el robot pulsa "Guardar" y espera dinámicamente (`#capa_fondo`) a que la web procese la firma. Ya no requiere pausa manual aquí, permitiendo un flujo más fluido.
 
 ---
 
-## 🧪 6. Guía y Métodos de Testing
+## 🚀 6. Próximos Pasos (Para Testeo en el Nuevo PC)
+
+1.  **Instalación Local:** Seguir la `GUIA_PRUEBAS_LOCAL.md` para instalar dependencias y el binario de Chrome para Playwright.
+2.  **Prueba de Fuego:** Lanzar una tramitación real desde el Dashboard para verificar que el diálogo de certificado aparece correctamente en la nueva máquina.
+3.  **Verificación de PDFs:** Confirmar que el sistema de prefijos (`1.-`, `2.-`, `7.-`) mapea correctamente los archivos de la carpeta del cliente en el nuevo entorno.
+
+---
+
+## 🧪 7. Guía y Métodos de Testing
 
 El entorno arquitectónico permite probar el bot de dos maneras complementarias para aislar fallos:
 
