@@ -482,13 +482,13 @@ export const masterFormFields = [
   { name: 'rep_leg_apellido1', label: 'Primer Apellido (R.Leg.)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Representante Legal (Robot)' },
   { name: 'rep_leg_apellido2', label: 'Segundo Apellido (R.Leg.)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Representante Legal (Robot)' },
 
-  { name: 'con_persona_autorizada', label: '¿Tiene Persona Autorizada?', type: 'checkbox', subsection: 'PRESENTACIÓN', group: 'Persona Autorizada (Robot)' },
+  { name: 'con_persona_autorizada', label: '¿Tiene Persona Autorizada?', type: 'checkbox', subsection: 'PRESENTACIÓN', group: 'Persona Autorizada (Robot)', value: true },
   { name: 'per_aut_tipo_documento', label: 'Tipo Documento (P.Aut.)', type: 'select', subsection: 'PRESENTACIÓN', group: 'Persona Autorizada (Robot)', value: 'NIF', options: ['NIF', 'NIE', 'CIF'] },
-  { name: 'per_aut_nif', label: 'NIF/CIF (P.Aut.)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Persona Autorizada (Robot)' },
+  { name: 'per_aut_nif', label: 'NIF/CIF (P.Aut.)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Persona Autorizada (Robot)', value: '28818007L' },
   { name: 'per_aut_sexo', label: 'Sexo (P.Aut.)', type: 'select', subsection: 'PRESENTACIÓN', group: 'Persona Autorizada (Robot)', value: 'M', options: [{ value: 'M', label: 'Hombre/Masculino' }, { value: 'F', label: 'Mujer/Femenino' }] },
-  { name: 'per_aut_nombre', label: 'Nombre (P.Aut.)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Persona Autorizada (Robot)' },
-  { name: 'per_aut_apellido1', label: 'Primer Apellido (P.Aut.)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Persona Autorizada (Robot)' },
-  { name: 'per_aut_apellido2', label: 'Segundo Apellido (P.Aut.)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Persona Autorizada (Robot)' },
+  { name: 'per_aut_nombre', label: 'Nombre (P.Aut.)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Persona Autorizada (Robot)', value: 'Eduardo' },
+  { name: 'per_aut_apellido1', label: 'Primer Apellido (P.Aut.)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Persona Autorizada (Robot)', value: 'Rivera' },
+  { name: 'per_aut_apellido2', label: 'Segundo Apellido (P.Aut.)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Persona Autorizada (Robot)', value: 'Cabezas' },
 
   { name: 'cnae_rite', label: 'Actividad CNAE / RITE', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', options: cnaeOptions },
   { name: 'numero_empresa_instaladora', label: 'Nº de Empresa Instaladora (RIIA)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)' },
@@ -504,11 +504,11 @@ export const masterFormFields = [
   { name: 'tiene_acumulacion', label: '¿Tiene Acumulación (Baterías)?', type: 'checkbox', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'almacenamiento' },
   { name: 'potencia_acumulacion', label: 'Potencia Acumulación (kW)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'e2_potenciaMaximaSalida' },
   { name: 'energia_almacenada', label: 'Energía Máx. Almacenada (kWh)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'e2_energiaTotal' },
-  { name: 'uso_instalacion', label: 'Uso de la instalación', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'vivienda', options: [{ value: 'vivienda', label: 'Vivienda' }, { value: 'industrial', label: 'Industrial / Producción' }, { value: 'comercial', label: 'Comercial' }] },
+  { name: 'uso_instalacion', label: 'Uso de la instalación', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'produccion energia electrica', options: [{ value: 'vivienda', label: 'Vivienda' }, { value: 'produccion energia electrica', label: 'Industrial / Producción' }, { value: 'comercial', label: 'Comercial' }] },
   { name: 'empresa_distribuidora', label: 'Empresa Distribuidora', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'empresaDistribuidora' },
-  { name: 'nombre_empresa_instaladora', label: 'Nombre Empresa Instaladora', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)' },
+  { name: 'nombre_empresa_instaladora', label: 'Nombre Empresa Instaladora', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'Solay Ingenieros s.l.' },
   { name: 'empresa_instaladora_doc_tipo', label: 'Tipo Doc. Empresa', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'CIF', options: ['CIF', 'NIF', 'NIE'] },
-  { name: 'empresa_instaladora_doc', label: 'Nº Doc. Empresa', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)' }
+  { name: 'empresa_instaladora_doc', label: 'Nº Doc. Empresa', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'B09848912' }
 ]
 
 export const getMasterFormDefaultData = () => {

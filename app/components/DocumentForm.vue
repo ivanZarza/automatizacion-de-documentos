@@ -297,6 +297,38 @@ watch(formData, (newVal, oldVal) => {
       // Si el origen ha cambiado y el destino está vacío o era igual al origen anterior...
       if (sourceOldValue !== undefined && sourceValue !== sourceOldValue) {
         if (!targetValue || targetValue === sourceOldValue) {
+          
+          if (field.name === 'nombre_presentador' && sourceValue) {
+            let nombre = sourceValue
+            let ap1 = ''
+            let ap2 = ''
+            if (sourceValue.includes(',')) {
+              const partes = sourceValue.split(',')
+              nombre = partes[1].trim()
+              const apellidos = partes[0].trim().split(' ')
+              ap1 = apellidos[0] || ''
+              ap2 = apellidos.slice(1).join(' ') || ''
+            } else {
+              const partes = sourceValue.trim().split(' ')
+              if (partes.length >= 3) {
+                nombre = partes.slice(2).join(' ') // Si es "Apellido1 Apellido2 Nombre"
+                ap1 = partes[0]
+                ap2 = partes[1]
+                // Ajuste heurístico simple (si el usuario lo introduce normal "Nombre Apellido1 Apellido2"):
+                nombre = partes[0]
+                ap1 = partes[1]
+                ap2 = partes.slice(2).join(' ')
+              } else if (partes.length === 2) {
+                nombre = partes[0]
+                ap1 = partes[1]
+              }
+            }
+            formData.value.nombre_presentador = nombre
+            if (!formData.value.apellido1_presentador) formData.value.apellido1_presentador = ap1
+            if (!formData.value.apellido2_presentador) formData.value.apellido2_presentador = ap2
+            return
+          }
+
           formData.value[field.name] = sourceValue
         }
       }
@@ -500,7 +532,7 @@ watch(() => Object.keys(groupedFieldsBySection.value), (sections) => {
 }, { immediate: true })
 
 
-const submit = async () => {
+const submit = async (silent = false) => {
   // Filtrar solo campos con valor (evitar contaminar el maestro con vacíos)
   // Pero permitir false para checkboxes
   const filteredData = Object.fromEntries(
@@ -556,14 +588,16 @@ const submit = async () => {
     }
   }
 
-  // ✅ PASO 3: Mostrar estado final
-  if (savedInDB) {
-    alert(`✅ Formulario guardado en BD correctamente.\n"${nombre}"`)
-  } else if (savedLocally) {
-    alert(`⚠️ No se pudo conectar a BD. Formulario guardado localmente.\n"${nombre}"\n\nSe sincronizará con la BD cuando esté disponible.`)
-  } else {
-    alert(`❌ Error: No se pudo guardar en ningún lado.\n"${nombre}"`)
-    return
+  // ✅ PASO 3: Mostrar estado final (solo si no es modo silencioso)
+  if (!silent) {
+    if (savedInDB) {
+      alert(`✅ Formulario guardado en BD correctamente.\n"${nombre}"`)
+    } else if (savedLocally) {
+      alert(`⚠️ No se pudo conectar a BD. Formulario guardado localmente.\n"${nombre}"\n\nSe sincronizará con la BD cuando esté disponible.`)
+    } else {
+      alert(`❌ Error: No se pudo guardar en ningún lado.\n"${nombre}"`)
+      return
+    }
   }
 
   emit('submit', filteredData)
@@ -595,13 +629,93 @@ async function handleLaunchAutomation() {
   if (!confirmLaunch) return
 
   isAutomating.value = true
+  
+  // ✅ AUTO-GUARDADO ANTES DE LANZAR EL ROBOT
+  console.log('[DocumentForm] Auto-guardando datos en la Base de Datos (modo silencioso)...')
+  await submit(true) // Llama al UPSERT de PostgreSQL
+
   console.log('[DocumentForm] Iniciando automatización con los datos actuales...')
+
+  const form = formData.value
+  const robotPayload = {
+    datos: {
+      tipoDocumento: form.tipo_documento_presentador,
+      nif: form.nif_presentador,
+      nombre: form.nombre_presentador,
+      apellido1: form.apellido1_presentador,
+      apellido2: form.apellido2_presentador,
+      sexo: form.sexo_presentador,
+      delegacion: form.cod_delegacion,
+
+      tipoVia: form.tipo_via_presentador,
+      nombreVia: form.nombre_via_presentador,
+      tipoNumeracion: form.tipo_numeracion_presentador,
+      numero: form.numero_presentador,
+      calificador: form.calificador_numero_presentador,
+      bloque: form.bloque_presentador,
+      escalera: form.escalera_presentador,
+      piso: form.piso_presentador,
+      puerta: form.puerta_presentador,
+      margen: form.margen_presentador,
+      codigoPostal: form.cp_presentador,
+      provincia: form.provincia_presentador,
+      municipioNombre: form.municipio_presentador,
+      poblacion: form.poblacion_presentador,
+      telefono: form.telefono_presentador,
+      movil: form.movil_presentador,
+      email: form.email_presentador,
+
+      conRepresentante: form.con_representante_legal,
+      representante: {
+        tipoDocumento: form.rep_leg_tipo_documento,
+        nif: form.rep_leg_nif,
+        sexo: form.rep_leg_sexo,
+        nombre: form.rep_leg_nombre,
+        apellido1: form.rep_leg_apellido1,
+        apellido2: form.rep_leg_apellido2,
+      },
+
+      conPersonaAutorizada: form.con_persona_autorizada,
+      personaAutorizada: {
+        tipoDocumento: form.per_aut_tipo_documento,
+        nif: form.per_aut_nif,
+        sexo: form.per_aut_sexo,
+        nombre: form.per_aut_nombre,
+        apellido1: form.per_aut_apellido1,
+        apellido2: form.per_aut_apellido2,
+      },
+
+      otrosDatos75codigo: form.cnae_rite,
+      otrosDatosNumero: form.numero_empresa_instaladora,
+      codigoComunidadAutonoma: form.codigo_ccaa,
+
+      fichaTecnica: {
+        potencia: form.potencia_instalacion,
+        uso: form.uso_instalacion,
+        tipoSuministro: form.tipo_suministro,
+        tension: form.tension_red,
+        esAutoconsumo: form.es_autoconsumo,
+        cau: form.cau_presentador,
+        potenciaInstalada: form.potencia_instalada_ficha,
+        acumulacion: form.tiene_acumulacion,
+        potenciaAcumulacion: form.potencia_acumulacion,
+        energiaMaximaAlmacenada: form.energia_almacenada,
+        empresaInstaladora: form.nombre_empresa_instaladora,
+        empresaInstaladoraDocTipo: form.empresa_instaladora_doc_tipo,
+        empresaInstaladoraDoc: form.empresa_instaladora_doc,
+        empresaDistribuidora: form.empresa_distribuidora,
+        cups: form.cups_presentador,
+      }
+    },
+    // Añadimos el flat data por si el script backend aún usa variables planas en alguna vista temporal
+    flatFormData: form 
+  }
 
   try {
     const response = await fetch('/api/automation/junta', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData.value)
+      body: JSON.stringify(robotPayload)
     })
 
     const result = await response.json()

@@ -25,7 +25,9 @@ const PROVINCIAS = {
  * Servicio de automatización para la Junta de Andalucía.
  * Trasplante 1:1 de la lógica experta del usuario.
  */
-export const runJuntaAutomation = async (formData) => {
+export const runJuntaAutomation = async (payload) => {
+  const datos = payload.datos;
+  const formData = payload.flatFormData;
   console.log('--- Iniciando Automatización Junta de Andalucía (Modo Trasplante Exacto) ---')
 
   const browser = await chromium.launch({
@@ -35,10 +37,14 @@ export const runJuntaAutomation = async (formData) => {
   const context = await browser.newContext()
   const page = await context.newPage()
 
-  // Helper para buscar archivos en la carpeta de documentos
+  // Helper para buscar archivos en la carpeta de documentos del cliente
   const buscarArchivo = (prefijo) => {
-    const dir = path.join(process.cwd(), 'documentos')
-    if (!fs.existsSync(dir)) return null
+    // Busca en la carpeta del cliente o cae a Ivan Zarza Estevez para la prueba
+    const dir = path.join(process.cwd(), formData?.apellidosNombre || 'Ivan Zarza Estevez')
+    if (!fs.existsSync(dir)) {
+      console.log(`[!] Carpeta de cliente no encontrada: ${dir}`)
+      return null
+    }
     const archivos = fs.readdirSync(dir)
     const encontrado = archivos.find(x => x.startsWith(prefijo))
     return encontrado ? path.join(dir, encontrado) : null
@@ -47,8 +53,9 @@ export const runJuntaAutomation = async (formData) => {
   // Helper para subir documentos en popups
   const subirDoc = async (frame, selector, prefijo) => {
     const ruta = buscarArchivo(prefijo)
+    const dirName = formData?.apellidosNombre || 'Ivan Zarza Estevez'
     if (!ruta) {
-      console.log(`   [!] Archivo con prefijo "${prefijo}" no encontrado en /documentos`)
+      console.log(`   [!] Archivo con prefijo "${prefijo}" no encontrado en la carpeta /${dirName}`)
       return
     }
     console.log(`   -> Subiendo: ${path.basename(ruta)}`)
@@ -82,6 +89,12 @@ export const runJuntaAutomation = async (formData) => {
       if (!popup.isClosed()) await popup.close()
     } catch (e) {
       console.error(`      [!] Error subiendo documento ${prefijo}:`, e.message)
+      try {
+        await page.screenshot({ path: `/home/ivan/.gemini/antigravity/brain/3ef04538-e82d-4b86-a43d-2e9fa66282ec/debug_popup_${prefijo.replace('.-', '')}.png`, fullPage: true })
+        console.log(`      [i] Pantallazo de error guardado en artifacts como debug_popup_${prefijo.replace('.-', '')}.png`)
+      } catch (screenshotError) {
+        console.error('      [!] No se pudo tomar pantallazo:', screenshotError.message)
+      }
     }
   }
 
@@ -97,12 +110,12 @@ export const runJuntaAutomation = async (formData) => {
 
     // SELECCIÓN DE DELEGACIÓN
     console.log('[1.5/5] Seleccionando delegación...')
-    await page.locator('select[name="codDelegacion"]').selectOption(formData.cod_delegacion || '41')
+    await page.locator('select[name="codDelegacion"]').selectOption(datos.delegacion || '41')
 
     // FASE 1: IDENTIFICACIÓN (Pestaña 1)
     console.log('[2/5] Rellenando datos de identificación...')
-    await page.locator('select[name="identificacionInteresado"]').selectOption(formData.tipo_documento_presentador || 'NIF')
-    await page.locator('#nifInteresado').fill(formData.nif_presentador || '')
+    await page.locator('select[name="identificacionInteresado"]').selectOption(datos.tipoDocumento || 'NIF')
+    await page.locator('#nifInteresado').fill(datos.nif || '')
 
     // Debug: Ver opciones de sexo
     const options = await page.locator('select[name="sexoInteresado"]').evaluate(el =>
@@ -110,26 +123,26 @@ export const runJuntaAutomation = async (formData) => {
     )
     console.log('   -> Opciones sexoInteresado disponibles:', JSON.stringify(options))
 
-    await page.locator('select[name="sexoInteresado"]').selectOption(formData.sexo_presentador || 'V')
-    await page.locator('input[name="nombreInteresado"]').fill(formData.nombre_presentador || '')
-    await page.locator('input[name="apellido1Interesado"]').fill(formData.apellido1_presentador || '')
-    await page.locator('input[name="apellido2Interesado"]').fill(formData.apellido2_presentador || '')
+    await page.locator('select[name="sexoInteresado"]').selectOption(datos.sexo || 'V')
+    await page.locator('input[name="nombreInteresado"]').fill(datos.nombre || '')
+    await page.locator('input[name="apellido1Interesado"]').fill(datos.apellido1 || '')
+    await page.locator('input[name="apellido2Interesado"]').fill(datos.apellido2 || '')
 
     // FASE 1: DOMICILIO (Pestaña 1)
     console.log('[3/5] Rellenando domicilio...')
-    await page.locator('select[name="codigoTipoViaDomicilioInteresado"]').selectOption(formData.tipo_via_presentador || 'CL')
-    await page.getByRole('textbox', { name: 'Debe inroducir el nombre de' }).fill(formData.nombre_via_presentador || '')
-    await page.locator('select[name="tipoNumeracionInteresado"]').selectOption(formData.tipo_numeracion_presentador || 'NUM')
-    await page.locator('input[name="numeroDomicilioInteresado"]').fill(formData.numero_presentador || '')
+    await page.locator('select[name="codigoTipoViaDomicilioInteresado"]').selectOption(datos.tipoVia || 'CL')
+    await page.getByRole('textbox', { name: 'Debe inroducir el nombre de' }).fill(datos.nombreVia || '')
+    await page.locator('select[name="tipoNumeracionInteresado"]').selectOption(datos.tipoNumeracion || 'NUM')
+    await page.locator('input[name="numeroDomicilioInteresado"]').fill(datos.numero || '')
 
-    if (formData.calificador_numero_presentador) await page.locator('input[name="calificadorNumeroInteresado"]').fill(formData.calificador_numero_presentador)
-    if (formData.bloque_presentador) await page.locator('input[name="bloqueInteresado"]').fill(formData.bloque_presentador)
-    if (formData.escalera_presentador) await page.locator('input[name="escaleraDomicilioInteresado"]').fill(formData.escalera_presentador)
-    if (formData.piso_presentador) await page.locator('input[name="pisoDomicilioInteresado"]').fill(formData.piso_presentador)
-    if (formData.puerta_presentador) await page.locator('input[name="puertaDomicilioInteresado"]').fill(formData.puerta_presentador)
+    if (datos.calificador) await page.locator('input[name="calificadorNumeroInteresado"]').fill(datos.calificador)
+    if (datos.bloque) await page.locator('input[name="bloqueInteresado"]').fill(datos.bloque)
+    if (datos.escalera) await page.locator('input[name="escaleraDomicilioInteresado"]').fill(datos.escalera)
+    if (datos.piso) await page.locator('input[name="pisoDomicilioInteresado"]').fill(datos.piso)
+    if (datos.puerta) await page.locator('input[name="puertaDomicilioInteresado"]').fill(datos.puerta)
 
     // PROVINCIA Y MUNICIPIO (POPUP)
-    const provRaw = formData.provincia_presentador || 'Sevilla'
+    const provRaw = datos.provincia || 'Sevilla'
     const provNorm = provRaw.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\b\w/g, c => c.toUpperCase())
     await page.locator('select[name="codigoProvinciaDomicilioInteresado"]').selectOption(PROVINCIAS[provNorm] || PROVINCIAS[provRaw] || provRaw)
 
@@ -140,46 +153,46 @@ export const runJuntaAutomation = async (formData) => {
 
     await popMun.waitForLoadState('networkidle')
     await popMun.waitForSelector('input[name="municipioBusqueda"]')
-    await popMun.locator('input[name="municipioBusqueda"]').fill(formData.municipio_presentador || '')
+    await popMun.locator('input[name="municipioBusqueda"]').fill(datos.municipioNombre || '')
     await popMun.waitForTimeout(500)
     await popMun.getByRole('img', { name: 'Buscar Municipio' }).click()
 
-    const munLink = popMun.getByRole('link', { name: new RegExp(formData.municipio_presentador, 'i') }).first()
+    const munLink = popMun.getByRole('link', { name: new RegExp(datos.municipioNombre, 'i') }).first()
     await munLink.waitFor({ state: 'visible' })
     await munLink.click()
     console.log('   -> Municipio seleccionado.')
 
-    await page.locator('input[name="poblacion"]').fill(formData.poblacion_presentador || '')
-    await page.locator('input[name="codigoPostalDomicilioInteresado"]').fill(formData.cp_presentador || '')
+    await page.locator('input[name="poblacion"]').fill(datos.poblacion || '')
+    await page.locator('input[name="codigoPostalDomicilioInteresado"]').fill(datos.codigoPostal || '')
 
     // FASE 1: CONTACTO Y REPRESENTACIÓN
     console.log('[4/5] Rellenando datos de contacto...')
-    if (formData.telefono_presentador) await page.locator('input[name="telefonoInteresado"]').fill(formData.telefono_presentador)
-    if (formData.movil_presentador) await page.locator('input[name="movil"]').fill(formData.movil_presentador)
+    if (datos.telefono) await page.locator('input[name="telefonoInteresado"]').fill(datos.telefono)
+    if (datos.movil) await page.locator('input[name="movil"]').fill(datos.movil)
 
     // REPRESENTANTE LEGAL
-    if (formData.con_representante_legal) {
+    if (datos.conRepresentante) {
       console.log('   -> Rellenando Representante Legal...')
-      await page.locator('select[name="identificacionRepresentante"]').selectOption(formData.rep_leg_tipo_documento || 'NIF')
-      await page.locator('input[name="nifRepresentante"]').fill(formData.rep_leg_nif || '')
-      await page.locator('select[name="sexoRepresentante"]').selectOption(formData.rep_leg_sexo || 'V')
-      await page.locator('input[name="nombreRepresentante"]').fill(formData.rep_leg_nombre || '')
-      await page.locator('input[name="apellido1Representante"]').fill(formData.rep_leg_apellido1 || '')
-      await page.locator('input[name="apellido2Representante"]').fill(formData.rep_leg_apellido2 || '')
+      await page.locator('select[name="identificacionRepresentante"]').selectOption(datos.representante.tipoDocumento || 'NIF')
+      await page.locator('input[name="nifRepresentante"]').fill(datos.representante.nif || '')
+      await page.locator('select[name="sexoRepresentante"]').selectOption(datos.representante.sexo || 'V')
+      await page.locator('input[name="nombreRepresentante"]').fill(datos.representante.nombre || '')
+      await page.locator('input[name="apellido1Representante"]').fill(datos.representante.apellido1 || '')
+      await page.locator('input[name="apellido2Representante"]').fill(datos.representante.apellido2 || '')
     }
 
     // PERSONA AUTORIZADA
-    if (formData.con_persona_autorizada) {
+    if (datos.conPersonaAutorizada) {
       console.log('   -> Rellenando Persona Autorizada...')
-      await page.locator('select[name="identificacionPersonaAutorizada"]').selectOption(formData.per_aut_tipo_documento || 'NIF')
-      await page.locator('input[name="nifPersonaAutorizada"]').fill(formData.per_aut_nif || '')
-      await page.locator('select[name="sexoPersonaAutorizada"]').selectOption(formData.per_aut_sexo || 'V')
-      await page.locator('input[name="nombrePersonaAutorizada"]').fill(formData.per_aut_nombre || '')
-      await page.locator('input[name="apellido1PersonaAutorizada"]').fill(formData.per_aut_apellido1 || '')
-      await page.locator('input[name="apellido2PersonaAutorizada"]').fill(formData.per_aut_apellido1 || '')
+      await page.locator('select[name="identificacionPersonaAutorizada"]').selectOption(datos.personaAutorizada.tipoDocumento || 'NIF')
+      await page.locator('input[name="nifPersonaAutorizada"]').fill(datos.personaAutorizada.nif || '')
+      await page.locator('select[name="sexoPersonaAutorizada"]').selectOption(datos.personaAutorizada.sexo || 'V')
+      await page.locator('input[name="nombrePersonaAutorizada"]').fill(datos.personaAutorizada.nombre || '')
+      await page.locator('input[name="apellido1PersonaAutorizada"]').fill(datos.personaAutorizada.apellido1 || '')
+      await page.locator('input[name="apellido2PersonaAutorizada"]').fill(datos.personaAutorizada.apellido1 || '')
     }
 
-    await page.getByRole('textbox', { name: 'Introduzca una dirección de' }).fill(formData.email_presentador || '').catch(() => { })
+    await page.getByRole('textbox', { name: 'Introduzca una dirección de' }).fill(datos.email || '').catch(() => { })
 
     // FASE 2: MODALIDADES
     console.log('[5/5] Iniciando FASE 2: Modalidades...')
@@ -200,14 +213,14 @@ export const runJuntaAutomation = async (formData) => {
     await page.waitForTimeout(1000)
 
     // DATOS DEL TÉCNICO (Reusando persona autorizada si existe)
-    if (formData.con_persona_autorizada) {
+    if (datos.conPersonaAutorizada) {
       console.log('   -> Rellenando Datos del Técnico...')
       await page.locator('#tecnicoInstalador1').selectOption('TF')
-      await page.locator('input[name="tecnicoInstalador1nombre"]').fill(formData.per_aut_nombre)
-      await page.locator('input[name="tecnicoInstalador1apellido1"]').fill(formData.per_aut_apellido1)
-      await page.locator('input[name="tecnicoInstalador1apellido2"]').fill(formData.per_aut_apellido2)
-      await page.locator('select[name="tecnicoInstalador1documento"]').selectOption(formData.per_aut_tipo_documento)
-      await page.locator('#tecnicoInstalador1nif').fill(formData.per_aut_nif)
+      await page.locator('input[name="tecnicoInstalador1nombre"]').fill(datos.personaAutorizada.nombre)
+      await page.locator('input[name="tecnicoInstalador1apellido1"]').fill(datos.personaAutorizada.apellido1)
+      await page.locator('input[name="tecnicoInstalador1apellido2"]').fill(datos.personaAutorizada.apellido2)
+      await page.locator('select[name="tecnicoInstalador1documento"]').selectOption(datos.personaAutorizada.tipoDocumento)
+      await page.locator('#tecnicoInstalador1nif').fill(datos.personaAutorizada.nif)
     }
 
     // DATOS DEL ESTABLECIMIENTO
@@ -224,32 +237,32 @@ export const runJuntaAutomation = async (formData) => {
     await page.waitForTimeout(3000)
     console.log('   -> Sección Datos Establecimiento cargada.')
 
-    await page.locator('select[name="codigoTipoViaDomicilioEstablecimiento"]').selectOption(formData.tipo_via_presentador || 'CL')
-    await page.locator('input[name="nombreDomicilioEstablecimiento"]').fill(formData.nombre_via_presentador || '')
-    await page.locator('select[name="tipoNumeracionEstablecimiento"]').selectOption(formData.tipo_numeracion_presentador || 'NUM')
-    await page.locator('input[name="numeroDomicilioEstablecimiento"]').fill(formData.numero_presentador || '')
+    await page.locator('select[name="codigoTipoViaDomicilioEstablecimiento"]').selectOption(datos.tipoVia || 'CL')
+    await page.locator('input[name="nombreDomicilioEstablecimiento"]').fill(datos.nombreVia || '')
+    await page.locator('select[name="tipoNumeracionEstablecimiento"]').selectOption(datos.tipoNumeracion || 'NUM')
+    await page.locator('input[name="numeroDomicilioEstablecimiento"]').fill(datos.numero || '')
 
-    if (formData.calificador_numero_presentador) await page.locator('input[name="calificadorNumeroEstablecimiento"]').fill(formData.calificador_numero_presentador)
-    if (formData.bloque_presentador) await page.locator('input[name="bloqueEstablecimiento"]').fill(formData.bloque_presentador)
-    if (formData.escalera_presentador) await page.locator('input[name="escaleraDomicilioEstablecimiento"]').fill(formData.escalera_presentador)
-    if (formData.piso_presentador) await page.locator('input[name="pisoDomicilioEstablecimiento"]').fill(formData.piso_presentador)
-    if (formData.puerta_presentador) await page.locator('input[name="puertaDomicilioEstablecimiento"]').fill(formData.puerta_presentador)
-    if (formData.margen_presentador) await page.locator('select[name="margenEstablecimiento"]').selectOption(formData.margen_presentador)
+    if (datos.calificador) await page.locator('input[name="calificadorNumeroEstablecimiento"]').fill(datos.calificador)
+    if (datos.bloque) await page.locator('input[name="bloqueEstablecimiento"]').fill(datos.bloque)
+    if (datos.escalera) await page.locator('input[name="escaleraDomicilioEstablecimiento"]').fill(datos.escalera)
+    if (datos.piso) await page.locator('input[name="pisoDomicilioEstablecimiento"]').fill(datos.piso)
+    if (datos.puerta) await page.locator('input[name="puertaDomicilioEstablecimiento"]').fill(datos.puerta)
+    if (datos.margen) await page.locator('select[name="margenEstablecimiento"]').selectOption(datos.margen)
 
     // Buscador Municipio Establecimiento
     const popEstPromise = page.waitForEvent('popup')
     await page.getByRole('group', { name: 'Cumplimentar sólo en el caso' }).getByRole('img').click()
     const popEst = await popEstPromise
     await popEst.waitForLoadState('networkidle')
-    await popEst.locator('input[name="municipioBusqueda"]').fill(formData.municipio_presentador || '')
+    await popEst.locator('input[name="municipioBusqueda"]').fill(datos.municipioNombre || '')
     await popEst.getByRole('img', { name: 'Buscar Municipio' }).click()
-    await popEst.getByRole('link', { name: new RegExp(formData.municipio_presentador, 'i') }).first().click()
+    await popEst.getByRole('link', { name: new RegExp(datos.municipioNombre, 'i') }).first().click()
 
-    await page.locator('input[name="poblacionEstablecimiento"]').fill(formData.poblacion_presentador || '')
-    await page.locator('input[name="codigoPostalDomicilioEstablecimiento"]').fill(formData.cp_presentador || '')
-    await page.locator('input[name="telefonoEstablecimiento"]').fill(formData.telefono_presentador || '')
-    await page.locator('input[name="movilEstablecimiento"]').fill(formData.movil_presentador || '')
-    await page.locator('input[name="emailEstablecimiento"]').fill(formData.email_presentador || '')
+    await page.locator('input[name="poblacionEstablecimiento"]').fill(datos.poblacion || '')
+    await page.locator('input[name="codigoPostalDomicilioEstablecimiento"]').fill(datos.codigoPostal || '')
+    await page.locator('input[name="telefonoEstablecimiento"]').fill(datos.telefono || '')
+    await page.locator('input[name="movilEstablecimiento"]').fill(datos.movil || '')
+    await page.locator('input[name="emailEstablecimiento"]').fill(datos.email || '')
 
     // FASE 3: OTROS DATOS Y FICHA TÉCNICA
     console.log('\n[X/X] Iniciando FASE 3: Otros datos y Ficha Técnica...')
@@ -266,27 +279,42 @@ export const runJuntaAutomation = async (formData) => {
     // CCAA e Instalación
     const ccaaLoc = page.locator('select[name="codigoComunidadAutonoma"]')
     if (await ccaaLoc.count() > 0) {
-      await ccaaLoc.selectOption(formData.codigo_ccaa || '01')
+      await ccaaLoc.selectOption(datos.codigoComunidadAutonoma || '01')
     }
     await page.waitForTimeout(2000)
 
-    await page.locator('select[name="otrosDatos75codigo"]').selectOption(formData.cnae_rite || '').catch(() => { })
+    await page.locator('select[name="otrosDatos75codigo"]').selectOption(datos.otrosDatos75codigo || '').catch(() => { })
     await page.waitForTimeout(2000)
 
     const numEmpLoc = page.getByRole('textbox', { name: 'Debe introducir el número de' })
     if (await numEmpLoc.count() > 0) {
-      await numEmpLoc.fill(formData.numero_empresa_instaladora || '')
+      await numEmpLoc.fill(datos.otrosDatosNumero || '')
     }
     await page.waitForTimeout(5000)
 
-    // Radios obligatorios
-    await page.getByRole('radio').nth(1).click()
+    // Radios obligatorios (Vehículos, estaciones de servicio, instalaciones existentes)
+    console.log('   -> Radio otrosDatos72=N (Instalaciones en servicio antes RITE)...')
+    await page.locator('input[name="otrosDatos72"][value="N"]').click().catch(() => { })
     await page.waitForTimeout(1000)
-    await page.getByRole('radio').nth(3).click()
+
+    console.log('   -> Radio otrosDatos73=N (Infraestructura de recarga VE)...')
+    await page.locator('input[name="otrosDatos73"][value="N"]').click().catch(() => { })
     await page.waitForTimeout(1000)
-    await page.getByRole('radio').nth(4).click()
-    await page.waitForTimeout(1000)
-    await page.getByRole('checkbox').first().check()
+
+    console.log('   -> Radio otrosDatos741=S (C3.1 - Locales)...')
+    try {
+      await Promise.all([
+        page.waitForNavigation({ waitUntil: 'load', timeout: 8000 }),
+        page.locator('input[name="otrosDatos741"][value="S"]').click()
+      ])
+    } catch (e) {
+      await page.locator('input[name="otrosDatos741"][value="S"]').click().catch(() => { })
+    }
+    await page.waitForTimeout(2000)
+
+    // Check 7.1
+    await page.getByRole('checkbox').first().check().catch(() => { })
+    await page.waitForTimeout(2000)
 
     // FICHA TÉCNICA (IFRAME)
     console.log('   -> Entrando en la Ficha Técnica...')
@@ -302,35 +330,39 @@ export const runJuntaAutomation = async (formData) => {
     const frame = iframeLocator.contentFrame()
 
     await frame.getByRole('button', { name: 'Continuar' }).click()
-    await frame.getByRole('textbox', { name: 'Debe indicar Potencia' }).fill(formData.potencia_instalacion || '')
-    await frame.getByRole('textbox', { name: 'Debe introducir el uso al que' }).fill(formData.uso_instalacion || 'vivienda')
-    await frame.locator('select[name="tipoSuministro"]').selectOption(formData.tipo_suministro || 'Monofásico')
-    await frame.getByRole('textbox', { name: 'Debe indicar la tensión de' }).fill(formData.tension_red || '230')
+    await frame.getByRole('textbox', { name: 'Debe indicar Potencia' }).fill(datos.fichaTecnica.potencia || '')
+    await frame.getByRole('textbox', { name: 'Debe introducir el uso al que' }).fill(datos.fichaTecnica.uso || 'vivienda')
+    await frame.locator('select[name="tipoSuministro"]').selectOption(datos.fichaTecnica.tipoSuministro || 'Monofásico')
+    await frame.getByRole('textbox', { name: 'Debe indicar la tensión de' }).fill(datos.fichaTecnica.tension || '230')
 
-    if (formData.es_autoconsumo) {
+    if (datos.fichaTecnica.esAutoconsumo) {
       await frame.locator('#esAutoconsumoSi').check()
-      await frame.getByRole('textbox', { name: 'Debe indicar el CAU' }).fill(formData.cau_presentador || '')
+      await frame.getByRole('textbox', { name: 'Debe indicar el CAU' }).fill(datos.fichaTecnica.cau || '')
       await frame.locator('#tipoConsumo1').check()
       await frame.locator('#modalidadConexionGeneracion1').check()
       await frame.locator('#modalidadAutoconsumo2').check()
     }
 
-    await frame.getByRole('textbox', { name: 'Potencia instalada', exact: true }).fill(formData.potencia_instalada_ficha || '')
+    await frame.getByRole('textbox', { name: 'Potencia instalada', exact: true }).fill(datos.fichaTecnica.potenciaInstalada || '')
 
     // ACUMULACIÓN
-    if (formData.tiene_acumulacion) {
+    if (datos.fichaTecnica.acumulacion) {
       await frame.locator('#disponibleAcumulacionSi').click({ force: true })
-      await frame.getByRole('textbox', { name: 'Debe indicar la potencia' }).fill(formData.potencia_acumulacion || '')
-      await frame.getByRole('textbox', { name: 'Debe indicar la energía má' }).fill(formData.energia_almacenada || '')
+      await frame.getByRole('textbox', { name: 'Debe indicar la potencia' }).fill(datos.fichaTecnica.potenciaAcumulacion || '')
+      await frame.getByRole('textbox', { name: 'Debe indicar la energía má' }).fill(datos.fichaTecnica.energiaMaximaAlmacenada || '')
     } else {
       await frame.locator('#disponibleAcumulacionNo').click({ force: true })
     }
 
-    await frame.getByRole('textbox', { name: 'Debe introducir el nombre de la empresa instaladora' }).fill(formData.nombre_empresa_instaladora || '')
-    await frame.locator('select[name="documentoIdentEmpresaInstaladora"]').selectOption(formData.empresa_instaladora_doc_tipo || 'CIF')
-    await frame.getByRole('textbox', { name: 'Debe introducir un NIF/CIF/' }).fill(formData.empresa_instaladora_doc || '')
-    await frame.getByRole('textbox', { name: 'Debe introducir el nombre de la empresa distribuidora' }).fill(formData.empresa_distribuidora || '')
-    await frame.locator('input[type="radio"]').first().check()
+    await frame.getByRole('textbox', { name: 'Debe introducir el nombre de la empresa instaladora' }).fill(datos.fichaTecnica.empresaInstaladora || '')
+    await frame.locator('select[name="documentoIdentEmpresaInstaladora"]').selectOption(datos.fichaTecnica.empresaInstaladoraDocTipo || 'CIF')
+    await frame.getByRole('textbox', { name: 'Debe introducir un NIF/CIF/' }).fill(datos.fichaTecnica.empresaInstaladoraDoc || '')
+    await frame.getByRole('textbox', { name: 'Debe introducir el nombre de la empresa distribuidora' }).fill(datos.fichaTecnica.empresaDistribuidora || '')
+
+    // Seleccionar tipo de instalación
+    console.log('   -> Marcando tipo de instalación (radio correcto codegen)...')
+    await frame.locator('li:nth-child(5) > div > ul > li > .bloqueGrupo > .elemento_checkbox > .radio').first().check().catch(() => { })
+    await page.waitForTimeout(2000)
 
     // GUARDAR FICHA
     page.on('dialog', async d => { d.accept().catch(() => { }) })
@@ -347,8 +379,8 @@ export const runJuntaAutomation = async (formData) => {
     // FASE 4: SUBIDA DE DOCUMENTOS
     console.log('\n[X/X] Iniciando FASE 4: Subida de Documentos...')
     await subirDoc(frame, frame.getByRole('img', { name: 'Adjuntar Documento' }).nth(3), '1.-')
-    await subirDoc(frame, frame.getByRole('img', { name: 'Adjuntar Documento' }).nth(4), '9.-')
-    await frame.getByText('7 Certificado de adecuación').click()
+    await subirDoc(frame, frame.getByRole('img', { name: 'Adjuntar Documento' }).nth(4), '2.-')
+    await frame.getByText('7 Certificado de adecuación').click().catch(() => { })
     await subirDoc(frame, frame.locator('li:nth-child(8) > .bloqueGrupo > .elemento_checkbox > img'), '7.-')
 
     // FASE 5: NUEVO USUARIO (SUMINISTRO)
@@ -359,50 +391,50 @@ export const runJuntaAutomation = async (formData) => {
     const popUser = await popUserPromise
     await popUser.waitForLoadState('networkidle')
 
-    await popUser.getByRole('textbox', { name: 'Debe introducir el primer' }).fill(formData.apellido1_presentador || '')
-    await popUser.getByRole('textbox', { name: 'Introduzca el segundo apellido' }).fill(formData.apellido2_presentador || '')
-    await popUser.getByRole('textbox', { name: 'Debe introducir el nombre' }).fill(formData.nombre_presentador || '')
-    await popUser.locator('#identificacionTitularPuntoSuministro').selectOption(formData.tipo_documento_presentador || 'NIF')
-    await popUser.getByRole('textbox', { name: 'Debe introducir un NIF/CIF/' }).fill(formData.nif_presentador || '')
+    await popUser.getByRole('textbox', { name: 'Debe introducir el primer' }).fill(datos.apellido1 || '')
+    await popUser.getByRole('textbox', { name: 'Introduzca el segundo apellido' }).fill(datos.apellido2 || '')
+    await popUser.getByRole('textbox', { name: 'Debe introducir el nombre' }).fill(datos.nombre || '')
+    await popUser.locator('#identificacionTitularPuntoSuministro').selectOption(datos.tipoDocumento || 'NIF')
+    await popUser.getByRole('textbox', { name: 'Debe introducir un NIF/CIF/' }).fill(datos.nif || '')
 
-    await popUser.locator('#codigoTipoViaDomicilioTitularPuntoSuministro').selectOption(formData.tipo_via_presentador || 'CL')
-    await popUser.locator('#nombreDomicilioTitularPuntoSuministro').fill(formData.nombre_via_presentador || '')
-    await popUser.locator('#tipoNumeracionTitularPuntoSuministro').selectOption(formData.tipo_numeracion_presentador || 'NUM')
-    await popUser.locator('#numeroDomicilioTitularPuntoSuministro').fill(formData.numero_presentador || '')
-    await popUser.locator('#codigoProvinciaDomicilioTitularPuntoSuministro').selectOption(PROVINCIAS[provNorm] || formData.cod_delegacion)
+    await popUser.locator('#codigoTipoViaDomicilioTitularPuntoSuministro').selectOption(datos.tipoVia || 'CL')
+    await popUser.locator('#nombreDomicilioTitularPuntoSuministro').fill(datos.nombreVia || '')
+    await popUser.locator('#tipoNumeracionTitularPuntoSuministro').selectOption(datos.tipoNumeracion || 'NUM')
+    await popUser.locator('#numeroDomicilioTitularPuntoSuministro').fill(datos.numero || '')
+    await popUser.locator('#codigoProvinciaDomicilioTitularPuntoSuministro').selectOption(PROVINCIAS[provNorm] || datos.delegacion)
 
     // Buscador Municipio Suministro
     const popMunUserPromise = popUser.waitForEvent('popup')
     await popUser.getByRole('group', { name: 'Datos titular del punto de' }).getByRole('img').click()
     const popMunUser = await popMunUserPromise
     await popMunUser.waitForLoadState('networkidle')
-    await popMunUser.locator('input[name="municipioBusqueda"]').fill(formData.municipio_presentador || '')
+    await popMunUser.locator('input[name="municipioBusqueda"]').fill(datos.municipioNombre || '')
     await popMunUser.getByRole('img', { name: 'Buscar Municipio' }).click()
-    await popMunUser.getByRole('link', { name: new RegExp(formData.municipio_presentador, 'i') }).first().click()
+    await popMunUser.getByRole('link', { name: new RegExp(datos.municipioNombre, 'i') }).first().click()
 
-    await popUser.locator('#codigoPostalDomicilioTitularPuntoSuministro').fill(formData.cp_presentador || '')
-    await popUser.getByRole('textbox', { name: 'Introduzca el teléfono' }).fill(formData.telefono_presentador || '')
-    await popUser.getByRole('textbox', { name: 'Introduzca el email' }).fill(formData.email_presentador || '')
+    await popUser.locator('#codigoPostalDomicilioTitularPuntoSuministro').fill(datos.codigoPostal || '')
+    await popUser.getByRole('textbox', { name: 'Introduzca el teléfono' }).fill(datos.telefono || '')
+    await popUser.getByRole('textbox', { name: 'Introduzca el email' }).fill(datos.email || '')
 
     // Datos del punto (reusando)
-    await popUser.locator('#codigoTipoViaDomicilioDatosPuntoSuministro').selectOption(formData.tipo_via_presentador || 'CL')
-    await popUser.locator('#nombreDomicilioDatosPuntoSuministro').fill(formData.nombre_via_presentador || '')
-    await popUser.locator('#tipoNumeracionDatosPuntoSuministro').selectOption(formData.tipo_numeracion_presentador || 'NUM')
-    await popUser.locator('#numeroDomicilioDatosPuntoSuministro').fill(formData.numero_presentador || '')
-    await popUser.locator('#codigoProvinciaDomicilioDatosPuntoSuministro').selectOption(PROVINCIAS[provNorm] || formData.cod_delegacion)
+    await popUser.locator('#codigoTipoViaDomicilioDatosPuntoSuministro').selectOption(datos.tipoVia || 'CL')
+    await popUser.locator('#nombreDomicilioDatosPuntoSuministro').fill(datos.nombreVia || '')
+    await popUser.locator('#tipoNumeracionDatosPuntoSuministro').selectOption(datos.tipoNumeracion || 'NUM')
+    await popUser.locator('#numeroDomicilioDatosPuntoSuministro').fill(datos.numero || '')
+    await popUser.locator('#codigoProvinciaDomicilioDatosPuntoSuministro').selectOption(PROVINCIAS[provNorm] || datos.delegacion)
 
     const popMunPuntoPromise = popUser.waitForEvent('popup')
     await popUser.getByRole('group', { name: 'Datos del punto de suministro' }).getByRole('img').click()
     const popMunPunto = await popMunPuntoPromise
     await popMunPunto.waitForLoadState('networkidle')
-    await popMunPunto.locator('input[name="municipioBusqueda"]').fill(formData.municipio_presentador || '')
+    await popMunPunto.locator('input[name="municipioBusqueda"]').fill(datos.municipioNombre || '')
     await popMunPunto.getByRole('img', { name: 'Buscar Municipio' }).click()
-    await popMunPunto.getByRole('link', { name: new RegExp(formData.municipio_presentador, 'i') }).first().click()
+    await popMunPunto.getByRole('link', { name: new RegExp(datos.municipioNombre, 'i') }).first().click()
 
-    await popUser.locator('#codigoPostalDomicilioDatosPuntoSuministro').fill(formData.cp_presentador || '')
-    await popUser.getByRole('textbox', { name: 'Debe indicar el CUPS del' }).fill(formData.cups_presentador || '')
+    await popUser.locator('#codigoPostalDomicilioDatosPuntoSuministro').fill(datos.codigoPostal || '')
+    await popUser.getByRole('textbox', { name: 'Debe indicar el CUPS del' }).fill(datos.fichaTecnica.cups || '')
 
-    const tensionMap = formData.tension_red === '230' ? '0,4' : formData.tension_red
+    const tensionMap = datos.fichaTecnica.tension === '230' ? '0,4' : datos.fichaTecnica.tension
     await popUser.locator('#tensionPuntoSuministro').selectOption(tensionMap)
 
     await popUser.getByRole('button', { name: 'Aceptar' }).click()
@@ -410,11 +442,31 @@ export const runJuntaAutomation = async (formData) => {
 
     // FINALIZACIÓN
     console.log('\n[X/X] Iniciando FINALIZACIÓN: Guardar y Presentar...')
+
+    const capaFondo = page.locator('#capa_fondo')
+
     await frame.getByRole('img', { name: 'Guardar' }).click()
+    console.log('   -> Guardando... Esperando a que desaparezca la capa de carga.')
+
+    if (await capaFondo.count() > 0) {
+      await capaFondo.waitFor({ state: 'hidden', timeout: 15000 }).catch(() => { })
+    }
     await page.waitForTimeout(3000)
-    await frame.getByRole('img', { name: 'Presentar' }).click()
+
+    console.log('   -> Pulsando Presentar...')
+    await frame.getByRole('img', { name: 'Presentar' }).click({ force: true })
+
+    if (await capaFondo.count() > 0) {
+      await capaFondo.waitFor({ state: 'hidden', timeout: 15000 }).catch(() => { })
+    }
     await page.waitForTimeout(2000)
-    await frame.getByRole('img', { name: 'Presentar' }).click()
+
+    console.log('   -> Confirmando Presentar...')
+    await frame.getByRole('img', { name: 'Presentar' }).click({ force: true }).catch(() => { })
+
+    console.log('🛑 PARADA: Revisa todos los datos en el navegador...')
+    console.log('   -> Pulsa "Resume" en el cajetín de Playwright Inspector para finalizar y cerrar.')
+    await page.pause()
 
     console.log('✅ ¡Proceso de automatización finalizado correctamente!')
     return { success: true }
