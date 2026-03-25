@@ -212,6 +212,7 @@ const emit = defineEmits(['submit'])
 const formData = ref({ ...props.initialData })
 const activeSubsection = ref('')
 const expandedGroups = ref({})
+const isAutomating = ref(false)
 
 const toggleGroup = (subsectionName, groupName) => {
   const groupKey = `${subsectionName}-${groupName}`
@@ -498,10 +499,6 @@ watch(() => Object.keys(groupedFieldsBySection.value), (sections) => {
   })
 }, { immediate: true })
 
-const handleLaunchAutomation = () => {
-  console.log('[Automation] Lanzando Playwright con los datos:', formData.value)
-  alert('🚀 Preparando entorno de automatización... Playwright se instalará en el siguiente paso.')
-}
 
 const submit = async () => {
   // Filtrar solo campos con valor (evitar contaminar el maestro con vacíos)
@@ -591,6 +588,38 @@ function groupFieldsBySubsection(fields) {
   return grouped
 }
 // Etiquetas de subsección
+async function handleLaunchAutomation() {
+  if (isAutomating.value) return
+
+  const confirmLaunch = confirm('¿Deseas iniciar la automatización? Se abrirá una ventana de Chrome para realizar los trámites en el portal de la Junta.')
+  if (!confirmLaunch) return
+
+  isAutomating.value = true
+  console.log('[DocumentForm] Iniciando automatización con los datos actuales...')
+
+  try {
+    const response = await fetch('/api/automation/junta', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData.value)
+    })
+
+    const result = await response.json()
+
+    if (result.success) {
+      alert('¡Automatización completada con éxito!')
+    } else {
+      console.error('[DocumentForm] Error en automatización:', result.error)
+      alert(`Error en la automatización: ${result.error || 'Ocurrió un error inesperado'}`)
+    }
+  } catch (error) {
+    console.error('[DocumentForm] Error de red en automatización:', error)
+    alert('Error de conexión con el servidor de automatización. Asegúrate de que el servidor esté en ejecución.')
+  } finally {
+    isAutomating.value = false
+  }
+}
+
 function getSubsectionLabel(subsection) {
   const labels = {
     'A': 'A - Datos del Solicitante',

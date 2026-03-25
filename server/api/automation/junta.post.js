@@ -1,17 +1,19 @@
+import { runJuntaAutomation } from '../../utils/automation/juntaService'
+
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
 
-  // Aquí recibiremos los datos del formulario master
   console.log('Iniciando automatización con datos:', body)
 
   try {
-    // Aquí llamaremos al servicio cuando tengamos el script
-    // const result = await runJuntaAutomation(body)
+    const result = await runJuntaAutomation(body)
     return {
       success: true,
-      message: 'Automatización preparada. Pendiente de integrar script de navegación.'
+      message: 'Automatización completada con éxito.',
+      result
     }
   } catch (error) {
+    console.error('Error en ejecución Playwright:', error)
     return {
       success: false,
       error: error.message
