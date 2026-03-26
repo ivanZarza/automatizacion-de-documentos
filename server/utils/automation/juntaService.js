@@ -441,19 +441,103 @@ export const runJuntaAutomation = async (payload) => {
     await subirDocConPopup(frameActualizado, frameActualizado.locator('li:nth-child(8) > .bloqueGrupo > .elemento_checkbox > img'), '7.-');
 
     // Nuevo Usuario (Punto Suministro)
-    const popUP = page.waitForEvent('popup');
-    await frame.getByRole('button', { name: 'Nuevo Usuario' }).click();
-    const pU = await popUP;
+    console.log('\n[5/6] Abriendo popup "Nuevo Usuario" (Punto de Suministro)...');
+    const popUP = context.waitForEvent('page', { timeout: 60000 });
+    await frameActualizado.getByRole('button', { name: 'Nuevo Usuario' }).click().catch(async () => {
+      console.log('   [!] Falló click en Nuevo Usuario (frameActualizado), reintentando con page...');
+      return page.getByRole('button', { name: 'Nuevo Usuario' }).click();
+    });
+
+    const pU = await popUP.catch(() => null);
+    if (!pU) {
+      throw new Error('No se pudo detectar la apertura del popup de Nuevo Usuario.');
+    }
     await pU.waitForLoadState('networkidle');
 
-    await rellenar(pU.getByRole('textbox', { name: 'Debe introducir el primer' }), datos.apellido1);
-    await rellenar(pU.getByRole('textbox', { name: 'Introduzca el segundo apellido' }), datos.apellido2);
-    await rellenar(pU.getByRole('textbox', { name: 'Debe introducir el nombre' }), datos.nombre);
-    await seleccionar(pU.locator('#identificacionTitularPuntoSuministro'), datos.tipoDocumento);
-    await rellenar(pU.getByRole('textbox', { name: 'Debe introducir un NIF/CIF/' }), datos.nif);
+    console.log('   -> Rellenando Datos del Titular del Punto...');
+    await rellenar(pU.getByRole('textbox', { name: 'Debe introducir el primer' }), datos.apellido1 || '');
+    await rellenar(pU.getByRole('textbox', { name: 'Introduzca el segundo apellido' }), datos.apellido2 || '');
+    await rellenar(pU.getByRole('textbox', { name: 'Debe introducir el nombre' }), datos.nombre || '');
+    await seleccionar(pU.locator('#identificacionTitularPuntoSuministro'), datos.tipoDocumento || 'NIF');
+    await rellenar(pU.getByRole('textbox', { name: 'Debe introducir un NIF/CIF/' }), datos.nif || '');
 
+    console.log('   -> Rellenando Domicilio Titular del Punto...');
+    await seleccionar(pU.locator('#codigoTipoViaDomicilioTitularPuntoSuministro'), datos.tipoVia);
+    await rellenar(pU.locator('#nombreDomicilioTitularPuntoSuministro'), datos.nombreVia);
+    await seleccionar(pU.locator('#tipoNumeracionTitularPuntoSuministro'), datos.tipoNumeracion);
+    await rellenar(pU.locator('#numeroDomicilioTitularPuntoSuministro'), datos.numero);
+    if (datos.calificador) await rellenar(pU.locator('#calificadorNumeroTitularPuntoSuministro'), datos.calificador);
+    if (datos.bloque) await rellenar(pU.locator('#bloqueTitularPuntoSuministro'), datos.bloque);
+    if (datos.escalera) await rellenar(pU.locator('#escaleraDomicilioTitularPuntoSuministro'), datos.escalera);
+    if (datos.piso) await rellenar(pU.locator('#pisoDomicilioTitularPuntoSuministro'), datos.piso);
+    if (datos.puerta) await rellenar(pU.locator('#puertaDomicilioTitularPuntoSuministro'), datos.puerta);
+    await seleccionar(pU.locator('#margen'), datos.margen).catch(() => { });
+
+    const pU_provNorm = (datos.provincia || 'Sevilla').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\b\w/g, c => c.toUpperCase());
+    await seleccionar(pU.locator('#codigoProvinciaDomicilioTitularPuntoSuministro'), PROVINCIAS[pU_provNorm] || datos.delegacion);
+
+    // Buscador Municipio Titular Punto
+    console.log('   -> Buscando municipio (Titular Punto)...');
+    const popMunTitPromise = pU.waitForEvent('popup');
+    await pU.getByRole('group', { name: 'Datos titular del punto de' }).getByRole('img').click();
+    const popMunTit = await popMunTitPromise;
+    await popMunTit.waitForLoadState('networkidle');
+    await popMunTit.locator('input[name="municipioBusqueda"]').fill(datos.municipioNombre);
+    await popMunTit.getByRole('img', { name: 'Buscar Municipio' }).click();
+    await esperar(3000);
+    await popMunTit.getByRole('link', { name: new RegExp(datos.municipioNombre, 'i') }).first().click();
+    await esperar(3000);
+
+    await rellenar(pU.locator('#codigoPostalDomicilioTitularPuntoSuministro'), datos.codigoPostal);
+    await rellenar(pU.getByRole('textbox', { name: 'Introduzca el teléfono' }), datos.telefono);
+    await rellenar(pU.getByRole('textbox', { name: 'Introduzca el email' }), datos.email);
+
+    // Domicilio Punto de Suministro (mismos datos o los que correspondan)
+    console.log('   -> Rellenando Domicilio del Punto de Suministro...');
+    await seleccionar(pU.locator('#codigoTipoViaDomicilioDatosPuntoSuministro'), datos.tipoVia);
+    await rellenar(pU.locator('#nombreDomicilioDatosPuntoSuministro'), datos.nombreVia);
+    await seleccionar(pU.locator('#tipoNumeracionDatosPuntoSuministro'), datos.tipoNumeracion);
+    await rellenar(pU.locator('#numeroDomicilioDatosPuntoSuministro'), datos.numero);
+    if (datos.calificador) await rellenar(pU.locator('#calificadorNumeroDatosPuntoSuministro'), datos.calificador);
+    if (datos.bloque) await rellenar(pU.locator('#bloqueDatosPuntoSuministro'), datos.bloque);
+    if (datos.escalera) await rellenar(pU.locator('#escaleraDomicilioDatosPuntoSuministro'), datos.escalera);
+    if (datos.piso) await rellenar(pU.locator('#pisoDomicilioDatosPuntoSuministro'), datos.piso);
+    if (datos.puerta) await rellenar(pU.locator('#puertaDomicilioDatosPuntoSuministro'), datos.puerta);
+    await seleccionar(pU.locator('#codigoProvinciaDomicilioDatosPuntoSuministro'), PROVINCIAS[pU_provNorm] || datos.delegacion);
+
+    // Buscador Municipio Punto
+    console.log('   -> Buscando municipio (Punto Suministro)...');
+    const popMunPuntoPromise = pU.waitForEvent('popup');
+    await pU.getByRole('group', { name: 'Datos del punto de suministro' }).getByRole('img').click();
+    const popMunPunto = await popMunPuntoPromise;
+    await popMunPunto.waitForLoadState('networkidle');
+    await popMunPunto.locator('input[name="municipioBusqueda"]').fill(datos.municipioNombre);
+    await popMunPunto.getByRole('img', { name: 'Buscar Municipio' }).click();
+    await esperar(3000);
+    await popMunPunto.getByRole('link', { name: new RegExp(datos.municipioNombre, 'i') }).first().click();
+    await esperar(3000);
+
+    await rellenar(pU.locator('#codigoPostalDomicilioDatosPuntoSuministro'), datos.codigoPostal);
+
+    // Datos Técnicos del Suministro (CUPS + tensión)
+    console.log('   -> Rellenando CUPS y tensión...');
+    await rellenar(pU.getByRole('textbox', { name: 'Debe indicar el CUPS del' }), datos.fichaTecnica.cups);
+
+    // TRUCO: Forzar eventos de CUPS para que la web lo valide correctamente
+    await pU.locator('#cupsPuntoSuministro').evaluate((el, cupsVal) => {
+      el.value = cupsVal;
+      el.dispatchEvent(new Event('input', { bubbles: true }));
+      el.dispatchEvent(new Event('change', { bubbles: true }));
+      el.dispatchEvent(new Event('blur', { bubbles: true }));
+    }, datos.fichaTecnica.cups).catch(() => { });
+
+    const tensionMapeada = datos.fichaTecnica.tension === '230' ? '0,4' : datos.fichaTecnica.tension;
+    await seleccionar(pU.locator('#tensionPuntoSuministro'), tensionMapeada);
+
+    console.log('   -> Aceptando popup Nuevo Usuario...');
+    pU.on('dialog', async d => { await d.accept().catch(() => { }); });
     await pU.getByRole('button', { name: 'Aceptar' }).click();
-    await esperar(5000);
+    await esperar(3000);
 
     // ==========================================
     // [FINAL] PRESENTACIÓN
