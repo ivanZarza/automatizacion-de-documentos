@@ -24,14 +24,14 @@ const PROVINCIAS = {
 
 /**
  * Servicio de automatización para la Junta de Andalucía.
- * Integra la lógica experta de certificados y navegación manual/asistida.
+ * Versión "Blindada" basada íntegramente en la lógica funcional de main.js.
  */
 export const runJuntaAutomation = async (payload) => {
   const datos = payload.datos;
   const formData = payload.flatFormData;
-  console.log('--- Iniciando Automatización Junta de Andalucía (Modo Certificado/Asistido) ---')
+  console.log('--- Iniciando Automatización Junta de Andalucía (Modo Blindado/3s Delays) ---')
 
-  // Carpeta de perfil persistente para certificados/sesiones
+  // Carpeta de perfil persistente para certificados
   const userDataDir = path.join(os.tmpdir(), 'playwright_junta_profile');
   if (!fs.existsSync(userDataDir)) fs.mkdirSync(userDataDir, { recursive: true });
 
@@ -52,14 +52,13 @@ export const runJuntaAutomation = async (payload) => {
   page.setDefaultTimeout(0); // Sin esperas infinitas para el usuario
 
   // ==========================================
-  // [SECCIÓN 1] HELPERS ROBUSTOS
+  // [SECCIÓN 1] HELPERS ROBUSTOS (COPIADOS DE MAIN.JS)
   // ==========================================
-
   const esperar = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
   async function rellenar(locator, valor) {
     if (!valor) return;
-    await esperar(1500);
+    await esperar(3000); // 3 segundos solicitado por robustez
     try {
       const isVisible = await locator.isVisible().catch(() => false);
       if (!isVisible) return;
@@ -71,12 +70,15 @@ export const runJuntaAutomation = async (payload) => {
           el.value = v;
           el.dispatchEvent(new Event('input', { bubbles: true }));
           el.dispatchEvent(new Event('change', { bubbles: true }));
+          el.dispatchEvent(new Event('blur', { bubbles: true }));
         }, valor);
       } else {
         await locator.click({ timeout: 5000 }).catch(() => { });
         await locator.focus().catch(() => { });
-        await locator.pressSequentially(valor, { delay: 50 });
+        await esperar(500);
+        await locator.pressSequentially(valor, { delay: 100 });
         await locator.dispatchEvent('change').catch(() => { });
+        await locator.dispatchEvent('blur').catch(() => { });
       }
     } catch (e) {
       console.log(`      [!] Error rellenando: ${e.message}`);
@@ -85,9 +87,10 @@ export const runJuntaAutomation = async (payload) => {
 
   async function seleccionar(locator, valor) {
     if (!valor) return;
-    await esperar(1500);
+    await esperar(3000);
     try {
       await locator.waitFor({ state: 'visible', timeout: 5000 }).catch(() => { });
+      await locator.click({ timeout: 3000 }).catch(() => { });
       await locator.selectOption(valor);
     } catch (e) {
       console.log(`      [!] Error seleccionando: ${e.message}`);
@@ -95,7 +98,7 @@ export const runJuntaAutomation = async (payload) => {
   }
 
   async function pulsar(locator) {
-    await esperar(1000);
+    await esperar(3000);
     try {
       await locator.waitFor({ state: 'visible', timeout: 5000 }).catch(() => { });
       await locator.click({ force: true });
@@ -105,7 +108,7 @@ export const runJuntaAutomation = async (payload) => {
   }
 
   async function marcar(locator) {
-    await esperar(1000);
+    await esperar(3000);
     try {
       await locator.waitFor({ state: 'visible', timeout: 5000 }).catch(() => { });
       await locator.check({ force: true }).catch(() => { });
@@ -114,10 +117,23 @@ export const runJuntaAutomation = async (payload) => {
     }
   }
 
-  // Helper para buscar archivos en la carpeta de documentos del cliente
+  // Búsqueda de archivos en directorio del cliente (o actual)
   const buscarArchivoAbsoluto = (prefijo) => {
-    const dir = path.join(process.cwd(), formData?.apellidosNombre || 'Ivan Zarza Estevez')
-    if (!fs.existsSync(dir)) return null;
+    // En el proyecto, buscamos en la carpeta del cliente
+    const clienteDir = formData?.apellidosNombre || 'Ivan Zarza Estevez';
+    const dir = path.join(process.cwd(), clienteDir);
+
+    if (!fs.existsSync(dir)) {
+      // Fallback a subir_archivos si existe (como en main.js)
+      const fallbackDir = path.join(process.cwd(), 'subir_archivos');
+      if (fs.existsSync(fallbackDir)) {
+        const archivosFallback = fs.readdirSync(fallbackDir);
+        const encontradoFallback = archivosFallback.find(x => x.startsWith(prefijo));
+        if (encontradoFallback) return path.join(fallbackDir, encontradoFallback);
+      }
+      return null;
+    }
+
     const archivos = fs.readdirSync(dir);
     const encontrado = archivos.find(x => x.startsWith(prefijo));
     return encontrado ? path.join(dir, encontrado) : null;
@@ -126,46 +142,74 @@ export const runJuntaAutomation = async (payload) => {
   async function subirDocConPopup(targetFrame, selector, prefijo) {
     const ruta = buscarArchivoAbsoluto(prefijo);
     if (!ruta) {
-      console.log(`   [!] Archivo con prefijo "${prefijo}" no encontrado.`);
+      console.log(`      [!] Archivo con prefijo "${prefijo}" no encontrado.`);
       return;
     }
-    console.log(`   -> Subiendo: ${path.basename(ruta)}`);
+    console.log(`      [v] Adjuntando (prefijo ${prefijo}): ${path.basename(ruta)}`);
+
     try {
       const loc = (typeof selector === 'string' ? targetFrame.locator(selector) : selector);
       await loc.scrollIntoViewIfNeeded().catch(() => { });
+      await loc.waitFor({ state: 'visible', timeout: 10000 });
 
+      // Captura secuencial del popup (estilo main.js)
       const popupPromise = context.waitForEvent('page', { timeout: 60000 });
       await loc.click({ force: true, delay: 500 }).catch(() => { });
 
       const popup = await popupPromise.catch(async () => {
+        console.log(`      [!] Timeout popup ${prefijo}, reintentando con dispatch...`);
         await loc.evaluate(n => n.dispatchEvent(new Event('click', { bubbles: true })));
         return context.waitForEvent('page', { timeout: 30000 }).catch(() => null);
       });
 
-      if (!popup) return;
+      if (!popup) {
+        console.log(`      [!] No se pudo abrir el popup para el prefijo ${prefijo}`);
+        return;
+      }
+
       await popup.waitForLoadState('load');
+      const btnChoose = popup.getByRole('button', { name: /Choose File|Seleccionar archivo/i });
+      await btnChoose.waitFor({ state: 'visible' }).catch(() => { });
+
+      popup.on('dialog', d => d.accept().catch(() => { }));
 
       const fileChooserPromise = popup.waitForEvent('filechooser');
-      const btnSelect = popup.getByRole('button', { name: /Choose File|Seleccionar archivo/i });
-      await btnSelect.click({ timeout: 5000 }).catch(() => btnSelect.evaluate(n => n.click()));
-
+      await btnChoose.click().catch(() => btnChoose.evaluate(n => n.click()));
       const fileChooser = await fileChooserPromise;
       await fileChooser.setFiles(ruta);
 
-      await popup.evaluate(() => {
-        const input = document.querySelector('input[type="file"]');
-        if (input) input.dispatchEvent(new Event('change', { bubbles: true }));
-      });
-
-      await esperar(2000);
-      popup.on('dialog', d => d.accept().catch(() => { }));
-      await popup.getByRole('img', { name: 'Guardar' }).click();
+      console.log('      ...esperando proceso de carga (3s)...');
       await esperar(3000);
+
+      const btnGuardar = popup.getByRole('img', { name: 'Guardar' });
+      await btnGuardar.waitFor({ state: 'visible' });
+      await btnGuardar.click();
+
+      console.log('      ...esperando guardado del adjunto (3s)...');
+      await esperar(3000);
+
       if (!popup.isClosed()) await popup.close().catch(() => { });
+      await esperar(3000);
     } catch (e) {
       console.log(`      [!] Error crítico subiendo ${prefijo}:`, e.message);
     }
   }
+
+  // Ocultar huellas de automatización y desactivar autorrelleno
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
+    const disableAutofill = (root) => {
+      const inputs = root.querySelectorAll ? root.querySelectorAll('input, select') : [];
+      for (const input of inputs) {
+        input.setAttribute('autocomplete', 'off');
+        input.setAttribute('autofill', 'off');
+      }
+    };
+    disableAutofill(document);
+    new MutationObserver(muts => {
+      for (const m of muts) for (const n of m.addedNodes) if (n.nodeType === 1) disableAutofill(n);
+    }).observe(document.documentElement, { childList: true, subtree: true });
+  });
 
   try {
     // ==========================================
@@ -173,24 +217,20 @@ export const runJuntaAutomation = async (payload) => {
     // ==========================================
     console.log('[1/5] Navegando a la Bienvenida...');
     await page.goto('https://www.juntadeandalucia.es/empleoempresaycomercio/oficinavirtual/bienvenida.do');
-
-    // Aceptar cookies
-    const botonCookies = page.getByRole('button', { name: /Aceptar todas/i });
-    if (await botonCookies.isVisible()) await botonCookies.click();
-
-    await page.getByText('Habilitaciones').click();
-    await esperar(2000);
+    await esperar(3000);
 
     const estaLogueado = await page.getByRole('link', { name: /Cerrar sesión/i }).isVisible().catch(() => false);
     if (!estaLogueado) {
-      console.log('   -> Solicitando Login con Certificado...');
+      const botonCookies = page.getByRole('button', { name: /Aceptar todas/i });
+      if (await botonCookies.isVisible()) await botonCookies.click();
+
+      await page.getByText('Habilitaciones').click();
+      await esperar(3000);
+
       const botonCertificado = page.locator('#acceso-2').getByTitle('Acceso con certificado digital');
       await botonCertificado.click();
 
-      console.log('\n🛑 PARADA: SELECCIÓN DE CERTIFICADO (Firma Manual)');
-      console.log('1. Dale a "Abrir" en el aviso de xdg-open/AutoFirma.');
-      console.log('2. Elige tu certificado en la ventana que aparecerá.');
-      console.log('3. Cuando veas la pantalla de "Acceso a Comunicaciones", dale a Resume.');
+      console.log('\n🛑 PARADA: SELECCIÓN DE CERTIFICADO (AutoFirma)');
       await page.pause();
     }
 
@@ -198,7 +238,7 @@ export const runJuntaAutomation = async (payload) => {
     // [FASE 1] NAVEGACIÓN INICIAL
     // ==========================================
     try {
-      await page.getByRole('button', { name: /ACEPTAR/i }).click({ timeout: 5000 });
+      await page.getByRole('button', { name: /ACEPTAR/i }).click({ timeout: 8000 });
     } catch (e) { }
 
     await page.getByRole('link', { name: /Acceso a Comunicaciones/i }).first().click();
@@ -219,7 +259,6 @@ export const runJuntaAutomation = async (payload) => {
     await rellenar(page.locator('input[name="apellido1Interesado"]'), datos.apellido1);
     await rellenar(page.locator('input[name="apellido2Interesado"]'), datos.apellido2);
 
-    // Domicilio Titular
     await seleccionar(page.locator('select[name="codigoTipoViaDomicilioInteresado"]'), datos.tipoVia);
     await rellenar(page.getByRole('textbox', { name: 'Debe inroducir el nombre de' }), datos.nombreVia);
     await seleccionar(page.locator('select[name="tipoNumeracionInteresado"]'), datos.tipoNumeracion);
@@ -230,17 +269,15 @@ export const runJuntaAutomation = async (payload) => {
     if (datos.piso) await rellenar(page.locator('input[name="pisoDomicilioInteresado"]'), datos.piso);
     if (datos.puerta) await rellenar(page.locator('input[name="puertaDomicilioInteresado"]'), datos.puerta);
 
-    const provRaw = datos.provincia || 'Sevilla';
-    const provNorm = provRaw.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\b\w/g, c => c.toUpperCase());
-    await seleccionar(page.locator('select[name="codigoProvinciaDomicilioInteresado"]'), PROVINCIAS[provNorm] || provRaw);
+    const provNorm = (datos.provincia || 'Sevilla').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\b\w/g, c => c.toUpperCase());
+    await seleccionar(page.locator('select[name="codigoProvinciaDomicilioInteresado"]'), PROVINCIAS[provNorm] || datos.provincia);
 
-    // Buscador Municipio
     const popMunP = page.waitForEvent('popup');
     await page.locator('img[onclick*="codigoMunicipioDomicilioInteresado"]').click();
     const popM = await popMunP;
-    await popM.locator('input[name="municipioBusqueda"]').fill(datos.municipioNombre || '');
+    await popM.locator('input[name="municipioBusqueda"]').pressSequentially(datos.municipioNombre || '', { delay: 150 });
     await popM.getByRole('img', { name: 'Buscar Municipio' }).click();
-    await esperar(2000);
+    await esperar(3000);
     await popM.getByRole('link', { name: new RegExp(datos.municipioNombre, 'i') }).first().click();
 
     await rellenar(page.locator('input[name="poblacion"]'), datos.poblacion);
@@ -248,7 +285,6 @@ export const runJuntaAutomation = async (payload) => {
     await rellenar(page.locator('input[name="telefonoInteresado"]'), datos.telefono);
     await rellenar(page.locator('input[name="movil"]'), datos.movil);
 
-    // Persona Autorizada
     if (datos.conPersonaAutorizada) {
       await seleccionar(page.locator('select[name="identificacionPersonaAutorizada"]'), datos.personaAutorizada.tipoDocumento);
       await rellenar(page.locator('input[name="nifPersonaAutorizada"]'), datos.personaAutorizada.nif);
@@ -257,66 +293,116 @@ export const runJuntaAutomation = async (payload) => {
       await rellenar(page.locator('input[name="apellido2PersonaAutorizada"]'), datos.personaAutorizada.apellido2);
       await rellenar(page.locator('input[name="nombrePersonaAutorizada"]'), datos.personaAutorizada.nombre);
     }
-    await rellenar(page.getByRole('textbox', { name: 'Introduzca una dirección de' }), datos.email).catch(() => { });
+    await rellenar(page.getByRole('textbox', { name: 'Introduzca una dirección de' }), datos.email);
+
+    // Transición Segura a Pestaña 2
+    console.log('   -> Navegando a Pestaña 2...');
+    await Promise.all([
+      page.waitForNavigation({ waitUntil: 'load', timeout: 20000 }),
+      page.locator('#parteCentralPestana2').click()
+    ]);
+    await esperar(3000);
 
     // ==========================================
     // [FASE 3] OTROS DATOS Y FICHA
     // ==========================================
-    console.log('[3/5] Navegando a Otros Datos...');
-    await page.locator('#parteCentralPestana2').click();
-    await esperar(3000);
+    console.log('[3/5] Rellenando Otros Datos...');
     await marcar(page.getByRole('radio', { name: /Seleccione para crear una/i }));
     await pulsar(page.getByText('>>'));
-
-    // Pestaña Otros datos
-    await page.getByText('Otros datos', { exact: true }).click();
     await esperar(3000);
 
+    // TÉCNICO INSTALADOR (Lo que faltaba en v1)
+    if (datos.conPersonaAutorizada) {
+      console.log('   -> Vinculando Técnico Instalador...');
+      await seleccionar(page.locator('#tecnicoInstalador1'), 'TF');
+      await rellenar(page.locator('input[name="tecnicoInstalador1nombre"]'), datos.personaAutorizada.nombre);
+      await rellenar(page.locator('input[name="tecnicoInstalador1apellido1"]'), datos.personaAutorizada.apellido1);
+      await rellenar(page.locator('input[name="tecnicoInstalador1apellido2"]'), datos.personaAutorizada.apellido2);
+      await seleccionar(page.locator('select[name="tecnicoInstalador1documento"]'), datos.personaAutorizada.tipoDocumento);
+      await rellenar(page.locator('#tecnicoInstalador1nif'), datos.personaAutorizada.nif);
+    }
+
+    // Navegar a Datos establecimiento
+    await Promise.all([
+      page.waitForNavigation({ waitUntil: 'load', timeout: 20000 }),
+      page.getByText('Datos establecimiento').click()
+    ]);
+    await esperar(3000);
+
+    // Rellenar establecimiento (Simplificado pero con navegación robusta)
+    await seleccionar(page.locator('select[name="codigoTipoViaDomicilioEstablecimiento"]'), datos.tipoVia);
+    await rellenar(page.locator('input[name="nombreDomicilioEstablecimiento"]'), datos.nombreVia);
+    await seleccionar(page.locator('select[name="tipoNumeracionEstablecimiento"]'), datos.tipoNumeracion);
+    await rellenar(page.locator('input[name="numeroDomicilioEstablecimiento"]'), datos.numero);
+
+    const popupEstPromise = page.waitForEvent('popup');
+    await page.locator('img[onclick*="codigoMunicipioDomicilioEstablecimiento"]').click();
+    const popupEst = await popupEstPromise;
+    await popupEst.locator('input[name="municipioBusqueda"]').fill(datos.municipioNombre);
+    await popupEst.getByRole('img', { name: 'Buscar Municipio' }).click();
+    await esperar(3000);
+    await popupEst.getByRole('link', { name: new RegExp(datos.municipioNombre, 'i') }).first().click();
+    await esperar(3000);
+
+    await rellenar(page.locator('input[name="poblacionEstablecimiento"]'), datos.poblacion);
+    await rellenar(page.locator('input[name="codigoPostalDomicilioEstablecimiento"]'), datos.codigoPostal);
+    await rellenar(page.locator('input[name="emailEstablecimiento"]'), datos.email);
+
+    // Navegar a Otros Datos (Final)
+    console.log('   -> Navegando a Otros Datos Final...');
+    await Promise.all([
+      page.waitForNavigation({ waitUntil: 'load', timeout: 20000 }),
+      page.getByText('Otros datos', { exact: true }).click()
+    ]);
+    await esperar(3000);
+
+    // MANEJO CCAA BLINDADO (Inmediatamente tras navegación)
     const ccaaLoc = page.locator('select[name="codigoComunidadAutonoma"]');
-    if (await ccaaLoc.isVisible()) await seleccionar(ccaaLoc, datos.codigoComunidadAutonoma || '01');
+    if (await ccaaLoc.count() > 0) {
+      await ccaaLoc.evaluate((el, v) => {
+        el.removeAttribute('disabled'); el.value = v;
+        el.dispatchEvent(new Event('change', { bubbles: true }));
+      }, datos.codigoComunidadAutonoma || '01');
+    }
 
     await seleccionar(page.locator('select[name="otrosDatos75codigo"]'), datos.otrosDatos75codigo);
     await rellenar(page.getByRole('textbox', { name: 'Debe introducir el número de' }), datos.otrosDatosNumero);
 
-    // Radios de validación
-    await page.locator('input[name="otrosDatos72"][value="N"]').click().catch(() => { });
-    await page.locator('input[name="otrosDatos73"][value="N"]').click().catch(() => { });
+    await page.locator('input[name="otrosDatos72"][value="N"]').click();
+    await page.locator('input[name="otrosDatos73"][value="N"]').click();
 
-    try {
-      await Promise.all([
-        page.waitForNavigation({ waitUntil: 'load', timeout: 8000 }),
-        page.locator('input[name="otrosDatos741"][value="S"]').click()
-      ]);
-    } catch (e) {
-      await page.locator('input[name="otrosDatos741"][value="S"]').click().catch(() => { });
-    }
+    await Promise.all([
+      page.waitForNavigation({ waitUntil: 'load', timeout: 20000 }),
+      page.locator('input[name="otrosDatos741"][value="S"]').click()
+    ]);
     await marcar(page.getByRole('checkbox').first());
 
     // ==========================================
     // [FASE 4] FICHA TÉCNICA (IFRAME)
     // ==========================================
     console.log('[4/5] Rellenando Ficha Técnica (Iframe)...');
-    await page.locator('#parteCentralPestana4').click();
+    await pulsar(page.locator('#parteCentralPestana4'));
     await page.locator('li:nth-child(19) > #bloque2 > .checkbox').click();
     await pulsar(page.getByText('>>'));
     await page.getByRole('link', { name: 'Eléctricas de baja tensión' }).click();
+    await esperar(3000);
 
     const iframeLocator = page.locator('#ficha');
-    await iframeLocator.waitFor({ state: 'visible' });
     const frame = iframeLocator.contentFrame();
+    await frame.getByRole('button', { name: 'Continuar' }).click();
+    await esperar(3000);
 
-    await pulsar(frame.getByRole('button', { name: 'Continuar' }));
     await rellenar(frame.getByRole('textbox', { name: 'Debe indicar Potencia' }), datos.fichaTecnica.potencia);
     await rellenar(frame.getByRole('textbox', { name: 'Debe introducir el uso al que' }), datos.fichaTecnica.uso);
     await seleccionar(frame.locator('select[name="tipoSuministro"]'), datos.fichaTecnica.tipoSuministro);
     await rellenar(frame.getByRole('textbox', { name: 'Debe indicar la tensión de' }), datos.fichaTecnica.tension);
 
     if (datos.fichaTecnica.esAutoconsumo) {
-      await marcar(frame.locator('#esAutoconsumoSi'));
+      await pulsar(frame.locator('#esAutoconsumoSi'));
       await rellenar(frame.getByRole('textbox', { name: 'Debe indicar el CAU' }), datos.fichaTecnica.cau);
-      await marcar(frame.locator('#tipoConsumo1'));
-      await marcar(frame.locator('#modalidadConexionGeneracion1'));
-      await marcar(frame.locator('#modalidadAutoconsumo2'));
+      await pulsar(frame.locator('#tipoConsumo1'));
+      await pulsar(frame.locator('#modalidadConexionGeneracion1'));
+      await pulsar(frame.locator('#modalidadAutoconsumo2'));
     }
 
     await rellenar(frame.getByRole('textbox', { name: 'Potencia instalada', exact: true }), datos.fichaTecnica.potenciaInstalada);
@@ -331,34 +417,30 @@ export const runJuntaAutomation = async (payload) => {
     await rellenar(frame.getByRole('textbox', { name: 'Debe introducir un NIF/CIF/' }), datos.fichaTecnica.empresaInstaladoraDoc);
     await rellenar(frame.getByRole('textbox', { name: 'Debe introducir el nombre de la empresa distribuidora' }), datos.fichaTecnica.empresaDistribuidora);
 
-    // Tipo de instalación (radio codegen)
+    // Radio de tipo de instalación (selector específico codegen)
     await frame.locator('li:nth-child(5) > div > ul > li > .bloqueGrupo > .elemento_checkbox > .radio').first().check().catch(() => { });
 
-    // Guardar Ficha
     page.on('dialog', d => d.accept().catch(() => { }));
     await frame.getByRole('img', { name: 'Guardar' }).click();
 
-    console.log('   -> Ficha guardada. Esperando estabilización...');
-    await esperar(5000); // Espera de seguridad tras el click de guardar
+    console.log('   -> Ficha guardada. Esperando estabilización (10s)...');
+    await esperar(10000);
 
-    // Esperar a que la capa de carga desaparezca si existe
-    const capa = page.locator('#capa_fondo');
-    if (await capa.count() > 0) {
-      await capa.waitFor({ state: 'hidden', timeout: 15000 }).catch(() => { });
-    }
+    // Re-sincronizar el iframe tras el guardado (pudo refrescarse)
+    const frameActualizado = page.frameLocator('#ficha');
+    console.log('   -> Esperando iconos de adjuntar...');
+    await frameActualizado.getByRole('img', { name: 'Adjuntar Documento' }).first().waitFor({ state: 'visible', timeout: 30000 });
 
     // ==========================================
     // [FASE 5] ADJUNTOS Y PUNTO SUMINISTRO
     // ==========================================
-    console.log('[5/5] Subiendo Adjuntos y Nuevo Usuario...');
-    await page.getByText('Datos establecimiento').click(); // Para volver a la zona de adjuntos si es necesario
+    console.log('[5/5] Subiendo Adjuntos y Punto Suministro...');
 
-    await subirDocConPopup(frame, frame.getByRole('img', { name: 'Adjuntar Documento' }).nth(3), '1.-');
-    await subirDocConPopup(frame, frame.getByRole('img', { name: 'Adjuntar Documento' }).nth(4), '2.-');
-    await frame.getByText('7 Certificado de adecuación').click().catch(() => { });
-    await subirDocConPopup(frame, frame.locator('li:nth-child(8) > .bloqueGrupo > .elemento_checkbox > img'), '7.-');
+    await subirDocConPopup(frameActualizado, frameActualizado.getByRole('img', { name: 'Adjuntar Documento' }).nth(3), '1.-');
+    await subirDocConPopup(frameActualizado, frameActualizado.getByRole('img', { name: 'Adjuntar Documento' }).nth(4), '2.-');
+    await subirDocConPopup(frameActualizado, frameActualizado.locator('li:nth-child(8) > .bloqueGrupo > .elemento_checkbox > img'), '7.-');
 
-    // Nuevo Usuario
+    // Nuevo Usuario (Punto Suministro)
     const popUP = page.waitForEvent('popup');
     await frame.getByRole('button', { name: 'Nuevo Usuario' }).click();
     const pU = await popUP;
@@ -371,7 +453,7 @@ export const runJuntaAutomation = async (payload) => {
     await rellenar(pU.getByRole('textbox', { name: 'Debe introducir un NIF/CIF/' }), datos.nif);
 
     await pU.getByRole('button', { name: 'Aceptar' }).click();
-    await esperar(3000);
+    await esperar(5000);
 
     // ==========================================
     // [FINAL] PRESENTACIÓN
@@ -381,7 +463,6 @@ export const runJuntaAutomation = async (payload) => {
     await page.pause();
 
     return { success: true }
-
   } catch (error) {
     console.error('❌ Error en automatización:', error.message);
     throw error;
