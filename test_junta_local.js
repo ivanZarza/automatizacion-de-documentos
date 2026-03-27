@@ -42,7 +42,7 @@ const mockData = {
   cups_presentador: 'ES0276000000152516WA0F',
   cau_presentador: 'ES0276000000152516WA0FA000',
   potencia_instalacion: '123',
-  uso_instalacion: 'vivienda',
+  uso_instalacion: 'produccion energia electrica',
   tipo_suministro: 'Monofásico',
   tension_red: '230',
   es_autoconsumo: true,
