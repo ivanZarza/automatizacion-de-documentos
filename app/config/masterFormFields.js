@@ -504,7 +504,7 @@ export const masterFormFields = [
   { name: 'tiene_acumulacion', label: '¿Tiene Acumulación (Baterías)?', type: 'checkbox', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'almacenamiento' },
   { name: 'potencia_acumulacion', label: 'Potencia Acumulación (kW)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'e2_potenciaMaximaSalida' },
   { name: 'energia_almacenada', label: 'Energía Máx. Almacenada (kWh)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'e2_energiaTotal' },
-  { name: 'uso_instalacion', label: 'Uso de la instalación', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'produccion energia electrica', options: [{ value: 'vivienda', label: 'Vivienda' }, { value: 'produccion energia electrica', label: 'Industrial / Producción' }, { value: 'comercial', label: 'Comercial' }] },
+  { name: 'uso_instalacion', label: 'Uso de la instalación', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'produccion energia electrica', options: [{ value: 'produccion energia electrica', label: 'Producción de Energía Eléctrica' }] },
   { name: 'empresa_distribuidora', label: 'Empresa Distribuidora', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'empresaDistribuidora' },
   { name: 'nombre_empresa_instaladora', label: 'Nombre Empresa Instaladora', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'Solay Ingenieros s.l.' },
   { name: 'empresa_instaladora_doc_tipo', label: 'Tipo Doc. Empresa', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'CIF', options: ['CIF', 'NIF', 'NIE'] },

@@ -1,10 +1,7 @@
-import { chromium } from 'playwright'
-import path from 'path'
-import fs from 'fs'
-import os from 'os'
-import { fileURLToPath } from 'url'
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+const { chromium } = require('playwright');
+const path = require('path');
+const fs = require('fs');
+const os = require('os');
 
 // Mapa de provincias de España (código INE oficial)
 const PROVINCIAS = {
@@ -12,206 +9,284 @@ const PROVINCIAS = {
   'Huelva': '21', 'Jaen': '23', 'Malaga': '29', 'Sevilla': '41',
 };
 
-/**
- * Servicio de automatización para la Junta de Andalucía.
- * Replica exacta de main.js adaptada a ES Modules para Nuxt/Nitro.
- */
-export const runJuntaAutomation = async (payload) => {
-  const datos = payload.datos;
-  const carpetaCliente = payload.flatFormData?.apellidosNombre || 'subir_archivos';
+// ==========================================
+// [SECCIÓN 1] CONFIGURACIÓN Y DATOS
+// ==========================================
+const datos = {
+  // 1.1 Persona Titular
+  tipoDocumento: 'NIF',
+  nif: '12345678Z',
+  nombre: 'PRUEBA_NOMBRE',
+  apellido1: 'PRUEBA_APELLIDO1',
+  apellido2: 'PRUEBA_APELLIDO2',
+  sexo: 'M',
+  delegacion: '41',
 
-  // Helper para esperar un tiempo entre acciones
-  const esperar = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+  // Domicilio Titular
+  tipoVia: 'CL',
+  nombreVia: 'Calle de Prueba',
+  tipoNumeracion: 'NUM',
+  numero: '1',
+  calificador: '3',
+  bloque: 'blo',
+  escalera: 'esc',
+  piso: 'pis',
+  puerta: 'pue',
+  margen: 'D',
+  codigoPostal: '41900',
+  provincia: 'Sevilla',
+  municipioNombre: 'CAMAS',
+  poblacion: 'CAMAS',
+  telefono: '954000000',
+  movil: '600000000',
 
-  // Helper: check rápido de si CCAA existe en DOM
-  let ccaaCheckCount = 0;
-  async function checkCCAA(page, label) {
-    ccaaCheckCount++;
-    const info = await page.evaluate(() => {
-      const ccaa = document.querySelector('select[name="codigoComunidadAutonoma"]');
-      const deleg = document.querySelector('select[name="codigoDelegacion"]');
-      const html = document.documentElement.outerHTML;
-      return {
-        ccaa: ccaa ? { disabled: ccaa.disabled, value: ccaa.value, options: ccaa.options?.length, visible: getComputedStyle(ccaa).display !== 'none' } : false,
-        deleg: deleg ? { disabled: deleg.disabled, value: deleg.value, options: deleg.options?.length } : false,
-        htmlMentionsCCAA: html.includes('codigoComunidadAutonoma'),
-        htmlMentionsComunidad: (html.match(/comunidad/gi) || []).length
-      };
-    }).catch(() => ({ error: true }));
-    if (info.ccaa) {
-      console.log(`   🔍 [CCAA #${ccaaCheckCount} ${label}] ⭐ EXISTE! disabled=${info.ccaa.disabled} value="${info.ccaa.value}" options=${info.ccaa.options} visible=${info.ccaa.visible}`);
-    } else if (info.htmlMentionsCCAA) {
-      console.log(`   🔍 [CCAA #${ccaaCheckCount} ${label}] En HTML pero NO en DOM (${info.htmlMentionsComunidad}x "comunidad")`);
+  // 1.2 Representante Legal (Opcional)
+  conRepresentante: false,
+  representante: {
+    tipoDocumento: 'NIF',
+    nif: '98765432A',
+    sexo: 'F',
+    nombre: 'REP_NOMBRE',
+    apellido1: 'REP_APELLIDO1',
+    apellido2: 'REP_APELLIDO2',
+  },
+
+  // 1.3 Persona  Eduardo
+  conPersonaAutorizada: true,
+  personaAutorizada: {
+    tipoDocumento: 'NIF',
+    nif: '28818007L',
+    sexo: 'M',
+    nombre: 'eduardo',
+    apellido1: 'rivera',
+    apellido2: 'cabezas',
+  },
+  // 1.3 Persona  Miguel Angel
+  // conPersonaAutorizada: true,
+  // personaAutorizada: {
+  //  tipoDocumento: 'NIF',
+  //   nif: '28888418G',
+  //   sexo: 'M',
+  //   nombre: 'Miguel Angel',
+  //   apellido1: 'Rivas',
+  //   apellido2: 'Zapata',
+  // },
+  email: 'email@prueba.com',
+
+  // FASE 3: Otros Datos y Ficha Técnica
+  otrosDatos75codigo: 'T9820',
+  otrosDatosNumero: '41045500',
+  codigoComunidadAutonoma: '01',
+
+  fichaTecnica: {
+    potencia: '123',
+    uso: 'produccion energia electrica',
+    tipoSuministro: 'Monofásico',
+    tension: '230',
+    esAutoconsumo: true,
+    cau: 'ES0276000000152516WA0FA000',
+    potenciaInstalada: '123',
+    acumulacion: true,
+    potenciaAcumulacion: '666',
+    energiaMaximaAlmacenada: '12345',
+    empresaInstaladora: 'Solay Ingenieros s.l.',
+    empresaInstaladoraDocTipo: 'CIF',
+    empresaInstaladoraDoc: 'B09848912',
+    empresaDistribuidora: 'endesa',
+    cups: 'ES0276000000152516WA0F',
+  }
+};
+
+// Helper para esperar un tiempo entre acciones
+const esperar = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+// Helper: check rápido de si CCAA existe en DOM
+let ccaaCheckCount = 0;
+async function checkCCAA(page, label) {
+  ccaaCheckCount++;
+  const info = await page.evaluate(() => {
+    const ccaa = document.querySelector('select[name="codigoComunidadAutonoma"]');
+    const deleg = document.querySelector('select[name="codigoDelegacion"]');
+    const html = document.documentElement.outerHTML;
+    return {
+      ccaa: ccaa ? { disabled: ccaa.disabled, value: ccaa.value, options: ccaa.options?.length, visible: getComputedStyle(ccaa).display !== 'none' } : false,
+      deleg: deleg ? { disabled: deleg.disabled, value: deleg.value, options: deleg.options?.length } : false,
+      htmlMentionsCCAA: html.includes('codigoComunidadAutonoma'),
+      htmlMentionsComunidad: (html.match(/comunidad/gi) || []).length
+    };
+  }).catch(() => ({ error: true }));
+  if (info.ccaa) {
+    console.log(`   🔍 [CCAA #${ccaaCheckCount} ${label}] ⭐ EXISTE! disabled=${info.ccaa.disabled} value="${info.ccaa.value}" options=${info.ccaa.options} visible=${info.ccaa.visible}`);
+  } else if (info.htmlMentionsCCAA) {
+    console.log(`   🔍 [CCAA #${ccaaCheckCount} ${label}] En HTML pero NO en DOM (${info.htmlMentionsComunidad}x "comunidad")`);
+  } else {
+    // Solo loguear cada 5 checks para no saturar, excepto tras navegaciones
+    if (ccaaCheckCount <= 5 || ccaaCheckCount % 5 === 0 || label.includes('POST') || label.includes('NAV') || label.includes('RADIO') || label.includes('RITE') || label.includes('NUM')) {
+      console.log(`   🔍 [CCAA #${ccaaCheckCount} ${label}] ❌ No existe ("comunidad" en HTML: ${info.htmlMentionsComunidad}x)`);
+    }
+  }
+  if (info.deleg) {
+    console.log(`   🔍 [DELEG #${ccaaCheckCount} ${label}] ⭐ EXISTE! value="${info.deleg.value}" options=${info.deleg.options}`);
+  }
+  return info;
+}
+
+// Helper para rellenar campos gestionando automáticamente si son readonly
+async function rellenar(locator, valor) {
+  if (!valor) return;
+  await esperar(3000); // 3 segundos por paso (ajustado de 5s)
+
+  try {
+    const isVisible = await locator.isVisible().catch(() => false);
+    if (!isVisible) return;
+
+    const isReadOnly = await locator.getAttribute('readonly').catch(() => null);
+
+    if (isReadOnly !== null) {
+      console.log(`      [!] Campo bloqueado (readonly) detectado. Forzando valor técnico...`);
+      await locator.evaluate((el, v) => {
+        el.value = v;
+        el.dispatchEvent(new Event('input', { bubbles: true }));
+        el.dispatchEvent(new Event('change', { bubbles: true }));
+        el.dispatchEvent(new Event('blur', { bubbles: true }));
+      }, valor);
     } else {
-      // Solo loguear cada 5 checks para no saturar, excepto tras navegaciones
-      if (ccaaCheckCount <= 5 || ccaaCheckCount % 5 === 0 || label.includes('POST') || label.includes('NAV') || label.includes('RADIO') || label.includes('RITE') || label.includes('NUM')) {
-        console.log(`   🔍 [CCAA #${ccaaCheckCount} ${label}] ❌ No existe ("comunidad" en HTML: ${info.htmlMentionsComunidad}x)`);
-      }
-    }
-    if (info.deleg) {
-      console.log(`   🔍 [DELEG #${ccaaCheckCount} ${label}] ⭐ EXISTE! value="${info.deleg.value}" options=${info.deleg.options}`);
-    }
-    return info;
-  }
-
-  // Helper para rellenar campos gestionando automáticamente si son readonly
-  async function rellenar(locator, valor) {
-    if (!valor) return;
-    await esperar(3000); // 3 segundos por paso (ajustado de 5s)
-
-    try {
-      const isVisible = await locator.isVisible().catch(() => false);
-      if (!isVisible) return;
-
-      const isReadOnly = await locator.getAttribute('readonly').catch(() => null);
-
-      if (isReadOnly !== null) {
-        console.log(`      [!] Campo bloqueado (readonly) detectado. Forzando valor técnico...`);
-        await locator.evaluate((el, v) => {
-          el.value = v;
-          el.dispatchEvent(new Event('input', { bubbles: true }));
-          el.dispatchEvent(new Event('change', { bubbles: true }));
-          el.dispatchEvent(new Event('blur', { bubbles: true }));
-        }, valor);
-      } else {
-        // MODO HUMANO REFORZADO
-        await locator.click({ timeout: 5000 }).catch(() => { });
-        await locator.focus().catch(() => { });
-        await esperar(500); // Pequeña pausa tras el clic
-
-        // Simula escritura humana: letra a letra con retardo
-        await locator.pressSequentially(valor, { delay: 100 }).catch(async () => {
-          console.log('      [!] Falló pressSequentially, usando método alternativo...');
-          await locator.fill(valor).catch(async () => {
-            await locator.evaluate((el, v) => {
-              el.value = v;
-              el.dispatchEvent(new Event('input', { bubbles: true }));
-              el.dispatchEvent(new Event('change', { bubbles: true }));
-            }, valor);
-          });
-        });
-
-        // Aseguramos que la web detecte que hemos terminado de escribir
-        await locator.dispatchEvent('change').catch(() => { });
-        await locator.dispatchEvent('blur').catch(() => { });
-      }
-    } catch (e) {
-      console.log(`      [!] Error rellenando campo: ${e.message}`);
-      throw e; // Propagar para que el catch global pause el robot
-    }
-  }
-
-  async function seleccionar(locator, valor) {
-    if (!valor) return;
-    await esperar(3000); // 3 segundos por paso
-    try {
-      await locator.waitFor({ state: 'visible', timeout: 10000 });
+      // MODO HUMANO REFORZADO
       await locator.click({ timeout: 5000 }).catch(() => { });
-      await locator.selectOption(valor);
-    } catch (e) {
-      console.log(`      [!] Error seleccionando [${valor}]: ${e.message}`);
-      throw e; // Propagar para que el catch global pause el robot
-    }
-  }
+      await locator.focus().catch(() => { });
+      await esperar(500); // Pequeña pausa tras el clic
 
-  async function pulsar(locator) {
-    await esperar(3000); // 3 segundos por paso
-    try {
-      await locator.waitFor({ state: 'visible', timeout: 5000 }).catch(() => { });
-      await locator.click({ force: true });
-    } catch (e) {
-      console.log(`      [!] Error pulsando: ${e.message}`);
-      throw e; // Propagar para que el catch global pause el robot
-    }
-  }
-
-  async function marcar(locator) {
-    await esperar(3000); // 3 segundos por paso
-    try {
-      await locator.waitFor({ state: 'visible', timeout: 5000 }).catch(() => { });
-      await locator.check({ force: true }).catch(() => { });
-    } catch (e) {
-      console.log(`      [!] Error marcando: ${e.message}`);
-      throw e; // Propagar para que el catch global pause el robot
-    }
-  }
-
-  // Helper para subir archivos basado en el script original (Refactorizado para estabilidad y diagnóstico)
-  async function subirDoc(page, targetFrame, selector, prefijo) {
-    const dir = path.join(process.cwd(), carpetaCliente);
-
-    if (!fs.existsSync(dir)) {
-      console.log(`   [!] Carpeta de adjuntos no encontrada: ${dir}`);
-      return;
-    }
-
-    const archivos = fs.readdirSync(dir);
-    const archivo = archivos.find(x => x.startsWith(prefijo));
-
-    if (!archivo) {
-      console.log(`   [!] No hay archivo que empiece por "${prefijo}" en subir_archivos/`);
-      return;
-    }
-
-    const rutaAbsoluta = path.join(dir, archivo);
-    console.log(`   -> Subiendo adjunto: ${archivo}`);
-
-    try {
-      const loc = (typeof selector === 'string' ? targetFrame.locator(selector) : selector);
-      // Aseguramos visibilidad y scroll para que el clic sea efectivo
-      await loc.scrollIntoViewIfNeeded().catch(() => { });
-      await loc.waitFor({ state: 'visible', timeout: 10000 });
-      await esperar(1500); // Pausa de asentamiento mayor para la subida
-
-      // Captura secuencial del popup con diagnóstico de clic
-      console.log(`      [?] Intentando abrir popup para ${prefijo}... (Timeout 1min)`);
-      const popupPromise = page.waitForEvent('popup', { timeout: 60000 }); // 1 minuto solicitado
-
-      // Clic reforzado
-      await loc.click({ force: true, delay: 500 }).catch(err => {
-        console.log(`      [!] Clic normal falló, reintentando con dispatch...`);
+      // Simula escritura humana: letra a letra con retardo
+      await locator.pressSequentially(valor, { delay: 100 }).catch(async () => {
+        console.log('      [!] Falló pressSequentially, usando método alternativo...');
+        await locator.fill(valor).catch(async () => {
+          await locator.evaluate((el, v) => {
+            el.value = v;
+            el.dispatchEvent(new Event('input', { bubbles: true }));
+            el.dispatchEvent(new Event('change', { bubbles: true }));
+          }, valor);
+        });
       });
 
-      const popup = await popupPromise.catch(async () => {
-        console.log(`      [!] Timeout 60s esperando popup. Probando dispatchEvent directo...`);
-        await loc.evaluate(node => node.dispatchEvent(new Event('click', { bubbles: true })));
-        return page.waitForEvent('popup', { timeout: 60000 });
-      });
+      // Aseguramos que la web detecte que hemos terminado de escribir
+      await locator.dispatchEvent('change').catch(() => { });
+      await locator.dispatchEvent('blur').catch(() => { });
+    }
+  } catch (e) {
+    console.log(`      [!] Error rellenando campo: ${e.message}`);
+  }
+}
 
-      console.log(`      [v] Popup detectado.`);
-      await popup.waitForLoadState('load');
+async function seleccionar(locator, valor) {
+  if (!valor) return;
+  await esperar(3000); // 3 segundos por paso
+  try {
+    await locator.waitFor({ state: 'visible', timeout: 5000 }).catch(() => { });
+    await locator.click({ timeout: 3000 }).catch(() => { });
+    await locator.selectOption(valor);
+  } catch (e) {
+    console.log(`      [!] Error seleccionando: ${e.message}`);
+  }
+}
 
-      const fileChooserPromise = popup.waitForEvent('filechooser', { timeout: 60000 });
-      const btnSelect = popup.getByRole('button', { name: /Choose File|Seleccionar archivo/i });
-      await btnSelect.click({ timeout: 5000 }).catch(() => btnSelect.evaluate(n => n.click()));
+async function pulsar(locator) {
+  await esperar(3000); // 3 segundos por paso
+  try {
+    await locator.waitFor({ state: 'visible', timeout: 5000 }).catch(() => { });
+    await locator.click({ force: true });
+  } catch (e) {
+    console.log(`      [!] Error pulsando: ${e.message}`);
+  }
+}
 
-      const fileChooser = await fileChooserPromise;
-      await fileChooser.setFiles(rutaAbsoluta);
+async function marcar(locator) {
+  await esperar(3000); // 3 segundos por paso
+  try {
+    await locator.waitFor({ state: 'visible', timeout: 5000 }).catch(() => { });
+    await locator.check({ force: true }).catch(() => { });
+  } catch (e) {
+    console.log(`      [!] Error marcando: ${e.message}`);
+  }
+}
 
-      await popup.evaluate(() => {
-        const input = document.querySelector('input[type="file"]');
-        if (input) {
-          input.dispatchEvent(new Event('change', { bubbles: true }));
-          input.dispatchEvent(new Event('input', { bubbles: true }));
-        }
-      });
+// Helper para subir archivos basado en el script original (Refactorizado para estabilidad y diagnóstico)
+async function subirDoc(page, targetFrame, selector, prefijo) {
+  const dir = path.join(__dirname, '..', 'subir_archivos');
 
-      await esperar(2000);
-      popup.removeAllListeners('dialog');
-      popup.on('dialog', d => d.accept().catch(() => { }));
+  if (!fs.existsSync(dir)) {
+    console.log(`   [!] Carpeta de adjuntos no encontrada: ${dir}`);
+    return;
+  }
 
-      await popup.getByRole('img', { name: 'Guardar' }).click();
-      console.log(`      [v] Guardado pulsado.`);
-      await esperar(3000);
+  const archivos = fs.readdirSync(dir);
+  const archivo = archivos.find(x => x.startsWith(prefijo));
 
-      if (!popup.isClosed()) {
-        await popup.close().catch(() => { });
+  if (!archivo) {
+    console.log(`   [!] No hay archivo que empiece por "${prefijo}" en subir_archivos/`);
+    return;
+  }
+
+  const rutaAbsoluta = path.join(dir, archivo);
+  console.log(`   -> Subiendo adjunto: ${archivo}`);
+
+  try {
+    const loc = (typeof selector === 'string' ? targetFrame.locator(selector) : selector);
+    // Aseguramos visibilidad y scroll para que el clic sea efectivo
+    await loc.scrollIntoViewIfNeeded().catch(() => { });
+    await loc.waitFor({ state: 'visible', timeout: 10000 });
+    await esperar(1500); // Pausa de asentamiento mayor para la subida
+
+    // Captura secuencial del popup con diagnóstico de clic
+    console.log(`      [?] Intentando abrir popup para ${prefijo}... (Timeout 1min)`);
+    const popupPromise = page.waitForEvent('popup', { timeout: 60000 }); // 1 minuto solicitado
+
+    // Clic reforzado
+    await loc.click({ force: true, delay: 500 }).catch(err => {
+      console.log(`      [!] Clic normal falló, reintentando con dispatch...`);
+    });
+
+    const popup = await popupPromise.catch(async () => {
+      console.log(`      [!] Timeout 60s esperando popup. Probando dispatchEvent directo...`);
+      await loc.evaluate(node => node.dispatchEvent(new Event('click', { bubbles: true })));
+      return page.waitForEvent('popup', { timeout: 60000 });
+    });
+
+    console.log(`      [v] Popup detectado.`);
+    await popup.waitForLoadState('load');
+
+    const fileChooserPromise = popup.waitForEvent('filechooser', { timeout: 60000 });
+    const btnSelect = popup.getByRole('button', { name: /Choose File|Seleccionar archivo/i });
+    await btnSelect.click({ timeout: 5000 }).catch(() => btnSelect.evaluate(n => n.click()));
+
+    const fileChooser = await fileChooserPromise;
+    await fileChooser.setFiles(rutaAbsoluta);
+
+    await popup.evaluate(() => {
+      const input = document.querySelector('input[type="file"]');
+      if (input) {
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+        input.dispatchEvent(new Event('input', { bubbles: true }));
       }
-    } catch (e) {
-      console.log(`      [!] Error crítico subiendo ${prefijo}:`, e.message);
-    }
-  }
+    });
 
+    await esperar(2000);
+    popup.removeAllListeners('dialog');
+    popup.on('dialog', d => d.accept().catch(() => { }));
+
+    await popup.getByRole('img', { name: 'Guardar' }).click();
+    console.log(`      [v] Guardado pulsado.`);
+    await esperar(3000);
+
+    if (!popup.isClosed()) {
+      await popup.close().catch(() => { });
+    }
+  } catch (e) {
+    console.log(`      [!] Error crítico subiendo ${prefijo}:`, e.message);
+  }
+}
+
+(async () => {
+  console.log('Iniciando script con pausas para capturar certificado...');
 
   // Usamos una carpeta temporal del sistema para el perfil (evita fallos de bloqueo en pendrives FAT32/exFAT)
   const userDataDir = path.join(os.tmpdir(), 'playwright_junta_profile');
@@ -420,8 +495,8 @@ export const runJuntaAutomation = async (payload) => {
     if (datos.escalera) await rellenar(page.locator('input[name="escaleraDomicilioInteresado"]'), datos.escalera);
     if (datos.piso) await rellenar(page.locator('input[name="pisoDomicilioInteresado"]'), datos.piso);
     if (datos.puerta) await rellenar(page.locator('input[name="puertaDomicilioInteresado"]'), datos.puerta);
-
-    const provNorm = (datos.provincia || '').trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+    // paso a copiar en pestaña datos establecimiento
+    const provNorm = datos.provincia.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\b\w/g, c => c.toUpperCase());
     await seleccionar(page.locator('select[name="codigoProvinciaDomicilioInteresado"]'), PROVINCIAS[provNorm] || datos.provincia);
 
     const page1Promise = page.waitForEvent('popup');
@@ -434,7 +509,7 @@ export const runJuntaAutomation = async (payload) => {
     console.log('   -> Buscando municipio con ritmo humano...');
     const searchInput1 = page1.locator('input[name="municipioBusqueda"]');
     await searchInput1.click();
-    await searchInput1.pressSequentially((datos.municipioNombre || '').trim(), { delay: 150 });
+    await searchInput1.pressSequentially(datos.municipioNombre, { delay: 150 });
     await page1.getByRole('img', { name: 'Buscar Municipio' }).click();
     await esperar(3000);
 
@@ -520,8 +595,8 @@ export const runJuntaAutomation = async (payload) => {
     await esperar(3000);
     await checkCCAA(page, 'NAV post-POST#3-datos-estab');
 
-    await seleccionar(page.locator('select[name="codigoTipoViaDomicilioEstablecimiento"]'), (datos.tipoVia || '').trim());
-    await rellenar(page.locator('input[name="nombreDomicilioEstablecimiento"]'), (datos.nombreVia || '').trim());
+    await seleccionar(page.locator('select[name="codigoTipoViaDomicilioEstablecimiento"]'), datos.tipoVia);
+    await rellenar(page.locator('input[name="nombreDomicilioEstablecimiento"]'), datos.nombreVia);
     await seleccionar(page.locator('select[name="tipoNumeracionEstablecimiento"]'), datos.tipoNumeracion);
     await rellenar(page.locator('input[name="numeroDomicilioEstablecimiento"]'), datos.numero);
     if (datos.calificador) await rellenar(page.locator('input[name="calificadorNumeroEstablecimiento"]'), datos.calificador);
@@ -529,28 +604,18 @@ export const runJuntaAutomation = async (payload) => {
     if (datos.escalera) await rellenar(page.locator('input[name="escaleraDomicilioEstablecimiento"]'), datos.escalera);
     if (datos.piso) await rellenar(page.locator('input[name="pisoDomicilioEstablecimiento"]'), datos.piso);
     if (datos.puerta) await rellenar(page.locator('input[name="puertaDomicilioEstablecimiento"]'), datos.puerta);
-    console.log(`   -> Margen recibido: "${datos.margen}"`);
-    if (datos.margen) {
-      const mVal = (datos.margen || '').trim();
-      await seleccionar(page.locator('select[name="margenEstablecimiento"]'), mVal).catch(async () => {
-        // Fallback por texto si el valor 'D'/'I' no funciona
-        const label = mVal === 'D' ? /Derech/i : /Izquier/i;
-        await page.locator('select[name="margenEstablecimiento"]').selectOption({ label }).catch(() => { });
-      });
-    } else {
-      console.log('   [!] El campo margen llegó vacío desde el formulario.');
-    }
+    if (datos.margen) await seleccionar(page.locator('select[name="margenEstablecimiento"]'), datos.margen);
 
     const popupEstPromise = page.waitForEvent('popup');
     console.log('   -> Abriendo buscador de municipios (Establecimiento)...');
     await page.locator('img[onclick*="codigoMunicipioDomicilioEstablecimiento"]').click();
     const popupEst = await popupEstPromise;
     await popupEst.waitForLoadState('load');
-    await popupEst.locator('input[name="municipioBusqueda"]').fill((datos.municipioNombre || '').trim());
+    await popupEst.locator('input[name="municipioBusqueda"]').fill(datos.municipioNombre);
     await popupEst.getByRole('img', { name: 'Buscar Municipio' }).click();
     console.log('   -> Buscando municipio (est.)... esperando 5s');
     await esperar(3000); // 5 segundos tras buscar municipio
-    await popupEst.getByRole('link', { name: new RegExp((datos.municipioNombre || '').trim(), 'i') }).first().click();
+    await popupEst.getByRole('link', { name: new RegExp(datos.municipioNombre, 'i') }).first().click();
     console.log('   -> Municipio (est.) seleccionado... esperando 5s');
     await esperar(3000); // 5 segundos tras seleccionar municipio
 
@@ -878,7 +943,7 @@ export const runJuntaAutomation = async (payload) => {
 
     // Helper local robusto para subir un documento con popup buscando por prefijo
     const subirDocConPopup = async (abrirLocator, prefijo) => {
-      const dir = path.join(process.cwd(), carpetaCliente);
+      const dir = path.join(__dirname, '..', '..', 'subir_archivos');
       if (!fs.existsSync(dir)) {
         console.log(`   [!] Carpeta de adjuntos no encontrada: ${dir}`);
         return;
@@ -1107,9 +1172,5 @@ export const runJuntaAutomation = async (payload) => {
 
   } catch (error) {
     console.error('❌ Error General:', error.message);
-    console.log('🛑 ERROR DETECTADO: El navegador permanecerá abierto para inspección.');
-    console.log('   Pausa el Inspector de Playwright para ver el estado antes de que el proceso termine.');
-    await page.pause();
-    throw error;
   }
-}
+})();

@@ -214,14 +214,69 @@ const activeSubsection = ref('')
 const expandedGroups = ref({})
 const isAutomating = ref(false)
 
+/**
+ * Construye el objeto formData inicial aplicando:
+ * 1. Los valores que vienen de initialData (BD / localStorage)
+ * 2. Los field.value por defecto de masterFormFields (si el campo está vacío)
+ * 3. El mapFrom: propaga el valor del campo origen al campo destino (si el destino está vacío)
+ */
+const buildInitialFormData = (baseData = {}) => {
+  const result = {}
+
+  // Paso 1 y 2: initialData + field.value como fallback
+  masterFormFields.forEach(field => {
+    const fromBase = baseData[field.name]
+    const hasValue = fromBase !== undefined && fromBase !== null && fromBase !== ''
+    result[field.name] = hasValue ? fromBase : (field.value ?? '')
+  })
+
+  // Paso 3: mapFrom — al cargar datos, propagar el origen al destino si el destino sigue vacío
+  masterFormFields.forEach(field => {
+    if (!field.mapFrom) return
+    const destValue = result[field.name]
+    const sourceValue = result[field.mapFrom]
+    if ((!destValue || destValue === '') && sourceValue) {
+      // Caso especial: nombre_presentador necesita parsear apellidos
+      if (field.name === 'nombre_presentador' && sourceValue) {
+        let nombre = sourceValue, ap1 = '', ap2 = ''
+        if (sourceValue.includes(',')) {
+          const partes = sourceValue.split(',')
+          nombre = partes[1].trim()
+          const apellidos = partes[0].trim().split(' ')
+          ap1 = apellidos[0] || ''
+          ap2 = apellidos.slice(1).join(' ') || ''
+        } else {
+          const partes = sourceValue.trim().split(' ')
+          if (partes.length >= 3) {
+            nombre = partes[0]; ap1 = partes[1]; ap2 = partes.slice(2).join(' ')
+          } else if (partes.length === 2) {
+            nombre = partes[0]; ap1 = partes[1]
+          }
+        }
+        if (!result.nombre_presentador || result.nombre_presentador === '') result.nombre_presentador = nombre
+        if (!result.apellido1_presentador || result.apellido1_presentador === '') result.apellido1_presentador = ap1
+        if (!result.apellido2_presentador || result.apellido2_presentador === '') result.apellido2_presentador = ap2
+        return
+      }
+      result[field.name] = sourceValue
+    }
+  })
+
+  return result
+}
+
+// Inicialización con valores por defecto + mapFrom aplicado
+const formDataInit = buildInitialFormData(props.initialData)
+Object.assign(formData.value, formDataInit)
+
+watch(() => props.initialData, (newData) => {
+  formData.value = buildInitialFormData(newData)
+}, { deep: true })
+
 const toggleGroup = (subsectionName, groupName) => {
   const groupKey = `${subsectionName}-${groupName}`
   expandedGroups.value[groupKey] = !expandedGroups.value[groupKey]
 }
-
-watch(() => props.initialData, (newData) => {
-  formData.value = { ...newData }
-}, { deep: true })
 
 // Lógica de sincronización automática (Edificio/L3 vs Vivienda/L4)
 const syncConfig = {

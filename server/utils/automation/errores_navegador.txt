@@ -1,0 +1,51 @@
+=== INICIO LOG 2026-03-27T06:13:24.164Z ===
+[CRASH] Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+[log] Hora cliente: Fri Mar 27 2026 07:13:25 GMT+0100 (hora estándar de Europa central)
+[log] Hora servidor: Fri Mar 27 2026 07:13:24 GMT+0100 (hora estándar de Europa central)
+[CRASH] Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+[log] Hora cliente: Fri Mar 27 2026 07:13:32 GMT+0100 (hora estándar de Europa central)
+[log] Hora servidor: Fri Mar 27 2026 07:13:24 GMT+0100 (hora estándar de Europa central)
+[info] Launched external handler for 'afirma://websocket?v=3&idsession=cTjKnz4ZA3Jn8Ist1L6i'.
+[log] Creamos el cliente para el socket
+[error] WebSocket connection to 'wss://127.0.0.1:63117/' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[log] Se cierra el socket
+[log] Creamos el cliente para el socket
+[log] Se abre el socket
+[log] Enviamos el mensaje al socket
+[log] Respuesta de la peticion de eco
+[log] Respuesta obtenida de la operacion enviada
+[CRASH] Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+[CRASH] Cannot read properties of null (reading 'value')
+[CRASH] Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+[error] Failed to load resource: the server responded with a status of 404 (Not Found)
+[CRASH] Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+[CRASH] Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+[CRASH] Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+[CRASH] Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+[CRASH] Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+[CRASH] Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+[CRASH] Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+[CRASH] Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+[CRASH] Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+[CRASH] Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+[CRASH] Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+[CRASH] Cannot read properties of undefined (reading 'codigoInst')
+[CRASH] Cannot read properties of null (reading 'style')
+[CRASH] Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+[CRASH] Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+[CRASH] Cannot read properties of undefined (reading 'codigoInst')
+[CRASH] Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+[CRASH] Cannot read properties of undefined (reading 'codigoInst')
+[CRASH] Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+[CRASH] Cannot read properties of undefined (reading 'codigoInst')
+[CRASH] Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+[CRASH] Cannot read properties of undefined (reading 'codigoInst')
+[CRASH] Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+[CRASH] Cannot read properties of undefined (reading 'codigoInst')
+[CRASH] Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+[CRASH] Cannot read properties of undefined (reading 'codigoInst')
+[CRASH] Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+[log] Hora cliente: Fri Mar 27 2026 07:28:31 GMT+0100 (hora estándar de Europa central)
+[log] Hora servidor: Fri Mar 27 2026 07:28:31 GMT+0100 (hora estándar de Europa central)
+[CRASH] Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
+[CRASH] Failed to execute 'observe' on 'MutationObserver': parameter 1 is not of type 'Node'.
