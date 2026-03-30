@@ -2881,7 +2881,7 @@ export const documento80PaginasConfig = {
   },
   fieldMapping: {
     nombre: 'apellidosNombre',
-    direccion: (formData) => `${formData.emplazamientoCalle || ''} - ${formData.numero || ''}  ${formData.bloque || ''} ${formData.escalera || ''}  ${formData.planta || ''}  ${formData.puerta || ''}  `,
+    direccion: (formData) => `${formData.emplazamientoCalle} ${formData.numero ? formData.numero : ''} ${formData.bloque ? 'Bloque ' + formData.bloque : ''} ${formData.escalera ? 'Escalera ' + formData.escalera : ''} ${formData.planta ? 'Planta ' + formData.planta : ''} ${formData.puerta ? 'Puerta ' + formData.puerta : ''}`.trim(),
     numero: 'numero',
     referenciaCatastral: 'referenciaCatastral',
     dia: 'dia',

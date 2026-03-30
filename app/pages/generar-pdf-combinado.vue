@@ -29,13 +29,13 @@ const formStore = useFormStore();
 
 const direccionCompleta = computed(() => {
   const calle = formStore.getField('emplazamientoCalle') || '';
-  const numero = formStore.getField('numero') || '';
-  const bloque = formStore.getField('bloque') || '';
-  const escalera = formStore.getField('escalera') || '';
-  const planta = formStore.getField('planta') || '';
-  const puerta = formStore.getField('puerta') || '';
+  const numero = formStore.getField('numero') ? ` ${formStore.getField('numero')}` : '';
+  const bloque = formStore.getField('bloque') ? ` Bloque ${formStore.getField('bloque')}` : '';
+  const escalera = formStore.getField('escalera') ? ` Escalera ${formStore.getField('escalera')}` : '';
+  const planta = formStore.getField('planta') ? ` Planta ${formStore.getField('planta')}` : '';
+  const puerta = formStore.getField('puerta') ? ` Puerta ${formStore.getField('puerta')}` : '';
 
-  return `${calle} - ${numero}  ${bloque} ${escalera}  ${planta}  ${puerta}  `;
+  return `${calle}${numero}${bloque}${escalera}${planta}${puerta}`.trim();
 });
 
 // Cargar datos al montar el componente
