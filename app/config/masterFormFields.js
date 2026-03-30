@@ -508,7 +508,12 @@ export const masterFormFields = [
   { name: 'empresa_distribuidora', label: 'Empresa Distribuidora', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'empresaDistribuidora' },
   { name: 'nombre_empresa_instaladora', label: 'Nombre Empresa Instaladora', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'Solay Ingenieros s.l.' },
   { name: 'empresa_instaladora_doc_tipo', label: 'Tipo Doc. Empresa', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'CIF', options: ['CIF', 'NIF', 'NIE'] },
-  { name: 'empresa_instaladora_doc', label: 'Nº Doc. Empresa', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'B09848912' }
+  { name: 'empresa_instaladora_doc', label: 'Nº Doc. Empresa', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'B09848912' },
+
+  // --- ARCHIVOS ADJUNTOS (NUEVO) ---
+  { name: 'doc_autorizacion_rep', label: '1.- Autorización de Representación', type: 'file', accept: '.pdf,image/*', subsection: 'PRESENTACIÓN', group: 'Documentos a Subir' },
+  { name: 'doc_adicional_2', label: '2.- Documento Adicional / CIE', type: 'file', accept: '.pdf,image/*', subsection: 'PRESENTACIÓN', group: 'Documentos a Subir' },
+  { name: 'doc_certificado_solidez', label: '7.- Certificado de Solidez', type: 'file', accept: '.pdf,image/*', subsection: 'PRESENTACIÓN', group: 'Documentos a Subir' }
 ]
 
 export const getMasterFormDefaultData = () => {

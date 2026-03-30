@@ -1,5 +1,4 @@
 import { chromium } from 'playwright'
-import { autoClicker } from './windowsAutoClicker.js'
 import path from 'path'
 import fs from 'fs'
 import os from 'os'
@@ -329,7 +328,7 @@ export const runJuntaAutomation = async (payload) => {
   try {
     // = [SECCIÓN 2] NAVEGACIÓN AUTOMÁTICA HASTA CERTIFICADO =
     console.log('[1/5] Navegando a la Bienvenida...');
-
+    
     await page.goto('https://www.juntadeandalucia.es/empleoempresaycomercio/oficinavirtual/bienvenida.do');
     await esperar(3000);
 
@@ -351,55 +350,24 @@ export const runJuntaAutomation = async (payload) => {
       try {
         const botonCertificado = page.locator('#acceso-2').getByTitle('Acceso con certificado digital');
         await botonCertificado.waitFor({ state: 'visible', timeout: 5000 });
-        
-        console.log('   -> Activando Autoclicker Inteligente para Login...');
-        autoClicker.start();
-
         await botonCertificado.click();
         await esperar(3000);
 
-        // --- RESPALDO MANUAL (Comentado por Autoclicker Inteligente) ---
-        /*
         console.log('🛑 PARADA: SELECCIÓN DE CERTIFICADO (AUTOFIRMA).');
         console.log('1. SE HABRÁ ABIERTO EL AVISO DE xdg-open. Dale a "Abrir".');
         console.log('2. Elige tu certificado en la ventana de AutoFirma.');
         console.log('3. Si sale "Alta de Interesado", rellénalo.');
         console.log('4. Cuando veas la pantalla de "Acceso a Comunicaciones", dale a Resume.');
         await page.pause(); 
-        */
-
-        console.log('   -> Esperando carga de página post-firma...');
-        // Esperamos a que la página cambie (éxito de firma)
-        await page.waitForLoadState('load', { timeout: 30000 }).catch(() => {});
-        await esperar(5000);
-        
-        console.log('✅ LOGIN COMPLETADO. Asegurando parada de autoclicker...');
-        autoClicker.stop();
-        
-        console.log('🔍 [DIAGNÓSTICO] Verificando si aparece el modal de Bienvenida...');
-        const botonAceptarModal = page.getByRole('button', { name: /ACEPTAR/i });
-        const visible = await botonAceptarModal.isVisible({ timeout: 5000 }).catch(() => false);
-        
-        if (visible) {
-          console.log('   [v] Modal detectado. Pulsando ACEPTAR...');
-          await botonAceptarModal.click();
-        } else {
-          console.log('   [x] El botón ACEPTAR no es visible ahora (puede que ya estemos dentro).');
-        }
       } catch (e) {
-        console.log('   -> Error en el proceso de Login/Certificado:', e.message);
-        autoClicker.stop();
+        console.log('   -> El botón de certificado no está o ya estamos dentro.');
       }
     } else {
       console.log('   -> Sesión ya activa, saltando login.');
     }
 
     console.log('   -> Continuando con los pasos capturados...');
-    
-    // Verificación final del estado antes de Comunicaciones
-    const title = await page.title().catch(() => 'N/A');
-    console.log(`🔍 [DIAGNÓSTICO] Título actual de la página: "${title}"`);
-
+ 
     try {
       const botonAceptarModal = page.getByRole('button', { name: /ACEPTAR/i });
       await botonAceptarModal.waitFor({ state: 'visible' });
@@ -408,20 +376,11 @@ export const runJuntaAutomation = async (payload) => {
     } catch (e) {
       console.log('   -> El botón ACEPTAR no apareció.');
     }
-
-    console.log('   -> Esperando enlace "Acceso a Comunicaciones"...');
+ 
+     console.log('   -> Esperando enlace "Acceso a Comunicaciones"...');
     const linkComunicaciones = page.getByRole('link', { name: /Acceso a Comunicaciones/i }).first();
-    await linkComunicaciones.waitFor({ state: 'attached', timeout: 15000 }).catch(() => {
-       console.log('   [!] Advertencia: "Acceso a Comunicaciones" no apareció tras 15s.');
-    });
-    
-    if (await linkComunicaciones.isVisible()) {
-       console.log('🔍 [DIAGNÓSTICO] Enlace "Acceso a Comunicaciones" DETECTADO. Pulsando...');
-       await linkComunicaciones.click();
-    } else {
-       console.log('🔍 [DIAGNÓSTICO] Enlace "Acceso a Comunicaciones" NO VISIBLE. Intentando click forzado...');
-       await linkComunicaciones.click({ force: true }).catch(() => {});
-    }
+    await linkComunicaciones.waitFor({ state: 'attached' });
+    await linkComunicaciones.click();
 
     console.log('   -> Esperando botón "Nueva comunicación"...');
     const linkNuevaComu = page.getByRole('link', { name: 'Nueva comunicación' }).first();
@@ -1168,37 +1127,24 @@ export const runJuntaAutomation = async (payload) => {
     });
     await esperar(4000);
 
-    console.log('   -> Pulsando botón FIRMAR...');
-    await fichaFrame3.getByRole('img', { name: 'Firmar' }).click().catch(() => { });
-
-    console.log('   -> Activando Autoclicker Inteligente (923, 536)...');
-    autoClicker.start();
-
-    // Diálogo post-firma/selección
-    page.once('dialog', d => {
-      console.log(`   [!] Diálogo post-firma: ${d.message()}`);
-      d.dismiss().catch(() => { });
+    console.log('   -> Pulsando Presentar...');
+    await fichaFrame3.getByRole('img', { name: 'Presentar' }).click().catch(() => {
+      return page.getByRole('img', { name: 'Presentar' }).click().catch(() => { });
     });
+    await esperar(3000);
 
-    console.log('   -> Seleccionando certificado/opción post-firma...');
-    await fichaFrame3.getByRole('listitem').nth(1).click().catch(() => { });
-
-    // --- RESPALDO MANUAL (Comentado tras grabación exitosa) ---
-    /*
     console.log('🛑 PARADA: Verificar antes de presentar. Pulsa "Resume" en Playwright Inspector para continuar.');
     await page.pause(); 
-    */
 
-    console.log('   -> Pulsando botón PRESENTAR final...');
-    await page.getByRole('img', { name: 'Presentar' }).click().catch(() => {
-      return fichaFrame3.getByRole('img', { name: 'Presentar' }).click().catch(() => { });
+    // Segundo clic en Presentar (confirmación)
+    console.log('   -> Confirmando Presentar...');
+    await fichaFrame3.getByRole('img', { name: 'Presentar' }).click().catch(() => {
+      return page.getByRole('img', { name: 'Presentar' }).click().catch(() => { });
     });
 
-    console.log('✅ PROCESO COMPLETADO. Asegurando parada de autoclicker...');
-    autoClicker.stop();
+    console.log('✅ PROCESO COMPLETADO.');
   } catch (error) {
     console.error('❌ Error General:', error.message);
-    autoClicker.stop();
     console.log('🛑 ERROR DETECTADO: El navegador permanecerá abierto para inspección.');
     console.log('   Pausa el Inspector de Playwright para ver el estado antes de que el proceso termine.');
     // await page.pause(); // Eliminado para automatización total

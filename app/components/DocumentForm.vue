@@ -101,9 +101,16 @@
                             class="file-input-hidden" @change="handleFileUpload($event, field.name)" />
                           <div v-if="formData[field.name]" class="file-preview">
                             <p class="file-preview-text">✓ Archivo seleccionado:</p>
-                            <img v-if="field.accept?.includes('image')" :src="formData[field.name]"
+                            <img v-if="formData[field.name]?.startsWith('data:image/')" :src="formData[field.name]"
                               class="file-preview-image" />
-                            <p v-else class="file-preview-name">{{ extractFileName(formData[field.name]) }}</p>
+                            <p v-else class="file-preview-name">{{ extractFileName(formData[field.name]) || 'Documento PDF cargado' }}</p>
+                            <button type="button" class="btn-remove-file" @click.stop="removeFile(field.name)" title="Quitar archivo">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                              </svg>
+                              <span>Quitar</span>
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -466,6 +473,11 @@ const handleFileUpload = async (event, fieldName) => {
       console.error('[DocumentForm] Error al comprimir imagen:', error)
     }
   }
+}
+
+const removeFile = (fieldName) => {
+  formData.value[fieldName] = ''
+  saveImageToStorage(fieldName, null)
 }
 
 const extractFileName = (dataUrl) => {
@@ -1050,6 +1062,27 @@ function getSubsectionLabel(subsection) {
   margin: 0;
   word-break: break-all;
   font-family: 'Courier New', monospace;
+}
+
+.btn-remove-file {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+  padding: 4px 8px;
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-remove-file:hover {
+  background-color: #fecaca;
+  color: #991b1b;
 }
 
 .checkbox-wrapper {
