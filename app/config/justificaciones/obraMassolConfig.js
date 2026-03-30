@@ -14,7 +14,8 @@ export const obraMassolConfig = {
     { name: 'diaFirma', label: 'Día Firma', type: 'text' },
     { name: 'mesFirma', label: 'Mes Firma', type: 'text' },
     { name: 'anioFirma', label: 'Año Firma', type: 'text' },
-    { name: 'firma', label: 'Imagen de Firma', type: 'image' }
+    { name: 'firma', label: 'Imagen de Firma', type: 'image' },
+    { name: 'aerotermia', label: 'Incluir sección de Aerotermia', type: 'checkbox' }
   ],
   defaultData: {
     potenciaInstalacion: '',
@@ -26,7 +27,8 @@ export const obraMassolConfig = {
     diaFirma: '',
     mesFirma: '',
     anioFirma: '',
-    firma: ''
+    firma: '',
+    aerotermia: false
   },
   fieldMapping: {
     potenciaInstalacion: 'e2_potenciaNominalInversores',
@@ -38,7 +40,8 @@ export const obraMassolConfig = {
     diaFirma: 'diaFirmaJustificacion',
     mesFirma: 'mesFirmaJustificacion',
     anioFirma: 'anioFirmaJustificacion',
-    firma: 'firma'
+    firma: 'firma',
+    aerotermia: 'aerotermia'
   },
   capabilities: {
     canPreview: true,
