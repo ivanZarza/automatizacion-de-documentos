@@ -26,16 +26,15 @@
           <p class="texto-declaracion">
             La instalación fotovoltaica de
             <span class="texto-rojo">{{ potenciaInstalacion }}kW</span> para
-            autoconsumo individual con excedida a compensación que se ejecuta en
-            la vivienda situada en
-            <span class="texto-rojo">{{ direccionCompleta }}</span
-            >, cuya referencia catastral es:
-            <span class="texto-rojo">{{ referenciaCatastral }}</span>
+            autoconsumo individual con excedida a compensación
+          <div v-if="aerotermia"> sustitucion del equiupo de ACS por aerotermia</div> que se ejecuta en
+          la vivienda situada en
+          <span class="texto-rojo">{{ direccionCompleta }}</span>, cuya referencia catastral es:
+          <span class="texto-rojo">{{ referenciaCatastral }}</span>
           </p>
           <p class="texto-subrayado">
             Se inició y finalizó el día
-            <span class="texto-rojo">{{ diaInicio }} de {{ mesInicio }} de {{ anioInicio }}</span
-            >.
+            <span class="texto-rojo">{{ diaInicio }} de {{ mesInicio }} de {{ anioInicio }}</span>.
           </p>
         </div>
         <p class="parrafo-lugar-fecha">
@@ -79,6 +78,7 @@ defineProps({
   mesFirma: String,
   anioFirma: String,
   firma: String,
+  aerotermia: String,
 });
 </script>
 
@@ -289,7 +289,7 @@ defineProps({
     background: white !important;
   }
 
-  div[data-pdf-content] > div {
+  div[data-pdf-content]>div {
     height: auto !important;
   }
 
