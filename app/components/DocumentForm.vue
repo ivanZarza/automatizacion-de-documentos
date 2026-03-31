@@ -731,6 +731,7 @@ async function handleLaunchAutomation() {
       telefono: form.telefono_presentador,
       movil: form.movil_presentador,
       email: form.email_presentador,
+      ps_distribuidora: form.ps_distribuidora,
 
       conRepresentante: form.con_representante_legal,
       representante: {

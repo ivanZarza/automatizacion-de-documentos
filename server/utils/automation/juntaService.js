@@ -4,7 +4,7 @@ import path from 'path'
 import fs from 'fs'
 import os from 'os'
 import { fileURLToPath } from 'url'
-import { distribuidoraOptions } from '../../../app/config/distribuidoraOptions.js'
+import { distribuidoraOptions } from './distribuidoraOptions.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -962,7 +962,10 @@ export const runJuntaAutomation = async (payload) => {
     await fichaFrame2.getByRole('img', { name: 'Adjuntar Documento' }).first().waitFor({ state: 'visible' });
 
     // Helper local robusto para subir un documento con popup buscando por prefijo
-    const subirDocConPopup = async (abrirLocator, prefijo) => {
+    const subirDocConPopup = async (prefijo, index = null, locatorString = null) => {
+      // Re-adquirir el iframe en cada llamada para evitar errores de "stale element"
+      const currentFicha = page.locator('#ficha').contentFrame();
+      
       // Prioridad: Buscar primero en tempDocsDir (archivos del formulario)
       let rutaAbsoluta = '';
       const buscarEn = (dir) => {
@@ -987,13 +990,22 @@ export const runJuntaAutomation = async (payload) => {
 
       console.log(`   -> Adjuntando (prefijo ${prefijo}): ${path.basename(rutaAbsoluta)}`);
 
+      let targetLocator;
+      if (locatorString) {
+        targetLocator = currentFicha.locator(locatorString);
+      } else {
+        targetLocator = currentFicha.getByRole('img', { name: 'Adjuntar Documento' }).nth(index);
+      }
+
       const popupPromise = context.waitForEvent('page', { timeout: 60000 });
-      await (typeof abrirLocator === 'string' ? fichaFrame2.locator(abrirLocator) : abrirLocator).click();
+      await targetLocator.click().catch(async () => {
+        console.log(`      [!] Click normal falló, intentando dispatchEvent para ${prefijo}...`);
+        await targetLocator.evaluate(n => n.dispatchEvent(new Event('click', { bubbles: true })));
+      });
 
       const popup = await popupPromise.catch(async () => {
-        console.log(`      [!] Timeout popup ${prefijo}, reintentando con dispatch...`);
-        const loc = (typeof abrirLocator === 'string' ? fichaFrame2.locator(abrirLocator) : abrirLocator);
-        await loc.evaluate(n => n.dispatchEvent(new Event('click', { bubbles: true })));
+        console.log(`      [!] Timeout popup ${prefijo}, reintentando intervención directa...`);
+        await targetLocator.evaluate(n => n.dispatchEvent(new Event('click', { bubbles: true })));
         return context.waitForEvent('page', { timeout: 30000 }).catch(() => null);
       });
 
@@ -1001,6 +1013,9 @@ export const runJuntaAutomation = async (payload) => {
         console.log(`      [!] No se pudo abrir el popup para el prefijo ${prefijo}`);
         return;
       }
+
+      // Esperar a que el popup cargue realmente
+      await popup.waitForLoadState('load');
 
       // Esperar a que el botón Choose File aparezca (confirma que el popup cargó)
       const btnChoose = popup.getByRole('button', { name: /Choose File|Seleccionar archivo/i });
@@ -1015,47 +1030,39 @@ export const runJuntaAutomation = async (payload) => {
       const fileChooser = await fileChooserPromise;
       await fileChooser.setFiles(rutaAbsoluta);
 
-      // Esperar 3s después de cargar el archivo
-      console.log('      ...esperando proceso de carga del archivo (3s)...');
-      await esperar(3000);
+      // [ESFUERZO ROBUSTEZ] Esperar 5s (antes 3s) para que el portal procese el PDF
+      console.log('      ...esperando proceso de carga del archivo (5s)...');
+      await esperar(5000);
 
-      // Esperar a que el botón Guardar esté activo (confirma que el archivo se procesó)
+      // Esperar a que el botón Guardar esté activo
       const btnGuardar = popup.getByRole('img', { name: 'Guardar' });
       await btnGuardar.waitFor({ state: 'visible' });
       await btnGuardar.click();
+
+      // Esperar a que la red se calme (indicativo de que ha terminado de subir)
+      await popup.waitForLoadState('networkidle').catch(() => { });
 
       // Esperar 3s tras guardar el documento
       console.log('      ...esperando guardado del adjunto (3s)...');
       await esperar(3000);
 
-      // Esperar a que el popup cierre o se vacíe
-      await popup.waitForEvent('close').catch(async () => {
-        await btnGuardar.waitFor({ state: 'hidden' }).catch(() => { });
-        if (!popup.isClosed()) await popup.close().catch(() => { });
-      });
+      // Asegurar cierre del popup
+      if (!popup.isClosed()) await popup.close().catch(() => { });
 
-      // Esperar a que el iframe principal se actualice
+      // Esperar a que el iframe principal se refresque tras el upload
       await esperar(3000);
-      await fichaFrame2.getByRole('img', { name: 'Adjuntar Documento' }).first().waitFor({ state: 'visible' }).catch(() => { });
+      const refreshFicha = page.locator('#ficha').contentFrame();
+      await refreshFicha.getByRole('img', { name: 'Adjuntar Documento' }).first().waitFor({ state: 'visible' }).catch(() => { });
     };
 
     // DOC 1: Autorización de Representación
-    await subirDocConPopup(
-      fichaFrame2.getByRole('img', { name: 'Adjuntar Documento' }).nth(3),
-      '1.-'
-    );
+    await subirDocConPopup('1.-', 3);
 
     // DOC 2 (o el que corresponda al segundo): Buscando por prefijo "2.-"
-    await subirDocConPopup(
-      fichaFrame2.getByRole('img', { name: 'Adjuntar Documento' }).nth(4),
-      '2.-'
-    );
+    await subirDocConPopup('2.-', 4);
 
     // DOC 3: Certificado de solidez — Buscando por prefijo "7.-"
-    await subirDocConPopup(
-      fichaFrame2.locator('li:nth-child(8) > .bloqueGrupo > .elemento_checkbox > img'),
-      '7.-'
-    );
+    await subirDocConPopup('7.-', null, 'li:nth-child(8) > .bloqueGrupo > .elemento_checkbox > img');
 
     // ==========================================
     // [SECCIÓN 5] PUNTO DE SUMINISTRO (Popup Nuevo Usuario)
