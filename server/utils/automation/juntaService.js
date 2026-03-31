@@ -963,11 +963,12 @@ export const runJuntaAutomation = async (payload) => {
 
     // Helper local robusto para subir un documento con popup buscando por prefijo
     const subirDocConPopup = async (prefijo, index = null, locatorString = null) => {
-      // Re-adquirir el iframe en cada llamada para evitar errores de "stale element"
+      // Re-adquirir el iframe
       const currentFicha = page.locator('#ficha').contentFrame();
       
-      // Prioridad: Buscar primero en tempDocsDir (archivos del formulario)
       let rutaAbsoluta = '';
+      let origen = '';
+      
       const buscarEn = (dir) => {
         if (!fs.existsSync(dir)) return null;
         const archivos = fs.readdirSync(dir);
@@ -975,20 +976,23 @@ export const runJuntaAutomation = async (payload) => {
         return match ? path.join(dir, match) : null;
       };
 
+      // 1. Prioridad: Formulario
       rutaAbsoluta = buscarEn(tempDocsDir);
+      if (rutaAbsoluta) origen = 'FORMULARIO';
 
+      // 2. Fallback: Carpeta Cliente
       if (!rutaAbsoluta) {
-        // Fallback: Buscar en la carpeta del cliente (comportamiento antiguo)
         const dirCliente = path.join(process.cwd(), carpetaCliente);
         rutaAbsoluta = buscarEn(dirCliente);
+        if (rutaAbsoluta) origen = 'CARPETA CLIENTE';
       }
 
       if (!rutaAbsoluta) {
-        console.log(`   [!] No hay archivo que empiece por "${prefijo}" en las rutas configuradas.`);
+        console.log(`   [!] No hay archivo que empiece por "${prefijo}" en ninguna ruta.`);
         return;
       }
 
-      console.log(`   -> Adjuntando (prefijo ${prefijo}): ${path.basename(rutaAbsoluta)}`);
+      console.log(`   -> Adjuntando (prefijo ${prefijo}) [ORIGEN: ${origen}]: ${path.basename(rutaAbsoluta)}`);
 
       let targetLocator;
       if (locatorString) {
@@ -997,62 +1001,53 @@ export const runJuntaAutomation = async (payload) => {
         targetLocator = currentFicha.getByRole('img', { name: 'Adjuntar Documento' }).nth(index);
       }
 
+      // Esperar a que el icono sea visible (Sincronización con main.js)
+      await targetLocator.waitFor({ state: 'visible', timeout: 15000 }).catch(() => {
+        console.log(`      [!] Aviso: El icono de adjuntar para ${prefijo} no parece visible.`);
+      });
+
       const popupPromise = context.waitForEvent('page', { timeout: 60000 });
+      
+      // Click robusto como en main.js
       await targetLocator.click().catch(async () => {
-        console.log(`      [!] Click normal falló, intentando dispatchEvent para ${prefijo}...`);
+        console.log(`      [!] Click fallido en ${prefijo}, reintentando con dispatch...`);
         await targetLocator.evaluate(n => n.dispatchEvent(new Event('click', { bubbles: true })));
       });
 
-      const popup = await popupPromise.catch(async () => {
-        console.log(`      [!] Timeout popup ${prefijo}, reintentando intervención directa...`);
-        await targetLocator.evaluate(n => n.dispatchEvent(new Event('click', { bubbles: true })));
-        return context.waitForEvent('page', { timeout: 30000 }).catch(() => null);
-      });
-
+      const popup = await popupPromise.catch(() => null);
       if (!popup) {
-        console.log(`      [!] No se pudo abrir el popup para el prefijo ${prefijo}`);
+        console.log(`   [!] No se pudo abrir el popup para ${prefijo}`);
         return;
       }
 
-      // Esperar a que el popup cargue realmente
       await popup.waitForLoadState('load');
-
-      // Esperar a que el botón Choose File aparezca (confirma que el popup cargó)
+      
       const btnChoose = popup.getByRole('button', { name: /Choose File|Seleccionar archivo/i });
       await btnChoose.waitFor({ state: 'visible' });
 
-      // Capturar diálogos en el popup
-      popup.on('dialog', d => { console.log(`   [DIÁLOGO popup] ${d.message()}`); d.accept().catch(() => { }); });
+      popup.on('dialog', d => { d.accept().catch(() => { }); });
 
-      // Seleccionar archivo via file chooser
       const fileChooserPromise = popup.waitForEvent('filechooser');
       await btnChoose.click();
       const fileChooser = await fileChooserPromise;
       await fileChooser.setFiles(rutaAbsoluta);
 
-      // [ESFUERZO ROBUSTEZ] Esperar 5s (antes 3s) para que el portal procese el PDF
-      console.log('      ...esperando proceso de carga del archivo (5s)...');
-      await esperar(5000);
+      console.log('      ...esperando carga (8s)...');
+      await esperar(8000);
 
-      // Esperar a que el botón Guardar esté activo
       const btnGuardar = popup.getByRole('img', { name: 'Guardar' });
       await btnGuardar.waitFor({ state: 'visible' });
       await btnGuardar.click();
 
-      // Esperar a que la red se calme (indicativo de que ha terminado de subir)
-      await popup.waitForLoadState('networkidle').catch(() => { });
-
-      // Esperar 3s tras guardar el documento
-      console.log('      ...esperando guardado del adjunto (3s)...');
-      await esperar(3000);
-
-      // Asegurar cierre del popup
+      // Espera de guardado post-popup (Sincronización con main.js)
+      console.log('      ...esperando guardado post-popup (5s)...');
+      await esperar(5000);
       if (!popup.isClosed()) await popup.close().catch(() => { });
 
-      // Esperar a que el iframe principal se refresque tras el upload
+      // IMPORTANTE: Esperar a que el iframe se actualice y el primer botón vuelva a ser visible
       await esperar(3000);
-      const refreshFicha = page.locator('#ficha').contentFrame();
-      await refreshFicha.getByRole('img', { name: 'Adjuntar Documento' }).first().waitFor({ state: 'visible' }).catch(() => { });
+      const fichaFinal = page.locator('#ficha').contentFrame();
+      await fichaFinal.getByRole('img', { name: 'Adjuntar Documento' }).first().waitFor({ state: 'visible' }).catch(() => { });
     };
 
     // DOC 1: Autorización de Representación
