@@ -11,25 +11,17 @@ Sistema modular y escalable para generar documentos PDF dinámicos con formulari
 ✅ **Documentación Exhaustiva** - 4000+ líneas de documentación  
 ✅ **Production-Ready** - Zero errors, tested and verified  
 
----
+## 📚 DOCUMENTACIÓN (¡EMPEZAR AQUÍ!)
 
-## 📚 📚 DOCUMENTACIÓN (¡EMPEZAR AQUÍ!)
+Para entender la arquitectura, el funcionamiento del robot y cómo añadir nuevos documentos, dirígete al **Índice Maestro**:
 
-### 🎯 Punto de entrada recomendado
-**[📍 INDICE_MAESTRO.md](./documentacion/INDICE_MAESTRO.md)** - Hub central con toda la navegación
+👉 **[📍 documentacion/00_INDICE_MAESTRO.md](./documentacion/00_INDICE_MAESTRO.md)**
 
-### ✅ Guías Prácticas (Para usuarios)
-- **[CHECKLIST_NUEVO_DOCUMENTO.md](./documentacion/CHECKLIST_NUEVO_DOCUMENTO.md)** � - Paso a paso para agregar documentos
-- **[GUIA_FORMULARIO_MAESTRO.md](./documentacion/GUIA_FORMULARIO_MAESTRO.md)** � - Cómo usar el formulario maestro
-- **[TROUBLESHOOTING_ACTUALIZADO.md](./documentacion/TROUBLESHOOTING_ACTUALIZADO.md)** � - Resolución de problemas
-
-### 🔍 Referencias Técnicas (Para arquitectos)
-- **[REFERENCIA_DOCUMENTOS.md](./documentacion/REFERENCIA_DOCUMENTOS.md)** 📚 - Catálogo de 10 documentos
-- **[ARQUITECTURA_PINIA.md](./documentacion/ARQUITECTURA_PINIA.md)** 🏛️ - Sistema de estado
-- **[AUDITORIA_DOCUMENTACION.md](./documentacion/AUDITORIA_DOCUMENTACION.md)** 📊 - Auditoría completa
-
-### � Componentes & API
-- **[documentacion/](./documentacion/)** - Documentación de componentes individuales
+Aquí encontrarás:
+- 🤖 **Manual del Robot**: Arquitectura y multisistema (Windows/Linux).
+- 🧩 **Componentes**: Guías de `DocumentForm.vue`, `DocumentModal.md`, etc.
+- 🛠️ **Guías Técnicas**: Configuración de Pinia, despliegue en Windows y mapeos de datos.
+- 📜 **Historial**: Resúmenes de sesiones anteriores y estado de traspaso.
 
 ---
 

@@ -1,9 +1,15 @@
-=== INICIO LOG 2026-03-30T13:54:58.003Z ===
-[log] Hora cliente: Mon Mar 30 2026 15:54:58 GMT+0200 (hora de verano de Europa central)
-[log] Hora servidor: Mon Mar 30 2026 15:54:58 GMT+0200 (hora de verano de Europa central)
-[log] Hora cliente: Mon Mar 30 2026 15:55:04 GMT+0200 (hora de verano de Europa central)
-[log] Hora servidor: Mon Mar 30 2026 15:54:58 GMT+0200 (hora de verano de Europa central)
-[info] Launched external handler for 'afirma://websocket?v=3&idsession=fDgdlZG3t1Yx4jSU5zR6'.
+=== INICIO LOG 2026-03-31T05:41:32.169Z ===
+[log] Hora cliente: Tue Mar 31 2026 07:41:32 GMT+0200 (hora de verano de Europa central)
+[log] Hora servidor: Tue Mar 31 2026 07:41:32 GMT+0200 (hora de verano de Europa central)
+[log] Hora cliente: Tue Mar 31 2026 07:41:41 GMT+0200 (hora de verano de Europa central)
+[log] Hora servidor: Tue Mar 31 2026 07:41:32 GMT+0200 (hora de verano de Europa central)
+[log] Creamos el cliente para el socket
+[error] WebSocket connection to 'wss://127.0.0.1:63117/' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[log] Se cierra el socket
+[info] Launched external handler for 'afirma://websocket?v=3&idsession=zdiNK4t6AOJXpYooHrtU'.
+[log] Creamos el cliente para el socket
+[error] WebSocket connection to 'wss://127.0.0.1:63117/' failed: Error in connection establishment: net::ERR_CONNECTION_REFUSED
+[log] Se cierra el socket
 [log] Creamos el cliente para el socket
 [log] Se abre el socket
 [log] Enviamos el mensaje al socket
@@ -11,37 +17,3 @@
 [log] Respuesta obtenida de la operacion enviada
 [CRASH] Cannot read properties of null (reading 'value')
 [error] Failed to load resource: the server responded with a status of 404 (Not Found)
-[CRASH] Cannot read properties of undefined (reading 'codigoInst')
-[CRASH] Cannot read properties of null (reading 'style')
-[CRASH] Cannot read properties of undefined (reading 'codigoInst')
-[CRASH] Cannot read properties of undefined (reading 'codigoInst')
-[CRASH] Cannot read properties of undefined (reading 'codigoInst')
-[CRASH] Cannot read properties of undefined (reading 'codigoInst')
-[CRASH] Cannot read properties of undefined (reading 'codigoInst')
-[CRASH] Cannot read properties of undefined (reading 'codigoInst')
-[log] TypeError: this._embedder.__pw_recorderState is not a function
-    at PollingRecorder._pollRecorderMode (eval at extend (:7007:40), <anonymous>:1673:40)
-    at refreshOverlay (eval at extend (:7007:40), <anonymous>:1664:12)
-    at new PollingRecorder (eval at extend (:7007:40), <anonymous>:1667:5)
-    at InjectedScript.extend (<anonymous>:7013:12)
-    at eval (eval at evaluate (:290:30), <anonymous>:2:22)
-    at UtilityScript.evaluate (<anonymous>:292:16)
-    at UtilityScript.<anonymous> (<anonymous>:1:44)
-[log] TypeError: this._embedder.__pw_recorderState is not a function
-    at PollingRecorder._pollRecorderMode (eval at extend (:7007:40), <anonymous>:1673:40)
-    at refreshOverlay (eval at extend (:7007:40), <anonymous>:1664:12)
-    at eval (eval at evaluate (:290:30), <anonymous>:1:8)
-    at eval (<anonymous>)
-    at UtilityScript.evaluate (<anonymous>:290:30)
-    at UtilityScript.<anonymous> (<anonymous>:1:44)
-[log] Hora cliente: Mon Mar 30 2026 16:09:15 GMT+0200 (hora de verano de Europa central)
-[log] Hora servidor: Mon Mar 30 2026 16:09:15 GMT+0200 (hora de verano de Europa central)
-[info] Launched external handler for 'afirma://websocket?v=3&idsession=uR2l8y7aVDX6chwQ3s0A'.
-[log] Creamos el cliente para el socket
-[log] Se abre el socket
-[log] Enviamos el mensaje al socket
-[log] Respuesta de la peticion de eco
-[log] Respuesta obtenida de la operacion enviada
-[log] Enviamos el mensaje al socket abierto
-[log] Respuesta de la peticion de eco
-[log] Respuesta obtenida de la operacion enviada

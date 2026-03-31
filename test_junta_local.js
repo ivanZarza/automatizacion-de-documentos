@@ -54,6 +54,7 @@ const mockData = {
   empresa_instaladora_doc_tipo: 'CIF',
   empresa_instaladora_doc: 'B09848912',
   empresa_distribuidora: 'endesa',
+  ps_distribuidora: '160',
   apellidosNombre: 'Ivan Zarza Estevez'
 }
 
@@ -85,6 +86,7 @@ const robotPayload = {
     telefono: form.telefono_presentador,
     movil: form.movil_presentador,
     email: form.email_presentador,
+    ps_distribuidora: form.ps_distribuidora,
 
     conRepresentante: form.con_representante_legal,
     representante: {

@@ -1,6 +1,7 @@
 import { group } from "@nuxt/content/preview"
 import { cnaeOptions } from "./cnaeOptions"
 import { tipoViaOptions } from "./tipoViaOptions"
+import { distribuidoraOptions } from "./distribuidoraOptions"
 
 export const masterFormFields = [
   // ========== SECCIÓN A ==========
@@ -471,8 +472,8 @@ export const masterFormFields = [
   { name: 'poblacion_presentador', label: 'Población', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)', mapFrom: 'localidadEmplazamiento' },
   { name: 'cp_presentador', label: 'Código Postal', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)', mapFrom: 'codigoPostalEmplazamiento' },
   { name: 'telefono_presentador', label: 'Teléfono Fijo', type: 'tel', subsection: 'PRESENTACIÓN', group: 'Contacto (Robot)' },
-  { name: 'movil_presentador', label: 'Móvil', type: 'tel', subsection: 'PRESENTACIÓN', group: 'Contacto (Robot)' },
-  { name: 'email_presentador', label: 'Email', type: 'email', subsection: 'PRESENTACIÓN', group: 'Contacto (Robot)' },
+  { name: 'movil_presentador', label: 'Móvil', type: 'tel', subsection: 'PRESENTACIÓN', group: 'Contacto (Robot)', mapFrom: 'telefono' },
+  { name: 'email_presentador', label: 'Email', type: 'email', subsection: 'PRESENTACIÓN', group: 'Contacto (Robot)', mapFrom: 'correoElectronicoEmplazamiento' },
 
   { name: 'con_representante_legal', label: '¿Tiene Representante Legal?', type: 'checkbox', subsection: 'PRESENTACIÓN', group: 'Representante Legal (Robot)' },
   { name: 'rep_leg_tipo_documento', label: 'Tipo Documento (R.Leg.)', type: 'select', subsection: 'PRESENTACIÓN', group: 'Representante Legal (Robot)', value: 'NIF', options: ['NIF', 'NIE', 'CIF'] },
@@ -505,7 +506,15 @@ export const masterFormFields = [
   { name: 'potencia_acumulacion', label: 'Potencia Acumulación (kW)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'e2_potenciaMaximaSalida' },
   { name: 'energia_almacenada', label: 'Energía Máx. Almacenada (kWh)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'e2_energiaTotal' },
   { name: 'uso_instalacion', label: 'Uso de la instalación', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'produccion energia electrica', options: [{ value: 'produccion energia electrica', label: 'Producción de Energía Eléctrica' }] },
-  { name: 'empresa_distribuidora', label: 'Empresa Distribuidora', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'empresaDistribuidora' },
+  {
+    name: 'ps_distribuidora',
+    label: 'Empresa Distribuidora (Oficial)',
+    type: 'select',
+    options: distribuidoraOptions,
+    subsection: 'PRESENTACIÓN',
+    group: 'Instalación (Robot)',
+    mapFrom: 'empresa_distribuidora'
+  },
   { name: 'nombre_empresa_instaladora', label: 'Nombre Empresa Instaladora', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'Solay Ingenieros s.l.' },
   { name: 'empresa_instaladora_doc_tipo', label: 'Tipo Doc. Empresa', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'CIF', options: ['CIF', 'NIF', 'NIE'] },
   { name: 'empresa_instaladora_doc', label: 'Nº Doc. Empresa', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'B09848912' },

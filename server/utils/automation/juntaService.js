@@ -4,6 +4,7 @@ import path from 'path'
 import fs from 'fs'
 import os from 'os'
 import { fileURLToPath } from 'url'
+import { distribuidoraOptions } from '../../../app/config/distribuidoraOptions.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -13,6 +14,8 @@ const PROVINCIAS = {
   'Almeria': '04', 'Cadiz': '11', 'Cordoba': '14', 'Granada': '18',
   'Huelva': '21', 'Jaen': '23', 'Malaga': '29', 'Sevilla': '41',
 };
+
+const isWindows = os.platform() === 'win32';
 
 /**
  * Servicio de automatización para la Junta de Andalucía.
@@ -351,11 +354,19 @@ export const runJuntaAutomation = async (payload) => {
       try {
         const botonCertificado = page.locator('#acceso-2').getByTitle('Acceso con certificado digital');
         await botonCertificado.waitFor({ state: 'visible', timeout: 5000 });
-        
+
         console.log('   -> Activando Autoclicker Inteligente para Login...');
         autoClicker.start();
 
         await botonCertificado.click();
+
+        // En Linux/macOS, pausar para permitir selección manual de certificado
+        if (!isWindows) {
+          console.log('\n🛑 SISTEMA NO-WINDOWS: Pausando para selección manual de certificado.');
+          console.log('   Una vez hayas entrado en la Oficina Virtual, pulsa Resume en el Inspector.');
+          await page.pause();
+        }
+
         await esperar(3000);
 
         // --- RESPALDO MANUAL (Comentado por Autoclicker Inteligente) ---
@@ -370,16 +381,16 @@ export const runJuntaAutomation = async (payload) => {
 
         console.log('   -> Esperando carga de página post-firma...');
         // Esperamos a que la página cambie (éxito de firma)
-        await page.waitForLoadState('load', { timeout: 30000 }).catch(() => {});
+        await page.waitForLoadState('load', { timeout: 30000 }).catch(() => { });
         await esperar(5000);
-        
+
         console.log('✅ LOGIN COMPLETADO. Asegurando parada de autoclicker...');
         autoClicker.stop();
-        
+
         console.log('🔍 [DIAGNÓSTICO] Verificando si aparece el modal de Bienvenida...');
         const botonAceptarModal = page.getByRole('button', { name: /ACEPTAR/i });
         const visible = await botonAceptarModal.isVisible({ timeout: 5000 }).catch(() => false);
-        
+
         if (visible) {
           console.log('   [v] Modal detectado. Pulsando ACEPTAR...');
           await botonAceptarModal.click();
@@ -395,7 +406,7 @@ export const runJuntaAutomation = async (payload) => {
     }
 
     console.log('   -> Continuando con los pasos capturados...');
-    
+
     // Verificación final del estado antes de Comunicaciones
     const title = await page.title().catch(() => 'N/A');
     console.log(`🔍 [DIAGNÓSTICO] Título actual de la página: "${title}"`);
@@ -412,15 +423,15 @@ export const runJuntaAutomation = async (payload) => {
     console.log('   -> Esperando enlace "Acceso a Comunicaciones"...');
     const linkComunicaciones = page.getByRole('link', { name: /Acceso a Comunicaciones/i }).first();
     await linkComunicaciones.waitFor({ state: 'attached', timeout: 15000 }).catch(() => {
-       console.log('   [!] Advertencia: "Acceso a Comunicaciones" no apareció tras 15s.');
+      console.log('   [!] Advertencia: "Acceso a Comunicaciones" no apareció tras 15s.');
     });
-    
+
     if (await linkComunicaciones.isVisible()) {
-       console.log('🔍 [DIAGNÓSTICO] Enlace "Acceso a Comunicaciones" DETECTADO. Pulsando...');
-       await linkComunicaciones.click();
+      console.log('🔍 [DIAGNÓSTICO] Enlace "Acceso a Comunicaciones" DETECTADO. Pulsando...');
+      await linkComunicaciones.click();
     } else {
-       console.log('🔍 [DIAGNÓSTICO] Enlace "Acceso a Comunicaciones" NO VISIBLE. Intentando click forzado...');
-       await linkComunicaciones.click({ force: true }).catch(() => {});
+      console.log('🔍 [DIAGNÓSTICO] Enlace "Acceso a Comunicaciones" NO VISIBLE. Intentando click forzado...');
+      await linkComunicaciones.click({ force: true }).catch(() => { });
     }
 
     console.log('   -> Esperando botón "Nueva comunicación"...');
@@ -905,7 +916,12 @@ export const runJuntaAutomation = async (payload) => {
     await esperar(3000);
     await rellenar(fichaFrame.getByRole('textbox', { name: 'Debe introducir un NIF/CIF/' }), datos.fichaTecnica.empresaInstaladoraDoc);
     await esperar(3000);
-    await rellenar(fichaFrame.getByRole('textbox', { name: 'Debe introducir el nombre de la empresa distribuidora' }), datos.fichaTecnica.empresaDistribuidora);
+    // Resolver el nombre de la distribuidora a partir del código (ps_distribuidora)
+    const distId = datos.ps_distribuidora || '';
+    const distOption = distribuidoraOptions.find(o => o.value === distId);
+    const nombreDistribuidora = distOption ? distOption.label : (datos.fichaTecnica.empresaDistribuidora || '');
+
+    await rellenar(fichaFrame.getByRole('textbox', { name: 'Debe introducir el nombre de la empresa distribuidora' }), nombreDistribuidora);
     await esperar(3000);
 
     // ✅ RADIO TIPO INSTALACIÓN (capturado por codegen 19/03/2026)
@@ -921,7 +937,11 @@ export const runJuntaAutomation = async (payload) => {
     // *** PARADA: AutoFirma puede pedir firma al guardar la ficha ***
     console.log('\n🛑 PARADA: Si AutoFirma pide que firmes la ficha, hazlo ahora.');
     console.log('   Cuando hayas terminado de guardar y la web se refresque, pulsa Resume.');
-    //await page.pause();
+
+    // Pausa obligatoria en Linux para firmar con AutoFirma
+    if (!isWindows) {
+      await page.pause();
+    }
 
     // Esperar mucho más tras guardar la ficha como pidió el usuario
     console.log('   -> Esperando procesamiento del guardado (10s)...');
@@ -1140,6 +1160,14 @@ export const runJuntaAutomation = async (payload) => {
       el.dispatchEvent(new Event('change', { bubbles: true }));
       el.dispatchEvent(new Event('blur', { bubbles: true }));
     }, datos.fichaTecnica.cups).catch(() => { });
+
+    // Seleccionar distribuidora en el popup (usando el ID numérico si existe)
+    if (datos.ps_distribuidora) {
+      console.log(`   -> Seleccionando distribuidora en popup (ID: ${datos.ps_distribuidora})...`);
+      await seleccionar(popupUser.locator('#ps_distribuidora'), datos.ps_distribuidora).catch(e => {
+        console.log(`      [!] Error seleccionando distribuidora en popup: ${e.message}`);
+      });
+    }
 
     const tensionMapeada = datos.fichaTecnica.tension === '230' ? '0,4' : datos.fichaTecnica.tension;
     await seleccionar(popupUser.locator('#tensionPuntoSuministro'), tensionMapeada);

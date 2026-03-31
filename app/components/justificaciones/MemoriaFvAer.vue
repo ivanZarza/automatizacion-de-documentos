@@ -5,17 +5,9 @@
       <!-- Encabezado con Logos -->
       <div class="encabezado-pagina">
         <div class="logos-grupo">
-          <img
-            src="/logos/iconos-organizaciones.png"
-            alt="Gobierno de España"
-            class="logo"
-            onerror="this.style.display = 'none'"
-          />
-          <img
-            src="/logos/icono-junta-andalucia.png"
-            alt="Junta de Andalucía"
-            class="logo"
-          />
+          <img src="/logos/iconos-organizaciones.png" alt="Gobierno de España" class="logo"
+            onerror="this.style.display = 'none'" />
+          <img src="/logos/icono-junta-andalucia.png" alt="Junta de Andalucía" class="logo" />
         </div>
       </div>
 
@@ -23,19 +15,19 @@
         <!-- Título principal -->
         <h1 class="titulo-principal">
           MEMORIA JUSTIFICATIVA DE LA ACTUACIÓN PARA LA MEJORA DE LA EFICIENCIA
-          ENERGÉTICA EN <span class="texto-verde">{{ tipoEdificio }}</span
-          >EN LA COMUNIDAD AUTÓNOMA DE ANDALUCÍA ({{l3l4}})
+          ENERGÉTICA EN <span class="texto-verde">{{ tipoEdificio }}</span>EN LA COMUNIDAD AUTÓNOMA DE ANDALUCÍA
+          ({{ l3l4 }})
         </h1>
 
         <!-- Datos Iniciales -->
         <div class="datos-iniciales">
           <p>
             <span class="etiqueta">EXPEDIENTE:</span>
-            <span >{{ expedienteEco }}</span>
+            <span>{{ expedienteEco }}</span>
           </p>
           <p>
             <span class="etiqueta">NIF:</span>
-            <span >{{ nif }}</span>
+            <span>{{ nif }}</span>
           </p>
           <p>
             <span class="etiqueta">AGENTE GESTOR:</span> SOLAY INGENIEROS S.L.
@@ -43,16 +35,12 @@
           <p><span class="etiqueta">NIF AGENTE GESTOR:</span>B09848912</p>
           <p>
             <span class="etiqueta">DOMICILIO Y LOCALIDAD DE LA ACTUACIÓN:</span>
-            <span >{{ domicilio }}</span>
+            <span>{{ domicilio }}</span>
           </p>
           <p>
-            <span class="etiqueta"
-              >TÉCNICO REDACTOR, TITULACIÓN Y Nº DE COLEGIADO:</span
-            >
-            <span
-              >Miguel Ángel Rivas Zapata, Ingeniero Industrial, 4671
-              COIIAOC</span
-            >
+            <span class="etiqueta">TÉCNICO REDACTOR, TITULACIÓN Y Nº DE COLEGIADO:</span>
+            <span>Miguel Ángel Rivas Zapata, Ingeniero Industrial, 4671
+              COIIAOC</span>
           </p>
         </div>
 
@@ -67,7 +55,7 @@
             a lo exigido en las bases reguladoras y la resolución de concesión
             de la subvención, otorgada por la Comunidad Autónoma de Andalucía
             para la mejora de la eficiencia energética en edificios en Andalucía
-            ({{l3l4 }}), de acuerdo con lo establecido en el apartado 23.b)1.g)
+            ({{ l3l4 }}), de acuerdo con lo establecido en el apartado 23.b)1.g)
             del cuadro resumen de las bases reguladoras aprobadas por Orden de 9
             de junio de 2022 de la Consejería de Fomento, Articulación del
             Territorio y Vivienda.
@@ -75,9 +63,14 @@
 
           <p class="texto-parrafo">
             <span class="texto-opcional">{{ textoOpcional1 }}</span> mediante la
-            ejecución de una instalación fotovoltaica para autoconsumo.<span v-if="aerotermia" class="textoAerotermia">y montaje y conexionados eléctrico y de tuberías de ACS de una bomba de calor aerotérmica de {{ potenciaBomba }} kW de potencia térmica nominar (Calor) con depósito incorporado de {{ depositoLitros }} litros para la producción de ACS, al tener menos de 5 Kw no es obligatorio registrarla en Industria.</span>
+            ejecución de una instalación fotovoltaica para autoconsumo.<span v-if="aerotermia" class="textoAerotermia">y
+              montaje y conexionados eléctrico y de tuberías de ACS de una bomba de calor aerotérmica de {{
+              potenciaBomba }} kW de potencia térmica nominar (Calor) con depósito incorporado de {{ depositoLitros }}
+              litros para la producción de ACS, al tener menos de 5 Kw no es obligatorio registrarla en
+              Industria.</span>
           </p>
-          <div v-if="aerotermia && caracteristicasAerotermia" class="caracteristicas-aerotermia">{{ caracteristicasAerotermia }}</div>
+          <div v-if="aerotermia && caracteristicasAerotermia" class="caracteristicas-aerotermia">{{
+            caracteristicasAerotermia }}</div>
         </div>
 
         <!-- Sección 2: Fecha de conclusión -->
@@ -90,10 +83,8 @@
           <p class="texto-parrafo">
             Las actuaciones objeto de la subvención se concluyeron completamente
             y conforme a lo indicado en la presente memoria el día
-            <span 
-              >{{ fechaConclusionDia }} de {{ fechaConclusionMes }} de
-              {{ fechaConclusionAnio }}</span
-            >.
+            <span>{{ fechaConclusionDia }} de {{ fechaConclusionMes }} de
+              {{ fechaConclusionAnio }}</span>.
           </p>
         </div>
 
@@ -112,8 +103,7 @@
           <ul class="lista-actividades">
             <li>
               Preparación del soporte de la cubierta
-              <span class="texto-verde">{{ tipoSoporte }}</span
-              >.
+              <span class="texto-verde">{{ tipoSoporte }}</span>.
             </li>
             <li>
               Anclaje de la estructura que soportará los paneles fotovoltaicos.
@@ -129,12 +119,12 @@
           <!-- BLOQUE MORADO 2 -->
 
 
-          <div v-if="aerotermia" >
-            <p class="texto-parrafo" >
+          <div v-if="aerotermia">
+            <p class="texto-parrafo">
               Las actividades realizadas para la ejecución de la bomba
               aerotérmica han consistido en:
             </p>
-            <ul class="lista-actividades" >
+            <ul class="lista-actividades">
               <li>Dimensionamiento de la demanda y selección de equipos.</li>
               <li>Instalación de unidad exterior y depósito de ACS.</li>
               <li>Conexiones hidráulicas, frigoríficas y eléctricas.</li>
@@ -150,17 +140,9 @@
       <!-- Encabezado con Logos -->
       <div class="encabezado-pagina">
         <div class="logos-grupo">
-          <img
-            src="/logos/iconos-organizaciones.png"
-            alt="Gobierno de España"
-            class="logo"
-            onerror="this.style.display = 'none'"
-          />
-          <img
-            src="/logos/icono-junta-andalucia.png"
-            alt="Junta de Andalucía"
-            class="logo"
-          />
+          <img src="/logos/iconos-organizaciones.png" alt="Gobierno de España" class="logo"
+            onerror="this.style.display = 'none'" />
+          <img src="/logos/icono-junta-andalucia.png" alt="Junta de Andalucía" class="logo" />
         </div>
       </div>
 
@@ -171,10 +153,8 @@
           <h3 class="titulo-seccion">El coste final de las actuaciones:</h3>
 
           <p>
-            <span
-              >{{ coincidencia }} Coincide con el coste previsto en la
-              documentación presentada con el Anexo II.</span
-            >
+            <span>{{ coincidencia }} Coincide con el coste previsto en la
+              documentación presentada con el Anexo II.</span>
           </p>
 
           <p class="texto-parrafo">
@@ -192,28 +172,28 @@
             <tbody>
               <tr>
                 <td>ACTUACIONES DE REHABILITACIÓN (SIN RETIRADA DE AMIANTO)</td>
-                <td >{{ importeActuacionesSinIva }}€</td>
-                <td >{{ importeActuacionesConIva }}€</td>
+                <td>{{ importeActuacionesSinIva }}€</td>
+                <td>{{ importeActuacionesConIva }}€</td>
               </tr>
               <tr>
                 <td>HONORARIOS PROFESIONALES</td>
-                <td >0.00€</td>
-                <td >0.00€</td>
+                <td>0.00€</td>
+                <td>0.00€</td>
               </tr>
               <tr>
                 <td>GESTIÓN Y TRAMITACIÓN ADMINISTRATIVA</td>
-                <td >0.00€</td>
-                <td >0.00€</td>
+                <td>0.00€</td>
+                <td>0.00€</td>
               </tr>
               <tr>
                 <td>RETIRADA DE AMIANTO</td>
-                <td >0.00€</td>
-                <td >0.00€</td>
+                <td>0.00€</td>
+                <td>0.00€</td>
               </tr>
               <tr style="font-weight: bold; border-top: 2px solid black">
                 <td>TOTAL</td>
-                <td >{{ importeActuacionesSinIva }}€</td>
-                <td >{{ importeActuacionesConIva }}€</td>
+                <td>{{ importeActuacionesSinIva }}€</td>
+                <td>{{ importeActuacionesConIva }}€</td>
               </tr>
             </tbody>
           </table>
@@ -233,9 +213,9 @@
             primaria no renovable de al menos un 30%, siendo en este caso, tal
             como se deduce de los resultados obtenidos en los certificados de
             eficiencia energética actual y previsto, del
-            <span >{{
+            <span>{{
               porcentajeMejoraEnergeticaAcreditado
-            }}%</span>
+              }}%</span>
             La tabla de los importes subvencionados sería la siguiente:
           </p>
 
@@ -309,8 +289,11 @@
             <h4 class="titulo-subseccion">DB HE 2 – CONDICIONES DE LAS INSTALACIONES TÉRMICAS</h4>
 
             <ul class="lista-actividades">
-              <li>Se certifica que la instalación cumple las condiciones de eficiencia energética y requisitos técnicos establecidos en el RITE (RD 1027/2007 y sus modificaciones), en virtud de lo dispuesto en el CTE DB HE2.</li>
-              <li>El equipo instalado dispone de marcado CE, certificado ErP y etiquetado energético clase A, garantizando la eficiencia exigida</li>
+              <li>Se certifica que la instalación cumple las condiciones de eficiencia energética y requisitos técnicos
+                establecidos en el RITE (RD 1027/2007 y sus modificaciones), en virtud de lo dispuesto en el CTE DB HE2.
+              </li>
+              <li>El equipo instalado dispone de marcado CE, certificado ErP y etiquetado energético clase A,
+                garantizando la eficiencia exigida</li>
             </ul>
           </div>
         </div>
@@ -322,17 +305,9 @@
       <!-- Encabezado con Logos -->
       <div class="encabezado-pagina">
         <div class="logos-grupo">
-          <img
-            src="/logos/iconos-organizaciones.png"
-            alt="Gobierno de España"
-            class="logo"
-            onerror="this.style.display = 'none'"
-          />
-          <img
-            src="/logos/icono-junta-andalucia.png"
-            alt="Junta de Andalucía"
-            class="logo"
-          />
+          <img src="/logos/iconos-organizaciones.png" alt="Gobierno de España" class="logo"
+            onerror="this.style.display = 'none'" />
+          <img src="/logos/icono-junta-andalucia.png" alt="Junta de Andalucía" class="logo" />
         </div>
       </div>
 
@@ -378,14 +353,12 @@
           <div class="seccion-firma">
             <p style="margin-top: 40px">
               <span class="etiqueta">Fecha:</span>
-              <span 
-                >{{ dia }} de {{ mes }} de
-                {{ anio }}</span
-              >
+              <span>{{ dia }} de {{ mes }} de
+                {{ anio }}</span>
             </p>
             <p>
               <span class="etiqueta">Firma:</span>
-              <span >Miguel Ángel Rivas Zapata</span>
+              <span>Miguel Ángel Rivas Zapata</span>
             </p>
             <div v-if="firmaImagen" class="contenedor-firma-imagen">
               <img :src="firmaImagen" alt="Firma" class="imagen-firma" />

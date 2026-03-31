@@ -65,11 +65,11 @@
                     }
 
                     if ($match) {
-                        Write-Host "!!! [MATCH] Detectada ventana: '$foundTitle'. Clickando en 922, 533..."
+                        Write-Host "!!! [MATCH] Detectada ventana: '$foundTitle'. Clickando en 923, 536..."
                         $windowWasFound = $true
                         
                         # Clic físico
-                        [System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(922, 533)
+                        [System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(923, 536)
                         [Win32]::mouse_event(0x0002, 0, 0, 0, 0) # LeftDown
                         Start-Sleep -Milliseconds 50
                         [Win32]::mouse_event(0x0004, 0, 0, 0, 0) # LeftUp

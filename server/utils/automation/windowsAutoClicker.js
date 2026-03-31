@@ -1,6 +1,7 @@
 import { spawn } from 'child_process';
 import fs from 'fs';
 import path from 'path';
+import os from 'os';
 
 /**
  * Utilidad para automatizar clics en diálogos del sistema (Windows) 
@@ -10,6 +11,11 @@ class WindowsAutoClicker {
     constructor() {
         this.process = null;
         this.active = false;
+        this.isWindows = os.platform() === 'win32';
+
+        if (!this.isWindows) {
+            console.log(' [AutoClicker] Sistema no-Windows detectado. Funcionando en modo pasivo (sin auto-clics).');
+        }
         // Títulos de ventana a detectar en español
         this.targetTitles = [
             'Seleccionar certificado',
@@ -26,6 +32,7 @@ class WindowsAutoClicker {
      */
     start() {
         if (this.active) return;
+        if (!this.isWindows) return;
         this.active = true;
 
         const psPath = path.join(process.cwd(), 'server', 'utils', 'automation', 'autoclicker_run.ps1');
@@ -151,8 +158,10 @@ class WindowsAutoClicker {
      */
     stop() {
         if (this.process) {
-            // Matar el árbol de procesos de PowerShell
-            spawn('taskkill', ['/pid', this.process.pid, '/f', '/t']);
+            // Matar el árbol de procesos de PowerShell (solo en Windows)
+            if (this.isWindows) {
+                spawn('taskkill', ['/pid', this.process.pid, '/f', '/t']);
+            }
             this.process = null;
         }
         this.active = false;
