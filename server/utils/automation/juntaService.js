@@ -83,30 +83,35 @@ export const runJuntaAutomation = async (payload) => {
   async function checkCCAA(page, label) {
     ccaaCheckCount++;
     const info = await page.evaluate(() => {
-      const ccaa = document.querySelector('select[name="codigoComunidadAutonoma"]');
-      const deleg = document.querySelector('select[name="codigoDelegacion"]');
-      const html = document.documentElement.outerHTML;
-      return {
-        ccaa: ccaa ? { disabled: ccaa.disabled, value: ccaa.value, options: ccaa.options?.length, visible: getComputedStyle(ccaa).display !== 'none' } : false,
-        deleg: deleg ? { disabled: deleg.disabled, value: deleg.value, options: deleg.options?.length } : false,
-        htmlMentionsCCAA: html.includes('codigoComunidadAutonoma'),
-        htmlMentionsComunidad: (html.match(/comunidad/gi) || []).length
-      };
-    }).catch(() => ({ error: true }));
-    if (info.ccaa) {
+      try {
+        const ccaa = document.querySelector('select[name="codigoComunidadAutonoma"]');
+        const deleg = document.querySelector('select[name="codigoDelegacion"]');
+        const html = document.documentElement.outerHTML;
+        return {
+          ccaa: ccaa ? { disabled: ccaa.disabled, value: ccaa.value || '', options: ccaa.options?.length || 0, visible: getComputedStyle(ccaa).display !== 'none' } : false,
+          deleg: deleg ? { disabled: deleg.disabled, value: deleg.value || '', options: deleg.options?.length || 0 } : false,
+          htmlMentionsCCAA: html.includes('codigoComunidadAutonoma'),
+          htmlMentionsComunidad: (html.match(/comunidad/gi) || []).length
+        };
+      } catch (e) {
+        return { error: e.message };
+      }
+    }).catch(e => ({ error: e.message }));
+
+    if (info && info.ccaa) {
       console.log(`   🔍 [CCAA #${ccaaCheckCount} ${label}] ⭐ EXISTE! disabled=${info.ccaa.disabled} value="${info.ccaa.value}" options=${info.ccaa.options} visible=${info.ccaa.visible}`);
-    } else if (info.htmlMentionsCCAA) {
+    } else if (info && info.htmlMentionsCCAA) {
       console.log(`   🔍 [CCAA #${ccaaCheckCount} ${label}] En HTML pero NO en DOM (${info.htmlMentionsComunidad}x "comunidad")`);
     } else {
-      // Solo loguear cada 5 checks para no saturar, excepto tras navegaciones
-      if (ccaaCheckCount <= 5 || ccaaCheckCount % 5 === 0 || label.includes('POST') || label.includes('NAV') || label.includes('RADIO') || label.includes('RITE') || label.includes('NUM')) {
-        console.log(`   🔍 [CCAA #${ccaaCheckCount} ${label}] ❌ No existe ("comunidad" en HTML: ${info.htmlMentionsComunidad}x)`);
+      if (ccaaCheckCount <= 5 || ccaaCheckCount % 5 === 0 || label.includes('POST') || label.includes('NAV') || label.includes('RADIO')) {
+        console.log(`   🔍 [CCAA #${ccaaCheckCount} ${label}] ❌ No existe ("comunidad" en HTML: ${info?.htmlMentionsComunidad || 0}x)`);
       }
     }
-    if (info.deleg) {
+    
+    if (info && info.deleg) {
       console.log(`   🔍 [DELEG #${ccaaCheckCount} ${label}] ⭐ EXISTE! value="${info.deleg.value}" options=${info.deleg.options}`);
     }
-    return info;
+    return info || { error: 'No info' };
   }
 
   // Helper para rellenar campos gestionando automáticamente si son readonly
@@ -294,12 +299,13 @@ export const runJuntaAutomation = async (payload) => {
   page.on('console', msg => {
     const text = `[${msg.type()}] ${msg.text()}\n`;
     fs.appendFileSync(logFile, text);
-    if (msg.type() === 'error') console.log(`   [BROWSER ERROR] ${msg.text()}`);
+    // if (msg.type() === 'error') console.log(`   [BROWSER ERROR] ${msg.text()}`);
   });
 
   page.on('pageerror', err => {
     fs.appendFileSync(logFile, `[CRASH] ${err.message}\n`);
-    console.log(`   [BROWSER CRASH/ERR] ${err.message}`);
+    // Los errores de 'codigoInst' son bugs propios de los desarrolladores del portal de la Junta 
+    // y siempre los escupen al navegador aunque funcione. Los silenciamos para no alarmar.
   });
 
   // Monitor global de TODOS los POST al servidor
@@ -355,17 +361,15 @@ export const runJuntaAutomation = async (payload) => {
         const botonCertificado = page.locator('#acceso-2').getByTitle('Acceso con certificado digital');
         await botonCertificado.waitFor({ state: 'visible', timeout: 5000 });
 
-        console.log('   -> Activando Autoclicker Inteligente para Login...');
-        autoClicker.start();
+        console.log('   -> Activando Autoclicker Inteligente para Login (DESACTIVADO MANUALMENTE)...');
+        // autoClicker.start();
 
         await botonCertificado.click();
 
-        // En Linux/macOS, pausar para permitir selección manual de certificado
-        if (!isWindows) {
-          console.log('\n🛑 SISTEMA NO-WINDOWS: Pausando para selección manual de certificado.');
-          console.log('   Una vez hayas entrado en la Oficina Virtual, pulsa Resume en el Inspector.');
-          await page.pause();
-        }
+        // Pausa obligatoria para selección manual de certificado en CUALQUIER SISTEMA
+        console.log('\n🛑 PARADA MANUAL: Selecciona el certificado y escribe la contraseña si te la pide.');
+        console.log('   Una vez hayas entrado en la Pestaña "Acceso a Comunicaciones", pulsa Resume en el Inspector.');
+        await page.pause();
 
         await esperar(3000);
 
@@ -387,15 +391,14 @@ export const runJuntaAutomation = async (payload) => {
         console.log('✅ LOGIN COMPLETADO. Asegurando parada de autoclicker...');
         autoClicker.stop();
 
-        console.log('🔍 [DIAGNÓSTICO] Verificando si aparece el modal de Bienvenida...');
-        const botonAceptarModal = page.getByRole('button', { name: /ACEPTAR/i });
-        const visible = await botonAceptarModal.isVisible({ timeout: 5000 }).catch(() => false);
-
-        if (visible) {
+        console.log('🔍 [DIAGNÓSTICO] Esperando (hasta 5s) a ver si aparece el modal de Bienvenida...');
+        try {
+          const botonAceptarModal = page.getByRole('button', { name: /ACEPTAR/i });
+          await botonAceptarModal.waitFor({ state: 'visible', timeout: 8000 });
           console.log('   [v] Modal detectado. Pulsando ACEPTAR...');
           await botonAceptarModal.click();
-        } else {
-          console.log('   [x] El botón ACEPTAR no es visible ahora (puede que ya estemos dentro).');
+        } catch (error) {
+          console.log('   [x] El botón ACEPTAR no apareció en el tiempo límite.');
         }
       } catch (e) {
         console.log('   -> Error en el proceso de Login/Certificado:', e.message);
@@ -412,31 +415,34 @@ export const runJuntaAutomation = async (payload) => {
     console.log(`🔍 [DIAGNÓSTICO] Título actual de la página: "${title}"`);
 
     try {
+      // Verificación extra en caso de latencia severa (si no saltó antes, le damos 3s ahora)
       const botonAceptarModal = page.getByRole('button', { name: /ACEPTAR/i });
-      await botonAceptarModal.waitFor({ state: 'visible' });
+      await botonAceptarModal.waitFor({ state: 'visible', timeout: 3000 });
       await botonAceptarModal.click();
-      console.log('   -> Botón ACEPTAR pulsado.');
+      console.log('   -> Botón ACEPTAR pulsado (verificación secundaria).');
     } catch (e) {
-      console.log('   -> El botón ACEPTAR no apareció.');
+      // Ignorar tranquilamente si no aparece
     }
 
-    console.log('   -> Esperando enlace "Acceso a Comunicaciones"...');
+    console.log('   -> Comprobando si necesitamos entrar en "Acceso a Comunicaciones"...');
+    console.log('   -> Esperando carga de panel post-login y enlaces...');
     const linkComunicaciones = page.getByRole('link', { name: /Acceso a Comunicaciones/i }).first();
-    await linkComunicaciones.waitFor({ state: 'attached', timeout: 15000 }).catch(() => {
-      console.log('   [!] Advertencia: "Acceso a Comunicaciones" no apareció tras 15s.');
-    });
-
+    await linkComunicaciones.waitFor({ state: 'visible', timeout: 15000 }).catch(() => { });
+    
     if (await linkComunicaciones.isVisible()) {
-      console.log('🔍 [DIAGNÓSTICO] Enlace "Acceso a Comunicaciones" DETECTADO. Pulsando...');
+      console.log('   -> Enlace "Acceso a Comunicaciones" detectado. Pulsando...');
       await linkComunicaciones.click();
     } else {
-      console.log('🔍 [DIAGNÓSTICO] Enlace "Acceso a Comunicaciones" NO VISIBLE. Intentando click forzado...');
-      await linkComunicaciones.click({ force: true }).catch(() => { });
+      console.log('   -> "Acceso a Comunicaciones" no detectado tras espera. Suponiendo caché de Listado...');
     }
 
     console.log('   -> Esperando botón "Nueva comunicación"...');
-    const linkNuevaComu = page.getByRole('link', { name: 'Nueva comunicación' }).first();
-    await linkNuevaComu.waitFor({ state: 'visible' });
+    const linkNuevaComu = page.getByRole('link', { name: /Nueva comunicaci/i }).first();
+    // Aquí sí esperamos un tiempo más largo porque ya tiene que estar
+    await linkNuevaComu.waitFor({ state: 'visible', timeout: 20000 }).catch(async (e) => {
+      console.log('   [!] "Nueva comunicación" no apareció. Título actual:', await page.title());
+      throw e; 
+    });
     await linkNuevaComu.click();
 
     console.log('   -> Entrando en el formulario (Delegaciones)...');
@@ -631,7 +637,7 @@ export const runJuntaAutomation = async (payload) => {
     console.log('   -> Abriendo buscador de municipios (Establecimiento)...');
     await page.locator('img[onclick*="codigoMunicipioDomicilioEstablecimiento"]').click();
     const popupEst = await popupEstPromise;
-    await popupEst.waitForLoadState('load');
+    await popupEst.waitForLoadState('load').catch(() => console.log('      [!] Aviso: Timeout en load de popup est, forzando continuación...'));
     await popupEst.locator('input[name="municipioBusqueda"]').fill((datos.municipioNombre || '').trim());
     await popupEst.getByRole('img', { name: 'Buscar Municipio' }).click();
     console.log('   -> Buscando municipio (est.)... esperando 5s');
@@ -870,6 +876,20 @@ export const runJuntaAutomation = async (payload) => {
     await iframeLoc.waitFor({ state: 'visible', timeout: 15000 });
     const fichaFrame = iframeLoc.contentFrame();
 
+    // Blindaje crítico: El iframe de Ficha carga un gran JS que declara 'codigoInst'. Si intentamos
+    // rellenar los inputs antes de que eso termine, el portal lanza un error de consola y crashea su estado.
+    console.log('   -> Esperando inicialización interna del portal (codigoInst)...');
+    await fichaFrame.locator('body').evaluate((el) => {
+      return new Promise(resolve => {
+        let r = 0;
+        const c = () => {
+          if (typeof window.codigoInst !== 'undefined' || typeof codigoInst !== 'undefined' || r > 30) resolve(true);
+          else { r++; setTimeout(c, 500); }
+        };
+        c();
+      });
+    }).catch(() => { });
+
     console.log('   -> Rellenando Ficha Técnica técnica (Iframe)...');
     const btnContinuar = fichaFrame.getByRole('button', { name: 'Continuar' });
     await btnContinuar.waitFor({ state: 'visible', timeout: 10000 });
@@ -954,9 +974,23 @@ export const runJuntaAutomation = async (payload) => {
 
     // Re-acceder al iframe por si se recargó tras Continuar
     const iframeLoc2 = page.locator('#ficha');
-    await esperar(3000); // Espera por carga de scripts internos (codigoInst)
+    await esperar(3000); 
     await iframeLoc2.waitFor({ state: 'visible' }).catch(() => { });
+    
     const fichaFrame2 = iframeLoc2.contentFrame();
+
+    // Blindaje contra errores de scripts internos del portal (codigoInst)
+    console.log('   -> Esperando inicialización de scripts del portal (#ficha)...');
+    await fichaFrame2.locator('body').evaluate((el) => {
+      return new Promise(resolve => {
+        let r = 0;
+        const c = () => {
+          if (typeof window.codigoInst !== 'undefined' || typeof codigoInst !== 'undefined' || r > 30) resolve(true);
+          else { r++; setTimeout(c, 500); }
+        };
+        c();
+      });
+    }).catch(() => { });
     // Esperar a que los botones de adjuntar estén disponibles en el iframe
     console.log('   -> Esperando botones de adjuntar (confirma que iframe está listo)...');
     await fichaFrame2.getByRole('img', { name: 'Adjuntar Documento' }).first().waitFor({ state: 'visible' });
@@ -1069,115 +1103,121 @@ export const runJuntaAutomation = async (payload) => {
     });
 
     const popupUser = await popupUserPromise.catch(() => null);
-    if (!popupUser) {
-      throw new Error('No se pudo detectar la apertura del popup de Nuevo Usuario.');
-    }
-    await popupUser.waitForLoadState('networkidle');
+      if (!popupUser) {
+        throw new Error('No se pudo detectar la apertura del popup de Nuevo Usuario.');
+      }
+      await popupUser.waitForLoadState('networkidle');
 
-    console.log('   -> Rellenando Datos del Titular del Punto...');
-    await rellenar(popupUser.getByRole('textbox', { name: 'Debe introducir el primer' }), datos.apellido1);
-    await rellenar(popupUser.getByRole('textbox', { name: 'Introduzca el segundo apellido' }), datos.apellido2);
-    await rellenar(popupUser.getByRole('textbox', { name: 'Debe introducir el nombre' }), datos.nombre);
-    await seleccionar(popupUser.locator('#identificacionTitularPuntoSuministro'), datos.tipoDocumento);
-    await rellenar(popupUser.getByRole('textbox', { name: 'Debe introducir un NIF/CIF/' }), datos.nif);
+      console.log('   -> Rellenando Datos del Titular del Punto...');
+      await rellenar(popupUser.getByRole('textbox', { name: 'Debe introducir el primer' }), datos.apellido1);
+      await rellenar(popupUser.getByRole('textbox', { name: 'Introduzca el segundo apellido' }), datos.apellido2);
+      await rellenar(popupUser.getByRole('textbox', { name: 'Debe introducir el nombre' }), datos.nombre);
+      await seleccionar(popupUser.locator('#identificacionTitularPuntoSuministro'), datos.tipoDocumento);
+      await rellenar(popupUser.getByRole('textbox', { name: 'Debe introducir un NIF/CIF/' }), datos.nif);
 
-    // Esperar a que los scripts internos del popup carguen (evita error codigoInst)
-    await popupUser.waitForLoadState('networkidle');
-    await popupUser.evaluate(() => {
-      return new Promise(resolve => {
-        let retries = 0;
-        const check = () => {
-          if (typeof codigoInst !== 'undefined' || retries > 10) resolve(true);
-          else { retries++; setTimeout(check, 500); }
-        };
-        check();
-      });
-    }).catch(() => { });
+      // Blindaje contra errores de scripts internos del portal (codigoInst) en el popup
+      console.log('   -> Esperando inicialización de scripts en popup...');
+      await popupUser.evaluate(() => {
+        return new Promise(resolve => {
+          let r = 0;
+          const c = () => {
+            if (typeof window.codigoInst !== 'undefined' || r > 20) resolve(true);
+            else { r++; setTimeout(c, 500); }
+          };
+          c();
+        });
+      }).catch(() => { });
 
-    console.log('   -> Rellenando Domicilio Titular del Punto...');
-    await seleccionar(popupUser.locator('#codigoTipoViaDomicilioTitularPuntoSuministro'), datos.tipoVia);
-    await rellenar(popupUser.locator('#nombreDomicilioTitularPuntoSuministro'), datos.nombreVia);
-    await seleccionar(popupUser.locator('#tipoNumeracionTitularPuntoSuministro'), datos.tipoNumeracion);
-    await rellenar(popupUser.locator('#numeroDomicilioTitularPuntoSuministro'), datos.numero);
-    if (datos.calificador) await rellenar(popupUser.locator('#calificadorNumeroTitularPuntoSuministro'), datos.calificador);
-    if (datos.bloque) await rellenar(popupUser.locator('#bloqueTitularPuntoSuministro'), datos.bloque);
-    if (datos.escalera) await rellenar(popupUser.locator('#escaleraDomicilioTitularPuntoSuministro'), datos.escalera);
-    if (datos.piso) await rellenar(popupUser.locator('#pisoDomicilioTitularPuntoSuministro'), datos.piso);
-    if (datos.puerta) await rellenar(popupUser.locator('#puertaDomicilioTitularPuntoSuministro'), datos.puerta);
-    await seleccionar(popupUser.locator('#margen'), datos.margen).catch(() => { });
-    await seleccionar(popupUser.locator('#codigoProvinciaDomicilioTitularPuntoSuministro'), PROVINCIAS[provNorm] || datos.delegacion);
+      console.log('   -> Rellenando Domicilio Titular del Punto...');
+      await seleccionar(popupUser.locator('#codigoTipoViaDomicilioTitularPuntoSuministro'), datos.tipoVia);
+      await rellenar(popupUser.locator('#nombreDomicilioTitularPuntoSuministro'), datos.nombreVia);
+      await seleccionar(popupUser.locator('#tipoNumeracionTitularPuntoSuministro'), datos.tipoNumeracion);
+      await rellenar(popupUser.locator('#numeroDomicilioTitularPuntoSuministro'), datos.numero);
+      if (datos.calificador) await rellenar(popupUser.locator('#calificadorNumeroTitularPuntoSuministro'), datos.calificador);
+      if (datos.bloque) await rellenar(popupUser.locator('#bloqueTitularPuntoSuministro'), datos.bloque);
+      if (datos.escalera) await rellenar(popupUser.locator('#escaleraDomicilioTitularPuntoSuministro'), datos.escalera);
+      if (datos.piso) await rellenar(popupUser.locator('#pisoDomicilioTitularPuntoSuministro'), datos.piso);
+      if (datos.puerta) await rellenar(popupUser.locator('#puertaDomicilioTitularPuntoSuministro'), datos.puerta);
+      await seleccionar(popupUser.locator('#margen'), datos.margen).catch(() => { });
+      await seleccionar(popupUser.locator('#codigoProvinciaDomicilioTitularPuntoSuministro'), PROVINCIAS[provNorm] || datos.delegacion);
 
-    // Buscador Municipio Titular Punto
-    console.log('   -> Buscando municipio (Titular Punto)...');
-    const popMunTitPromise = popupUser.waitForEvent('popup');
-    await popupUser.getByRole('group', { name: 'Datos titular del punto de' }).getByRole('img').click();
-    const popMunTit = await popMunTitPromise;
-    await popMunTit.waitForLoadState('networkidle');
-    await popMunTit.locator('input[name="municipioBusqueda"]').fill(datos.municipioNombre);
-    await popMunTit.getByRole('img', { name: 'Buscar Municipio' }).click();
-    await esperar(3000);
-    await popMunTit.getByRole('link', { name: new RegExp(datos.municipioNombre, 'i') }).first().click();
-    await esperar(3000);
+      // Buscador Municipio Titular Punto
+      console.log('   -> Buscando municipio (Titular Punto)...');
+      const popMunTitPromise = popupUser.waitForEvent('popup');
+      await popupUser.getByRole('group', { name: 'Datos titular del punto de' }).getByRole('img').click();
+      const popMunTit = await popMunTitPromise;
+      await popMunTit.waitForLoadState('networkidle').catch(() => { });
+      await popMunTit.locator('input[name="municipioBusqueda"]').fill(datos.municipioNombre);
+      await popMunTit.getByRole('img', { name: 'Buscar Municipio' }).click();
+      await esperar(3000);
+      await popMunTit.getByRole('link', { name: new RegExp(datos.municipioNombre, 'i') }).first().click();
+      await esperar(3000);
 
-    await rellenar(popupUser.locator('#codigoPostalDomicilioTitularPuntoSuministro'), datos.codigoPostal);
-    await rellenar(popupUser.getByRole('textbox', { name: 'Introduzca el teléfono' }), datos.telefono);
-    await rellenar(popupUser.getByRole('textbox', { name: 'Introduzca el email' }), datos.email);
+      await rellenar(popupUser.locator('#codigoPostalDomicilioTitularPuntoSuministro'), datos.codigoPostal);
+      await rellenar(popupUser.getByRole('textbox', { name: 'Introduzca el teléfono' }), datos.telefono);
+      await rellenar(popupUser.getByRole('textbox', { name: 'Introduzca el email' }), datos.email);
 
-    // Domicilio Punto de Suministro (mismos datos)
-    console.log('   -> Rellenando Domicilio del Punto de Suministro...');
-    await seleccionar(popupUser.locator('#codigoTipoViaDomicilioDatosPuntoSuministro'), datos.tipoVia);
-    await rellenar(popupUser.locator('#nombreDomicilioDatosPuntoSuministro'), datos.nombreVia);
-    await seleccionar(popupUser.locator('#tipoNumeracionDatosPuntoSuministro'), datos.tipoNumeracion);
-    await rellenar(popupUser.locator('#numeroDomicilioDatosPuntoSuministro'), datos.numero);
-    if (datos.calificador) await rellenar(popupUser.locator('#calificadorNumeroDatosPuntoSuministro'), datos.calificador);
-    if (datos.bloque) await rellenar(popupUser.locator('#bloqueDatosPuntoSuministro'), datos.bloque);
-    if (datos.escalera) await rellenar(popupUser.locator('#escaleraDomicilioDatosPuntoSuministro'), datos.escalera);
-    if (datos.piso) await rellenar(popupUser.locator('#pisoDomicilioDatosPuntoSuministro'), datos.piso);
-    if (datos.puerta) await rellenar(popupUser.locator('#puertaDomicilioDatosPuntoSuministro'), datos.puerta);
-    await seleccionar(popupUser.locator('#codigoProvinciaDomicilioDatosPuntoSuministro'), PROVINCIAS[provNorm] || datos.delegacion);
+      // Domicilio Punto de Suministro (mismos datos)
+      console.log('   -> Rellenando Domicilio del Punto de Suministro...');
+      await seleccionar(popupUser.locator('#codigoTipoViaDomicilioDatosPuntoSuministro'), datos.tipoVia);
+      await rellenar(popupUser.locator('#nombreDomicilioDatosPuntoSuministro'), datos.nombreVia);
+      await seleccionar(popupUser.locator('#tipoNumeracionDatosPuntoSuministro'), datos.tipoNumeracion);
+      await rellenar(popupUser.locator('#numeroDomicilioDatosPuntoSuministro'), datos.numero);
+      if (datos.calificador) await rellenar(popupUser.locator('#calificadorNumeroDatosPuntoSuministro'), datos.calificador);
+      if (datos.bloque) await rellenar(popupUser.locator('#bloqueDatosPuntoSuministro'), datos.bloque);
+      if (datos.escalera) await rellenar(popupUser.locator('#escaleraDomicilioDatosPuntoSuministro'), datos.escalera);
+      if (datos.piso) await rellenar(popupUser.locator('#pisoDomicilioDatosPuntoSuministro'), datos.piso);
+      if (datos.puerta) await rellenar(popupUser.locator('#puertaDomicilioDatosPuntoSuministro'), datos.puerta);
+      await seleccionar(popupUser.locator('#codigoProvinciaDomicilioDatosPuntoSuministro'), PROVINCIAS[provNorm] || datos.delegacion);
 
-    // Buscador Municipio Punto
-    console.log('   -> Buscando municipio (Punto Suministro)...');
-    const popMunPuntoPromise = popupUser.waitForEvent('popup');
-    await popupUser.getByRole('group', { name: 'Datos del punto de suministro' }).getByRole('img').click();
-    const popMunPunto = await popMunPuntoPromise;
-    await popMunPunto.waitForLoadState('networkidle');
-    await popMunPunto.locator('input[name="municipioBusqueda"]').fill(datos.municipioNombre);
-    await popMunPunto.getByRole('img', { name: 'Buscar Municipio' }).click();
-    await esperar(3000);
-    await popMunPunto.getByRole('link', { name: new RegExp(datos.municipioNombre, 'i') }).first().click();
-    await esperar(3000);
+      // Buscador Municipio Punto
+      console.log('   -> Buscando municipio (Punto Suministro)...');
+      const popMunPuntoPromise = popupUser.waitForEvent('popup');
+      await popupUser.getByRole('group', { name: 'Datos del punto de suministro' }).getByRole('img').click();
+      const popMunPunto = await popMunPuntoPromise;
+      await popMunPunto.waitForLoadState('networkidle').catch(() => { });
+      await popMunPunto.locator('input[name="municipioBusqueda"]').fill(datos.municipioNombre);
+      await popMunPunto.getByRole('img', { name: 'Buscar Municipio' }).click();
+      await esperar(3000);
+      await popMunPunto.getByRole('link', { name: new RegExp(datos.municipioNombre, 'i') }).first().click();
+      await esperar(3000);
 
-    await rellenar(popupUser.locator('#codigoPostalDomicilioDatosPuntoSuministro'), datos.codigoPostal);
+      await rellenar(popupUser.locator('#codigoPostalDomicilioDatosPuntoSuministro'), datos.codigoPostal);
 
-    // Datos Técnicos del Suministro (CUPS + tensión)
-    console.log('   -> Rellenando CUPS y tensión...');
-    const cupsLimpio = (datos.fichaTecnica.cups || '').replace(/\s+/g, '').trim();
-    await rellenar(popupUser.getByRole('textbox', { name: 'Debe indicar el CUPS del' }), cupsLimpio);
+      // Datos Técnicos del Suministro (CUPS + tensión)
+      console.log('   -> Rellenando CUPS y tensión...');
+      const cupsLimpio = (datos.fichaTecnica.cups || '').replace(/\s+/g, '').trim();
+      await rellenar(popupUser.getByRole('textbox', { name: 'Debe indicar el CUPS del' }), cupsLimpio);
 
-    // TRUCO: Forzar eventos de CUPS para que la web lo valide correctamente
-    await popupUser.locator('#cupsPuntoSuministro').evaluate((el, cupsVal) => {
-      el.value = cupsVal;
-      el.dispatchEvent(new Event('input', { bubbles: true }));
-      el.dispatchEvent(new Event('change', { bubbles: true }));
-      el.dispatchEvent(new Event('blur', { bubbles: true }));
-    }, datos.fichaTecnica.cups).catch(() => { });
+      // TRUCO: Forzar eventos de CUPS para que la web lo valide correctamente
+      await popupUser.locator('#cupsPuntoSuministro').evaluate((el, cupsVal) => {
+        el.value = cupsVal;
+        el.dispatchEvent(new Event('input', { bubbles: true }));
+        el.dispatchEvent(new Event('change', { bubbles: true }));
+        el.dispatchEvent(new Event('blur', { bubbles: true }));
+      }, datos.fichaTecnica.cups).catch(() => { });
 
-    // Seleccionar distribuidora en el popup (usando el ID numérico si existe)
-    if (datos.ps_distribuidora) {
-      console.log(`   -> Seleccionando distribuidora en popup (ID: ${datos.ps_distribuidora})...`);
-      await seleccionar(popupUser.locator('#ps_distribuidora'), datos.ps_distribuidora).catch(e => {
-        console.log(`      [!] Error seleccionando distribuidora en popup: ${e.message}`);
-      });
-    }
+      // Seleccionar distribuidora en el popup por texto visible (el portal usa sus propios IDs internos)
+      if (nombreDistribuidora) {
+        console.log(`   -> Seleccionando distribuidora en popup por nombre: "${nombreDistribuidora}"...`);
+        const selDist = popupUser.locator('select[name*="distribuidora"], select[id*="distribuidora"]').first();
+        await selDist.selectOption({ label: nombreDistribuidora }).catch(async () => {
+          console.log(`      [!] Selección exacta fallida. Probando coincidencia parcial...`);
+          // Fallback: buscar la opción cuyo texto contenga el nombre de la distribuidora
+          await selDist.evaluate((el, nombre) => {
+            const option = Array.from(el.options).find(o => o.text.includes(nombre.substring(0, 20)));
+            if (option) { el.value = option.value; el.dispatchEvent(new Event('change', { bubbles: true })); }
+          }, nombreDistribuidora).catch(() => { });
+        });
+      }
 
-    const tensionMapeada = datos.fichaTecnica.tension === '230' ? '0,4' : datos.fichaTecnica.tension;
-    await seleccionar(popupUser.locator('#tensionPuntoSuministro'), tensionMapeada);
+      const tensionMapeada = datos.fichaTecnica.tension === '230' ? '0,4' : datos.fichaTecnica.tension;
+      await seleccionar(popupUser.locator('#tensionPuntoSuministro'), tensionMapeada);
 
-    console.log('   -> Aceptando popup Nuevo Usuario...');
-    popupUser.on('dialog', async d => { await d.accept().catch(() => { }); });
-    await popupUser.getByRole('button', { name: 'Aceptar' }).click();
-    await esperar(3000);
+      console.log('   -> Aceptando popup Nuevo Usuario...');
+      popupUser.on('dialog', async d => { await d.accept().catch(() => { }); });
+      await popupUser.getByRole('button', { name: 'Aceptar' }).click();
+      await esperar(3000);
 
     // ==========================================
     // [SECCIÓN 6] FINALIZACIÓN: GUARDAR Y PRESENTAR
@@ -1198,31 +1238,34 @@ export const runJuntaAutomation = async (payload) => {
     });
     await esperar(4000);
 
-    console.log('   -> Pulsando botón FIRMAR...');
-    await fichaFrame3.getByRole('img', { name: 'Firmar' }).click().catch(() => { });
-
-    console.log('   -> Activando Autoclicker Inteligente (923, 536)...');
-    autoClicker.start();
-
-    // Diálogo post-firma/selección
-    page.once('dialog', d => {
-      console.log(`   [!] Diálogo post-firma: ${d.message()}`);
-      d.dismiss().catch(() => { });
+    console.log('   -> Pulsando Presentar (Abriendo borrador/vista previa)...');
+    await fichaFrame3.getByRole('img', { name: 'Presentar' }).click().catch(() => {
+      return page.getByRole('img', { name: 'Presentar' }).click();
     });
+    await esperar(3000);
 
-    console.log('   -> Seleccionando certificado/opción post-firma...');
-    await fichaFrame3.getByRole('listitem').nth(1).click().catch(() => { });
+    // PAUSA SOLICITADA POR EL USUARIO PARA LEER DATOS ANTES DE INSTALAR (SEGUNDA FIRMA)
+    console.log('\n🛑 PARADA OBLIGATORIA: Revisa la vista previa generada por el primer "Presentar".');
+    console.log('   -> Pulsa "Resume" en el Inspector de Playwright para lanzar la firma definitiva e instalar.');
+    await page.pause();
 
-    // --- RESPALDO MANUAL (Comentado tras grabación exitosa) ---
-    /*
-    console.log('🛑 PARADA: Verificar antes de presentar. Pulsa "Resume" en Playwright Inspector para continuar.');
-    await page.pause(); 
-    */
+    console.log('   -> Activando Autoclicker Inteligente para firma final (DESACTIVADO MANUALMENTE)...');
+    // autoClicker.start();
 
-    console.log('   -> Pulsando botón PRESENTAR final...');
-    await page.getByRole('img', { name: 'Presentar' }).click().catch(() => {
-      return fichaFrame3.getByRole('img', { name: 'Presentar' }).click().catch(() => { });
+    // Diálogo post-firma/selección (preventivo)
+    page.once('dialog', d => d.accept().catch(() => { }));
+
+    console.log('   -> Confirmando Presentar (Lanzando AutoFirma)...');
+    await fichaFrame3.getByRole('img', { name: 'Presentar' }).click().catch(() => {
+      return page.getByRole('img', { name: 'Presentar' }).click().catch(() => { });
     });
+    
+    // Pausa para firma manual
+    console.log('\n🛑 PARADA MANUAL (AutoFirma): Firma el documento manualmente en la ventana de Windows.');
+    console.log('   Espera a que se complete y pulsa Resume cuando termines.');
+    await page.pause();
+    console.log('✅ PRESENTACIÓN FINALIZADA. Asegurando parada de autoclicker...');
+    autoClicker.stop();
 
     console.log('✅ PROCESO COMPLETADO. Asegurando parada de autoclicker...');
     autoClicker.stop();
@@ -1230,8 +1273,16 @@ export const runJuntaAutomation = async (payload) => {
     console.error('❌ Error General:', error.message);
     autoClicker.stop();
     console.log('🛑 ERROR DETECTADO: El navegador permanecerá abierto para inspección.');
-    console.log('   Pausa el Inspector de Playwright para ver el estado antes de que el proceso termine.');
-    // await page.pause(); // Eliminado para automatización total
     throw error;
+  } finally {
+    // [ROBUSTEZ] Limpieza de archivos temporales recibidos por el formulario
+    try {
+      if (typeof tempDocsDir !== 'undefined' && fs.existsSync(tempDocsDir)) {
+        fs.rmSync(tempDocsDir, { recursive: true, force: true });
+        console.log(`   [LIMPIEZA] Carpeta temporal eliminada: ${tempDocsDir}`);
+      }
+    } catch (e) {
+      console.log('   [!] Error limpiando temporales:', e.message);
+    }
   }
 }

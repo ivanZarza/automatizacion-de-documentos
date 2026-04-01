@@ -1,21 +1,12 @@
-=== INICIO LOG 2026-03-31T13:09:39.186Z ===
-[log] Hora cliente: Tue Mar 31 2026 15:09:40 GMT+0200 (hora de verano de Europa central)
-[log] Hora servidor: Tue Mar 31 2026 15:09:38 GMT+0200 (hora de verano de Europa central)
-[log] Hora cliente: Tue Mar 31 2026 15:09:46 GMT+0200 (hora de verano de Europa central)
-[log] Hora servidor: Tue Mar 31 2026 15:09:38 GMT+0200 (hora de verano de Europa central)
-[info] Launched external handler for 'afirma://websocket?v=3&idsession=OfK04Lzg31xiQoUgOzjc'.
+=== INICIO LOG 2026-03-31T14:34:05.175Z ===
+[log] Hora cliente: Tue Mar 31 2026 16:34:05 GMT+0200 (hora de verano de Europa central)
+[log] Hora servidor: Tue Mar 31 2026 16:34:04 GMT+0200 (hora de verano de Europa central)
+[log] Hora cliente: Tue Mar 31 2026 16:34:10 GMT+0200 (hora de verano de Europa central)
+[log] Hora servidor: Tue Mar 31 2026 16:34:04 GMT+0200 (hora de verano de Europa central)
+[info] Launched external handler for 'afirma://websocket?v=3&idsession=wJzxgykR515g3KM04MJW'.
 [log] Creamos el cliente para el socket
 [log] Se abre el socket
 [log] Enviamos el mensaje al socket
 [log] Respuesta de la peticion de eco
 [log] Respuesta obtenida de la operacion enviada
 [CRASH] Cannot read properties of null (reading 'value')
-[error] Failed to load resource: the server responded with a status of 404 (Not Found)
-[CRASH] Cannot read properties of undefined (reading 'codigoInst')
-[CRASH] Cannot read properties of null (reading 'style')
-[CRASH] Cannot read properties of undefined (reading 'codigoInst')
-[CRASH] Cannot read properties of undefined (reading 'codigoInst')
-[CRASH] Cannot read properties of undefined (reading 'codigoInst')
-[CRASH] Cannot read properties of undefined (reading 'codigoInst')
-[CRASH] Cannot read properties of undefined (reading 'codigoInst')
-[CRASH] Cannot read properties of undefined (reading 'codigoInst')
