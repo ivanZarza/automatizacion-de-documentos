@@ -639,10 +639,10 @@ export const runJuntaAutomation = async (payload) => {
     const popupEst = await popupEstPromise;
     await popupEst.waitForLoadState('load').catch(() => console.log('      [!] Aviso: Timeout en load de popup est, forzando continuación...'));
     await popupEst.locator('input[name="municipioBusqueda"]').fill((datos.municipioNombre || '').trim());
-    await popupEst.getByRole('img', { name: 'Buscar Municipio' }).click();
+    await popupEst.getByRole('img', { name: 'Buscar Municipio' }).click({ noWaitAfter: true }).catch(() => { });
     console.log('   -> Buscando municipio (est.)... esperando 5s');
     await esperar(3000); // 5 segundos tras buscar municipio
-    await popupEst.getByRole('link', { name: new RegExp((datos.municipioNombre || '').trim(), 'i') }).first().click();
+    await popupEst.getByRole('link', { name: new RegExp((datos.municipioNombre || '').trim(), 'i') }).first().click({ timeout: 60000 });
     console.log('   -> Municipio (est.) seleccionado... esperando 5s');
     await esperar(3000); // 5 segundos tras seleccionar municipio
 
@@ -1148,9 +1148,9 @@ export const runJuntaAutomation = async (payload) => {
       const popMunTit = await popMunTitPromise;
       await popMunTit.waitForLoadState('networkidle').catch(() => { });
       await popMunTit.locator('input[name="municipioBusqueda"]').fill(datos.municipioNombre);
-      await popMunTit.getByRole('img', { name: 'Buscar Municipio' }).click();
+      await popMunTit.getByRole('img', { name: 'Buscar Municipio' }).click({ noWaitAfter: true }).catch(() => { });
       await esperar(3000);
-      await popMunTit.getByRole('link', { name: new RegExp(datos.municipioNombre, 'i') }).first().click();
+      await popMunTit.getByRole('link', { name: new RegExp(datos.municipioNombre, 'i') }).first().click({ timeout: 60000 });
       await esperar(3000);
 
       await rellenar(popupUser.locator('#codigoPostalDomicilioTitularPuntoSuministro'), datos.codigoPostal);
@@ -1177,9 +1177,9 @@ export const runJuntaAutomation = async (payload) => {
       const popMunPunto = await popMunPuntoPromise;
       await popMunPunto.waitForLoadState('networkidle').catch(() => { });
       await popMunPunto.locator('input[name="municipioBusqueda"]').fill(datos.municipioNombre);
-      await popMunPunto.getByRole('img', { name: 'Buscar Municipio' }).click();
+      await popMunPunto.getByRole('img', { name: 'Buscar Municipio' }).click({ noWaitAfter: true }).catch(() => { });
       await esperar(3000);
-      await popMunPunto.getByRole('link', { name: new RegExp(datos.municipioNombre, 'i') }).first().click();
+      await popMunPunto.getByRole('link', { name: new RegExp(datos.municipioNombre, 'i') }).first().click({ timeout: 60000 });
       await esperar(3000);
 
       await rellenar(popupUser.locator('#codigoPostalDomicilioDatosPuntoSuministro'), datos.codigoPostal);
