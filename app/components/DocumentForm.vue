@@ -265,8 +265,7 @@ const buildInitialFormData = (baseData = {}) => {
         if (!result.apellido2_presentador || result.apellido2_presentador === '') result.apellido2_presentador = ap2
         return
       }
-      const transformed = field.mapTransform ? (field.mapTransform[sourceValue] ?? sourceValue) : sourceValue
-      result[field.name] = transformed
+      result[field.name] = sourceValue
     }
   })
 
@@ -392,8 +391,7 @@ watch(formData, (newVal, oldVal) => {
             return
           }
 
-          const transformed = field.mapTransform ? (field.mapTransform[sourceValue] ?? sourceValue) : sourceValue
-          formData.value[field.name] = transformed
+          formData.value[field.name] = sourceValue
         }
       }
     }
@@ -453,9 +451,6 @@ const handleFileUpload = async (event, fieldName) => {
   const file = event.target.files[0]
 
   if (file) {
-    // Guardar el nombre original del archivo para el robot
-    formData.value[fieldName + '_filename'] = file.name
-
     try {
       // Comprimir imagen si es tipo imagen
       if (file.type.startsWith('image/')) {

@@ -65,17 +65,32 @@
                     }
 
                     if ($match) {
-                        Write-Host "!!! [MATCH] Detectada ventana: '$foundTitle'. Clickando en 923, 536..."
+                        Write-Host "!!! [MATCH] Detectada ventana: '$foundTitle'. Iniciando clics repetidos en 923, 536..."
                         $windowWasFound = $true
-                        
-                        # Clic físico
-                        [System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(923, 536)
-                        [Win32]::mouse_event(0x0002, 0, 0, 0, 0) # LeftDown
-                        Start-Sleep -Milliseconds 50
-                        [Win32]::mouse_event(0x0004, 0, 0, 0, 0) # LeftUp
-                        
-                        # Teclado redundante
-                        [System.Windows.Forms.SendKeys]::SendWait('{ENTER}')
+
+                        # Repetir clics hasta que la ventana desaparezca
+                        $n = 0
+                        while ($true) {
+                            # Comprobar si la ventana sigue abierta
+                            $abierta = $false
+                            foreach ($w2 in ([Win32]::GetWindows())) {
+                                if ($w2.Item2 -match $pattern) { $abierta = $true; break }
+                            }
+                            if (-not $abierta) {
+                                Write-Host "EXITO: Ventana cerrada tras $n clics."
+                                break
+                            }
+                            # Posicionar y clic
+                            [System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(923, 536)
+                            [Win32]::mouse_event(0x0002, 0, 0, 0, 0) # LeftDown
+                            Start-Sleep -Milliseconds 50
+                            [Win32]::mouse_event(0x0004, 0, 0, 0, 0) # LeftUp
+                            [System.Windows.Forms.SendKeys]::SendWait('{ENTER}')
+                            $n++
+                            Write-Host "   -> Clic #$n"
+                            Start-Sleep -Milliseconds 300
+                        }
+                        break # trabajo terminado, salir del loop externo
                     } else {
                         # Si ya se encontró alguna vez y ahora no hay nada, es que se ha cerrado con éxito
                         if ($windowWasFound) {

@@ -876,12 +876,15 @@ async function subirDoc(page, targetFrame, selector, prefijo) {
     await rellenar(fichaFrame.getByRole('textbox', { name: 'Potencia instalada', exact: true }), datos.fichaTecnica.potenciaInstalada);
     await esperar(3000);
 
-    if (datos.fichaTecnica.acumulacion) {
+    if (datos.fichaTecnica.acumulacion === 'si') {
       await pulsar(fichaFrame.locator('#disponibleAcumulacionSi'));
       await esperar(3000);
       await rellenar(fichaFrame.getByRole('textbox', { name: 'Debe indicar la potencia' }), datos.fichaTecnica.potenciaAcumulacion);
       await esperar(3000);
       await rellenar(fichaFrame.getByRole('textbox', { name: 'Debe indicar la energía má' }), datos.fichaTecnica.energiaMaximaAlmacenada);
+      await esperar(3000);
+    } else {
+      await pulsar(fichaFrame.locator('#disponibleAcumulacionNo'));
       await esperar(3000);
     }
 

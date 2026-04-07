@@ -65,11 +65,7 @@ export const runJuntaAutomation = async (payload) => {
         if (matches && matches.length === 3) {
           const ext = matches[1].includes('pdf') ? 'pdf' : 'jpg';
           const buffer = Buffer.from(matches[2], 'base64');
-          const originalName = payload.flatFormData?.[`${field}_filename`];
-          const safeName = originalName
-            ? originalName.replace(/[/\\:*?"<>|]/g, '_')
-            : `documento_manual.${ext}`;
-          const fileName = `${prefix}${safeName}`;
+          const fileName = `${prefix}documento_manual.${ext}`;
           fs.writeFileSync(path.join(tempDocsDir, fileName), buffer);
           console.log(`   [ROBUSTEZ] Archivo manual recibido para ${prefix}: ${fileName}`);
         }
@@ -1213,8 +1209,8 @@ export const runJuntaAutomation = async (payload) => {
         });
       }
 
-      const tensionKV = (parseFloat(datos.fichaTecnica.tension) / 1000).toString().replace('.', ',');
-      await seleccionar(popupUser.locator('#tensionPuntoSuministro'), tensionKV);
+      const tensionMapeada = datos.fichaTecnica.tension === '230' ? '0,4' : datos.fichaTecnica.tension;
+      await seleccionar(popupUser.locator('#tensionPuntoSuministro'), tensionMapeada);
 
       console.log('   -> Aceptando popup Nuevo Usuario...');
       popupUser.on('dialog', async d => { await d.accept().catch(() => { }); });
@@ -1251,26 +1247,32 @@ export const runJuntaAutomation = async (payload) => {
     console.log('   -> Pulsa "Resume" en el Inspector de Playwright para lanzar la firma definitiva e instalar.');
     await page.pause();
 
-    console.log('   -> Activando Autoclicker Inteligente para firma final (DESACTIVADO MANUALMENTE)...');
-    // autoClicker.start();
-
-    // Diálogo post-firma/selección (preventivo)
-    page.once('dialog', d => d.accept().catch(() => { }));
-
-    console.log('   -> Confirmando Presentar (Lanzando AutoFirma)...');
-    await fichaFrame3.getByRole('img', { name: 'Presentar' }).click().catch(() => {
-      return page.getByRole('img', { name: 'Presentar' }).click().catch(() => { });
+    // *** PASO GRABADO CON CODEGEN: pulsar "Firmar" dentro del iframe para lanzar AutoFirma ***
+    console.log('   -> Pulsando botón "Firmar" en el iframe (abre AutoFirma)...');
+    // Volver a obtener el iframe por si se refrescó tras la pausa
+    const fichaFrame4 = page.locator('#ficha').contentFrame();
+    page.once('dialog', dialog => {
+      console.log(`   [!] Diálogo en Firmar: ${dialog.message()}`);
+      dialog.dismiss().catch(() => {});
     });
-    
-    // Pausa para firma manual
-    console.log('\n🛑 PARADA MANUAL (AutoFirma): Firma el documento manualmente en la ventana de Windows.');
-    console.log('   Espera a que se complete y pulsa Resume cuando termines.');
-    await page.pause();
-    console.log('✅ PRESENTACIÓN FINALIZADA. Asegurando parada de autoclicker...');
+    await fichaFrame4.getByRole('img', { name: 'Firmar' }).click().catch(async () => {
+      console.log('   [!] Imagen "Firmar" no encontrada, intentando por texto...');
+      await fichaFrame4.getByRole('button', { name: 'Firmar' }).click().catch(() => {});
+    });
+
+    // Arrancar el autoclicker inmediatamente: se encarga de esperar la ventana de AutoFirma (polling cada 2s)
+    console.log('   -> Activando Autoclicker Inteligente para firma final...');
+    autoClicker.start();
+
+    // Esperar hasta 90s a que la página se recargue tras la firma
+    console.log('   -> Esperando que AutoFirma procese y la página se refresque...');
+    await page.waitForLoadState('load', { timeout: 90000 }).catch(() => { });
+    await esperar(3000);
     autoClicker.stop();
 
-    console.log('✅ PROCESO COMPLETADO. Asegurando parada de autoclicker...');
-    autoClicker.stop();
+    console.log('\n✅ FIRMA COMPLETADA. Revisa el resultado en el navegador.');
+    console.log('   (El navegador permanecerá abierto. Ciérralo manualmente cuando termines.)');
+    await page.pause();
   } catch (error) {
     console.error('❌ Error General:', error.message);
     autoClicker.stop();
