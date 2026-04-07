@@ -65,7 +65,11 @@ export const runJuntaAutomation = async (payload) => {
         if (matches && matches.length === 3) {
           const ext = matches[1].includes('pdf') ? 'pdf' : 'jpg';
           const buffer = Buffer.from(matches[2], 'base64');
-          const fileName = `${prefix}documento_manual.${ext}`;
+          const originalName = payload.flatFormData?.[`${field}_filename`];
+          const safeName = originalName
+            ? originalName.replace(/[/\\:*?"<>|]/g, '_')
+            : `documento_manual.${ext}`;
+          const fileName = `${prefix}${safeName}`;
           fs.writeFileSync(path.join(tempDocsDir, fileName), buffer);
           console.log(`   [ROBUSTEZ] Archivo manual recibido para ${prefix}: ${fileName}`);
         }
@@ -361,15 +365,10 @@ export const runJuntaAutomation = async (payload) => {
         const botonCertificado = page.locator('#acceso-2').getByTitle('Acceso con certificado digital');
         await botonCertificado.waitFor({ state: 'visible', timeout: 5000 });
 
-        console.log('   -> Activando Autoclicker Inteligente para Login (DESACTIVADO MANUALMENTE)...');
-        // autoClicker.start();
+        console.log('   -> Activando Autoclicker Inteligente para Login...');
+        autoClicker.start();
 
         await botonCertificado.click();
-
-        // Pausa obligatoria para selección manual de certificado en CUALQUIER SISTEMA
-        console.log('\n🛑 PARADA MANUAL: Selecciona el certificado y escribe la contraseña si te la pide.');
-        console.log('   Una vez hayas entrado en la Pestaña "Acceso a Comunicaciones", pulsa Resume en el Inspector.');
-        await page.pause();
 
         await esperar(3000);
 
@@ -921,12 +920,15 @@ export const runJuntaAutomation = async (payload) => {
     await rellenar(fichaFrame.getByRole('textbox', { name: 'Potencia instalada', exact: true }), datos.fichaTecnica.potenciaInstalada);
     await esperar(3000);
 
-    if (datos.fichaTecnica.acumulacion) {
+    if (datos.fichaTecnica.acumulacion === 'si') {
       await pulsar(fichaFrame.locator('#disponibleAcumulacionSi'));
       await esperar(3000);
       await rellenar(fichaFrame.getByRole('textbox', { name: 'Debe indicar la potencia' }), datos.fichaTecnica.potenciaAcumulacion);
       await esperar(3000);
       await rellenar(fichaFrame.getByRole('textbox', { name: 'Debe indicar la energía má' }), datos.fichaTecnica.energiaMaximaAlmacenada);
+      await esperar(3000);
+    } else {
+      await pulsar(fichaFrame.locator('#disponibleAcumulacionNo'));
       await esperar(3000);
     }
 
@@ -1197,22 +1199,22 @@ export const runJuntaAutomation = async (payload) => {
         el.dispatchEvent(new Event('blur', { bubbles: true }));
       }, datos.fichaTecnica.cups).catch(() => { });
 
-      // Seleccionar distribuidora en el popup por texto visible (el portal usa sus propios IDs internos)
-      if (nombreDistribuidora) {
-        console.log(`   -> Seleccionando distribuidora en popup por nombre: "${nombreDistribuidora}"...`);
-        const selDist = popupUser.locator('select[name*="distribuidora"], select[id*="distribuidora"]').first();
-        await selDist.selectOption({ label: nombreDistribuidora }).catch(async () => {
-          console.log(`      [!] Selección exacta fallida. Probando coincidencia parcial...`);
-          // Fallback: buscar la opción cuyo texto contenga el nombre de la distribuidora
-          await selDist.evaluate((el, nombre) => {
-            const option = Array.from(el.options).find(o => o.text.includes(nombre.substring(0, 20)));
-            if (option) { el.value = option.value; el.dispatchEvent(new Event('change', { bubbles: true })); }
-          }, nombreDistribuidora).catch(() => { });
+      // Seleccionar distribuidora en el popup usando el VALUE (ID numérico)
+      const distIdPopup = datos.ps_distribuidora || '';
+      if (distIdPopup) {
+        console.log(`   -> Seleccionando distribuidora en popup por ID: "${distIdPopup}"...`);
+        const selDist = popupUser.locator('#empresaDistribuidoraDatosPuntoSuministro');
+        await selDist.waitFor({ state: 'visible', timeout: 5000 }).catch(() => {});
+        await selDist.selectOption(distIdPopup).catch(async () => {
+          console.log(`      [!] Selección por ID fallida. Intentando por nombre visible...`);
+          await selDist.selectOption({ label: nombreDistribuidora }).catch(() => {
+            console.log(`      [!] Ambas selecciones fallaron.`);
+          });
         });
       }
 
-      const tensionMapeada = datos.fichaTecnica.tension === '230' ? '0,4' : datos.fichaTecnica.tension;
-      await seleccionar(popupUser.locator('#tensionPuntoSuministro'), tensionMapeada);
+      const tensionKV = (parseFloat(datos.fichaTecnica.tension) / 1000).toString().replace('.', ',');
+      await seleccionar(popupUser.locator('#tensionPuntoSuministro'), tensionKV);
 
       console.log('   -> Aceptando popup Nuevo Usuario...');
       popupUser.on('dialog', async d => { await d.accept().catch(() => { }); });

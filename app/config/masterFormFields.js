@@ -471,7 +471,7 @@ export const masterFormFields = [
   { name: 'municipio_presentador', label: 'Municipio', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)', mapFrom: 'localidadEmplazamiento' },
   { name: 'poblacion_presentador', label: 'Población', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)', mapFrom: 'localidadEmplazamiento' },
   { name: 'cp_presentador', label: 'Código Postal', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)', mapFrom: 'codigoPostalEmplazamiento' },
-  { name: 'telefono_presentador', label: 'Teléfono Fijo', type: 'tel', subsection: 'PRESENTACIÓN', group: 'Contacto (Robot)' },
+  { name: 'telefono_presentador', label: 'Teléfono Fijo', type: 'tel', subsection: 'PRESENTACIÓN', group: 'Contacto (Robot)', mapFrom: 'telefono' },
   { name: 'movil_presentador', label: 'Móvil', type: 'tel', subsection: 'PRESENTACIÓN', group: 'Contacto (Robot)', mapFrom: 'telefono' },
   { name: 'email_presentador', label: 'Email', type: 'email', subsection: 'PRESENTACIÓN', group: 'Contacto (Robot)', mapFrom: 'correoElectronicoEmplazamiento' },
 
@@ -492,17 +492,17 @@ export const masterFormFields = [
   { name: 'per_aut_apellido2', label: 'Segundo Apellido (P.Aut.)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Persona Autorizada (Robot)', value: 'Cabezas' },
 
   { name: 'cnae_rite', label: 'Actividad CNAE / RITE', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', options: cnaeOptions },
-  { name: 'numero_empresa_instaladora', label: 'Nº de Empresa Instaladora (RIIA)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)' },
+  { name: 'numero_empresa_instaladora', label: 'Nº de Empresa Instaladora (RIIA)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: '41045500' },
   { name: 'codigo_ccaa', label: 'Comunidad Autónoma', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: '01', options: [{ value: '01', label: 'Andalucía' }, { value: '02', label: 'Aragón' }, { value: '03', label: 'Asturias' }, { value: '04', label: 'Balears' }, { value: '05', label: 'Canarias' }, { value: '06', label: 'Cantabria' }, { value: '07', label: 'Castilla y León' }, { value: '08', label: 'Castilla - La Mancha' }, { value: '09', label: 'Cataluña' }, { value: '10', label: 'Valencia' }, { value: '11', label: 'Extremadura' }, { value: '12', label: 'Galicia' }, { value: '13', label: 'Madrid' }, { value: '14', label: 'Murcia' }, { value: '15', label: 'Navarra' }, { value: '16', label: 'País Vasco' }, { value: '17', label: 'Rioja' }, { value: '18', label: 'Ceuta' }, { value: '19', label: 'Melilla' }] },
 
   { name: 'cups_presentador', label: 'CUPS', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'cups' },
   { name: 'cau_presentador', label: 'CAU', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'cau' },
   { name: 'potencia_instalacion', label: 'Potencia (kW)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'e2_potenciaNominalInversores' },
-  { name: 'tipo_suministro', label: 'Tipo Suministro', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'Monofásico', options: ['Monofásico', 'Trifásico'] },
+  { name: 'tipo_suministro', label: 'Tipo Suministro', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'Monofásico', options: ['Monofásico', 'Trifásico'], mapFrom: 'e2_tipoConexionRed1', mapTransform: { 'Monofásica': 'Monofásico', 'Trifásica': 'Trifásico' } },
   { name: 'tension_red', label: 'Tensión de la Red (V)', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: '230', options: ['230', '400', '20000', '66000'] },
   { name: 'es_autoconsumo', label: '¿Es Autoconsumo?', type: 'checkbox', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: true },
-  { name: 'potencia_instalada_ficha', label: 'Potencia Instalada (kW)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'e2_potenciaPicoGenerador' },
-  { name: 'tiene_acumulacion', label: '¿Tiene Acumulación (Baterías)?', type: 'checkbox', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'almacenamiento' },
+  { name: 'potencia_instalada_ficha', label: 'Potencia Instalada (kW)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'e2_potenciaNominalInversores' },
+  { name: 'tiene_acumulacion', label: '¿Tiene Acumulación (Baterías)?', type: 'select', options: ['si', 'no'], value: 'no', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'almacenamiento', mapTransform: { 'con almacenamiento': 'si', 'sin almacenamiento': 'no' } },
   { name: 'potencia_acumulacion', label: 'Potencia Acumulación (kW)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'e2_potenciaMaximaSalida' },
   { name: 'energia_almacenada', label: 'Energía Máx. Almacenada (kWh)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'e2_energiaTotal' },
   { name: 'uso_instalacion', label: 'Uso de la instalación', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'produccion energia electrica', options: [{ value: 'produccion energia electrica', label: 'Producción de Energía Eléctrica' }] },
@@ -520,7 +520,7 @@ export const masterFormFields = [
   { name: 'empresa_instaladora_doc', label: 'Nº Doc. Empresa', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'B09848912' },
 
   // --- ARCHIVOS ADJUNTOS (NUEVO) ---
-  { name: 'doc_autorizacion_rep', label: '1.- Autorización de Representación', type: 'file', accept: '.pdf,image/*', subsection: 'PRESENTACIÓN', group: 'Documentos a Subir' },
+  { name: 'doc_autorizacion_rep', label: '1.- MTD', type: 'file', accept: '.pdf,image/*', subsection: 'PRESENTACIÓN', group: 'Documentos a Subir' },
   { name: 'doc_adicional_2', label: '2.- Documento Adicional / CIE', type: 'file', accept: '.pdf,image/*', subsection: 'PRESENTACIÓN', group: 'Documentos a Subir' },
   { name: 'doc_certificado_solidez', label: '7.- Certificado de Solidez', type: 'file', accept: '.pdf,image/*', subsection: 'PRESENTACIÓN', group: 'Documentos a Subir' }
 ]
