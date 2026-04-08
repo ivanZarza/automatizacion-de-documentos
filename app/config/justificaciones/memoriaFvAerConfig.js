@@ -48,6 +48,7 @@ export const memoriaFvAerConfig = {
 
     { type: 'subsection', label: 'Firma y Documentación', name: 'firmaYDocumentacion', description: 'Datos del firmante' },
     { name: 'firmaImagen', label: 'Imagen de Firma', type: 'image' },
+    { name: 'firmaCliente', label: 'Firma Cliente', type: 'image' },
 
     { type: 'subsection', label: 'Opciones', name: 'opciones', description: 'Configuración adicional' },
     { name: 'aerotermia', label: 'Incluir sección de Aerotermia', type: 'checkbox' }
@@ -82,7 +83,8 @@ export const memoriaFvAerConfig = {
     dia: '',
     mes: '',
     anio: '',
-    firmaImagen: '',
+    firmaImagen: '/firma-solay-miguel.jpeg',
+    firmaCliente: '',
     aerotermia: false
   },
   fieldMapping: {
@@ -114,6 +116,7 @@ export const memoriaFvAerConfig = {
     mes: 'mesFirmaJustificacion',
     anio: 'anioFirmaJustificacion',
     firmaImagen: '',
+    firmaCliente: 'firma',
     aerotermia: 'aerotermia'
   },
   capabilities: {

@@ -65,7 +65,7 @@
             <span class="texto-opcional">{{ textoOpcional1 }}</span> mediante la
             ejecución de una instalación fotovoltaica para autoconsumo.<span v-if="aerotermia" class="textoAerotermia">y
               montaje y conexionados eléctrico y de tuberías de ACS de una bomba de calor aerotérmica de {{
-              potenciaBomba }} kW de potencia térmica nominar (Calor) con depósito incorporado de {{ depositoLitros }}
+                potenciaBomba }} kW de potencia térmica nominar (Calor) con depósito incorporado de {{ depositoLitros }}
               litros para la producción de ACS, al tener menos de 5 Kw no es obligatorio registrarla en
               Industria.</span>
           </p>
@@ -215,7 +215,7 @@
             eficiencia energética actual y previsto, del
             <span>{{
               porcentajeMejoraEnergeticaAcreditado
-              }}%</span>
+            }}%</span>
             La tabla de los importes subvencionados sería la siguiente:
           </p>
 
@@ -349,19 +349,33 @@
             Andalucía.
           </p>
 
-          <!-- Firma -->
-          <div class="seccion-firma">
-            <p style="margin-top: 40px">
-              <span class="etiqueta">Fecha:</span>
-              <span>{{ dia }} de {{ mes }} de
-                {{ anio }}</span>
-            </p>
-            <p>
-              <span class="etiqueta">Firma:</span>
-              <span>Miguel Ángel Rivas Zapata</span>
-            </p>
-            <div v-if="firmaImagen" class="contenedor-firma-imagen">
-              <img :src="firmaImagen" alt="Firma" class="imagen-firma" />
+          <!-- Firmas -->
+          <div class="contenedor-firmas"
+            style="display: flex; justify-content: space-between; margin-top: 40px; gap: 40px;">
+            <!-- Firma Técnico -->
+            <div class="seccion-firma" style="flex: 1;">
+              <p>
+                <span class="etiqueta">Fecha:</span>
+                <span>{{ dia }} de {{ mes }} de {{ anio }}</span>
+              </p>
+              <p>
+                <span class="etiqueta">Firma:</span>
+                <span>Miguel Ángel Rivas Zapata</span>
+              </p>
+              <div v-if="firmaImagen" class="contenedor-firma-imagen">
+                <img :src="firmaImagen" alt="Firma Técnico" class="imagen-firma" />
+              </div>
+            </div>
+
+            <!-- Firma Cliente -->
+            <div class="seccion-firma" style="flex: 1;">
+
+              <p>
+                <span class="etiqueta">Firma Cliente:</span>
+              </p>
+              <div v-if="firmaCliente" class="contenedor-firma-imagen">
+                <img :src="firmaCliente" alt="Firma Cliente" class="imagen-firma" />
+              </div>
             </div>
           </div>
         </div>
@@ -402,7 +416,8 @@ defineProps({
   dia: { type: String, default: "" },
   mes: { type: String, default: "" },
   anio: { type: String, default: "" },
-  firmaImagen: { type: String, default: "" }
+  firmaImagen: { type: String, default: "" },
+  firmaCliente: { type: String, default: "" },
 });
 </script>
 
