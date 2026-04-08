@@ -2945,6 +2945,9 @@ import { certificadoPedidosContratosConfig } from './justificaciones/certificado
 import { declaracionCompromisoCorrienteConfig } from './justificaciones/declaracionCompromisoCorrienteConfig'
 import { cartelL3Config } from './justificaciones/cartelL3Config'
 import { cartelL4Config } from './justificaciones/cartelL4Config'
+import { l3PagoAnticipado50Config } from './justificaciones/L3PagoAnticipado50Config'
+import { l3PagoRestante50Config } from './justificaciones/L3PagoRestante50Config'
+import { l4PagoAnticipado100Config } from './justificaciones/L4PagoAnticipado100Config'
 
 const documentConfigs = {
   'autorizacion-representacion': autorizacionRepresentacionConfig,
@@ -2986,6 +2989,9 @@ const documentConfigs = {
   'declaracion-compromiso-corriente': declaracionCompromisoCorrienteConfig,
   'cartel-l3': cartelL3Config,
   'cartel-l4': cartelL4Config,
+  'l3-pago-anticipado-50': l3PagoAnticipado50Config,
+  'l3-pago-restante-50': l3PagoRestante50Config,
+  'l4-pago-anticipado-100': l4PagoAnticipado100Config,
 
 }
 

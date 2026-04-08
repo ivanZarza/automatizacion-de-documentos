@@ -12,7 +12,8 @@ const tabs = [
   { id: 'proyecto', label: 'Proyectos' },
   { id: 'legalizacion', label: 'Legalización' },
   { id: 'aceptaciones', label: 'Aceptaciones' },
-  { id: 'justificaciones', label: 'Justificaciones' }
+  { id: 'justificaciones', label: 'Justificaciones' },
+  { id: 'justificacion50', label: 'JUSTIFICACIÓN(50%)' }
 ]
 
 const allDocuments = getAllDocuments()
@@ -31,6 +32,10 @@ const documentosAceptaciones = computed(() =>
 
 const documentosJustificaciones = computed(() =>
   allDocuments.filter(doc => doc.category === 'justificaciones')
+)
+
+const documentosJustificacion50 = computed(() =>
+  allDocuments.filter(doc => doc.category === 'justificacion50')
 )
 </script>
 
@@ -143,6 +148,24 @@ const documentosJustificaciones = computed(() =>
               </div>
               <div v-else class="documentos-grid">
                 <DocumentCard v-for="documento in documentosJustificaciones" :key="documento.id" :config="documento" />
+              </div>
+            </div>
+          </div>
+
+          <!-- PESTAÑA: JUSTIFICACIÓN(50%) -->
+          <div v-if="activeTab === 'justificacion50'" class="tab-pane">
+            <div class="section-container">
+              <div class="section-header-static">
+                <h3 class="section-title">📉 JUSTIFICACIÓN (50%)</h3>
+                <span class="doc-count">{{ documentosJustificacion50.length }} documentos</span>
+              </div>
+
+              <div v-if="documentosJustificacion50.length === 0" class="empty-state">
+                <span class="empty-icon">🔜</span>
+                <p class="empty-text">No hay documentos en esta categoría</p>
+              </div>
+              <div v-else class="documentos-grid">
+                <DocumentCard v-for="documento in documentosJustificacion50" :key="documento.id" :config="documento" />
               </div>
             </div>
           </div>
