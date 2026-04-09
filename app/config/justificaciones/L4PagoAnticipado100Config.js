@@ -63,5 +63,5 @@ export const l4PagoAnticipado100Config = {
     canEdit: true,
     canGeneratePDF: true
   },
-  category: 'justificaciones'
+  category: 'justificacion50'
 }

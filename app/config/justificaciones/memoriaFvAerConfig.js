@@ -83,7 +83,7 @@ export const memoriaFvAerConfig = {
     dia: '',
     mes: '',
     anio: '',
-    firmaImagen: '/firma-solay-miguel.jpeg',
+    firmaImagen: '',
     firmaCliente: '',
     aerotermia: false
   },

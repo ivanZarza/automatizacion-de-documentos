@@ -3,21 +3,25 @@
     <!-- PÁGINA 1 -->
     <article class="pagina-documento pagina-1">
       <span v-for="et in etiquetasPage1Visibles" :key="et.nombre" class="overlay-field" :style="estiloEtiqueta(et)">
-        {{ et.displayValue }}
+        <img v-if="(et.nombre === 'firma' || et.nombre === 'firma_p3') && et.displayValue" :src="et.displayValue"
+          style="width: 100%; height: 100%; object-fit: contain" />
+        <span v-else>{{ et.displayValue }}</span>
       </span>
     </article>
 
     <!-- PÁGINA 2 -->
     <article class="pagina-documento pagina-2">
       <span v-for="et in etiquetasPage2Visibles" :key="et.nombre" class="overlay-field" :style="estiloEtiqueta(et)">
-        {{ et.displayValue }}
+        <img v-if="(et.nombre === 'firma' || et.nombre === 'firma_p3') && et.displayValue" :src="et.displayValue"
+          style="width: 100%; height: 100%; object-fit: contain" />
+        <span v-else>{{ et.displayValue }}</span>
       </span>
     </article>
 
     <!-- PÁGINA 3 -->
     <article class="pagina-documento pagina-3">
       <span v-for="et in etiquetasPage3Visibles" :key="et.nombre" class="overlay-field" :style="estiloEtiqueta(et)">
-        <img v-if="et.nombre === 'firma' && et.displayValue" :src="et.displayValue"
+        <img v-if="(et.nombre === 'firma' || et.nombre === 'firma_p3') && et.displayValue" :src="et.displayValue"
           style="width: 100%; height: 100%; object-fit: contain" />
         <span v-else>{{ et.displayValue }}</span>
       </span>
@@ -52,8 +56,8 @@ const etiquetas = ref([
   {
     nombre: "expediente",
     page: 1,
-    x: 50,
-    y: 109,
+    x: 45,
+    y: 105.5,
     w: 80,
     h: 6,
     fontSize: 11,
@@ -64,7 +68,7 @@ const etiquetas = ref([
     nombre: "apellidosNombre",
     page: 1,
     x: 20,
-    y: 130.5,
+    y: 126.5,
     w: 80,
     h: 6,
     fontSize: 10,
@@ -75,7 +79,7 @@ const etiquetas = ref([
     nombre: "dni",
     page: 1,
     x: 172,
-    y: 130.5,
+    y: 126.5,
     w: 40,
     h: 6,
     fontSize: 10,
@@ -86,7 +90,7 @@ const etiquetas = ref([
     nombre: "telefono",
     page: 1,
     x: 20,
-    y: 139,
+    y: 135.5,
     w: 40,
     h: 6,
     fontSize: 10,
@@ -97,7 +101,7 @@ const etiquetas = ref([
     nombre: "correoElectronico",
     page: 1,
     x: 55,
-    y: 139,
+    y: 135.5,
     w: 60,
     h: 6,
     fontSize: 10,
@@ -108,7 +112,7 @@ const etiquetas = ref([
     nombre: "apellidosNombreRepresentante",
     page: 1,
     x: 20,
-    y: 148,
+    y: 144.5,
     w: 80,
     h: 6,
     fontSize: 10,
@@ -119,7 +123,7 @@ const etiquetas = ref([
     nombre: "dniRepresentante",
     page: 1,
     x: 172,
-    y: 148,
+    y: 144.5,
     w: 40,
     h: 6,
     fontSize: 10,
@@ -130,7 +134,7 @@ const etiquetas = ref([
     nombre: "actuaCalidad",
     page: 1,
     x: 20,
-    y: 157.5,
+    y: 153.5,
     w: 80,
     h: 6,
     fontSize: 10,
@@ -141,7 +145,7 @@ const etiquetas = ref([
     nombre: "telefonoRepresentante",
     page: 1,
     x: 20,
-    y: 166,
+    y: 162.5,
     w: 40,
     h: 6,
     fontSize: 10,
@@ -152,33 +156,34 @@ const etiquetas = ref([
     nombre: "correoElectronicoRepresentante",
     page: 1,
     x: 55,
-    y: 166,
+    y: 162.5,
     w: 60,
     h: 6,
     fontSize: 10,
     align: "left",
     value: "",
   },
+
+  // PÁGINA 2
   {
     nombre: "provincia",
-    page: 3,
-    x: 60,
-    y: 259.5,
+    page: 2,
+    x: 57.5,
+    y: 248,
     w: 40,
-    h: 6,
+    h: 4,
     fontSize: 10,
     align: "left",
     value: "",
+    background: "#fff",
   },
-  // PÁGINA 2
-  // PÁGINA 3
   {
     nombre: "dia",
-    page: 3,
+    page: 2,
     x: 107.8,
-    y: 259,
+    y: 249,
     w: 11.1,
-    h: 4.5,
+    h: 4.8,
     fontSize: 10,
     align: "center",
     value: "",
@@ -186,11 +191,11 @@ const etiquetas = ref([
   },
   {
     nombre: "mes",
-    page: 3,
+    page: 2,
     x: 126,
-    y: 259,
+    y: 249,
     w: 20,
-    h: 5,
+    h: 4.8,
     fontSize: 10,
     align: "left",
     value: "",
@@ -198,20 +203,22 @@ const etiquetas = ref([
   },
   {
     nombre: "anio",
-    page: 3,
-    x: 145,
-    y: 259,
-    w: 20,
-    h: 6,
+    page: 2,
+    x: 153,
+    y: 249,
+    w: 11.1,
+    h: 4.9,
     fontSize: 10,
     align: "center",
     value: "",
+    background: "#fff",
+
   },
   {
     nombre: "personaFirma",
-    page: 3,
+    page: 2,
     x: 75,
-    y: 281.5,
+    y: 277.5,
     w: 60,
     h: 6,
     fontSize: 10,
@@ -220,9 +227,80 @@ const etiquetas = ref([
   },
   {
     nombre: "firma",
+    page: 2,
+    x: 125,
+    y: 265,
+    w: 30,
+    h: 15,
+    value: "",
+    align: "center",
+  },
+
+  // PÁGINA 3
+  {
+    nombre: "provincia_p3",
     page: 3,
-    x: 130,
-    y: 270,
+    x: 57.5,
+    y: 121.5,
+    w: 40,
+    h: 4,
+    fontSize: 10,
+    align: "left",
+    value: "",
+    background: "#fff",
+  },
+  {
+    nombre: "dia_p3",
+    page: 3,
+    x: 107.8,
+    y: 121.5,
+    w: 11.1,
+    h: 4.8,
+    fontSize: 10,
+    align: "center",
+    value: "",
+    background: "#fff",
+  },
+  {
+    nombre: "mes_p3",
+    page: 3,
+    x: 126,
+    y: 121.5,
+    w: 20,
+    h: 4.8,
+    fontSize: 10,
+    align: "left",
+    value: "",
+    background: "#fff",
+  },
+  {
+    nombre: "anio_p3",
+    page: 3,
+    x: 153,
+    y: 121.5,
+    w: 11.1,
+    h: 4.9,
+    fontSize: 10,
+    align: "center",
+    value: "",
+    background: "#fff",
+  },
+  {
+    nombre: "personaFirma_p3",
+    page: 3,
+    x: 75,
+    y: 150.5,
+    w: 60,
+    h: 6,
+    fontSize: 10,
+    align: "left",
+    value: "",
+  },
+  {
+    nombre: "firma_p3",
+    page: 3,
+    x: 125,
+    y: 138,
     w: 30,
     h: 15,
     value: "",
@@ -230,12 +308,16 @@ const etiquetas = ref([
   },
 ]);
 
+
 // Watch para sincronizar props con etiquetas
 watch(
   () => props,
   (newProps) => {
     etiquetas.value.forEach((etiqueta) => {
-      const propValue = newProps[etiqueta.nombre];
+      // Extraer nombre base para etiquetas duplicadas (ej: dia_p3 -> dia)
+      const baseName = etiqueta.nombre.replace("_p3", "");
+      const propValue = newProps[baseName];
+
       // Solo sobrescribir si el prop tiene un valor válido (no vacío/null/undefined)
       if (propValue !== undefined && propValue !== null && propValue !== "") {
         etiqueta.value = String(propValue);
