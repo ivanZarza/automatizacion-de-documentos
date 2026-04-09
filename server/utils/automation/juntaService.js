@@ -1285,9 +1285,13 @@ export const runJuntaAutomation = async (payload) => {
       console.log('   [!] Botón Firmar no apareció tras Presentar. Continuando con pausa manual...');
     }
 
-    // --- PAUSA: capturar click de segunda AutoFirma ---
-    console.log('🛑 PARADA: Realiza la segunda AutoFirma y captura el click si hace falta. Pulsa "Resume" cuando termines.');
+    // --- PAUSA: segunda AutoFirma (puede tardar bastante) ---
+    console.log('🛑 PARADA: Realiza la segunda AutoFirma. Cuando la página termine de cargar, pulsa "Resume".');
     await page.pause();
+
+    console.log('   -> Esperando cambio de pantalla tras segunda AutoFirma (sin límite de tiempo)...');
+    await page.waitForLoadState('networkidle', { timeout: 0 }).catch(() => { });
+    await esperar(120000);
 
     console.log('✅ PROCESO COMPLETADO.');
     await page.pause();
