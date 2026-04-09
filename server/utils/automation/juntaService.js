@@ -1241,28 +1241,49 @@ export const runJuntaAutomation = async (payload) => {
     const iframeLoc3 = page.locator('#ficha');
     const fichaFrame3 = iframeLoc3.contentFrame();
 
-    // --- PRIMERA AUTOFIRMA: Guardar ficha ---
-    console.log('   -> Activando Autoclicker Inteligente para primera AutoFirma...');
-    autoClicker.start();
-
+    // --- PASO 1: Guardar la ficha ---
+    console.log('   -> Pulsando Guardar global...');
     await fichaFrame3.getByRole('img', { name: 'Guardar' }).click().catch(() => {
-      return page.getByRole('img', { name: 'Guardar' }).click();
+      return page.getByRole('img', { name: 'Guardar' }).click().catch(() => { });
     });
+    await esperar(4000);
 
-    await esperar(3000);
-    console.log('   -> Esperando carga de página post-primera-firma...');
-    await page.waitForLoadState('load', { timeout: 30000 }).catch(() => { });
-    await esperar(5000);
-
-    console.log('✅ PRIMERA AUTOFIRMA COMPLETADA. Parando Autoclicker...');
-    autoClicker.stop();
-
-    // --- PRESENTAR (primer clic) ---
+    // --- PASO 2: Presentar (hace que aparezca el botón Firmar) ---
     console.log('   -> Pulsando Presentar...');
-    await fichaFrame3.getByRole('img', { name: 'Presentar' }).click().catch(() => {
+    const fichaFrame3b = page.locator('#ficha').contentFrame();
+    await fichaFrame3b.getByRole('img', { name: 'Presentar' }).click().catch(() => {
       return page.getByRole('img', { name: 'Presentar' }).click().catch(() => { });
     });
-    await esperar(3000);
+    await esperar(4000);
+
+    console.log('🛑 PARADA: Verifica el estado tras Presentar. Pulsa "Resume" para continuar con el botón Firmar.');
+    await page.pause();
+
+    // --- PASO 3: Botón Firmar (aparece tras Presentar) ---
+    console.log('   -> Esperando botón Firmar (timeout 20s)...');
+    const fichaFrame3c = page.locator('#ficha').contentFrame();
+    const btnFirmar = fichaFrame3c.getByRole('img', { name: 'Firmar' });
+    const firmarVisible = await btnFirmar.waitFor({ state: 'visible', timeout: 20000 }).then(() => true).catch(() => false);
+
+    if (firmarVisible) {
+      console.log('   -> Botón Firmar encontrado. Capturando alert y abriendo AutoFirma...');
+      page.once('dialog', dialog => {
+        console.log(`   [!] Alert firma: ${dialog.message()}`);
+        dialog.dismiss().catch(() => { });
+      });
+
+      await btnFirmar.click().catch(() => { });
+      await esperar(2000);
+
+      console.log('   -> Activando Autoclicker Inteligente para AutoFirma...');
+      autoClicker.start();
+      await esperar(15000);
+      console.log('✅ AUTOFIRMA COMPLETADA. Parando Autoclicker...');
+      autoClicker.stop();
+      await esperar(3000);
+    } else {
+      console.log('   [!] Botón Firmar no apareció tras Presentar. Continuando con pausa manual...');
+    }
 
     // --- PAUSA: capturar click de segunda AutoFirma ---
     console.log('🛑 PARADA: Realiza la segunda AutoFirma y captura el click si hace falta. Pulsa "Resume" cuando termines.');
