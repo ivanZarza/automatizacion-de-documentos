@@ -3,7 +3,6 @@
             $startTime = [DateTime]::Now
             $windowWasFound = $false
             
-            # Registrar APIs de Windows para bajo nivel
             Add-Type @"
               using System;
               using System.Text;
@@ -21,6 +20,12 @@
 
                 [DllImport("user32.dll")]
                 public static extern bool IsWindowVisible(IntPtr hWnd);
+
+                [DllImport("user32.dll")]
+                public static extern bool SetForegroundWindow(IntPtr hWnd);
+
+                [DllImport("user32.dll")]
+                public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
 
                 [DllImport("user32.dll")]
                 public static extern void mouse_event(int dwFlags, int dx, int dy, int dwData, int dwExtraInfo);
@@ -41,58 +46,58 @@
               }
 "@
             
-            Write-Host "MODO INTELIGENTE: Vigilando ventanas para clic en 922, 533..."
+            Write-Host "MODO INTELIGENTE: Vigilando ventanas para clic en 923, 536..."
             
             while ($true) {
                 try {
-                    # 1. Comprobar Tiempo Límite (30s seguridad)
-                    if (([DateTime]::Now - $startTime).TotalSeconds -gt 30) {
-                        Write-Host "TIMEOUT: 30s alcanzados. Saliendo..."
+                    if (([DateTime]::Now - $startTime).TotalSeconds -gt 90) {
+                        Write-Host "TIMEOUT: 90s alcanzados. Saliendo..."
                         break
                     }
 
-                    # 2. Enumerar ventanas y buscar patrones
                     $wins = [Win32]::GetWindows()
-                    $pattern = "Certificado|AutoFirma|Firma|Seguridad|Aceptar|almacen|Windows|Seleccione"
-                    $match = $false
+                    $pattern = "Certificado|AutoFirma|Firma|Seguridad|almacen|Seleccione|Seleccionar"
+                    $targetHwnd = [IntPtr]::Zero
                     $foundTitle = ""
                     
                     foreach ($w in $wins) {
                         if ($w.Item2 -match $pattern) {
-                            $match = $true
+                            $targetHwnd = $w.Item1
                             $foundTitle = $w.Item2
+                            break
                         }
                     }
 
-                    if ($match) {
-                        Write-Host "!!! [MATCH] Detectada ventana: '$foundTitle'. Iniciando clics repetidos en 923, 536..."
+                    if ($targetHwnd -ne [IntPtr]::Zero) {
+                        Write-Host "!!! [MATCH] Detectada: '$foundTitle'. Trayendo al frente y clicando en 923, 536..."
                         $windowWasFound = $true
 
-                        # Repetir clics hasta que la ventana desaparezca
                         $n = 0
                         while ($true) {
-                            # Comprobar si la ventana sigue abierta
                             $abierta = $false
+                            $currentHwnd = [IntPtr]::Zero
                             foreach ($w2 in ([Win32]::GetWindows())) {
-                                if ($w2.Item2 -match $pattern) { $abierta = $true; break }
+                                if ($w2.Item2 -match $pattern) { $abierta = $true; $currentHwnd = $w2.Item1; break }
                             }
                             if (-not $abierta) {
                                 Write-Host "EXITO: Ventana cerrada tras $n clics."
                                 break
                             }
-                            # Posicionar y clic
+                            # Traer la ventana al frente ANTES de clicar
+                            [Win32]::ShowWindow($currentHwnd, 9) | Out-Null
+                            [Win32]::SetForegroundWindow($currentHwnd) | Out-Null
+                            Start-Sleep -Milliseconds 200
+                            # Posicionar y clicar
                             [System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(923, 536)
-                            [Win32]::mouse_event(0x0002, 0, 0, 0, 0) # LeftDown
+                            [Win32]::mouse_event(0x0002, 0, 0, 0, 0)
                             Start-Sleep -Milliseconds 50
-                            [Win32]::mouse_event(0x0004, 0, 0, 0, 0) # LeftUp
-                            [System.Windows.Forms.SendKeys]::SendWait('{ENTER}')
+                            [Win32]::mouse_event(0x0004, 0, 0, 0, 0)
                             $n++
-                            Write-Host "   -> Clic #$n"
-                            Start-Sleep -Milliseconds 300
+                            Write-Host "   -> Clic #$n en 923,536"
+                            Start-Sleep -Milliseconds 500
                         }
-                        break # trabajo terminado, salir del loop externo
+                        break
                     } else {
-                        # Si ya se encontró alguna vez y ahora no hay nada, es que se ha cerrado con éxito
                         if ($windowWasFound) {
                             Write-Host "EXITO: La ventana ha desaparecido. Terminando..."
                             break
@@ -101,6 +106,6 @@
                 } catch { 
                     Write-Host "Error en loop: $($_.Exception.Message)"
                 }
-                Start-Sleep -Seconds 2 # Revisar cada 2 segundos
+                Start-Sleep -Seconds 1
             }
         

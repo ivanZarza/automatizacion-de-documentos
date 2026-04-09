@@ -67,7 +67,7 @@ class WindowsAutoClicker {
                 public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
 
                 [DllImport("user32.dll")]
-                public static extern bool PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
+                public static extern void mouse_event(int dwFlags, int dx, int dy, int dwData, int dwExtraInfo);
 
                 public static List<ValueTuple<IntPtr, string>> GetWindows() {
                   var list = new List<ValueTuple<IntPtr, string>>();
@@ -85,11 +85,10 @@ class WindowsAutoClicker {
               }
 "@
             
-            Write-Host "MODO INTELIGENTE: Vigilando ventanas de AutoFirma/Certificado..."
+            Write-Host "MODO INTELIGENTE: Vigilando ventanas para clic en 923, 536..."
             
             while ($true) {
                 try {
-                    # Tiempo limite 90s
                     if (([DateTime]::Now - $startTime).TotalSeconds -gt 90) {
                         Write-Host "TIMEOUT: 90s alcanzados. Saliendo..."
                         break
@@ -109,31 +108,31 @@ class WindowsAutoClicker {
                     }
 
                     if ($targetHwnd -ne [IntPtr]::Zero) {
-                        Write-Host "!!! [MATCH] Detectada: '$foundTitle'. Trayendo al frente y pulsando ENTER..."
+                        Write-Host "!!! [MATCH] Detectada: '$foundTitle'. Trayendo al frente y clicando en 923, 536..."
                         $windowWasFound = $true
 
                         $n = 0
                         while ($true) {
-                            # Verificar si sigue abierta
                             $abierta = $false
                             $currentHwnd = [IntPtr]::Zero
                             foreach ($w2 in ([Win32]::GetWindows())) {
                                 if ($w2.Item2 -match $pattern) { $abierta = $true; $currentHwnd = $w2.Item1; break }
                             }
                             if (-not $abierta) {
-                                Write-Host "EXITO: Ventana cerrada tras $n intentos."
+                                Write-Host "EXITO: Ventana cerrada tras $n clics."
                                 break
                             }
-
-                            # Traer al frente y mandar ENTER (no depende de coordenadas)
-                            [Win32]::ShowWindow($currentHwnd, 9) | Out-Null  # SW_RESTORE
+                            # Traer la ventana al frente ANTES de clicar
+                            [Win32]::ShowWindow($currentHwnd, 9) | Out-Null
                             [Win32]::SetForegroundWindow($currentHwnd) | Out-Null
                             Start-Sleep -Milliseconds 200
-                            [System.Windows.Forms.SendKeys]::SendWait('{ENTER}')
-                            Start-Sleep -Milliseconds 200
-                            [System.Windows.Forms.SendKeys]::SendWait('{SPACE}')
+                            # Posicionar y clicar
+                            [System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(923, 536)
+                            [Win32]::mouse_event(0x0002, 0, 0, 0, 0)
+                            Start-Sleep -Milliseconds 50
+                            [Win32]::mouse_event(0x0004, 0, 0, 0, 0)
                             $n++
-                            Write-Host "   -> Intento #$n (ENTER+SPACE sobre '$foundTitle')"
+                            Write-Host "   -> Clic #$n en 923,536"
                             Start-Sleep -Milliseconds 500
                         }
                         break
