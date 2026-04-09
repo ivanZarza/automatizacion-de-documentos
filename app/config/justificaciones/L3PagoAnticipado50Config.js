@@ -20,7 +20,13 @@ export const l3PagoAnticipado50Config = {
     { name: 'mes', label: 'Mes', type: 'text' },
     { name: 'anio', label: 'Año', type: 'text' },
     { name: 'personaFirma', label: 'Persona que firma', type: 'text' },
-    { name: 'firma', label: 'Firma (Imagen)', type: 'file', accept: 'image/*' }
+    { name: 'firma', label: 'Firma (Imagen)', type: 'file', accept: 'image/*' },
+    { name: 'check_1', label: 'Check 1 (Documentación)', type: 'checkbox' },
+    { name: 'check_2', label: 'Check 2 (Documentación)', type: 'checkbox' },
+    { name: 'check_3', label: 'Check 3 (Documentación)', type: 'checkbox' },
+    { name: 'check_4', label: 'Check 4 (Documentación)', type: 'checkbox' },
+    { name: 'check_5', label: 'Check 5 (Documentación)', type: 'checkbox' },
+    { name: 'check_6', label: 'Check 6 (Documentación)', type: 'checkbox' }
   ],
   defaultData: {
     expediente: '',
@@ -38,7 +44,13 @@ export const l3PagoAnticipado50Config = {
     mes: '',
     anio: '',
     personaFirma: '',
-    firma: ''
+    firma: '',
+    check_1: false,
+    check_2: false,
+    check_3: false,
+    check_4: false,
+    check_5: false,
+    check_6: false
   },
   fieldMapping: {
     expediente: 'expedienteEco',
@@ -56,7 +68,13 @@ export const l3PagoAnticipado50Config = {
     mes: 'mesFirmaJustificacion',
     anio: 'anioFirmaJustificacion',
     personaFirma: 'apellidosNombre',
-    firma: 'firma'
+    firma: 'firma',
+    check_1: 'check_1',
+    check_2: 'check_2',
+    check_3: 'check_3',
+    check_4: 'check_4',
+    check_5: 'check_5',
+    check_6: 'check_6'
   },
   capabilities: {
     canPreview: true,

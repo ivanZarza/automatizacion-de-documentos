@@ -38,7 +38,13 @@ export const l4PagoAnticipado100Config = {
     mes: '',
     anio: '',
     personaFirma: '',
-    firma: ''
+    firma: '',
+    check_1: true,
+    check_2: true,
+    check_3: true,
+    check_4: true,
+    check_5: true,
+    check_6: true
   },
   fieldMapping: {
     expediente: 'expedienteEco',

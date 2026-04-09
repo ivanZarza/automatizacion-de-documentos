@@ -52,16 +52,71 @@ const props = defineProps({
 });
 
 const etiquetas = ref([
-  // PÁGINA 1
+  // PÁGINA 2 (Checkboxes)
   {
-    nombre: "expediente",
-    page: 1,
-    x: 45,
-    y: 105.5,
-    w: 80,
-    h: 6,
-    fontSize: 11,
-    align: "left",
+    nombre: "check_1",
+    page: 2,
+    x: 50,
+    y: 50,
+    w: 5,
+    h: 5,
+    fontSize: 12,
+    align: "center",
+    value: "",
+  },
+  {
+    nombre: "check_2",
+    page: 2,
+    x: 50,
+    y: 60,
+    w: 5,
+    h: 5,
+    fontSize: 12,
+    align: "center",
+    value: "",
+  },
+  {
+    nombre: "check_3",
+    page: 2,
+    x: 50,
+    y: 70,
+    w: 5,
+    h: 5,
+    fontSize: 12,
+    align: "center",
+    value: "",
+  },
+  {
+    nombre: "check_4",
+    page: 2,
+    x: 50,
+    y: 80,
+    w: 5,
+    h: 5,
+    fontSize: 12,
+    align: "center",
+    value: "",
+  },
+  {
+    nombre: "check_5",
+    page: 2,
+    x: 50,
+    y: 90,
+    w: 5,
+    h: 5,
+    fontSize: 12,
+    align: "center",
+    value: "",
+  },
+  {
+    nombre: "check_6",
+    page: 2,
+    x: 50,
+    y: 100,
+    w: 5,
+    h: 5,
+    fontSize: 12,
+    align: "center",
     value: "",
   },
   {
@@ -164,77 +219,7 @@ const etiquetas = ref([
     value: "",
   },
 
-  // PÁGINA 2
-  {
-    nombre: "provincia",
-    page: 2,
-    x: 57.5,
-    y: 248,
-    w: 40,
-    h: 4,
-    fontSize: 10,
-    align: "left",
-    value: "",
-    background: "#fff",
-  },
-  {
-    nombre: "dia",
-    page: 2,
-    x: 107.8,
-    y: 249,
-    w: 11.1,
-    h: 4.8,
-    fontSize: 10,
-    align: "center",
-    value: "",
-    background: "#fff",
-  },
-  {
-    nombre: "mes",
-    page: 2,
-    x: 126,
-    y: 249,
-    w: 20,
-    h: 4.8,
-    fontSize: 10,
-    align: "left",
-    value: "",
-    background: "#fff",
-  },
-  {
-    nombre: "anio",
-    page: 2,
-    x: 153,
-    y: 249,
-    w: 11.1,
-    h: 4.9,
-    fontSize: 10,
-    align: "center",
-    value: "",
-    background: "#fff",
 
-  },
-  {
-    nombre: "personaFirma",
-    page: 2,
-    x: 75,
-    y: 277.5,
-    w: 60,
-    h: 6,
-    fontSize: 10,
-    align: "left",
-    value: "",
-  },
-  {
-    nombre: "firma",
-    page: 2,
-    x: 125,
-    y: 265,
-    w: 30,
-    h: 15,
-    value: "",
-    align: "center",
-  },
 
   // PÁGINA 3
   {
@@ -401,15 +386,15 @@ const estiloEtiqueta = (etiqueta) => ({
 }
 
 .pagina-1 {
-  background-image: url("/documentos-oficiales/justificaciones(50%25)/pago-restante-50-l3/Pago 50 restante (L3)_page-0001.jpg");
+  background-image: url("/documentos-oficiales/justificaciones(50%25)/pago-anticipado-50-l3/Pago 50 anticipado (L3) page-0001.jpg");
 }
 
 .pagina-2 {
-  background-image: url("/documentos-oficiales/justificaciones(50%25)/pago-restante-50-l3/Pago 50 restante (L3)_page-0002.jpg");
+  background-image: url("/documentos-oficiales/justificaciones(50%25)/pago-anticipado-50-l3/Pago 50 anticipado (L3) page-0002.jpg");
 }
 
 .pagina-3 {
-  background-image: url("/documentos-oficiales/justificaciones(50%25)/pago-anticipado-50-l3/Pago 50 anticipado (L3)_page-0003.jpg");
+  background-image: url("/documentos-oficiales/justificaciones(50%25)/pago-anticipado-50-l3/Pago 50 anticipado (L3) page-0003.jpg");
 }
 
 .overlay-field {
