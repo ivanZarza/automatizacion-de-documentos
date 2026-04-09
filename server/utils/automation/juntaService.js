@@ -1285,16 +1285,65 @@ export const runJuntaAutomation = async (payload) => {
       console.log('   [!] Botón Firmar no apareció tras Presentar. Continuando con pausa manual...');
     }
 
-    // --- PAUSA: segunda AutoFirma (puede tardar bastante) ---
-    console.log('🛑 PARADA: Realiza la segunda AutoFirma. Cuando la página termine de cargar, pulsa "Resume".');
-    await page.pause();
+    // --- PASO 4: Presentar solicitud (fuera del iframe) + navegar a anclaBotonera ---
+    console.log('   -> Esperando botón Presentar (solicitud) tras AutoFirma...');
+    const btnPresentarSolicitud = page.getByRole('img', { name: 'Presentar' });
+    await btnPresentarSolicitud.waitFor({ state: 'visible', timeout: 0 }).catch(() => {
+      console.log('   [!] Timeout esperando botón Presentar, continuando igualmente...');
+    });
+    console.log('   -> Pulsando Presentar (solicitud, fuera del iframe)...');
+    page.once('dialog', dialog => {
+      console.log(`   [!] Dialog Presentar: ${dialog.message()}`);
+      dialog.dismiss().catch(() => { });
+    });
+    await btnPresentarSolicitud.click().catch(() => { });
+
+    console.log('   -> Navegando a anclaBotonera...');
+    await page.goto('https://www.juntadeandalucia.es/empleoempresaycomercio/oficinavirtual/pues_bandeja/nuevaSolicitud.do#anclaBotonera');
+    await page.waitForLoadState('networkidle', { timeout: 0 }).catch(() => { });
+    await esperar(4000);
+
+    // --- PASO 5: Firmar solicitud (segunda AutoFirma) ---
+    console.log('   -> Esperando botón Firmar (solicitud) antes de pulsar...');
+    const btnFirmarFinal = page.getByRole('img', { name: 'Firmar' });
+    await btnFirmarFinal.waitFor({ state: 'visible', timeout: 0 }).catch(() => {
+      console.log('   [!] Aviso: timeout esperando botón Firmar final, continuando igualmente...');
+    });
+    // Esperar a que la página termine de procesar (puede estar visible pero aún cargando)
+    console.log('   -> Esperando que la página termine de procesar (networkidle)...');
+    await page.waitForLoadState('networkidle', { timeout: 0 }).catch(() => { });
+    console.log('   -> Pulsando Firmar (firma definitiva de la solicitud)...');
+    // El autoclicker arranca desde el propio manejador del diálogo, así siempre
+    // tiene los 90s COMPLETOS a partir de que AutoFirma está a punto de abrirse,
+    // independientemente de cuánto tarde en aparecer el diálogo.
+    page.once('dialog', dialog => {
+      console.log(`   [!] Dialog Firmar solicitud: ${dialog.message()}`);
+      dialog.dismiss().catch(() => { });
+      console.log('   -> Activando Autoclicker Inteligente para segunda AutoFirma (vía diálogo)...');
+      autoClicker.start();
+    });
+    // Scroll + click forzado para asegurar que el clic registra
+    await btnFirmarFinal.scrollIntoViewIfNeeded().catch(() => { });
+    await esperar(500);
+    await btnFirmarFinal.click({ force: true }).catch(async () => {
+      console.log('   [!] Click normal falló, intentando dispatchEvent...');
+      await btnFirmarFinal.evaluate(n => n.click());
+    });
+
+    // RESPALDO: si AutoFirma abre directamente sin diálogo previo del navegador,
+    // el handler anterior nunca dispara. Esperamos 5s y arrancamos si aún no está activo.
+    await esperar(5000);
+    if (!autoClicker.active) {
+      console.log('   -> [RESPALDO] Sin diálogo detectado, activando Autoclicker directamente...');
+      autoClicker.start();
+    }
 
     console.log('   -> Esperando cambio de pantalla tras segunda AutoFirma (sin límite de tiempo)...');
     await page.waitForLoadState('networkidle', { timeout: 0 }).catch(() => { });
     await esperar(120000);
 
-    console.log('✅ PROCESO COMPLETADO.');
-    await page.pause();
+    console.log('✅ PROCESO COMPLETADO. Parando Autoclicker...');
+    autoClicker.stop();
   } catch (error) {
     console.error('❌ Error General:', error.message);
     autoClicker.stop();
