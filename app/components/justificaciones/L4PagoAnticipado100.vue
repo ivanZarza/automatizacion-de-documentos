@@ -3,7 +3,9 @@
     <!-- PÁGINA 1 -->
     <article class="pagina-documento pagina-1">
       <span v-for="et in etiquetasPage1Visibles" :key="et.nombre" class="overlay-field" :style="estiloEtiqueta(et)">
-        {{ et.displayValue }}
+        <img v-if="et.nombre === 'firma' && et.displayValue" :src="et.displayValue"
+          style="width: 100%; height: 100%; object-fit: contain" />
+        <span v-else>{{ et.displayValue }}</span>
       </span>
     </article>
 
@@ -42,22 +44,22 @@ const props = defineProps({
 
 const etiquetas = ref([
   // PÁGINA 1
-  /*   {
-      nombre: "expediente",
-      page: 1,
-      x: 50,
-      y: 10,
-      w: 80,
-      h: 6,
-      fontSize: 11,
-      align: "left",
-      value: "alalala",
-    }, */
+  {
+    nombre: "expediente",
+    page: 1,
+    x: 47,
+    y: 113.5,
+    w: 80,
+    h: 6,
+    fontSize: 11,
+    align: "left",
+    value: "",
+  },
   {
     nombre: "apellidosNombre",
     page: 1,
     x: 20,
-    y: 126.5,
+    y: 135.5,
     w: 80,
     h: 6,
     fontSize: 10,
@@ -68,7 +70,7 @@ const etiquetas = ref([
     nombre: "dni",
     page: 1,
     x: 172,
-    y: 126.5,
+    y: 135.5,
     w: 40,
     h: 6,
     fontSize: 10,
@@ -79,7 +81,7 @@ const etiquetas = ref([
     nombre: "telefono",
     page: 1,
     x: 20,
-    y: 135.5,
+    y: 144.5,
     w: 40,
     h: 6,
     fontSize: 10,
@@ -90,7 +92,7 @@ const etiquetas = ref([
     nombre: "correoElectronico",
     page: 1,
     x: 55,
-    y: 135.5,
+    y: 144.5,
     w: 60,
     h: 6,
     fontSize: 10,
@@ -101,7 +103,7 @@ const etiquetas = ref([
     nombre: "apellidosNombreRepresentante",
     page: 1,
     x: 20,
-    y: 144.5,
+    y: 153.5,
     w: 80,
     h: 6,
     fontSize: 10,
@@ -112,7 +114,7 @@ const etiquetas = ref([
     nombre: "dniRepresentante",
     page: 1,
     x: 172,
-    y: 144.5,
+    y: 153.5,
     w: 40,
     h: 6,
     fontSize: 10,
@@ -123,7 +125,7 @@ const etiquetas = ref([
     nombre: "actuaCalidad",
     page: 1,
     x: 20,
-    y: 153.5,
+    y: 161.5,
     w: 80,
     h: 6,
     fontSize: 10,
@@ -134,7 +136,7 @@ const etiquetas = ref([
     nombre: "telefonoRepresentante",
     page: 1,
     x: 20,
-    y: 162.5,
+    y: 170.5,
     w: 40,
     h: 6,
     fontSize: 10,
@@ -145,30 +147,31 @@ const etiquetas = ref([
     nombre: "correoElectronicoRepresentante",
     page: 1,
     x: 55,
-    y: 162.5,
+    y: 170.5,
     w: 60,
     h: 6,
     fontSize: 10,
     align: "left",
     value: "",
   },
+
+  // PÁGINA 2
   {
     nombre: "provincia",
     page: 2,
     x: 60,
-    y: 246,
+    y: 254,
     w: 40,
     h: 6,
     fontSize: 10,
     align: "left",
     value: "",
   },
-  // PÁGINA 2
   {
     nombre: "dia",
     page: 2,
     x: 107.8,
-    y: 245.6,
+    y: 254,
     w: 11.1,
     h: 4.8,
     fontSize: 10,
@@ -180,7 +183,7 @@ const etiquetas = ref([
     nombre: "mes",
     page: 2,
     x: 126,
-    y: 245.6,
+    y: 254,
     w: 20,
     h: 4.8,
     fontSize: 10,
@@ -192,7 +195,7 @@ const etiquetas = ref([
     nombre: "anio",
     page: 2,
     x: 153,
-    y: 245,
+    y: 254,
     w: 11.1,
     h: 4.9,
     fontSize: 10,
@@ -205,7 +208,7 @@ const etiquetas = ref([
     nombre: "personaFirma",
     page: 2,
     x: 75,
-    y: 273.5,
+    y: 280.5,
     w: 60,
     h: 6,
     fontSize: 10,
@@ -216,11 +219,78 @@ const etiquetas = ref([
     nombre: "firma",
     page: 2,
     x: 125,
-    y: 258,
+    y: 265,
     w: 30,
     h: 15,
     value: "",
     align: "center",
+  },
+
+  {
+    nombre: "check_1",
+    page: 2,
+    x: 23,
+    y: 60,
+    w: 5,
+    h: 5,
+    fontSize: 12,
+    align: "center",
+    value: "X",
+  },
+  {
+    nombre: "check_2",
+    page: 2,
+    x: 23,
+    y: 68,
+    w: 5,
+    h: 5,
+    fontSize: 12,
+    align: "center",
+    value: "X",
+  },
+  {
+    nombre: "check_3",
+    page: 2,
+    x: 23,
+    y: 148.5,
+    w: 5,
+    h: 5,
+    fontSize: 12,
+    align: "center",
+    value: "X",
+  },
+  {
+    nombre: "check_4",
+    page: 2,
+    x: 23,
+    y: 167.5,
+    w: 5,
+    h: 5,
+    fontSize: 12,
+    align: "center",
+    value: "X",
+  },
+  {
+    nombre: "check_5",
+    page: 2,
+    x: 23,
+    y: 198,
+    w: 5,
+    h: 5,
+    fontSize: 12,
+    align: "center",
+    value: "X",
+  },
+  {
+    nombre: "check_6",
+    page: 2,
+    x: 23,
+    y: 211,
+    w: 5,
+    h: 5,
+    fontSize: 12,
+    align: "center",
+    value: "X",
   },
 ]);
 
@@ -304,11 +374,11 @@ const estiloEtiqueta = (etiqueta) => ({
 }
 
 .pagina-1 {
-  background-image: url("/documentos-oficiales/justificaciones(50%)/pago-anticipado-100-l4/Pago 100 anticipado (L4)_page-0001.jpg");
+  background-image: url("/documentos-oficiales/justificaciones(50%25)/pago-anticipado-100-l4/Pago 100 anticipado (L4)_page-0001.jpg");
 }
 
 .pagina-2 {
-  background-image: url("/documentos-oficiales/justificaciones(50%)/pago-anticipado-100-l4/Pago 100 anticipado (L4)_page-0002.jpg");
+  background-image: url("/documentos-oficiales/justificaciones(50%25)/pago-anticipado-100-l4/Pago 100 anticipado (L4)_page-0002.jpg");
 }
 
 .overlay-field {

@@ -1,11 +1,11 @@
 
 <script setup>
 import DocumentPage from '../../components/DocumentPage.vue'
-import JustificacionPagoSubvencionL4 from '../../components/justificaciones/JustificacionPagoSubvencionL4.vue'
-import { justificacionPagoSubvencionConfigL4 } from '../../config/justificaciones/justificacionPagoSubvencionConfigL4'
+import L4PagoAnticipado100 from '../../components/justificaciones/L4PagoAnticipado100.vue'
+import { l4PagoAnticipado100Config } from '../../config/justificaciones/L4PagoAnticipado100Config'
 </script>
 
 <template>
-  <DocumentPage :config="justificacionPagoSubvencionConfigL4" :documentComponent="JustificacionPagoSubvencionL4" />
+  <DocumentPage :config="l4PagoAnticipado100Config" :documentComponent="L4PagoAnticipado100" />
 </template>
 

@@ -1,10 +1,9 @@
-
 <script setup>
 import DocumentPage from '../../components/DocumentPage.vue'
-import JustificacionPagoSubvencionL3 from '../../components/justificaciones/JustificacionPagoSubvencionL3.vue'
-import { justificacionPagoSubvencionConfigL3 } from '../../config/justificaciones/justificacionPagoSubvencionConfigL3'
+import L3PagoRestante50 from '../../components/justificaciones/L3PagoRestante50.vue'
+import { l3PagoRestante50Config } from '../../config/justificaciones/L3PagoRestante50Config'
 </script>
 
 <template>
-  <DocumentPage :config="justificacionPagoSubvencionConfigL3" :documentComponent="JustificacionPagoSubvencionL3" />
+  <DocumentPage :config="l3PagoRestante50Config" :documentComponent="L3PagoRestante50" />
 </template>

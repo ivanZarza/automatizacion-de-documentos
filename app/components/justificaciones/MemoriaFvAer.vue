@@ -215,7 +215,7 @@
             eficiencia energética actual y previsto, del
             <span>{{
               porcentajeMejoraEnergeticaAcreditado
-            }}%</span>
+              }}%</span>
             La tabla de los importes subvencionados sería la siguiente:
           </p>
 

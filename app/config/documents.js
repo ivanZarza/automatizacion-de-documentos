@@ -2977,8 +2977,6 @@ const documentConfigs = {
   'aceptacion-compromiso-derechos': declaracionCompromisoDerechosConfig,
   'aceptacion-ausencia-conflicto-intereses': declaracionAusenciaConflictoInteresesConfig,
   'aceptacion-compromiso-transversales': declaracionCompromisoTransversalesConfig,
-  'justificacion-pago-subvencion-l3': justificacionPagoSubvencionConfigL3,
-  'justificacion-pago-subvencion-l4': justificacionPagoSubvencionConfigL4,
   'memoria-economica': memoriaEconomicaConfig,
   'memoria-fv-aer': memoriaFvAerConfig,
   'certificado-pedidos-contratos': certificadoPedidosContratosConfig,
