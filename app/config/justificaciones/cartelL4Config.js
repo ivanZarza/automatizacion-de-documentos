@@ -24,5 +24,5 @@ export const cartelL4Config = {
     canEdit: true,
     canGeneratePDF: true
   },
-  category: 'justificaciones'
+  category: 'aceptaciones'
 }

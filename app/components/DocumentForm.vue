@@ -104,8 +104,11 @@
                             <img v-if="formData[field.name]?.startsWith('data:image/')" :src="formData[field.name]"
                               class="file-preview-image" />
                             <p v-else class="file-preview-name">{{ extractFileName(formData[field.name]) || 'Documento PDF cargado' }}</p>
-                            <button type="button" class="btn-remove-file" @click.stop="removeFile(field.name)" title="Quitar archivo">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <button type="button" class="btn-remove-file" @click.stop="removeFile(field.name)"
+                              title="Quitar archivo">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
                                 <line x1="18" y1="6" x2="6" y2="18"></line>
                                 <line x1="6" y1="6" x2="18" y2="18"></line>
                               </svg>
@@ -359,7 +362,7 @@ watch(formData, (newVal, oldVal) => {
       // Si el origen ha cambiado y el destino está vacío o era igual al origen anterior...
       if (sourceOldValue !== undefined && sourceValue !== sourceOldValue) {
         if (!targetValue || targetValue === sourceOldValue) {
-          
+
           if (field.name === 'nombre_presentador' && sourceValue) {
             let nombre = sourceValue
             let ap1 = ''
@@ -554,7 +557,7 @@ const groupedFieldsBySection = computed(() => {
   // Ordenar secciones con ACEPTACION al final
   const sortOrder = ['A', 'E1', 'E1.1', 'E1.2', 'E1.3', 'E1.4', 'E1.5', 'E1.6', 'E1.7',
     'E2', 'E2.1', 'E2.2', 'E2.3', 'E2.4', 'E2.5', 'E2.6',
-    'F', 'G', 'H', 'I', 'IMAGEN', 'LEGALIZACION', 'ACEPTACION']
+    'F', 'G', 'H', 'I', 'IMAGEN', 'LEGALIZACION', 'PRESENTACIÓN', 'ACEPTACION']
 
   const sorted = {}
   sortOrder.forEach(key => {
@@ -696,7 +699,7 @@ async function handleLaunchAutomation() {
   if (!confirmLaunch) return
 
   isAutomating.value = true
-  
+
   // ✅ AUTO-GUARDADO ANTES DE LANZAR EL ROBOT
   console.log('[DocumentForm] Auto-guardando datos en la Base de Datos (modo silencioso)...')
   await submit(true) // Llama al UPSERT de PostgreSQL
@@ -776,7 +779,7 @@ async function handleLaunchAutomation() {
       }
     },
     // Añadimos el flat data por si el script backend aún usa variables planas en alguna vista temporal
-    flatFormData: form 
+    flatFormData: form
   }
 
   try {
@@ -826,6 +829,7 @@ function getSubsectionLabel(subsection) {
     'I': 'I - Plano de Emplazamiento',
     'IMAGEN': 'Imágenes y Documentos',
     'LEGALIZACION': 'LEGALIZACIÓN',
+    'PRESENTACIÓN': 'PRESENTACIÓN',
     'ACEPTACION': 'ACEPTACIÓN',
   }
   return labels[subsection] || subsection
