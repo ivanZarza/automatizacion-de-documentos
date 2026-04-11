@@ -488,8 +488,10 @@ export const runJuntaAutomation = async (payload) => {
     await seleccionar(page.locator('select[name="codigoProvinciaDomicilioInteresado"]'), PROVINCIAS[provNorm] || datos.provincia);
 
     // [MARGEN ROBUSTO] Identificar el selector de margen buscando por opciones en el DOM
-    if (datos.margen) {
-      const mVal = (datos.margen || '').trim();
+    const _margenRaw = (typeof datos.margen === 'object' && datos.margen !== null) ? (datos.margen.value ?? '') : (datos.margen ?? '');
+    const _margenVal = String(_margenRaw).trim();
+    if (_margenVal) {
+      const mVal = _margenVal;
       console.log(`   -> Buscando selector de margen dinámicamente...`);
       const selName = await page.evaluate(() => {
         const select = Array.from(document.querySelectorAll('select')).find(s => {
@@ -616,9 +618,11 @@ export const runJuntaAutomation = async (payload) => {
     if (datos.escalera) await rellenar(page.locator('input[name="escaleraDomicilioEstablecimiento"]'), datos.escalera);
     if (datos.piso) await rellenar(page.locator('input[name="pisoDomicilioEstablecimiento"]'), datos.piso);
     if (datos.puerta) await rellenar(page.locator('puertaDomicilioEstablecimiento'), datos.puerta);
-    console.log(`   -> Margen recibido: "${datos.margen}"`);
-    if (datos.margen) {
-      const mVal = (datos.margen || '').trim();
+    const _margenRaw2 = (typeof datos.margen === 'object' && datos.margen !== null) ? (datos.margen.value ?? '') : (datos.margen ?? '');
+    const _margenVal2 = String(_margenRaw2).trim();
+    console.log(`   -> Margen recibido: "${_margenVal2}"`);
+    if (_margenVal2) {
+      const mVal = _margenVal2;
       await seleccionar(page.locator('select[name="margenEstablecimiento"]'), mVal).catch(async () => {
         // Fallback por texto si el valor 'D'/'I' no funciona
         const label = mVal === 'D' ? /Derech/i : /Izquier/i;

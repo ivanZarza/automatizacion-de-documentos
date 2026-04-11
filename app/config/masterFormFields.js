@@ -466,7 +466,7 @@ export const masterFormFields = [
   { name: 'escalera_presentador', label: 'Escalera', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)' },
   { name: 'piso_presentador', label: 'Piso', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)' },
   { name: 'puerta_presentador', label: 'Puerta', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)' },
-  { name: 'margen_presentador', label: 'Margen', type: 'select', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)', value: 'D', options: [{ value: 'D', label: 'Derecha' }, { value: 'I', label: 'Izquierda' }] },
+  { name: 'margen_presentador', label: 'Margen', type: 'select', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)', value: '', options: [{ value: '', label: '(Sin margen)' }, { value: 'D', label: 'Derecha' }, { value: 'I', label: 'Izquierda' }] },
   { name: 'provincia_presentador', label: 'Provincia', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)', mapFrom: 'provinciaEmplazamiento' },
   { name: 'municipio_presentador', label: 'Municipio', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)', mapFrom: 'localidadEmplazamiento' },
   { name: 'poblacion_presentador', label: 'Población', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)', mapFrom: 'localidadEmplazamiento' },
