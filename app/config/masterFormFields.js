@@ -522,7 +522,7 @@ export const masterFormFields = [
   // --- ARCHIVOS ADJUNTOS (NUEVO) ---
   { name: 'doc_autorizacion_rep', label: '1.- MTD', type: 'file', accept: '.pdf,image/*', subsection: 'PRESENTACIÓN', group: 'Documentos a Subir' },
   { name: 'doc_adicional_2', label: '2.- Documento Adicional / CIE', type: 'file', accept: '.pdf,image/*', subsection: 'PRESENTACIÓN', group: 'Documentos a Subir' },
-  { name: 'doc_certificado_solidez', label: '7.- Certificado de Solidez', type: 'file', accept: '.pdf,image/*', subsection: 'PRESENTACIÓN', group: 'Documentos a Subir' }
+  { name: 'doc_certificado_solidez', label: '7.- Certificado de Adecuacion', type: 'file', accept: '.pdf,image/*', subsection: 'PRESENTACIÓN', group: 'Documentos a Subir' }
 ]
 
 export const getMasterFormDefaultData = () => {

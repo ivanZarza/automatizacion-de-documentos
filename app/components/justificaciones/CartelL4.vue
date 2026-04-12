@@ -109,7 +109,7 @@ const estiloEtiqueta = (etiqueta) => ({
 }
 
 .pagina-documento {
-  width: 210mm;
+  width: 297mm;
   height: 210mm;
   position: relative;
   background-image: url("/documentos-oficiales/justificaciones/cartel-l4.png");
@@ -126,14 +126,14 @@ const estiloEtiqueta = (etiqueta) => ({
 
 @media print {
   @page {
-    size: 210mm 210mm;
+    size: 297mm 210mm;
     margin: 0;
   }
 
   .print-wrapper {
     background: white !important;
     padding: 0 !important;
-    width: 210mm !important;
+    width: 297mm !important;
     height: 209.7mm !important;
     /* Un poco menos para evitar desbordamiento */
     max-height: 209.7mm !important;
@@ -145,7 +145,7 @@ const estiloEtiqueta = (etiqueta) => ({
   }
 
   .pagina-documento {
-    width: 210mm !important;
+    width: 297mm !important;
     height: 209.7mm !important;
     box-shadow: none !important;
     margin: 0 !important;
