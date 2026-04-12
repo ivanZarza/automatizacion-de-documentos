@@ -20,11 +20,11 @@ const props = defineProps({
 const etiquetas = ref([
   {
     nombre: "costeActuacion",
-    x: 72, // Ajuste inicial basado en la captura
-    y: 117.6,
+    x: 112, // Ajuste inicial basado en la captura
+    y: 122.6,
     w: 27,
     h: 7,
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: "bold",
     align: "center",
     value: "16.600,00",
@@ -32,11 +32,11 @@ const etiquetas = ref([
   },
   {
     nombre: "cuantiaSubvencion",
-    x: 83,
-    y: 127,
+    x: 123,
+    y: 135,
     w: 28,
     h: 7,
-    fontSize: 14,
+    fontSize: 16,
     fontWeight: "bold",
     align: "left",
     value: "16.600,00",
@@ -44,11 +44,11 @@ const etiquetas = ref([
   },
   {
     nombre: "entidadUbicacion",
-    x: 104,
-    y: 138,
-    w: 102,
-    h: 7,
-    fontSize: 11,
+    x: 149,
+    y: 149,
+    w: 122,
+    h: 12,
+    fontSize: 14,
     fontWeight: "normal",
     align: "left",
     value: "direccion completa mas una eternidAD de caracteres",
