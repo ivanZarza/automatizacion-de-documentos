@@ -306,6 +306,7 @@ export const masterFormFields = [
       { label: 'Vivienda', value: 'mejora de la eficiencia energetica en viviendas' },
     ], subsection: 'ACEPTACION'
   },
+  { name: 'presupuestoInicial', label: 'Presupuesto Inicial', type: 'text', subsection: 'ACEPTACION' },
   { name: 'diaAceptacion', label: 'Día Aceptación', placeholder: 'Ej: 15', type: 'text', subsection: 'ACEPTACION' },
   { name: 'mesAceptacion', label: 'Mes Aceptación', placeholder: 'Ej: 10', type: 'text', subsection: 'ACEPTACION' },
   { name: 'anioAceptacion', label: 'Año Aceptación', placeholder: 'Ej: 2024', type: 'text', subsection: 'ACEPTACION' },
