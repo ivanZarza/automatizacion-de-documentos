@@ -15,7 +15,7 @@ export const cartelL3Config = {
     entidadUbicacion: '',
   },
   fieldMapping: {
-    costeActuacion: 'totalCantidadJustificada',
+    costeActuacion: 'presupuestoInicial',
     cuantiaSubvencion: 'importeSubvencionResultante',
     entidadUbicacion: (formData) => `${formData.direccionCompleta} - ${formData.codigoPostalEmplazamiento} - ${formData.localidadEmplazamiento} - ${formData.provinciaEmplazamiento}`
   },
