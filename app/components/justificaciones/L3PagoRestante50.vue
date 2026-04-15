@@ -309,11 +309,11 @@ const estiloEtiqueta = (etiqueta) => ({
 }
 
 .pagina-1 {
-  background-image: url("/documentos-oficiales/justificaciones(50%25)/pago-restante-50-l3/Pago 50 restante (L3)_page-0001.jpg");
+  background-image: url("/documentos-oficiales/justificaciones-50pct/pago-restante-50-l3/pago-50-restante-l3_page-0001.jpg");
 }
 
 .pagina-2 {
-  background-image: url("/documentos-oficiales/justificaciones(50%25)/pago-restante-50-l3/Pago 50 restante (L3)_page-0002.jpg");
+  background-image: url("/documentos-oficiales/justificaciones-50pct/pago-restante-50-l3/pago-50-restante-l3_page-0002.jpg");
 }
 
 .overlay-field {

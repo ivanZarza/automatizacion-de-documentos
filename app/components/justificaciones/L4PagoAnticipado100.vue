@@ -374,11 +374,11 @@ const estiloEtiqueta = (etiqueta) => ({
 }
 
 .pagina-1 {
-  background-image: url("/documentos-oficiales/justificaciones(50%25)/pago-anticipado-100-l4/Pago 100 anticipado (L4)_page-0001.jpg");
+  background-image: url("/documentos-oficiales/justificaciones-50pct/pago-anticipado-100-l4/pago-100-anticipado-l4_page-0001.jpg");
 }
 
 .pagina-2 {
-  background-image: url("/documentos-oficiales/justificaciones(50%25)/pago-anticipado-100-l4/Pago 100 anticipado (L4)_page-0002.jpg");
+  background-image: url("/documentos-oficiales/justificaciones-50pct/pago-anticipado-100-l4/pago-100-anticipado-l4_page-0002.jpg");
 }
 
 .overlay-field {

@@ -35,7 +35,7 @@ class WindowsAutoClicker {
         if (!this.isWindows) return;
         this.active = true;
 
-        const psPath = path.join(process.cwd(), 'server', 'utils', 'automation', 'autoclicker_run.ps1');
+        const psPath = path.join(os.tmpdir(), 'autoclicker_run.ps1');
 
         const psScript = `
             Add-Type -AssemblyName System.Windows.Forms

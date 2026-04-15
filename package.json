@@ -1,6 +1,8 @@
 {
   "name": "GeneracionDocumentacion",
   "type": "module",
+  "version": "1.0.0",
+  "main": "electron/main.js",
   "private": true,
   "scripts": {
     "build": "nuxt build",
@@ -8,7 +10,28 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "test": "vitest"
+    "test": "vitest",
+    "electron:dev": "concurrently \"npm run dev\" \"cross-env NODE_ENV=development electron .\"",
+    "electron:build": "npm run build && electron-builder"
+  },
+  "build": {
+    "appId": "com.solay.docgen",
+    "productName": "GeneracionDocumentacion",
+    "directories": {
+      "output": "dist"
+    },
+    "npmRebuild": false,
+    "files": [
+      ".output/**/*",
+      "electron/**/*",
+      "public/**/*",
+      "package.json",
+      "server/utils/automation/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "public/logo-solay.png"
+    }
   },
   "dependencies": {
     "@nuxt/content": "^3.11.0",
@@ -31,6 +54,10 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.4",
     "@vue/test-utils": "^2.4.6",
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
+    "electron": "^41.2.0",
+    "electron-builder": "^26.8.1",
     "jsdom": "^28.0.0",
     "vitest": "^4.0.18"
   },

@@ -386,15 +386,15 @@ const estiloEtiqueta = (etiqueta) => ({
 }
 
 .pagina-1 {
-  background-image: url("/documentos-oficiales/justificaciones(50%25)/pago-anticipado-50-l3/Pago 50 anticipado (L3) page-0001.jpg");
+  background-image: url("/documentos-oficiales/justificaciones-50pct/pago-anticipado-50-l3/pago-50-anticipado-l3-page-0001.jpg");
 }
 
 .pagina-2 {
-  background-image: url("/documentos-oficiales/justificaciones(50%25)/pago-anticipado-50-l3/Pago 50 anticipado (L3) page-0002.jpg");
+  background-image: url("/documentos-oficiales/justificaciones-50pct/pago-anticipado-50-l3/pago-50-anticipado-l3-page-0002.jpg");
 }
 
 .pagina-3 {
-  background-image: url("/documentos-oficiales/justificaciones(50%25)/pago-anticipado-50-l3/Pago 50 anticipado (L3) page-0003.jpg");
+  background-image: url("/documentos-oficiales/justificaciones-50pct/pago-anticipado-50-l3/pago-50-anticipado-l3-page-0003.jpg");
 }
 
 .overlay-field {

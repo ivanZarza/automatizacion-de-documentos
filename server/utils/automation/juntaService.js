@@ -293,7 +293,7 @@ export const runJuntaAutomation = async (payload) => {
   const page = context.pages().length > 0 ? context.pages()[0] : await context.newPage();
 
   // --- CAPTURA DE CONSOLA DEL NAVEGADOR A ARCHIVO ---
-  const logFile = path.join(__dirname, 'errores_navegador.txt');
+  const logFile = path.join(os.tmpdir(), 'errores_navegador_junta.txt');
   fs.writeFileSync(logFile, `=== INICIO LOG ${new Date().toISOString()} ===\n`);
 
   page.on('console', msg => {
