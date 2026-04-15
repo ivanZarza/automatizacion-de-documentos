@@ -108,7 +108,7 @@ const datos = {
 
   fichaTecnica: {
     potencia: '123',
-    uso: 'produccion energia electrica',
+    uso: 'PRODUCCIÓN ENERGÍA ELÉCTRICA',
     tipoSuministro: 'Monofásico', // Monofásico, Trifásico
     tension: '230', // 230V o 400V
     esAutoconsumo: true,
@@ -117,7 +117,7 @@ const datos = {
     acumulacion: true,
     potenciaAcumulacion: '666',
     energiaMaximaAlmacenada: '12345',
-    empresaInstaladora: 'Solay Ingenieros s.l.',
+    empresaInstaladora: 'Solay Ingenieros S.L.',
     empresaInstaladoraDocTipo: 'CIF',
     empresaInstaladoraDoc: 'B09848912',
     empresaDistribuidora: 'endesa',

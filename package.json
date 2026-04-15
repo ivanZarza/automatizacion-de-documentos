@@ -30,7 +30,8 @@
     ],
     "win": {
       "target": "nsis",
-      "icon": "public/logo-solay.png"
+      "icon": "public/logo-solay.png",
+      "signAndEditExecutable": false
     }
   },
   "dependencies": {

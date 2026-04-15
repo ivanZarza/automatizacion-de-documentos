@@ -80,7 +80,7 @@ const datos = {
 
   fichaTecnica: {
     potencia: '123',
-    uso: 'produccion energia electrica',
+    uso: 'PRODUCCIÓN ENERGÍA ELÉCTRICA',
     tipoSuministro: 'Monofásico',
     tension: '230',
     esAutoconsumo: true,
@@ -89,7 +89,7 @@ const datos = {
     acumulacion: true,
     potenciaAcumulacion: '666',
     energiaMaximaAlmacenada: '12345',
-    empresaInstaladora: 'Solay Ingenieros s.l.',
+    empresaInstaladora: 'Solay Ingenieros S.L.',
     empresaInstaladoraDocTipo: 'CIF',
     empresaInstaladoraDoc: 'B09848912',
     empresaDistribuidora: 'endesa',
