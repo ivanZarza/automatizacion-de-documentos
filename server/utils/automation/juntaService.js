@@ -23,6 +23,18 @@ const isWindows = os.platform() === 'win32';
  */
 export const runJuntaAutomation = async (payload) => {
   const datos = payload.datos;
+  
+  // [NORMALIZACIÓN] Asegurar que los campos críticos vayan con mayúsculas y acentos 
+  // independientemente de lo que se haya guardado en el LocalStorage del usuario.
+  if (datos.fichaTecnica) {
+    if (datos.fichaTecnica.uso === 'produccion energia electrica') {
+      datos.fichaTecnica.uso = 'PRODUCCIÓN ENERGÍA ELÉCTRICA';
+    }
+    if (datos.fichaTecnica.empresaInstaladora === 'Solay Ingenieros s.l.') {
+      datos.fichaTecnica.empresaInstaladora = 'Solay Ingenieros S.L.';
+    }
+  }
+
   const apellidosNombre = (payload.flatFormData?.apellidosNombre || '').trim();
 
   // [ROBUSTEZ] Buscar carpeta del cliente de forma flexible (ignora espacios, comas y acentos)

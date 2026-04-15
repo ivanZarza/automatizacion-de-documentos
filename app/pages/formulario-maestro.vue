@@ -54,6 +54,14 @@ const loadMasterData = () => {
   // Si hay datos guardados en localStorage, usarlos; si no, usar valores por defecto
   if (savedData && Object.keys(savedData).length > 0) {
     Object.assign(newData, savedData, unsavedData)
+    
+    // [MIGRACIÓN] Corregir textos antiguos guardados en localStorage
+    if (newData.uso_instalacion === 'produccion energia electrica') {
+      newData.uso_instalacion = 'PRODUCCIÓN ENERGÍA ELÉCTRICA'
+    }
+    if (newData.nombre_empresa_instaladora === 'Solay Ingenieros s.l.') {
+      newData.nombre_empresa_instaladora = 'Solay Ingenieros S.L.'
+    }
   } else {
     Object.assign(newData, getMasterFormDefaultData(), unsavedData)
   }
