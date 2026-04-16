@@ -10,13 +10,18 @@ export default defineNuxtConfig({
     '../app/styles/variables.css'
   ],
   app: {
-    baseURL: '/generacion-documentacion',
+    baseURL: '/generacion-documentacion/',
     head: {
       title: 'Generación de Documentación - Solay',
       meta: [
         { name: 'description', content: 'Sistema de generación de documentación profesional' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' }
       ]
+    }
+  },
+  router: {
+    options: {
+      trailingSlash: true
     }
   }
 })
