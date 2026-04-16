@@ -56,8 +56,8 @@ const props = defineProps({
   entidad: { type: String, default: "" },
   municipio: { type: String, default: "" },
   provincia: { type: String, default: "" },
-  pais: { type: String, default: "" },
-  telefono: { type: String, default: "" },
+  pais: { type: String, default: "" }, */
+  telefonoMovil: { type: String, default: "" },
   correoElectronico: { type: String, default: "" },
 
   // SECCIÓN 3: DATOS DEL ESTABLECIMIENTO E INSTALACIONES
@@ -452,14 +452,14 @@ const etiquetas = ref([
     displayValue: "",
   }, {
     page: 1,
-    name: "telefono",
+    name: "telefonoMovil",
     x: 174,
     y: 200,
     w: 30,
     h: 5,
     fontSize: 10,
     align: "left",
-    value: "",
+    value: "12345",
     displayValue: "",
   },
   {
@@ -471,7 +471,7 @@ const etiquetas = ref([
     h: 5,
     fontSize: 10,
     align: "left",
-    value: "",
+    value: "12345",
     displayValue: "",
   },
 
@@ -663,7 +663,8 @@ watch(
     municipio: props.municipio,
     provincia: props.provincia,
     pais: props.pais,
-    telefono: props.telefono,
+    telefonoFijo: props.telefonoFijo,
+    telefonoMovil: props.telefonoMovil,
     correoElectronico: props.correoElectronico,
     denominacionEstablecimiento: props.denominacionEstablecimiento,
     domicilioEstablecimiento: props.domicilioEstablecimiento,

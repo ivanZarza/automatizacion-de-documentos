@@ -2277,7 +2277,7 @@ export const autorizacionComunicacionConfig = {
     provincia: 'provinciaEmplazamiento',
     pais: 'pais',
     telefonoFijo: 'telefonoFijo',
-    telefono: 'telefono',
+    telefonoMovil: 'telefono',
     correoElectronico: 'correoElectronicoEmplazamiento',
     denominacionEstablecimiento: 'denominacionEstablecimiento',
     domicilioEstablecimiento: 'emplazamientoCalle',
