@@ -13,7 +13,8 @@ RUN npm install
 COPY . .
 
 # Build the application
-ENV NUXT_APP_BASE_URL=/generacion-documentacion/
+ARG NUXT_APP_BASE_URL
+ENV NUXT_APP_BASE_URL=$NUXT_APP_BASE_URL
 RUN npm run build
 
 # Production stage
@@ -43,7 +44,7 @@ EXPOSE 3000
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
-  CMD curl -f http://localhost:3000/generacion-documentacion/ || exit 1
+  CMD curl -f http://localhost:3000/generacion-documentacion/favicon.ico || exit 1
 
 # Start application
 CMD ["node", ".output/server/index.mjs"]
