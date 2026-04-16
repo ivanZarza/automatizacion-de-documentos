@@ -13,6 +13,7 @@ RUN npm install
 COPY . .
 
 # Build the application
+ENV NUXT_APP_BASE_URL=/generacion-documentacion/
 RUN npm run build
 
 # Production stage
