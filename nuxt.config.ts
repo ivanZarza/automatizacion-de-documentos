@@ -10,7 +10,7 @@ export default defineNuxtConfig({
     '../app/styles/variables.css'
   ],
   app: {
-    baseURL: '/generacion-documentacion/',
+    baseURL: '/generacion-documentacion',
     head: {
       title: 'Generación de Documentación - Solay',
       meta: [
@@ -18,8 +18,5 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' }
       ]
     }
-  },
-  nitro: {
-    baseURL: '/generacion-documentacion/'
   }
 })
