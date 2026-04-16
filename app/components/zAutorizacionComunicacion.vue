@@ -2,40 +2,22 @@
   <div class="print-wrapper">
     <!-- PÁGINA 1 -->
     <article class="pagina-documento pagina-1">
-      <span
-        v-for="et in etiquetasPage1Visibles"
-        :key="et.name"
-        class="overlay-field"
-        :style="et.imageUrl ? estiloEtiquetaImagen(et) : estiloEtiqueta(et)"
-      >
+      <span v-for="et in etiquetasPage1Visibles" :key="et.name" class="overlay-field"
+        :style="et.imageUrl ? estiloEtiquetaImagen(et) : estiloEtiqueta(et)">
         <span v-if="!et.imageUrl">{{ et.displayValue }}</span>
       </span>
-      <span
-        v-for="m in marcadoresPage1"
-        :key="`marker-${m.name}`"
-        class="marker-x"
-        :style="estiloMarcador(m)"
-      >
+      <span v-for="m in marcadoresPage1" :key="`marker-${m.name}`" class="marker-x" :style="estiloMarcador(m)">
         ✕
       </span>
     </article>
 
     <!-- PÁGINA 2 -->
     <article class="pagina-documento pagina-2">
-      <span
-        v-for="et in etiquetasPage2Visibles"
-        :key="et.name"
-        class="overlay-field"
-        :style="et.imageUrl ? estiloEtiquetaImagen(et) : estiloEtiqueta(et)"
-      >
+      <span v-for="et in etiquetasPage2Visibles" :key="et.name" class="overlay-field"
+        :style="et.imageUrl ? estiloEtiquetaImagen(et) : estiloEtiqueta(et)">
         <span v-if="!et.imageUrl">{{ et.displayValue }}</span>
       </span>
-      <span
-        v-for="m in marcadoresPage2"
-        :key="`marker-${m.name}`"
-        class="marker-x"
-        :style="estiloMarcador(m)"
-      >
+      <span v-for="m in marcadoresPage2" :key="`marker-${m.name}`" class="marker-x" :style="estiloMarcador(m)">
         ✕
       </span>
     </article>
@@ -469,6 +451,29 @@ const etiquetas = ref([
     align: "left",
     value: "instalacion1",
     displayValue: "",
+  }, {
+    page: 1,
+    name: "telefono",
+    x: 174,
+    y: 200,
+    w: 30,
+    h: 5,
+    fontSize: 10,
+    align: "left",
+    value: "12345",
+    displayValue: "",
+  },
+  {
+    page: 1,
+    name: "correoElectronico",
+    x: 55,
+    y: 200,
+    w: 30,
+    h: 5,
+    fontSize: 10,
+    align: "left",
+    value: "12345",
+    displayValue: "",
   },
 
   // PÁGINA 2 - SECCIÓN 4
@@ -688,8 +693,8 @@ watch(
       const propVal = newVals[e.name];
       const finalValue =
         propVal !== undefined &&
-        propVal !== null &&
-        String(propVal).trim() !== ""
+          propVal !== null &&
+          String(propVal).trim() !== ""
           ? propVal
           : "";
       if (e.name === "representante") {
@@ -897,8 +902,7 @@ const estiloMarcador = (m) => ({
   margin: 0;
 }
 
-@media print {
-}
+@media print {}
 </style>
 
 <style>
@@ -908,6 +912,7 @@ const estiloMarcador = (m) => ({
 }
 
 @media print {
+
   html,
   body {
     margin: 0;
