@@ -472,7 +472,7 @@ const etiquetas = ref([
     fontSize: 10,
     align: "left",
     value: "12345",
-    displayValue: "",
+    displayValue: " ",
   },
 
   // PÁGINA 2 - SECCIÓN 4
