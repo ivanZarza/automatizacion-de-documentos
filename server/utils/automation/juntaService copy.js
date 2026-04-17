@@ -358,38 +358,8 @@ export const runJuntaAutomation = async (payload) => {
 
       console.log('   -> Intentando pinchar en Certificado Digital...');
       try {
-        // Intenta selector principal
-        let botonCertificado = page.locator('#acceso-2').getByTitle('Acceso con certificado digital');
-        
-        try {
-          await botonCertificado.waitFor({ state: 'visible', timeout: 10000 });
-          console.log('   ✅ Selector principal encontrado: #acceso-2');
-        } catch (e) {
-          console.log('   [!] Selector principal (#acceso-2) no visible en 10s. Intentando alternativas...');
-          
-          // Alternativa 1: Buscar por texto
-          botonCertificado = page.locator('text=/Acceso con certificado digital/i').first();
-          try {
-            await botonCertificado.waitFor({ state: 'visible', timeout: 5000 });
-            console.log('   ✅ Alternativa 1 (texto) encontrada');
-          } catch (e2) {
-            // Alternativa 2: Buscar por href kontiene "certificado"
-            botonCertificado = page.locator('a[href*="certificado"], button[class*="cert"]').first();
-            try {
-              await botonCertificado.waitFor({ state: 'visible', timeout: 5000 });
-              console.log('   ✅ Alternativa 2 (href/class) encontrada');
-            } catch (e3) {
-              console.log('   [!] DIAGNÓSTICO: Ningún selector funcionó');
-              console.log('   [DIAGNÓSTICO] URL actual:', page.url());
-              console.log('   [DIAGNÓSTICO] Título:', await page.title());
-              const allButtons = await page.locator('button, a[role="button"]').allTextContents();
-              console.log('   [DIAGNÓSTICO] Botones disponibles:', allButtons);
-              await page.screenshot({ path: 'error_certificado_digital.png' });
-              console.log('   [DIAGNÓSTICO] Screenshot guardado: error_certificado_digital.png');
-              throw e3; // Lanzar el error original
-            }
-          }
-        }
+        const botonCertificado = page.locator('#acceso-2').getByTitle('Acceso con certificado digital');
+        await botonCertificado.waitFor({ state: 'visible', timeout: 5000 });
 
         console.log('   -> Activando Autoclicker Inteligente para Login...');
         autoClicker.start();
@@ -464,7 +434,7 @@ export const runJuntaAutomation = async (payload) => {
     console.log('   -> Esperando botón "Nueva comunicación"...');
     const linkNuevaComu = page.getByRole('link', { name: /Nueva comunicaci/i }).first();
     // Aquí sí esperamos un tiempo más largo porque ya tiene que estar
-    await linkNuevaComu.waitFor({ state: 'visible', timeout: 60000 }).catch(async (e) => {
+    await linkNuevaComu.waitFor({ state: 'visible', timeout: 20000 }).catch(async (e) => {
       console.log('   [!] "Nueva comunicación" no apareció. Título actual:', await page.title());
       throw e;
     });
@@ -817,7 +787,7 @@ export const runJuntaAutomation = async (payload) => {
       console.log('   -> otrosDatos741 no disparó nav, intentando submit manual...');
       try {
         await Promise.all([
-          page.waitForNavigation({ waitUntil: 'load', timeout: 60000 }),
+          page.waitForNavigation({ waitUntil: 'load', timeout: 20000 }),
           page.evaluate(() => {
             if (typeof dispatch === 'function') dispatch(document.forms[0].opcion.value);
             else document.forms[0].submit();
@@ -1294,10 +1264,10 @@ export const runJuntaAutomation = async (payload) => {
     await page.pause();
 
     // --- PASO 3: Botón Firmar (aparece tras Presentar) ---
-    console.log('   -> Esperando botón Firmar (timeout 60s)...');
+    console.log('   -> Esperando botón Firmar (timeout 20s)...');
     const fichaFrame3c = page.locator('#ficha').contentFrame();
     const btnFirmar = fichaFrame3c.getByRole('img', { name: 'Firmar' });
-    const firmarVisible = await btnFirmar.waitFor({ state: 'visible', timeout: 60000 }).then(() => true).catch(() => false);
+    const firmarVisible = await btnFirmar.waitFor({ state: 'visible', timeout: 20000 }).then(() => true).catch(() => false);
 
     if (firmarVisible) {
       console.log('   -> Botón Firmar encontrado. Capturando alert y abriendo AutoFirma...');

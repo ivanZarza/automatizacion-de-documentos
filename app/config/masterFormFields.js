@@ -306,7 +306,6 @@ export const masterFormFields = [
       { label: 'Vivienda', value: 'mejora de la eficiencia energetica en viviendas' },
     ], subsection: 'ACEPTACION'
   },
-  { name: 'presupuestoInicial', label: 'Presupuesto Inicial', type: 'text', subsection: 'ACEPTACION' },
   { name: 'diaAceptacion', label: 'Día Aceptación', placeholder: 'Ej: 15', type: 'text', subsection: 'ACEPTACION' },
   { name: 'mesAceptacion', label: 'Mes Aceptación', placeholder: 'Ej: 10', type: 'text', subsection: 'ACEPTACION' },
   { name: 'anioAceptacion', label: 'Año Aceptación', placeholder: 'Ej: 2024', type: 'text', subsection: 'ACEPTACION' },
@@ -506,7 +505,7 @@ export const masterFormFields = [
   { name: 'tiene_acumulacion', label: '¿Tiene Acumulación (Baterías)?', type: 'select', options: ['si', 'no'], value: 'no', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'almacenamiento', mapTransform: { 'con almacenamiento': 'si', 'sin almacenamiento': 'no' } },
   { name: 'potencia_acumulacion', label: 'Potencia Acumulación (kW)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'e2_potenciaMaximaSalida' },
   { name: 'energia_almacenada', label: 'Energía Máx. Almacenada (kWh)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'e2_energiaTotal' },
-  { name: 'uso_instalacion', label: 'Uso de la instalación', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'PRODUCCIÓN ENERGÍA ELÉCTRICA', options: [{ value: 'PRODUCCIÓN ENERGÍA ELÉCTRICA', label: 'PRODUCCIÓN ENERGÍA ELÉCTRICA' }] },
+  { name: 'uso_instalacion', label: 'Uso de la instalación', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'produccion energia electrica', options: [{ value: 'produccion energia electrica', label: 'Producción de Energía Eléctrica' }] },
   {
     name: 'ps_distribuidora',
     label: 'Empresa Distribuidora (Oficial)',
@@ -516,14 +515,14 @@ export const masterFormFields = [
     group: 'Instalación (Robot)',
     mapFrom: 'empresa_distribuidora'
   },
-  { name: 'nombre_empresa_instaladora', label: 'Nombre Empresa Instaladora', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'Solay Ingenieros S.L.' },
+  { name: 'nombre_empresa_instaladora', label: 'Nombre Empresa Instaladora', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'Solay Ingenieros s.l.' },
   { name: 'empresa_instaladora_doc_tipo', label: 'Tipo Doc. Empresa', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'CIF', options: ['CIF', 'NIF', 'NIE'] },
   { name: 'empresa_instaladora_doc', label: 'Nº Doc. Empresa', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'B09848912' },
 
   // --- ARCHIVOS ADJUNTOS (NUEVO) ---
   { name: 'doc_autorizacion_rep', label: '1.- MTD', type: 'file', accept: '.pdf,image/*', subsection: 'PRESENTACIÓN', group: 'Documentos a Subir' },
   { name: 'doc_adicional_2', label: '2.- Documento Adicional / CIE', type: 'file', accept: '.pdf,image/*', subsection: 'PRESENTACIÓN', group: 'Documentos a Subir' },
-  { name: 'doc_certificado_solidez', label: '7.- Certificado de Adecuacion', type: 'file', accept: '.pdf,image/*', subsection: 'PRESENTACIÓN', group: 'Documentos a Subir' }
+  { name: 'doc_certificado_solidez', label: '7.- Certificado de Solidez', type: 'file', accept: '.pdf,image/*', subsection: 'PRESENTACIÓN', group: 'Documentos a Subir' }
 ]
 
 export const getMasterFormDefaultData = () => {
