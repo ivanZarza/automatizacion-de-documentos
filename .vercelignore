@@ -1,0 +1,24 @@
+# Excluir Robot y Electron
+electron/
+capturas/
+_backups/
+doc_prueba/
+scripts/
+
+# Excluir carpetas personales y documentos de prueba
+"Ivan Zarza Estevez/"
+documentos/
+
+# Excluir binarios generados
+.output
+.nuxt
+dist
+
+# Otros
+*.ps1
+*.txt
+main.js.backup
+tmp_refactor.cjs
+prueba-autorrelleno.js
+conexion_externa_odoo.js
+test_junta_local.js
