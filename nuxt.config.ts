@@ -7,6 +7,11 @@ export default defineNuxtConfig({
     '@pinia/nuxt'
   ],
   css: [
-    '../app/styles/variables.css'
-  ]
+    './app/styles/variables.css'
+  ],
+  nitro: {
+    externals: {
+      external: ['playwright', 'electron']
+    }
+  }
 })

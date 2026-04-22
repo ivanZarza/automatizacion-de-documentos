@@ -7,10 +7,13 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install
+RUN npm install --ignore-scripts
 
 # Copy project files
 COPY . .
+
+# Prepare Nuxt types and directory (now that files are present)
+RUN npx nuxt prepare
 
 # Build the application
 ARG NUXT_APP_BASE_URL
