@@ -1,0 +1,3 @@
+# Excluir el sistema de automatización del compilador de Nuxt (Vercel)
+server/api/automation/**
+server/utils/automation/**

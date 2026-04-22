@@ -8,10 +8,5 @@ export default defineNuxtConfig({
   ],
   css: [
     './app/styles/variables.css'
-  ],
-  nitro: {
-    externals: {
-      external: ['playwright', 'electron']
-    }
-  }
+  ]
 })
