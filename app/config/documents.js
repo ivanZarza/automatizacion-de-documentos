@@ -28,7 +28,7 @@ export const autorizacionRepresentacionConfig = {
     provincia: '',
     representante: 'Solay Ingenieros, S.L.',
     dniRepresentante: 'B09848912',
-    domicilioRepresentante: 'Calle Ebro, 35 – 41012, Sevilla, Sevilla',
+    domicilioRepresentante: 'Calle Ebro, 35 – 41012,',
     organismo: '',
     gestiones: 'SOLICITUD DE LICENCIA DE OBRA MENOR CON DECLARACIÓN RESPONSABLE O AUTORIZACIÓN URBANÍSTICA',
     dia: '18',
