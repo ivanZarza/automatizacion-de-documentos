@@ -2948,6 +2948,8 @@ import { cartelL4Config } from './justificaciones/cartelL4Config'
 import { l3PagoAnticipado50Config } from './justificaciones/L3PagoAnticipado50Config'
 import { l3PagoRestante50Config } from './justificaciones/L3PagoRestante50Config'
 import { l4PagoAnticipado100Config } from './justificaciones/L4PagoAnticipado100Config'
+import { pacConfig1 } from './pac/pacConfig1'
+import { pacConfig2 } from './pac/pacConfig2'
 
 const documentConfigs = {
   'autorizacion-representacion': autorizacionRepresentacionConfig,
@@ -2992,6 +2994,8 @@ const documentConfigs = {
   'l3-pago-anticipado-50': l3PagoAnticipado50Config,
   'l3-pago-restante-50': l3PagoRestante50Config,
   'l4-pago-anticipado-100': l4PagoAnticipado100Config,
+  'pac-documento-1': pacConfig1,
+  'pac-documento-2': pacConfig2,
 
 }
 
