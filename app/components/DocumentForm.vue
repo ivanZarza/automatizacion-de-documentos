@@ -29,6 +29,17 @@
                   <span class="group-toggle-icon"
                     :class="{ 'is-open': expandedGroups[`${activeSubsection}-${groupName}`] }">▶</span>
                   <h4 class="group-title">{{ groupName }}</h4>
+                  
+                  <!-- BOTÓN PARA GENERAR DOCUMENTO DE FACTURA -->
+                  <Boton 
+                    v-if="groupFields.some(f => f.facturaGroup)"
+                    type="button" 
+                    variant="primary" 
+                    class="btn-generar-factura-inline"
+                    @click.stop="generarDocumentoFactura(groupFields[0].facturaGroup)"
+                  >
+                    📄 Generar DR Corriente Pago
+                  </Boton>
                 </div>
 
                 <!-- Contenido del grupo -->
@@ -164,12 +175,14 @@ async function onDrop(event, fieldName) {
   }
 }
 import { ref, watch, computed, onMounted, nextTick } from 'vue'
+import { useRouter } from 'vue-router'
 import Boton from './Boton.vue'
 import { masterFormFields } from '../config/masterFormFields'
 import { saveImageToStorage } from '../utils/storageManager'
 import { useEquipmentStore } from '../stores/equipmentStore'
 
 const equipmentStore = useEquipmentStore()
+const router = useRouter()
 
 onMounted(async () => {
   await equipmentStore.cargarEquiposBD('inversores')
@@ -805,6 +818,53 @@ async function handleLaunchAutomation() {
   }
 }
 
+// Función para generar documento específico de una factura
+const generarDocumentoFactura = async (facturaIndex) => {
+  console.log(`[DocumentForm] Generando documento para Factura ${facturaIndex}`)
+  
+  // Guardar datos actuales en el store
+  await submit(true) // submit silencioso
+  
+  // Validar que existan los datos mínimos de la factura
+  const numeroFactura = formData.value[`numeroFactura${facturaIndex}`] || ''
+  const nombreEmpresa = formData.value[`acreedor${facturaIndex}`] || ''
+  const cifEmpresa = formData.value[`cf${facturaIndex}`] || ''
+  
+  if (!numeroFactura) {
+    alert(`⚠️ Por favor, ingresa el número de la Factura ${facturaIndex} antes de generar el documento.`)
+    return
+  }
+  
+  if (!nombreEmpresa || !cifEmpresa) {
+    alert(`⚠️ Por favor, completa los datos de Acreedor y CF de la Factura ${facturaIndex} antes de generar el documento.`)
+    return
+  }
+  
+  // Datos comunes para todas las facturas (según fieldMapping del config)
+  const datosComunes = {
+    numeroExpediente: formData.value.expedienteEco || '',
+    apellidosNombre: formData.value.apellidosNombre || '',
+    nifCif: formData.value.nifCif || '',
+    localidad: formData.value.localidadEmplazamiento || 'Málaga',
+    dia: formData.value.diaFirmaJustificacion || '',
+    mes: formData.value.mesFirmaJustificacion || '',
+    anio: formData.value.anioFirmaJustificacion || '',
+  }
+  
+  // Datos específicos de la factura (dinámicos según el índice)
+  const datosFactura = {
+    numeroFactura,
+    nombreEmpresa,
+    cifEmpresa,
+  }
+  
+  // Navegar al documento con todos los datos
+  router.push({
+    path: '/justificaciones/declaracion-corriente-pago-acreedores',
+    query: { ...datosComunes, ...datosFactura, facturaIndex }
+  })
+}
+
 function getSubsectionLabel(subsection) {
   const labels = {
     'A': 'A - Datos del Solicitante',
@@ -831,6 +891,8 @@ function getSubsectionLabel(subsection) {
     'LEGALIZACION': 'LEGALIZACIÓN',
     'PRESENTACIÓN': 'PRESENTACIÓN',
     'ACEPTACION': 'ACEPTACIÓN',
+    'JUSTIFICACION': 'JUSTIFICACIÓN',
+    'FACTURAS': 'FACTURAS',
   }
   return labels[subsection] || subsection
 }
@@ -1175,6 +1237,14 @@ function getSubsectionLabel(subsection) {
   font-weight: 600;
   color: #374151;
   margin: 0;
+  flex: 1;
+}
+
+.btn-generar-factura-inline {
+  margin-left: auto;
+  font-size: 12px;
+  padding: 6px 12px;
+  white-space: nowrap;
 }
 
 .group-content {
@@ -1347,6 +1417,7 @@ function getSubsectionLabel(subsection) {
   text-align: center;
 }
 
+/* FACTURA ACTIONS */
 @media (max-width: 768px) {
   .fields-grid {
     grid-template-columns: 1fr;

@@ -112,6 +112,15 @@ onMounted(() => {
   // Inicializar formData con los datos fusionados + imágenes mapeadas desde localStorage
   formData.value = { ...mergedData, ...mappedImages }
 
+  // Sobrescribir con query params si existen (para documentos dinámicos como facturas)
+  if (route.query && Object.keys(route.query).length > 0) {
+    Object.entries(route.query).forEach(([key, value]) => {
+      if (value !== '' && value !== null && value !== undefined) {
+        formData.value[key] = value
+      }
+    })
+  }
+
   // Obtener lista de campos editables para este documento
   editableFields.value = getEditableFields(props.config.id)
 

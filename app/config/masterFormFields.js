@@ -330,6 +330,7 @@ export const masterFormFields = [
   { name: 'diaFirmaJustificacion', label: 'Día Firma Justificación', placeholder: 'Ej: 08', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'mesFirmaJustificacion', label: 'Mes Firma Justificación', placeholder: 'Ej: 09', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'anioFirmaJustificacion', label: 'Año Firma Justificación', placeholder: 'Ej: 2025', type: 'text', subsection: 'JUSTIFICACION' },
+  
   { name: 'nombreRepresentanteEntidad', label: 'Nombre del Representante de la Entidad', placeholder: 'Ej: Juan Pérez', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'dniRepresentanteEntidad', label: 'DNI del Representante de la Entidad', placeholder: 'Ej: 12345678A', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'nifEmpresa', label: 'NIF Empresa', placeholder: 'Ej: B12345678', type: 'text', subsection: 'JUSTIFICACION' },
@@ -361,7 +362,7 @@ export const masterFormFields = [
 
   // ========== SUBSECCIÓN JUSTIFICACIÓN: Pedidos y Facturas ==========
   // Factura 1
-  { name: 'numeroFactura1', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 1' },
+  { name: 'numeroFactura1', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 1', facturaGroup: 1 },
   { name: 'fechaFactura1', label: 'Fecha Factura', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 1' },
   { name: 'cf1', label: 'CF', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 1' },
   { name: 'acreedor1', label: 'Acreedor', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 1' },
@@ -369,7 +370,7 @@ export const masterFormFields = [
   { name: 'fechaPago1', label: 'Fecha Pago', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 1' },
   { name: 'importe1', label: 'Importe', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 1' },
   // Factura 2
-  { name: 'numeroFactura2', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 2' },
+  { name: 'numeroFactura2', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 2', facturaGroup: 2 },
   { name: 'fechaFactura2', label: 'Fecha Factura', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 2' },
   { name: 'cf2', label: 'CF', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 2' },
   { name: 'acreedor2', label: 'Acreedor', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 2' },
@@ -377,7 +378,7 @@ export const masterFormFields = [
   { name: 'fechaPago2', label: 'Fecha Pago', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 2' },
   { name: 'importe2', label: 'Importe', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 2' },
   // Factura 3
-  { name: 'numeroFactura3', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 3' },
+  { name: 'numeroFactura3', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 3', facturaGroup: 3 },
   { name: 'fechaFactura3', label: 'Fecha Factura', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 3' },
   { name: 'cf3', label: 'CF', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 3' },
   { name: 'acreedor3', label: 'Acreedor', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 3' },
@@ -385,7 +386,7 @@ export const masterFormFields = [
   { name: 'fechaPago3', label: 'Fecha Pago', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 3' },
   { name: 'importe3', label: 'Importe', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 3' },
   // Factura 4
-  { name: 'numeroFactura4', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 4' },
+  { name: 'numeroFactura4', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 4', facturaGroup: 4 },
   { name: 'fechaFactura4', label: 'Fecha Factura', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 4' },
   { name: 'cf4', label: 'CF', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 4' },
   { name: 'acreedor4', label: 'Acreedor', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 4' },
@@ -393,7 +394,7 @@ export const masterFormFields = [
   { name: 'fechaPago4', label: 'Fecha Pago', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 4' },
   { name: 'importe4', label: 'Importe', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 4' },
   // Factura 5
-  { name: 'numeroFactura5', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 5' },
+  { name: 'numeroFactura5', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 5', facturaGroup: 5 },
   { name: 'fechaFactura5', label: 'Fecha Factura', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 5' },
   { name: 'cf5', label: 'CF', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 5' },
   { name: 'acreedor5', label: 'Acreedor', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 5' },

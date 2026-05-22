@@ -2943,6 +2943,7 @@ import { memoriaFvAerConfig } from './justificaciones/memoriaFvAerConfig'
 import { obraMassolConfig } from './justificaciones/obraMassolConfig'
 import { certificadoPedidosContratosConfig } from './justificaciones/certificadoPedidosContratosConfig'
 import { declaracionCompromisoCorrienteConfig } from './justificaciones/declaracionCompromisoCorrienteConfig'
+import { declaracionCorrientePagoAcreedoresConfig } from './justificaciones/declaracionCorrientePagoAcreedoresConfig'
 import { cartelL3Config } from './justificaciones/cartelL3Config'
 import { cartelL4Config } from './justificaciones/cartelL4Config'
 import { l3PagoAnticipado50Config } from './justificaciones/L3PagoAnticipado50Config'
@@ -2987,6 +2988,7 @@ const documentConfigs = {
 /*   'declaracion-compromiso-corriente': declaracionCompromisoCorrienteConfig,
  */  'obra-massol': obraMassolConfig,
   'declaracion-compromiso-corriente': declaracionCompromisoCorrienteConfig,
+  'declaracion-corriente-pago-acreedores': declaracionCorrientePagoAcreedoresConfig,
   'cartel-l3': cartelL3Config,
   'cartel-l4': cartelL4Config,
   'l3-pago-anticipado-50': l3PagoAnticipado50Config,
