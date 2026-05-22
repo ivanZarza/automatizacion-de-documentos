@@ -102,7 +102,15 @@ export const masterFormFields = [
     group: 'Inversor'
   },
   { name: 'e2_potenciaNominalInversor', label: 'POTENCIA NOMINAL (kW) 1', placeholder: 'Ej: 5000', type: 'text', subsection: 'E2', group: 'Inversor' },
-  { name: 'e2_relacionTensionInversor', label: 'RELACIÓN TENSIÓN  AC, Vn (V) 1', placeholder: 'Ej: 230V/400V', type: 'text', subsection: 'E2', group: 'Inversor' },
+  { 
+    name: 'e2_relacionTensionInversor', 
+    label: 'RELACIÓN TENSIÓN AC, Vn (V) 1', 
+    placeholder: 'Selecciona tensión...', 
+    type: 'select', 
+    options: ['230', '400'], 
+    subsection: 'E2', 
+    group: 'Inversor' 
+  },
   { name: 'e2_formaOndaSalidaInversor', label: 'Vcc MÁXIMA 1', placeholder: 'Ej: Senoidal Pura', type: 'text', subsection: 'E2', group: 'Inversor' },
   { name: 'e2_frecuenciaNominalInversor', label: 'Vcc MÍNIMA 1', placeholder: 'Ej: 50', type: 'text', subsection: 'E2', group: 'Inversor' },
   { name: 'e2_tipoConexionRed1', label: 'CONEXIÓN 1', placeholder: 'Ej: Monofásica / Trifásica', type: 'select', options: ['Monofásica', 'Trifásica'], subsection: 'E2', group: 'Inversor' },
@@ -256,7 +264,14 @@ export const masterFormFields = [
   { name: 'terminacioAnual', label: 'Terminación Anual', placeholder: 'Ej: 2025', type: 'select', options: ['26', '27', '28'], subsection: 'LEGALIZACION' },
   { name: 'almacenamiento', label: 'Almacenamiento', placeholder: 'Seleccionar tipo...', type: 'select', options: ['con almacenamiento', 'sin almacenamiento'], subsection: 'LEGALIZACION' },
   { name: 'observaciones', label: 'Observaciones', placeholder: 'Selecciona una opción', type: 'select', options: [{ label: 'con batería', value: 'Se trata de una instalación de generación para autoconsumo FV de B.T.con baterias conectado a la red con excedentes acogido a compensación' }, { label: 'sin batería', value: 'Se trata de una instalación de generación para autoconsumo FV de B.T. conectado a la red con excedentes acogido a compensación' }], subsection: 'LEGALIZACION' },
-  { name: 'usoDestino', label: 'Uso y Destino', placeholder: 'Ej: Autoconsumo para vivienda', type: 'select', options: ['doméstico', 'negocio'], subsection: 'LEGALIZACION' },
+  { 
+    name: 'usoDestino', 
+    label: 'Uso y Destino', 
+    placeholder: 'Selecciona uso...', 
+    type: 'select', 
+    options: ['doméstico', 'negocio', 'Producción de energía eléctrica'], 
+    subsection: 'LEGALIZACION' 
+  },
   { name: 'figuraTecnicoCompetente', label: 'Técnico Competente', type: 'checkbox', subsection: 'LEGALIZACION', group: 'anexo III' },
   { name: 'figuraInstaladorHabilitado', label: 'Instalador Habilitado', type: 'checkbox', subsection: 'LEGALIZACION', group: 'anexo III' },
   { name: 'figuraResponsableTecnico', label: 'Responsable Técnico', type: 'checkbox', subsection: 'LEGALIZACION', group: 'anexo III' },
