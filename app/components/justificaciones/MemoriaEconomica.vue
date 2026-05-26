@@ -176,6 +176,38 @@
                 </td>
                 <td class="col-importe"><span class="texto-estacio">{{ importe5 }}€</span></td>
               </tr>
+              <tr class="fila-datos">
+                <td class="col-numero">6</td>
+                <td class="col-factura"><span class="texto-estacio">{{ numeroFactura6 }}</span></td>
+                <td class="col-fecha"><span class="texto-estacio">{{ fechaFactura6 }}</span></td>
+                <td class="col-cf"><span class="texto-estacio">{{ cf6 }}</span></td>
+                <td class="col-acreedor">
+                  <span class="texto-estacio">{{ acreedor6 }}</span>
+                </td>
+                <td class="col-concepto">
+                  <span class="texto-estacio">{{ concepto6 }}</span>
+                </td>
+                <td class="col-fecha-pago">
+                  <span class="texto-estacio">{{ fechaPago6 }}</span>
+                </td>
+                <td class="col-importe"><span class="texto-estacio">{{ importe6 }}€</span></td>
+              </tr>
+              <tr class="fila-datos">
+                <td class="col-numero">7</td>
+                <td class="col-factura"><span class="texto-estacio">{{ numeroFactura7 }}</span></td>
+                <td class="col-fecha"><span class="texto-estacio">{{ fechaFactura7 }}</span></td>
+                <td class="col-cf"><span class="texto-estacio">{{ cf7 }}</span></td>
+                <td class="col-acreedor">
+                  <span class="texto-estacio">{{ acreedor7 }}</span>
+                </td>
+                <td class="col-concepto">
+                  <span class="texto-estacio">{{ concepto7 }}</span>
+                </td>
+                <td class="col-fecha-pago">
+                  <span class="texto-estacio">{{ fechaPago7 }}</span>
+                </td>
+                <td class="col-importe"><span class="texto-estacio">{{ importe7 }}€</span></td>
+              </tr>
             </tbody>
           </table>
 
@@ -356,7 +388,21 @@ defineProps({
   acreedor5: { type: String, default: '' },
   concepto5: { type: String, default: '' },
   fechaPago5: { type: String, default: '' },
-  importe5: { type: String, default: '' }
+  importe5: { type: String, default: '' },
+  numeroFactura6: { type: String, default: '' },
+  fechaFactura6: { type: String, default: '' },
+  cf6: { type: String, default: '' },
+  acreedor6: { type: String, default: '' },
+  concepto6: { type: String, default: '' },
+  fechaPago6: { type: String, default: '' },
+  importe6: { type: String, default: '' },
+  numeroFactura7: { type: String, default: '' },
+  fechaFactura7: { type: String, default: '' },
+  cf7: { type: String, default: '' },
+  acreedor7: { type: String, default: '' },
+  concepto7: { type: String, default: '' },
+  fechaPago7: { type: String, default: '' },
+  importe7: { type: String, default: '' }
 });
 </script>
 

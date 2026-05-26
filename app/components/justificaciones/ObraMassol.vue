@@ -14,8 +14,8 @@
       <!-- Contenido Principal -->
       <div class="contenido-principal">
         <p class="parrafo-declarante">
-          Por la presente, D. Eduardo Rafael Rivera Cabeza, con NIF
-          28.818.007-L, Ingeniero Industrial colegiado número 4654 en el Colegio
+          Por la presente, D. Miguel Ángel Rivas Zapata, con NIF
+          28.888.418-G, Ingeniero Industrial colegiado número 4671 en el Colegio
           Oficial de Ingenieros Industriales de Andalucía Occidental, y con
           domicilio en la Calle Ebro, 35 – 41.012 Sevilla
         </p>
