@@ -580,12 +580,12 @@ defineProps({
 .tabla-gastos th {
   background-color: #f0f0f0;
   font-weight: bold;
-  height: 35px;
+  height: 25px;
   vertical-align: middle;
 }
 
 .tabla-gastos td {
-  height: 32px;
+  height: 20px;
   vertical-align: middle;
 }
 
@@ -637,14 +637,14 @@ defineProps({
   font-size: 10px;
   color: #000;
   display: block;
-  padding: 2px 3px;
+  padding: 0px 2px;
 }
 
 .texto-estacio {
   font-size: 10px;
   color: #000000;
   display: block;
-  padding: 2px 3px;
+  padding: 0px 2px;
 }
 
 .fila-datos td {

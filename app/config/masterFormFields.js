@@ -416,6 +416,22 @@ export const masterFormFields = [
   { name: 'concepto5', label: 'Concepto', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 5' },
   { name: 'fechaPago5', label: 'Fecha Pago', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 5' },
   { name: 'importe5', label: 'Importe', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 5' },
+  // Factura 6
+  { name: 'numeroFactura6', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 6', facturaGroup: 6 },
+  { name: 'fechaFactura6', label: 'Fecha Factura', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 6' },
+  { name: 'cf6', label: 'CF', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 6' },
+  { name: 'acreedor6', label: 'Acreedor', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 6' },
+  { name: 'concepto6', label: 'Concepto', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 6' },
+  { name: 'fechaPago6', label: 'Fecha Pago', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 6' },
+  { name: 'importe6', label: 'Importe', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 6' },
+  // Factura 7
+  { name: 'numeroFactura7', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 7', facturaGroup: 7 },
+  { name: 'fechaFactura7', label: 'Fecha Factura', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 7' },
+  { name: 'cf7', label: 'CF', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 7' },
+  { name: 'acreedor7', label: 'Acreedor', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 7' },
+  { name: 'concepto7', label: 'Concepto', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 7' },
+  { name: 'fechaPago7', label: 'Fecha Pago', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 7' },
+  { name: 'importe7', label: 'Importe', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 7' },
   // Pedido 1
   { name: 'pedido1Concepto', label: 'Concepto', placeholder: 'Ej: Módulos solares', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 1' },
   { name: 'pedido1Proveedor', label: 'Proveedor', placeholder: 'Ej: Empresa XYZ', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 1' },
@@ -435,36 +451,55 @@ export const masterFormFields = [
   { name: 'pedido2IdPedido', label: 'Id. Pedido (factura)', placeholder: 'Ej: PED-2025-002', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
   { name: 'pedido2FechaPedido', label: 'Fecha Pedido (factura)', placeholder: 'Ej: 17/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
   { name: 'pedido2ImportePedido', label: 'Importe Pedido (€) (factura)', placeholder: 'Ej: 2500', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
-  /*   // Pedido 3
-    { name: 'pedido3Concepto', label: 'Concepto', placeholder: 'Ej: Estructura de montaje', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
-    { name: 'pedido3Proveedor', label: 'Proveedor', placeholder: 'Ej: Empresa DEF', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
-    { name: 'pedido3IdOferta', label: 'Id. Oferta', placeholder: 'Ej: OF-2025-003', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
-    { name: 'pedido3FechaOferta', label: 'Fecha Oferta', placeholder: 'Ej: 17/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
-    { name: 'pedido3ImporteOferta', label: 'Importe Oferta (€)', placeholder: 'Ej: 1500', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
-    { name: 'pedido3IdPedido', label: 'Id. Pedido', placeholder: 'Ej: PED-2025-003', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
-    { name: 'pedido3FechaPedido', label: 'Fecha Pedido', placeholder: 'Ej: 18/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
-    { name: 'pedido3ImportePedido', label: 'Importe Pedido (€)', placeholder: 'Ej: 1500', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
-  
-    // Pedido 4
-    { name: 'pedido4Concepto', label: 'Concepto', placeholder: 'Ej: Materiales para instalación', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
-    { name: 'pedido4Proveedor', label: 'Proveedor', placeholder: 'Ej: Empresa GHI', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
-    { name: 'pedido4IdOferta', label: 'Id. Oferta', placeholder: 'Ej: OF-2025-004', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
-    { name: 'pedido4FechaOferta', label: 'Fecha Oferta', placeholder: 'Ej: 18/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
-    { name: 'pedido4ImporteOferta', label: 'Importe Oferta (€)', placeholder: 'Ej: 1000', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
-    { name: 'pedido4IdPedido', label: 'Id. Pedido', placeholder: 'Ej: PED-2025-004', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
-    { name: 'pedido4FechaPedido', label: 'Fecha Pedido', placeholder: 'Ej: 19/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
-    { name: 'pedido4ImportePedido', label: 'Importe Pedido (€)', placeholder: 'Ej: 1000', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
-  
-    // Pedido 5
-    { name: 'pedido5Concepto', label: 'Concepto', placeholder: 'Ej: Mano de obra instalación', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
-    { name: 'pedido5Proveedor', label: 'Proveedor', placeholder: 'Ej: Empresa JKL', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
-    { name: 'pedido5IdOferta', label: 'Id. Oferta', placeholder: 'Ej: OF-2025-005', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
-    { name: 'pedido5FechaOferta', label: 'Fecha Oferta', placeholder: 'Ej: 19/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
-    { name: 'pedido5ImporteOferta', label: 'Importe Oferta (€)', placeholder: 'Ej: 800', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
-    { name: 'pedido5IdPedido', label: 'Id. Pedido', placeholder: 'Ej: PED-2025-005', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
-    { name: 'pedido5FechaPedido', label: 'Fecha Pedido', placeholder: 'Ej: 20/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
-    { name: 'pedido5ImportePedido', label: 'Importe Pedido (€)', placeholder: 'Ej: 800', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
-   */
+  // Pedido 3
+  { name: 'pedido3Concepto', label: 'Concepto', placeholder: 'Ej: Estructura de montaje', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
+  { name: 'pedido3Proveedor', label: 'Proveedor', placeholder: 'Ej: Empresa DEF', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
+  { name: 'pedido3IdOferta', label: 'Id. Oferta', placeholder: 'Ej: OF-2025-003', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
+  { name: 'pedido3FechaOferta', label: 'Fecha Oferta', placeholder: 'Ej: 17/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
+  { name: 'pedido3ImporteOferta', label: 'Importe Oferta (€)', placeholder: 'Ej: 1500', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
+  { name: 'pedido3IdPedido', label: 'Id. Pedido', placeholder: 'Ej: PED-2025-003', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
+  { name: 'pedido3FechaPedido', label: 'Fecha Pedido', placeholder: 'Ej: 18/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
+  { name: 'pedido3ImportePedido', label: 'Importe Pedido (€)', placeholder: 'Ej: 1500', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
+
+  // Pedido 4
+  { name: 'pedido4Concepto', label: 'Concepto', placeholder: 'Ej: Materiales para instalación', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
+  { name: 'pedido4Proveedor', label: 'Proveedor', placeholder: 'Ej: Empresa GHI', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
+  { name: 'pedido4IdOferta', label: 'Id. Oferta', placeholder: 'Ej: OF-2025-004', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
+  { name: 'pedido4FechaOferta', label: 'Fecha Oferta', placeholder: 'Ej: 18/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
+  { name: 'pedido4ImporteOferta', label: 'Importe Oferta (€)', placeholder: 'Ej: 1000', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
+  { name: 'pedido4IdPedido', label: 'Id. Pedido', placeholder: 'Ej: PED-2025-004', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
+  { name: 'pedido4FechaPedido', label: 'Fecha Pedido', placeholder: 'Ej: 19/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
+  { name: 'pedido4ImportePedido', label: 'Importe Pedido (€)', placeholder: 'Ej: 1000', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
+
+  // Pedido 5
+  { name: 'pedido5Concepto', label: 'Concepto', placeholder: 'Ej: Mano de obra instalación', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
+  { name: 'pedido5Proveedor', label: 'Proveedor', placeholder: 'Ej: Empresa JKL', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
+  { name: 'pedido5IdOferta', label: 'Id. Oferta', placeholder: 'Ej: OF-2025-005', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
+  { name: 'pedido5FechaOferta', label: 'Fecha Oferta', placeholder: 'Ej: 19/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
+  { name: 'pedido5ImporteOferta', label: 'Importe Oferta (€)', placeholder: 'Ej: 800', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
+  { name: 'pedido5IdPedido', label: 'Id. Pedido', placeholder: 'Ej: PED-2025-005', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
+  { name: 'pedido5FechaPedido', label: 'Fecha Pedido', placeholder: 'Ej: 20/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
+  { name: 'pedido5ImportePedido', label: 'Importe Pedido (€)', placeholder: 'Ej: 800', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
+
+  // Pedido 6
+  { name: 'pedido6Concepto', label: 'Concepto', placeholder: 'Ej: Concepto 6', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 6' },
+  { name: 'pedido6Proveedor', label: 'Proveedor', placeholder: 'Ej: Proveedor 6', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 6' },
+  { name: 'pedido6IdOferta', label: 'Id. Oferta', placeholder: 'Ej: OF-2025-006', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 6' },
+  { name: 'pedido6FechaOferta', label: 'Fecha Oferta', placeholder: 'Ej: 20/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 6' },
+  { name: 'pedido6ImporteOferta', label: 'Importe Oferta (€)', placeholder: 'Ej: 500', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 6' },
+  { name: 'pedido6IdPedido', label: 'Id. Pedido', placeholder: 'Ej: PED-2025-006', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 6' },
+  { name: 'pedido6FechaPedido', label: 'Fecha Pedido', placeholder: 'Ej: 21/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 6' },
+  { name: 'pedido6ImportePedido', label: 'Importe Pedido (€)', placeholder: 'Ej: 500', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 6' },
+
+  // Pedido 7
+  { name: 'pedido7Concepto', label: 'Concepto', placeholder: 'Ej: Concepto 7', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 7' },
+  { name: 'pedido7Proveedor', label: 'Proveedor', placeholder: 'Ej: Proveedor 7', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 7' },
+  { name: 'pedido7IdOferta', label: 'Id. Oferta', placeholder: 'Ej: OF-2025-007', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 7' },
+  { name: 'pedido7FechaOferta', label: 'Fecha Oferta', placeholder: 'Ej: 21/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 7' },
+  { name: 'pedido7ImporteOferta', label: 'Importe Oferta (€)', placeholder: 'Ej: 300', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 7' },
+  { name: 'pedido7IdPedido', label: 'Id. Pedido', placeholder: 'Ej: PED-2025-007', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 7' },
+  { name: 'pedido7FechaPedido', label: 'Fecha Pedido', placeholder: 'Ej: 22/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 7' },
+  { name: 'pedido7ImportePedido', label: 'Importe Pedido (€)', placeholder: 'Ej: 300', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 7' },
   // --- SECCIÓN PRESENTACIÓN (PLAYWRIGHT) ---
   { name: 'cod_delegacion', label: 'Delegación Territorial', type: 'select', subsection: 'PRESENTACIÓN', group: 'Datos Titular (Robot)', value: '41', options: [{ value: '04', label: 'ALMERÍA' }, { value: '11', label: 'CÁDIZ' }, { value: '14', label: 'CÓRDOBA' }, { value: '18', label: 'GRANADA' }, { value: '21', label: 'HUELVA' }, { value: '23', label: 'JAÉN' }, { value: '29', label: 'MÁLAGA' }, { value: '41', label: 'SEVILLA' }] },
   { name: 'tipo_documento_presentador', label: 'Tipo Documento', type: 'select', subsection: 'PRESENTACIÓN', group: 'Datos Titular (Robot)', value: 'NIF', options: [{ value: 'NIF', label: 'NIF - Persona Física' }, { value: 'NIE', label: 'NIE - Extranjero' }, { value: 'CIF', label: 'CIF - Persona Jurídica' }] },
