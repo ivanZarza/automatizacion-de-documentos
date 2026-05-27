@@ -50,7 +50,7 @@
             <p class="etiqueta-firma">Firmado solicitante:</p>
           </div>
           <div class="firma-bloque">
-            <div class="linea-firma-imagen"> </div>
+            <div class="linea-firma-imagen"></div>
             <p class="etiqueta-firma">Firma autorizado:</p>
           </div>
         </div>
