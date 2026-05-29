@@ -39,22 +39,22 @@
                       <label v-if="field.type !== 'checkbox'" class="field-label">{{ field.label }}</label>
                       <input v-if="field.type === 'text' || field.type === 'email' || field.type === 'tel'"
                         v-model="formData[field.name]" :type="field.type" :placeholder="field.placeholder"
-                        class="field-input" />
+                        class="field-input" @blur="onFieldBlur(field.name)" />
                       <div v-else-if="field.type === 'url' && field.preview" class="url-preview-wrapper">
                         <input v-model="formData[field.name]" type="url" :placeholder="field.placeholder"
-                          class="field-input" />
+                          class="field-input" @blur="onFieldBlur(field.name)" />
                         <div v-if="formData[field.name]" class="file-preview">
                           <img :src="formData[field.name]" class="file-preview-image"
                             style="max-width:200px;max-height:100px;object-fit:contain;" />
                         </div>
                       </div>
                       <input v-else-if="field.type === 'url'" v-model="formData[field.name]" type="url"
-                        :placeholder="field.placeholder" class="field-input" />
+                        :placeholder="field.placeholder" class="field-input" @blur="onFieldBlur(field.name)" />
                       <input v-else-if="field.type === 'date'" v-model="formData[field.name]" type="date"
                         class="field-input" />
                       <textarea v-else-if="field.type === 'textarea'" v-model="formData[field.name]"
                         :placeholder="field.placeholder" :rows="field.rows || 3"
-                        class="field-input field-textarea"></textarea>
+                        class="field-input field-textarea" @blur="onFieldBlur(field.name)"></textarea>
                       <select v-else-if="field.type === 'select'" v-model="formData[field.name]" class="field-input">
                         <option value="">{{ field.placeholder || 'Seleccionar...' }}</option>
                         <option v-for="option in field.options" :key="option.value || option"
@@ -233,10 +233,14 @@ const isAutomating = ref(false)
 const buildInitialFormData = (baseData = {}) => {
   const result = {}
 
-  // Paso 1: Cargar valores desde baseData (datos guardados)
+  // Paso 1: Cargar valores desde baseData (datos guardados) y recortar espacios
   masterFormFields.forEach(field => {
     const fromBase = baseData[field.name]
-    result[field.name] = fromBase !== undefined && fromBase !== null ? fromBase : ''
+    let val = fromBase !== undefined && fromBase !== null ? fromBase : ''
+    if (typeof val === 'string') {
+      val = val.trim()
+    }
+    result[field.name] = val
   })
 
   // Paso 2: Para campos vacíos que tienen mapFrom, aplicar el mapeo desde el origen
@@ -270,7 +274,7 @@ const buildInitialFormData = (baseData = {}) => {
         return
       }
 
-      let finalValue = sourceValue
+      let finalValue = typeof sourceValue === 'string' ? sourceValue.trim() : sourceValue
       if (field.mapTransform) {
         const lookupKey = typeof sourceValue === 'string'
           ? sourceValue.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
@@ -282,6 +286,9 @@ const buildInitialFormData = (baseData = {}) => {
         } else {
           finalValue = '' // No coincide con la transformación (ej. Toledo), vaciar
         }
+      }
+      if (typeof finalValue === 'string') {
+        finalValue = finalValue.trim()
       }
       result[field.name] = finalValue
     }
@@ -442,7 +449,7 @@ watch(formData, (newVal) => {
           return
         }
 
-        let finalValue = sourceValue
+        let finalValue = typeof sourceValue === 'string' ? sourceValue.trim() : sourceValue
         if (field.mapTransform) {
           const lookupKey = typeof sourceValue === 'string'
             ? sourceValue.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
@@ -456,6 +463,9 @@ watch(formData, (newVal) => {
           }
         }
 
+        if (typeof finalValue === 'string') {
+          finalValue = finalValue.trim()
+        }
         formData.value[field.name] = finalValue
       }
     }
@@ -575,6 +585,12 @@ const extractFileName = (dataUrl) => {
   return dataUrl
 }
 
+const onFieldBlur = (fieldName) => {
+  if (typeof formData.value[fieldName] === 'string') {
+    formData.value[fieldName] = formData.value[fieldName].trim()
+  }
+}
+
 const filterEditableFields = () => {
   if (props.editableFieldNames.length === 0) {
     return props.fields
@@ -688,6 +704,13 @@ watch(() => Object.keys(groupedFieldsBySection.value), (sections) => {
 
 
 const submit = async (silent = false) => {
+  // Recortar espacios en blanco antes y después en todos los campos de texto
+  Object.keys(formData.value).forEach(key => {
+    if (typeof formData.value[key] === 'string') {
+      formData.value[key] = formData.value[key].trim()
+    }
+  })
+
   // Filtrar solo campos con valor (evitar contaminar el maestro con vacíos)
   // Pero permitir false para checkboxes
   const filteredData = Object.fromEntries(
@@ -779,6 +802,26 @@ function groupFieldsBySubsection(fields) {
 // Etiquetas de subsección
 async function handleLaunchAutomation() {
   if (isAutomating.value) return
+
+  // Recortar espacios de los campos a validar antes de la verificación
+  if (formData.value.ps_distribuidora) formData.value.ps_distribuidora = String(formData.value.ps_distribuidora).trim()
+  if (formData.value.empresaDistribuidora) formData.value.empresaDistribuidora = String(formData.value.empresaDistribuidora).trim()
+  if (formData.value.cnae_rite) formData.value.cnae_rite = String(formData.value.cnae_rite).trim()
+  if (formData.value.cau_presentador) formData.value.cau_presentador = String(formData.value.cau_presentador).trim()
+
+  // Validaciones obligatorias antes de proceder
+  if (!formData.value.ps_distribuidora || formData.value.ps_distribuidora === '') {
+    alert('Error: El campo "Empresa Distribuidora (Oficial)" es obligatorio antes de lanzar la presentación.')
+    return
+  }
+  if (!formData.value.cnae_rite || formData.value.cnae_rite === '') {
+    alert('Error: El campo "Actividad CNAE / RITE" es obligatorio antes de lanzar la presentación.')
+    return
+  }
+  if (!formData.value.cau_presentador || formData.value.cau_presentador === '') {
+    alert('Error: El campo "CAU" es obligatorio antes de lanzar la presentación.')
+    return
+  }
 
   const confirmLaunch = confirm('¿Deseas iniciar la automatización? Se abrirá una ventana de Chrome para realizar los trámites en el portal de la Junta.')
   if (!confirmLaunch) return
