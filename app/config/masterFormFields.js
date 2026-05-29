@@ -449,7 +449,35 @@ export const masterFormFields = [
     { name: 'pedido5ImportePedido', label: 'Importe Pedido (€)', placeholder: 'Ej: 800', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
    */
   // --- SECCIÓN PRESENTACIÓN (PLAYWRIGHT) ---
-  { name: 'cod_delegacion', label: 'Delegación Territorial', type: 'select', subsection: 'PRESENTACIÓN', group: 'Datos Titular (Robot)', value: '41', options: [{ value: '04', label: 'ALMERÍA' }, { value: '11', label: 'CÁDIZ' }, { value: '14', label: 'CÓRDOBA' }, { value: '18', label: 'GRANADA' }, { value: '21', label: 'HUELVA' }, { value: '23', label: 'JAÉN' }, { value: '29', label: 'MÁLAGA' }, { value: '41', label: 'SEVILLA' }] },
+  { 
+    name: 'cod_delegacion', 
+    label: 'Delegación Territorial', 
+    type: 'select', 
+    subsection: 'PRESENTACIÓN', 
+    group: 'Datos Titular (Robot)', 
+    value: '41', 
+    options: [
+      { value: '04', label: 'ALMERÍA' }, 
+      { value: '11', label: 'CÁDIZ' }, 
+      { value: '14', label: 'CÓRDOBA' }, 
+      { value: '18', label: 'GRANADA' }, 
+      { value: '21', label: 'HUELVA' }, 
+      { value: '23', label: 'JAÉN' }, 
+      { value: '29', label: 'MÁLAGA' }, 
+      { value: '41', label: 'SEVILLA' }
+    ],
+    mapFrom: 'provinciaEmplazamiento',
+    mapTransform: {
+      'almeria': '04',
+      'cadiz': '11',
+      'cordoba': '14',
+      'granada': '18',
+      'huelva': '21',
+      'jaen': '23',
+      'malaga': '29',
+      'sevilla': '41'
+    }
+  },
   { name: 'tipo_documento_presentador', label: 'Tipo Documento', type: 'select', subsection: 'PRESENTACIÓN', group: 'Datos Titular (Robot)', value: 'NIF', options: [{ value: 'NIF', label: 'NIF - Persona Física' }, { value: 'NIE', label: 'NIE - Extranjero' }, { value: 'CIF', label: 'CIF - Persona Jurídica' }] },
   { name: 'nif_presentador', label: 'NIF/CIF Titular', type: 'text', subsection: 'PRESENTACIÓN', group: 'Datos Titular (Robot)', mapFrom: 'nifCif' },
   { name: 'sexo_presentador', label: 'Sexo Titular', type: 'select', subsection: 'PRESENTACIÓN', group: 'Datos Titular (Robot)', value: 'M', options: [{ value: 'M', label: 'Hombre/Masculino' }, { value: 'F', label: 'Mujer/Femenino' }] },

@@ -227,27 +227,28 @@ const isAutomating = ref(false)
 /**
  * Construye el objeto formData inicial aplicando:
  * 1. Los valores que vienen de initialData (BD / localStorage)
- * 2. Los field.value por defecto de masterFormFields (si el campo está vacío)
- * 3. El mapFrom: propaga el valor del campo origen al campo destino (si el destino está vacío)
+ * 2. Si no hay valor, el mapFrom (si el campo origen tiene valor)
+ * 3. Si sigue vacío, el field.value por defecto
  */
 const buildInitialFormData = (baseData = {}) => {
   const result = {}
 
-  // Paso 1 y 2: initialData + field.value como fallback
+  // Paso 1: Cargar valores desde baseData (datos guardados)
   masterFormFields.forEach(field => {
     const fromBase = baseData[field.name]
-    const hasValue = fromBase !== undefined && fromBase !== null && fromBase !== ''
-    result[field.name] = hasValue ? fromBase : (field.value ?? '')
+    result[field.name] = fromBase !== undefined && fromBase !== null ? fromBase : ''
   })
 
-  // Paso 3: mapFrom — al cargar datos, propagar el origen al destino si el destino sigue vacío
+  // Paso 2: Para campos vacíos que tienen mapFrom, aplicar el mapeo desde el origen
   masterFormFields.forEach(field => {
     if (!field.mapFrom) return
     const destValue = result[field.name]
     const sourceValue = result[field.mapFrom]
-    if ((!destValue || destValue === '') && sourceValue) {
-      // Caso especial: nombre_presentador necesita parsear apellidos
-      if (field.name === 'nombre_presentador' && sourceValue) {
+    
+    // Si el destino está vacío o tiene su valor por defecto, y el origen tiene valor, aplicamos el mapeo
+    const isDefaultOrEmpty = destValue === undefined || destValue === null || destValue === '' || destValue === field.value
+    if (isDefaultOrEmpty && sourceValue) {
+      if (field.name === 'nombre_presentador') {
         let nombre = sourceValue, ap1 = '', ap2 = ''
         if (sourceValue.includes(',')) {
           const partes = sourceValue.split(',')
@@ -268,7 +269,33 @@ const buildInitialFormData = (baseData = {}) => {
         if (!result.apellido2_presentador || result.apellido2_presentador === '') result.apellido2_presentador = ap2
         return
       }
-      result[field.name] = sourceValue
+
+      let finalValue = sourceValue
+      if (field.mapTransform) {
+        const lookupKey = typeof sourceValue === 'string'
+          ? sourceValue.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+          : sourceValue
+        if (field.mapTransform[lookupKey] !== undefined) {
+          finalValue = field.mapTransform[lookupKey]
+        } else if (field.mapTransform[sourceValue] !== undefined) {
+          finalValue = field.mapTransform[sourceValue]
+        } else {
+          finalValue = '' // No coincide con la transformación (ej. Toledo), vaciar
+        }
+      }
+      result[field.name] = finalValue
+    }
+  })
+
+  // Paso 3: Rellenar los campos que sigan vacíos con sus valores por defecto (field.value)
+  masterFormFields.forEach(field => {
+    if (result[field.name] === undefined || result[field.name] === null || result[field.name] === '') {
+      // Si el campo tiene mapFrom y el origen tiene valor, significa que se mapeó a vacío intencionadamente (ej: Toledo no es una provincia andaluza válida)
+      if (field.mapFrom && result[field.mapFrom]) {
+        result[field.name] = ''
+        return
+      }
+      result[field.name] = field.value !== undefined ? field.value : (field.type === 'checkbox' ? false : '')
     }
   })
 
@@ -279,8 +306,20 @@ const buildInitialFormData = (baseData = {}) => {
 const formDataInit = buildInitialFormData(props.initialData)
 Object.assign(formData.value, formDataInit)
 
+// Clon para detectar cambios en campos origen de mapFrom (evita el bug de deep watch de Vue 3)
+const lastMapFromSourceValues = {}
+const initMapFromSourceValues = (data = {}) => {
+  masterFormFields.forEach(field => {
+    if (field.mapFrom) {
+      lastMapFromSourceValues[field.mapFrom] = data[field.mapFrom] || ''
+    }
+  })
+}
+initMapFromSourceValues(formData.value)
+
 watch(() => props.initialData, (newData) => {
   formData.value = buildInitialFormData(newData)
+  initMapFromSourceValues(formData.value)
 }, { deep: true })
 
 const toggleGroup = (subsectionName, groupName) => {
@@ -350,53 +389,70 @@ watch(formData, (newVal) => {
 }, { deep: true })
 
 // Lógica de sincronización automática 'mapFrom' para automatización
-watch(formData, (newVal, oldVal) => {
+watch(formData, (newVal) => {
   if (isInternalChange) return
 
   masterFormFields.forEach(field => {
     if (field.mapFrom) {
       const sourceValue = newVal[field.mapFrom]
-      const targetValue = newVal[field.name]
-      const sourceOldValue = oldVal ? oldVal[field.mapFrom] : null
+      const sourceOldValue = lastMapFromSourceValues[field.mapFrom]
 
-      // Si el origen ha cambiado y el destino está vacío o era igual al origen anterior...
+      // Si el origen ha cambiado...
       if (sourceOldValue !== undefined && sourceValue !== sourceOldValue) {
-        if (!targetValue || targetValue === sourceOldValue) {
-
-          if (field.name === 'nombre_presentador' && sourceValue) {
-            let nombre = sourceValue
-            let ap1 = ''
-            let ap2 = ''
-            if (sourceValue.includes(',')) {
-              const partes = sourceValue.split(',')
-              nombre = partes[1].trim()
-              const apellidos = partes[0].trim().split(' ')
-              ap1 = apellidos[0] || ''
-              ap2 = apellidos.slice(1).join(' ') || ''
-            } else {
-              const partes = sourceValue.trim().split(' ')
-              if (partes.length >= 3) {
-                nombre = partes.slice(2).join(' ') // Si es "Apellido1 Apellido2 Nombre"
-                ap1 = partes[0]
-                ap2 = partes[1]
-                // Ajuste heurístico simple (si el usuario lo introduce normal "Nombre Apellido1 Apellido2"):
-                nombre = partes[0]
-                ap1 = partes[1]
-                ap2 = partes.slice(2).join(' ')
-              } else if (partes.length === 2) {
-                nombre = partes[0]
-                ap1 = partes[1]
-              }
+        if (field.name === 'nombre_presentador' && sourceValue) {
+          let nombre = sourceValue
+          let ap1 = ''
+          let ap2 = ''
+          if (sourceValue.includes(',')) {
+            const partes = sourceValue.split(',')
+            nombre = partes[1].trim()
+            const apellidos = partes[0].trim().split(' ')
+            ap1 = apellidos[0] || ''
+            ap2 = apellidos.slice(1).join(' ') || ''
+          } else {
+            const partes = sourceValue.trim().split(' ')
+            if (partes.length >= 3) {
+              nombre = partes.slice(2).join(' ') // Si es "Apellido1 Apellido2 Nombre"
+              ap1 = partes[0]
+              ap2 = partes[1]
+              // Ajuste heurístico simple (si el usuario lo introduce normal "Nombre Apellido1 Apellido2"):
+              nombre = partes[0]
+              ap1 = partes[1]
+              ap2 = partes.slice(2).join(' ')
+            } else if (partes.length === 2) {
+              nombre = partes[0]
+              ap1 = partes[1]
             }
-            formData.value.nombre_presentador = nombre
-            if (!formData.value.apellido1_presentador) formData.value.apellido1_presentador = ap1
-            if (!formData.value.apellido2_presentador) formData.value.apellido2_presentador = ap2
-            return
           }
-
-          formData.value[field.name] = sourceValue
+          formData.value.nombre_presentador = nombre
+          if (!formData.value.apellido1_presentador) formData.value.apellido1_presentador = ap1
+          if (!formData.value.apellido2_presentador) formData.value.apellido2_presentador = ap2
+          return
         }
+
+        let finalValue = sourceValue
+        if (field.mapTransform) {
+          const lookupKey = typeof sourceValue === 'string'
+            ? sourceValue.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+            : sourceValue
+          if (field.mapTransform[lookupKey] !== undefined) {
+            finalValue = field.mapTransform[lookupKey]
+          } else if (field.mapTransform[sourceValue] !== undefined) {
+            finalValue = field.mapTransform[sourceValue]
+          } else {
+            finalValue = '' // Si no coincide con la transformación (ej. Toledo), vaciar
+          }
+        }
+
+        formData.value[field.name] = finalValue
       }
+    }
+  })
+
+  // Actualizar los valores guardados de origen para la siguiente comparación
+  masterFormFields.forEach(field => {
+    if (field.mapFrom) {
+      lastMapFromSourceValues[field.mapFrom] = newVal[field.mapFrom]
     }
   })
 }, { deep: true })
