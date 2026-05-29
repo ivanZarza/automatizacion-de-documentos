@@ -299,6 +299,18 @@ const buildInitialFormData = (baseData = {}) => {
     }
   })
 
+  // Paso 4: Ajustar tiene_acumulacion basado en potencia_acumulacion y energia_almacenada
+  const potAccum = result.potencia_acumulacion
+  const energAccum = result.energia_almacenada
+  const isNonZero = (val) => {
+    if (val === undefined || val === null) return false
+    const str = String(val).trim()
+    if (str === '' || str === '0') return false
+    const num = parseFloat(str.replace(',', '.'))
+    return !isNaN(num) && num !== 0
+  }
+  result.tiene_acumulacion = (isNonZero(potAccum) || isNonZero(energAccum)) ? 'si' : 'no'
+
   return result
 }
 
@@ -455,6 +467,23 @@ watch(formData, (newVal) => {
       lastMapFromSourceValues[field.mapFrom] = newVal[field.mapFrom]
     }
   })
+
+  // Ajustar tiene_acumulacion basado en potencia_acumulacion y energia_almacenada
+  const potAccum = newVal.potencia_acumulacion
+  const energAccum = newVal.energia_almacenada
+  const isNonZero = (val) => {
+    if (val === undefined || val === null) return false
+    const str = String(val).trim()
+    if (str === '' || str === '0') return false
+    const num = parseFloat(str.replace(',', '.'))
+    return !isNaN(num) && num !== 0
+  }
+
+  const tieneAcum = isNonZero(potAccum) || isNonZero(energAccum)
+  const expectedTieneAcum = tieneAcum ? 'si' : 'no'
+  if (newVal.tiene_acumulacion !== expectedTieneAcum) {
+    newVal.tiene_acumulacion = expectedTieneAcum
+  }
 }, { deep: true })
 
 // Guardar automáticamente en localStorage controlado por DocumentPage
