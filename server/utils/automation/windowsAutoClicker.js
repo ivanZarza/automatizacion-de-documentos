@@ -68,6 +68,9 @@ class WindowsAutoClicker {
                 public static extern bool SetForegroundWindow(IntPtr hWnd);
 
                 [DllImport("user32.dll")]
+                public static extern bool SetCursorPos(int X, int Y);
+
+                [DllImport("user32.dll")]
                 public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
 
                 [DllImport("user32.dll")]
@@ -101,15 +104,7 @@ class WindowsAutoClicker {
 "@
             
             function IsTargetWindow($title) {
-                # Títulos de diálogos nativos del sistema
-                $dialogPattern = "^(Seleccionar certificado|Confirmar certificado|AutoFirma|Solicitud de certificado|Seguridad de Windows|Selecciona un certificado|Selección de certificado)"
-                # Ventana del navegador cuando está en un paso de firma/certificado
-                $chromePattern = "(Google Chrome|Chromium|Microsoft Edge)"
-                
-                $isDialog = $title -match $dialogPattern
-                $isChromeWithPrompt = ($title -match "Firma|Certificado|Seguridad|almacen") -and ($title -match $chromePattern)
-                
-                return $isDialog -or $isChromeWithPrompt
+                return $title -match "^(Seleccionar certificado|Confirmar certificado|AutoFirma|Solicitud de certificado|Seguridad de Windows|Selecciona un certificado|Selección de certificado|.*almac.*Windows.*|Di.logo de seguridad.*)"
             }
 
             Write-Host "MODO INTELIGENTE: Vigilando ventanas para interactuar..."
@@ -125,6 +120,16 @@ class WindowsAutoClicker {
                     $targetHwnd = [IntPtr]::Zero
                     $foundTitle = ""
                     
+                    if (-not $windowWasFound) {
+                        Write-Host "--- VENTANAS VISIBLES ACTUALMENTE ---"
+                        foreach ($w in $wins) {
+                            if ($w.Item2.Length -gt 0) {
+                                Write-Host "   > '$($w.Item2)'"
+                            }
+                        }
+                        Write-Host "-------------------------------------"
+                    }
+                    
                     foreach ($w in $wins) {
                         if (IsTargetWindow $w.Item2) {
                             $targetHwnd = $w.Item1
@@ -135,63 +140,41 @@ class WindowsAutoClicker {
 
                     if ($targetHwnd -ne [IntPtr]::Zero) {
                         $windowWasFound = $true
-
-                        if ($foundTitle -match "(Google Chrome|Chromium|Microsoft Edge)") {
-                            Write-Host "!!! [MATCH] Detectado Navegador con Prompt: '$foundTitle'. Trayendo al frente y enviando ENTER..."
-                            [Win32]::ShowWindow($targetHwnd, 9) | Out-Null
-                            [Win32]::SetForegroundWindow($targetHwnd) | Out-Null
+                        Write-Host "!!! [MATCH] Detectado Diálogo Nativo: '$foundTitle'. Trayendo al frente e interactuando..."
+                        $n = 0
+                        while ($true) {
+                            $abierta = $false
+                            $currentHwnd = [IntPtr]::Zero
+                            foreach ($w2 in ([Win32]::GetWindows())) {
+                                if (IsTargetWindow $w2.Item2 -and $w2.Item1 -eq $targetHwnd) { 
+                                    $abierta = $true
+                                    $currentHwnd = $w2.Item1
+                                    break 
+                                }
+                            }
+                            if (-not $abierta) {
+                                Write-Host "EXITO: Ventana cerrada tras $n interacciones."
+                                break
+                            }
+                            # Traer la ventana al frente
+                            [Win32]::ShowWindow($currentHwnd, 9) | Out-Null
+                            [Win32]::SetForegroundWindow($currentHwnd) | Out-Null
                             Start-Sleep -Milliseconds 250
-                            
+
+                            # Clic físico en las coordenadas específicas comprobadas (923, 536)
+                            [Win32]::SetCursorPos(923, 536) | Out-Null
+                            [Win32]::mouse_event(0x0002, 0, 0, 0, 0) # LeftDown
+                            Start-Sleep -Milliseconds 50
+                            [Win32]::mouse_event(0x0004, 0, 0, 0, 0) # LeftUp
+                            Start-Sleep -Milliseconds 250
+
+                            # Enviar la tecla ENTER
                             $wshell = New-Object -ComObject WScript.Shell
                             $wshell.SendKeys("{ENTER}")
-                            Start-Sleep -Milliseconds 500
-                            # No entramos en bucle para el navegador para evitar loops infinitos
-                        } else {
-                            Write-Host "!!! [MATCH] Detectado Diálogo Nativo: '$foundTitle'. Trayendo al frente e interactuando..."
-                            $n = 0
-                            while ($true) {
-                                $abierta = $false
-                                $currentHwnd = [IntPtr]::Zero
-                                foreach ($w2 in ([Win32]::GetWindows())) {
-                                    $esDialogoNativo = ($w2.Item2 -match "^(Seleccionar certificado|Confirmar certificado|AutoFirma|Solicitud de certificado|Seguridad de Windows|Selecciona un certificado|Selección de certificado)")
-                                    if ($esDialogoNativo -and $w2.Item1 -eq $targetHwnd) { 
-                                        $abierta = $true
-                                        $currentHwnd = $w2.Item1
-                                        break 
-                                    }
-                                }
-                                if (-not $abierta) {
-                                    Write-Host "EXITO: Ventana cerrada tras $n interacciones."
-                                    break
-                                }
-                                # Traer la ventana al frente
-                                [Win32]::ShowWindow($currentHwnd, 9) | Out-Null
-                                [Win32]::SetForegroundWindow($currentHwnd) | Out-Null
-                                Start-Sleep -Milliseconds 250
 
-                                # Obtener posición y tamaño de la ventana para calcular el centro
-                                $rect = New-Object Win32+RECT
-                                if ([Win32]::GetWindowRect($currentHwnd, [ref]$rect)) {
-                                    $wWidth = $rect.Right - $rect.Left
-                                    $wHeight = $rect.Bottom - $rect.Top
-                                    $centerX = $rect.Left + [int]($wWidth / 2)
-                                    $centerY = $rect.Top + [int]($wHeight / 2)
-
-                                    [System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point($centerX, $centerY)
-                                    [Win32]::mouse_event(0x0002, 0, 0, 0, 0)
-                                    Start-Sleep -Milliseconds 50
-                                    [Win32]::mouse_event(0x0004, 0, 0, 0, 0)
-                                    Start-Sleep -Milliseconds 150
-                                }
-
-                                # Enviar la tecla ENTER
-                                $wshell = New-Object -ComObject WScript.Shell
-                                $wshell.SendKeys("{ENTER}")
-
-                                $n++
-                                Write-Host "   -> Interacción #$n realizada en la ventana nativa"
-                                Start-Sleep -Milliseconds 600
-                            }
+                            $n++
+                            Write-Host "   -> Interacción #$n realizada en la ventana nativa"
+                            Start-Sleep -Milliseconds 600
                         }
                     } else {
                         if ($windowWasFound) {

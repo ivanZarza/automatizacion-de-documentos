@@ -1361,8 +1361,8 @@ export const runJuntaAutomation = async (payload) => {
     });
     await esperar(4000);
 
-    console.log('🛑 PARADA: Verifica el estado tras Presentar. Pulsa "Resume" para continuar con el botón Firmar.');
-    await page.pause();
+    console.log('🛑 Asegurando que la ventana está al frente para la firma...');
+    await page.bringToFront().catch(() => {});
 
     // --- PASO 3: Botón Firmar (aparece tras Presentar) ---
     console.log('   -> Esperando botón Firmar (timeout 60s)...');
