@@ -29,6 +29,21 @@ Modificar el script `test_almudena.js` para que sea capaz de lidiar dinámicamen
 ---
 
 ## 📝 Pasos a Seguir
-1. **Actualizar Helpers:** Modificar `fillF`, `selF` y `chkF` en `test_almudena.js` para añadir comprobaciones `isEditable()`.
-2. **Definir Matriz:** Crear el array de combinaciones.
-3. **Refactorizar Flujo:** Convertir el script actual en una función `ejecutarPrueba(combinacion)` e iterar.
+1. **Actualizar Helpers:** Modificar `fillF`, `selF` y `chkF` en `test_almudena.js` para añadir comprobaciones `isEditable()`. ✅ *(Completado)*
+2. **Definir Matriz:** Crear el array de combinaciones. ✅ *(Completado)*
+3. **Refactorizar Flujo:** Convertir el script actual en una función o bucle inteligente. ✅ *(Completado)*
+
+---
+
+## 🗺️ Fase 3: Mapeo de Datos al `masterFormFields.js`
+**Objetivo:** Traducir las claves utilizadas en el objeto temporal `datosPrueba` del script `test_almudena.js` a campos reales y reactivos dentro de nuestra arquitectura Frontend.
+
+**Acciones a realizar:**
+1. Crear una nueva subsección en `app/config/masterFormFields.js` (e.g., `subsection: 'REGISTRO'`).
+2. Agrupar los campos en bloques lógicos utilizando la propiedad `group`:
+   - **Datos Generales e Inmueble (T1, T3):** Uso, Tipo Vía, Referencia Catastral, Superficie, etc.
+   - **Promotor y Técnico (T5, T6, T17):** Datos de contacto, Identificación, Titulación y Colegio.
+   - **Parámetros del CEE (T8, T9, T10, T11):** Normativa de edificación/instalación (CTE, RITE), Procedimientos, y Tipos de Instalación Térmica.
+   - **Gestión (T16, T19, T20):** Liquidación de tasas, Lugar de firma.
+3. Utilizar propiedades como `mapFrom` para heredar datos ya existentes en la Sección A o Presentación (ej. `nifCif`, `apellidosNombre`, `telefono`) y evitar que el usuario duplique trabajo.
+4. Crear campos de tipo `file` para la subida de Anexos específicos (XML, Informe Mejoras, Justificante de Pago, Autorización).

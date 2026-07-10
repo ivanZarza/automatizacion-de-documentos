@@ -139,8 +139,14 @@
               <Boton type="button" variant="primary" class="btn-launch-automation" @click="handleLaunchAutomation">
                 🚀 Lanzar Automatización (Junta de Andalucía)
               </Boton>
-              <p class="automation-hint">Se abrirá una ventana del navegador para completar la firma con su certificado.
-              </p>
+              <p class="automation-hint">Se abrirá una ventana del navegador para completar la firma con su certificado.</p>
+            </div>
+
+            <div v-if="activeSubsection === 'REGISTRO'" class="automation-actions">
+              <Boton type="button" variant="primary" class="btn-launch-automation" @click="handleLaunchRegistro">
+                🏛️ Lanzar Registro CEE (Junta de Andalucía)
+              </Boton>
+              <p class="automation-hint">Se abrirá una ventana del navegador para registrar el Certificado Energético.</p>
             </div>
           </div>
         </Transition>
@@ -533,7 +539,8 @@ const sectionLineColorMap = {
   'I': '#7C3AED',
   'IMAGEN': '#2E952E',
   'LEGALIZACION': '#8B5A8B',
-  'PRESENTACIÓN': '#7C3AED'
+  'PRESENTACIÓN': '#7C3AED',
+  'REGISTRO': '#059669'
 }
 
 const getSectionColor = (section) => {
@@ -570,7 +577,7 @@ const groupedFieldsBySection = computed(() => {
   // Ordenar secciones con ACEPTACION al final
   const sortOrder = ['A', 'E1', 'E1.1', 'E1.2', 'E1.3', 'E1.4', 'E1.5', 'E1.6', 'E1.7',
     'E2', 'E2.1', 'E2.2', 'E2.3', 'E2.4', 'E2.5', 'E2.6',
-    'F', 'G', 'H', 'I', 'IMAGEN', 'LEGALIZACION', 'PRESENTACIÓN', 'ACEPTACION']
+    'F', 'G', 'H', 'I', 'IMAGEN', 'LEGALIZACION', 'PRESENTACIÓN', 'REGISTRO', 'ACEPTACION']
 
   const sorted = {}
   sortOrder.forEach(key => {
@@ -705,6 +712,45 @@ function groupFieldsBySubsection(fields) {
   return grouped
 }
 // Etiquetas de subsección
+async function handleLaunchRegistro() {
+  if (isAutomating.value) return
+
+  const confirmLaunch = confirm('¿Deseas iniciar el registro del Certificado Energético? Se abrirá una ventana para firmar con tu certificado.')
+  if (!confirmLaunch) return
+
+  isAutomating.value = true
+
+  // ✅ AUTO-GUARDADO ANTES DE LANZAR EL ROBOT
+  console.log('[DocumentForm] Auto-guardando datos en la Base de Datos (modo silencioso)...')
+  await submit(true)
+
+  console.log('[DocumentForm] Iniciando registro CEE con los datos actuales...')
+
+  const form = formData.value
+  
+  try {
+    const response = await fetch('/api/automation/registro', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ datos: form })
+    })
+
+    const result = await response.json()
+
+    if (result.success) {
+      alert('¡Registro completado con éxito!')
+    } else {
+      console.error('[DocumentForm] Error en registro:', result.error)
+      alert(`Error en el registro: ${result.error || 'Ocurrió un error inesperado'}`)
+    }
+  } catch (error) {
+    console.error('[DocumentForm] Error de red en registro:', error)
+    alert('Error de conexión con el servidor. Asegúrate de que el servidor esté en ejecución.')
+  } finally {
+    isAutomating.value = false
+  }
+}
+
 async function handleLaunchAutomation() {
   if (isAutomating.value) return
 
@@ -890,6 +936,7 @@ function getSubsectionLabel(subsection) {
     'IMAGEN': 'Imágenes y Documentos',
     'LEGALIZACION': 'LEGALIZACIÓN',
     'PRESENTACIÓN': 'PRESENTACIÓN',
+    'REGISTRO': 'REGISTRO CEE',
     'ACEPTACION': 'ACEPTACIÓN',
     'JUSTIFICACION': 'JUSTIFICACIÓN',
     'FACTURAS': 'FACTURAS',

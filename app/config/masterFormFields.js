@@ -574,7 +574,61 @@ export const masterFormFields = [
   // --- ARCHIVOS ADJUNTOS (NUEVO) ---
   { name: 'doc_autorizacion_rep', label: '1.- MTD', type: 'file', accept: '.pdf,image/*', subsection: 'PRESENTACIÓN', group: 'Documentos a Subir' },
   { name: 'doc_adicional_2', label: '2.- Documento Adicional / CIE', type: 'file', accept: '.pdf,image/*', subsection: 'PRESENTACIÓN', group: 'Documentos a Subir' },
-  { name: 'doc_certificado_solidez', label: '7.- Certificado de Adecuacion', type: 'file', accept: '.pdf,image/*', subsection: 'PRESENTACIÓN', group: 'Documentos a Subir' }
+  { name: 'doc_certificado_solidez', label: '7.- Certificado de Adecuacion', type: 'file', accept: '.pdf,image/*', subsection: 'PRESENTACIÓN', group: 'Documentos a Subir' },
+
+  // ========== SECCIÓN REGISTRO (CERTIFICADO ENERGÉTICO ANDALUZ) ==========
+  
+  // -- Trámite --
+  { name: 'registro_tramite', label: 'Tipo de Trámite', type: 'select', options: ['Inscripción', 'Modificación', 'Actualización'], value: 'Inscripción', subsection: 'REGISTRO', group: 'Trámite' },
+  { name: 'registro_num_inscripcion', label: 'Nº Inscripción Anterior', type: 'text', placeholder: 'Si es modificación...', subsection: 'REGISTRO', group: 'Trámite' },
+  
+  // -- T1 y T3: Inmueble --
+  { name: 'registro_t1_subgrupo', label: 'Subgrupo de Edificio', type: 'select', options: [{label: 'Residencial', value: 'resi'}, {label: 'Terciario', value: 'terciario'}], value: 'resi', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
+  { name: 'registro_t1_uso', label: 'Uso del Edificio', type: 'select', options: [{label: 'Edificio Completo', value: 'edif'}, {label: 'Vivienda Individual', value: 'vivienda'}], value: 'edif', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
+  { name: 'registro_t3_tipoVia', label: 'Tipo de Vía', type: 'select', options: tipoViaOptions, mapFrom: 'tipo_via_presentador', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
+  { name: 'registro_t3_nombreVia', label: 'Nombre de la Vía', type: 'text', mapFrom: 'emplazamientoCalle', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
+  { name: 'registro_t3_numero', label: 'Número', type: 'text', mapFrom: 'numero', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
+  { name: 'registro_t3_cPostal', label: 'Código Postal', type: 'text', mapFrom: 'codigoPostalEmplazamiento', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
+  { name: 'registro_t3_superficie', label: 'Superficie Útil Habitable (m²)', type: 'text', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
+  { name: 'registro_t3_plantas', label: 'Nº Plantas', type: 'text', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
+  { name: 'registro_t3_altura', label: 'Altura Planta Baja (m)', type: 'text', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
+  { name: 'registro_t3_anioConstruccion', label: 'Año Construcción', type: 'text', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
+
+  // -- T5 y T17: Promotor --
+  { name: 'registro_t5_nif', label: 'NIF Promotor', type: 'text', mapFrom: 'nifCif', subsection: 'REGISTRO', group: 'Promotor (T5, T17)' },
+  { name: 'registro_t5_nombre', label: 'Nombre Promotor', type: 'text', mapFrom: 'apellidosNombre', subsection: 'REGISTRO', group: 'Promotor (T5, T17)' },
+  { name: 'registro_t17_correo', label: 'Correo Notificaciones', type: 'email', mapFrom: 'correoElectronicoEmplazamiento', subsection: 'REGISTRO', group: 'Promotor (T5, T17)' },
+  { name: 'registro_t17_movil', label: 'Móvil Notificaciones', type: 'tel', mapFrom: 'telefono', subsection: 'REGISTRO', group: 'Promotor (T5, T17)' },
+
+  // -- T6: Técnico Certificador --
+  { name: 'registro_t6_calidad', label: 'Calidad en la que actúa', type: 'select', options: [{label: 'Proyectista/Director Obra', value: 'proFirmCertificado'}, {label: 'Otro', value: 'otro'}], subsection: 'REGISTRO', group: 'Técnico (T6)' },
+  { name: 'registro_t6_titulacion', label: 'Titulación', type: 'text', mapFrom: 'titulacion', subsection: 'REGISTRO', group: 'Técnico (T6)' },
+  { name: 'registro_t6_colegio', label: 'Colegio Oficial', type: 'text', mapFrom: 'colegioOficial', subsection: 'REGISTRO', group: 'Técnico (T6)' },
+  { name: 'registro_t6_numColegiado', label: 'Nº Colegiado', type: 'text', mapFrom: 'numeroColegiado', subsection: 'REGISTRO', group: 'Técnico (T6)' },
+
+  // -- T8 y T9: Normativa --
+  { name: 'registro_t8_fecha', label: 'Fecha CEE', type: 'date', subsection: 'REGISTRO', group: 'Normativa (T8, T9)' },
+  { name: 'registro_t9_edificacion', label: 'Normativa Edificación', type: 'select', options: [{label: 'CTE', value: 'cte'}, {label: 'NBE', value: 'nbe'}, {label: 'CTE 2013', value: 'cte_2013'}, {label: 'Otra', value: 'otro'}], value: 'cte', subsection: 'REGISTRO', group: 'Normativa (T8, T9)' },
+  { name: 'registro_t9_otro_edif', label: 'Otra Norm. Edificación', type: 'text', subsection: 'REGISTRO', group: 'Normativa (T8, T9)' },
+  { name: 'registro_t9_instalacion', label: 'Normativa Instalaciones Térmicas', type: 'select', options: [{label: 'RITE 98', value: 'rite98'}, {label: 'RITE 07', value: 'rite07'}, {label: 'Otra', value: 'otro'}], value: 'rite98', subsection: 'REGISTRO', group: 'Normativa (T8, T9)' },
+  { name: 'registro_t9_otro_inst', label: 'Otra Norm. Instalación', type: 'text', subsection: 'REGISTRO', group: 'Normativa (T8, T9)' },
+
+  // -- T10 y T11: Instalaciones --
+  { name: 'registro_t10_procedimiento', label: 'Procedimiento', type: 'select', options: ['reconocido', 'simplificado'], value: 'reconocido', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
+  { name: 'registro_t10_docReconocido', label: 'Documento Reconocido', type: 'select', options: ['HULC', 'CE3X', 'CERMA'], value: 'HULC', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
+  { name: 'registro_t11_potenciaElectrica', label: 'Potencia Eléctrica (kW)', type: 'text', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
+
+  // -- T16, T18, T19, T20: Gestión --
+  { name: 'registro_t20_numLiquidacion', label: 'Nº Autoliquidación (046)', type: 'text', subsection: 'REGISTRO', group: 'Gestión (T16-T20)' },
+  { name: 'registro_t19_lugarFirma', label: 'Lugar Firma', type: 'text', value: 'Sevilla', subsection: 'REGISTRO', group: 'Gestión (T16-T20)' },
+  
+  // -- Archivos Adjuntos --
+  { name: 'registro_doc_xml', label: 'Documento XML', type: 'file', accept: '.xml', subsection: 'REGISTRO', group: 'Archivos Adjuntos' },
+  { name: 'registro_doc_cee_pdf', label: 'Certificado PDF', type: 'file', accept: '.pdf', subsection: 'REGISTRO', group: 'Archivos Adjuntos' },
+  { name: 'registro_doc_cee_zip', label: 'Archivo ZIP', type: 'file', accept: '.zip', subsection: 'REGISTRO', group: 'Archivos Adjuntos' },
+  { name: 'registro_doc_mejoras', label: 'Medidas de Mejora (PDF)', type: 'file', accept: '.pdf', subsection: 'REGISTRO', group: 'Archivos Adjuntos' },
+  { name: 'registro_doc_tasa', label: 'Tasa 046 (PDF)', type: 'file', accept: '.pdf', subsection: 'REGISTRO', group: 'Archivos Adjuntos' },
+  { name: 'registro_doc_autorizacion', label: 'Autorización Representación (PDF)', type: 'file', accept: '.pdf', subsection: 'REGISTRO', group: 'Archivos Adjuntos' }
 ]
 
 export const getMasterFormDefaultData = () => {
