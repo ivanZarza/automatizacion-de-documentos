@@ -524,7 +524,7 @@ export const masterFormFields = [
   { name: 'codigo_ccaa', label: 'Comunidad Autónoma', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: '01', options: [{ value: '01', label: 'Andalucía' }, { value: '02', label: 'Aragón' }, { value: '03', label: 'Asturias' }, { value: '04', label: 'Balears' }, { value: '05', label: 'Canarias' }, { value: '06', label: 'Cantabria' }, { value: '07', label: 'Castilla y León' }, { value: '08', label: 'Castilla - La Mancha' }, { value: '09', label: 'Cataluña' }, { value: '10', label: 'Valencia' }, { value: '11', label: 'Extremadura' }, { value: '12', label: 'Galicia' }, { value: '13', label: 'Madrid' }, { value: '14', label: 'Murcia' }, { value: '15', label: 'Navarra' }, { value: '16', label: 'País Vasco' }, { value: '17', label: 'Rioja' }, { value: '18', label: 'Ceuta' }, { value: '19', label: 'Melilla' }] },
 
   { name: 'cups_presentador', label: 'CUPS', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'cups' },
-  { name: 'cau_presentador', label: 'CAU', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'cau' },
+  { name: 'cau_presentador', label: 'CAU', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)' },
   { name: 'potencia_instalacion', label: 'Potencia (kW)', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', mapFrom: 'e2_potenciaNominalInversores' },
   { name: 'tipo_suministro', label: 'Tipo Suministro', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'Monofásico', options: ['Monofásico', 'Trifásico'], mapFrom: 'e2_tipoConexionRed1', mapTransform: { 'Monofásica': 'Monofásico', 'Trifásica': 'Trifásico' } },
   { name: 'tension_red', label: 'Tensión de la Red (V)', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: '230', options: ['230', '400', '20000', '66000'] },
@@ -540,8 +540,7 @@ export const masterFormFields = [
     type: 'select',
     options: distribuidoraOptions,
     subsection: 'PRESENTACIÓN',
-    group: 'Instalación (Robot)',
-    mapFrom: 'empresa_distribuidora'
+    group: 'Instalación (Robot)'
   },
   { name: 'nombre_empresa_instaladora', label: 'Nombre Empresa Instaladora', type: 'text', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'Solay Ingenieros s.l.' },
   { name: 'empresa_instaladora_doc_tipo', label: 'Tipo Doc. Empresa', type: 'select', subsection: 'PRESENTACIÓN', group: 'Instalación (Robot)', value: 'CIF', options: ['CIF', 'NIF', 'NIE'] },

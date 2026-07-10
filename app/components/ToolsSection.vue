@@ -94,7 +94,9 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue'
 import SectionCard from './SectionCard.vue'
+import { useFormStore } from '../stores/formStore'
 
+const formStore = useFormStore()
 const isExpanded = ref(false)
 const formularios = ref([])
 const busqueda = ref('')
@@ -194,6 +196,8 @@ function limpiarBusqueda() {
 
 function confirmarCarga(datos) {
   if (confirm('¿Quieres cargar estos datos en el formulario maestro? Esto reemplazará los datos actuales.')) {
+    // Limpiar el estado temporal para evitar que sobrescriba los datos recién cargados
+    formStore.clearFormData()
     localStorage.setItem('formDataMaestro', JSON.stringify(datos))
     alert('✅ Datos cargados en el formulario maestro. Puedes ir a editarlo.')
   }

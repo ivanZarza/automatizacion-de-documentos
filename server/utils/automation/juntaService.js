@@ -63,9 +63,17 @@ export const runJuntaAutomation = async (payload) => {
       try {
         const matches = base64.match(/^data:(.+);base64,(.+)$/);
         if (matches && matches.length === 3) {
-          const ext = matches[1].includes('pdf') ? 'pdf' : 'jpg';
           const buffer = Buffer.from(matches[2], 'base64');
-          const fileName = `${prefix}documento_manual.${ext}`;
+          const originalName = payload.flatFormData?.[`${field}_filename`] || payload.flatFormData?.[`${field}_name`];
+          let fileName;
+          if (originalName) {
+            // Limpiar posibles prefijos duplicados (ej: "1.- " o "1.-")
+            const cleanName = originalName.replace(/^\d+[\.\-_\s]*/, '');
+            fileName = `${prefix}${cleanName}`;
+          } else {
+            const ext = matches[1].includes('pdf') ? 'pdf' : 'jpg';
+            fileName = `${prefix}documento_manual.${ext}`;
+          }
           fs.writeFileSync(path.join(tempDocsDir, fileName), buffer);
           console.log(`   [ROBUSTEZ] Archivo manual recibido para ${prefix}: ${fileName}`);
         }
@@ -277,6 +285,63 @@ export const runJuntaAutomation = async (payload) => {
   const userDataDir = path.join(os.tmpdir(), 'playwright_junta_profile');
   if (!fs.existsSync(userDataDir)) fs.mkdirSync(userDataDir, { recursive: true });
 
+  // Configurar preferencias de Chrome para permitir abrir afirma:// sin preguntar
+  try {
+    const defaultDir = path.join(userDataDir, 'Default');
+    if (!fs.existsSync(defaultDir)) fs.mkdirSync(defaultDir, { recursive: true });
+    
+    const prefPath = path.join(defaultDir, 'Preferences');
+    let prefs = {};
+    if (fs.existsSync(prefPath)) {
+      try {
+        prefs = JSON.parse(fs.readFileSync(prefPath, 'utf8'));
+      } catch (e) {
+        prefs = {};
+      }
+    }
+
+    if (!prefs.protocol_handler) prefs.protocol_handler = {};
+    if (!prefs.protocol_handler.allowed_origin_protocol_pairs) {
+      prefs.protocol_handler.allowed_origin_protocol_pairs = {};
+    }
+    
+    const origins = [
+      'https://www.juntadeandalucia.es',
+      'https://autenticacion.juntadeandalucia.es',
+      'https://ws024.juntadeandalucia.es',
+      'https://ws02d.juntadeandalucia.es',
+      'https://ws028.juntadeandalucia.es',
+      'https://clavenet.juntadeandalucia.es'
+    ];
+
+    origins.forEach(origin => {
+      if (!prefs.protocol_handler.allowed_origin_protocol_pairs[origin]) {
+        prefs.protocol_handler.allowed_origin_protocol_pairs[origin] = {};
+      }
+      prefs.protocol_handler.allowed_origin_protocol_pairs[origin]['afirma'] = true;
+    });
+
+    // Forzar el permiso de red loopback (localhost) para AutoFirma (setting: 1 = ALLOW)
+    if (!prefs.profile) prefs.profile = {};
+    if (!prefs.profile.content_settings) prefs.profile.content_settings = {};
+    if (!prefs.profile.content_settings.exceptions) prefs.profile.content_settings.exceptions = {};
+    if (!prefs.profile.content_settings.exceptions.loopback_network) prefs.profile.content_settings.exceptions.loopback_network = {};
+
+    origins.forEach(origin => {
+      // Necesitamos el origen con puerto (Chrome guarda :443,* en loopback_network)
+      let originConPuerto = origin;
+      if (origin.startsWith('https://')) {
+        originConPuerto = `${origin}:443,*`;
+      }
+      prefs.profile.content_settings.exceptions.loopback_network[originConPuerto] = { "setting": 1 };
+    });
+
+    fs.writeFileSync(prefPath, JSON.stringify(prefs, null, 2), 'utf8');
+    console.log('   [Config] Preferencias de Chrome inyectadas para permitir protocolo "afirma://" sin confirmación (multiorigen).');
+  } catch (err) {
+    console.log('   [!] Error configurando preferencias de Chrome:', err.message);
+  }
+
   const context = await chromium.launchPersistentContext(userDataDir, {
     channel: 'chrome',
     headless: false,
@@ -287,10 +352,18 @@ export const runJuntaAutomation = async (payload) => {
       '--disable-setuid-sandbox',
       '--disable-popup-blocking',
       '--disable-gpu',
-      '--auto-select-certificate-for-urls=["*"]'
+      '--auto-select-certificate-for-urls=["*"]',
+      '--disable-features=PrivateNetworkAccessForNavigations,PrivateNetworkAccessPermissionPrompt',
+      '--allow-insecure-localhost'
     ]
   });
   const page = context.pages().length > 0 ? context.pages()[0] : await context.newPage();
+
+  // --- MANEJADOR GLOBAL DE DIÁLOGOS (Aceptar confirmaciones y alertas) ---
+  page.on('dialog', dialog => {
+    console.log(`   [Diálogo Global] Tipo: ${dialog.type()}, Mensaje: "${dialog.message()}"`);
+    dialog.accept().catch(() => { });
+  });
 
   // --- CAPTURA DE CONSOLA DEL NAVEGADOR A ARCHIVO ---
   const logFile = path.join(__dirname, 'errores_navegador.txt');
@@ -1266,10 +1339,8 @@ export const runJuntaAutomation = async (payload) => {
     // [SECCIÓN 6] FINALIZACIÓN: GUARDAR Y PRESENTAR
     // ==========================================
     console.log('\n[6/6] Iniciando PRESENTACIÓN FINAL...');
-    page.on('dialog', async d => {
-      console.log('   [!] Diálogo Final:', d.message());
-      await d.accept().catch(() => { });
-    });
+    // Nota: Los diálogos se aceptan con handlers `once` en cada paso específico
+    // para evitar conflictos con el arranque del autoclicker.
 
     // Re-acceder al iframe por si se recargó
     const iframeLoc3 = page.locator('#ficha');
@@ -1300,18 +1371,24 @@ export const runJuntaAutomation = async (payload) => {
     const firmarVisible = await btnFirmar.waitFor({ state: 'visible', timeout: 60000 }).then(() => true).catch(() => false);
 
     if (firmarVisible) {
-      console.log('   -> Botón Firmar encontrado. Capturando alert y abriendo AutoFirma...');
+      console.log('   -> Botón Firmar encontrado. Activando Autoclicker ANTES de pulsar...');
+      // Handler para aceptar el alert que aparece al pulsar Firmar
       page.once('dialog', dialog => {
         console.log(`   [!] Alert firma: ${dialog.message()}`);
-        dialog.dismiss().catch(() => { });
+        dialog.accept().catch(() => { });
       });
 
-      await btnFirmar.click().catch(() => { });
-      await esperar(2000);
-
-      console.log('   -> Activando Autoclicker Inteligente para AutoFirma...');
+      // Arrancar autoclicker ANTES del click para que ya esté vigilando
       autoClicker.start();
-      await esperar(15000);
+      await esperar(1000);
+
+      await btnFirmar.click().catch(() => { });
+
+      // Esperar a que la página cambie tras la firma (hasta 120s)
+      console.log('   -> Esperando cambio de página tras firma (hasta 120s)...');
+      await page.waitForLoadState('networkidle', { timeout: 120000 }).catch(() => { });
+      await esperar(5000);
+
       console.log('✅ AUTOFIRMA COMPLETADA. Parando Autoclicker...');
       autoClicker.stop();
       await esperar(3000);
@@ -1328,7 +1405,7 @@ export const runJuntaAutomation = async (payload) => {
     console.log('   -> Pulsando Presentar (solicitud, fuera del iframe)...');
     page.once('dialog', dialog => {
       console.log(`   [!] Dialog Presentar: ${dialog.message()}`);
-      dialog.dismiss().catch(() => { });
+      dialog.accept().catch(() => { });
     });
     await btnPresentarSolicitud.click().catch(() => { });
 
@@ -1346,16 +1423,19 @@ export const runJuntaAutomation = async (payload) => {
     // Esperar a que la página termine de procesar (puede estar visible pero aún cargando)
     console.log('   -> Esperando que la página termine de procesar (networkidle)...');
     await page.waitForLoadState('networkidle', { timeout: 0 }).catch(() => { });
+
     console.log('   -> Pulsando Firmar (firma definitiva de la solicitud)...');
-    // El autoclicker arranca desde el propio manejador del diálogo, así siempre
-    // tiene los 90s COMPLETOS a partir de que AutoFirma está a punto de abrirse,
-    // independientemente de cuánto tarde en aparecer el diálogo.
+    // Handler para aceptar el diálogo de confirmación
     page.once('dialog', dialog => {
       console.log(`   [!] Dialog Firmar solicitud: ${dialog.message()}`);
-      dialog.dismiss().catch(() => { });
-      console.log('   -> Activando Autoclicker Inteligente para segunda AutoFirma (vía diálogo)...');
-      autoClicker.start();
+      dialog.accept().catch(() => { });
     });
+
+    // Arrancar autoclicker ANTES del click para que ya esté vigilando
+    console.log('   -> Activando Autoclicker Inteligente para segunda AutoFirma...');
+    autoClicker.start();
+    await esperar(1000);
+
     // Scroll + click forzado para asegurar que el clic registra
     await btnFirmarFinal.scrollIntoViewIfNeeded().catch(() => { });
     await esperar(500);
@@ -1363,14 +1443,6 @@ export const runJuntaAutomation = async (payload) => {
       console.log('   [!] Click normal falló, intentando dispatchEvent...');
       await btnFirmarFinal.evaluate(n => n.click());
     });
-
-    // RESPALDO: si AutoFirma abre directamente sin diálogo previo del navegador,
-    // el handler anterior nunca dispara. Esperamos 5s y arrancamos si aún no está activo.
-    await esperar(5000);
-    if (!autoClicker.active) {
-      console.log('   -> [RESPALDO] Sin diálogo detectado, activando Autoclicker directamente...');
-      autoClicker.start();
-    }
 
     console.log('   -> Esperando cambio de pantalla tras segunda AutoFirma (sin límite de tiempo)...');
     await page.waitForLoadState('networkidle', { timeout: 0 }).catch(() => { });

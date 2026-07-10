@@ -94,16 +94,16 @@
                               <polyline points="17 8 12 3 7 8"></polyline>
                               <line x1="12" y1="3" x2="12" y2="15"></line>
                             </svg>
-                            <span>{{ formData[field.name] ? `Cambiar archivo o arrastra aquí` : `Seleccionar archivo o
+                            <span>{{ (formData[field.name] || formData[`${field.name}_filename`]) ? `Cambiar archivo o arrastra aquí` : `Seleccionar archivo o
                               arrastra aquí` }}</span>
                           </label>
                           <input :id="field.name" :key="field.name" type="file" :accept="field.accept || '*'"
                             class="file-input-hidden" @change="handleFileUpload($event, field.name)" />
-                          <div v-if="formData[field.name]" class="file-preview">
+                          <div v-if="formData[field.name] || formData[`${field.name}_filename`]" class="file-preview">
                             <p class="file-preview-text">✓ Archivo seleccionado:</p>
+                            <p class="file-preview-name">{{ formData[`${field.name}_filename`] || (formData[field.name]?.startsWith('data:image/') ? 'Imagen cargada' : 'Documento cargado') }}</p>
                             <img v-if="formData[field.name]?.startsWith('data:image/')" :src="formData[field.name]"
                               class="file-preview-image" />
-                            <p v-else class="file-preview-name">{{ extractFileName(formData[field.name]) || 'Documento PDF cargado' }}</p>
                             <button type="button" class="btn-remove-file" @click.stop="removeFile(field.name)"
                               title="Quitar archivo">
                               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
@@ -241,6 +241,40 @@ const buildInitialFormData = (baseData = {}) => {
       val = val.trim()
     }
     result[field.name] = val
+
+    // Si es un campo de tipo file, cargar también su filename/name si existe en baseData
+    if (field.type === 'file') {
+      const filenameKey = `${field.name}_filename`
+      const nameKey = `${field.name}_name`
+      let fromBaseFilename = baseData[filenameKey] !== undefined && baseData[filenameKey] !== null
+        ? baseData[filenameKey]
+        : (baseData[nameKey] !== undefined && baseData[nameKey] !== null ? baseData[nameKey] : '')
+      
+      // Si no existe el nombre pero sí el contenido base64, generar un nombre por defecto
+      if (!fromBaseFilename && val && typeof val === 'string' && val.startsWith('data:')) {
+        let ext = 'pdf'
+        const mimeMatch = val.match(/^data:([^;]+);base64,/)
+        if (mimeMatch) {
+          const mime = mimeMatch[1]
+          if (mime.includes('image/png')) ext = 'png'
+          else if (mime.includes('image/jpeg') || mime.includes('image/jpg')) ext = 'jpg'
+          else if (mime.includes('image/gif')) ext = 'gif'
+          else if (mime.includes('pdf')) ext = 'pdf'
+        }
+        
+        if (field.name === 'doc_autorizacion_rep') fromBaseFilename = `1.- MTD.${ext}`
+        else if (field.name === 'doc_adicional_2') fromBaseFilename = `2.- CIE.${ext}`
+        else if (field.name === 'doc_certificado_solidez') fromBaseFilename = `7.- Certificado de Solidez.${ext}`
+        else {
+          let label = field.label || field.name
+          label = label.replace(/\s*\(Archivo\)\s*/i, '').replace(/\s*\(Imagen\)\s*/i, '').trim()
+          fromBaseFilename = `${label}.${ext}`
+        }
+      }
+      
+      result[filenameKey] = fromBaseFilename
+      result[nameKey] = fromBaseFilename
+    }
   })
 
   // Paso 2: Para campos vacíos que tienen mapFrom, aplicar el mapeo desde el origen
@@ -250,7 +284,7 @@ const buildInitialFormData = (baseData = {}) => {
     const sourceValue = result[field.mapFrom]
     
     // Si el destino está vacío o tiene su valor por defecto, y el origen tiene valor, aplicamos el mapeo
-    const isDefaultOrEmpty = destValue === undefined || destValue === null || destValue === '' || destValue === field.value
+    const isDefaultOrEmpty = destValue === undefined || destValue === null || destValue === '' || (field.value !== undefined && String(destValue).trim() === String(field.value).trim())
     if (isDefaultOrEmpty && sourceValue) {
       if (field.name === 'nombre_presentador') {
         let nombre = sourceValue, ap1 = '', ap2 = ''
@@ -417,7 +451,7 @@ watch(formData, (newVal) => {
       const sourceOldValue = lastMapFromSourceValues[field.mapFrom]
 
       // Si el origen ha cambiado...
-      if (sourceOldValue !== undefined && sourceValue !== sourceOldValue) {
+      if (sourceValue !== sourceOldValue) {
         if (field.name === 'nombre_presentador' && sourceValue) {
           let nombre = sourceValue
           let ap1 = ''
@@ -550,6 +584,12 @@ const handleFileUpload = async (event, fieldName) => {
 
   if (file) {
     try {
+      // Guardar el nombre de archivo en formData y localStorage (soportando _filename y _name)
+      formData.value[`${fieldName}_filename`] = file.name
+      formData.value[`${fieldName}_name`] = file.name
+      saveImageToStorage(`${fieldName}_filename`, file.name)
+      saveImageToStorage(`${fieldName}_name`, file.name)
+
       // Comprimir imagen si es tipo imagen
       if (file.type.startsWith('image/')) {
         const compressedDataUrl = await compressImage(file)
@@ -568,14 +608,18 @@ const handleFileUpload = async (event, fieldName) => {
         reader.readAsDataURL(file)
       }
     } catch (error) {
-      console.error('[DocumentForm] Error al comprimir imagen:', error)
+      console.error('[DocumentForm] Error al procesar archivo:', error)
     }
   }
 }
 
 const removeFile = (fieldName) => {
   formData.value[fieldName] = ''
+  formData.value[`${fieldName}_filename`] = ''
+  formData.value[`${fieldName}_name`] = ''
   saveImageToStorage(fieldName, null)
+  saveImageToStorage(`${fieldName}_filename`, null)
+  saveImageToStorage(`${fieldName}_name`, null)
 }
 
 const extractFileName = (dataUrl) => {
