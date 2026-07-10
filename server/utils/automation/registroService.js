@@ -22,8 +22,18 @@ export async function runRegistroAutomation(payload) {
     t3: {
       tipoVia: formData.registro_t3_tipoVia || 'CL',
       nombreVia: formData.registro_t3_nombreVia || '',
+      tipoNumeracion: formData.registro_t3_tipoNumeracion || 'NUM',
       numero: formData.registro_t3_numero || '',
+      bloque: formData.registro_t3_bloque || '',
+      portal: formData.registro_t3_portal || '',
+      letra: formData.registro_t3_letra || '',
+      escalera: formData.registro_t3_escalera || '',
+      piso: formData.registro_t3_piso || '',
+      puerta: formData.registro_t3_puerta || '',
       cPostal: formData.registro_t3_cPostal || '',
+      provincia: formData.registro_t3_provincia || '',
+      localidad: formData.registro_t3_localidad || '',
+      entPoblacion: formData.registro_t3_entPoblacion || '',
       superficie: formData.registro_t3_superficie || '',
       plantas: formData.registro_t3_plantas || '',
       altura: formData.registro_t3_altura || '',
@@ -55,6 +65,12 @@ export async function runRegistroAutomation(payload) {
       docReconocido: formData.registro_t10_docReconocido || 'HULC'
     },
     t11: {
+      calefaccionTipo: formData.registro_t11_calefaccionTipo || 'distrito',
+      calefaccionEq: formData.registro_t11_calefaccionEq || 'EQ_AU_EX_DI_AG_AI',
+      refrigeracionTipo: formData.registro_t11_refrigeracionTipo || 'distrito',
+      refrigeracionEq: formData.registro_t11_refrigeracionEq || 'EQ_AUT_EXP_DIR_AI_AI_CRV',
+      acsTipo: formData.registro_t11_acsTipo || 'distrito',
+      acsEq: formData.registro_t11_acsEq || 'EQ_AU_EX_DI_AI_AI',
       potenciaElectrica: formData.registro_t11_potenciaElectrica || ''
     },
     t19: {
@@ -217,8 +233,21 @@ export async function runRegistroAutomation(payload) {
     console.log('-> ✍️ Rellenando T3 (Dirección Técnica)...');
     await selF('t3_selec_tipoVia', datosRegistro.t3.tipoVia);
     await fillF('t3_nombreVia', datosRegistro.t3.nombreVia);
+    await selF('t3_selec_tipoNumeracion', datosRegistro.t3.tipoNumeracion);
     await fillF('t3_numKmVia', datosRegistro.t3.numero);
+    await fillF('t3_bloque', datosRegistro.t3.bloque);
+    await fillF('t3_portal', datosRegistro.t3.portal);
+    await fillF('t3_letra', datosRegistro.t3.letra);
+    await fillF('t3_escalera', datosRegistro.t3.escalera);
+    await fillF('t3_piso', datosRegistro.t3.piso);
+    await fillF('t3_puerta', datosRegistro.t3.puerta);
     await fillF('t3_cPostal', datosRegistro.t3.cPostal);
+
+    await selF('t3_selec_provincia', datosRegistro.t3.provincia);
+    await page.waitForTimeout(2000); // Esperar carga de municipios
+    await selF('t3_selec_localidad', datosRegistro.t3.localidad);
+
+    await fillF('t3_entPoblacion_notif', datosRegistro.t3.entPoblacion);
     await fillF('t3_superficie', datosRegistro.t3.superficie);
     await fillF('t3_plantas', datosRegistro.t3.plantas);
     await fillF('t3_altura', datosRegistro.t3.altura);
@@ -266,7 +295,20 @@ export async function runRegistroAutomation(payload) {
       await chkF('t10_check_otros');
     }
 
-    console.log('-> ✍️ Rellenando T11 (Potencia Eléctrica)...');
+    console.log('-> ✍️ Rellenando T11 (Potencia Eléctrica y Equipos)...');
+    const aplicarCheck = async (seccion, tipo) => {
+      await chkF(`t11_check_${seccion}_${tipo}`);
+    };
+
+    await aplicarCheck('calef', datosRegistro.t11.calefaccionTipo);
+    await selF('t11_selec_calef_eqPrinc', datosRegistro.t11.calefaccionEq);
+
+    await aplicarCheck('refrig', datosRegistro.t11.refrigeracionTipo);
+    await selF('t11_selec_refrig_eqPrinc', datosRegistro.t11.refrigeracionEq);
+
+    await aplicarCheck('acs', datosRegistro.t11.acsTipo);
+    await selF('t11_selec_acs_eqPrinc', datosRegistro.t11.acsEq);
+
     await chkF('t11_check_electricas');
     await fillF('t11_elec_potenciaTotal', datosRegistro.t11.potenciaElectrica);
 
