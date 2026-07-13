@@ -47,26 +47,29 @@
                   class="group-content">
                   <div class="fields-grid">
                     <div v-for="field in groupFields" :key="field.name" class="field-wrapper">
-                      <label v-if="field.type !== 'checkbox'" class="field-label">{{ field.label }}</label>
+                      <label v-if="field.type !== 'checkbox'" class="field-label">
+                        {{ field.label }} <span v-if="field.required" style="color: #ef4444; font-weight: bold;">*</span>
+                      </label>
                       <input v-if="field.type === 'text' || field.type === 'email' || field.type === 'tel'"
                         v-model="formData[field.name]" :type="field.type" :placeholder="field.placeholder"
-                        class="field-input" />
+                        class="field-input" :style="field.required ? 'border-color: #ef4444; border-width: 2px;' : ''" />
                       <div v-else-if="field.type === 'url' && field.preview" class="url-preview-wrapper">
                         <input v-model="formData[field.name]" type="url" :placeholder="field.placeholder"
-                          class="field-input" />
+                          class="field-input" :style="field.required ? 'border-color: #ef4444; border-width: 2px;' : ''" />
                         <div v-if="formData[field.name]" class="file-preview">
                           <img :src="formData[field.name]" class="file-preview-image"
                             style="max-width:200px;max-height:100px;object-fit:contain;" />
                         </div>
                       </div>
                       <input v-else-if="field.type === 'url'" v-model="formData[field.name]" type="url"
-                        :placeholder="field.placeholder" class="field-input" />
+                        :placeholder="field.placeholder" class="field-input" :style="field.required ? 'border-color: #ef4444; border-width: 2px;' : ''" />
                       <input v-else-if="field.type === 'date'" v-model="formData[field.name]" type="date"
-                        class="field-input" />
+                        class="field-input" :style="field.required ? 'border-color: #ef4444; border-width: 2px;' : ''" />
                       <textarea v-else-if="field.type === 'textarea'" v-model="formData[field.name]"
                         :placeholder="field.placeholder" :rows="field.rows || 3"
-                        class="field-input field-textarea"></textarea>
-                      <select v-else-if="field.type === 'select'" v-model="formData[field.name]" class="field-input">
+                        class="field-input field-textarea" :style="field.required ? 'border-color: #ef4444; border-width: 2px;' : ''"></textarea>
+                      <select v-else-if="field.type === 'select'" v-model="formData[field.name]" class="field-input"
+                        :style="field.required ? 'border-color: #ef4444; border-width: 2px;' : ''">
                         <option value="">{{ field.placeholder || 'Seleccionar...' }}</option>
                         <option v-for="option in field.options" :key="option.value || option"
                           :value="option.value || option">{{ option.label || option }}</option>

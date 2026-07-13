@@ -3,6 +3,94 @@ import { cnaeOptions } from "./cnaeOptions"
 import { tipoViaOptions } from "./tipoViaOptions"
 import { distribuidoraOptions } from "./distribuidoraOptions"
 
+const opcionesTiposT11 = [
+  { label: 'Red de Distrito', value: 'distrito' },
+  { label: 'Centralizado', value: 'central' },
+  { label: 'Equipo Individual', value: 'eqIndiv' }
+];
+
+const opcionesT6Calidad = [
+  { label: 'PROYECTISTA FIRMANTE DEL CERTIFICADO', value: 'proFirmCertificado' },
+  { label: 'DIRECCIÓN FACULTATIVA FIRMANTE DEL CERTIFICADO (ACTUANDO COMO DIRECTOR/A DE LA OBRA)', value: 'dirObra' },
+  { label: 'DIRECCIÓN FACULTATIVA FIRMANTE DEL CERTIFICADO (ACTUANDO COMO DIRECTOR/A DE EJECUCIÓN DE OBRA)', value: 'ejecObra' },
+  { label: 'TÉCNICO/A COMPETENTE FIRMANTE DEL CERTIFICADO', value: 'tcFirm' }
+];
+
+const opcionesT17CalidadFirmante = [
+  { label: 'Propietario', value: 'PROPIETARIO' },
+  { label: 'Promotor', value: 'PROMOTOR' },
+  { label: 'Representante Legal', value: 'REPLEGAL' },
+  { label: 'Técnico/a competente autorizado S/A AnexoII', value: 'TECNICO' }
+];
+
+const opcionesT6Titulacion = [
+  { label: 'Arquitecto', value: 'Arquitecto' },
+  { label: 'Arquitecto Técnico/Aparejador', value: 'Arquitecto Técnico/Aparejador' },
+  { label: 'Ingeniero Aeronáutico', value: 'Ingeniero Aeronáutico' },
+  { label: 'Ingeniero Agrónomo', value: 'Ingeniero Agrónomo' },
+  { label: 'Ingeniero de Caminos, Canales y Puertos', value: 'Ingeniero de Caminos, Canales y Puertos' },
+  { label: 'Ingeniero Industrial', value: 'Ingeniero Industrial' },
+  { label: 'Ingeniero de Minas', value: 'Ingeniero de Minas' },
+  { label: 'Ingeniero de Montes', value: 'Ingeniero de Montes' },
+  { label: 'Ingeniero Naval y Oceánico', value: 'Ingeniero Naval y Oceánico' },
+  { label: 'Ingeniero de Telecomunicación', value: 'Ingeniero de Telecomunicación' },
+  { label: 'Ingeniero Técnico Aeronáutico', value: 'Ingeniero Técnico Aeronáutico' },
+  { label: 'Ingeniero Técnico Agrícola', value: 'Ingeniero Técnico Agrícola' },
+  { label: 'Ingeniero Técnico Forestal', value: 'Ingeniero Técnico Forestal' },
+  { label: 'Ingeniero Técnico Industrial', value: 'Ingeniero Técnico Industrial' },
+  { label: 'Ingeniero Técnico de Minas', value: 'Ingeniero Técnico de Minas' },
+  { label: 'Ingeniero Técnico Naval', value: 'Ingeniero Técnico Naval' },
+  { label: 'Ingeniero Técnico de Obras Públicas', value: 'Ingeniero Técnico de ObrasPúblicas' },
+  { label: 'Ingeniero Técnico Telecomunicación', value: 'Ingeniero Técnico Forestal' },
+  { label: 'Ingeniero Técnico Topógrafo', value: 'Ingeniero Técnico Topógrafo' }
+];
+
+const opcionesCalefaccionEq = [
+  { label: 'Caldera estándar.', value: 'CALDERA_ESTANDAR' },
+  { label: 'Caldera Baja Temperatura.', value: 'CALDERO_BAJA' },
+  { label: 'Caldera Condensación.', value: 'CALDERA_CONDENSACION' },
+  { label: 'Equipo Autónomo Expansión Directa Aire-Aire.', value: 'EQ_AU_EX_DI_AI_AI' },
+  { label: 'Equipo Autónomo Expansión Directa Aire-Aire Caud. Refr. Var.', value: 'EQ_AU_EX_DI_AI_AI_CRV' },
+  { label: 'Equipo Autónomo Expansión Directa Agua-Aire.', value: 'EQ_AU_EX_DI_AG_AI' },
+  { label: 'Equipo Autónomo Expansión Directa Agua-Aire Caud. Refr. Var.', value: 'EQ_AU_EX_DI_AG_AI_CRV' },
+  { label: 'Bomba Calor Aire-Agua 2T.', value: 'BOMBA_CALOR_AI_AG_2T' },
+  { label: 'Bomba Calor Aire-Agua 4T.', value: 'BOMBA_CALOR_AI_AG_4T' },
+  { label: 'Bomba Calor Agua-Agua 2T.', value: 'BOMBA_CALOR_AG_AG_2T' },
+  { label: 'Bomba Calor Agua-Agua 4T.', value: 'BOMBA_CALOR_AG_AG_4T' },
+  { label: 'Efecto Joule.', value: 'EFECTO_JOULE' },
+  { label: 'Otro.', value: 'OTRO' }
+];
+
+const opcionesRefrigEq = [
+  { label: 'Equipo Autónomo Expansión Directa Aire-Aire.', value: 'EQ_AUT_EXP_DIR_AI_AI' },
+  { label: 'Equipo Autónomo Expansión Directa Aire-Aire Caud. Refr. Var.', value: 'EQ_AUT_EXP_DIR_AI_AI_CRV' },
+  { label: 'Equipo Autónomo Expansión Directa Agua-Aire.', value: 'EQ_AUT_EXP_DIR_AG_AI' },
+  { label: 'Equipo Autónomo Expansión Directa Agua-Aire Caud. Refr. Var.', value: 'EQ_AU_EX_DI_AG_AI_CRV' },
+  { label: 'Planta Enfriadora Aire-Agua.', value: 'PLANTA_ENFRIADORA_AI_AG' },
+  { label: 'Planta Enfriadora Agua-Agua.', value: 'PLANTA_ENFRIADORA_AG_AG' },
+  { label: 'Bomba Calor Aire-Agua 2T.', value: 'BOMBA_CALOR_AI_AG_2T' },
+  { label: 'Bomba Calor Aire-Agua 4T.', value: 'BOMBA_CALOR_AI_AG_4T' },
+  { label: 'Bomba Calor Agua-Agua 2T.', value: 'BOMBA_CALOR_AG_AG_2T' },
+  { label: 'Bomba Calor Agua-Agua 4T.', value: 'BOMBA_CALOR_AG_AG_4T' },
+  { label: 'Absorción.', value: 'ABSORCION' },
+  { label: 'Enfriamiento Evaporativo.', value: 'ENFRIAMIENTO_EVAPORATIVO' },
+  { label: 'Otro.', value: 'OTRO' }
+];
+
+const opcionesACSEq = [
+  { label: 'Caldera estándar.', value: 'CALDERA_ESTANDAR' },
+  { label: 'Caldera Baja Temperatura.', value: 'CALDERO_BAJA' },
+  { label: 'Caldera Condensación.', value: 'CALDERA_CONDENSACION' },
+  { label: 'Equipo Autónomo Expansión Directa Aire-Aire.', value: 'EQ_AU_EX_DI_AI_AI' },
+  { label: 'Equipo Autónomo Expansión Directa Aire-Aire Caud. Refr. Var.', value: 'EQ_AU_EX_DI_AI_AI_CRV' },
+  { label: 'Equipo Autónomo Expansión Directa Agua-Aire.', value: 'EQ_AU_EX_DI_AG_AI' },
+  { label: 'Equipo Autónomo Expansión Directa Agua-Aire Caud. Refr. Var.', value: 'EQ_AU_EX_DI_AG_AI_CRV' },
+  { label: 'Bomba Calor Aire-Agua.', value: 'BOMBA_CALOR_AI_AG' },
+  { label: 'Bomba Calor Agua-Agua.', value: 'BOMBA_CALOR_AG_AG' },
+  { label: 'Efecto Joule.', value: 'EFECTO_JOULE' },
+  { label: 'Otro.', value: 'OTRO' }
+];
+
 export const masterFormFields = [
   // ========== SECCIÓN A ==========
 
@@ -102,14 +190,14 @@ export const masterFormFields = [
     group: 'Inversor'
   },
   { name: 'e2_potenciaNominalInversor', label: 'POTENCIA NOMINAL (kW) 1', placeholder: 'Ej: 5000', type: 'text', subsection: 'E2', group: 'Inversor' },
-  { 
-    name: 'e2_relacionTensionInversor', 
-    label: 'RELACIÓN TENSIÓN AC, Vn (V) 1', 
-    placeholder: 'Selecciona tensión...', 
-    type: 'select', 
-    options: ['230', '400'], 
-    subsection: 'E2', 
-    group: 'Inversor' 
+  {
+    name: 'e2_relacionTensionInversor',
+    label: 'RELACIÓN TENSIÓN AC, Vn (V) 1',
+    placeholder: 'Selecciona tensión...',
+    type: 'select',
+    options: ['230', '400'],
+    subsection: 'E2',
+    group: 'Inversor'
   },
   { name: 'e2_formaOndaSalidaInversor', label: 'Vcc MÁXIMA 1', placeholder: 'Ej: Senoidal Pura', type: 'text', subsection: 'E2', group: 'Inversor' },
   { name: 'e2_frecuenciaNominalInversor', label: 'Vcc MÍNIMA 1', placeholder: 'Ej: 50', type: 'text', subsection: 'E2', group: 'Inversor' },
@@ -264,13 +352,13 @@ export const masterFormFields = [
   { name: 'terminacioAnual', label: 'Terminación Anual', placeholder: 'Ej: 2025', type: 'select', options: ['26', '27', '28'], subsection: 'LEGALIZACION' },
   { name: 'almacenamiento', label: 'Almacenamiento', placeholder: 'Seleccionar tipo...', type: 'select', options: ['con almacenamiento', 'sin almacenamiento'], subsection: 'LEGALIZACION' },
   { name: 'observaciones', label: 'Observaciones', placeholder: 'Selecciona una opción', type: 'select', options: [{ label: 'con batería', value: 'Se trata de una instalación de generación para autoconsumo FV de B.T.con baterias conectado a la red con excedentes acogido a compensación' }, { label: 'sin batería', value: 'Se trata de una instalación de generación para autoconsumo FV de B.T. conectado a la red con excedentes acogido a compensación' }], subsection: 'LEGALIZACION' },
-  { 
-    name: 'usoDestino', 
-    label: 'Uso y Destino', 
-    placeholder: 'Selecciona uso...', 
-    type: 'select', 
-    options: ['doméstico', 'negocio', 'Producción de energía eléctrica'], 
-    subsection: 'LEGALIZACION' 
+  {
+    name: 'usoDestino',
+    label: 'Uso y Destino',
+    placeholder: 'Selecciona uso...',
+    type: 'select',
+    options: ['doméstico', 'negocio', 'Producción de energía eléctrica'],
+    subsection: 'LEGALIZACION'
   },
   { name: 'figuraTecnicoCompetente', label: 'Técnico Competente', type: 'checkbox', subsection: 'LEGALIZACION', group: 'anexo III' },
   { name: 'figuraInstaladorHabilitado', label: 'Instalador Habilitado', type: 'checkbox', subsection: 'LEGALIZACION', group: 'anexo III' },
@@ -345,7 +433,7 @@ export const masterFormFields = [
   { name: 'diaFirmaJustificacion', label: 'Día Firma Justificación', placeholder: 'Ej: 08', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'mesFirmaJustificacion', label: 'Mes Firma Justificación', placeholder: 'Ej: 09', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'anioFirmaJustificacion', label: 'Año Firma Justificación', placeholder: 'Ej: 2025', type: 'text', subsection: 'JUSTIFICACION' },
-  
+
   { name: 'nombreRepresentanteEntidad', label: 'Nombre del Representante de la Entidad', placeholder: 'Ej: Juan Pérez', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'dniRepresentanteEntidad', label: 'DNI del Representante de la Entidad', placeholder: 'Ej: 12345678A', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'nifEmpresa', label: 'NIF Empresa', placeholder: 'Ej: B12345678', type: 'text', subsection: 'JUSTIFICACION' },
@@ -577,68 +665,90 @@ export const masterFormFields = [
   { name: 'doc_certificado_solidez', label: '7.- Certificado de Adecuacion', type: 'file', accept: '.pdf,image/*', subsection: 'PRESENTACIÓN', group: 'Documentos a Subir' },
 
   // ========== SECCIÓN REGISTRO (CERTIFICADO ENERGÉTICO ANDALUZ) ==========
-  
-  // -- 1. Promotor (T5 y T17) --
-  { name: 'registro_t5_nif', label: 'NIF Promotor', type: 'text', mapFrom: 'nifCif', subsection: 'REGISTRO', group: 'Promotor (T5, T17)' },
-  { name: 'registro_t5_nombre', label: 'Nombre Promotor', type: 'text', mapFrom: 'apellidosNombre', subsection: 'REGISTRO', group: 'Promotor (T5, T17)' },
-  { name: 'registro_t17_correo', label: 'Correo Notificaciones', type: 'email', mapFrom: 'correoElectronicoEmplazamiento', subsection: 'REGISTRO', group: 'Promotor (T5, T17)' },
-  { name: 'registro_t17_movil', label: 'Móvil Notificaciones', type: 'tel', mapFrom: 'telefono', subsection: 'REGISTRO', group: 'Promotor (T5, T17)' },
 
-  // -- 2. Inmueble (T1 y T3) --
-  { name: 'registro_t1_subgrupo', label: 'Subgrupo de Edificio', type: 'select', options: [{label: 'Residencial', value: 'resi'}, {label: 'Terciario', value: 'terciario'}], value: 'resi', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
-  { name: 'registro_t1_uso', label: 'Uso del Edificio', type: 'select', options: [{label: 'Edificio Completo', value: 'edif'}, {label: 'Vivienda Individual', value: 'vivienda'}], value: 'edif', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
+  // -- Trámite --
+  { 
+    name: 'registro_tramite', 
+    label: 'Tipo de Trámite', 
+    type: 'select', 
+    options: [
+      { label: 'INSCRIPCIÓN EN EL REGISTRO DEL CERTIFICADO DE EFICIENCIA ENERGÉTICA INCLUÍDO EN EL ÁMBITO DE APLICACIÓN DEL REAL DECRETO 390/2021, DE 1 DE JUNIO', value: 'inscripcion' },
+      { label: 'CORRECCIÓN DE DATOS', value: 'correccion' },
+      { label: 'ACTUALIZACIÓN DEL CERTIFICADO INSCRITO', value: 'actualizacion' },
+      { label: 'BAJA EN EL REGISTRO DE CERTIFICADOS ENERGÉTICOS ANDALUCES', value: 'baja' },
+      { label: 'RENOVACIÓN DEL CERTIFICADO INSCRITO', value: 'renovacion' }
+    ], 
+    value: 'inscripcion', 
+    subsection: 'REGISTRO', 
+    group: 'Trámite',
+    required: true
+  },
+  { name: 'intro_numInscripcion', label: 'Nº Inscripción Anterior', type: 'text', placeholder: 'En caso de Baja/Actualización/Renovación', subsection: 'REGISTRO', group: 'Trámite' },
+  { name: 'intro_causas', label: 'Causas (Baja/Actualización/Corrección)', type: 'text', placeholder: 'Motivo o causa de la modificación', subsection: 'REGISTRO', group: 'Trámite' },
+  { name: 'intro_numExpediente', label: 'Nº de expediente original', type: 'text', placeholder: 'En caso de Baja/Actualización/Renovación', subsection: 'REGISTRO', group: 'Trámite' },
+
+  // -- T1 y T3: Inmueble --
+  { name: 'registro_t1_subgrupo', label: 'Subgrupo de Edificio', type: 'select', options: [{ label: 'Edificios destinados a uso residencial', value: 'resi' }, { label: 'Edificios destinados a otros usos', value: 'otros' }], value: 'resi', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)', required: true },
+  { name: 'registro_t1_uso', label: 'Uso del Edificio', type: 'select', options: [{ label: 'Edificio de viviendas', value: 'edif' }, { label: 'Vivienda perteneciente a un bloque', value: 'bloq' }, { label: 'Viviendas unifamiliares', value: 'unif' }], value: 'edif', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)', required: true },
   { name: 'registro_t3_tipoVia', label: 'Tipo de Vía', type: 'select', options: tipoViaOptions, mapFrom: 'tipo_via_presentador', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
-  { name: 'registro_t3_nombreVia', label: 'Nombre de la Vía', type: 'text', mapFrom: 'emplazamientoCalle', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
-  { name: 'registro_t3_tipoNumeracion', label: 'Tipo Numeración', type: 'select', options: ['NUM', 'KM', 'S/N'], value: 'NUM', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
-  { name: 'registro_t3_numero', label: 'Número / Km', type: 'text', mapFrom: 'numero', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
-  { name: 'registro_t3_bloque', label: 'Bloque', type: 'text', mapFrom: 'bloque', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
-  { name: 'registro_t3_portal', label: 'Portal', type: 'text', mapFrom: 'portal', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
-  { name: 'registro_t3_letra', label: 'Letra', type: 'text', mapFrom: 'letra', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
-  { name: 'registro_t3_escalera', label: 'Escalera', type: 'text', mapFrom: 'escalera', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
-  { name: 'registro_t3_piso', label: 'Piso', type: 'text', mapFrom: 'piso', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
-  { name: 'registro_t3_puerta', label: 'Puerta', type: 'text', mapFrom: 'puerta', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
-  { name: 'registro_t3_cPostal', label: 'Código Postal', type: 'text', mapFrom: 'codigoPostalEmplazamiento', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
-  { name: 'registro_t3_provincia', label: 'Provincia (Cód)', type: 'text', mapFrom: 'provincia', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
-  { name: 'registro_t3_localidad', label: 'Municipio (Cód)', type: 'text', mapFrom: 'municipio', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
-  { name: 'registro_t3_entPoblacion', label: 'Población', type: 'text', mapFrom: 'poblacion', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
-  { name: 'registro_t3_superficie', label: 'Superficie Útil Habitable (m²)', type: 'text', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
-  { name: 'registro_t3_plantas', label: 'Nº Plantas', type: 'text', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
-  { name: 'registro_t3_altura', label: 'Altura Planta Baja (m)', type: 'text', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
+  { name: 'registro_t3_nombreVia', label: 'Nombre de la Vía', type: 'text', mapFrom: 'emplazamientoCalle', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)', required: true },
+  { name: 'registro_t3_numero', label: 'Número', type: 'text', mapFrom: 'numero', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
+  { name: 'registro_t3_cPostal', label: 'Código Postal', type: 'text', mapFrom: 'codigoPostalEmplazamiento', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)', required: true },
+  { name: 'registro_t3_refCatastral', label: 'Referencia Catastral', type: 'text', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)', required: true },
+  { name: 'registro_t3_superficie', label: 'Superficie construida (m²)', type: 'text', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)', required: true },
+  { name: 'registro_t3_plantas', label: 'Nº Plantas', type: 'text', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)', required: true },
+  { name: 'registro_t3_altura', label: 'Altura total (m)', type: 'text', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)', required: true },
   { name: 'registro_t3_anioConstruccion', label: 'Año Construcción', type: 'text', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
 
-  // -- 3. Técnico Certificador (T6) --
-  { name: 'registro_t6_calidad', label: 'Calidad en la que actúa', type: 'select', options: [{label: 'Proyectista/Director Obra', value: 'proFirmCertificado'}, {label: 'Otro', value: 'otro'}], subsection: 'REGISTRO', group: 'Técnico (T6)' },
-  { name: 'registro_t6_titulacion', label: 'Titulación', type: 'text', mapFrom: 'titulacion', subsection: 'REGISTRO', group: 'Técnico (T6)' },
-  { name: 'registro_t6_colegio', label: 'Colegio Oficial', type: 'text', mapFrom: 'colegioOficial', subsection: 'REGISTRO', group: 'Técnico (T6)' },
-  { name: 'registro_t6_numColegiado', label: 'Nº Colegiado', type: 'text', mapFrom: 'numeroColegiado', subsection: 'REGISTRO', group: 'Técnico (T6)' },
+  // -- T5 y T17: Promotor --
+  { name: 't5_select_tipoIdentificacion', label: 'Tipo Identificación', type: 'select', options: [{ label: 'NIF', value: 'TIPO_NIF' }, { label: 'CIF', value: 'TIPO_CIF' }, { label: 'Pasaporte', value: 'TIPO_PASAPORTE' }, { label: 'Otros', value: 'TIPO_OTROS' }], value: 'TIPO_NIF', subsection: 'REGISTRO', group: 'Promotor (T5, T17)', required: true },
+  { name: 'registro_t5_nif', label: 'NIF Promotor', type: 'text', mapFrom: 'nifCif', subsection: 'REGISTRO', group: 'Promotor (T5, T17)', required: true },
+  { name: 'registro_t5_nombre', label: 'Nombre Promotor', type: 'text', mapFrom: 'apellidosNombre', subsection: 'REGISTRO', group: 'Promotor (T5, T17)', required: true },
+  { name: 'registro_t5_sexo', label: 'Sexo Promotor', type: 'select', options: [{ label: 'Hombre', value: 'varon' }, { label: 'Mujer', value: 'mujer' }], value: 'varon', subsection: 'REGISTRO', group: 'Promotor (T5, T17)' },
+  { name: 'registro_t17_correo', label: 'Correo Notificaciones', type: 'email', mapFrom: 'correoElectronicoEmplazamiento', subsection: 'REGISTRO', group: 'Promotor (T5, T17)', required: true },
+  { name: 'registro_t17_movil', label: 'Móvil Notificaciones', type: 'tel', mapFrom: 'telefono', subsection: 'REGISTRO', group: 'Promotor (T5, T17)' },
 
-  // -- 4. Trámite --
-  { name: 'registro_tramite', label: 'Tipo de Trámite', type: 'select', options: ['Inscripción', 'Modificación', 'Actualización'], value: 'Inscripción', subsection: 'REGISTRO', group: 'Trámite' },
-  { name: 'registro_num_inscripcion', label: 'Nº Inscripción Anterior', type: 'text', placeholder: 'Si es modificación...', subsection: 'REGISTRO', group: 'Trámite' },
-  
-  // -- 5. Normativa (T8 y T9) --
-  { name: 'registro_t8_fecha', label: 'Fecha CEE', type: 'date', subsection: 'REGISTRO', group: 'Normativa (T8, T9)' },
-  { name: 'registro_t9_edificacion', label: 'Normativa Edificación', type: 'select', options: [{label: 'CTE', value: 'cte'}, {label: 'NBE', value: 'nbe'}, {label: 'CTE 2013', value: 'cte_2013'}, {label: 'Otra', value: 'otro'}], value: 'cte', subsection: 'REGISTRO', group: 'Normativa (T8, T9)' },
+  // -- T6: Técnico Certificador --
+  { name: 'registro_t6_nombre', label: 'APELLIDOS Y NOMBRE/RAZÓN SOCIAL:', type: 'text', subsection: 'REGISTRO', group: 'Técnico (T6)', required: true },
+  { name: 'registro_t6_calidad', label: 'EN CALIDAD DE:', type: 'select', options: opcionesT6Calidad, value: 'proFirmCertificado', subsection: 'REGISTRO', group: 'Técnico (T6)', required: true },
+  { name: 'registro_t6_titulacion', label: 'TITULACIÓN:', type: 'select', options: opcionesT6Titulacion, value: 'Ingeniero Industrial', mapFrom: 'titulacion', subsection: 'REGISTRO', group: 'Técnico (T6)', required: true },
+  { name: 'registro_t6_nif', label: 'N.I.F./N.I.E./PASAPORTE/OTROS:', type: 'text', subsection: 'REGISTRO', group: 'Técnico (T6)', required: true },
+  { name: 'registro_t6_otra_titulacion', label: 'OTRA TITULACIÓN:', type: 'text', subsection: 'REGISTRO', group: 'Técnico (T6)' },
+  { name: 'registro_t6_colegio', label: 'COLEGIO:', type: 'text', mapFrom: 'colegioOficial', subsection: 'REGISTRO', group: 'Técnico (T6)' },
+  { name: 'registro_t6_numColegiado', label: 'N.º COLEGIACIÓN:', type: 'text', mapFrom: 'numeroColegiado', subsection: 'REGISTRO', group: 'Técnico (T6)' },
+  { name: 'registro_t6_sexo', label: 'SEXO:', type: 'select', options: [{label: 'H', value: 'H'}, {label: 'M', value: 'M'}], value: 'H', subsection: 'REGISTRO', group: 'Técnico (T6)', required: true },
+  { name: 'registro_t17_calidad_firmante', label: 'FIRMANTE EN CALIDAD DE (T17):', type: 'select', options: opcionesT17CalidadFirmante, value: 'REPLEGAL', subsection: 'REGISTRO', group: 'Técnico (T6)', required: true },
+
+  // -- T8 y T9: Normativa --
+  { name: 'registro_t8_fecha', label: 'Fecha CEE', type: 'date', subsection: 'REGISTRO', group: 'Normativa (T8, T9)', required: true },
+  { name: 'registro_t8_validez', label: 'Validez del Registro (Fecha)', type: 'date', subsection: 'REGISTRO', group: 'Normativa (T8, T9)' },
+  { name: 'registro_t9_edificacion', label: 'Normativa Edificación', type: 'select', options: [{ label: 'CTE (2006)', value: 'cte' }, { label: 'NBE-CT-79', value: 'nbe' }, { label: 'CTE (2013)', value: 'cte_2013' }, { label: 'Otros:', value: 'otro' }], value: 'cte', subsection: 'REGISTRO', group: 'Normativa (T8, T9)', required: true },
   { name: 'registro_t9_otro_edif', label: 'Otra Norm. Edificación', type: 'text', subsection: 'REGISTRO', group: 'Normativa (T8, T9)' },
-  { name: 'registro_t9_instalacion', label: 'Normativa Instalaciones Térmicas', type: 'select', options: [{label: 'RITE 98', value: 'rite98'}, {label: 'RITE 07', value: 'rite07'}, {label: 'Otra', value: 'otro'}], value: 'rite98', subsection: 'REGISTRO', group: 'Normativa (T8, T9)' },
+  { name: 'registro_t9_instalacion', label: 'Normativa Instalaciones Térmicas', type: 'select', options: [{ label: 'RITE (1998)', value: 'rite98' }, { label: 'RITE (2007)', value: 'rite07' }, { label: 'Otros:', value: 'otro' }], value: 'rite98', subsection: 'REGISTRO', group: 'Normativa (T8, T9)', required: true },
   { name: 'registro_t9_otro_inst', label: 'Otra Norm. Instalación', type: 'text', subsection: 'REGISTRO', group: 'Normativa (T8, T9)' },
 
-  // -- 6. Instalaciones (T10 y T11) --
-  { name: 'registro_t10_procedimiento', label: 'Procedimiento', type: 'select', options: ['reconocido', 'simplificado'], value: 'reconocido', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
-  { name: 'registro_t10_docReconocido', label: 'Documento Reconocido', type: 'select', options: ['HULC', 'CE3X', 'CERMA'], value: 'HULC', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
-  { name: 'registro_t11_calefaccionTipo', label: 'Calefacción (Tipo)', type: 'text', value: 'distrito', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
-  { name: 'registro_t11_calefaccionEq', label: 'Calefacción (Equipo)', type: 'text', value: 'EQ_AU_EX_DI_AG_AI', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
-  { name: 'registro_t11_refrigeracionTipo', label: 'Refrigeración (Tipo)', type: 'text', value: 'distrito', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
-  { name: 'registro_t11_refrigeracionEq', label: 'Refrigeración (Equipo)', type: 'text', value: 'EQ_AUT_EXP_DIR_AI_AI_CRV', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
-  { name: 'registro_t11_acsTipo', label: 'ACS (Tipo)', type: 'text', value: 'distrito', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
-  { name: 'registro_t11_acsEq', label: 'ACS (Equipo)', type: 'text', value: 'EQ_AU_EX_DI_AI_AI', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
+  // -- T10 y T11: Instalaciones --
+  { name: 'registro_t10_docReconocido', label: 'Documento Reconocido', type: 'select', options: [{ label: 'CE3', value: 'CE3' }, { label: 'CE3X', value: 'CE3X' }, { label: 'Método abreviado (CERMA)', value: 'CERMA' }, { label: 'Herramienta Unificada Líder Cálener', value: 'HULC' }, { label: 'CYPETHERM HE Plus', value: 'CYPETHERM' }, { label: 'EfinovaticHE Certificación energética con EnergyPlus', value: 'EFINOVATICHE' }, { label: 'Procedimiento de Habilitación CE3X para nueva construcción', value: 'HABILITACIONCE3X' }, { label: 'TeKton3D TK-CEEP', value: 'TEKTON3D' }], value: 'CE3X', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)', required: true },
+  { name: 'registro_t10_version', label: 'Versión (Documento Reconocido)', type: 'text', value: 'V2.3', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
   { name: 'registro_t11_potenciaElectrica', label: 'Potencia Eléctrica (kW)', type: 'text', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
+  { name: 'registro_t11_calefaccionTipo', label: 'Calefacción (Tipo)', type: 'select', options: opcionesTiposT11, value: 'distrito', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
+  { name: 'registro_t11_calefaccionEq', label: 'Calefacción (Equipo)', type: 'select', options: opcionesCalefaccionEq, value: 'CALDERA_ESTANDAR', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
+  { name: 'registro_t11_refrigeracionTipo', label: 'Refrigeración (Tipo)', type: 'select', options: opcionesTiposT11, value: 'distrito', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
+  { name: 'registro_t11_refrigeracionEq', label: 'Refrigeración (Equipo)', type: 'select', options: opcionesRefrigEq, value: 'EQ_AUT_EXP_DIR_AI_AI', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
+  { name: 'registro_t11_acsTipo', label: 'ACS (Tipo)', type: 'select', options: opcionesTiposT11, value: 'distrito', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
+  { name: 'registro_t11_acsEq', label: 'ACS (Equipo)', type: 'select', options: opcionesACSEq, value: 'CALDERA_ESTANDAR', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
 
-  // -- 7. Gestión (T16-T20) --
-  { name: 'registro_t20_numLiquidacion', label: 'Nº Autoliquidación (046)', type: 'text', subsection: 'REGISTRO', group: 'Gestión (T16-T20)' },
-  { name: 'registro_t19_lugarFirma', label: 'Lugar Firma', type: 'text', value: 'Sevilla', subsection: 'REGISTRO', group: 'Gestión (T16-T20)' },
-  
-  // -- 8. Archivos Adjuntos --
+  // -- T16, T18, T19, T20: Gestión --
+  { name: 'registro_t16_mejora1', label: 'Tipo de Mejora', type: 'select', options: [
+    { label: 'Envolvente', value: 'Envolvente' },
+    { label: 'Instalaciones', value: 'Instalaciones' },
+    { label: 'Elementos', value: 'Elementos' },
+    { label: 'Envolventes e instalaciones', value: 'Envolventes_instalaciones' }
+  ], value: 'Instalaciones', subsection: 'REGISTRO', group: 'Gestión (T16-T20)' },
+  { name: 'registro_t20_numLiquidacion', label: 'Nº Autoliquidación (046)', type: 'text', subsection: 'REGISTRO', group: 'Gestión (T16-T20)', required: true },
+  { name: 'registro_t19_lugarFirma', label: 'Lugar Firma', type: 'text', value: 'Sevilla', subsection: 'REGISTRO', group: 'Gestión (T16-T20)', required: true },
+
+  // -- Archivos Adjuntos --
   { name: 'registro_doc_xml', label: 'Documento XML', type: 'file', accept: '.xml', subsection: 'REGISTRO', group: 'Archivos Adjuntos' },
   { name: 'registro_doc_cee_pdf', label: 'Certificado PDF', type: 'file', accept: '.pdf', subsection: 'REGISTRO', group: 'Archivos Adjuntos' },
   { name: 'registro_doc_cee_zip', label: 'Archivo ZIP', type: 'file', accept: '.zip', subsection: 'REGISTRO', group: 'Archivos Adjuntos' },

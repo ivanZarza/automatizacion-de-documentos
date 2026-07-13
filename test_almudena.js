@@ -24,7 +24,7 @@ const datosPrueba = {
   idConvocatoria: '237',
   intro: {
     dia: '09', mes: '12', anio: '2014',
-    numBoja: '244', fechaBoja: '19/12/2014',
+    numBoja: '244', fechaBoja: '16/12/2014',
     numInscripcion: '123456'
   },
   t1: { subgrupo: 'resi', uso: 'edif' },
@@ -207,13 +207,15 @@ const combinacionesExcluyentes = [
     await fillF('intro_numBoja', datosPrueba.intro.numBoja);
     await fillF('intro_fechaBoja', datosPrueba.intro.fechaBoja);
 
-    const esInscripcionNueva = true;
+    const esInscripcionNueva = false;
     if (esInscripcionNueva) {
       await chkF('check_inscripcion');
       console.log('    -> Trámite: Inscripción (Se omiten los campos de certificado anterior)');
     } else {
-      await chkF('check_modificacion');
+      await chkF('check_correccion');
       await fillF('intro_numInscripcion', datosPrueba.intro.numInscripcion);
+      await fillF('intro_causas', 'Corrección de referencia catastral solicitada por registro');
+      await fillF('intro_numExpediente', 'EXP-987654321');
     }
 
     console.log('-> ✍️ Rellenando T1 (Tipología)...');
@@ -412,6 +414,43 @@ const combinacionesExcluyentes = [
 
     console.log('-> ⏳ Esperando 5 segundos para asimilar documentos...');
     await page.waitForTimeout(5000);
+
+    // === ESCÁNER DE CAMPOS OBLIGATORIOS (ROJOS) PARA IVAN ===
+    console.log('-> 🕵️ Escaneando todo el formulario en busca de campos obligatorios (rojos/requeridos)...');
+    const obligatorios = await page.evaluate(() => {
+      const inputs = Array.from(document.querySelectorAll('input, select, textarea'));
+      const results = [];
+      for (const el of inputs) {
+        if (!el.name && !el.id) continue; // Ignorar si no tiene nombre
+        
+        const isRequiredAttr = el.hasAttribute('required') || el.getAttribute('aria-required') === 'true';
+        const hasObligatorioClass = el.className && typeof el.className === 'string' && (el.className.includes('requerid') || el.className.includes('obligatorio') || el.className.includes('rojo'));
+        
+        // Comprobar si tiene algún asterisco rojo cerca o un estilo en línea rojo
+        let hasRedLabel = false;
+        if (el.labels && el.labels.length > 0) {
+          const labelHtml = el.labels[0].innerHTML || '';
+          if (labelHtml.includes('rojo') || labelHtml.includes('red') || labelHtml.includes('*')) {
+            hasRedLabel = true;
+          }
+        }
+        
+        const style = window.getComputedStyle(el);
+        const hasRedBorder = style.borderColor === 'rgb(255, 0, 0)' || style.borderColor === 'red';
+
+        if (isRequiredAttr || hasObligatorioClass || hasRedLabel || hasRedBorder) {
+          results.push(`📌 CAMPO OBLIGATORIO DETECTADO: Name: "${el.name}" | ID: "${el.id}" | Tipo: ${el.tagName} | Motivo: [Attr: ${isRequiredAttr}, Class: ${hasObligatorioClass}, Label: ${hasRedLabel}, Borde: ${hasRedBorder}]`);
+        }
+      }
+      return results.join('\n');
+    });
+
+    if (obligatorios) {
+      console.log('\n=== LISTA DE CAMPOS OBLIGATORIOS ENCONTRADOS ===\n' + obligatorios);
+      fs.appendFileSync(logFile, `\n\n=== CAMPOS OBLIGATORIOS ===\n${obligatorios}\n=========================\n`);
+    } else {
+      console.log('No se detectó ningún campo obligatorio automáticamente.');
+    }
 
     console.log('-> ✍️ Iniciando firma (AutoFirma)...');
     await page.getByRole('img', { name: 'Iniciar Firma' }).click().catch(() => { });

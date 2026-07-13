@@ -43,5 +43,7 @@ Mientras el usuario interactúa, el script estará corriendo por debajo intercep
 ## 📝 4. Notas y Descubrimientos (Diario de Desarrollo)
 *(Este bloque se irá rellenando a medida que capturemos datos de la web con el analizador)*
 
-- **Fecha:** [Por definir]
-- **Observaciones:** ...
+- **Fecha:** 13 de Julio de 2026
+- **Descubrimientos sobre Selectores Ocultos (T17):** Se detectó que el desplegable "Firmante en calidad de" carece de ID estable. Se resolvió mediante inyección DOM para seleccionar el valor interno (`PROMOTOR`, `REPLEGAL`, `TECNICO`) buscando por proximidad de texto antes del guardado.
+- **Lógica Condicional "Tipo de Trámite" (T1):** El formulario de la Junta activa tres inputs adicionales (`Nº Inscripción Anterior`, `Causas` y `Nº Expediente Original`) SOLO si el trámite no es una Inscripción. Mapeamos estos inputs dinámicamente en Playwright y le quitamos la validación obligatoria global en el frontend local.
+- **Guardarraíl Visual (Frontend TramiDocs):** Para evitar fallos silenciosos, se implementó en `DocumentForm.vue` un feedback visual perimetral. Los campos que tienen `required: true` en `masterFormFields.js` (como la Referencia Catastral o la Altura) ahora se renderizan con un asterisco y un borde fijo rojo (`2px solid #ef4444`) advirtiendo al usuario humano de que son críticos para la Junta.

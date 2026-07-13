@@ -13,7 +13,9 @@ export async function runRegistroAutomation(payload) {
   // Ejemplo:
   const datosRegistro = {
     tramite: formData.registro_tramite || 'Inscripción', // 'Inscripción', 'Modificación', 'Actualización'
-    numInscripcionAnterior: formData.registro_num_inscripcion || '',
+    numInscripcionAnterior: formData.intro_numInscripcion || '',
+    numExpedienteAnterior: formData.intro_numExpediente || '',
+    causas: formData.intro_causas || '',
     
     t1: {
       subgrupo: formData.registro_t1_subgrupo || 'resi',
@@ -37,15 +39,22 @@ export async function runRegistroAutomation(payload) {
       superficie: formData.registro_t3_superficie || '',
       plantas: formData.registro_t3_plantas || '',
       altura: formData.registro_t3_altura || '',
-      anioConstruccion: formData.registro_t3_anioConstruccion || ''
+      anioConstruccion: formData.registro_t3_anioConstruccion || '',
+      refCatastral: formData.registro_t3_refCatastral || ''
     },
     t5: {
       nif: formData.registro_t5_nif || '',
-      apellidosNombre: formData.registro_t5_nombre || ''
+      apellidosNombre: formData.registro_t5_nombre || '',
+      tipoIdentificacion: formData.t5_select_tipoIdentificacion || 'TIPO_NIF',
+      sexo: formData.registro_t5_sexo || 'varon'
+    },
+    t16: {
+      mejora1: formData.registro_t16_mejora1 || 'Instalaciones'
     },
     t17: {
       correo: formData.registro_t17_correo || '',
-      movil: formData.registro_t17_movil || ''
+      movil: formData.registro_t17_movil || '',
+      calidadFirmante: formData.registro_t17_calidad_firmante || 'REPLEGAL'
     },
     t6: {
       calidad: formData.registro_t6_calidad || 'proFirmCertificado',
@@ -54,7 +63,8 @@ export async function runRegistroAutomation(payload) {
       numColegiado: formData.registro_t6_numColegiado || ''
     },
     t8: {
-      fecha: formData.registro_t8_fecha || '' // Formato YYYY-MM-DD
+      fecha: formData.registro_t8_fecha || '', // Formato YYYY-MM-DD
+      fechaValidez: formData.registro_t8_validez || '' // Formato YYYY-MM-DD
     },
     t9: {
       edificacion: formData.registro_t9_edificacion || 'cte', // cte, nbe, cte_2013
@@ -62,7 +72,9 @@ export async function runRegistroAutomation(payload) {
     },
     t10: {
       procedimiento: formData.registro_t10_procedimiento || 'reconocido',
-      docReconocido: formData.registro_t10_docReconocido || 'HULC'
+      docReconocido: formData.registro_t10_docReconocido || 'HULC',
+      otrosProgramas: formData.registro_t10_otros_programas || '',
+      version: formData.registro_t10_version || 'V2.3'
     },
     t11: {
       calefaccionTipo: formData.registro_t11_calefaccionTipo || 'distrito',
@@ -219,11 +231,17 @@ export async function runRegistroAutomation(payload) {
 
     console.log('-> ✍️ Rellenando Fechas e Intro...');
     // Tramite
-    if (datosRegistro.tramite === 'Inscripción' || datosRegistro.tramite === 'Nueva') {
-      await chkF('check_inscripcion');
-    } else {
-      await chkF('check_modificacion');
+    const t = datosRegistro.tramite || 'inscripcion';
+    console.log(`-> ✍️ Configurando tipo de trámite: ${t}`);
+    
+    // El portal tiene checkboxes como check_inscripcion, check_modificacion...
+    await chkF(`check_${t}`);
+    
+    // Si no es inscripción nueva, son necesarios los datos anteriores
+    if (t !== 'inscripcion') {
       await fillF('intro_numInscripcion', datosRegistro.numInscripcionAnterior);
+      await fillF('intro_numExpediente', datosRegistro.numExpedienteAnterior);
+      await fillF('intro_causas', datosRegistro.causas);
     }
 
     console.log('-> ✍️ Rellenando T1 (Tipología)...');
@@ -252,10 +270,17 @@ export async function runRegistroAutomation(payload) {
     await fillF('t3_plantas', datosRegistro.t3.plantas);
     await fillF('t3_altura', datosRegistro.t3.altura);
     await fillF('t3_anioConstruccion', datosRegistro.t3.anioConstruccion);
+    await fillF('t3_refCatastral', datosRegistro.t3.refCatastral);
 
     console.log('-> ✍️ Rellenando T5 (Promotor)...');
+    await selF('t5_select_tipoIdentificacion', datosRegistro.t5.tipoIdentificacion);
     await fillF('t5_apellidosNombre', datosRegistro.t5.apellidosNombre);
     await fillF('t5_nif', datosRegistro.t5.nif);
+    if (datosRegistro.t5.sexo === 'varon') {
+      await chkF('t5_checkVaron');
+    } else if (datosRegistro.t5.sexo === 'mujer') {
+      await chkF('t5_checkMujer');
+    }
 
     console.log('-> ✍️ Rellenando Notificaciones (T17)...');
     await chkF('t17_check_autorizo_email');
@@ -276,8 +301,27 @@ export async function runRegistroAutomation(payload) {
     await fillF('t6_numColegiado', datosRegistro.t6.numColegiado);
 
     console.log('-> ✍️ Rellenando T8 (Fecha)...');
-    // Transformar fecha YYYY-MM-DD a DD/MM/YYYY si hace falta, o inyectar directo si la web lo coge
-    await fillF('t8_fecha', datosRegistro.t8.fecha);
+    let fechaFinal = datosRegistro.t8.fecha;
+    if (fechaFinal) {
+      // De YYYY-MM-DD a DD/MM/YYYY
+      const partes = fechaFinal.split('-');
+      if (partes.length === 3) fechaFinal = `${partes[2]}/${partes[1]}/${partes[0]}`;
+    } else {
+      // Fecha actual por defecto si no se puso nada
+      const hoy = new Date();
+      const dd = String(hoy.getDate()).padStart(2, '0');
+      const mm = String(hoy.getMonth() + 1).padStart(2, '0');
+      const yyyy = hoy.getFullYear();
+      fechaFinal = `${dd}/${mm}/${yyyy}`;
+    }
+    await fillF('t8_fecha', fechaFinal);
+    
+    if (datosRegistro.t8.fechaValidez) {
+      let fVal = datosRegistro.t8.fechaValidez;
+      const p = fVal.split('-');
+      if (p.length === 3) fVal = `${p[2]}/${p[1]}/${p[0]}`;
+      await fillF('t8_fechaValidez', fVal); // Se asume t8_fechaValidez como ID tentativo
+    }
 
     console.log('-> ✍️ Rellenando T9 (Normativas de Edificación)...');
     if (datosRegistro.t9.edificacion === 'cte') await chkF('t9_check_cte');
@@ -288,12 +332,8 @@ export async function runRegistroAutomation(payload) {
     else if (datosRegistro.t9.instalacion === 'rite07') await chkF('t9_check_rite07');
 
     console.log('-> ✍️ Rellenando T10 (Procedimiento)...');
-    if (datosRegistro.t10.procedimiento === 'reconocido') {
-      await chkF('t10_check_doc_reconocido');
-      await selF('t10_select_doc_reconocido', datosRegistro.t10.docReconocido);
-    } else {
-      await chkF('t10_check_otros');
-    }
+    await selF('t10_select_doc_reconocido', datosRegistro.t10.docReconocido);
+    await fillF('t10_version', datosRegistro.t10.version);
 
     console.log('-> ✍️ Rellenando T11 (Potencia Eléctrica y Equipos)...');
     const aplicarCheck = async (seccion, tipo) => {
@@ -319,6 +359,10 @@ export async function runRegistroAutomation(payload) {
     await page.waitForTimeout(2000);
 
     // --- PESTAÑA 3 ---
+    console.log('-> ✍️ Rellenando T16 (Calificación Energética/Mejoras)...');
+    await chkF('t16_check_mejora1'); // Marcar el checkbox de la primera medida
+    await selF('t16_selec_mejora1', datosRegistro.t16.mejora1);
+
     console.log('-> 💾 Guardando Pestaña 3 y pasando a Solicitud de Registro/Firma...');
     await page.getByRole('img', { name: 'Guardar' }).click().catch(() => { });
     await page.waitForTimeout(3000);
@@ -331,6 +375,23 @@ export async function runRegistroAutomation(payload) {
 
     console.log('-> ✍️ Rellenando T19 (Lugar de Firma)...');
     await fillF('t19_en', datosRegistro.t19.lugarFirma);
+
+    console.log('-> ✍️ Rellenando Calidad del Firmante (T17)...');
+    if (datosRegistro.t17.calidadFirmante) {
+      try {
+        await page.evaluate((val) => {
+          const selects = document.querySelectorAll('select');
+          for (let s of selects) {
+            if (s.parentElement && s.parentElement.textContent.includes('La persona abajo firmante en')) {
+              s.value = val;
+              s.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+          }
+        }, datosRegistro.t17.calidadFirmante);
+      } catch (e) {
+        console.log('      [ERROR] No se pudo seleccionar la calidad del firmante (T17)');
+      }
+    }
 
     console.log('-> 💾 Guardando Pestaña 4 y pasando a Anexos...');
     await page.getByRole('img', { name: 'Tramitar' }).click().catch(() => { });
