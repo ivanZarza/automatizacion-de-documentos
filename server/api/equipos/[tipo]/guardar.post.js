@@ -1,4 +1,4 @@
-import { getDbPool } from '../../../utils/db'
+import { getDbPool } from '../../../utils/db.js'
 
 export default defineEventHandler(async (event) => {
   const { tipo } = event.context.params

@@ -3,7 +3,8 @@ export default defineEventHandler(async (event) => {
 
   console.log('[API] 🚀 Petición de Automatización Junta recibida. Lanzando robot en segundo plano...')
 
-  import('../../utils/automation/juntaService.js')
+  // Ejecutamos la automatización de forma asíncrona para responder de inmediato y evitar timeouts de HTTP
+  import('../utils/automation/juntaService.js')
     .then(({ runJuntaAutomation }) => {
       runJuntaAutomation(body).catch(err => {
         console.error('[API] ❌ Error en ejecución Playwright para Junta:', err)

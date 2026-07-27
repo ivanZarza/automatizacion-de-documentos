@@ -10,102 +10,99 @@ export async function runRegistroAutomation(payload) {
   
   console.log('[RegistroService] Datos recibidos del formulario:', Object.keys(formData).length, 'campos')
   
-  // Aquí es donde convertiremos las variables del formulario a los datosPrueba
-  // Ejemplo:
   const datosRegistro = {
-    tramite: formData.registro_tramite || 'Inscripción', // 'Inscripción', 'Modificación', 'Actualización'
-    numInscripcionAnterior: formData.intro_numInscripcion || '',
-    numExpedienteAnterior: formData.intro_numExpediente || '',
-    causas: formData.intro_causas || '',
+    tramite: formData.registro_tramite || formData.tramite || 'inscripcion',
+    numInscripcionAnterior: formData.intro_numInscripcion || formData.numInscripcionAnterior || '',
+    numExpedienteAnterior: formData.intro_numExpediente || formData.numExpedienteAnterior || '',
+    causas: formData.intro_causas || formData.causas || '',
     diaBoja: formData.intro_dia || '09',
     mesBoja: formData.intro_mes || '12',
     anioBoja: formData.intro_anio || '2014',
     numBoja: formData.intro_numBoja || '244',
     fechaBoja: formData.intro_fechaBoja || '16/12/2014',
 
-    
     t1: {
-      subgrupo: formData.registro_t1_subgrupo || 'resi',
-      uso: formData.registro_t1_uso || 'edif'
+      subgrupo: formData.registro_t1_subgrupo || formData.subgrupo || 'resi',
+      uso: formData.registro_t1_uso || formData.uso_instalacion || formData.uso || 'edif'
     },
     t3: {
-      tipoVia: formData.registro_t3_tipoVia || 'CL',
-      nombreVia: formData.registro_t3_nombreVia || '',
-      tipoNumeracion: formData.registro_t3_tipoNumeracion || 'NUM',
-      numero: formData.registro_t3_numero || '',
+      tipoVia: formData.registro_t3_tipoVia || formData.tipo_via_presentador || formData.tipoVia || 'CL',
+      nombreVia: formData.registro_t3_nombreVia || formData.nombre_via_presentador || formData.nombreVia || '',
+      tipoNumeracion: formData.registro_t3_tipoNumeracion || formData.tipo_numeracion_presentador || formData.tipoNumeracion || 'NUM',
+      numero: formData.registro_t3_numero || formData.numero_presentador || formData.numero || '',
       calificadorNumero: formData.registro_t3_calificadorNumero || '',
-      bloque: formData.registro_t3_bloque || '',
-      portal: formData.registro_t3_portal || '',
-      letra: formData.registro_t3_letra || '',
-      escalera: formData.registro_t3_escalera || '',
-      piso: formData.registro_t3_piso || '',
-      puerta: formData.registro_t3_puerta || '',
+      bloque: formData.registro_t3_bloque || formData.bloque_presentador || formData.bloque || '',
+      portal: formData.registro_t3_portal || formData.portal || '',
+      letra: formData.registro_t3_letra || formData.letra || '',
+      escalera: formData.registro_t3_escalera || formData.escalera_presentador || formData.escalera || '',
+      piso: formData.registro_t3_piso || formData.piso_presentador || formData.piso || '',
+      puerta: formData.registro_t3_puerta || formData.puerta_presentador || formData.puerta || '',
       pais: formData.registro_t3_pais || 'ES',
-      cPostal: formData.registro_t3_cPostal || '',
-      provincia: formData.registro_t3_provincia || '',
-      localidad: formData.registro_t3_localidad || '',
-      entPoblacion: formData.registro_t3_entPoblacion || '',
-      superficie: formData.registro_t3_superficie || '',
-      plantas: formData.registro_t3_plantas || '',
-      altura: formData.registro_t3_altura || '',
-      anioConstruccion: formData.registro_t3_anioConstruccion || '',
-      refCatastral: formData.registro_t3_refCatastral || ''
+      cPostal: formData.registro_t3_cPostal || formData.cp_presentador || formData.codigoPostal || formData.cPostal || '',
+      provincia: formData.registro_t3_provincia || formData.provincia_presentador || formData.provincia || '',
+      localidad: formData.registro_t3_localidad || formData.municipio_presentador || formData.localidad || '',
+      entPoblacion: formData.registro_t3_entPoblacion || formData.poblacion_presentador || formData.entPoblacion || '',
+      superficie: formData.registro_t3_superficie || formData.superficie_instalacion || formData.superficie || '',
+      plantas: formData.registro_t3_plantas || formData.plantas || '',
+      altura: formData.registro_t3_altura || formData.altura || '',
+      anioConstruccion: formData.registro_t3_anioConstruccion || formData.anioConstruccion || '',
+      refCatastral: formData.registro_t3_refCatastral || formData.ref_catastral || formData.refCatastral || formData.referenciaCatastral || ''
     },
     t5: {
-      nif: formData.registro_t5_nif || '',
-      apellidosNombre: formData.registro_t5_nombre || '',
-      tipoIdentificacion: formData.t5_select_tipoIdentificacion || 'TIPO_NIF',
-      sexo: formData.registro_t5_sexo || 'varon'
+      nif: formData.registro_t5_nif || formData.nif_presentador || formData.nif || '',
+      apellidosNombre: formData.registro_t5_nombre || formData.nombre_presentador || formData.apellidosNombre || '',
+      tipoIdentificacion: formData.t5_select_tipoIdentificacion || formData.tipo_documento_presentador || 'TIPO_NIF',
+      sexo: formData.registro_t5_sexo || formData.sexo_presentador || 'varon'
     },
     t16: {
-      mejora1: formData.registro_t16_mejora1 || 'Instalaciones'
+      mejora1: formData.registro_t16_mejora1 || formData.mejora1 || 'Instalaciones'
     },
     t17: {
-      correo: formData.registro_t17_correo || '',
-      movil: formData.registro_t17_movil || '',
-      calidadFirmante: formData.registro_t17_calidad_firmante || 'REPLEGAL'
+      correo: formData.registro_t17_correo || formData.email_presentador || formData.email || '',
+      movil: formData.registro_t17_movil || formData.movil_presentador || formData.telefono_presentador || formData.movil || '',
+      calidadFirmante: formData.registro_t17_calidad_firmante || formData.calidadFirmante || 'REPLEGAL'
     },
     t6: {
-      apellidosNombre: formData.registro_t6_nombre || 'Miguel Ángel Rivas Zapata',
-      nif: formData.registro_t6_nif || '28888418G',
-      calidad: formData.registro_t6_calidad || { label: 'TÉCNICO/A COMPETENTE FIRMANTE DEL CERTIFICADO' },
-      titulacion: formData.registro_t6_titulacion || { label: 'Ingeniero Industrial' },
-      colegio: formData.registro_t6_colegio || 'COIIOC',
-      numColegiado: formData.registro_t6_numColegiado || '4671',
+      apellidosNombre: formData.registro_t6_nombre || formData.nombre_tecnico || 'Miguel Ángel Rivas Zapata',
+      nif: formData.registro_t6_nif || formData.nif_tecnico || '28888418G',
+      calidad: formData.registro_t6_calidad || formData.calidad || 'proFirmCertificado',
+      titulacion: formData.registro_t6_titulacion || formData.titulacion || 'Ingeniero Industrial',
+      colegio: formData.registro_t6_colegio || formData.colegio || 'COIIOC',
+      numColegiado: formData.registro_t6_numColegiado || formData.numColegiado || '4671',
       sexo: formData.registro_t6_sexo || 'H'
     },
     t8: {
-      fecha: formData.registro_t8_fecha || '', 
-      fechaValidez: formData.registro_t8_validez || ''
+      fecha: formData.registro_t8_fecha || formData.fecha_emision_cee || formData.fecha || '', 
+      fechaValidez: formData.registro_t8_validez || formData.fecha_validez_cee || formData.validez || ''
     },
     t9: {
-      edificacion: formData.registro_t9_edificacion || 'cte',
+      edificacion: formData.registro_t9_edificacion || formData.edificacion || 'cte',
       otroEdif: formData.registro_t9_otro_edif || '',
-      instalacion: formData.registro_t9_instalacion || 'rite98',
+      instalacion: formData.registro_t9_instalacion || formData.instalacion || 'rite98',
       otroInst: formData.registro_t9_otro_inst || ''
     },
     t10: {
-      procedimiento: formData.registro_t10_procedimiento || 'reconocido',
-      docReconocido: formData.registro_t10_docReconocido || 'HULC',
-      otrosProgramas: formData.registro_t10_otros_programas || '',
-      version: formData.registro_t10_version || 'V2.3'
+      procedimiento: formData.registro_t10_procedimiento || formData.procedimiento || 'reconocido',
+      docReconocido: formData.registro_t10_docReconocido || formData.docReconocido || 'HULC',
+      otrosProgramas: formData.registro_t10_otros_programas || formData.otrosProgramas || '',
+      version: formData.registro_t10_version || formData.version || 'V2.3'
     },
     t11: {
-      calefaccionTipo: formData.registro_t11_calefaccionTipo || 'distrito',
-      calefaccionEq: formData.registro_t11_calefaccionEq || 'EQ_AU_EX_DI_AG_AI',
-      refrigeracionTipo: formData.registro_t11_refrigeracionTipo || 'distrito',
-      refrigeracionEq: formData.registro_t11_refrigeracionEq || 'EQ_AUT_EXP_DIR_AI_AI_CRV',
-      acsTipo: formData.registro_t11_acsTipo || 'distrito',
-      acsEq: formData.registro_t11_acsEq || 'EQ_AU_EX_DI_AI_AI',
-      potenciaElectrica: formData.registro_t11_potenciaElectrica || ''
+      calefaccionTipo: formData.registro_t11_calefaccionTipo || formData.calefaccionTipo || 'distrito',
+      calefaccionEq: formData.registro_t11_calefaccionEq || formData.calefaccionEq || 'EQ_AU_EX_DI_AG_AI',
+      refrigeracionTipo: formData.registro_t11_refrigeracionTipo || formData.refrigeracionTipo || 'distrito',
+      refrigeracionEq: formData.registro_t11_refrigeracionEq || formData.refrigeracionEq || 'EQ_AUT_EXP_DIR_AI_AI_CRV',
+      acsTipo: formData.registro_t11_acsTipo || formData.acsTipo || 'distrito',
+      acsEq: formData.registro_t11_acsEq || formData.acsEq || 'EQ_AU_EX_DI_AI_AI',
+      potenciaElectrica: formData.registro_t11_potenciaElectrica || formData.potencia_instalacion || formData.potenciaElectrica || ''
     },
     t19: {
-      lugarFirma: formData.registro_t19_lugar || 'Sevilla',
-      fdo: formData.registro_t6_nombre || 'Miguel Ángel Rivas Zapata',
-      nif: formData.registro_t6_nif || '28888418G'
+      lugarFirma: formData.registro_t19_lugar || formData.registro_t19_lugarFirma || formData.lugar_firma || formData.lugarFirma || 'Sevilla',
+      fdo: formData.registro_t6_nombre || formData.nombre_tecnico || 'Miguel Ángel Rivas Zapata',
+      nif: formData.registro_t6_nif || formData.nif_tecnico || '28888418G'
     },
     t20: {
-      numLiquidacion: formData.registro_t20_numLiquidacion || ''
+      numLiquidacion: formData.registro_t20_numLiquidacion || formData.numLiquidacion || ''
     },
     archivos: {
       xml: formData.registro_doc_xml, // Base64
@@ -216,6 +213,8 @@ export async function runRegistroAutomation(payload) {
           }
         }
         await loc.fill(val, { timeout: 2000 }).catch(() => { });
+        await loc.dispatchEvent('input').catch(() => {});
+        await loc.dispatchEvent('change').catch(() => {});
       } else {
         console.log(`      [INFO] Input ${id} bloqueado. Ignorando...`);
       }
@@ -273,11 +272,11 @@ export async function runRegistroAutomation(payload) {
               console.log(`      [WARN] Select ${id}: no se encontró coincidencia directa para "${val}". Probando valor raw.`);
               await loc.selectOption(val, { timeout: 2000 });
             }
+            await loc.dispatchEvent('change').catch(() => {});
           } catch (e) {
             await loc.selectOption(val, { timeout: 2000 }).catch(() => { });
           }
           
-          // La Junta usa JSF, los selectores suelen hacer postback. Esperamos a que la red se asiente.
           await page.waitForLoadState('networkidle').catch(()=>{});
           await page.waitForTimeout(500);
         } else {
@@ -296,8 +295,9 @@ export async function runRegistroAutomation(payload) {
             if (isChecked) return;
           }
           await loc.check({ timeout: 2000 }).catch(() => { });
+          await loc.dispatchEvent('change').catch(() => {});
         } else {
-          console.log(`      [INFO] Checkbox ${id} bloqueado. Ignorando...`);
+          console.log(`      [INFO] Checkbox ${id} bloqueado/no visible.`);
         }
       } catch (e) { }
     };
@@ -346,8 +346,6 @@ export async function runRegistroAutomation(payload) {
     await fillF('t3_puerta', datosRegistro.t3.puerta);
 
     // Selección del PAÍS (Sección 2 - Edificio). 
-    // INCREÍBLE: La Junta le ha puesto de ID "t5_selec_pais_promotora" a este campo que está en la sección 2.
-    // Lo seleccionamos siempre a 'ES' antes de la provincia porque la interfaz avisa que se haga en este orden.
     const paisT3 = datosRegistro.t3.pais || 'ES';
     try {
       const paisLoc = page.locator('select[name="t5_selec_pais_promotora"]').first();
@@ -360,8 +358,8 @@ export async function runRegistroAutomation(payload) {
 
     await fillF('t3_cPostal', datosRegistro.t3.cPostal);
 
-    console.log(`-> ✍️ Seleccionando Provincia (${datosRegistro.t3.provincia || 'Cádiz'}) y esperando recarga de municipios...`);
-    await selF('t3_selec_provincia', datosRegistro.t3.provincia || 'Cádiz', true);
+    console.log(`-> ✍️ Seleccionando Provincia (${datosRegistro.t3.provincia || 'CÁDIZ'}) y esperando recarga de municipios...`);
+    await selF('t3_selec_provincia', datosRegistro.t3.provincia || 'CÁDIZ', true);
     
     // Espera activa del postback AJAX de la Junta para que la lista t3_selec_localidad tenga más de 1 opción
     await page.waitForFunction(() => {
@@ -371,8 +369,8 @@ export async function runRegistroAutomation(payload) {
 
     await page.waitForTimeout(1000);
 
-    console.log(`-> ✍️ Seleccionando Municipio (${datosRegistro.t3.localidad || 'Conil'})...`);
-    await selF('t3_selec_localidad', datosRegistro.t3.localidad || 'Conil', true);
+    console.log(`-> ✍️ Seleccionando Municipio (${datosRegistro.t3.localidad || 'CONIL'})...`);
+    await selF('t3_selec_localidad', datosRegistro.t3.localidad || 'CONIL', true);
 
     await fillF('t3_entPoblacion_notif', datosRegistro.t3.entPoblacion);
     await fillF('t3_superficie', datosRegistro.t3.superficie);
@@ -414,18 +412,15 @@ export async function runRegistroAutomation(payload) {
     }
     await selF('t6_selec_calidad', datosRegistro.t6.calidad);
     await selF('t6_selec_titulacion', datosRegistro.t6.titulacion);
-    // await fillF('t6_otraTitulacion', '', true); // Forzamos borrar este input siempre
     await fillF('t6_colegio', datosRegistro.t6.colegio);
     await fillF('t6_numColegiado', datosRegistro.t6.numColegiado);
 
     console.log('-> ✍️ Rellenando T8 (Fecha)...');
     let fechaFinal = datosRegistro.t8.fecha;
     if (fechaFinal) {
-      // De YYYY-MM-DD a DD/MM/YYYY
       const partes = fechaFinal.split('-');
       if (partes.length === 3) fechaFinal = `${partes[2]}/${partes[1]}/${partes[0]}`;
     } else {
-      // Fecha actual por defecto si no se puso nada
       const hoy = new Date();
       const dd = String(hoy.getDate()).padStart(2, '0');
       const mm = String(hoy.getMonth() + 1).padStart(2, '0');
@@ -439,7 +434,6 @@ export async function runRegistroAutomation(payload) {
       const p = fVal.split('-');
       if (p.length === 3) fVal = `${p[2]}/${p[1]}/${p[0]}`;
     } else {
-      // Calcular 9 años y 10 meses después de la fecha de firma (fechaFinal en formato DD/MM/YYYY)
       const partesFirma = fechaFinal.split('/');
       if (partesFirma.length === 3) {
         const dateValidez = new Date(parseInt(partesFirma[2]), parseInt(partesFirma[1]) - 1, parseInt(partesFirma[0]));
@@ -453,7 +447,7 @@ export async function runRegistroAutomation(payload) {
       }
     }
     if (fVal) {
-      await fillF('t8_fechaValidez', fVal, true); // forceOverwrite = true
+      await fillF('t8_fechaValidez', fVal, true);
     }
 
     console.log('-> ✍️ Rellenando T9 (Normativas de Edificación)...');
@@ -502,7 +496,7 @@ export async function runRegistroAutomation(payload) {
 
     // --- PESTAÑA 3 ---
     console.log('-> ✍️ Rellenando T16 (Calificación Energética/Mejoras)...');
-    await chkF('t16_check_mejora1'); // Marcar el checkbox de la primera medida
+    await chkF('t16_check_mejora1');
     await selF('t16_selec_mejora1', datosRegistro.t16.mejora1);
 
     console.log('-> 💾 Guardando Pestaña 3 y pasando a Solicitud de Registro/Firma...');
@@ -516,12 +510,9 @@ export async function runRegistroAutomation(payload) {
     await fillF('t20_num2', datosRegistro.t20.numLiquidacion);
 
     console.log('-> ✍️ Rellenando T19 (Lugar, Fecha y Firma)...');
-    // Seleccionar 'La persona abajo firmante en calidad de:'
     await selF('t19_tipo_firmante', datosRegistro.t17.calidadFirmante);
-    
     await fillF('t19_en', datosRegistro.t19.lugarFirma);
     
-    // Obtener fecha actual para rellenar la firma
     const hoyT19 = new Date();
     const dia = String(hoyT19.getDate());
     const mesIndex = hoyT19.getMonth();
@@ -620,7 +611,6 @@ export async function runRegistroAutomation(payload) {
 
     await page.pause();
 
-    // Limpieza de temporales al cerrar
     try {
       tempFiles.forEach(f => { if (fs.existsSync(f)) fs.unlinkSync(f); });
     } catch(e){}
