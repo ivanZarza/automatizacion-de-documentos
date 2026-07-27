@@ -431,7 +431,7 @@ export const masterFormFields = [
   { name: 'mesInicio', label: 'Mes Inicio', placeholder: 'Ej: 10', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'anioInicio', label: 'Año Inicio', placeholder: 'Ej: 2023', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'diaFirmaJustificacion', label: 'Día Firma Justificación', placeholder: 'Ej: 08', type: 'text', subsection: 'JUSTIFICACION' },
-  { name: 'mesFirmaJustificacion', label: 'Mes Firma Justificación', placeholder: 'Ej: 09', type: 'text', subsection: 'JUSTIFICACION' },
+  { name: 'mesFirmaJustificacion', label: 'Mes Firma Justificación', placeholder: 'Ej: septiembre', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'anioFirmaJustificacion', label: 'Año Firma Justificación', placeholder: 'Ej: 2025', type: 'text', subsection: 'JUSTIFICACION' },
 
   { name: 'nombreRepresentanteEntidad', label: 'Nombre del Representante de la Entidad', placeholder: 'Ej: Juan Pérez', type: 'text', subsection: 'JUSTIFICACION' },
