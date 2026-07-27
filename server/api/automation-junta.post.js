@@ -1,21 +1,21 @@
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
 
-  console.log('Iniciando automatización Junta con datos:', body)
+  console.log('[API] 🚀 Petición de Automatización Junta recibida. Lanzando robot en segundo plano...')
 
-  try {
-    const { runJuntaAutomation } = await import('../utils/automation/juntaService.js')
-    const result = await runJuntaAutomation(body)
-    return {
-      success: true,
-      message: 'Automatización completada con éxito.',
-      result
-    }
-  } catch (error) {
-    console.error('Error en ejecución Playwright:', error)
-    return {
-      success: false,
-      error: error.message
-    }
+  // Ejecutamos la automatización de forma asíncrona para responder de inmediato y evitar timeouts de HTTP
+  import('../utils/automation/juntaService.js')
+    .then(({ runJuntaAutomation }) => {
+      runJuntaAutomation(body).catch(err => {
+        console.error('[API] ❌ Error en ejecución Playwright para Junta:', err)
+      })
+    })
+    .catch(err => {
+      console.error('[API] ❌ Error importando juntaService:', err)
+    })
+
+  return {
+    success: true,
+    message: 'Automatización de la Junta lanzada en el servidor.'
   }
 })

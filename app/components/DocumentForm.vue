@@ -716,90 +716,105 @@ function groupFieldsBySubsection(fields) {
 }
 // Etiquetas de subsección
 async function handleLaunchRegistro() {
-  if (isAutomating.value) return
+  console.log('[DocumentForm] 🚀 Botón "Lanzar Registro CEE" pulsado.')
+  if (isAutomating.value) {
+    console.warn('[DocumentForm] ⚠️ Ya hay una automatización en curso.')
+    return
+  }
 
   const confirmLaunch = confirm('¿Deseas iniciar el registro del Certificado Energético? Se abrirá una ventana para firmar con tu certificado.')
-  if (!confirmLaunch) return
+  if (!confirmLaunch) {
+    console.log('[DocumentForm] ℹ️ Usuario canceló la confirmación de Registro CEE.')
+    return
+  }
 
   isAutomating.value = true
 
-  // ✅ AUTO-GUARDADO ANTES DE LANZAR EL ROBOT
-  console.log('[DocumentForm] Auto-guardando datos en la Base de Datos (modo silencioso)...')
-  await submit(true)
-
-  console.log('[DocumentForm] Iniciando registro CEE con los datos actuales...')
-
-  const form = formData.value
-  
   try {
+    console.log('[DocumentForm] 💾 Auto-guardando datos en la Base de Datos (modo silencioso)...')
+    await submit(true)
+
+    console.log('[DocumentForm] 📤 Enviando petición a /api/automation-registro...')
+    const form = formData.value
+    console.log('[DocumentForm] 📦 Payload a enviar:', { datosKeysCount: Object.keys(form || {}).length })
+
     const response = await fetch('/api/automation-registro', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ datos: form })
     })
 
+    console.log('[DocumentForm] 📥 Respuesta HTTP recibida. Status:', response.status, response.statusText)
     const result = await response.json()
+    console.log('[DocumentForm] 📋 Resultado deserializado:', result)
 
     if (result.success) {
       alert('¡Registro completado con éxito!')
     } else {
-      console.error('[DocumentForm] Error en registro:', result.error)
+      console.error('[DocumentForm] ❌ Error reportado por el backend:', result.error)
       alert(`Error en el registro: ${result.error || 'Ocurrió un error inesperado'}`)
     }
   } catch (error) {
-    console.error('[DocumentForm] Error de red en registro:', error)
-    alert('Error de conexión con el servidor. Asegúrate de que el servidor esté en ejecución.')
+    console.error('[DocumentForm] 💥 Error de red o ejecución en registro:', error)
+    alert(`Error de conexión con el servidor: ${error.message || error}`)
   } finally {
     isAutomating.value = false
+    console.log('[DocumentForm] 🏁 Fin de handleLaunchRegistro.')
   }
 }
 
 async function handleLaunchAutomation() {
-  if (isAutomating.value) return
+  console.log('[DocumentForm] 🚀 Botón "Lanzar Automatización Junta" pulsado.')
+  if (isAutomating.value) {
+    console.warn('[DocumentForm] ⚠️ Ya hay una automatización en curso.')
+    return
+  }
 
   const confirmLaunch = confirm('¿Deseas iniciar la automatización? Se abrirá una ventana de Chrome para realizar los trámites en el portal de la Junta.')
-  if (!confirmLaunch) return
+  if (!confirmLaunch) {
+    console.log('[DocumentForm] ℹ️ Usuario canceló la confirmación de Automatización Junta.')
+    return
+  }
 
   isAutomating.value = true
 
-  // ✅ AUTO-GUARDADO ANTES DE LANZAR EL ROBOT
-  console.log('[DocumentForm] Auto-guardando datos en la Base de Datos (modo silencioso)...')
-  await submit(true) // Llama al UPSERT de PostgreSQL
+  try {
+    console.log('[DocumentForm] 💾 Auto-guardando datos en la Base de Datos (modo silencioso)...')
+    await submit(true)
 
-  console.log('[DocumentForm] Iniciando automatización con los datos actuales...')
+    console.log('[DocumentForm] 📤 Enviando petición a /api/automation-junta...')
+    const form = formData.value
+    const robotPayload = {
+      datos: {
+        tipoDocumento: form.tipo_documento_presentador,
+        nif: form.nif_presentador,
+        nombre: form.nombre_presentador,
+        apellido1: form.apellido1_presentador,
+        apellido2: form.apellido2_presentador,
+        sexo: form.sexo_presentador,
+        delegacion: form.cod_delegacion,
 
-  const form = formData.value
-  const robotPayload = {
-    datos: {
-      tipoDocumento: form.tipo_documento_presentador,
-      nif: form.nif_presentador,
-      nombre: form.nombre_presentador,
-      apellido1: form.apellido1_presentador,
-      apellido2: form.apellido2_presentador,
-      sexo: form.sexo_presentador,
-      delegacion: form.cod_delegacion,
+        tipoVia: form.tipo_via_presentador,
+        nombreVia: form.nombre_via_presentador,
+        tipoNumeracion: form.tipo_numeracion_presentador,
+        numero: form.numero_presentador,
+        calificador: form.calificador_numero_presentador,
+        bloque: form.bloque_presentador,
+        escalera: form.escalera_presentador,
+        piso: form.piso_presentador,
+        puerta: form.puerta_presentador,
+        margen: form.margen_presentador,
+        codigoPostal: form.cp_presentador,
+        provincia: form.provincia_presentador,
+        municipioNombre: form.municipio_presentador,
+        poblacion: form.poblacion_presentador,
+        telefono: form.telefono_presentador,
+        movil: form.movil_presentador,
+        email: form.email_presentador,
+        ps_distribuidora: form.ps_distribuidora,
 
-      tipoVia: form.tipo_via_presentador,
-      nombreVia: form.nombre_via_presentador,
-      tipoNumeracion: form.tipo_numeracion_presentador,
-      numero: form.numero_presentador,
-      calificador: form.calificador_numero_presentador,
-      bloque: form.bloque_presentador,
-      escalera: form.escalera_presentador,
-      piso: form.piso_presentador,
-      puerta: form.puerta_presentador,
-      margen: form.margen_presentador,
-      codigoPostal: form.cp_presentador,
-      provincia: form.provincia_presentador,
-      municipioNombre: form.municipio_presentador,
-      poblacion: form.poblacion_presentador,
-      telefono: form.telefono_presentador,
-      movil: form.movil_presentador,
-      email: form.email_presentador,
-      ps_distribuidora: form.ps_distribuidora,
-
-      conRepresentante: form.con_representante_legal,
-      representante: {
+        conRepresentante: form.con_representante_legal,
+        representante: {
         tipoDocumento: form.rep_leg_tipo_documento,
         nif: form.rep_leg_nif,
         sexo: form.rep_leg_sexo,
@@ -851,19 +866,22 @@ async function handleLaunchAutomation() {
       body: JSON.stringify(robotPayload)
     })
 
+    console.log('[DocumentForm] 📥 Respuesta HTTP recibida. Status:', response.status, response.statusText)
     const result = await response.json()
+    console.log('[DocumentForm] 📋 Resultado deserializado:', result)
 
     if (result.success) {
       alert('¡Automatización completada con éxito!')
     } else {
-      console.error('[DocumentForm] Error en automatización:', result.error)
+      console.error('[DocumentForm] ❌ Error reportado por el backend:', result.error)
       alert(`Error en la automatización: ${result.error || 'Ocurrió un error inesperado'}`)
     }
   } catch (error) {
-    console.error('[DocumentForm] Error de red en automatización:', error)
-    alert('Error de conexión con el servidor de automatización. Asegúrate de que el servidor esté en ejecución.')
+    console.error('[DocumentForm] 💥 Error de red o ejecución en automatización:', error)
+    alert(`Error de conexión con el servidor: ${error.message || error}`)
   } finally {
     isAutomating.value = false
+    console.log('[DocumentForm] 🏁 Fin de handleLaunchAutomation.')
   }
 }
 
