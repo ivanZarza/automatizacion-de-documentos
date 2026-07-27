@@ -1,9 +1,9 @@
-import { chromium } from 'playwright'
 import fs from 'fs'
 import path from 'path'
 import os from 'os'
 
 export async function runRegistroAutomation(payload) {
+  const { chromium } = await import('playwright')
   // payload.datos viene del componente Vue
   const formData = payload.datos || {}
   

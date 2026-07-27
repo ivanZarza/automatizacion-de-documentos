@@ -1,10 +1,8 @@
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
-
   console.log('Iniciando automatización de REGISTRO CEE con datos:', body)
-
   try {
-    const { runRegistroAutomation } = await import('../../utils/automation/registroService.js')
+    const { runRegistroAutomation } = await import('../utils/automation/registroService.js')
     const result = await runRegistroAutomation(body)
     return {
       success: true,

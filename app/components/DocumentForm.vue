@@ -732,7 +732,7 @@ async function handleLaunchRegistro() {
   const form = formData.value
   
   try {
-    const response = await fetch('/api/automation/registro', {
+    const response = await fetch('/api/automation-registro', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ datos: form })
@@ -845,7 +845,7 @@ async function handleLaunchAutomation() {
   }
 
   try {
-    const response = await fetch('/api/automation/junta', {
+    const response = await fetch('/api/automation-junta', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(robotPayload)

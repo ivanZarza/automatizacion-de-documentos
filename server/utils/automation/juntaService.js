@@ -1,4 +1,3 @@
-import { chromium } from 'playwright'
 import { autoClicker } from './windowsAutoClicker.js'
 import path from 'path'
 import fs from 'fs'
@@ -22,6 +21,7 @@ const isWindows = os.platform() === 'win32';
  * Replica exacta de main.js adaptada a ES Modules para Nuxt/Nitro.
  */
 export const runJuntaAutomation = async (payload) => {
+  const { chromium } = await import('playwright')
   const datos = payload.datos;
   
   // [NORMALIZACIÓN] Asegurar que los campos críticos vayan con mayúsculas y acentos 

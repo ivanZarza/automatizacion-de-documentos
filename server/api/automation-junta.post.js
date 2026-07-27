@@ -1,10 +1,10 @@
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
 
-  console.log('Iniciando automatización con datos:', body)
+  console.log('Iniciando automatización Junta con datos:', body)
 
   try {
-    const { runJuntaAutomation } = await import('../../utils/automation/juntaService.js')
+    const { runJuntaAutomation } = await import('../utils/automation/juntaService.js')
     const result = await runJuntaAutomation(body)
     return {
       success: true,
