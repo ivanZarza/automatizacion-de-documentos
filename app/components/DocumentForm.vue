@@ -749,7 +749,7 @@ async function handleLaunchRegistro() {
     console.log('[DocumentForm] 📋 Resultado deserializado:', result)
 
     if (result.success) {
-      alert('¡Registro completado con éxito!')
+      alert('🚀 ¡Registro CEE iniciado en segundo plano! Se ha abierto la ventana del navegador Chrome para continuar el trámite.')
     } else {
       console.error('[DocumentForm] ❌ Error reportado por el backend:', result.error)
       alert(`Error en el registro: ${result.error || 'Ocurrió un error inesperado'}`)
@@ -869,7 +869,7 @@ async function handleLaunchAutomation() {
     console.log('[DocumentForm] 📋 Resultado deserializado:', result)
 
     if (result.success) {
-      alert('¡Automatización completada con éxito!')
+      alert('🚀 ¡Automatización de la Junta iniciada en segundo plano! Se ha abierto la ventana del navegador Chrome para continuar el trámite.')
     } else {
       console.error('[DocumentForm] ❌ Error reportado por el backend:', result.error)
       alert(`Error en la automatización: ${result.error || 'Ocurrió un error inesperado'}`)
