@@ -667,19 +667,19 @@ export const masterFormFields = [
   // ========== SECCIÓN REGISTRO (CERTIFICADO ENERGÉTICO ANDALUZ) ==========
 
   // -- Trámite --
-  { 
-    name: 'registro_tramite', 
-    label: 'Tipo de Trámite', 
-    type: 'select', 
+  {
+    name: 'registro_tramite',
+    label: 'Tipo de Trámite',
+    type: 'select',
     options: [
       { label: 'INSCRIPCIÓN EN EL REGISTRO DEL CERTIFICADO DE EFICIENCIA ENERGÉTICA INCLUÍDO EN EL ÁMBITO DE APLICACIÓN DEL REAL DECRETO 390/2021, DE 1 DE JUNIO', value: 'inscripcion' },
       { label: 'CORRECCIÓN DE DATOS', value: 'correccion' },
       { label: 'ACTUALIZACIÓN DEL CERTIFICADO INSCRITO', value: 'actualizacion' },
       { label: 'BAJA EN EL REGISTRO DE CERTIFICADOS ENERGÉTICOS ANDALUCES', value: 'baja' },
       { label: 'RENOVACIÓN DEL CERTIFICADO INSCRITO', value: 'renovacion' }
-    ], 
-    value: 'inscripcion', 
-    subsection: 'REGISTRO', 
+    ],
+    value: 'inscripcion',
+    subsection: 'REGISTRO',
     group: 'Trámite',
     required: true
   },
@@ -716,7 +716,7 @@ export const masterFormFields = [
   { name: 'registro_t6_otra_titulacion', label: 'OTRA TITULACIÓN:', type: 'text', subsection: 'REGISTRO', group: 'Técnico (T6)' },
   { name: 'registro_t6_colegio', label: 'COLEGIO:', type: 'text', mapFrom: 'colegioOficial', subsection: 'REGISTRO', group: 'Técnico (T6)' },
   { name: 'registro_t6_numColegiado', label: 'N.º COLEGIACIÓN:', type: 'text', mapFrom: 'numeroColegiado', subsection: 'REGISTRO', group: 'Técnico (T6)' },
-  { name: 'registro_t6_sexo', label: 'SEXO:', type: 'select', options: [{label: 'H', value: 'H'}, {label: 'M', value: 'M'}], value: 'H', subsection: 'REGISTRO', group: 'Técnico (T6)', required: true },
+  { name: 'registro_t6_sexo', label: 'SEXO:', type: 'select', options: [{ label: 'H', value: 'H' }, { label: 'M', value: 'M' }], value: 'H', subsection: 'REGISTRO', group: 'Técnico (T6)', required: true },
   { name: 'registro_t17_calidad_firmante', label: 'FIRMANTE EN CALIDAD DE (T17):', type: 'select', options: opcionesT17CalidadFirmante, value: 'REPLEGAL', subsection: 'REGISTRO', group: 'Técnico (T6)', required: true },
 
   // -- T8 y T9: Normativa --
@@ -739,12 +739,14 @@ export const masterFormFields = [
   { name: 'registro_t11_acsEq', label: 'ACS (Equipo)', type: 'select', options: opcionesACSEq, value: 'CALDERA_ESTANDAR', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
 
   // -- T16, T18, T19, T20: Gestión --
-  { name: 'registro_t16_mejora1', label: 'Tipo de Mejora', type: 'select', options: [
-    { label: 'Envolvente', value: 'Envolvente' },
-    { label: 'Instalaciones', value: 'Instalaciones' },
-    { label: 'Elementos', value: 'Elementos' },
-    { label: 'Envolventes e instalaciones', value: 'Envolventes_instalaciones' }
-  ], value: 'Instalaciones', subsection: 'REGISTRO', group: 'Gestión (T16-T20)' },
+  {
+    name: 'registro_t16_mejora1', label: 'Tipo de Mejora', type: 'select', options: [
+      { label: 'Envolvente', value: 'Envolvente' },
+      { label: 'Instalaciones', value: 'Instalaciones' },
+      { label: 'Elementos', value: 'Elementos' },
+      { label: 'Envolventes e instalaciones', value: 'Envolventes_instalaciones' }
+    ], value: 'Instalaciones', subsection: 'REGISTRO', group: 'Gestión (T16-T20)'
+  },
   { name: 'registro_t20_numLiquidacion', label: 'Nº Autoliquidación (046)', type: 'text', subsection: 'REGISTRO', group: 'Gestión (T16-T20)', required: true },
   { name: 'registro_t19_lugarFirma', label: 'Lugar Firma', type: 'text', value: 'Sevilla', subsection: 'REGISTRO', group: 'Gestión (T16-T20)', required: true },
 
