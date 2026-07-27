@@ -12,84 +12,84 @@ export async function runRegistroAutomation(payload) {
   // Aquí es donde convertiremos las variables del formulario a los datosPrueba
   // Ejemplo:
   const datosRegistro = {
-    tramite: formData.registro_tramite || 'Inscripción', // 'Inscripción', 'Modificación', 'Actualización'
-    numInscripcionAnterior: formData.intro_numInscripcion || '',
-    numExpedienteAnterior: formData.intro_numExpediente || '',
-    causas: formData.intro_causas || '',
+    tramite: formData.registro_tramite || formData.tramite || 'inscripcion',
+    numInscripcionAnterior: formData.intro_numInscripcion || formData.numInscripcionAnterior || '',
+    numExpedienteAnterior: formData.intro_numExpediente || formData.numExpedienteAnterior || '',
+    causas: formData.intro_causas || formData.causas || '',
     
     t1: {
-      subgrupo: formData.registro_t1_subgrupo || 'resi',
-      uso: formData.registro_t1_uso || 'edif'
+      subgrupo: formData.registro_t1_subgrupo || formData.subgrupo || 'resi',
+      uso: formData.registro_t1_uso || formData.uso_instalacion || formData.uso || 'edif'
     },
     t3: {
-      tipoVia: formData.registro_t3_tipoVia || 'CL',
-      nombreVia: formData.registro_t3_nombreVia || '',
-      tipoNumeracion: formData.registro_t3_tipoNumeracion || 'NUM',
-      numero: formData.registro_t3_numero || '',
-      bloque: formData.registro_t3_bloque || '',
-      portal: formData.registro_t3_portal || '',
-      letra: formData.registro_t3_letra || '',
-      escalera: formData.registro_t3_escalera || '',
-      piso: formData.registro_t3_piso || '',
-      puerta: formData.registro_t3_puerta || '',
-      cPostal: formData.registro_t3_cPostal || '',
-      provincia: formData.registro_t3_provincia || '',
-      localidad: formData.registro_t3_localidad || '',
-      entPoblacion: formData.registro_t3_entPoblacion || '',
-      superficie: formData.registro_t3_superficie || '',
-      plantas: formData.registro_t3_plantas || '',
-      altura: formData.registro_t3_altura || '',
-      anioConstruccion: formData.registro_t3_anioConstruccion || '',
-      refCatastral: formData.registro_t3_refCatastral || ''
+      tipoVia: formData.registro_t3_tipoVia || formData.tipo_via_presentador || formData.tipoVia || 'CL',
+      nombreVia: formData.registro_t3_nombreVia || formData.nombre_via_presentador || formData.nombreVia || '',
+      tipoNumeracion: formData.registro_t3_tipoNumeracion || formData.tipo_numeracion_presentador || formData.tipoNumeracion || 'NUM',
+      numero: formData.registro_t3_numero || formData.numero_presentador || formData.numero || '',
+      bloque: formData.registro_t3_bloque || formData.bloque_presentador || formData.bloque || '',
+      portal: formData.registro_t3_portal || formData.portal || '',
+      letra: formData.registro_t3_letra || formData.letra || '',
+      escalera: formData.registro_t3_escalera || formData.escalera_presentador || formData.escalera || '',
+      piso: formData.registro_t3_piso || formData.piso_presentador || formData.piso || '',
+      puerta: formData.registro_t3_puerta || formData.puerta_presentador || formData.puerta || '',
+      cPostal: formData.registro_t3_cPostal || formData.cp_presentador || formData.codigoPostal || formData.cPostal || '',
+      provincia: formData.registro_t3_provincia || formData.provincia_presentador || formData.provincia || '',
+      localidad: formData.registro_t3_localidad || formData.municipio_presentador || formData.localidad || '',
+      entPoblacion: formData.registro_t3_entPoblacion || formData.poblacion_presentador || formData.entPoblacion || '',
+      superficie: formData.registro_t3_superficie || formData.superficie_instalacion || formData.superficie || '',
+      plantas: formData.registro_t3_plantas || formData.plantas || '',
+      altura: formData.registro_t3_altura || formData.altura || '',
+      anioConstruccion: formData.registro_t3_anioConstruccion || formData.anioConstruccion || '',
+      refCatastral: formData.registro_t3_refCatastral || formData.ref_catastral || formData.refCatastral || formData.referenciaCatastral || ''
     },
     t5: {
-      nif: formData.registro_t5_nif || '',
-      apellidosNombre: formData.registro_t5_nombre || '',
-      tipoIdentificacion: formData.t5_select_tipoIdentificacion || 'TIPO_NIF',
-      sexo: formData.registro_t5_sexo || 'varon'
+      nif: formData.registro_t5_nif || formData.nif_presentador || formData.nif || '',
+      apellidosNombre: formData.registro_t5_nombre || formData.nombre_presentador || formData.apellidosNombre || '',
+      tipoIdentificacion: formData.t5_select_tipoIdentificacion || formData.tipo_documento_presentador || 'TIPO_NIF',
+      sexo: formData.registro_t5_sexo || formData.sexo_presentador || 'varon'
     },
     t16: {
-      mejora1: formData.registro_t16_mejora1 || 'Instalaciones'
+      mejora1: formData.registro_t16_mejora1 || formData.mejora1 || 'Instalaciones'
     },
     t17: {
-      correo: formData.registro_t17_correo || '',
-      movil: formData.registro_t17_movil || '',
-      calidadFirmante: formData.registro_t17_calidad_firmante || 'REPLEGAL'
+      correo: formData.registro_t17_correo || formData.email_presentador || formData.email || '',
+      movil: formData.registro_t17_movil || formData.movil_presentador || formData.telefono_presentador || formData.movil || '',
+      calidadFirmante: formData.registro_t17_calidad_firmante || formData.calidadFirmante || 'REPLEGAL'
     },
     t6: {
-      calidad: formData.registro_t6_calidad || 'proFirmCertificado',
-      titulacion: formData.registro_t6_titulacion || '',
-      colegio: formData.registro_t6_colegio || '',
-      numColegiado: formData.registro_t6_numColegiado || ''
+      calidad: formData.registro_t6_calidad || formData.calidad || 'proFirmCertificado',
+      titulacion: formData.registro_t6_titulacion || formData.titulacion || '',
+      colegio: formData.registro_t6_colegio || formData.colegio || '',
+      numColegiado: formData.registro_t6_numColegiado || formData.numColegiado || formData.numero_colegiado || ''
     },
     t8: {
-      fecha: formData.registro_t8_fecha || '', // Formato YYYY-MM-DD
-      fechaValidez: formData.registro_t8_validez || '' // Formato YYYY-MM-DD
+      fecha: formData.registro_t8_fecha || formData.fecha_emision_cee || formData.fecha || '',
+      fechaValidez: formData.registro_t8_validez || formData.fecha_validez_cee || formData.validez || ''
     },
     t9: {
-      edificacion: formData.registro_t9_edificacion || 'cte', // cte, nbe, cte_2013
-      instalacion: formData.registro_t9_instalacion || 'rite98' // rite98, rite07
+      edificacion: formData.registro_t9_edificacion || formData.edificacion || 'cte',
+      instalacion: formData.registro_t9_instalacion || formData.instalacion || 'rite98'
     },
     t10: {
-      procedimiento: formData.registro_t10_procedimiento || 'reconocido',
-      docReconocido: formData.registro_t10_docReconocido || 'HULC',
-      otrosProgramas: formData.registro_t10_otros_programas || '',
-      version: formData.registro_t10_version || 'V2.3'
+      procedimiento: formData.registro_t10_procedimiento || formData.procedimiento || 'reconocido',
+      docReconocido: formData.registro_t10_docReconocido || formData.docReconocido || 'HULC',
+      otrosProgramas: formData.registro_t10_otros_programas || formData.otrosProgramas || '',
+      version: formData.registro_t10_version || formData.version || 'V2.3'
     },
     t11: {
-      calefaccionTipo: formData.registro_t11_calefaccionTipo || 'distrito',
-      calefaccionEq: formData.registro_t11_calefaccionEq || 'EQ_AU_EX_DI_AG_AI',
-      refrigeracionTipo: formData.registro_t11_refrigeracionTipo || 'distrito',
-      refrigeracionEq: formData.registro_t11_refrigeracionEq || 'EQ_AUT_EXP_DIR_AI_AI_CRV',
-      acsTipo: formData.registro_t11_acsTipo || 'distrito',
-      acsEq: formData.registro_t11_acsEq || 'EQ_AU_EX_DI_AI_AI',
-      potenciaElectrica: formData.registro_t11_potenciaElectrica || ''
+      calefaccionTipo: formData.registro_t11_calefaccionTipo || formData.calefaccionTipo || 'distrito',
+      calefaccionEq: formData.registro_t11_calefaccionEq || formData.calefaccionEq || 'EQ_AU_EX_DI_AG_AI',
+      refrigeracionTipo: formData.registro_t11_refrigeracionTipo || formData.refrigeracionTipo || 'distrito',
+      refrigeracionEq: formData.registro_t11_refrigeracionEq || formData.refrigeracionEq || 'EQ_AUT_EXP_DIR_AI_AI_CRV',
+      acsTipo: formData.registro_t11_acsTipo || formData.acsTipo || 'distrito',
+      acsEq: formData.registro_t11_acsEq || formData.acsEq || 'EQ_AU_EX_DI_AI_AI',
+      potenciaElectrica: formData.registro_t11_potenciaElectrica || formData.potencia_instalacion || formData.potenciaElectrica || ''
     },
     t19: {
-      lugarFirma: formData.registro_t19_lugarFirma || 'Sevilla'
+      lugarFirma: formData.registro_t19_lugarFirma || formData.lugar_firma || formData.lugarFirma || formData.provincia_presentador || 'Sevilla'
     },
     t20: {
-      numLiquidacion: formData.registro_t20_numLiquidacion || ''
+      numLiquidacion: formData.registro_t20_numLiquidacion || formData.numLiquidacion || ''
     },
     archivos: {
       xml: formData.registro_doc_xml, // Base64
@@ -186,38 +186,69 @@ export async function runRegistroAutomation(payload) {
     };
 
     const fillF = async (id, val) => {
-      if (!val) return;
+      if (!val) {
+        console.log(`      [SKIP] Input ${id}: sin valor proporcionado.`);
+        return;
+      }
       const locStr = `[id="${id}"]:not([type="hidden"])`;
-      if (await checkIsEditable(locStr)) {
-        await page.locator(locStr).first().fill(val, { timeout: 2000 }).catch(() => { });
-      } else {
-        console.log(`      [INFO] Input ${id} bloqueado. Ignorando...`);
+      try {
+        const loc = page.locator(locStr).first();
+        if (await loc.isVisible({ timeout: 1500 }).catch(() => false)) {
+          if (await loc.isEditable().catch(() => false)) {
+            console.log(`      [FILL] ${id} <= "${val}"`);
+            await loc.focus().catch(() => {});
+            await loc.fill(String(val), { timeout: 2500 }).catch(() => {});
+            await loc.dispatchEvent('input').catch(() => {});
+            await loc.dispatchEvent('change').catch(() => {});
+            await loc.dispatchEvent('blur').catch(() => {});
+            await page.waitForTimeout(600); // Pausa inteligente para peticiones XHR en segundo plano
+          } else {
+            console.log(`      [INFO] Input ${id} no editable. Omitiendo...`);
+          }
+        } else {
+          console.log(`      [INFO] Input ${id} no visible en pantalla.`);
+        }
+      } catch (e) {
+        console.log(`      [!] Error en fillF(${id}):`, e.message);
       }
     };
 
     const selF = async (id, val) => {
-      if (!val) return;
+      if (!val) {
+        console.log(`      [SKIP] Select ${id}: sin valor proporcionado.`);
+        return;
+      }
       const locStr = `select[id="${id}"]`;
       try {
         const loc = page.locator(locStr).first();
-        if (await loc.isVisible() && !(await loc.isDisabled())) {
-          await loc.selectOption(val, { timeout: 2000 }).catch(() => { });
+        if (await loc.isVisible({ timeout: 1500 }).catch(() => false)) {
+          console.log(`      [SELECT] ${id} <= "${val}"`);
+          await loc.selectOption(String(val), { timeout: 2500 }).catch(() => {});
+          await loc.dispatchEvent('change').catch(() => {});
+          await page.waitForTimeout(600);
         } else {
-          console.log(`      [INFO] Select ${id} bloqueado. Ignorando...`);
+          console.log(`      [INFO] Select ${id} no visible en pantalla.`);
         }
-      } catch (e) { }
+      } catch (e) {
+        console.log(`      [!] Error en selF(${id}):`, e.message);
+      }
     };
 
     const chkF = async (id) => {
       const locStr = `[id="${id}"]:not([type="hidden"])`;
       try {
         const loc = page.locator(locStr).first();
-        if (await loc.isVisible() && !(await loc.isDisabled())) {
-          await loc.check({ timeout: 2000 }).catch(() => { });
+        if (await loc.isVisible({ timeout: 1500 }).catch(() => false)) {
+          console.log(`      [CHECK] ${id}`);
+          await loc.check({ timeout: 2500 }).catch(() => {});
+          await loc.dispatchEvent('change').catch(() => {});
+          await page.waitForTimeout(400);
         } else {
-          console.log(`      [INFO] Checkbox ${id} bloqueado. Ignorando...`);
+          console.log(`      [INFO] Checkbox ${id} no visible.`);
         }
-      } catch (e) { }
+      } catch (e) {
+        console.log(`      [!] Error en chkF(${id}):`, e.message);
+      }
     };
 
     // --- PESTAÑA 1 ---
