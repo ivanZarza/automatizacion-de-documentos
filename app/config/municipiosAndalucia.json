@@ -1,0 +1,3194 @@
+{
+  "CÁDIZ": [
+    {
+      "value": "ALCALA GAZUL",
+      "label": "ALCALA GAZUL"
+    },
+    {
+      "value": "ALCALA VALLE",
+      "label": "ALCALA VALLE"
+    },
+    {
+      "value": "ALGAR",
+      "label": "ALGAR"
+    },
+    {
+      "value": "ALGECIRAS",
+      "label": "ALGECIRAS"
+    },
+    {
+      "value": "ALGODONALES",
+      "label": "ALGODONALES"
+    },
+    {
+      "value": "ARCOS FRONTE",
+      "label": "ARCOS FRONTE"
+    },
+    {
+      "value": "BARBATE",
+      "label": "BARBATE"
+    },
+    {
+      "value": "BARRIOS",
+      "label": "BARRIOS"
+    },
+    {
+      "value": "BENALUP",
+      "label": "BENALUP"
+    },
+    {
+      "value": "BENAOCAZ",
+      "label": "BENAOCAZ"
+    },
+    {
+      "value": "BORNOS",
+      "label": "BORNOS"
+    },
+    {
+      "value": "BOSQUE",
+      "label": "BOSQUE"
+    },
+    {
+      "value": "CADIZ",
+      "label": "CADIZ"
+    },
+    {
+      "value": "CASTELLAR FR",
+      "label": "CASTELLAR FR"
+    },
+    {
+      "value": "CHICLANA FRO",
+      "label": "CHICLANA FRO"
+    },
+    {
+      "value": "CHIPIONA",
+      "label": "CHIPIONA"
+    },
+    {
+      "value": "CONIL",
+      "label": "CONIL"
+    },
+    {
+      "value": "ESPERA",
+      "label": "ESPERA"
+    },
+    {
+      "value": "GASTOR",
+      "label": "GASTOR"
+    },
+    {
+      "value": "GRAZALEMA",
+      "label": "GRAZALEMA"
+    },
+    {
+      "value": "JEREZ FRONTE",
+      "label": "JEREZ FRONTE"
+    },
+    {
+      "value": "JIMENA FRONT",
+      "label": "JIMENA FRONT"
+    },
+    {
+      "value": "LINEA",
+      "label": "LINEA"
+    },
+    {
+      "value": "MEDINA SIDON",
+      "label": "MEDINA SIDON"
+    },
+    {
+      "value": "OLVERA",
+      "label": "OLVERA"
+    },
+    {
+      "value": "PATERNA RIVE",
+      "label": "PATERNA RIVE"
+    },
+    {
+      "value": "PRADO REY",
+      "label": "PRADO REY"
+    },
+    {
+      "value": "PUERTO REAL",
+      "label": "PUERTO REAL"
+    },
+    {
+      "value": "PUERTO SERRA",
+      "label": "PUERTO SERRA"
+    },
+    {
+      "value": "PUERTO ST MA",
+      "label": "PUERTO ST MA"
+    },
+    {
+      "value": "ROTA",
+      "label": "ROTA"
+    },
+    {
+      "value": "S FERNANDO",
+      "label": "S FERNANDO"
+    },
+    {
+      "value": "S JOSE VALLE",
+      "label": "S JOSE VALLE"
+    },
+    {
+      "value": "S ROQUE",
+      "label": "S ROQUE"
+    },
+    {
+      "value": "SAN MARTIN DEL TESORILLO",
+      "label": "SAN MARTIN DEL TESORILLO"
+    },
+    {
+      "value": "SANLUCAR BAR",
+      "label": "SANLUCAR BAR"
+    },
+    {
+      "value": "SETENIL",
+      "label": "SETENIL"
+    },
+    {
+      "value": "TARIFA",
+      "label": "TARIFA"
+    },
+    {
+      "value": "TORRE ALHAQU",
+      "label": "TORRE ALHAQU"
+    },
+    {
+      "value": "TREBUJENA",
+      "label": "TREBUJENA"
+    },
+    {
+      "value": "UBRIQUE",
+      "label": "UBRIQUE"
+    },
+    {
+      "value": "VEJER FRONTE",
+      "label": "VEJER FRONTE"
+    },
+    {
+      "value": "VILLALUENGA",
+      "label": "VILLALUENGA"
+    },
+    {
+      "value": "VILLAMARTIN",
+      "label": "VILLAMARTIN"
+    },
+    {
+      "value": "ZAHARA-SIERR",
+      "label": "ZAHARA-SIERR"
+    }
+  ],
+  "CÓRDOBA": [
+    {
+      "value": "ADAMUZ",
+      "label": "ADAMUZ"
+    },
+    {
+      "value": "AGUILAR",
+      "label": "AGUILAR"
+    },
+    {
+      "value": "ALCARACEJOS",
+      "label": "ALCARACEJOS"
+    },
+    {
+      "value": "ALMEDINILLA",
+      "label": "ALMEDINILLA"
+    },
+    {
+      "value": "ALMODOVAR RI",
+      "label": "ALMODOVAR RI"
+    },
+    {
+      "value": "AÑORA",
+      "label": "AÑORA"
+    },
+    {
+      "value": "BAENA",
+      "label": "BAENA"
+    },
+    {
+      "value": "BELALCAZAR",
+      "label": "BELALCAZAR"
+    },
+    {
+      "value": "BELMEZ",
+      "label": "BELMEZ"
+    },
+    {
+      "value": "BENAMEJI",
+      "label": "BENAMEJI"
+    },
+    {
+      "value": "BLAZQUEZ",
+      "label": "BLAZQUEZ"
+    },
+    {
+      "value": "BUJALANCE",
+      "label": "BUJALANCE"
+    },
+    {
+      "value": "CABRA",
+      "label": "CABRA"
+    },
+    {
+      "value": "CARCABUEY",
+      "label": "CARCABUEY"
+    },
+    {
+      "value": "CARDEÑA",
+      "label": "CARDEÑA"
+    },
+    {
+      "value": "CARLOTA",
+      "label": "CARLOTA"
+    },
+    {
+      "value": "CARPIO",
+      "label": "CARPIO"
+    },
+    {
+      "value": "CASTRO RIO",
+      "label": "CASTRO RIO"
+    },
+    {
+      "value": "CAÑETE TORRE",
+      "label": "CAÑETE TORRE"
+    },
+    {
+      "value": "CONQUISTA",
+      "label": "CONQUISTA"
+    },
+    {
+      "value": "CORDOBA",
+      "label": "CORDOBA"
+    },
+    {
+      "value": "DOS TORRES",
+      "label": "DOS TORRES"
+    },
+    {
+      "value": "DOÑA MENCIA",
+      "label": "DOÑA MENCIA"
+    },
+    {
+      "value": "ENCINAS REAL",
+      "label": "ENCINAS REAL"
+    },
+    {
+      "value": "ESPEJO",
+      "label": "ESPEJO"
+    },
+    {
+      "value": "ESPIEL",
+      "label": "ESPIEL"
+    },
+    {
+      "value": "FERNAN NUÑEZ",
+      "label": "FERNAN NUÑEZ"
+    },
+    {
+      "value": "FUENTE CARRETEROS",
+      "label": "FUENTE CARRETEROS"
+    },
+    {
+      "value": "FUENTE LANCH",
+      "label": "FUENTE LANCH"
+    },
+    {
+      "value": "FUENTE OBEJU",
+      "label": "FUENTE OBEJU"
+    },
+    {
+      "value": "FUENTE PALME",
+      "label": "FUENTE PALME"
+    },
+    {
+      "value": "FUENTE TOJAR",
+      "label": "FUENTE TOJAR"
+    },
+    {
+      "value": "GRANJUELA",
+      "label": "GRANJUELA"
+    },
+    {
+      "value": "GUADALCAZAR",
+      "label": "GUADALCAZAR"
+    },
+    {
+      "value": "GUIJARROSA (LA)",
+      "label": "GUIJARROSA (LA)"
+    },
+    {
+      "value": "GUIJO",
+      "label": "GUIJO"
+    },
+    {
+      "value": "HINOJOSA DUQ",
+      "label": "HINOJOSA DUQ"
+    },
+    {
+      "value": "HORNACHUELOS",
+      "label": "HORNACHUELOS"
+    },
+    {
+      "value": "IZNAJAR",
+      "label": "IZNAJAR"
+    },
+    {
+      "value": "LUCENA",
+      "label": "LUCENA"
+    },
+    {
+      "value": "LUQUE",
+      "label": "LUQUE"
+    },
+    {
+      "value": "MONTALBAN CO",
+      "label": "MONTALBAN CO"
+    },
+    {
+      "value": "MONTEMAYOR",
+      "label": "MONTEMAYOR"
+    },
+    {
+      "value": "MONTILLA",
+      "label": "MONTILLA"
+    },
+    {
+      "value": "MONTORO",
+      "label": "MONTORO"
+    },
+    {
+      "value": "MONTURQUE",
+      "label": "MONTURQUE"
+    },
+    {
+      "value": "MORILES",
+      "label": "MORILES"
+    },
+    {
+      "value": "NUEVA CARTEY",
+      "label": "NUEVA CARTEY"
+    },
+    {
+      "value": "OBEJO",
+      "label": "OBEJO"
+    },
+    {
+      "value": "PALENCIANA",
+      "label": "PALENCIANA"
+    },
+    {
+      "value": "PALMA RIO",
+      "label": "PALMA RIO"
+    },
+    {
+      "value": "PEDRO ABAD",
+      "label": "PEDRO ABAD"
+    },
+    {
+      "value": "PEDROCHE",
+      "label": "PEDROCHE"
+    },
+    {
+      "value": "PEÑARROYA PU",
+      "label": "PEÑARROYA PU"
+    },
+    {
+      "value": "POSADAS",
+      "label": "POSADAS"
+    },
+    {
+      "value": "POZOBLANCO",
+      "label": "POZOBLANCO"
+    },
+    {
+      "value": "PRIEGO CORDO",
+      "label": "PRIEGO CORDO"
+    },
+    {
+      "value": "PUENTE GENIL",
+      "label": "PUENTE GENIL"
+    },
+    {
+      "value": "RAMBLA",
+      "label": "RAMBLA"
+    },
+    {
+      "value": "RUTE",
+      "label": "RUTE"
+    },
+    {
+      "value": "S SEBASTIAN",
+      "label": "S SEBASTIAN"
+    },
+    {
+      "value": "SANTAELLA",
+      "label": "SANTAELLA"
+    },
+    {
+      "value": "STA EUFEMIA",
+      "label": "STA EUFEMIA"
+    },
+    {
+      "value": "TORRECAMPO",
+      "label": "TORRECAMPO"
+    },
+    {
+      "value": "VALENZUELA",
+      "label": "VALENZUELA"
+    },
+    {
+      "value": "VALSEQUILLO",
+      "label": "VALSEQUILLO"
+    },
+    {
+      "value": "VICTORIA",
+      "label": "VICTORIA"
+    },
+    {
+      "value": "VILLA RIO",
+      "label": "VILLA RIO"
+    },
+    {
+      "value": "VILLAFRANCA",
+      "label": "VILLAFRANCA"
+    },
+    {
+      "value": "VILLAHARTA",
+      "label": "VILLAHARTA"
+    },
+    {
+      "value": "VILLANUE COR",
+      "label": "VILLANUE COR"
+    },
+    {
+      "value": "VILLANUE DUQ",
+      "label": "VILLANUE DUQ"
+    },
+    {
+      "value": "VILLANUE REY",
+      "label": "VILLANUE REY"
+    },
+    {
+      "value": "VILLARALTO",
+      "label": "VILLARALTO"
+    },
+    {
+      "value": "VILLAVICIOSA",
+      "label": "VILLAVICIOSA"
+    },
+    {
+      "value": "VISO",
+      "label": "VISO"
+    },
+    {
+      "value": "ZUHEROS",
+      "label": "ZUHEROS"
+    }
+  ],
+  "GRANADA": [
+    {
+      "value": "AGRON",
+      "label": "AGRON"
+    },
+    {
+      "value": "ALAMEDILLA",
+      "label": "ALAMEDILLA"
+    },
+    {
+      "value": "ALBOLOTE",
+      "label": "ALBOLOTE"
+    },
+    {
+      "value": "ALBONDON",
+      "label": "ALBONDON"
+    },
+    {
+      "value": "ALBUÑAN",
+      "label": "ALBUÑAN"
+    },
+    {
+      "value": "ALBUÑOL",
+      "label": "ALBUÑOL"
+    },
+    {
+      "value": "ALBUÑUELAS",
+      "label": "ALBUÑUELAS"
+    },
+    {
+      "value": "ALDEIRE",
+      "label": "ALDEIRE"
+    },
+    {
+      "value": "ALFACAR",
+      "label": "ALFACAR"
+    },
+    {
+      "value": "ALGARINEJO",
+      "label": "ALGARINEJO"
+    },
+    {
+      "value": "ALHAMA GRANA",
+      "label": "ALHAMA GRANA"
+    },
+    {
+      "value": "ALHENDIN",
+      "label": "ALHENDIN"
+    },
+    {
+      "value": "ALICUN ORTEG",
+      "label": "ALICUN ORTEG"
+    },
+    {
+      "value": "ALMEGIJAR",
+      "label": "ALMEGIJAR"
+    },
+    {
+      "value": "ALMUÑECAR",
+      "label": "ALMUÑECAR"
+    },
+    {
+      "value": "ALPUJARRA SI",
+      "label": "ALPUJARRA SI"
+    },
+    {
+      "value": "ALQUIFE",
+      "label": "ALQUIFE"
+    },
+    {
+      "value": "ARENAS REY",
+      "label": "ARENAS REY"
+    },
+    {
+      "value": "ARMILLA",
+      "label": "ARMILLA"
+    },
+    {
+      "value": "ATARFE",
+      "label": "ATARFE"
+    },
+    {
+      "value": "BAZA",
+      "label": "BAZA"
+    },
+    {
+      "value": "BEAS GRANADA",
+      "label": "BEAS GRANADA"
+    },
+    {
+      "value": "BEAS GUADIX",
+      "label": "BEAS GUADIX"
+    },
+    {
+      "value": "BENALUA GUAD",
+      "label": "BENALUA GUAD"
+    },
+    {
+      "value": "BENALUA VILL",
+      "label": "BENALUA VILL"
+    },
+    {
+      "value": "BENAMAUREL",
+      "label": "BENAMAUREL"
+    },
+    {
+      "value": "BERCHULES",
+      "label": "BERCHULES"
+    },
+    {
+      "value": "BUBION",
+      "label": "BUBION"
+    },
+    {
+      "value": "BUSQUISTAR",
+      "label": "BUSQUISTAR"
+    },
+    {
+      "value": "CACIN",
+      "label": "CACIN"
+    },
+    {
+      "value": "CADIAR",
+      "label": "CADIAR"
+    },
+    {
+      "value": "CAJAR",
+      "label": "CAJAR"
+    },
+    {
+      "value": "CALICASAS",
+      "label": "CALICASAS"
+    },
+    {
+      "value": "CAMPOTEJAR",
+      "label": "CAMPOTEJAR"
+    },
+    {
+      "value": "CANILES",
+      "label": "CANILES"
+    },
+    {
+      "value": "CAPILEIRA",
+      "label": "CAPILEIRA"
+    },
+    {
+      "value": "CARATAUNAS",
+      "label": "CARATAUNAS"
+    },
+    {
+      "value": "CASTARAS",
+      "label": "CASTARAS"
+    },
+    {
+      "value": "CASTILLEJAR",
+      "label": "CASTILLEJAR"
+    },
+    {
+      "value": "CASTRIL",
+      "label": "CASTRIL"
+    },
+    {
+      "value": "CAÑAR",
+      "label": "CAÑAR"
+    },
+    {
+      "value": "CENES VEGA",
+      "label": "CENES VEGA"
+    },
+    {
+      "value": "CHAUCHINA",
+      "label": "CHAUCHINA"
+    },
+    {
+      "value": "CHIMENEAS",
+      "label": "CHIMENEAS"
+    },
+    {
+      "value": "CHURRIANA VE",
+      "label": "CHURRIANA VE"
+    },
+    {
+      "value": "CIJUELA",
+      "label": "CIJUELA"
+    },
+    {
+      "value": "COGOLLOS GUA",
+      "label": "COGOLLOS GUA"
+    },
+    {
+      "value": "COGOLLOS VEG",
+      "label": "COGOLLOS VEG"
+    },
+    {
+      "value": "COLOMERA",
+      "label": "COLOMERA"
+    },
+    {
+      "value": "CORTES BAZA",
+      "label": "CORTES BAZA"
+    },
+    {
+      "value": "CORTES GRAE",
+      "label": "CORTES GRAE"
+    },
+    {
+      "value": "CUEVAS CAMPO",
+      "label": "CUEVAS CAMPO"
+    },
+    {
+      "value": "CULLAR",
+      "label": "CULLAR"
+    },
+    {
+      "value": "CULLAR VEGA",
+      "label": "CULLAR VEGA"
+    },
+    {
+      "value": "DARRO",
+      "label": "DARRO"
+    },
+    {
+      "value": "DEHESAS GUAD",
+      "label": "DEHESAS GUAD"
+    },
+    {
+      "value": "DEHESAS VIEJAS",
+      "label": "DEHESAS VIEJAS"
+    },
+    {
+      "value": "DEIFONTES",
+      "label": "DEIFONTES"
+    },
+    {
+      "value": "DIEZMA",
+      "label": "DIEZMA"
+    },
+    {
+      "value": "DILAR",
+      "label": "DILAR"
+    },
+    {
+      "value": "DOLAR",
+      "label": "DOLAR"
+    },
+    {
+      "value": "DOMINGO PÉREZ",
+      "label": "DOMINGO PÉREZ"
+    },
+    {
+      "value": "DUDAR",
+      "label": "DUDAR"
+    },
+    {
+      "value": "DURCAL",
+      "label": "DURCAL"
+    },
+    {
+      "value": "EL PINAR",
+      "label": "EL PINAR"
+    },
+    {
+      "value": "EL VALLE",
+      "label": "EL VALLE"
+    },
+    {
+      "value": "ESCUZAR",
+      "label": "ESCUZAR"
+    },
+    {
+      "value": "FERREIRA",
+      "label": "FERREIRA"
+    },
+    {
+      "value": "FONELAS",
+      "label": "FONELAS"
+    },
+    {
+      "value": "FORNES",
+      "label": "FORNES"
+    },
+    {
+      "value": "FREILA",
+      "label": "FREILA"
+    },
+    {
+      "value": "FUENTE VAQUE",
+      "label": "FUENTE VAQUE"
+    },
+    {
+      "value": "GALERA",
+      "label": "GALERA"
+    },
+    {
+      "value": "GOBERNADOR",
+      "label": "GOBERNADOR"
+    },
+    {
+      "value": "GOJAR",
+      "label": "GOJAR"
+    },
+    {
+      "value": "GOR",
+      "label": "GOR"
+    },
+    {
+      "value": "GORAFE",
+      "label": "GORAFE"
+    },
+    {
+      "value": "GRANADA",
+      "label": "GRANADA"
+    },
+    {
+      "value": "GUADAHORTUNA",
+      "label": "GUADAHORTUNA"
+    },
+    {
+      "value": "GUADIX",
+      "label": "GUADIX"
+    },
+    {
+      "value": "GUALCHOS",
+      "label": "GUALCHOS"
+    },
+    {
+      "value": "GUEJAR SIERR",
+      "label": "GUEJAR SIERR"
+    },
+    {
+      "value": "GUEVEJAR",
+      "label": "GUEVEJAR"
+    },
+    {
+      "value": "HUELAGO",
+      "label": "HUELAGO"
+    },
+    {
+      "value": "HUENEJA",
+      "label": "HUENEJA"
+    },
+    {
+      "value": "HUESCAR",
+      "label": "HUESCAR"
+    },
+    {
+      "value": "HUETOR SANTI",
+      "label": "HUETOR SANTI"
+    },
+    {
+      "value": "HUETOR TAJAR",
+      "label": "HUETOR TAJAR"
+    },
+    {
+      "value": "HUETOR VEGA",
+      "label": "HUETOR VEGA"
+    },
+    {
+      "value": "ILLORA",
+      "label": "ILLORA"
+    },
+    {
+      "value": "ITRABO",
+      "label": "ITRABO"
+    },
+    {
+      "value": "IZNALLOZ",
+      "label": "IZNALLOZ"
+    },
+    {
+      "value": "JAYENA",
+      "label": "JAYENA"
+    },
+    {
+      "value": "JERES MARQUE",
+      "label": "JERES MARQUE"
+    },
+    {
+      "value": "JETE",
+      "label": "JETE"
+    },
+    {
+      "value": "JUN",
+      "label": "JUN"
+    },
+    {
+      "value": "JUVILES",
+      "label": "JUVILES"
+    },
+    {
+      "value": "JÁTAR",
+      "label": "JÁTAR"
+    },
+    {
+      "value": "LA TAHA",
+      "label": "LA TAHA"
+    },
+    {
+      "value": "LACALAHORRA",
+      "label": "LACALAHORRA"
+    },
+    {
+      "value": "LACHAR",
+      "label": "LACHAR"
+    },
+    {
+      "value": "LANJARON",
+      "label": "LANJARON"
+    },
+    {
+      "value": "LANTEIRA",
+      "label": "LANTEIRA"
+    },
+    {
+      "value": "LAS GABIAS",
+      "label": "LAS GABIAS"
+    },
+    {
+      "value": "LECRIN",
+      "label": "LECRIN"
+    },
+    {
+      "value": "LENTEGI",
+      "label": "LENTEGI"
+    },
+    {
+      "value": "LOBRAS",
+      "label": "LOBRAS"
+    },
+    {
+      "value": "LOJA",
+      "label": "LOJA"
+    },
+    {
+      "value": "LOS GUAJARES",
+      "label": "LOS GUAJARES"
+    },
+    {
+      "value": "LUGROS",
+      "label": "LUGROS"
+    },
+    {
+      "value": "LUJAR",
+      "label": "LUJAR"
+    },
+    {
+      "value": "MALAHA LA",
+      "label": "MALAHA LA"
+    },
+    {
+      "value": "MARACENA",
+      "label": "MARACENA"
+    },
+    {
+      "value": "MARCHAL",
+      "label": "MARCHAL"
+    },
+    {
+      "value": "MOCLIN",
+      "label": "MOCLIN"
+    },
+    {
+      "value": "MOLVIZAR",
+      "label": "MOLVIZAR"
+    },
+    {
+      "value": "MONACHIL",
+      "label": "MONACHIL"
+    },
+    {
+      "value": "MONTEFRIO",
+      "label": "MONTEFRIO"
+    },
+    {
+      "value": "MONTEJICAR",
+      "label": "MONTEJICAR"
+    },
+    {
+      "value": "MONTILLANA",
+      "label": "MONTILLANA"
+    },
+    {
+      "value": "MORALEDA ZAF",
+      "label": "MORALEDA ZAF"
+    },
+    {
+      "value": "MORELABOR",
+      "label": "MORELABOR"
+    },
+    {
+      "value": "MOTRIL",
+      "label": "MOTRIL"
+    },
+    {
+      "value": "MURTAS",
+      "label": "MURTAS"
+    },
+    {
+      "value": "NEVADA",
+      "label": "NEVADA"
+    },
+    {
+      "value": "NIGUELAS",
+      "label": "NIGUELAS"
+    },
+    {
+      "value": "NIVAR",
+      "label": "NIVAR"
+    },
+    {
+      "value": "OGIJARES",
+      "label": "OGIJARES"
+    },
+    {
+      "value": "ORCE",
+      "label": "ORCE"
+    },
+    {
+      "value": "ORGIVA",
+      "label": "ORGIVA"
+    },
+    {
+      "value": "OTIVAR",
+      "label": "OTIVAR"
+    },
+    {
+      "value": "OTURA",
+      "label": "OTURA"
+    },
+    {
+      "value": "PADUL",
+      "label": "PADUL"
+    },
+    {
+      "value": "PAMPANEIRA",
+      "label": "PAMPANEIRA"
+    },
+    {
+      "value": "PEDRO MARTIN",
+      "label": "PEDRO MARTIN"
+    },
+    {
+      "value": "PELIGROS",
+      "label": "PELIGROS"
+    },
+    {
+      "value": "PEZA",
+      "label": "PEZA"
+    },
+    {
+      "value": "PINOS GENIL",
+      "label": "PINOS GENIL"
+    },
+    {
+      "value": "PINOS PUENTE",
+      "label": "PINOS PUENTE"
+    },
+    {
+      "value": "PIÑAR",
+      "label": "PIÑAR"
+    },
+    {
+      "value": "POLICAR",
+      "label": "POLICAR"
+    },
+    {
+      "value": "POLOPOS",
+      "label": "POLOPOS"
+    },
+    {
+      "value": "PORTUGOS",
+      "label": "PORTUGOS"
+    },
+    {
+      "value": "PUEBLA D FAD",
+      "label": "PUEBLA D FAD"
+    },
+    {
+      "value": "PULIANAS",
+      "label": "PULIANAS"
+    },
+    {
+      "value": "PURULLENA",
+      "label": "PURULLENA"
+    },
+    {
+      "value": "QUENTAR",
+      "label": "QUENTAR"
+    },
+    {
+      "value": "RUBITE",
+      "label": "RUBITE"
+    },
+    {
+      "value": "SALAR",
+      "label": "SALAR"
+    },
+    {
+      "value": "SALOBREÑA",
+      "label": "SALOBREÑA"
+    },
+    {
+      "value": "SANTAFE",
+      "label": "SANTAFE"
+    },
+    {
+      "value": "SOPORTUJAR",
+      "label": "SOPORTUJAR"
+    },
+    {
+      "value": "SORVILAN",
+      "label": "SORVILAN"
+    },
+    {
+      "value": "ST CRUZ COME",
+      "label": "ST CRUZ COME"
+    },
+    {
+      "value": "TORRE CARDEL",
+      "label": "TORRE CARDEL"
+    },
+    {
+      "value": "TORRENUEVA COSTA",
+      "label": "TORRENUEVA COSTA"
+    },
+    {
+      "value": "TORVIZCON",
+      "label": "TORVIZCON"
+    },
+    {
+      "value": "TREVELEZ",
+      "label": "TREVELEZ"
+    },
+    {
+      "value": "TURON",
+      "label": "TURON"
+    },
+    {
+      "value": "UGIJAR",
+      "label": "UGIJAR"
+    },
+    {
+      "value": "VALDERRUBIO",
+      "label": "VALDERRUBIO"
+    },
+    {
+      "value": "VALLE ZALABI",
+      "label": "VALLE ZALABI"
+    },
+    {
+      "value": "VALOR",
+      "label": "VALOR"
+    },
+    {
+      "value": "VEGAS GENIL",
+      "label": "VEGAS GENIL"
+    },
+    {
+      "value": "VELEZ BENAUD",
+      "label": "VELEZ BENAUD"
+    },
+    {
+      "value": "VENTAS HUELM",
+      "label": "VENTAS HUELM"
+    },
+    {
+      "value": "VILLAMENA",
+      "label": "VILLAMENA"
+    },
+    {
+      "value": "VILLANUE MES",
+      "label": "VILLANUE MES"
+    },
+    {
+      "value": "VILLANUE TOR",
+      "label": "VILLANUE TOR"
+    },
+    {
+      "value": "VIZNAR",
+      "label": "VIZNAR"
+    },
+    {
+      "value": "ZAFARRAYA",
+      "label": "ZAFARRAYA"
+    },
+    {
+      "value": "ZAGRA",
+      "label": "ZAGRA"
+    },
+    {
+      "value": "ZUBIA",
+      "label": "ZUBIA"
+    },
+    {
+      "value": "ZUJAR",
+      "label": "ZUJAR"
+    }
+  ],
+  "HUELVA": [
+    {
+      "value": "ALAJAR",
+      "label": "ALAJAR"
+    },
+    {
+      "value": "ALJARAQUE",
+      "label": "ALJARAQUE"
+    },
+    {
+      "value": "ALMENDRO EL",
+      "label": "ALMENDRO EL"
+    },
+    {
+      "value": "ALMONASTER R",
+      "label": "ALMONASTER R"
+    },
+    {
+      "value": "ALMONTE",
+      "label": "ALMONTE"
+    },
+    {
+      "value": "ALOSNO",
+      "label": "ALOSNO"
+    },
+    {
+      "value": "ARACENA",
+      "label": "ARACENA"
+    },
+    {
+      "value": "AROCHE",
+      "label": "AROCHE"
+    },
+    {
+      "value": "ARROYOMOLINO",
+      "label": "ARROYOMOLINO"
+    },
+    {
+      "value": "AYAMONTE",
+      "label": "AYAMONTE"
+    },
+    {
+      "value": "BEAS",
+      "label": "BEAS"
+    },
+    {
+      "value": "BERROCAL",
+      "label": "BERROCAL"
+    },
+    {
+      "value": "BOLLULLOS CD",
+      "label": "BOLLULLOS CD"
+    },
+    {
+      "value": "BONARES",
+      "label": "BONARES"
+    },
+    {
+      "value": "CABEZAS RUBI",
+      "label": "CABEZAS RUBI"
+    },
+    {
+      "value": "CALA",
+      "label": "CALA"
+    },
+    {
+      "value": "CALAÑAS",
+      "label": "CALAÑAS"
+    },
+    {
+      "value": "CAMPILLO EL",
+      "label": "CAMPILLO EL"
+    },
+    {
+      "value": "CAMPOFRIO",
+      "label": "CAMPOFRIO"
+    },
+    {
+      "value": "CARTAYA",
+      "label": "CARTAYA"
+    },
+    {
+      "value": "CASTAÑO ROBL",
+      "label": "CASTAÑO ROBL"
+    },
+    {
+      "value": "CAÑAVERAL LE",
+      "label": "CAÑAVERAL LE"
+    },
+    {
+      "value": "CERRO ANDEVA",
+      "label": "CERRO ANDEVA"
+    },
+    {
+      "value": "CHUCENA",
+      "label": "CHUCENA"
+    },
+    {
+      "value": "CORTECONCEPC",
+      "label": "CORTECONCEPC"
+    },
+    {
+      "value": "CORTEGANA",
+      "label": "CORTEGANA"
+    },
+    {
+      "value": "CORTELAZOR",
+      "label": "CORTELAZOR"
+    },
+    {
+      "value": "CUMBRES DE E",
+      "label": "CUMBRES DE E"
+    },
+    {
+      "value": "CUMBRES MAYO",
+      "label": "CUMBRES MAYO"
+    },
+    {
+      "value": "CUMBRES S BA",
+      "label": "CUMBRES S BA"
+    },
+    {
+      "value": "ENCINASOLA",
+      "label": "ENCINASOLA"
+    },
+    {
+      "value": "ESCACENA CAM",
+      "label": "ESCACENA CAM"
+    },
+    {
+      "value": "FUENTEHERIDO",
+      "label": "FUENTEHERIDO"
+    },
+    {
+      "value": "GALAROZA",
+      "label": "GALAROZA"
+    },
+    {
+      "value": "GIBRALEON",
+      "label": "GIBRALEON"
+    },
+    {
+      "value": "GRANADA RIOT",
+      "label": "GRANADA RIOT"
+    },
+    {
+      "value": "GRANADO EL",
+      "label": "GRANADO EL"
+    },
+    {
+      "value": "HIGUERA SIER",
+      "label": "HIGUERA SIER"
+    },
+    {
+      "value": "HINOJALES",
+      "label": "HINOJALES"
+    },
+    {
+      "value": "HINOJOS",
+      "label": "HINOJOS"
+    },
+    {
+      "value": "HUELVA",
+      "label": "HUELVA"
+    },
+    {
+      "value": "ISLA CRISTIN",
+      "label": "ISLA CRISTIN"
+    },
+    {
+      "value": "JABUGO",
+      "label": "JABUGO"
+    },
+    {
+      "value": "LEPE",
+      "label": "LEPE"
+    },
+    {
+      "value": "LINARES SIER",
+      "label": "LINARES SIER"
+    },
+    {
+      "value": "LUCENA PUERT",
+      "label": "LUCENA PUERT"
+    },
+    {
+      "value": "MANZANILLA",
+      "label": "MANZANILLA"
+    },
+    {
+      "value": "MARINES LOS",
+      "label": "MARINES LOS"
+    },
+    {
+      "value": "MINAS RIOTIN",
+      "label": "MINAS RIOTIN"
+    },
+    {
+      "value": "MOGUER",
+      "label": "MOGUER"
+    },
+    {
+      "value": "NAVA LA",
+      "label": "NAVA LA"
+    },
+    {
+      "value": "NERVA",
+      "label": "NERVA"
+    },
+    {
+      "value": "NIEBLA",
+      "label": "NIEBLA"
+    },
+    {
+      "value": "PALMA CDO LA",
+      "label": "PALMA CDO LA"
+    },
+    {
+      "value": "PALOS FTRA",
+      "label": "PALOS FTRA"
+    },
+    {
+      "value": "PATERNA CAMP",
+      "label": "PATERNA CAMP"
+    },
+    {
+      "value": "PAYMOGO",
+      "label": "PAYMOGO"
+    },
+    {
+      "value": "PUEBLA GUZMA",
+      "label": "PUEBLA GUZMA"
+    },
+    {
+      "value": "PUERTO MORAL",
+      "label": "PUERTO MORAL"
+    },
+    {
+      "value": "PUNTA UMBRIA",
+      "label": "PUNTA UMBRIA"
+    },
+    {
+      "value": "ROCIANA CDO",
+      "label": "ROCIANA CDO"
+    },
+    {
+      "value": "ROSAL FTRA",
+      "label": "ROSAL FTRA"
+    },
+    {
+      "value": "S JUAN PTO",
+      "label": "S JUAN PTO"
+    },
+    {
+      "value": "S SILVESTRE",
+      "label": "S SILVESTRE"
+    },
+    {
+      "value": "SAN BARTOLOM",
+      "label": "SAN BARTOLOM"
+    },
+    {
+      "value": "SANLUCAR GUA",
+      "label": "SANLUCAR GUA"
+    },
+    {
+      "value": "ST ANA REAL",
+      "label": "ST ANA REAL"
+    },
+    {
+      "value": "ST BARBARA C",
+      "label": "ST BARBARA C"
+    },
+    {
+      "value": "ST OLALLA CA",
+      "label": "ST OLALLA CA"
+    },
+    {
+      "value": "TRIGUEROS",
+      "label": "TRIGUEROS"
+    },
+    {
+      "value": "VALDELARCO",
+      "label": "VALDELARCO"
+    },
+    {
+      "value": "VALVERDE CNO",
+      "label": "VALVERDE CNO"
+    },
+    {
+      "value": "VILLABLANCA",
+      "label": "VILLABLANCA"
+    },
+    {
+      "value": "VILLALBA ALC",
+      "label": "VILLALBA ALC"
+    },
+    {
+      "value": "VILLANUE CAS",
+      "label": "VILLANUE CAS"
+    },
+    {
+      "value": "VILLANUE CRU",
+      "label": "VILLANUE CRU"
+    },
+    {
+      "value": "VILLARRASA",
+      "label": "VILLARRASA"
+    },
+    {
+      "value": "ZALAMEA LA R",
+      "label": "ZALAMEA LA R"
+    },
+    {
+      "value": "ZARZA-PERRUNAL (LA)",
+      "label": "ZARZA-PERRUNAL (LA)"
+    },
+    {
+      "value": "ZUFRE",
+      "label": "ZUFRE"
+    }
+  ],
+  "JAÉN": [
+    {
+      "value": "ALBANCHEZ MA",
+      "label": "ALBANCHEZ MA"
+    },
+    {
+      "value": "ALCALA REAL",
+      "label": "ALCALA REAL"
+    },
+    {
+      "value": "ALCAUDETE",
+      "label": "ALCAUDETE"
+    },
+    {
+      "value": "ALDEAQUEMADA",
+      "label": "ALDEAQUEMADA"
+    },
+    {
+      "value": "ANDUJAR",
+      "label": "ANDUJAR"
+    },
+    {
+      "value": "ARJONA",
+      "label": "ARJONA"
+    },
+    {
+      "value": "ARJONILLA",
+      "label": "ARJONILLA"
+    },
+    {
+      "value": "ARQUILLOS",
+      "label": "ARQUILLOS"
+    },
+    {
+      "value": "ARROYO OJANC",
+      "label": "ARROYO OJANC"
+    },
+    {
+      "value": "BAEZA",
+      "label": "BAEZA"
+    },
+    {
+      "value": "BAILEN",
+      "label": "BAILEN"
+    },
+    {
+      "value": "BAÑOS ENCINA",
+      "label": "BAÑOS ENCINA"
+    },
+    {
+      "value": "BEAS SEGURA",
+      "label": "BEAS SEGURA"
+    },
+    {
+      "value": "BEDMAR-GARCI",
+      "label": "BEDMAR-GARCI"
+    },
+    {
+      "value": "BEGIJAR",
+      "label": "BEGIJAR"
+    },
+    {
+      "value": "BELMEZ MORAL",
+      "label": "BELMEZ MORAL"
+    },
+    {
+      "value": "BENATAE",
+      "label": "BENATAE"
+    },
+    {
+      "value": "CABRA ST CRI",
+      "label": "CABRA ST CRI"
+    },
+    {
+      "value": "CAMBIL",
+      "label": "CAMBIL"
+    },
+    {
+      "value": "CAMPILLO ARE",
+      "label": "CAMPILLO ARE"
+    },
+    {
+      "value": "CANENA",
+      "label": "CANENA"
+    },
+    {
+      "value": "CARBONEROS",
+      "label": "CARBONEROS"
+    },
+    {
+      "value": "CARCHEL",
+      "label": "CARCHEL"
+    },
+    {
+      "value": "CARCHELES",
+      "label": "CARCHELES"
+    },
+    {
+      "value": "CAROLINA",
+      "label": "CAROLINA"
+    },
+    {
+      "value": "CASTELLAR",
+      "label": "CASTELLAR"
+    },
+    {
+      "value": "CASTILLO LOC",
+      "label": "CASTILLO LOC"
+    },
+    {
+      "value": "CAZALILLA",
+      "label": "CAZALILLA"
+    },
+    {
+      "value": "CAZORLA",
+      "label": "CAZORLA"
+    },
+    {
+      "value": "CHICLANA SEG",
+      "label": "CHICLANA SEG"
+    },
+    {
+      "value": "CHILLUEVAR",
+      "label": "CHILLUEVAR"
+    },
+    {
+      "value": "ESCAÑUELA",
+      "label": "ESCAÑUELA"
+    },
+    {
+      "value": "ESPELUY",
+      "label": "ESPELUY"
+    },
+    {
+      "value": "FRAILES",
+      "label": "FRAILES"
+    },
+    {
+      "value": "FUENSANTA MA",
+      "label": "FUENSANTA MA"
+    },
+    {
+      "value": "FUERTE REY",
+      "label": "FUERTE REY"
+    },
+    {
+      "value": "GARCIEZ",
+      "label": "GARCIEZ"
+    },
+    {
+      "value": "GENAVE",
+      "label": "GENAVE"
+    },
+    {
+      "value": "GUARDIA JAEN",
+      "label": "GUARDIA JAEN"
+    },
+    {
+      "value": "GUARROMAN",
+      "label": "GUARROMAN"
+    },
+    {
+      "value": "HIGUERA CALA",
+      "label": "HIGUERA CALA"
+    },
+    {
+      "value": "HINOJARES",
+      "label": "HINOJARES"
+    },
+    {
+      "value": "HORNOS",
+      "label": "HORNOS"
+    },
+    {
+      "value": "HUELMA-SOLER",
+      "label": "HUELMA-SOLER"
+    },
+    {
+      "value": "HUESA",
+      "label": "HUESA"
+    },
+    {
+      "value": "IBROS",
+      "label": "IBROS"
+    },
+    {
+      "value": "IRUELA",
+      "label": "IRUELA"
+    },
+    {
+      "value": "IZNATORAF",
+      "label": "IZNATORAF"
+    },
+    {
+      "value": "JABALQUINTO",
+      "label": "JABALQUINTO"
+    },
+    {
+      "value": "JAEN",
+      "label": "JAEN"
+    },
+    {
+      "value": "JAMILENA",
+      "label": "JAMILENA"
+    },
+    {
+      "value": "JIMENA",
+      "label": "JIMENA"
+    },
+    {
+      "value": "JODAR",
+      "label": "JODAR"
+    },
+    {
+      "value": "LAHIGUERA",
+      "label": "LAHIGUERA"
+    },
+    {
+      "value": "LARVA",
+      "label": "LARVA"
+    },
+    {
+      "value": "LINARES",
+      "label": "LINARES"
+    },
+    {
+      "value": "LOPERA",
+      "label": "LOPERA"
+    },
+    {
+      "value": "LUPION",
+      "label": "LUPION"
+    },
+    {
+      "value": "MANCHA REAL",
+      "label": "MANCHA REAL"
+    },
+    {
+      "value": "MARMOLEJO",
+      "label": "MARMOLEJO"
+    },
+    {
+      "value": "MARTOS",
+      "label": "MARTOS"
+    },
+    {
+      "value": "MENGIBAR",
+      "label": "MENGIBAR"
+    },
+    {
+      "value": "MONTIZON",
+      "label": "MONTIZON"
+    },
+    {
+      "value": "NAVAS S JUAN",
+      "label": "NAVAS S JUAN"
+    },
+    {
+      "value": "NOALEJO",
+      "label": "NOALEJO"
+    },
+    {
+      "value": "ORCERA",
+      "label": "ORCERA"
+    },
+    {
+      "value": "PEAL BECERRO",
+      "label": "PEAL BECERRO"
+    },
+    {
+      "value": "PEGALAJAR",
+      "label": "PEGALAJAR"
+    },
+    {
+      "value": "PONTONES",
+      "label": "PONTONES"
+    },
+    {
+      "value": "PORCUNA",
+      "label": "PORCUNA"
+    },
+    {
+      "value": "POZO ALCON",
+      "label": "POZO ALCON"
+    },
+    {
+      "value": "PUENTE GENAV",
+      "label": "PUENTE GENAV"
+    },
+    {
+      "value": "PUERTA SEGUR",
+      "label": "PUERTA SEGUR"
+    },
+    {
+      "value": "QUESADA",
+      "label": "QUESADA"
+    },
+    {
+      "value": "RUS",
+      "label": "RUS"
+    },
+    {
+      "value": "SABIOTE",
+      "label": "SABIOTE"
+    },
+    {
+      "value": "SANTIAGO CAL",
+      "label": "SANTIAGO CAL"
+    },
+    {
+      "value": "SANTISTEBAN",
+      "label": "SANTISTEBAN"
+    },
+    {
+      "value": "SEGURA SIERR",
+      "label": "SEGURA SIERR"
+    },
+    {
+      "value": "SILES",
+      "label": "SILES"
+    },
+    {
+      "value": "SOLERA",
+      "label": "SOLERA"
+    },
+    {
+      "value": "SORIHUELA GU",
+      "label": "SORIHUELA GU"
+    },
+    {
+      "value": "ST ELENA",
+      "label": "ST ELENA"
+    },
+    {
+      "value": "ST TOME",
+      "label": "ST TOME"
+    },
+    {
+      "value": "STGO-PONTONE",
+      "label": "STGO-PONTONE"
+    },
+    {
+      "value": "TORREBLASCOP",
+      "label": "TORREBLASCOP"
+    },
+    {
+      "value": "TORREDELCAMP",
+      "label": "TORREDELCAMP"
+    },
+    {
+      "value": "TORREDONJIME",
+      "label": "TORREDONJIME"
+    },
+    {
+      "value": "TORREPEROGIL",
+      "label": "TORREPEROGIL"
+    },
+    {
+      "value": "TORREQUEBRAD",
+      "label": "TORREQUEBRAD"
+    },
+    {
+      "value": "TORRES",
+      "label": "TORRES"
+    },
+    {
+      "value": "TORRES ALBAN",
+      "label": "TORRES ALBAN"
+    },
+    {
+      "value": "UBEDA",
+      "label": "UBEDA"
+    },
+    {
+      "value": "VALDEPEÑAS J",
+      "label": "VALDEPEÑAS J"
+    },
+    {
+      "value": "VILCHES",
+      "label": "VILCHES"
+    },
+    {
+      "value": "VILLACARRILL",
+      "label": "VILLACARRILL"
+    },
+    {
+      "value": "VILLANUE ARZ",
+      "label": "VILLANUE ARZ"
+    },
+    {
+      "value": "VILLANUE REI",
+      "label": "VILLANUE REI"
+    },
+    {
+      "value": "VILLARDOMPAR",
+      "label": "VILLARDOMPAR"
+    },
+    {
+      "value": "VILLARES",
+      "label": "VILLARES"
+    },
+    {
+      "value": "VILLARRODRI",
+      "label": "VILLARRODRI"
+    },
+    {
+      "value": "VILLATORRES",
+      "label": "VILLATORRES"
+    }
+  ],
+  "MÁLAGA": [
+    {
+      "value": "ALAMEDA",
+      "label": "ALAMEDA"
+    },
+    {
+      "value": "ALCAUCIN",
+      "label": "ALCAUCIN"
+    },
+    {
+      "value": "ALFARNATE",
+      "label": "ALFARNATE"
+    },
+    {
+      "value": "ALFARNATEJO",
+      "label": "ALFARNATEJO"
+    },
+    {
+      "value": "ALGARROBO",
+      "label": "ALGARROBO"
+    },
+    {
+      "value": "ALGATOCIN",
+      "label": "ALGATOCIN"
+    },
+    {
+      "value": "ALHAURIN GRA",
+      "label": "ALHAURIN GRA"
+    },
+    {
+      "value": "ALHAURIN TOR",
+      "label": "ALHAURIN TOR"
+    },
+    {
+      "value": "ALMACHAR",
+      "label": "ALMACHAR"
+    },
+    {
+      "value": "ALMARGEN",
+      "label": "ALMARGEN"
+    },
+    {
+      "value": "ALMOGIA",
+      "label": "ALMOGIA"
+    },
+    {
+      "value": "ALORA",
+      "label": "ALORA"
+    },
+    {
+      "value": "ALOZAINA",
+      "label": "ALOZAINA"
+    },
+    {
+      "value": "ALPANDEIRE",
+      "label": "ALPANDEIRE"
+    },
+    {
+      "value": "ANTEQUERA",
+      "label": "ANTEQUERA"
+    },
+    {
+      "value": "ARCHEZ",
+      "label": "ARCHEZ"
+    },
+    {
+      "value": "ARCHIDONA",
+      "label": "ARCHIDONA"
+    },
+    {
+      "value": "ARDALES",
+      "label": "ARDALES"
+    },
+    {
+      "value": "ARENAS",
+      "label": "ARENAS"
+    },
+    {
+      "value": "ARRIATE",
+      "label": "ARRIATE"
+    },
+    {
+      "value": "ATAJATE",
+      "label": "ATAJATE"
+    },
+    {
+      "value": "BENADALID",
+      "label": "BENADALID"
+    },
+    {
+      "value": "BENAHAVIS",
+      "label": "BENAHAVIS"
+    },
+    {
+      "value": "BENALAURIA",
+      "label": "BENALAURIA"
+    },
+    {
+      "value": "BENALMADENA",
+      "label": "BENALMADENA"
+    },
+    {
+      "value": "BENAMARGOSA",
+      "label": "BENAMARGOSA"
+    },
+    {
+      "value": "BENAMOCARRA",
+      "label": "BENAMOCARRA"
+    },
+    {
+      "value": "BENAOJAN",
+      "label": "BENAOJAN"
+    },
+    {
+      "value": "BENARRABA",
+      "label": "BENARRABA"
+    },
+    {
+      "value": "BORGE",
+      "label": "BORGE"
+    },
+    {
+      "value": "BURGO",
+      "label": "BURGO"
+    },
+    {
+      "value": "CAMPILLOS",
+      "label": "CAMPILLOS"
+    },
+    {
+      "value": "CAN ACEITUNO",
+      "label": "CAN ACEITUNO"
+    },
+    {
+      "value": "CAN ALBAIDA",
+      "label": "CAN ALBAIDA"
+    },
+    {
+      "value": "CARRATRACA",
+      "label": "CARRATRACA"
+    },
+    {
+      "value": "CARTAJIMA",
+      "label": "CARTAJIMA"
+    },
+    {
+      "value": "CARTAMA",
+      "label": "CARTAMA"
+    },
+    {
+      "value": "CASABERMEJA",
+      "label": "CASABERMEJA"
+    },
+    {
+      "value": "CASARABONELA",
+      "label": "CASARABONELA"
+    },
+    {
+      "value": "CASARES",
+      "label": "CASARES"
+    },
+    {
+      "value": "CAÑETE REAL",
+      "label": "CAÑETE REAL"
+    },
+    {
+      "value": "COIN",
+      "label": "COIN"
+    },
+    {
+      "value": "COLMENAR",
+      "label": "COLMENAR"
+    },
+    {
+      "value": "COMARES",
+      "label": "COMARES"
+    },
+    {
+      "value": "COMPETA",
+      "label": "COMPETA"
+    },
+    {
+      "value": "CORTES FRONT",
+      "label": "CORTES FRONT"
+    },
+    {
+      "value": "CUEVAS BAJAS",
+      "label": "CUEVAS BAJAS"
+    },
+    {
+      "value": "CUEVAS BECER",
+      "label": "CUEVAS BECER"
+    },
+    {
+      "value": "CUEVAS S MAR",
+      "label": "CUEVAS S MAR"
+    },
+    {
+      "value": "CUTAR",
+      "label": "CUTAR"
+    },
+    {
+      "value": "ESTEPONA",
+      "label": "ESTEPONA"
+    },
+    {
+      "value": "FARAJAN",
+      "label": "FARAJAN"
+    },
+    {
+      "value": "FRIGILIANA",
+      "label": "FRIGILIANA"
+    },
+    {
+      "value": "FUENGIROLA",
+      "label": "FUENGIROLA"
+    },
+    {
+      "value": "FUENTE PIEDR",
+      "label": "FUENTE PIEDR"
+    },
+    {
+      "value": "GAUCIN",
+      "label": "GAUCIN"
+    },
+    {
+      "value": "GENALGUACIL",
+      "label": "GENALGUACIL"
+    },
+    {
+      "value": "GUARO",
+      "label": "GUARO"
+    },
+    {
+      "value": "HUMILLADERO",
+      "label": "HUMILLADERO"
+    },
+    {
+      "value": "IGUALEJA",
+      "label": "IGUALEJA"
+    },
+    {
+      "value": "ISTAN",
+      "label": "ISTAN"
+    },
+    {
+      "value": "IZNATE",
+      "label": "IZNATE"
+    },
+    {
+      "value": "JIMERA LIBAR",
+      "label": "JIMERA LIBAR"
+    },
+    {
+      "value": "JUBRIQUE",
+      "label": "JUBRIQUE"
+    },
+    {
+      "value": "JUZCAR",
+      "label": "JUZCAR"
+    },
+    {
+      "value": "MACHARAVIALL",
+      "label": "MACHARAVIALL"
+    },
+    {
+      "value": "MALAGA",
+      "label": "MALAGA"
+    },
+    {
+      "value": "MANILVA",
+      "label": "MANILVA"
+    },
+    {
+      "value": "MARBELLA",
+      "label": "MARBELLA"
+    },
+    {
+      "value": "MIJAS",
+      "label": "MIJAS"
+    },
+    {
+      "value": "MOCLINEJO",
+      "label": "MOCLINEJO"
+    },
+    {
+      "value": "MOLLINA",
+      "label": "MOLLINA"
+    },
+    {
+      "value": "MONDA",
+      "label": "MONDA"
+    },
+    {
+      "value": "MONTECORTO",
+      "label": "MONTECORTO"
+    },
+    {
+      "value": "MONTEJAQUE",
+      "label": "MONTEJAQUE"
+    },
+    {
+      "value": "NERJA",
+      "label": "NERJA"
+    },
+    {
+      "value": "OJEN",
+      "label": "OJEN"
+    },
+    {
+      "value": "PARAUTA",
+      "label": "PARAUTA"
+    },
+    {
+      "value": "PERIANA",
+      "label": "PERIANA"
+    },
+    {
+      "value": "PEÑARRUBIA",
+      "label": "PEÑARRUBIA"
+    },
+    {
+      "value": "PIZARRA",
+      "label": "PIZARRA"
+    },
+    {
+      "value": "PUJERRA",
+      "label": "PUJERRA"
+    },
+    {
+      "value": "RINCON VICTO",
+      "label": "RINCON VICTO"
+    },
+    {
+      "value": "RIOGORDO",
+      "label": "RIOGORDO"
+    },
+    {
+      "value": "RONDA",
+      "label": "RONDA"
+    },
+    {
+      "value": "SALARES",
+      "label": "SALARES"
+    },
+    {
+      "value": "SAYALONGA",
+      "label": "SAYALONGA"
+    },
+    {
+      "value": "SEDELLA",
+      "label": "SEDELLA"
+    },
+    {
+      "value": "SERRATO",
+      "label": "SERRATO"
+    },
+    {
+      "value": "SIERRA YEGUA",
+      "label": "SIERRA YEGUA"
+    },
+    {
+      "value": "TEBA",
+      "label": "TEBA"
+    },
+    {
+      "value": "TOLOX",
+      "label": "TOLOX"
+    },
+    {
+      "value": "TORREMOLINOS",
+      "label": "TORREMOLINOS"
+    },
+    {
+      "value": "TORROX",
+      "label": "TORROX"
+    },
+    {
+      "value": "TOTALAN",
+      "label": "TOTALAN"
+    },
+    {
+      "value": "VALLE ABDALA",
+      "label": "VALLE ABDALA"
+    },
+    {
+      "value": "VELEZ-MALAGA",
+      "label": "VELEZ-MALAGA"
+    },
+    {
+      "value": "VIÑUELA",
+      "label": "VIÑUELA"
+    },
+    {
+      "value": "VVA ALGAIDAS",
+      "label": "VVA ALGAIDAS"
+    },
+    {
+      "value": "VVA CONCEPCION",
+      "label": "VVA CONCEPCION"
+    },
+    {
+      "value": "VVA DE TAPIA",
+      "label": "VVA DE TAPIA"
+    },
+    {
+      "value": "VVA ROSARIO",
+      "label": "VVA ROSARIO"
+    },
+    {
+      "value": "VVA TRABUCO",
+      "label": "VVA TRABUCO"
+    },
+    {
+      "value": "YUNQUERA",
+      "label": "YUNQUERA"
+    }
+  ],
+  "SEVILLA": [
+    {
+      "value": "AGUADULCE",
+      "label": "AGUADULCE"
+    },
+    {
+      "value": "ALANIS",
+      "label": "ALANIS"
+    },
+    {
+      "value": "ALBAIDA ALJA",
+      "label": "ALBAIDA ALJA"
+    },
+    {
+      "value": "ALCALA GUADA",
+      "label": "ALCALA GUADA"
+    },
+    {
+      "value": "ALCALA RIO",
+      "label": "ALCALA RIO"
+    },
+    {
+      "value": "ALCOLEA RIO",
+      "label": "ALCOLEA RIO"
+    },
+    {
+      "value": "ALGAMITAS",
+      "label": "ALGAMITAS"
+    },
+    {
+      "value": "ALMADEN PLAT",
+      "label": "ALMADEN PLAT"
+    },
+    {
+      "value": "ALMENSILLA",
+      "label": "ALMENSILLA"
+    },
+    {
+      "value": "ARAHAL",
+      "label": "ARAHAL"
+    },
+    {
+      "value": "AZNALCAZAR",
+      "label": "AZNALCAZAR"
+    },
+    {
+      "value": "AZNALCOLLAR",
+      "label": "AZNALCOLLAR"
+    },
+    {
+      "value": "BADOLATOSA",
+      "label": "BADOLATOSA"
+    },
+    {
+      "value": "BENACAZON",
+      "label": "BENACAZON"
+    },
+    {
+      "value": "BOLLULLOS MI",
+      "label": "BOLLULLOS MI"
+    },
+    {
+      "value": "BORMUJOS",
+      "label": "BORMUJOS"
+    },
+    {
+      "value": "BRENES",
+      "label": "BRENES"
+    },
+    {
+      "value": "BURGUILLOS",
+      "label": "BURGUILLOS"
+    },
+    {
+      "value": "CABEZAS S JU",
+      "label": "CABEZAS S JU"
+    },
+    {
+      "value": "CAMAS",
+      "label": "CAMAS"
+    },
+    {
+      "value": "CANTILLANA",
+      "label": "CANTILLANA"
+    },
+    {
+      "value": "CARMONA",
+      "label": "CARMONA"
+    },
+    {
+      "value": "CARRION CESP",
+      "label": "CARRION CESP"
+    },
+    {
+      "value": "CASARICHE",
+      "label": "CASARICHE"
+    },
+    {
+      "value": "CASTILBLANCO",
+      "label": "CASTILBLANCO"
+    },
+    {
+      "value": "CASTILLE CAM",
+      "label": "CASTILLE CAM"
+    },
+    {
+      "value": "CASTILLE CUE",
+      "label": "CASTILLE CUE"
+    },
+    {
+      "value": "CASTILLE GUZ",
+      "label": "CASTILLE GUZ"
+    },
+    {
+      "value": "CASTILLO GUA",
+      "label": "CASTILLO GUA"
+    },
+    {
+      "value": "CAZALLA SIER",
+      "label": "CAZALLA SIER"
+    },
+    {
+      "value": "CAÑADA ROSAL",
+      "label": "CAÑADA ROSAL"
+    },
+    {
+      "value": "CONSTANTINA",
+      "label": "CONSTANTINA"
+    },
+    {
+      "value": "CORIA RIO",
+      "label": "CORIA RIO"
+    },
+    {
+      "value": "CORIPE",
+      "label": "CORIPE"
+    },
+    {
+      "value": "DOS HERMANAS",
+      "label": "DOS HERMANAS"
+    },
+    {
+      "value": "ECIJA",
+      "label": "ECIJA"
+    },
+    {
+      "value": "EL CORONIL",
+      "label": "EL CORONIL"
+    },
+    {
+      "value": "EL CUERVO",
+      "label": "EL CUERVO"
+    },
+    {
+      "value": "EL GARROBO",
+      "label": "EL GARROBO"
+    },
+    {
+      "value": "EL PEDROSO",
+      "label": "EL PEDROSO"
+    },
+    {
+      "value": "EL REAL JARA",
+      "label": "EL REAL JARA"
+    },
+    {
+      "value": "EL RONQUILLO",
+      "label": "EL RONQUILLO"
+    },
+    {
+      "value": "EL RUBIO",
+      "label": "EL RUBIO"
+    },
+    {
+      "value": "EL SAUCEJO",
+      "label": "EL SAUCEJO"
+    },
+    {
+      "value": "EL VISO",
+      "label": "EL VISO"
+    },
+    {
+      "value": "ESPARTINAS",
+      "label": "ESPARTINAS"
+    },
+    {
+      "value": "ESTEPA",
+      "label": "ESTEPA"
+    },
+    {
+      "value": "FUENTES ANDA",
+      "label": "FUENTES ANDA"
+    },
+    {
+      "value": "GELVES",
+      "label": "GELVES"
+    },
+    {
+      "value": "GERENA",
+      "label": "GERENA"
+    },
+    {
+      "value": "GILENA",
+      "label": "GILENA"
+    },
+    {
+      "value": "GINES",
+      "label": "GINES"
+    },
+    {
+      "value": "GUADALCANAL",
+      "label": "GUADALCANAL"
+    },
+    {
+      "value": "GUILLENA",
+      "label": "GUILLENA"
+    },
+    {
+      "value": "HERRERA",
+      "label": "HERRERA"
+    },
+    {
+      "value": "HUEVAR",
+      "label": "HUEVAR"
+    },
+    {
+      "value": "ISLA MAYOR",
+      "label": "ISLA MAYOR"
+    },
+    {
+      "value": "LA ALGABA",
+      "label": "LA ALGABA"
+    },
+    {
+      "value": "LA CAMPANA",
+      "label": "LA CAMPANA"
+    },
+    {
+      "value": "LA LANTEJUEL",
+      "label": "LA LANTEJUEL"
+    },
+    {
+      "value": "LA LUISIANA",
+      "label": "LA LUISIANA"
+    },
+    {
+      "value": "LA PUEBLA CA",
+      "label": "LA PUEBLA CA"
+    },
+    {
+      "value": "LA PUEBLA RI",
+      "label": "LA PUEBLA RI"
+    },
+    {
+      "value": "LA RINCONADA",
+      "label": "LA RINCONADA"
+    },
+    {
+      "value": "LA RODA AND",
+      "label": "LA RODA AND"
+    },
+    {
+      "value": "LEBRIJA",
+      "label": "LEBRIJA"
+    },
+    {
+      "value": "LORA ESTEPA",
+      "label": "LORA ESTEPA"
+    },
+    {
+      "value": "LORA RIO",
+      "label": "LORA RIO"
+    },
+    {
+      "value": "LOS CORRALES",
+      "label": "LOS CORRALES"
+    },
+    {
+      "value": "LOS MOLARES",
+      "label": "LOS MOLARES"
+    },
+    {
+      "value": "LOS PALACIOS",
+      "label": "LOS PALACIOS"
+    },
+    {
+      "value": "MADROÑO",
+      "label": "MADROÑO"
+    },
+    {
+      "value": "MAIRENA ALCO",
+      "label": "MAIRENA ALCO"
+    },
+    {
+      "value": "MAIRENA ALJA",
+      "label": "MAIRENA ALJA"
+    },
+    {
+      "value": "MARCHENA",
+      "label": "MARCHENA"
+    },
+    {
+      "value": "MARINALEDA",
+      "label": "MARINALEDA"
+    },
+    {
+      "value": "MARTIN JARA",
+      "label": "MARTIN JARA"
+    },
+    {
+      "value": "MONTELLANO",
+      "label": "MONTELLANO"
+    },
+    {
+      "value": "MORON FRONTE",
+      "label": "MORON FRONTE"
+    },
+    {
+      "value": "NAVAS CONCEP",
+      "label": "NAVAS CONCEP"
+    },
+    {
+      "value": "OLIVARES",
+      "label": "OLIVARES"
+    },
+    {
+      "value": "OSUNA",
+      "label": "OSUNA"
+    },
+    {
+      "value": "PALMAR DE TROYA (EL)",
+      "label": "PALMAR DE TROYA (EL)"
+    },
+    {
+      "value": "PALOMARES RI",
+      "label": "PALOMARES RI"
+    },
+    {
+      "value": "PARADAS",
+      "label": "PARADAS"
+    },
+    {
+      "value": "PEDRERA",
+      "label": "PEDRERA"
+    },
+    {
+      "value": "PEÑAFLOR",
+      "label": "PEÑAFLOR"
+    },
+    {
+      "value": "PILAS",
+      "label": "PILAS"
+    },
+    {
+      "value": "PRUNA",
+      "label": "PRUNA"
+    },
+    {
+      "value": "PUEBLA INFAN",
+      "label": "PUEBLA INFAN"
+    },
+    {
+      "value": "S JUAN AZNAL",
+      "label": "S JUAN AZNAL"
+    },
+    {
+      "value": "S NICOLAS PU",
+      "label": "S NICOLAS PU"
+    },
+    {
+      "value": "SALTERAS",
+      "label": "SALTERAS"
+    },
+    {
+      "value": "SANLUCAR MAY",
+      "label": "SANLUCAR MAY"
+    },
+    {
+      "value": "SANTIPONCE",
+      "label": "SANTIPONCE"
+    },
+    {
+      "value": "SEVILLA",
+      "label": "SEVILLA"
+    },
+    {
+      "value": "TOCINA",
+      "label": "TOCINA"
+    },
+    {
+      "value": "TOMARES",
+      "label": "TOMARES"
+    },
+    {
+      "value": "UMBRETE",
+      "label": "UMBRETE"
+    },
+    {
+      "value": "UTRERA",
+      "label": "UTRERA"
+    },
+    {
+      "value": "VALENCINA CO",
+      "label": "VALENCINA CO"
+    },
+    {
+      "value": "VILLAMANRIQU",
+      "label": "VILLAMANRIQU"
+    },
+    {
+      "value": "VILLANUE ARI",
+      "label": "VILLANUE ARI"
+    },
+    {
+      "value": "VILLANUE RIO",
+      "label": "VILLANUE RIO"
+    },
+    {
+      "value": "VILLANUE S J",
+      "label": "VILLANUE S J"
+    },
+    {
+      "value": "VILLAVERDE R",
+      "label": "VILLAVERDE R"
+    }
+  ],
+  "ALMERÍA": [
+    {
+      "value": "ABLA",
+      "label": "ABLA"
+    },
+    {
+      "value": "ABRUCENA",
+      "label": "ABRUCENA"
+    },
+    {
+      "value": "ADRA",
+      "label": "ADRA"
+    },
+    {
+      "value": "ALBANCHEZ",
+      "label": "ALBANCHEZ"
+    },
+    {
+      "value": "ALBOLODUY",
+      "label": "ALBOLODUY"
+    },
+    {
+      "value": "ALBOX",
+      "label": "ALBOX"
+    },
+    {
+      "value": "ALCOLEA",
+      "label": "ALCOLEA"
+    },
+    {
+      "value": "ALCONTAR",
+      "label": "ALCONTAR"
+    },
+    {
+      "value": "ALCUDIA MONT",
+      "label": "ALCUDIA MONT"
+    },
+    {
+      "value": "ALHABIA",
+      "label": "ALHABIA"
+    },
+    {
+      "value": "ALHAMA ALMER",
+      "label": "ALHAMA ALMER"
+    },
+    {
+      "value": "ALICUN",
+      "label": "ALICUN"
+    },
+    {
+      "value": "ALMERÍA",
+      "label": "ALMERÍA"
+    },
+    {
+      "value": "ALMOCITA",
+      "label": "ALMOCITA"
+    },
+    {
+      "value": "ALSODUX",
+      "label": "ALSODUX"
+    },
+    {
+      "value": "ANTAS",
+      "label": "ANTAS"
+    },
+    {
+      "value": "ARBOLEAS",
+      "label": "ARBOLEAS"
+    },
+    {
+      "value": "ARMUÑA ALMAN",
+      "label": "ARMUÑA ALMAN"
+    },
+    {
+      "value": "BACARES",
+      "label": "BACARES"
+    },
+    {
+      "value": "BALANEGRA",
+      "label": "BALANEGRA"
+    },
+    {
+      "value": "BAYARCAL",
+      "label": "BAYARCAL"
+    },
+    {
+      "value": "BAYARQUE",
+      "label": "BAYARQUE"
+    },
+    {
+      "value": "BEDAR",
+      "label": "BEDAR"
+    },
+    {
+      "value": "BEIRES",
+      "label": "BEIRES"
+    },
+    {
+      "value": "BENAHADUX",
+      "label": "BENAHADUX"
+    },
+    {
+      "value": "BENINAR",
+      "label": "BENINAR"
+    },
+    {
+      "value": "BENITAGLA",
+      "label": "BENITAGLA"
+    },
+    {
+      "value": "BENIZALON",
+      "label": "BENIZALON"
+    },
+    {
+      "value": "BENTARIQUE",
+      "label": "BENTARIQUE"
+    },
+    {
+      "value": "BERJA",
+      "label": "BERJA"
+    },
+    {
+      "value": "CANJAYAR",
+      "label": "CANJAYAR"
+    },
+    {
+      "value": "CANTORIA",
+      "label": "CANTORIA"
+    },
+    {
+      "value": "CARBONERAS",
+      "label": "CARBONERAS"
+    },
+    {
+      "value": "CASTRO FILAB",
+      "label": "CASTRO FILAB"
+    },
+    {
+      "value": "CHERCOS",
+      "label": "CHERCOS"
+    },
+    {
+      "value": "CHIRIVEL",
+      "label": "CHIRIVEL"
+    },
+    {
+      "value": "COBDAR",
+      "label": "COBDAR"
+    },
+    {
+      "value": "CUEVAS ALMAN",
+      "label": "CUEVAS ALMAN"
+    },
+    {
+      "value": "DALIAS",
+      "label": "DALIAS"
+    },
+    {
+      "value": "DARRICAL",
+      "label": "DARRICAL"
+    },
+    {
+      "value": "EJIDO EL",
+      "label": "EJIDO EL"
+    },
+    {
+      "value": "ENIX",
+      "label": "ENIX"
+    },
+    {
+      "value": "ESCULLAR",
+      "label": "ESCULLAR"
+    },
+    {
+      "value": "FELIX",
+      "label": "FELIX"
+    },
+    {
+      "value": "FINES",
+      "label": "FINES"
+    },
+    {
+      "value": "FIÑANA",
+      "label": "FIÑANA"
+    },
+    {
+      "value": "FONDON",
+      "label": "FONDON"
+    },
+    {
+      "value": "GADOR",
+      "label": "GADOR"
+    },
+    {
+      "value": "GALLARDOS",
+      "label": "GALLARDOS"
+    },
+    {
+      "value": "GARRUCHA",
+      "label": "GARRUCHA"
+    },
+    {
+      "value": "GERGAL",
+      "label": "GERGAL"
+    },
+    {
+      "value": "HUECIJA",
+      "label": "HUECIJA"
+    },
+    {
+      "value": "HUERCAL ALME",
+      "label": "HUERCAL ALME"
+    },
+    {
+      "value": "HUERCAL OVER",
+      "label": "HUERCAL OVER"
+    },
+    {
+      "value": "ILLAR",
+      "label": "ILLAR"
+    },
+    {
+      "value": "INSTINCION",
+      "label": "INSTINCION"
+    },
+    {
+      "value": "LAROYA",
+      "label": "LAROYA"
+    },
+    {
+      "value": "LAUJAR ANDAR",
+      "label": "LAUJAR ANDAR"
+    },
+    {
+      "value": "LIJAR",
+      "label": "LIJAR"
+    },
+    {
+      "value": "LUBRIN",
+      "label": "LUBRIN"
+    },
+    {
+      "value": "LUCAINENA TO",
+      "label": "LUCAINENA TO"
+    },
+    {
+      "value": "LUCAR",
+      "label": "LUCAR"
+    },
+    {
+      "value": "MACAEL",
+      "label": "MACAEL"
+    },
+    {
+      "value": "MARIA",
+      "label": "MARIA"
+    },
+    {
+      "value": "MOJACAR",
+      "label": "MOJACAR"
+    },
+    {
+      "value": "MOJONERA LA",
+      "label": "MOJONERA LA"
+    },
+    {
+      "value": "NACIMIENTO",
+      "label": "NACIMIENTO"
+    },
+    {
+      "value": "NIJAR",
+      "label": "NIJAR"
+    },
+    {
+      "value": "OHANES",
+      "label": "OHANES"
+    },
+    {
+      "value": "OLULA CASTRO",
+      "label": "OLULA CASTRO"
+    },
+    {
+      "value": "OLULA RIO",
+      "label": "OLULA RIO"
+    },
+    {
+      "value": "ORIA",
+      "label": "ORIA"
+    },
+    {
+      "value": "PADULES",
+      "label": "PADULES"
+    },
+    {
+      "value": "PARTALOA",
+      "label": "PARTALOA"
+    },
+    {
+      "value": "PATERNA RIO",
+      "label": "PATERNA RIO"
+    },
+    {
+      "value": "PECHINA",
+      "label": "PECHINA"
+    },
+    {
+      "value": "PULPI",
+      "label": "PULPI"
+    },
+    {
+      "value": "PURCHENA",
+      "label": "PURCHENA"
+    },
+    {
+      "value": "RAGOL",
+      "label": "RAGOL"
+    },
+    {
+      "value": "RIOJA",
+      "label": "RIOJA"
+    },
+    {
+      "value": "ROQUETAS MAR",
+      "label": "ROQUETAS MAR"
+    },
+    {
+      "value": "SANTA CRUZ DE MARCHENA",
+      "label": "SANTA CRUZ DE MARCHENA"
+    },
+    {
+      "value": "SENES",
+      "label": "SENES"
+    },
+    {
+      "value": "SERON",
+      "label": "SERON"
+    },
+    {
+      "value": "SIERRO",
+      "label": "SIERRO"
+    },
+    {
+      "value": "SOMONTIN",
+      "label": "SOMONTIN"
+    },
+    {
+      "value": "SORBAS",
+      "label": "SORBAS"
+    },
+    {
+      "value": "ST FE MONDUJ",
+      "label": "ST FE MONDUJ"
+    },
+    {
+      "value": "SUFLI",
+      "label": "SUFLI"
+    },
+    {
+      "value": "TABERNAS",
+      "label": "TABERNAS"
+    },
+    {
+      "value": "TABERNO",
+      "label": "TABERNO"
+    },
+    {
+      "value": "TAHAL",
+      "label": "TAHAL"
+    },
+    {
+      "value": "TERQUE",
+      "label": "TERQUE"
+    },
+    {
+      "value": "TIJOLA",
+      "label": "TIJOLA"
+    },
+    {
+      "value": "TRES VILLAS",
+      "label": "TRES VILLAS"
+    },
+    {
+      "value": "TURRE",
+      "label": "TURRE"
+    },
+    {
+      "value": "TURRILLAS",
+      "label": "TURRILLAS"
+    },
+    {
+      "value": "ULEILA CAMPO",
+      "label": "ULEILA CAMPO"
+    },
+    {
+      "value": "URRACAL",
+      "label": "URRACAL"
+    },
+    {
+      "value": "VELEFIQUE",
+      "label": "VELEFIQUE"
+    },
+    {
+      "value": "VELEZ BLANCO",
+      "label": "VELEZ BLANCO"
+    },
+    {
+      "value": "VELEZ RUBIO",
+      "label": "VELEZ RUBIO"
+    },
+    {
+      "value": "VERA",
+      "label": "VERA"
+    },
+    {
+      "value": "VIATOR",
+      "label": "VIATOR"
+    },
+    {
+      "value": "VICAR",
+      "label": "VICAR"
+    },
+    {
+      "value": "ZURGENA",
+      "label": "ZURGENA"
+    }
+  ]
+}

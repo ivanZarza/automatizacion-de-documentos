@@ -170,17 +170,152 @@ Actualmente, el alta de nuevos Paneles Solares (`/api/catalogs/panels`) o Invers
 **Objetivo:** Adaptar y enriquecer el modal de registro y edición de baterías en el `HardwareCatalogsManager.js` para asegurar la recolección de los datos técnicos relevantes y mejorar la interfaz.
 
 **Diagnóstico Actual:**
-Actualmente, la "tarjeta" o modal de baterías recoge:
+Actualmente, la tabla `batteries` y su modal recogen:
 - **Datos Básicos:** Fabricante, Modelo/Referencia, Precio, Proveedor.
-- **Datos Técnicos:** Capacidad (kWh), Tensión (V), Tipo (Tecnología), Potencia Máx Carga/Descarga (kW), Tipo Componente (Celda/BMS).
-- **Archivos/Multimedia:** Imagen del Producto, Fichas Técnicas (PDF), Documentación Comercial.
-- **Estado:** Activo/Inactivo.
+- **Datos Técnicos Existentes:** Capacidad (`capacidad_kwh`), Tensión Nominal (`voltaje_nominal`), Tipo (`tecnologia`), Potencia Máx (`potencia_maxima_kw`).
 
-Se ha detectado que:
-- Existe una columna de **Unidad de Medida** en la vista de tabla, pero no hay un campo para asignarla desde el formulario.
-- Podrían estar ausentes variables críticas para cálculos de dimensionamiento o garantías, como: *Profundidad de Descarga (DoD)*, *Ciclos de Vida* o *Años de Garantía*.
+**Nuevos Requerimientos (Expansión Eléctrica):**
+El negocio requiere incluir parámetros clave de corriente (A) para los documentos técnicos, los cuales deben ser leídos desde la ficha técnica (AI Extractor) y viajar hacia el CRM:
+1. **Intensidad Máxima de Carga (A)** (Nuevo)
+2. **Intensidad Máxima de Descarga (A)** (Nuevo)
+3. **Intensidad Pico de Carga (A)** (Nuevo)
+4. **Intensidad Pico de Descarga (A)** (Nuevo)
+5. **Intensidad Nominal (A)** (Nuevo)
 
-**Acciones pendientes de definición por el usuario:**
-1. ✅ Auditoría de la estructura del componente actual en `HardwareCatalogsManager.js` (Completado).
-2. Definición exacta de los nuevos campos técnicos, opciones de UI y cambios estructurales requeridos por el negocio.
-3. Modificación del formulario en frontend y, de ser necesario, ajuste del esquema en la base de datos y la ruta de API correspondiente.
+**Acciones pendientes de aprobación por el usuario:**
+1. ✅ Auditoría de la estructura del componente actual en `HardwareCatalogsManager.js` y de la tabla PostgreSQL (Completado).
+2. Modificación de la base de datos (PostgreSQL) para añadir las 5 nuevas columnas `NUMERIC`.
+3. Actualización de `/api/catalogs/batteries` (GET, POST, PUT) para soportar los nuevos campos.
+4. Ampliación de la UI en `HardwareCatalogsManager.js` para añadir los inputs en la "tarjeta" de batería.
+5. Inclusión de las variables en el esquema del `/api/catalogs/ai-extractor` para que la IA extraiga estas corrientes automáticamente de los PDFs.
+6. Sincronización del "Master Form" para que estos datos viajen al PDF de Cálculos y Memoria.
+
+---
+
+## 🐛 Fase 11: Resolución de Error de Red en Registro (Playwright)
+**Objetivo:** Solucionar el "Error de red" al ejecutar la automatización del Registro CEE.
+
+**Diagnóstico Actual:**
+Al importar directamente `playwright` (`import { chromium } from 'playwright'`) en los servicios de backend (`registroService.js`), el motor Nitro (usado por Nuxt 3) intenta empaquetarlo. Playwright incluye binarios y dependencias nativas de Node.js que fallan al ser empaquetadas por Rollup/Nitro, provocando que el servidor devuelva errores 500 o rompa el endpoint silenciosamente (Error de red).
+
+**Solución Arquitectónica:**
+1. Deshacer el mock temporal en `server/api/automation/registro.post.js` para volver a llamar a la función original.
+2. Modificar `server/utils/automation/registroService.js` para usar una **importación dinámica** (`const { chromium } = await import('playwright')`) justo en el momento de la ejecución, evitando así que Nitro lo incluya en el bundle estático.
+3. (Opcional) Declarar `playwright` como dependencia externa en la configuración `nitro` de `nuxt.config.ts`.
+
+**Acciones pendientes de aprobación por el usuario:**
+1. ✅ Definición de la causa del fallo y propuesta de solución (Fase actual).
+2. Ejecución del código (Modificar el endpoint y el servicio) con el *OK* del usuario.
+
+---
+
+## 📎 Fase 12: Estabilización de Subida de Anexos Documentales (Almudena)
+**Objetivo:** Asegurar que los documentos adjuntos (XML, PDF, ZIP, Mejoras, Autorización y Tasa) se mapeen estrictamente a los 6 inputs fijos determinados durante la Fase de Análisis (Scout) de `test_almudena.js`, evitando adivinanzas o heurísticas por nombre.
+
+**Diagnóstico Actual:**
+En `registroService.js` se intentaba subir los archivos buscando textos (`tr` filter by text "XML", "PDF"). La Junta puede cambiar los textos o fallar, por lo que debemos aplicar los selectores absolutos probados en `test_almudena`.
+
+**Mapeo Oficial de Selectores:**
+1. **XML (CEE Previo XML):** `input[name="doc_1834591"]`
+2. **PDF Firmado (CEE Previo PDF):** `input[name="doc_1906404"]`
+3. **ZIP (Fichero Comprimido):** `input[name="doc_1834601"]`
+4. **Mejoras (Documento Recomendaciones):** `input[name="doc_1834598"]`
+5. **Autorización (Otros):** `input[name="doc_1834618"]`
+6. **Tasa 046 (Justificante Pago):** `tr:nth-child(16) > td`
+
+**Solución a Implementar:**
+1. Eliminar la función heurística `subirAnexoPorTexto` de `registroService.js`.
+2. Replicar la función estricta `subirAnexo(locatorStr, filename)` de `test_almudena.js`.
+3. Mapear cada ruta temporal generada (`archivosPaths`) con su selector correspondiente en el orden estricto.
+
+**Estado:** Planificado, pendiente del OK del usuario para ejecución.
+
+---
+
+## 🚀 Fase 13: Despliegue en Servidor Dedicado OVH (Coolify) con Soporte Playwright
+**Objetivo:** Desplegar la aplicación `GeneracionDocumentacion` en el servidor OVH dedicado (`57.129.107.84`) gestionado con Coolify, garantizando que el contenedor Docker disponga de todas las dependencias del sistema de Chromium para la ejecución de Playwright sin límites de tiempo.
+
+**Acciones a realizar:**
+1. **Actualizar `Dockerfile` para soporte de Playwright**:
+   - Sustituir la imagen base `node:20-alpine` por una imagen basada en Debian/Ubuntu (`mcr.microsoft.com/playwright:v1.49.0-noble` o `node:20-bookworm` e instalar `npx playwright install-deps chromium`), asegurando que las librerías nativas del sistema (`libnss3`, `libatk`, `fontconfig`, etc.) estén presentes para que Chromium arranque en segundo plano (`headless: true`).
+2. **Commit y Push a GitHub**:
+   - Subir la configuración actualizada al repositorio `ivanZarza/automatizacion-de-documentos` en la rama `main`.
+3. **Despliegue y Configuración en Coolify (OVH 57.129.107.84)**:
+   - Configurar el servicio en el panel de Coolify apuntando al puerto `3000`.
+   - Inyectar las variables de entorno necesarias (`DATABASE_URL`, `NODE_ENV=production`).
+   - Lanzar el build y verificar el healthcheck del servicio.
+
+**Estado:** Planificado, pendiente de aprobación explícita por el usuario.
+
+---
+
+## 🛠️ Fase 14: Estudio y Solución Detallada del Paso 1 (Sección 2 - Ubicación/Localidad del Edificio T3)
+
+### 🎯 Objetivo Exclusivo
+Estudiar y corregir de forma quirúrgica la **Sección 2 de la Pestaña 1 (Ubicación del Edificio - T3)** en `registroService.js` para eliminar definitivamente el diálogo de error de la Junta:  
+`🔔 [POPUP DETECTADO] Mensaje: "Existen campos obligatorios sin rellenar en la Sección 2."`
+
+---
+
+### 🔍 Análisis Detallado del Caso "Conil de la Frontera" (Paso 1 - Sección 2)
+
+1. **Desajuste de Nombres en el Portal de la Junta de Andalucía:**
+   - Al inspeccionar el archivo de municipios del portal (`app/config/municipiosAndalucia.json`), se ha descubierto que la Junta de Andalucía **abrevia drásticamente los nombres de los municipios**.
+   - Ejemplos en la provincia de Cádiz:
+     - *"Conil de la Frontera"* aparece etiquetado únicamente como **`"CONIL"`**.
+     - *"Chiclana de la Frontera"* aparece como **`"CHICLANA FRO"`**.
+     - *"Arcos de la Frontera"* aparece como **`"ARCOS FRONTE"`**.
+     - *"El Puerto de Santa María"* aparece como **`"PUERTO ST MA"`**.
+
+2. **Fallo en la comparación unidireccional de `selF`:**
+   - La función `selF` en `registroService.js` evaluaba:
+     `opt.text.trim().toLowerCase().includes(targetText)`
+   - Sustituyendo los valores con Conil:
+     `"conil".includes("conil de la frontera")` $\rightarrow$ **`false`** (porque la cadena corta `"conil"` NO contiene a la cadena larga `"conil de la frontera"`).
+   - Como la comparación fallaba, el script ejecutaba un `selectOption('Conil de la Frontera')` directo, el cual no encontraba coincidencia en el `<select>` (ya que la opción es `<option value="CONIL">CONIL</option>`).
+   - Resultado: El campo de municipio se quedaba con su valor por defecto `"-1"` (`[Seleccione...]`), y al pulsar "Guardar", la Junta rechazaba la Pestaña 1 con el diálogo de error de la Sección 2.
+
+---
+
+### 📋 Solución Propuesta para el Paso 1 (Sección 2)
+
+#### 1. [MODIFY] [registroService.js](file:///home/ivan/dev/trabajo/GeneracionDocumentacion/server/utils/automation/registroService.js)
+
+- **Normalización de Texto y Limpieza (`normalizeStr`):**
+  - Eliminar acentos/tildes y convertir a minúsculas:
+    ```javascript
+    const normalizeStr = (str) => str ? str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim().toLowerCase() : "";
+    ```
+
+- **Coincidencia Bidireccional Inteligente:**
+  - Modificar la búsqueda en `selF` para que la coincidencia sea bidireccional y compruebe palabras clave (ej. si la primera palabra del municipio `"conil"` coincide con el valor de la opción, o si `targetClean.includes(optClean)` o `optClean.includes(targetClean)`):
+    ```javascript
+    const targetClean = normalizeStr(targetText);
+    const firstWord = targetClean.split(' ')[0]; // "conil"
+    for (let opt of select.options) {
+      const optClean = normalizeStr(opt.text);
+      const optValClean = normalizeStr(opt.value);
+      if (optClean === targetClean || optValClean === targetClean) return opt.value;
+      if (optClean && targetClean && (targetClean.includes(optClean) || optClean.includes(targetClean))) return opt.value;
+      if (firstWord && firstWord.length > 3 && (optClean.startsWith(firstWord) || optClean.includes(firstWord))) return opt.value;
+    }
+    ```
+
+- **Espera Activa del Selector de Municipio (`t3_selec_localidad`):**
+  - Tras seleccionar `t3_selec_provincia`, implementar la espera activa mediante `page.waitForFunction` hasta que `t3_selec_localidad` contenga más de 1 opción diferente de `"-1"`.
+
+- **Forzado de Selección de Localidad:**
+  - Aplicar `forceOverwrite = true` en `t3_selec_localidad` si su valor actual es `"-1"` o `""`.
+
+---
+
+## 🧪 Plan de Verificación
+
+1. Ejecutar el servicio de automatización enviando datos con *"Conil de la Frontera"*.
+2. Verificar en los logs de consola que `selF` encuentra y selecciona la opción `"CONIL"`.
+3. Confirmar que `t3_selec_localidad` no queda con el valor `"-1"`.
+4. Comprobar que la Pestaña 1 se guarda exitosamente sin mostrar el aviso *"Existen campos obligatorios sin rellenar en la Sección 2"*.
+
+
+
+

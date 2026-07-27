@@ -1,9 +1,10 @@
-import { chromium } from 'playwright'
 import fs from 'fs'
 import path from 'path'
 import os from 'os'
 
 export async function runRegistroAutomation(payload) {
+  const { chromium } = await import('playwright')
+  
   // payload.datos viene del componente Vue
   const formData = payload.datos || {}
   
@@ -16,6 +17,12 @@ export async function runRegistroAutomation(payload) {
     numInscripcionAnterior: formData.intro_numInscripcion || '',
     numExpedienteAnterior: formData.intro_numExpediente || '',
     causas: formData.intro_causas || '',
+    diaBoja: formData.intro_dia || '09',
+    mesBoja: formData.intro_mes || '12',
+    anioBoja: formData.intro_anio || '2014',
+    numBoja: formData.intro_numBoja || '244',
+    fechaBoja: formData.intro_fechaBoja || '16/12/2014',
+
     
     t1: {
       subgrupo: formData.registro_t1_subgrupo || 'resi',
@@ -26,12 +33,14 @@ export async function runRegistroAutomation(payload) {
       nombreVia: formData.registro_t3_nombreVia || '',
       tipoNumeracion: formData.registro_t3_tipoNumeracion || 'NUM',
       numero: formData.registro_t3_numero || '',
+      calificadorNumero: formData.registro_t3_calificadorNumero || '',
       bloque: formData.registro_t3_bloque || '',
       portal: formData.registro_t3_portal || '',
       letra: formData.registro_t3_letra || '',
       escalera: formData.registro_t3_escalera || '',
       piso: formData.registro_t3_piso || '',
       puerta: formData.registro_t3_puerta || '',
+      pais: formData.registro_t3_pais || 'ES',
       cPostal: formData.registro_t3_cPostal || '',
       provincia: formData.registro_t3_provincia || '',
       localidad: formData.registro_t3_localidad || '',
@@ -57,18 +66,23 @@ export async function runRegistroAutomation(payload) {
       calidadFirmante: formData.registro_t17_calidad_firmante || 'REPLEGAL'
     },
     t6: {
-      calidad: formData.registro_t6_calidad || 'proFirmCertificado',
-      titulacion: formData.registro_t6_titulacion || '',
-      colegio: formData.registro_t6_colegio || '',
-      numColegiado: formData.registro_t6_numColegiado || ''
+      apellidosNombre: formData.registro_t6_nombre || 'Miguel Ángel Rivas Zapata',
+      nif: formData.registro_t6_nif || '28888418G',
+      calidad: formData.registro_t6_calidad || { label: 'TÉCNICO/A COMPETENTE FIRMANTE DEL CERTIFICADO' },
+      titulacion: formData.registro_t6_titulacion || { label: 'Ingeniero Industrial' },
+      colegio: formData.registro_t6_colegio || 'COIIOC',
+      numColegiado: formData.registro_t6_numColegiado || '4671',
+      sexo: formData.registro_t6_sexo || 'H'
     },
     t8: {
-      fecha: formData.registro_t8_fecha || '', // Formato YYYY-MM-DD
-      fechaValidez: formData.registro_t8_validez || '' // Formato YYYY-MM-DD
+      fecha: formData.registro_t8_fecha || '', 
+      fechaValidez: formData.registro_t8_validez || ''
     },
     t9: {
-      edificacion: formData.registro_t9_edificacion || 'cte', // cte, nbe, cte_2013
-      instalacion: formData.registro_t9_instalacion || 'rite98' // rite98, rite07
+      edificacion: formData.registro_t9_edificacion || 'cte',
+      otroEdif: formData.registro_t9_otro_edif || '',
+      instalacion: formData.registro_t9_instalacion || 'rite98',
+      otroInst: formData.registro_t9_otro_inst || ''
     },
     t10: {
       procedimiento: formData.registro_t10_procedimiento || 'reconocido',
@@ -86,7 +100,9 @@ export async function runRegistroAutomation(payload) {
       potenciaElectrica: formData.registro_t11_potenciaElectrica || ''
     },
     t19: {
-      lugarFirma: formData.registro_t19_lugarFirma || 'Sevilla'
+      lugarFirma: formData.registro_t19_lugar || 'Sevilla',
+      fdo: formData.registro_t6_nombre || 'Miguel Ángel Rivas Zapata',
+      nif: formData.registro_t6_nif || '28888418G'
     },
     t20: {
       numLiquidacion: formData.registro_t20_numLiquidacion || ''
@@ -139,7 +155,9 @@ export async function runRegistroAutomation(payload) {
   page.setDefaultNavigationTimeout(0);
 
   page.on('dialog', async dialog => {
-    console.log(`\n🔔 [POPUP DETECTADO] Mensaje: "${dialog.message()}" -> ACEPTANDO.`);
+    console.log(`\n🔔 [POPUP DETECTADO] Mensaje: "${dialog.message()}"`);
+    console.log(`-> 🛑 PAUSA AUTOMÁTICA: Revisa en el navegador qué campo falta. Luego dale a "Resume".`);
+    await page.pause();
     await dialog.accept().catch(() => { });
   });
 
@@ -185,34 +203,98 @@ export async function runRegistroAutomation(payload) {
       } catch (e) { return false; }
     };
 
-    const fillF = async (id, val) => {
+    const fillF = async (id, val, forceOverwrite = false) => {
       if (!val) return;
       const locStr = `[id="${id}"]:not([type="hidden"])`;
       if (await checkIsEditable(locStr)) {
-        await page.locator(locStr).first().fill(val, { timeout: 2000 }).catch(() => { });
+        const loc = page.locator(locStr).first();
+        if (!forceOverwrite) {
+          const currentVal = await loc.inputValue().catch(()=>'');
+          if (currentVal && currentVal.trim() !== '') {
+            console.log(`      [INFO] ${id} ya tiene valor (${currentVal}). Respetando XML...`);
+            return;
+          }
+        }
+        await loc.fill(val, { timeout: 2000 }).catch(() => { });
       } else {
         console.log(`      [INFO] Input ${id} bloqueado. Ignorando...`);
       }
     };
 
-    const selF = async (id, val) => {
+    const normalizeStr = (str) => str ? str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim().toLowerCase() : "";
+
+    const selF = async (id, val, forceOverwrite = false) => {
       if (!val) return;
       const locStr = `select[id="${id}"]`;
       try {
         const loc = page.locator(locStr).first();
         if (await loc.isVisible() && !(await loc.isDisabled())) {
-          await loc.selectOption(val, { timeout: 2000 }).catch(() => { });
+          if (!forceOverwrite) {
+            const currentVal = await loc.inputValue().catch(()=>'');
+            if (currentVal && currentVal !== '-1' && currentVal !== '') {
+              console.log(`      [INFO] Select ${id} ya tiene valor (${currentVal}). Respetando XML...`);
+              return;
+            }
+          }
+          
+          try {
+            // Buscamos el value exacto o coincidencia bidireccional/normalizada
+            const targetClean = normalizeStr(val);
+            const firstWord = targetClean.split(' ')[0]; // ej. "conil", "chiclana"
+
+            const optionValue = await loc.evaluate((select, { targetClean, firstWord }) => {
+              const norm = (s) => s ? s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim().toLowerCase() : "";
+
+              // 1. Coincidencia exacta por texto o value
+              for (let opt of select.options) {
+                if (norm(opt.text) === targetClean || norm(opt.value) === targetClean) return opt.value;
+              }
+              // 2. Coincidencia bidireccional (target incluye opt o opt incluye target)
+              for (let opt of select.options) {
+                const optClean = norm(opt.text);
+                const optValClean = norm(opt.value);
+                if (optClean && targetClean && (targetClean.includes(optClean) || optClean.includes(targetClean))) return opt.value;
+                if (optValClean && targetClean && (targetClean.includes(optValClean) || optValClean.includes(targetClean))) return opt.value;
+              }
+              // 3. Coincidencia por primera palabra relevante (ej. "conil", "chiclana", "arcos")
+              if (firstWord && firstWord.length >= 3) {
+                for (let opt of select.options) {
+                  const optClean = norm(opt.text);
+                  if (optClean.startsWith(firstWord) || optClean.includes(firstWord)) return opt.value;
+                }
+              }
+              return null;
+            }, { targetClean, firstWord });
+
+            if (optionValue) {
+              console.log(`      [OK] Select ${id}: encontrado "${val}" -> opción "${optionValue}"`);
+              await loc.selectOption(optionValue, { timeout: 2000 });
+            } else {
+              console.log(`      [WARN] Select ${id}: no se encontró coincidencia directa para "${val}". Probando valor raw.`);
+              await loc.selectOption(val, { timeout: 2000 });
+            }
+          } catch (e) {
+            await loc.selectOption(val, { timeout: 2000 }).catch(() => { });
+          }
+          
+          // La Junta usa JSF, los selectores suelen hacer postback. Esperamos a que la red se asiente.
+          await page.waitForLoadState('networkidle').catch(()=>{});
+          await page.waitForTimeout(500);
         } else {
           console.log(`      [INFO] Select ${id} bloqueado. Ignorando...`);
         }
       } catch (e) { }
     };
 
-    const chkF = async (id) => {
+    const chkF = async (id, forceOverwrite = false) => {
       const locStr = `[id="${id}"]:not([type="hidden"])`;
       try {
         const loc = page.locator(locStr).first();
         if (await loc.isVisible() && !(await loc.isDisabled())) {
+          if (!forceOverwrite) {
+            const isChecked = await loc.isChecked().catch(()=>false);
+            if (isChecked) return;
+          }
           await loc.check({ timeout: 2000 }).catch(() => { });
         } else {
           console.log(`      [INFO] Checkbox ${id} bloqueado. Ignorando...`);
@@ -226,25 +308,27 @@ export async function runRegistroAutomation(payload) {
       await page.locator('#ficheroXML').setInputFiles(archivosPaths.xml).catch(()=>console.log('[!] Error subiendo XML'));
       console.log('-> 🔍 Clic en Verificar XML y esperando carga...');
       await page.getByRole('img', { name: 'Verificar' }).click().catch(() => { });
-      await page.waitForTimeout(3000);
+      await page.waitForLoadState('networkidle').catch(()=>{});
+      await page.waitForTimeout(3000); // Espera extra para que el portal procese el XML y llene los campos
     }
 
-    console.log('-> ✍️ Rellenando Fechas e Intro...');
+    console.log('-> ✍️ Rellenando Fechas e Intro (BOJA)...');
+    await selF('intro_selec_dia', datosRegistro.diaBoja);
+    await selF('intro_selec_mes', datosRegistro.mesBoja);
+    await fillF('intro_anio', datosRegistro.anioBoja);
+    await fillF('intro_numBoja', datosRegistro.numBoja);
+    await fillF('intro_fechaBoja', datosRegistro.fechaBoja);
+
     // Tramite
     const t = datosRegistro.tramite || 'inscripcion';
     console.log(`-> ✍️ Configurando tipo de trámite: ${t}`);
     
     // El portal tiene checkboxes como check_inscripcion, check_modificacion...
-    await chkF(`check_${t}`);
-    
-    // Si no es inscripción nueva, son necesarios los datos anteriores
-    if (t !== 'inscripcion') {
-      await fillF('intro_numInscripcion', datosRegistro.numInscripcionAnterior);
-      await fillF('intro_numExpediente', datosRegistro.numExpedienteAnterior);
-      await fillF('intro_causas', datosRegistro.causas);
-    }
+    await chkF('check_inscripcion'); // Por defecto asumimos nueva inscripción
 
     console.log('-> ✍️ Rellenando T1 (Tipología)...');
+    await chkF('t1_check_cert_voluntaria_rd');
+    await chkF('t1_check_cee_existente');
     await selF('t1_selec_subgrupo', datosRegistro.t1.subgrupo);
     await selF('t1_selec_uso', datosRegistro.t1.uso);
 
@@ -253,17 +337,42 @@ export async function runRegistroAutomation(payload) {
     await fillF('t3_nombreVia', datosRegistro.t3.nombreVia);
     await selF('t3_selec_tipoNumeracion', datosRegistro.t3.tipoNumeracion);
     await fillF('t3_numKmVia', datosRegistro.t3.numero);
+    await fillF('t3_calificadorNumero', datosRegistro.t3.calificadorNumero);
     await fillF('t3_bloque', datosRegistro.t3.bloque);
     await fillF('t3_portal', datosRegistro.t3.portal);
     await fillF('t3_letra', datosRegistro.t3.letra);
     await fillF('t3_escalera', datosRegistro.t3.escalera);
     await fillF('t3_piso', datosRegistro.t3.piso);
     await fillF('t3_puerta', datosRegistro.t3.puerta);
+
+    // Selección del PAÍS (Sección 2 - Edificio). 
+    // INCREÍBLE: La Junta le ha puesto de ID "t5_selec_pais_promotora" a este campo que está en la sección 2.
+    // Lo seleccionamos siempre a 'ES' antes de la provincia porque la interfaz avisa que se haga en este orden.
+    const paisT3 = datosRegistro.t3.pais || 'ES';
+    try {
+      const paisLoc = page.locator('select[name="t5_selec_pais_promotora"]').first();
+      if (await paisLoc.isVisible()) {
+        await paisLoc.selectOption(paisT3, { timeout: 2000 });
+      }
+    } catch (e) {
+      console.log('      [WARN] No se pudo seleccionar el país del edificio (T3).');
+    }
+
     await fillF('t3_cPostal', datosRegistro.t3.cPostal);
 
-    await selF('t3_selec_provincia', datosRegistro.t3.provincia);
-    await page.waitForTimeout(2000); // Esperar carga de municipios
-    await selF('t3_selec_localidad', datosRegistro.t3.localidad);
+    console.log(`-> ✍️ Seleccionando Provincia (${datosRegistro.t3.provincia || 'Cádiz'}) y esperando recarga de municipios...`);
+    await selF('t3_selec_provincia', datosRegistro.t3.provincia || 'Cádiz', true);
+    
+    // Espera activa del postback AJAX de la Junta para que la lista t3_selec_localidad tenga más de 1 opción
+    await page.waitForFunction(() => {
+      const selectLoc = document.querySelector('select[id="t3_selec_localidad"]');
+      return selectLoc && selectLoc.options && selectLoc.options.length > 1;
+    }, { timeout: 10000 }).catch(() => console.log('      [WARN] Timeout esperando recarga de opciones en t3_selec_localidad'));
+
+    await page.waitForTimeout(1000);
+
+    console.log(`-> ✍️ Seleccionando Municipio (${datosRegistro.t3.localidad || 'Conil'})...`);
+    await selF('t3_selec_localidad', datosRegistro.t3.localidad || 'Conil', true);
 
     await fillF('t3_entPoblacion_notif', datosRegistro.t3.entPoblacion);
     await fillF('t3_superficie', datosRegistro.t3.superficie);
@@ -281,6 +390,7 @@ export async function runRegistroAutomation(payload) {
     } else if (datosRegistro.t5.sexo === 'mujer') {
       await chkF('t5_checkMujer');
     }
+    await chkF('t5_check_privada');
 
     console.log('-> ✍️ Rellenando Notificaciones (T17)...');
     await chkF('t17_check_autorizo_email');
@@ -295,8 +405,16 @@ export async function runRegistroAutomation(payload) {
 
     // --- PESTAÑA 2 ---
     console.log('\n-> ✍️ Rellenando T6 (Técnico Certificador)...');
+    await fillF('t6_apellidosNombre', datosRegistro.t6.apellidosNombre);
+    await fillF('t6_nif', datosRegistro.t6.nif);
+    if (datosRegistro.t6.sexo === 'H') {
+      await chkF('t6_checkVaron');
+    } else if (datosRegistro.t6.sexo === 'M') {
+      await chkF('t6_checkMujer');
+    }
     await selF('t6_selec_calidad', datosRegistro.t6.calidad);
     await selF('t6_selec_titulacion', datosRegistro.t6.titulacion);
+    // await fillF('t6_otraTitulacion', '', true); // Forzamos borrar este input siempre
     await fillF('t6_colegio', datosRegistro.t6.colegio);
     await fillF('t6_numColegiado', datosRegistro.t6.numColegiado);
 
@@ -316,22 +434,46 @@ export async function runRegistroAutomation(payload) {
     }
     await fillF('t8_fecha', fechaFinal);
     
-    if (datosRegistro.t8.fechaValidez) {
-      let fVal = datosRegistro.t8.fechaValidez;
+    let fVal = datosRegistro.t8.fechaValidez;
+    if (fVal) {
       const p = fVal.split('-');
       if (p.length === 3) fVal = `${p[2]}/${p[1]}/${p[0]}`;
-      await fillF('t8_fechaValidez', fVal); // Se asume t8_fechaValidez como ID tentativo
+    } else {
+      // Calcular 9 años y 10 meses después de la fecha de firma (fechaFinal en formato DD/MM/YYYY)
+      const partesFirma = fechaFinal.split('/');
+      if (partesFirma.length === 3) {
+        const dateValidez = new Date(parseInt(partesFirma[2]), parseInt(partesFirma[1]) - 1, parseInt(partesFirma[0]));
+        dateValidez.setFullYear(dateValidez.getFullYear() + 9);
+        dateValidez.setMonth(dateValidez.getMonth() + 10);
+        
+        const ddVal = String(dateValidez.getDate()).padStart(2, '0');
+        const mmVal = String(dateValidez.getMonth() + 1).padStart(2, '0');
+        const yyyyVal = dateValidez.getFullYear();
+        fVal = `${ddVal}/${mmVal}/${yyyyVal}`;
+      }
+    }
+    if (fVal) {
+      await fillF('t8_fechaValidez', fVal, true); // forceOverwrite = true
     }
 
     console.log('-> ✍️ Rellenando T9 (Normativas de Edificación)...');
     if (datosRegistro.t9.edificacion === 'cte') await chkF('t9_check_cte');
     else if (datosRegistro.t9.edificacion === 'nbe') await chkF('t9_check_nbe');
     else if (datosRegistro.t9.edificacion === 'cte_2013') await chkF('t9_check_cte_2013');
+    else if (datosRegistro.t9.edificacion === 'otro') {
+      await chkF('t9_check_otro_edificacion');
+      if (datosRegistro.t9.otroEdif) await fillF('t9_otro_edif', datosRegistro.t9.otroEdif);
+    }
 
     if (datosRegistro.t9.instalacion === 'rite98') await chkF('t9_check_rite98');
     else if (datosRegistro.t9.instalacion === 'rite07') await chkF('t9_check_rite07');
+    else if (datosRegistro.t9.instalacion === 'otro') {
+      await chkF('t9_check_otro_instalacion');
+      if (datosRegistro.t9.otroInst) await fillF('t9_otro_instalacion', datosRegistro.t9.otroInst);
+    }
 
     console.log('-> ✍️ Rellenando T10 (Procedimiento)...');
+    await chkF('t10_check_doc_reconocido');
     await selF('t10_select_doc_reconocido', datosRegistro.t10.docReconocido);
     await fillF('t10_version', datosRegistro.t10.version);
 
@@ -373,10 +515,35 @@ export async function runRegistroAutomation(payload) {
     console.log('\n-> ✍️ Rellenando T20 (Tasas)...');
     await fillF('t20_num2', datosRegistro.t20.numLiquidacion);
 
-    console.log('-> ✍️ Rellenando T19 (Lugar de Firma)...');
+    console.log('-> ✍️ Rellenando T19 (Lugar, Fecha y Firma)...');
+    // Seleccionar 'La persona abajo firmante en calidad de:'
+    await selF('t19_tipo_firmante', datosRegistro.t17.calidadFirmante);
+    
     await fillF('t19_en', datosRegistro.t19.lugarFirma);
+    
+    // Obtener fecha actual para rellenar la firma
+    const hoyT19 = new Date();
+    const dia = String(hoyT19.getDate());
+    const mesIndex = hoyT19.getMonth();
+    const anio = String(hoyT19.getFullYear());
+    const mesesStr = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+    const mesStr = mesesStr[mesIndex];
 
-    console.log('-> ✍️ Rellenando Calidad del Firmante (T17)...');
+    await fillF('t19_a_fecha_dia', dia);
+    await selF('t19_a_fecha_mes', mesStr);
+    await fillF('t19_a_fecha_anio', anio);
+    await fillF('t19_fdo1', datosRegistro.t19.fdo);
+    await fillF('t19_nif_firmante', datosRegistro.t19.nif);
+
+    console.log('\n-> ✍️ Rellenando T18 (Documentación Adjunta - Múltiples checks)...');
+    if (archivosPaths.xml) await chkF('t18_check_xml');
+    if (archivosPaths.pdf) await chkF('t18_check_cert_firmado');
+    if (archivosPaths.zip) await chkF('t18_check_fic_comprimido');
+    if (archivosPaths.mejoras) await chkF('t18_check_doc_recomendaciones');
+    if (archivosPaths.autorizacion) await chkF('t18_check_otros_documentos_seccion1');
+    if (archivosPaths.tasa) await chkF('t18_check_just_pago');
+
+    console.log('-> 💾 Guardando Pestaña 4 y pasando a Anexos...');
     if (datosRegistro.t17.calidadFirmante) {
       try {
         await page.evaluate((val) => {
@@ -399,38 +566,52 @@ export async function runRegistroAutomation(payload) {
 
     // --- ANEXOS ---
     console.log('\n-> 📎 Subiendo Documentación Adjunta (Anexos temporales)...');
-    const subirAnexoTemp = async (locatorStr, absolutePath) => {
+    const subirAnexo = async (locatorStr, absolutePath) => {
       if (!absolutePath || !fs.existsSync(absolutePath)) return;
-      console.log(`   -> Subiendo: ${absolutePath}`);
+      if (page.isClosed()) {
+        console.log(`      [!] Página cerrada. Cancelando subida de anexo "${locatorStr}".`);
+        return;
+      }
+      console.log(`   -> Subiendo: ${path.basename(absolutePath)} en ${locatorStr}...`);
       try {
-        const popupPromise = page.waitForEvent('popup');
-        await page.locator(locatorStr).first().check({ force: true }).catch(async () => {
-          await page.locator(locatorStr).first().click({ force: true }).catch(() => { });
+        const targetElement = page.locator(locatorStr).first();
+        if ((await targetElement.count().catch(() => 0)) === 0) {
+          console.log(`      [!] No existe el elemento "${locatorStr}" en la página actual. Omitiendo...`);
+          return;
+        }
+
+        const popupPromise = page.waitForEvent('popup', { timeout: 10000 }).catch(() => null);
+        await targetElement.check({ force: true }).catch(async () => {
+          await targetElement.click({ force: true }).catch(() => { });
         });
+
         const popup = await popupPromise;
-        await popup.waitForLoadState('domcontentloaded');
-        await popup.locator('input[type="file"]').setInputFiles(absolutePath);
-        await popup.getByRole('img', { name: 'Aceptar' }).click();
-        await page.waitForLoadState('networkidle');
+        if (!popup) {
+          console.log(`      [!] No saltó la ventana popup de adjuntos para "${locatorStr}".`);
+          return;
+        }
+        await popup.waitForLoadState('domcontentloaded').catch(() => { });
+        await popup.locator('input[type="file"]').setInputFiles(absolutePath).catch(() => { });
+        await popup.getByRole('img', { name: 'Aceptar' }).click().catch(() => popup.getByRole('button', { name: 'Aceptar' }).click());
+        await page.waitForLoadState('networkidle').catch(() => { });
         await page.waitForTimeout(1000);
       } catch (e) {
-        console.log(`      [!] Error subiendo anexo ${locatorStr}:`, e.message);
+        console.log(`      [!] Error subiendo anexo en "${locatorStr}":`, e.message);
       }
     };
 
-    // Localizadores de ejemplo (estos pueden variar, habría que afinarlos)
-    await subirAnexoTemp('input[name="doc_1834591"]', archivosPaths.xml);
-    await subirAnexoTemp('input[name="doc_1906404"]', archivosPaths.pdf);
-    await subirAnexoTemp('input[name="doc_1834601"]', archivosPaths.zip);
-    await subirAnexoTemp('input[name="doc_1834598"]', archivosPaths.mejoras);
-    await subirAnexoTemp('input[name="doc_1834618"]', archivosPaths.autorizacion);
-    await subirAnexoTemp('tr:nth-child(16) > td', archivosPaths.tasa);
+    await subirAnexo('input[name="doc_1834591"]', archivosPaths.xml);
+    await subirAnexo('input[name="doc_1906404"]', archivosPaths.pdf);
+    await subirAnexo('input[name="doc_1834601"]', archivosPaths.zip);
+    await subirAnexo('input[name="doc_1834598"]', archivosPaths.mejoras);
+    await subirAnexo('input[name="doc_1834618"]', archivosPaths.autorizacion);
+    await subirAnexo('tr:nth-child(16) > td', archivosPaths.tasa);
 
     console.log('-> ⏳ Esperando 5 segundos para asimilar documentos...');
     await page.waitForTimeout(5000);
 
     console.log('-> ✍️ Iniciando firma (AutoFirma)...');
-    // await page.getByRole('img', { name: 'Iniciar Firma' }).click().catch(() => { });
+    await page.getByRole('img', { name: 'Iniciar Firma' }).click().catch(() => { });
     
     console.log('\n======================================================');
     console.log('🚀 ¡BINGO! TODAS LAS PESTAÑAS COMPLETADAS.');

@@ -1,4 +1,3 @@
-import { chromium } from 'playwright'
 import { autoClicker } from './windowsAutoClicker.js'
 import path from 'path'
 import fs from 'fs'
@@ -22,6 +21,7 @@ const isWindows = os.platform() === 'win32';
  * Replica exacta de main.js adaptada a ES Modules para Nuxt/Nitro.
  */
 export const runJuntaAutomation = async (payload) => {
+  const { chromium } = await import('playwright')
   const datos = payload.datos;
   
   // [NORMALIZACIÓN] Asegurar que los campos críticos vayan con mayúsculas y acentos 
@@ -496,8 +496,7 @@ export const runJuntaAutomation = async (payload) => {
     if (datos.piso) await rellenar(page.locator('input[name="pisoDomicilioInteresado"]'), datos.piso);
     if (datos.puerta) await rellenar(page.locator('input[name="puertaDomicilioInteresado"]'), datos.puerta);
 
-    const provNorm = (datos.provincia || '').trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
-    await seleccionar(page.locator('select[name="codigoProvinciaDomicilioInteresado"]'), PROVINCIAS[provNorm] || datos.provincia);
+    await seleccionar(page.locator('select[name="codigoProvinciaDomicilioInteresado"]'), datos.provincia);
 
     // [MARGEN ROBUSTO] Identificar el selector de margen buscando por opciones en el DOM
     const _margenRaw = (typeof datos.margen === 'object' && datos.margen !== null) ? (datos.margen.value ?? '') : (datos.margen ?? '');
@@ -1153,7 +1152,7 @@ export const runJuntaAutomation = async (payload) => {
     if (datos.piso) await rellenar(popupUser.locator('#pisoTitularPuntoSuministro'), datos.piso);
     if (datos.puerta) await rellenar(popupUser.locator('#puertaTitularPuntoSuministro'), datos.puerta);
     await seleccionar(popupUser.locator('#margen'), datos.margen).catch(() => { });
-    await seleccionar(popupUser.locator('#codigoProvinciaDomicilioTitularPuntoSuministro'), PROVINCIAS[provNorm] || datos.delegacion);
+    await seleccionar(popupUser.locator('#codigoProvinciaDomicilioTitularPuntoSuministro'), datos.delegacion);
 
     // Buscador Municipio Titular Punto
     console.log('   -> Buscando municipio (Titular Punto)...');
@@ -1182,7 +1181,7 @@ export const runJuntaAutomation = async (payload) => {
     if (datos.escalera) await rellenar(popupUser.locator('#escaleraDomicilioDatosPuntoSuministro'), datos.escalera);
     if (datos.piso) await rellenar(popupUser.locator('#pisoDatosPuntoSuministro'), datos.piso);
     if (datos.puerta) await rellenar(popupUser.locator('#puertaDatosPuntoSuministro'), datos.puerta);
-    await seleccionar(popupUser.locator('#codigoProvinciaDomicilioDatosPuntoSuministro'), PROVINCIAS[provNorm] || datos.delegacion);
+    await seleccionar(popupUser.locator('#codigoProvinciaDomicilioDatosPuntoSuministro'), datos.delegacion);
 
     // Buscador Municipio Punto
     console.log('   -> Buscando municipio (Punto Suministro)...');

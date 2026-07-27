@@ -117,7 +117,7 @@
                             <p class="file-preview-text">✓ Archivo seleccionado:</p>
                             <img v-if="formData[field.name]?.startsWith('data:image/')" :src="formData[field.name]"
                               class="file-preview-image" />
-                            <p v-else class="file-preview-name">{{ extractFileName(formData[field.name]) || 'Documento PDF cargado' }}</p>
+                            <p v-else class="file-preview-name">{{ formData[field.name + '_filename'] || 'Archivo cargado' }}</p>
                             <button type="button" class="btn-remove-file" @click.stop="removeFile(field.name)"
                               title="Quitar archivo">
                               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
@@ -189,6 +189,7 @@ import Boton from './Boton.vue'
 import { masterFormFields } from '../config/masterFormFields'
 import { saveImageToStorage } from '../utils/storageManager'
 import { useEquipmentStore } from '../stores/equipmentStore'
+import municipiosAndalucia from '../config/municipiosAndalucia.json'
 
 const equipmentStore = useEquipmentStore()
 const router = useRouter()
@@ -371,57 +372,179 @@ watch(formData, (newVal) => {
   }
 }, { deep: true })
 
-// Lógica de sincronización automática 'mapFrom' para automatización
-watch(formData, (newVal, oldVal) => {
+// Memoria para el two-way binding de los campos enlazados por mapFrom
+let lastMapValues = {}
+masterFormFields.forEach(field => {
+  if (field.mapFrom) {
+    lastMapValues[field.mapFrom] = formData.value[field.mapFrom]
+    lastMapValues[field.name] = formData.value[field.name]
+  }
+})
+
+// Lógica de sincronización bidireccional 'mapFrom'
+watch(formData, (newVal) => {
   if (isInternalChange) return
+
+  let hasChanges = false
+  const changesToApply = {}
 
   masterFormFields.forEach(field => {
     if (field.mapFrom) {
-      const sourceValue = newVal[field.mapFrom]
-      const targetValue = newVal[field.name]
-      const sourceOldValue = oldVal ? oldVal[field.mapFrom] : null
+      const sourceName = field.mapFrom
+      const targetName = field.name
 
-      // Si el origen ha cambiado y el destino está vacío o era igual al origen anterior...
-      if (sourceOldValue !== undefined && sourceValue !== sourceOldValue) {
-        if (!targetValue || targetValue === sourceOldValue) {
+      const currentSource = newVal[sourceName]
+      const currentTarget = newVal[targetName]
+      
+      const lastSource = lastMapValues[sourceName]
+      const lastTarget = lastMapValues[targetName]
 
-          if (field.name === 'nombre_presentador' && sourceValue) {
-            let nombre = sourceValue
-            let ap1 = ''
-            let ap2 = ''
-            if (sourceValue.includes(',')) {
-              const partes = sourceValue.split(',')
+      // 1. ¿Ha cambiado el origen (Ej: Sección A)?
+      if (currentSource !== lastSource) {
+        let valueToInject = currentSource
+        
+        // Si el destino es un select de objetos (ej: provincia/municipio), mapear de Nombre (Texto) a Código (Value)
+        if (field.options && field.options.length > 0 && typeof field.options[0] === 'object') {
+          const matchedOption = field.options.find(o => o.label && currentSource && String(o.label).trim().toUpperCase() === String(currentSource).trim().toUpperCase())
+          if (matchedOption) valueToInject = matchedOption.value
+        } else if (field.name === 'registro_t3_localidad' && currentSource) {
+          // Si las opciones están vacías (ej. aún no se seleccionó provincia), buscar globalmente en municipiosAndalucia
+          const targetStr = String(currentSource).trim().toUpperCase()
+          for (const provCode in municipiosAndalucia) {
+            const matchedOption = municipiosAndalucia[provCode].find(o => String(o.label).trim().toUpperCase() === targetStr)
+            if (matchedOption) {
+              valueToInject = matchedOption.value
+              break
+            }
+          }
+        }
+
+        if (currentTarget !== valueToInject) {
+          // Lógica especial para nombres (separar apellidos)
+          if (field.name === 'nombre_presentador' && currentSource) {
+            let nombre = currentSource, ap1 = '', ap2 = ''
+            if (currentSource.includes(',')) {
+              const partes = currentSource.split(',')
               nombre = partes[1].trim()
               const apellidos = partes[0].trim().split(' ')
-              ap1 = apellidos[0] || ''
-              ap2 = apellidos.slice(1).join(' ') || ''
+              ap1 = apellidos[0] || ''; ap2 = apellidos.slice(1).join(' ') || ''
             } else {
-              const partes = sourceValue.trim().split(' ')
+              const partes = currentSource.trim().split(' ')
               if (partes.length >= 3) {
-                nombre = partes.slice(2).join(' ') // Si es "Apellido1 Apellido2 Nombre"
-                ap1 = partes[0]
-                ap2 = partes[1]
-                // Ajuste heurístico simple (si el usuario lo introduce normal "Nombre Apellido1 Apellido2"):
-                nombre = partes[0]
-                ap1 = partes[1]
-                ap2 = partes.slice(2).join(' ')
+                nombre = partes[0]; ap1 = partes[1]; ap2 = partes.slice(2).join(' ')
               } else if (partes.length === 2) {
-                nombre = partes[0]
-                ap1 = partes[1]
+                nombre = partes[0]; ap1 = partes[1]
               }
             }
-            formData.value.nombre_presentador = nombre
-            if (!formData.value.apellido1_presentador) formData.value.apellido1_presentador = ap1
-            if (!formData.value.apellido2_presentador) formData.value.apellido2_presentador = ap2
-            return
+            changesToApply.nombre_presentador = nombre
+            if (!newVal.apellido1_presentador) changesToApply.apellido1_presentador = ap1
+            if (!newVal.apellido2_presentador) changesToApply.apellido2_presentador = ap2
+          } else {
+            // Sincronización normal Origen -> Destino
+            changesToApply[targetName] = valueToInject
           }
+          hasChanges = true
+        }
+      }
+      // 2. ¿Ha cambiado el destino (Ej: REGISTRO T3)? -> TWO-WAY BINDING
+      else if (currentTarget !== lastTarget) {
+        let valueToInjectBack = currentTarget
+        // Si el destino es un select de objetos (ej: provincia/municipio), mapear de Código (Value) a Nombre (Texto)
+        if (field.options && field.options.length > 0 && typeof field.options[0] === 'object') {
+          const matchedOption = field.options.find(o => String(o.value) === String(currentTarget))
+          if (matchedOption) valueToInjectBack = matchedOption.label
+        } else if (field.name === 'registro_t3_localidad' && currentTarget) {
+          // Búsqueda inversa global si options está vacío por algún motivo
+          for (const provCode in municipiosAndalucia) {
+            const matchedOption = municipiosAndalucia[provCode].find(o => String(o.value) === String(currentTarget))
+            if (matchedOption) {
+              valueToInjectBack = matchedOption.label
+              break
+            }
+          }
+        }
 
-          formData.value[field.name] = sourceValue
+        if (currentSource !== valueToInjectBack) {
+          // Si es el nombre del presentador, no hacemos el reverse complejo por ahora, 
+          // pero para el resto de campos copiamos directamente
+          if (field.name !== 'nombre_presentador') {
+            changesToApply[sourceName] = valueToInjectBack
+            hasChanges = true
+          }
         }
       }
     }
   })
+
+  // Actualizar la memoria con los valores actuales ANTES de inyectar los cambios
+  masterFormFields.forEach(field => {
+    if (field.mapFrom) {
+      lastMapValues[field.mapFrom] = newVal[field.mapFrom]
+      lastMapValues[field.name] = newVal[field.name]
+    }
+  })
+
+  // Aplicar los cambios detectados
+  if (hasChanges) {
+    isInternalChange = true
+    Object.entries(changesToApply).forEach(([key, val]) => {
+      formData.value[key] = val
+      lastMapValues[key] = val // Sincronizar memoria inmediatamente
+    })
+    nextTick(() => {
+      isInternalChange = false
+    })
+  }
 }, { deep: true })
+
+// Auto-rellenar normativas (Edificación e Instalaciones) según el año de construcción
+watch(() => formData.value.registro_t3_anioConstruccion, (newVal) => {
+  if (newVal) {
+    const anio = parseInt(newVal)
+    if (!isNaN(anio)) {
+      // Normativa Edificación
+      if (anio < 1980) {
+        formData.value.registro_t9_edificacion = 'otro'
+        if (!formData.value.registro_t9_otro_edif) formData.value.registro_t9_otro_edif = 'Anterior a NBE-CT-79'
+      }
+      else if (anio >= 1980 && anio <= 2006) formData.value.registro_t9_edificacion = 'nbe'
+      else if (anio >= 2007 && anio <= 2013) formData.value.registro_t9_edificacion = 'cte'
+      else if (anio >= 2014) formData.value.registro_t9_edificacion = 'cte_2013'
+
+      // Normativa Instalación Térmica
+      if (anio < 1998) {
+        formData.value.registro_t9_instalacion = 'otro'
+        if (!formData.value.registro_t9_otro_inst) formData.value.registro_t9_otro_inst = 'Anterior a RITE'
+      }
+      else if (anio >= 1998 && anio <= 2007) formData.value.registro_t9_instalacion = 'rite98'
+      else if (anio > 2007) formData.value.registro_t9_instalacion = 'rite07'
+    }
+  }
+})
+
+// Dinamizar opciones de municipio al cambiar de provincia
+watch(() => formData.value.registro_t3_provincia || formData.value.provinciaEmplazamiento, (newProvincia) => {
+  const localidadFieldT3 = masterFormFields.find(f => f.name === 'registro_t3_localidad')
+  const localidadFieldA = masterFormFields.find(f => f.name === 'localidadEmplazamiento')
+
+  const actualizarLocalidad = (localidadField, formDataKey) => {
+    if (localidadField) {
+      if (newProvincia && municipiosAndalucia[newProvincia]) {
+        localidadField.options = municipiosAndalucia[newProvincia]
+      } else {
+        localidadField.options = []
+      }
+      // Si la localidad elegida no está en la nueva provincia, limpiarla
+      const existeEnNuevasOpciones = localidadField.options.some(opt => opt.value === formData.value[formDataKey])
+      if (!existeEnNuevasOpciones) {
+        formData.value[formDataKey] = ''
+      }
+    }
+  }
+
+  actualizarLocalidad(localidadFieldT3, 'registro_t3_localidad')
+  actualizarLocalidad(localidadFieldA, 'localidadEmplazamiento')
+}, { immediate: true })
 
 // Guardar automáticamente en localStorage controlado por DocumentPage
 // (No auto-guardamos aquí para evitar loops infinitos con listeners)
@@ -477,6 +600,9 @@ const handleFileUpload = async (event, fieldName) => {
 
   if (file) {
     try {
+      formData.value[`${fieldName}_filename`] = file.name
+      saveImageToStorage(`${fieldName}_filename`, file.name)
+      
       // Comprimir imagen si es tipo imagen
       if (file.type.startsWith('image/')) {
         const compressedDataUrl = await compressImage(file)
@@ -502,7 +628,9 @@ const handleFileUpload = async (event, fieldName) => {
 
 const removeFile = (fieldName) => {
   formData.value[fieldName] = ''
+  formData.value[`${fieldName}_filename`] = ''
   saveImageToStorage(fieldName, null)
+  saveImageToStorage(`${fieldName}_filename`, null)
 }
 
 const extractFileName = (dataUrl) => {

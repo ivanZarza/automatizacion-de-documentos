@@ -6,6 +6,7 @@ Este directorio contiene toda la información técnica y operativa necesaria par
 
 ### 🚀 1. Guías Maestras (Robot y Automatización)
 - **[01_MANUAL_TECNICO_ROBOT.md](./01_MANUAL_TECNICO_ROBOT.md)**: **LEER PRIMERO.** Arquitectura, lógica de multisistema (Windows/Linux) y flujo de datos.
+- **[guias_tecnicas/ARQUITECTURA_FIRMA_DESACOPLADA_LANZADOR.md](./guias_tecnicas/ARQUITECTURA_FIRMA_DESACOPLADA_LANZADOR.md)**: Guía detallada sobre el Lanzador Local y Firma Desacoplada (Opción 3) con AutoFirma.
 - **[guias_tecnicas/04_DESPLIEGUE_WINDOWS.md](./guias_tecnicas/04_DESPLIEGUE_WINDOWS.md)**: Cómo generar el ejecutable para uso en PCs de oficina.
 - **[guias_tecnicas/PRUEBAS_Y_TESTING.md](./guias_tecnicas/PRUEBAS_Y_TESTING.md)**: Cómo verificar que el robot sigue funcionando tras cambios en la web de la Junta.
 
