@@ -12,7 +12,7 @@ export default defineNuxtConfig({
   ],
   nitro: {
     externals: {
-      traceInclude: ['playwright', 'playwright-core']
+      external: ['playwright', 'playwright-core']
     }
   }
 })
