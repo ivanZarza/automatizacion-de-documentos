@@ -8,7 +8,27 @@ export async function runRegistroAutomation(payload) {
   // payload.datos viene del componente Vue
   const formData = payload.datos || {}
 
-  console.log('[RegistroService] Datos recibidos del formulario:', Object.keys(formData).length, 'campos')
+  console.log('======================================================')
+  console.log('[RegistroService] 📦 DIAGNÓSTICO DE DATOS RECIBIDOS:')
+  console.log(' - Total campos en payload:', Object.keys(formData).length)
+  console.log(' - Fechas BOJA recibidas:', {
+    dia: formData.intro_dia, mes: formData.intro_mes, anio: formData.intro_anio,
+    fechaBoja: formData.intro_fechaBoja, numBoja: formData.intro_numBoja
+  })
+  console.log(' - Adjuntos Base64 recibidos:', {
+    xml: formData.registro_doc_xml ? `PRESENTE (${formData.registro_doc_xml.length} chars)` : '❌ VACÍO',
+    pdf: formData.registro_doc_cee_pdf ? `PRESENTE (${formData.registro_doc_cee_pdf.length} chars)` : '❌ VACÍO',
+    zip: formData.registro_doc_cee_zip ? `PRESENTE (${formData.registro_doc_cee_zip.length} chars)` : '❌ VACÍO',
+    mejoras: formData.registro_doc_mejoras ? `PRESENTE (${formData.registro_doc_mejoras.length} chars)` : '❌ VACÍO',
+    tasa: formData.registro_doc_tasa ? `PRESENTE (${formData.registro_doc_tasa.length} chars)` : '❌ VACÍO',
+    autorizacion: formData.registro_doc_autorizacion ? `PRESENTE (${formData.registro_doc_autorizacion.length} chars)` : '❌ VACÍO'
+  })
+  console.log(' - Firma / Técnico recibidos:', {
+    nombre: formData.registro_t6_nombre || formData.nombre_tecnico,
+    nif: formData.registro_t6_nif || formData.nif_tecnico,
+    calidadFirmante: formData.registro_t17_calidad_firmante || formData.calidadFirmante
+  })
+  console.log('======================================================')
 
   const datosRegistro = {
     tramite: formData.registro_tramite || formData.tramite || 'inscripcion',
