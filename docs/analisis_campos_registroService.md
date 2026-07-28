@@ -1,12 +1,12 @@
-# 📋 Análisis Técnico de Campos y Automatización en `registroService.js`
+# 📋 Análisis Técnico Integral, Diagnóstico y Guía para Ordenadores Secundarios (`registroService.js`)
 
-Este documento recopila el análisis detallado del servicio de automatización `server/utils/automation/registroService.js` (Playwright), responsable del registro automatizado de Certificados de Eficiencia Energética (CEE) en el portal de la Junta de Andalucía, enriquecido con la prueba de diagnóstico de payload en tiempo real.
+Este documento consolida **todo el análisis, diagnóstico de datos en tiempo real, arquitectura de perfiles de Chrome y guía de comprobaciones** para operar la automatización de Registro de CEE en la Junta de Andalucía desde cualquier ordenador.
 
 ---
 
-## 📊 Resultados de la Prueba de Diagnóstico en Tiempo Real
+## 📊 1. Diagnóstico de Datos Recibidos en Tiempo Real (Prueba Real)
 
-Al ejecutar el robot de Registro CEE desde la aplicación web con los datos reales de la base de datos PostgreSQL, se obtuvo el siguiente log de diagnóstico en el servidor:
+Al ejecutar el robot desde la aplicación conectada a la base de datos PostgreSQL, se capturó el siguiente estado de datos:
 
 ```text
 [RegistroService] 📦 DIAGNÓSTICO DE DATOS RECIBIDOS:
@@ -29,23 +29,47 @@ Al ejecutar el robot de Registro CEE desde la aplicación web con los datos real
 
 ---
 
-## 🎯 Hallazgos y Causa Raíz Definitiva
+## 💡 2. Explicación de Diferencias entre tu Ordenador Principal y el Ordenador Secundario
 
-### 1. Estado Real de los 6 Archivos Adjuntos
-* **Resultado:** **LOS 6 ARCHIVOS SI ESTÁN PRESENTES Y COMPLETOS EN BASE64** en el payload (`xml`, `pdf`, `zip`, `mejoras`, `tasa`, `autorizacion`).
-* **Causa de fallo en la subida:** En `registroService.js`, la función `subirAnexo` cierra la ventana emergente tras subir el anexo y solo espera **1 segundo** (`await page.waitForTimeout(1000)`). En la máquina de pruebas, el portal de la Junta tarda más de 1 segundo en completar la recarga del DOM tras el 2º anexo. Cuando Playwright intenta buscar los selectores del 3er, 4º, 5º y 6º anexo (`doc_1834601`, `doc_1834598`, etc.), la página principal aún está recargándose y los botones no están listos, por lo que el script los omite.
+### ¿Por qué en tu ordenador habitual funcionaba siempre?
+1. **Perfil de Chrome Persistente (`playwright_almudena_profile`):**
+   * El robot utiliza un directorio de perfil persistente en `/tmp/playwright_almudena_profile`.
+   * En tu ordenador habitual, Chrome ya había acumulado **memoria, caché, borradores y cookies del portal de la Junta** de ejecuciones anteriores. La web de la Junta abría cargando parte de esa memoria previa.
+2. **Procesamiento y Velocidad del DOM:**
+   * En tu equipo principal, tras cerrar el popup de cada anexo, el DOM se recargaba en menos de 1 segundo. La pausa de `1000ms` era suficiente para subir los 6 anexos seguidos.
 
-### 2. Estado de las Fechas del BOJA
-* **Resultado:** Llegan como `undefined` en el payload.
-* **Causa de fallo en el portal:** `datosRegistro` asigna los valores por defecto (`09/12/2014`, `16/12/2014`). Sin embargo, en la función `fillF`, la condición `if (!forceOverwrite) { if (currentVal) return; }` detecta que la casilla del portal viene con espacios o caracteres borradores previos y **se niega a escribir sobre el input**.
+### ¿Por qué en el ordenador nuevo fallaba la subida y las fechas?
+1. **Perfil Limpio (Sin Memoria):**
+   * En el ordenador nuevo, la carpeta `/tmp/playwright_almudena_profile` arrancó completamente vacía. No había datos en caché ni borradores del portal de la Junta.
+2. **Recarga del DOM más lenta en los Anexos:**
+   * Al subir el 2º anexo, el portal de la Junta tardaba ~2.5 segundos en actualizar la tabla. Como la pausa en el código era de solo 1 segundo, el robot intentaba buscar el 3er, 4º, 5º y 6º anexo cuando el botón aún no estaba disponible en la página, omitiendo los 4 últimos archivos.
+3. **Regla de No Sobreescritura (`forceOverwrite = false`):**
+   * Si las casillas del portal traían espacios o valores iniciales por defecto, los helpers `fillF` y `selF` interpretaban que la casilla ya estaba rellena y se negaban a sobreescribir con los datos del usuario.
 
-### 3. Nombre del Técnico y Firmante
-* **Resultado:** El campo `nombre` llega con espacios adicionales al final (`'Miguel Ángel Rivas Zapata  '`).
-* **Causa de fallo:** Los espacios al final impiden la coincidencia exacta de cadenas en los selectores por texto de la Pestaña 4 para la firma.
+### ⚠️ ¿Por qué NO se debe copiar la carpeta del perfil entre ordenadores?
+* **Certificados Digitales:** No se guardan en la carpeta del perfil de Chrome, sino en el almacén del Sistema Operativo de cada equipo.
+* **Cruce de Clientes:** Si copias un perfil con datos previos, el navegador abrirá con borradores del "Cliente A" al intentar registrar al "Cliente B".
+* **Solución aplicada:** Se hizo el código del robot **100% independiente del perfil**, forzando la sobreescritura limpia (`forceOverwrite = true`) y aumentando los tiempos de asentamiento a 3.5 segundos.
 
 ---
 
-## 🔍 Mapeo Completo de Campos y Origen de Datos
+## 🛠️ 3. Mejoras Técnicas Aplicadas en el Código
+
+1. **Escritura Forzada en Fechas e Inputs (`fillF` y `selF`):**
+   * Configurado `forceOverwrite = true` por defecto. El robot ejecuta `await loc.fill('')` para vaciar cualquier espacio o borrador previo del portal e inyectar el dato exacto de la base de datos.
+2. **Subida Secuencial Estable de los 6 Anexos (`subirAnexo`):**
+   * Añadido `await targetElement.waitFor({ state: 'attached', timeout: 7000 })`.
+   * Añadido `await page.waitForLoadState('networkidle')`.
+   * Pausa de asentamiento aumentada a **3500ms** tras cerrar cada popup de adjunto.
+3. **Saneamiento `.trim()` de Cadenas:**
+   * Aplicado `.trim()` al nombre del técnico (eliminando los espacios finales `'Miguel Ángel Rivas Zapata  '`), NIFs y municipios para garantizar coincidencia exacta en los selectores.
+4. **Solución a los Despliegues en Vercel:**
+   * Se movió `playwright` a `"dependencies"` en `package.json`.
+   * Se añadió la variable de entorno `VERCEL_SUPPORT_LARGE_FUNCTIONS = 1` en el panel de Vercel para permitir el tamaño del paquete de Playwright.
+
+---
+
+## 🗺️ 4. Mapeo Completo de Campos y Origen de Datos
 
 | Sección en Portal | Campo / ID en Portal | De dónde lee en `formData` | Valor por defecto (Fallback) |
 |---|---|---|---|
@@ -90,14 +114,29 @@ Al ejecutar el robot de Registro CEE desde la aplicación web con los datos real
 
 ---
 
-## 🛠️ Plan de Corrección Definitivo en `registroService.js`
+## 🖥️ 5. Checklist Completo para Configurar y Trabajar desde el Ordenador Secundario
 
-1. **Subida Secuencial Estable de Anexos (`subirAnexo`):**
-   * Añadir `await page.waitForLoadState('networkidle').catch(() => {})`.
-   * Aumentar el tiempo de asentamiento post-popup de `1000ms` a `3500ms` entre cada archivo para garantizar que el DOM esté completamente cargado antes de abrir el siguiente anexo.
+Sigue estos **5 pasos de verificación** en el nuevo ordenador para empezar a trabajar inmediatamente:
 
-2. **Escritura Forzada en Fechas e Inputs (`fillF` y `selF`):**
-   * Activar `forceOverwrite = true` en las fechas del BOJA y campos de la firma para sobreescribir cualquier borrador o espacio previo del portal.
+### 1. 🔏 Certificado Digital y AutoFirma
+- [ ] **Instalar AutoFirma:** Descargar e instalar la versión oficial de AutoFirma en el sistema operativo.
+- [ ] **Asociación de Protocolo:** Al hacer la primera prueba de firma, marcar la casilla *"Abrir siempre enlaces de este tipo en la aplicación asociada"*.
+- [ ] **Certificado Digital:** Importar el certificado digital del técnico/solicitante (`.p12` o `.pfx`) en la tienda personal de certificados del equipo.
 
-3. **Saneamiento de Cadenas de Texto (`trim`):**
-   * Aplicar `.trim()` al nombre del técnico y NIF para evitar fallos de coincidencia de selectores.
+### 2. 💻 Entorno Local de Node.js
+- [ ] **Sincronizar Código:** Ejecutar `git pull origin main`.
+- [ ] **Dependencias:** Ejecutar `npm install`.
+- [ ] **Navegadores Playwright:** Descargar Chromium ejecutando:
+  ```bash
+  npx playwright install chromium
+  ```
+
+### 3. 🔑 Variables de Entorno (`.env`)
+- [ ] Asegurar que el archivo `.env` local contiene la cadena `DATABASE_URL` conectada a PostgreSQL para la lectura de formularios.
+
+### 4. 🤖 Verificación Visual durante la Ejecución
+Al enviar una solicitud de registro desde la aplicación web en la máquina secundaria:
+- [ ] **Consola:** Confirma que el log muestra los 6 adjuntos Base64 como `PRESENTE`.
+- [ ] **Fechas y Firma:** El robot limpia las casillas y rellena las fechas de BOJA y lugar de firma sin dejárselas vacías.
+- [ ] **Los 6 Adjuntos:** En la pantalla del navegador de la Junta, los 6 documentos quedan subidos y marcados con el icono verde de documento adjuntado.
+- [ ] **Pausa Final:** El robot se detiene en `🚀 ¡BINGO! TODAS LAS PESTAÑAS COMPLETADAS`, listo para el clic manual en Iniciar Firma.
