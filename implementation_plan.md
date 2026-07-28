@@ -78,6 +78,25 @@ Modificar el script `test_almudena.js` para que sea capaz de lidiar dinámicamen
 
 ---
 
+## 🛡️ Fase 6: Robustecimiento de `registroService.js` para Entornos Limpios
+
+**Objetivo:** Garantizar que el robot de automatización de la Junta de Andalucía complete con 100% de éxito la inyección de datos y la subida de los 6 documentos anexos en cualquier ordenador o instalación limpia, independientemente del estado previo de la caché de Chrome o la velocidad del procesador/red.
+
+### **Acciones Técnicas:**
+
+1. **Forzar Sobreescritura de Campos (`forceOverwrite = true`):**
+   * Modificar los helpers `fillF` y `selF` en `registroService.js` para que **siempre** limpien (`await el.fill('')`) e inyecten el valor recibido en `formData`, desactivando el respeto a los valores previos o borradores del portal que bloqueaban campos como las fechas del BOJA.
+
+2. **Estabilizar Subida de los 6 Anexos (`subirAnexo`):**
+   * Sustituir el tiempo estático `await page.waitForTimeout(1000)` tras el cierre del popup por una espera doble:
+     * `await page.waitForLoadState('networkidle').catch(() => {})`
+     * `await page.waitForTimeout(3500)`
+   * Esto garantiza que el DOM de la página principal de la Junta termine de refrescarse tras procesar cada archivo AJAX antes de intentar pulsar el selector del siguiente anexo (`doc_1834601`, `doc_1834598`, etc.).
+
+3. **Saneamiento y Normalización de Cadenas de Texto:**
+   * Aplicar `.trim()` al nombre del técnico y NIFs para eliminar espacios finales (ej. `'Miguel Ángel Rivas Zapata  '`), evitando fallos en la coincidencia por texto de los selectores de la firma.
+   * Normalizar la selección de municipios y meses para tolerar variaciones de mayúsculas/minúsculas y acentos.
+
 ## 📊 Fase 6: Integración de Población Exacta (Padrón)
 **Objetivo:** Aumentar la precisión de las audiencias cruzando datos de renta con el volumen real de habitantes por sección censal.
 

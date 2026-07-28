@@ -220,8 +220,9 @@ export async function runRegistroAutomation(payload) {
       } catch (e) { return false; }
     };
 
-    const fillF = async (id, val, forceOverwrite = false) => {
+    const fillF = async (id, val, forceOverwrite = true) => {
       if (!val) return;
+      const cleanVal = typeof val === 'string' ? val.trim() : val;
       const locStr = `[id="${id}"]:not([type="hidden"])`;
       if (await checkIsEditable(locStr)) {
         const loc = page.locator(locStr).first();
@@ -232,7 +233,8 @@ export async function runRegistroAutomation(payload) {
             return;
           }
         }
-        await loc.fill(val, { timeout: 2000 }).catch(() => { });
+        await loc.fill('', { timeout: 1000 }).catch(() => { });
+        await loc.fill(cleanVal, { timeout: 2000 }).catch(() => { });
         await loc.dispatchEvent('input').catch(() => { });
         await loc.dispatchEvent('change').catch(() => { });
       } else {
@@ -242,7 +244,7 @@ export async function runRegistroAutomation(payload) {
 
     const normalizeStr = (str) => str ? str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim().toLowerCase() : "";
 
-    const selF = async (id, val, forceOverwrite = false) => {
+    const selF = async (id, val, forceOverwrite = true) => {
       if (!val) return;
       const locStr = `select[id="${id}"]`;
       try {
@@ -255,7 +257,6 @@ export async function runRegistroAutomation(payload) {
               return;
             }
           }
-
           try {
             // Buscamos el value exacto o coincidencia bidireccional/normalizada
             const targetClean = normalizeStr(val);
@@ -585,13 +586,15 @@ export async function runRegistroAutomation(payload) {
       }
       console.log(`   -> Subiendo: ${path.basename(absolutePath)} en ${locatorStr}...`);
       try {
+        await page.waitForLoadState('networkidle').catch(() => { });
         const targetElement = page.locator(locatorStr).first();
+        await targetElement.waitFor({ state: 'attached', timeout: 7000 }).catch(() => { });
         if ((await targetElement.count().catch(() => 0)) === 0) {
           console.log(`      [!] No existe el elemento "${locatorStr}" en la página actual. Omitiendo...`);
           return;
         }
 
-        const popupPromise = page.waitForEvent('popup', { timeout: 10000 }).catch(() => null);
+        const popupPromise = page.waitForEvent('popup', { timeout: 12000 }).catch(() => null);
         await targetElement.check({ force: true }).catch(async () => {
           await targetElement.click({ force: true }).catch(() => { });
         });
@@ -604,8 +607,10 @@ export async function runRegistroAutomation(payload) {
         await popup.waitForLoadState('domcontentloaded').catch(() => { });
         await popup.locator('input[type="file"]').setInputFiles(absolutePath).catch(() => { });
         await popup.getByRole('img', { name: 'Aceptar' }).click().catch(() => popup.getByRole('button', { name: 'Aceptar' }).click());
+        
+        // Espera activa a que la página principal recargue y asiente la subida
         await page.waitForLoadState('networkidle').catch(() => { });
-        await page.waitForTimeout(1000);
+        await page.waitForTimeout(3500);
       } catch (e) {
         console.log(`      [!] Error subiendo anexo en "${locatorStr}":`, e.message);
       }

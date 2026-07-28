@@ -10,9 +10,4 @@ export default defineNuxtConfig({
   css: [
     './app/styles/variables.css'
   ],
-  nitro: {
-    externals: {
-      external: ['playwright', 'playwright-core']
-    }
-  }
 })

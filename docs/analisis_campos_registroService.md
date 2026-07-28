@@ -1,12 +1,51 @@
 # 📋 Análisis Técnico de Campos y Automatización en `registroService.js`
 
-Este documento recopila el análisis detallado del servicio de automatización `server/utils/automation/registroService.js` (Playwright), responsable del registro automatizado de Certificados de Eficiencia Energética (CEE) en el portal de la Junta de Andalucía.
+Este documento recopila el análisis detallado del servicio de automatización `server/utils/automation/registroService.js` (Playwright), responsable del registro automatizado de Certificados de Eficiencia Energética (CEE) en el portal de la Junta de Andalucía, enriquecido con la prueba de diagnóstico de payload en tiempo real.
+
+---
+
+## 📊 Resultados de la Prueba de Diagnóstico en Tiempo Real
+
+Al ejecutar el robot de Registro CEE desde la aplicación web con los datos reales de la base de datos PostgreSQL, se obtuvo el siguiente log de diagnóstico en el servidor:
+
+```text
+[RegistroService] 📦 DIAGNÓSTICO DE DATOS RECIBIDOS:
+- Total campos en payload: 362
+- Fechas BOJA recibidas: { dia: undefined, mes: undefined, anio: undefined, fechaBoja: undefined, numBoja: undefined }
+- Adjuntos Base64 recibidos: {
+    xml: 'PRESENTE (124757 chars)',
+    pdf: 'PRESENTE (405992 chars)',
+    zip: 'PRESENTE (456097 chars)',
+    mejoras: 'PRESENTE (186380 chars)',
+    tasa: 'PRESENTE (29508 chars)',
+    autorizacion: 'PRESENTE (3157704 chars)'
+  }
+- Firma / Técnico recibidos: {
+    nombre: 'Miguel Ángel Rivas Zapata  ',
+    nif: '28888418G',
+    calidadFirmante: 'REPLEGAL'
+  }
+```
+
+---
+
+## 🎯 Hallazgos y Causa Raíz Definitiva
+
+### 1. Estado Real de los 6 Archivos Adjuntos
+* **Resultado:** **LOS 6 ARCHIVOS SI ESTÁN PRESENTES Y COMPLETOS EN BASE64** en el payload (`xml`, `pdf`, `zip`, `mejoras`, `tasa`, `autorizacion`).
+* **Causa de fallo en la subida:** En `registroService.js`, la función `subirAnexo` cierra la ventana emergente tras subir el anexo y solo espera **1 segundo** (`await page.waitForTimeout(1000)`). En la máquina de pruebas, el portal de la Junta tarda más de 1 segundo en completar la recarga del DOM tras el 2º anexo. Cuando Playwright intenta buscar los selectores del 3er, 4º, 5º y 6º anexo (`doc_1834601`, `doc_1834598`, etc.), la página principal aún está recargándose y los botones no están listos, por lo que el script los omite.
+
+### 2. Estado de las Fechas del BOJA
+* **Resultado:** Llegan como `undefined` en el payload.
+* **Causa de fallo en el portal:** `datosRegistro` asigna los valores por defecto (`09/12/2014`, `16/12/2014`). Sin embargo, en la función `fillF`, la condición `if (!forceOverwrite) { if (currentVal) return; }` detecta que la casilla del portal viene con espacios o caracteres borradores previos y **se niega a escribir sobre el input**.
+
+### 3. Nombre del Técnico y Firmante
+* **Resultado:** El campo `nombre` llega con espacios adicionales al final (`'Miguel Ángel Rivas Zapata  '`).
+* **Causa de fallo:** Los espacios al final impiden la coincidencia exacta de cadenas en los selectores por texto de la Pestaña 4 para la firma.
 
 ---
 
 ## 🔍 Mapeo Completo de Campos y Origen de Datos
-
-A continuación se detalla la correspondencia entre los campos del formulario web (`formData`), los elementos HTML del portal oficial de la Junta y sus valores por defecto si `formData` llega incompleto:
 
 | Sección en Portal | Campo / ID en Portal | De dónde lee en `formData` | Valor por defecto (Fallback) |
 |---|---|---|---|
@@ -51,30 +90,14 @@ A continuación se detalla la correspondencia entre los campos del formulario we
 
 ---
 
-## 🛠️ Causas de Fallo al Rellenar Campos en Instalaciones Nuevas
+## 🛠️ Plan de Corrección Definitivo en `registroService.js`
 
-### 1. Protección `fillF` / `selF` (Respetar valores existentes)
-* **Comportamiento:** La función helper `fillF` verifica si el input en el portal ya contiene texto (`currentVal && currentVal.trim() !== ''`). Si encuentra cualquier valor o espacio en blanco por defecto, no sobreescribe y muestra: `[INFO] ... ya tiene valor. Respetando XML...`.
-* **Consecuencia:** En un ordenador o navegador nuevo donde el portal o la plantilla inyecta valores por defecto o espacios, el robot se niega a escribir los datos introducidos por el usuario en el formulario.
+1. **Subida Secuencial Estable de Anexos (`subirAnexo`):**
+   * Añadir `await page.waitForLoadState('networkidle').catch(() => {})`.
+   * Aumentar el tiempo de asentamiento post-popup de `1000ms` a `3500ms` entre cada archivo para garantizar que el DOM esté completamente cargado antes de abrir el siguiente anexo.
 
-### 2. Subida Secuencial de Documentos Anexos (Tiempos de Red y DOM)
-* **Comportamiento:** Tras subir un archivo mediante ventana popup, el portal de la Junta realiza un postback/recarga de la página principal.
-* **Consecuencia:** El tiempo de espera actual entre anexos (`1000ms`) es insuficiente en máquinas o redes con latencia. Cuando Playwright busca el 3º, 4º, 5º o 6º anexo (`doc_1834601`, `doc_1834598`, etc.), el DOM aún se está actualizando y los botones no responden, provocando que solo se suban los 2 primeros anexos.
+2. **Escritura Forzada en Fechas e Inputs (`fillF` y `selF`):**
+   * Activar `forceOverwrite = true` en las fechas del BOJA y campos de la firma para sobreescribir cualquier borrador o espacio previo del portal.
 
-### 3. Campos del Edificio sin Valor (`if (!val) return`)
-* **Comportamiento:** Campos obligatorios como `superficie`, `plantas`, `altura` y `refCatastral` de la Sección 2 (Pestaña 1) no tienen valor por defecto en `registroService.js`.
-* **Consecuencia:** Si en la interfaz web no se han rellenado previamente, `datosRegistro.t3.superficie` llega como `''`, provocando que el robot lo omita y la Junta muestre el error: *"Existen campos obligatorios sin rellenar en la Sección 2"*.
-
-### 4. Desajuste de Nombres y Desplegables Asíncronos
-* **Provincia / Municipio:** Al seleccionar la provincia, el desplegable de municipios se recarga vía AJAX. Si el nombre enviado (`"Conil de la Frontera"`) no coincide exactamente con las opciones del portal (`"CONIL DE LA FRONTERA"` o `"CONIL"`), o si la recarga tarda más del timeout, la opción queda sin seleccionar.
-* **Mes de la Firma:** El array en español (`['Enero', ...])` no selecciona la opción si el portal utiliza minúsculas (`'enero'`) o números (`'01'`).
-* **IDs Hardcodeados de Anexos:** Si la Junta actualiza la versión de la plataforma, los IDs fijos (`doc_1834591`, `doc_1906404`, etc.) cambian en el HTML del portal y la subida de anexos falla por completo.
-
----
-
-## 📌 Recomendaciones de Corrección
-
-1. **Forzar Sobreescritura (`forceOverwrite = true`):** Asegurar que `fillF` y `selF` limpien y escriban **siempre** el valor del formulario web, ignorando lo que el portal o el borrador contengan.
-2. **Sincronización Secuencial en Anexos:** Aumentar el tiempo de asentamiento post-popup e implementar un `waitFor` explícito al elemento antes de intentar pulsar el siguiente anexo.
-3. **Valores por Defecto Mínimos:** Asignar valores por defecto coherentes (o validación previa) para los campos obligatorios del edificio (`superficie`, `plantas`, `refCatastral`).
-4. **Normalización Bidireccional de Municipio y Mes:** Utilizar búsqueda normalizada (sin acentos, mayúsculas/minúsculas) al seleccionar opciones en desplegables.
+3. **Saneamiento de Cadenas de Texto (`trim`):**
+   * Aplicar `.trim()` al nombre del técnico y NIF para evitar fallos de coincidencia de selectores.
