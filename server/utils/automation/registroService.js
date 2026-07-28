@@ -4,12 +4,12 @@ import os from 'os'
 
 export async function runRegistroAutomation(payload) {
   const { chromium } = await import('playwright')
-  
+
   // payload.datos viene del componente Vue
   const formData = payload.datos || {}
-  
+
   console.log('[RegistroService] Datos recibidos del formulario:', Object.keys(formData).length, 'campos')
-  
+
   const datosRegistro = {
     tramite: formData.registro_tramite || formData.tramite || 'inscripcion',
     numInscripcionAnterior: formData.intro_numInscripcion || formData.numInscripcionAnterior || '',
@@ -72,7 +72,7 @@ export async function runRegistroAutomation(payload) {
       sexo: formData.registro_t6_sexo || 'H'
     },
     t8: {
-      fecha: formData.registro_t8_fecha || formData.fecha_emision_cee || formData.fecha || '', 
+      fecha: formData.registro_t8_fecha || formData.fecha_emision_cee || formData.fecha || '',
       fechaValidez: formData.registro_t8_validez || formData.fecha_validez_cee || formData.validez || ''
     },
     t9: {
@@ -179,16 +179,16 @@ export async function runRegistroAutomation(payload) {
     console.log('-> 📋 Aceptando posibles modales y seleccionando convocatoria (237)...');
     await page.getByRole('button', { name: 'ACEPTAR' }).click().catch(() => { });
 
-    await page.locator('#idConvocatoria').waitFor({ state: 'visible', timeout: 0 }).catch(()=>{});
-    await page.locator('#idConvocatoria').selectOption('237').catch(()=>{});
+    await page.locator('#idConvocatoria').waitFor({ state: 'visible', timeout: 0 }).catch(() => { });
+    await page.locator('#idConvocatoria').selectOption('237').catch(() => { });
 
     console.log('-> 👤 Entrando como SOLICITANTE...');
-    await page.getByRole('link', { name: ' SOLICITANTE' }).click({ force: true }).catch(()=>{});
+    await page.getByRole('link', { name: ' SOLICITANTE' }).click({ force: true }).catch(() => { });
 
     console.log('-> 📄 Esperando a que cargue la bandeja...');
     const btnNuevaSol = page.getByRole('link', { name: 'Nueva Solicitud' }).first();
-    await btnNuevaSol.waitFor({ state: 'visible', timeout: 0 }).catch(()=>{});
-    await btnNuevaSol.click().catch(()=>{});
+    await btnNuevaSol.waitFor({ state: 'visible', timeout: 0 }).catch(() => { });
+    await btnNuevaSol.click().catch(() => { });
     await page.waitForTimeout(2000);
 
     // Helpers IS-EDITABLE
@@ -206,15 +206,15 @@ export async function runRegistroAutomation(payload) {
       if (await checkIsEditable(locStr)) {
         const loc = page.locator(locStr).first();
         if (!forceOverwrite) {
-          const currentVal = await loc.inputValue().catch(()=>'');
+          const currentVal = await loc.inputValue().catch(() => '');
           if (currentVal && currentVal.trim() !== '') {
             console.log(`      [INFO] ${id} ya tiene valor (${currentVal}). Respetando XML...`);
             return;
           }
         }
         await loc.fill(val, { timeout: 2000 }).catch(() => { });
-        await loc.dispatchEvent('input').catch(() => {});
-        await loc.dispatchEvent('change').catch(() => {});
+        await loc.dispatchEvent('input').catch(() => { });
+        await loc.dispatchEvent('change').catch(() => { });
       } else {
         console.log(`      [INFO] Input ${id} bloqueado. Ignorando...`);
       }
@@ -229,13 +229,13 @@ export async function runRegistroAutomation(payload) {
         const loc = page.locator(locStr).first();
         if (await loc.isVisible() && !(await loc.isDisabled())) {
           if (!forceOverwrite) {
-            const currentVal = await loc.inputValue().catch(()=>'');
+            const currentVal = await loc.inputValue().catch(() => '');
             if (currentVal && currentVal !== '-1' && currentVal !== '') {
               console.log(`      [INFO] Select ${id} ya tiene valor (${currentVal}). Respetando XML...`);
               return;
             }
           }
-          
+
           try {
             // Buscamos el value exacto o coincidencia bidireccional/normalizada
             const targetClean = normalizeStr(val);
@@ -272,12 +272,12 @@ export async function runRegistroAutomation(payload) {
               console.log(`      [WARN] Select ${id}: no se encontró coincidencia directa para "${val}". Probando valor raw.`);
               await loc.selectOption(val, { timeout: 2000 });
             }
-            await loc.dispatchEvent('change').catch(() => {});
+            await loc.dispatchEvent('change').catch(() => { });
           } catch (e) {
             await loc.selectOption(val, { timeout: 2000 }).catch(() => { });
           }
-          
-          await page.waitForLoadState('networkidle').catch(()=>{});
+
+          await page.waitForLoadState('networkidle').catch(() => { });
           await page.waitForTimeout(500);
         } else {
           console.log(`      [INFO] Select ${id} bloqueado. Ignorando...`);
@@ -291,11 +291,11 @@ export async function runRegistroAutomation(payload) {
         const loc = page.locator(locStr).first();
         if (await loc.isVisible() && !(await loc.isDisabled())) {
           if (!forceOverwrite) {
-            const isChecked = await loc.isChecked().catch(()=>false);
+            const isChecked = await loc.isChecked().catch(() => false);
             if (isChecked) return;
           }
           await loc.check({ timeout: 2000 }).catch(() => { });
-          await loc.dispatchEvent('change').catch(() => {});
+          await loc.dispatchEvent('change').catch(() => { });
         } else {
           console.log(`      [INFO] Checkbox ${id} bloqueado/no visible.`);
         }
@@ -305,10 +305,10 @@ export async function runRegistroAutomation(payload) {
     // --- PESTAÑA 1 ---
     console.log('\n-> ⬆️ Subiendo archivo XML...');
     if (archivosPaths.xml) {
-      await page.locator('#ficheroXML').setInputFiles(archivosPaths.xml).catch(()=>console.log('[!] Error subiendo XML'));
+      await page.locator('#ficheroXML').setInputFiles(archivosPaths.xml).catch(() => console.log('[!] Error subiendo XML'));
       console.log('-> 🔍 Clic en Verificar XML y esperando carga...');
       await page.getByRole('img', { name: 'Verificar' }).click().catch(() => { });
-      await page.waitForLoadState('networkidle').catch(()=>{});
+      await page.waitForLoadState('networkidle').catch(() => { });
       await page.waitForTimeout(3000); // Espera extra para que el portal procese el XML y llene los campos
     }
 
@@ -322,7 +322,7 @@ export async function runRegistroAutomation(payload) {
     // Tramite
     const t = datosRegistro.tramite || 'inscripcion';
     console.log(`-> ✍️ Configurando tipo de trámite: ${t}`);
-    
+
     // El portal tiene checkboxes como check_inscripcion, check_modificacion...
     await chkF('check_inscripcion'); // Por defecto asumimos nueva inscripción
 
@@ -360,7 +360,7 @@ export async function runRegistroAutomation(payload) {
 
     console.log(`-> ✍️ Seleccionando Provincia (${datosRegistro.t3.provincia || 'CÁDIZ'}) y esperando recarga de municipios...`);
     await selF('t3_selec_provincia', datosRegistro.t3.provincia || 'CÁDIZ', true);
-    
+
     // Espera activa del postback AJAX de la Junta para que la lista t3_selec_localidad tenga más de 1 opción
     await page.waitForFunction(() => {
       const selectLoc = document.querySelector('select[id="t3_selec_localidad"]');
@@ -428,7 +428,7 @@ export async function runRegistroAutomation(payload) {
       fechaFinal = `${dd}/${mm}/${yyyy}`;
     }
     await fillF('t8_fecha', fechaFinal);
-    
+
     let fVal = datosRegistro.t8.fechaValidez;
     if (fVal) {
       const p = fVal.split('-');
@@ -439,7 +439,7 @@ export async function runRegistroAutomation(payload) {
         const dateValidez = new Date(parseInt(partesFirma[2]), parseInt(partesFirma[1]) - 1, parseInt(partesFirma[0]));
         dateValidez.setFullYear(dateValidez.getFullYear() + 9);
         dateValidez.setMonth(dateValidez.getMonth() + 10);
-        
+
         const ddVal = String(dateValidez.getDate()).padStart(2, '0');
         const mmVal = String(dateValidez.getMonth() + 1).padStart(2, '0');
         const yyyyVal = dateValidez.getFullYear();
@@ -512,7 +512,7 @@ export async function runRegistroAutomation(payload) {
     console.log('-> ✍️ Rellenando T19 (Lugar, Fecha y Firma)...');
     await selF('t19_tipo_firmante', datosRegistro.t17.calidadFirmante);
     await fillF('t19_en', datosRegistro.t19.lugarFirma);
-    
+
     const hoyT19 = new Date();
     const dia = String(hoyT19.getDate());
     const mesIndex = hoyT19.getMonth();
@@ -603,7 +603,7 @@ export async function runRegistroAutomation(payload) {
 
     console.log('-> ✍️ Iniciando firma (AutoFirma)...');
     await page.getByRole('img', { name: 'Iniciar Firma' }).click().catch(() => { });
-    
+
     console.log('\n======================================================');
     console.log('🚀 ¡BINGO! TODAS LAS PESTAÑAS COMPLETADAS.');
     console.log('El robot queda pausado para que firmes y termines manualmente.');
@@ -613,7 +613,7 @@ export async function runRegistroAutomation(payload) {
 
     try {
       tempFiles.forEach(f => { if (fs.existsSync(f)) fs.unlinkSync(f); });
-    } catch(e){}
+    } catch (e) { }
 
     return {
       status: 'success',
