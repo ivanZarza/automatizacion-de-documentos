@@ -46,17 +46,17 @@ Al ejecutar el robot desde la aplicación conectada a la base de datos PostgreSQ
 3. **Regla de No Sobreescritura (`forceOverwrite = false`):**
    * Si las casillas del portal traían espacios o valores iniciales por defecto, los helpers `fillF` y `selF` interpretaban que la casilla ya estaba rellena y se negaban a sobreescribir con los datos del usuario.
 
-### 🪟 Comportamiento de Ventanas Emergentes y Alertas entre Equipos
+### 🪟 Comportamiento de Ventanas Emergentes (`window.open`) y Alertas entre Equipos
 
-1. **La pequeña ventana emergente con la "A" (Logo de la Junta / AutoFirma):**
-   * Es el componente de cliente del conector de firma digital de la Junta (`afirma://` / AutoFirma).
-   * **En el ordenador secundario:** Salta la mini ventana flotante del lanzador porque la aplicación AutoFirma está activa y la asociación de protocolos del navegador salta de forma visible para invocar la firma.
-   * **En tu ordenador principal:** No salta de forma flotante porque en tu navegador habitual marcaste la opción *"Recordar mi elección y no volver a preguntar"*, o porque AutoFirma se ejecuta en segundo plano silencioso.
+1. **La ventana emergente con el logo de la "A" de la Junta de Andalucía:**
+   * El botón *"Acceso con Certificado"* (`#acceso-3`) de la Oficina Virtual de la Junta ejecuta internamente una función JavaScript `window.open(...)` que abre una ventana secundaria de autenticación (de unos 450x300px) encabezada con el **logo oficial verde de la 'A' de la Junta**.
+   * **En navegación manual (Chrome normal):** El bloqueador de ventanas emergentes estándar de Chrome detecta y bloquea por defecto esa ventana o la fuerza a abrirse como una pestaña más, por lo que manualmente nunca se ve flotando.
+   * **En automatización (Playwright en el ordenador nuevo):** Playwright deshabilita el bloqueador de ventanas emergentes (`disable-popup-blocking`) para permitir la interacción con el portal. Por ello, la web de la Junta puede desplegar su ventana flotante con el logo de la "A" exactamente con las dimensiones en que fue programada por la Administración.
 
 2. **El `alert` al hacer clic en "Nueva Solicitud" / "Nuevo Registro":**
-   * Es un diálogo nativo de aviso de JavaScript que lanza la web de la Junta (*"Atención: se generará una nueva solicitud..."*).
-   * **En tu ordenador habitual:** Salta el `alert` si la sesión del portal detecta que tenías un borrador activo pendiente de cerrar.
-   * **En el ordenador secundario:** Al ser una sesión de Playwright limpia sin borradores colgados, o porque Playwright auto-maneja los diálogos JavaScript nativos (`dialog.accept()`), el aviso no detiene la navegación del robot y continúa automáticamente.
+   * Es un cuadro de diálogo nativo de aviso de JavaScript (`alert(...)` / `confirm(...)`) que lanza la web de la Junta (*"Atención: se generará una nueva solicitud..."*).
+   * **En navegación MANUAL (en cualquier equipo):** El navegador detiene la pantalla y muestra obligatoriamente la caja de diálogo de JavaScript esperando a que el usuario haga clic físico en "Aceptar".
+   * **En AUTOMATIZACIÓN con Playwright:** Por diseño y arquitectura de Playwright, todos los cuadros de diálogo nativos de JavaScript (`alert` / `confirm`) **son interceptados y aceptados automáticamente en milisegundos en segundo plano (`dialog.accept()`)**. Por esa razón, cuando la automatización ejecuta el clic, el `alert` se acepta tan rápido que la ventana no llega ni a dibujarse visualmente y la página entra directa a la nueva solicitud.
 
 ---
 
