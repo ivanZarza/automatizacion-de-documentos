@@ -260,9 +260,11 @@ export async function runRegistroAutomation(payload) {
           try {
             // Buscamos el value exacto o coincidencia bidireccional/normalizada
             const targetClean = normalizeStr(val);
-            const firstWord = targetClean.split(' ')[0]; // ej. "conil", "chiclana"
+            const stopwords = ['el', 'la', 'los', 'las', 'de', 'del', 'san', 'santa', 'da', 'do'];
+            const words = targetClean.split(' ').filter(w => !stopwords.includes(w) && w.length >= 3);
+            const mainWord = words[0] || targetClean.split(' ')[0]; // ej. "linea", "chiclana", "conil"
 
-            const optionValue = await loc.evaluate((select, { targetClean, firstWord }) => {
+            const optionValue = await loc.evaluate((select, { targetClean, mainWord }) => {
               const norm = (s) => s ? s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim().toLowerCase() : "";
 
               // 1. Coincidencia exacta por texto o value
@@ -276,15 +278,16 @@ export async function runRegistroAutomation(payload) {
                 if (optClean && targetClean && (targetClean.includes(optClean) || optClean.includes(targetClean))) return opt.value;
                 if (optValClean && targetClean && (targetClean.includes(optValClean) || optValClean.includes(targetClean))) return opt.value;
               }
-              // 3. Coincidencia por primera palabra relevante (ej. "conil", "chiclana", "arcos")
-              if (firstWord && firstWord.length >= 3) {
+              // 3. Coincidencia por palabra principal relevante (ej. "linea", "chiclana", "arcos")
+              if (mainWord && mainWord.length >= 3) {
                 for (let opt of select.options) {
                   const optClean = norm(opt.text);
-                  if (optClean.startsWith(firstWord) || optClean.includes(firstWord)) return opt.value;
+                  const optValClean = norm(opt.value);
+                  if (optClean.includes(mainWord) || optValClean.includes(mainWord)) return opt.value;
                 }
               }
               return null;
-            }, { targetClean, firstWord });
+            }, { targetClean, mainWord });
 
             if (optionValue) {
               console.log(`      [OK] Select ${id}: encontrado "${val}" -> opción "${optionValue}"`);

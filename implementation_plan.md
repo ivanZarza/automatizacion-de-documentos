@@ -335,6 +335,25 @@ Estudiar y corregir de forma quirúrgica la **Sección 2 de la Pestaña 1 (Ubica
 3. Confirmar que `t3_selec_localidad` no queda con el valor `"-1"`.
 4. Comprobar que la Pestaña 1 se guarda exitosamente sin mostrar el aviso *"Existen campos obligatorios sin rellenar en la Sección 2"*.
 
+---
+
+## 🏙️ Fase 15: Componente Autocomplete/Combobox para Municipios y Provincias con Texto Libre
+
+### 🎯 Objetivo
+Implementar un control tipo **Combobox / Autocomplete** para la selección de municipios y provincias en los formularios, con filtrado en tiempo real, nombres oficiales legibles (con tildes y mayúsculas/minúsculas) y soporte para **texto libre** cuando el usuario no elija una opción del menú.
+
+### 🛠️ Acciones a Realizar:
+1. **Normalización del Catálogo (`municipiosAndalucia.json`):**
+   - Corregir los nombres abreviados o recortados (ej: `"LINEA"` $\rightarrow$ `"La Línea de la Concepción"`, `"ARCOS FRONTE"` $\rightarrow$ `"Arcos de la Frontera"`).
+2. **Control Autocomplete/Combobox en `DocumentForm.vue`:**
+   - Permitir escribir en un `input` que filtre las sugerencias mientras se teclea.
+   - Si se hace clic en una sugerencia, se asigna dicho valor oficial.
+   - Si no se selecciona ninguna sugerencia, el valor del campo se mantiene exactamente como el **texto libre** escrito por el usuario.
+3. **Mapeo Transparente con el Robot:**
+   - Garantizar que la Sección A conserve el texto elegante y correcto para todos los PDFs.
+   - El Robot de Registro (`registroService.js`) mapeará de forma inteligente ese nombre al código/texto truncado que exige la Junta de Andalucía al automatizar.
+
+
 
 
 

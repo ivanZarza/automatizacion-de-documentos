@@ -68,6 +68,36 @@
                       <textarea v-else-if="field.type === 'textarea'" v-model="formData[field.name]"
                         :placeholder="field.placeholder" :rows="field.rows || 3"
                         class="field-input field-textarea" :style="field.required ? 'border-color: #ef4444; border-width: 2px;' : ''"></textarea>
+                      <!-- Campo Combobox / Autocomplete con Texto Libre -->
+                      <div v-else-if="field.type === 'combobox' || field.isCombobox" class="combobox-wrapper" style="position: relative; width: 100%;">
+                        <input
+                          :id="field.name"
+                          type="text"
+                          v-model="formData[field.name]"
+                          :placeholder="field.placeholder || 'Escriba o seleccione...'"
+                          class="field-input"
+                          :style="field.required ? 'border-color: #ef4444; border-width: 2px;' : ''"
+                          @focus="activeCombobox = field.name"
+                          @blur="onComboboxBlur"
+                          @input="activeCombobox = field.name"
+                          autocomplete="off"
+                        />
+                        <div
+                          v-if="activeCombobox === field.name && getComboboxFilteredOptions(field).length > 0"
+                          class="combobox-dropdown"
+                          style="position: absolute; top: calc(100% + 4px); left: 0; right: 0; max-height: 220px; overflow-y: auto; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); z-index: 9999;"
+                        >
+                          <div
+                            v-for="option in getComboboxFilteredOptions(field)"
+                            :key="option.value || option.label || option"
+                            class="combobox-item"
+                            style="padding: 10px 14px; cursor: pointer; border-bottom: 1px solid #f1f5f9; font-size: 0.875rem; color: #1e293b; transition: background 0.15s ease;"
+                            @mousedown.prevent="selectComboboxOption(field.name, option)"
+                          >
+                            {{ option.label || option.value || option }}
+                          </div>
+                        </div>
+                      </div>
                       <select v-else-if="field.type === 'select'" v-model="formData[field.name]" class="field-input"
                         :style="field.required ? 'border-color: #ef4444; border-width: 2px;' : ''">
                         <option value="">{{ field.placeholder || 'Seleccionar...' }}</option>
@@ -217,6 +247,79 @@ const handleEquipmentSelect = (value, field) => {
     })
     console.log(`[DocumentForm] Auto-completado aplicado para ${field.name} desde equipo ${selectedEq.id}`)
   }
+}
+
+// Lógica para Combobox / Autocomplete con Texto Libre
+const activeCombobox = ref(null)
+
+const removeAccents = (str) => {
+  return str ? str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase() : ''
+}
+
+const getMunicipiosForProvincia = (prov) => {
+  if (!prov) return null
+  if (municipiosAndalucia[prov]) return municipiosAndalucia[prov]
+  const provClean = removeAccents(prov)
+  for (const [k, v] of Object.entries(municipiosAndalucia)) {
+    if (removeAccents(k) === provClean) {
+      return v
+    }
+  }
+  return null
+}
+
+const getComboboxFilteredOptions = (field) => {
+  let opts = field.options || []
+
+  // Para campos de municipio, obtener dinámicamente según provincia o catálogo global
+  if (field.name === 'localidadEmplazamiento' || field.name === 'registro_t3_localidad') {
+    const provKey = field.name === 'localidadEmplazamiento' ? 'provinciaEmplazamiento' : 'registro_t3_provincia'
+    const currentProv = formData.value[provKey]
+    const munesProv = getMunicipiosForProvincia(currentProv)
+
+    if (munesProv) {
+      opts = munesProv
+    } else {
+      // Si no se ha elegido provincia aún, cargar la lista completa de municipios de Andalucía
+      opts = Object.values(municipiosAndalucia).flat()
+    }
+  }
+
+  const rawQuery = (formData.value[field.name] || '').toString().trim()
+  if (!rawQuery) {
+    return opts.slice(0, 100)
+  }
+
+  const queryClean = removeAccents(rawQuery)
+
+  return opts.filter(opt => {
+    const label = (opt.label || opt.value || opt).toString()
+    const labelClean = removeAccents(label)
+    return labelClean.includes(queryClean)
+  }).slice(0, 100)
+}
+
+const selectComboboxOption = (fieldName, option) => {
+  const val = typeof option === 'object' ? (option.label || option.value) : option
+  formData.value[fieldName] = val
+  activeCombobox.value = null
+
+  // Si se selecciona un municipio y la provincia está vacía o desactualizada, auto-asignarla
+  if (fieldName === 'localidadEmplazamiento' || fieldName === 'registro_t3_localidad') {
+    const targetProvKey = fieldName === 'localidadEmplazamiento' ? 'provinciaEmplazamiento' : 'registro_t3_provincia'
+    for (const [prov, munes] of Object.entries(municipiosAndalucia)) {
+      if (munes.some(m => m.value === val || m.label === val)) {
+        formData.value[targetProvKey] = prov
+        break
+      }
+    }
+  }
+}
+
+const onComboboxBlur = () => {
+  setTimeout(() => {
+    activeCombobox.value = null
+  }, 200)
 }
 
 const props = defineProps({
@@ -465,9 +568,9 @@ watch(formData, (newVal) => {
         }
 
         if (currentSource !== valueToInjectBack) {
-          // Si es el nombre del presentador, no hacemos el reverse complejo por ahora, 
-          // pero para el resto de campos copiamos directamente
-          if (field.name !== 'nombre_presentador') {
+          // No aplicamos reverse sync para nombre del presentador ni para campos de dirección del Registro
+          const isAddressField = field.name === 'registro_t3_localidad' || field.name === 'registro_t3_provincia'
+          if (field.name !== 'nombre_presentador' && !isAddressField) {
             changesToApply[sourceName] = valueToInjectBack
             hasChanges = true
           }
@@ -523,27 +626,18 @@ watch(() => formData.value.registro_t3_anioConstruccion, (newVal) => {
 })
 
 // Dinamizar opciones de municipio al cambiar de provincia
-watch(() => formData.value.registro_t3_provincia || formData.value.provinciaEmplazamiento, (newProvincia) => {
-  const localidadFieldT3 = masterFormFields.find(f => f.name === 'registro_t3_localidad')
+watch(() => formData.value.provinciaEmplazamiento, (newProvincia) => {
   const localidadFieldA = masterFormFields.find(f => f.name === 'localidadEmplazamiento')
-
-  const actualizarLocalidad = (localidadField, formDataKey) => {
-    if (localidadField) {
-      if (newProvincia && municipiosAndalucia[newProvincia]) {
-        localidadField.options = municipiosAndalucia[newProvincia]
-      } else {
-        localidadField.options = []
-      }
-      // Si la localidad elegida no está en la nueva provincia, limpiarla
-      const existeEnNuevasOpciones = localidadField.options.some(opt => opt.value === formData.value[formDataKey])
-      if (!existeEnNuevasOpciones) {
-        formData.value[formDataKey] = ''
-      }
-    }
+  if (localidadFieldA) {
+    localidadFieldA.options = getMunicipiosForProvincia(newProvincia) || []
   }
+}, { immediate: true })
 
-  actualizarLocalidad(localidadFieldT3, 'registro_t3_localidad')
-  actualizarLocalidad(localidadFieldA, 'localidadEmplazamiento')
+watch(() => formData.value.registro_t3_provincia, (newProvincia) => {
+  const localidadFieldT3 = masterFormFields.find(f => f.name === 'registro_t3_localidad')
+  if (localidadFieldT3) {
+    localidadFieldT3.options = getMunicipiosForProvincia(newProvincia) || []
+  }
 }, { immediate: true })
 
 // Guardar automáticamente en localStorage controlado por DocumentPage

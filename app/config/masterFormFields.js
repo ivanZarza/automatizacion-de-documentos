@@ -111,10 +111,10 @@ export const masterFormFields = [
   { name: 'planta', label: 'Planta', placeholder: 'Ej: 3º', type: 'text', subsection: 'A' },
   { name: 'puerta', label: 'Puerta', placeholder: 'Ej: B', type: 'text', subsection: 'A' },
   { name: 'telefonoFijo', label: 'Teléfono Fijo', placeholder: 'Ej: 954 123 456', type: 'tel', subsection: 'A' },
-  { name: 'localidadEmplazamiento', label: 'Localidad del Emplazamiento', placeholder: 'Seleccionar Municipio', type: 'select', subsection: 'A', options: [] },
-  { name: 'provinciaEmplazamiento', label: 'Provincia del Emplazamiento', placeholder: 'Seleccionar Provincia', type: 'select', subsection: 'A', options: [
-    { value: 'ALMERÍA', label: 'ALMERÍA' }, { value: 'CÁDIZ', label: 'CÁDIZ' }, { value: 'CÓRDOBA', label: 'CÓRDOBA' }, { value: 'GRANADA', label: 'GRANADA' }, 
-    { value: 'HUELVA', label: 'HUELVA' }, { value: 'JAÉN', label: 'JAÉN' }, { value: 'MÁLAGA', label: 'MÁLAGA' }, { value: 'SEVILLA', label: 'SEVILLA' }
+  { name: 'localidadEmplazamiento', label: 'Localidad del Emplazamiento', placeholder: 'Escriba o seleccione Municipio...', type: 'combobox', subsection: 'A', options: [] },
+  { name: 'provinciaEmplazamiento', label: 'Provincia del Emplazamiento', placeholder: 'Escriba o seleccione Provincia...', type: 'combobox', subsection: 'A', options: [
+    { value: 'Almería', label: 'Almería' }, { value: 'Cádiz', label: 'Cádiz' }, { value: 'Córdoba', label: 'Córdoba' }, { value: 'Granada', label: 'Granada' }, 
+    { value: 'Huelva', label: 'Huelva' }, { value: 'Jaén', label: 'Jaén' }, { value: 'Málaga', label: 'Málaga' }, { value: 'Sevilla', label: 'Sevilla' }
   ] },
   { name: 'codigoPostalEmplazamiento', label: 'Código Postal del Emplazamiento', placeholder: 'Ej: 41001', type: 'text', subsection: 'A' },
   { name: 'direccionCompleta', label: 'Dirección Completa', placeholder: 'Ej: Avenida de la Innovación 42, 1ºA, 41001 Sevilla', type: 'text', subsection: 'A' },
@@ -705,11 +705,11 @@ export const masterFormFields = [
   { name: 'registro_t3_piso', label: 'Piso', type: 'text', mapFrom: 'planta', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
   { name: 'registro_t3_puerta', label: 'Puerta', type: 'text', mapFrom: 'puerta', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
   { name: 'registro_t3_pais', label: 'País (T3)', type: 'text', value: 'ES', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)', required: true },
-  { name: 'registro_t3_provincia', label: 'Provincia', type: 'select', mapFrom: 'provinciaEmplazamiento', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)', required: true, options: [
-    { value: 'ALMERÍA', label: 'ALMERÍA' }, { value: 'CÁDIZ', label: 'CÁDIZ' }, { value: 'CÓRDOBA', label: 'CÓRDOBA' }, { value: 'GRANADA', label: 'GRANADA' }, 
-    { value: 'HUELVA', label: 'HUELVA' }, { value: 'JAÉN', label: 'JAÉN' }, { value: 'MÁLAGA', label: 'MÁLAGA' }, { value: 'SEVILLA', label: 'SEVILLA' }
+  { name: 'registro_t3_provincia', label: 'Provincia', type: 'combobox', mapFrom: 'provinciaEmplazamiento', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)', required: true, options: [
+    { value: 'Almería', label: 'Almería' }, { value: 'Cádiz', label: 'Cádiz' }, { value: 'Córdoba', label: 'Córdoba' }, { value: 'Granada', label: 'Granada' }, 
+    { value: 'Huelva', label: 'Huelva' }, { value: 'Jaén', label: 'Jaén' }, { value: 'Málaga', label: 'Málaga' }, { value: 'Sevilla', label: 'Sevilla' }
   ] },
-  { name: 'registro_t3_localidad', label: 'Municipio', type: 'select', mapFrom: 'localidadEmplazamiento', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)', required: true, options: [] },
+  { name: 'registro_t3_localidad', label: 'Municipio', type: 'combobox', mapFrom: 'localidadEmplazamiento', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)', required: true, options: [] },
   { name: 'registro_t3_entPoblacion', label: 'Entidad de Población', type: 'text', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
   { name: 'registro_t3_cPostal', label: 'Código Postal', type: 'text', mapFrom: 'codigoPostalEmplazamiento', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)', required: true },
   { name: 'registro_t3_refCatastral', label: 'Referencia Catastral', type: 'text', mapFrom: 'referenciaCatastral', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)', required: true },
