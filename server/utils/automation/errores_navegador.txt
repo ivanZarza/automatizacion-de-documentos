@@ -1,12 +1,16 @@
-=== INICIO LOG 2026-04-17T07:49:43.899Z ===
-[log] Hora cliente: Fri Apr 17 2026 09:49:44 GMT+0200 (hora de verano de Europa central)
-[log] Hora servidor: Fri Apr 17 2026 09:49:40 GMT+0200 (hora de verano de Europa central)
-[log] Hora cliente: Fri Apr 17 2026 09:49:49 GMT+0200 (hora de verano de Europa central)
-[log] Hora servidor: Fri Apr 17 2026 09:49:40 GMT+0200 (hora de verano de Europa central)
-[info] Launched external handler for 'afirma://websocket?v=3&idsession=R2gaMwQcimd4mIZkLxzM'.
+=== INICIO LOG 2026-08-06T13:55:17.390Z ===
+[info] Slow network is detected. See https://www.chromestatus.com/feature/5636954674692096 for more details. Fallback font will be used while loading: https://fonts.gstatic.com/s/sourcesanspro/v23/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7l.woff2
+[log] Hora cliente: Thu Aug 06 2026 15:55:30 GMT+0200 (hora de verano de Europa central)
+[log] Hora servidor: Thu Aug 06 2026 15:55:28 GMT+0200 (hora de verano de Europa central)
+[log] Hora cliente: Thu Aug 06 2026 15:55:41 GMT+0200 (hora de verano de Europa central)
+[log] Hora servidor: Thu Aug 06 2026 15:55:28 GMT+0200 (hora de verano de Europa central)
+[info] Launched external handler for 'afirma://websocket?v=3&idsession=wckQoYzaDG1kfE9sP9gf'.
 [log] Creamos el cliente para el socket
+[log] Creamos el cliente para el socket
+[log] Se abre el socket
 [log] Se abre el socket
 [log] Enviamos el mensaje al socket
 [log] Respuesta de la peticion de eco
 [log] Respuesta obtenida de la operacion enviada
 [CRASH] Cannot read properties of null (reading 'value')
+[error] Failed to load resource: the server responded with a status of 404 (Not Found)

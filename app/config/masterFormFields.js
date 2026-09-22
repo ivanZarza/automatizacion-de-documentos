@@ -496,7 +496,7 @@ export const masterFormFields = [
   { name: 'puerta_presentador', label: 'Puerta', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)' },
   { name: 'margen_presentador', label: 'Margen', type: 'select', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)', value: '', options: [{ value: '', label: '(Sin margen)' }, { value: 'D', label: 'Derecha' }, { value: 'I', label: 'Izquierda' }] },
   { name: 'provincia_presentador', label: 'Provincia', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)', mapFrom: 'provinciaEmplazamiento' },
-  { name: 'municipio_presentador', label: 'Municipio', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)', mapFrom: 'localidadEmplazamiento' },
+  { name: 'municipio_presentador', label: 'Municipio', type: 'dependent-select', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)', mapFrom: 'localidadEmplazamiento', dependsOn: 'cod_delegacion', optionsSource: 'municipiosPorProvincia' },
   { name: 'poblacion_presentador', label: 'Población', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)', mapFrom: 'localidadEmplazamiento' },
   { name: 'cp_presentador', label: 'Código Postal', type: 'text', subsection: 'PRESENTACIÓN', group: 'Domicilio (Robot)', mapFrom: 'codigoPostalEmplazamiento' },
   { name: 'telefono_presentador', label: 'Teléfono Fijo', type: 'tel', subsection: 'PRESENTACIÓN', group: 'Contacto (Robot)', mapFrom: 'telefono' },

@@ -60,6 +60,11 @@
                         <option v-for="option in field.options" :key="option.value || option"
                           :value="option.value || option">{{ option.label || option }}</option>
                       </select>
+                      <!-- SELECT DEPENDIENTE (municipios filtrados por provincia) -->
+                      <select v-else-if="field.type === 'dependent-select'" v-model="formData[field.name]" class="field-input">
+                        <option value="">{{ field.placeholder || 'Seleccionar...' }}</option>
+                        <option v-for="opt in getDependentOptions(field)" :key="opt" :value="opt">{{ opt }}</option>
+                      </select>
                       <div v-else-if="field.type === 'equipment-autocomplete'" class="autocomplete-wrapper"
                         style="width: 100%;">
                         <select :id="field.name" v-model="formData[field.name]" class="field-input"
@@ -168,6 +173,24 @@ import Boton from './Boton.vue'
 import { masterFormFields } from '../config/masterFormFields'
 import { saveImageToStorage } from '../utils/storageManager'
 import { useEquipmentStore } from '../stores/equipmentStore'
+import { municipiosPorProvincia } from '../config/municipiosOptions'
+
+// Mapa de fuentes de datos para selects dependientes
+const dependentSelectSources = {
+  municipiosPorProvincia,
+}
+
+/**
+ * Devuelve las opciones para un campo dependent-select.
+ * Busca en la fuente de datos correspondiente usando el valor del campo padre.
+ */
+function getDependentOptions(field) {
+  if (!field.dependsOn || !field.optionsSource) return []
+  const parentValue = formData.value[field.dependsOn] || ''
+  const source = dependentSelectSources[field.optionsSource]
+  if (!source || !parentValue) return []
+  return source[parentValue] || []
+}
 
 const equipmentStore = useEquipmentStore()
 
@@ -270,6 +293,12 @@ const buildInitialFormData = (baseData = {}) => {
           label = label.replace(/\s*\(Archivo\)\s*/i, '').replace(/\s*\(Imagen\)\s*/i, '').trim()
           fromBaseFilename = `${label}.${ext}`
         }
+      } else if (fromBaseFilename) {
+        // Normalizar nombres existentes eliminando prefijos extraños
+        const clean = fromBaseFilename.replace(/^[\d\.\-_\s]+/, '').trim()
+        if (field.name === 'doc_autorizacion_rep') fromBaseFilename = `1.- ${clean || 'MTD.pdf'}`
+        else if (field.name === 'doc_adicional_2') fromBaseFilename = `2.- ${clean || 'CIE.pdf'}`
+        else if (field.name === 'doc_certificado_solidez') fromBaseFilename = `7.- ${clean || 'Certificado de Adecuacion.pdf'}`
       }
       
       result[filenameKey] = fromBaseFilename
@@ -379,6 +408,23 @@ const toggleGroup = (subsectionName, groupName) => {
   const groupKey = `${subsectionName}-${groupName}`
   expandedGroups.value[groupKey] = !expandedGroups.value[groupKey]
 }
+
+// Cuando cambia la delegación (provincia), resetear municipio si no pertenece a la nueva provincia
+watch(() => formData.value.cod_delegacion, (newCod) => {
+  if (!newCod) return
+  const municipiosValidos = municipiosPorProvincia[newCod] || []
+  const municipioActual = formData.value.municipio_presentador || ''
+  if (municipioActual && !municipiosValidos.includes(municipioActual)) {
+    formData.value.municipio_presentador = ''
+  }
+})
+
+// Cuando cambia el municipio seleccionado, sincronizar con poblacion_presentador
+watch(() => formData.value.municipio_presentador, (newMun) => {
+  if (newMun) {
+    formData.value.poblacion_presentador = newMun
+  }
+})
 
 // Lógica de sincronización automática (Edificio/L3 vs Vivienda/L4)
 const syncConfig = {
@@ -584,11 +630,22 @@ const handleFileUpload = async (event, fieldName) => {
 
   if (file) {
     try {
+      // Normalizar nombre de archivo según la casilla (Solución 1: prefijos 1.-, 2.-, 7.- automáticos)
+      let normalizedName = file.name
+      const clean = file.name.replace(/^[\d\.\-_\s]+/, '').trim()
+      if (fieldName === 'doc_autorizacion_rep') {
+        normalizedName = `1.- ${clean || 'MTD.pdf'}`
+      } else if (fieldName === 'doc_adicional_2') {
+        normalizedName = `2.- ${clean || 'CIE.pdf'}`
+      } else if (fieldName === 'doc_certificado_solidez') {
+        normalizedName = `7.- ${clean || 'Certificado de Adecuacion.pdf'}`
+      }
+
       // Guardar el nombre de archivo en formData y localStorage (soportando _filename y _name)
-      formData.value[`${fieldName}_filename`] = file.name
-      formData.value[`${fieldName}_name`] = file.name
-      saveImageToStorage(`${fieldName}_filename`, file.name)
-      saveImageToStorage(`${fieldName}_name`, file.name)
+      formData.value[`${fieldName}_filename`] = normalizedName
+      formData.value[`${fieldName}_name`] = normalizedName
+      saveImageToStorage(`${fieldName}_filename`, normalizedName)
+      saveImageToStorage(`${fieldName}_name`, normalizedName)
 
       // Comprimir imagen si es tipo imagen
       if (file.type.startsWith('image/')) {

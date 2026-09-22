@@ -67,12 +67,12 @@ export const runJuntaAutomation = async (payload) => {
           const originalName = payload.flatFormData?.[`${field}_filename`] || payload.flatFormData?.[`${field}_name`];
           let fileName;
           if (originalName) {
-            // Limpiar posibles prefijos duplicados (ej: "1.- " o "1.-")
-            const cleanName = originalName.replace(/^\d+[\.\-_\s]*/, '');
-            fileName = `${prefix}${cleanName}`;
+            // Limpiar cualquier prefijo, número, guiones, barras bajas o espacios al inicio
+            const cleanName = originalName.replace(/^[\d\.\-_\s]+/, '').trim();
+            fileName = `${prefix} ${cleanName || 'documento.pdf'}`;
           } else {
             const ext = matches[1].includes('pdf') ? 'pdf' : 'jpg';
-            fileName = `${prefix}documento_manual.${ext}`;
+            fileName = `${prefix} documento_manual.${ext}`;
           }
           fs.writeFileSync(path.join(tempDocsDir, fileName), buffer);
           console.log(`   [ROBUSTEZ] Archivo manual recibido para ${prefix}: ${fileName}`);
@@ -85,6 +85,17 @@ export const runJuntaAutomation = async (payload) => {
 
   // Helper para esperar un tiempo entre acciones
   const esperar = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+  // Helper para pausar con aviso sonoro y visual (Intervención Mónica)
+  async function pausaConAviso(page, mensajeError) {
+    process.stdout.write('\x07'); // Emitir pitido en consola (campana ASCII)
+    console.log(`\n======================================================`);
+    console.log(`⚠️ [PAUSA REQUERIDA] ${mensajeError}`);
+    console.log(`👉 Soluciona este paso manualmente en el navegador abierto.`);
+    console.log(`👉 Una vez solucionado, pulsa "Resume" (▶️) en el Playwright Inspector para que el robot continúe.`);
+    console.log(`======================================================\n`);
+    if (page) await page.pause();
+  }
 
   // Helper: check rápido de si CCAA existe en DOM
   let ccaaCheckCount = 0;
@@ -165,7 +176,7 @@ export const runJuntaAutomation = async (payload) => {
       }
     } catch (e) {
       console.log(`      [!] Error rellenando campo: ${e.message}`);
-      throw e; // Propagar para que el catch global pause el robot
+      await pausaConAviso(locator.page(), `Fallo al rellenar campo. Mensaje: ${e.message}`);
     }
   }
 
@@ -178,7 +189,7 @@ export const runJuntaAutomation = async (payload) => {
       await locator.selectOption(valor);
     } catch (e) {
       console.log(`      [!] Error seleccionando [${valor}]: ${e.message}`);
-      throw e; // Propagar para que el catch global pause el robot
+      await pausaConAviso(locator.page(), `Fallo al seleccionar [${valor}]. Mensaje: ${e.message}`);
     }
   }
 
@@ -189,7 +200,7 @@ export const runJuntaAutomation = async (payload) => {
       await locator.click({ force: true });
     } catch (e) {
       console.log(`      [!] Error pulsando: ${e.message}`);
-      throw e; // Propagar para que el catch global pause el robot
+      await pausaConAviso(locator.page(), `Fallo al hacer clic en elemento. Mensaje: ${e.message}`);
     }
   }
 
@@ -200,7 +211,7 @@ export const runJuntaAutomation = async (payload) => {
       await locator.check({ force: true }).catch(() => { });
     } catch (e) {
       console.log(`      [!] Error marcando: ${e.message}`);
-      throw e; // Propagar para que el catch global pause el robot
+      await pausaConAviso(locator.page(), `Fallo al marcar casilla. Mensaje: ${e.message}`);
     }
   }
 
@@ -346,6 +357,8 @@ export const runJuntaAutomation = async (payload) => {
     channel: 'chrome',
     headless: false,
     ignoreHTTPSErrors: true,
+    acceptDownloads: true,
+    downloadsPath: path.join(os.homedir(), 'Desktop', 'legalizaciones'),
     args: [
       '--disable-blink-features=AutomationControlled',
       '--no-sandbox',
@@ -358,6 +371,9 @@ export const runJuntaAutomation = async (payload) => {
     ]
   });
   const page = context.pages().length > 0 ? context.pages()[0] : await context.newPage();
+
+  console.log('   [Config] Abriendo inspector de Playwright para permitir control manual...');
+  await page.pause();
 
   // --- MANEJADOR GLOBAL DE DIÁLOGOS (Aceptar confirmaciones y alertas) ---
   page.on('dialog', dialog => {
@@ -537,9 +553,15 @@ export const runJuntaAutomation = async (payload) => {
     console.log('   -> Esperando botón "Nueva comunicación"...');
     const linkNuevaComu = page.getByRole('link', { name: /Nueva comunicaci/i }).first();
     // Aquí sí esperamos un tiempo más largo porque ya tiene que estar
-    await linkNuevaComu.waitFor({ state: 'visible', timeout: 60000 }).catch(async (e) => {
+    await linkNuevaComu.waitFor({ state: 'visible', timeout: 180000 }).catch(async (e) => {
       console.log('   [!] "Nueva comunicación" no apareció. Título actual:', await page.title());
-      throw e;
+      try {
+        const allLinks = await page.locator('a, button').allTextContents();
+        console.log('   [DIAGNÓSTICO] Enlaces/botones disponibles:', allLinks.map(t => t.trim()).filter(Boolean));
+      } catch (err) {
+        console.log('   [DIAGNÓSTICO] No se pudieron extraer los enlaces:', err.message);
+      }
+      await pausaConAviso(page, 'Botón "Nueva comunicación" no apareció. Haz clic manualmente y pulsa Resume.');
     });
     await linkNuevaComu.click();
 
@@ -616,25 +638,29 @@ export const runJuntaAutomation = async (payload) => {
       }
     }
 
-    const page1Promise = page.waitForEvent('popup');
-    console.log('   -> Abriendo buscador de municipios (Titular)...');
-    await page.locator('img[onclick*="codigoMunicipioDomicilioInteresado"]').click();
-    const page1 = await page1Promise;
-    await page1.waitForLoadState('networkidle');
+    try {
+      const page1Promise = page.waitForEvent('popup');
+      console.log('   -> Abriendo buscador de municipios (Titular)...');
+      await page.locator('img[onclick*="codigoMunicipioDomicilioInteresado"]').click();
+      const page1 = await page1Promise;
+      await page1.waitForLoadState('networkidle');
 
-    // MODO HUMANO EN POPUP: Rellenar letra a letra
-    console.log('   -> Buscando municipio con ritmo humano...');
-    const searchInput1 = page1.locator('input[name="municipioBusqueda"]');
-    await searchInput1.click();
-    await searchInput1.pressSequentially((datos.municipioNombre || '').trim(), { delay: 150 });
-    await page1.getByRole('img', { name: 'Buscar Municipio' }).click();
-    await esperar(3000);
+      // MODO HUMANO EN POPUP: Rellenar letra a letra
+      console.log('   -> Buscando municipio con ritmo humano...');
+      const searchInput1 = page1.locator('input[name="municipioBusqueda"]');
+      await searchInput1.click();
+      await searchInput1.pressSequentially((datos.municipioNombre || '').trim(), { delay: 150 });
+      await page1.getByRole('img', { name: 'Buscar Municipio' }).click();
+      await esperar(3000);
 
-    // Esperar a que los resultados de búsqueda aparezcan (confirma carga del popup)
-    await page1.locator('table.listado').waitFor({ state: 'visible' }).catch(() => { });
-    await page1.getByRole('link', { name: new RegExp((datos.municipioNombre || '').trim(), 'i') }).first().click();
-    console.log('   -> Municipio seleccionado.');
-    await esperar(3000);
+      // Esperar a que los resultados de búsqueda aparezcan (confirma carga del popup)
+      await page1.locator('table.listado').waitFor({ state: 'visible' }).catch(() => { });
+      await page1.getByRole('link', { name: new RegExp((datos.municipioNombre || '').trim(), 'i') }).first().click();
+      console.log('   -> Municipio seleccionado.');
+      await esperar(3000);
+    } catch (err) {
+      await pausaConAviso(page, `Error en popup de Municipio (Titular) con "${datos.municipioNombre}": ${err.message}`);
+    }
 
     await rellenar(page.locator('input[name="poblacion"]'), datos.poblacion);
     await rellenar(page.locator('input[name="codigoPostalDomicilioInteresado"]'), datos.codigoPostal);
@@ -670,7 +696,10 @@ export const runJuntaAutomation = async (payload) => {
       await Promise.all([
         page.waitForNavigation({ waitUntil: 'load', timeout: 15000 }),
         page.evaluate(() => document.forms[0].submit())
-      ]).catch(e2 => console.log('   -> [!] Fallo submit:', e2.message));
+      ]).catch(async e2 => {
+        console.log('   -> [!] Fallo submit:', e2.message);
+        await pausaConAviso(page, 'Fallo al avanzar a Pestaña 2. Avanza manualmente.');
+      });
     }
     await page.waitForLoadState('networkidle').catch(() => { });
     await esperar(3000);
@@ -706,7 +735,10 @@ export const runJuntaAutomation = async (payload) => {
       await Promise.all([
         page.waitForNavigation({ waitUntil: 'load', timeout: 15000 }),
         page.evaluate(() => document.forms[0].submit())
-      ]).catch(e2 => console.log('   -> [!] Fallo submit:', e2.message));
+      ]).catch(async e2 => {
+        console.log('   -> [!] Fallo submit:', e2.message);
+        await pausaConAviso(page, 'Fallo al avanzar a Datos establecimiento. Avanza manualmente.');
+      });
     }
     await page.waitForLoadState('networkidle').catch(() => { });
     await esperar(3000);
@@ -735,18 +767,22 @@ export const runJuntaAutomation = async (payload) => {
       console.log('   [!] El campo margen llegó vacío desde el formulario.');
     }
 
-    const popupEstPromise = page.waitForEvent('popup');
-    console.log('   -> Abriendo buscador de municipios (Establecimiento)...');
-    await page.locator('img[onclick*="codigoMunicipioDomicilioEstablecimiento"]').click();
-    const popupEst = await popupEstPromise;
-    await popupEst.waitForLoadState('load').catch(() => console.log('      [!] Aviso: Timeout en load de popup est, forzando continuación...'));
-    await popupEst.locator('input[name="municipioBusqueda"]').fill((datos.municipioNombre || '').trim());
-    await popupEst.getByRole('img', { name: 'Buscar Municipio' }).click({ noWaitAfter: true }).catch(() => { });
-    console.log('   -> Buscando municipio (est.)... esperando 5s');
-    await esperar(3000); // 5 segundos tras buscar municipio
-    await popupEst.getByRole('link', { name: new RegExp((datos.municipioNombre || '').trim(), 'i') }).first().click({ timeout: 60000 });
-    console.log('   -> Municipio (est.) seleccionado... esperando 5s');
-    await esperar(3000); // 5 segundos tras seleccionar municipio
+    try {
+      const popupEstPromise = page.waitForEvent('popup');
+      console.log('   -> Abriendo buscador de municipios (Establecimiento)...');
+      await page.locator('img[onclick*="codigoMunicipioDomicilioEstablecimiento"]').click();
+      const popupEst = await popupEstPromise;
+      await popupEst.waitForLoadState('load').catch(() => console.log('      [!] Aviso: Timeout en load de popup est, forzando continuación...'));
+      await popupEst.locator('input[name="municipioBusqueda"]').fill((datos.municipioNombre || '').trim());
+      await popupEst.getByRole('img', { name: 'Buscar Municipio' }).click({ noWaitAfter: true }).catch(() => { });
+      console.log('   -> Buscando municipio (est.)... esperando 5s');
+      await esperar(3000); // 5 segundos tras buscar municipio
+      await popupEst.getByRole('link', { name: new RegExp((datos.municipioNombre || '').trim(), 'i') }).first().click({ timeout: 60000 });
+      console.log('   -> Municipio (est.) seleccionado... esperando 5s');
+      await esperar(3000); // 5 segundos tras seleccionar municipio
+    } catch (err) {
+      await pausaConAviso(page, `Error en popup de Municipio (Establecimiento) con "${datos.municipioNombre}": ${err.message}`);
+    }
 
     await rellenar(page.locator('input[name="poblacionEstablecimiento"]'), datos.poblacion);
     await rellenar(page.locator('input[name="codigoPostalDomicilioEstablecimiento"]'), datos.codigoPostal);
@@ -772,7 +808,10 @@ export const runJuntaAutomation = async (payload) => {
       await Promise.all([
         page.waitForNavigation({ waitUntil: 'load', timeout: 15000 }),
         page.evaluate(() => document.forms[0].submit())
-      ]).catch(e2 => console.log('   -> [!] Fallo submit:', e2.message));
+      ]).catch(async e2 => {
+        console.log('   -> [!] Fallo submit:', e2.message);
+        await pausaConAviso(page, 'Fallo al avanzar a Otros datos. Avanza manualmente.');
+      });
     }
     await page.waitForLoadState('networkidle').catch(() => { });
     await esperar(3000);
@@ -899,6 +938,7 @@ export const runJuntaAutomation = async (payload) => {
         console.log('   -> ✓ Navegación forzada');
       } catch (e2) {
         console.log('   -> [!] Error forzando POST:', e2.message);
+        await pausaConAviso(page, 'Fallo al forzar el POST (radio 741). Verifica manualmente.');
       }
     }
 
@@ -1102,8 +1142,9 @@ export const runJuntaAutomation = async (payload) => {
 
     // Helper local robusto para subir un documento con popup buscando por prefijo
     const subirDocConPopup = async (prefijo, index = null, locatorString = null) => {
-      // Re-adquirir el iframe
-      const currentFicha = page.locator('#ficha').contentFrame();
+      try {
+        // Re-adquirir el iframe
+        const currentFicha = page.locator('#ficha').contentFrame();
 
       let rutaAbsoluta = '';
       let origen = '';
@@ -1111,7 +1152,7 @@ export const runJuntaAutomation = async (payload) => {
       const buscarEn = (dir) => {
         if (!fs.existsSync(dir)) return null;
         const archivos = fs.readdirSync(dir);
-        const match = archivos.find(x => x.startsWith(prefijo));
+        const match = archivos.find(x => x.startsWith(prefijo) || x.startsWith(`${prefijo} `) || x.startsWith(prefijo.replace('-', '')) || x.startsWith(prefijo.substring(0, 2)));
         return match ? path.join(dir, match) : null;
       };
 
@@ -1145,7 +1186,7 @@ export const runJuntaAutomation = async (payload) => {
         console.log(`      [!] Aviso: El icono de adjuntar para ${prefijo} no parece visible.`);
       });
 
-      const popupPromise = context.waitForEvent('page', { timeout: 60000 });
+      const popupPromise = context.waitForEvent('page', { timeout: 60000 }).catch(() => null);
 
       // Click robusto como en main.js
       await targetLocator.click().catch(async () => {
@@ -1153,9 +1194,10 @@ export const runJuntaAutomation = async (payload) => {
         await targetLocator.evaluate(n => n.dispatchEvent(new Event('click', { bubbles: true })));
       });
 
-      const popup = await popupPromise.catch(() => null);
+      const popup = await popupPromise;
       if (!popup) {
         console.log(`   [!] No se pudo abrir el popup para ${prefijo}`);
+        await pausaConAviso(page, `No se pudo abrir el popup para adjuntar el documento (${prefijo}). Adjúntalo manualmente en la ficha si es necesario.`);
         return;
       }
 
@@ -1176,17 +1218,21 @@ export const runJuntaAutomation = async (payload) => {
 
       const btnGuardar = popup.getByRole('img', { name: 'Guardar' });
       await btnGuardar.waitFor({ state: 'visible' });
-      await btnGuardar.click();
+      await btnGuardar.click({ noWaitAfter: true }).catch((e) => console.log('      [!] Aviso en click Guardar:', e.message));
 
       // Espera de guardado post-popup (Sincronización con main.js)
       console.log('      ...esperando guardado post-popup (5s)...');
       await esperar(5000);
       if (!popup.isClosed()) await popup.close().catch(() => { });
 
-      // IMPORTANTE: Esperar a que el iframe se actualice y el primer botón vuelva a ser visible
-      await esperar(3000);
-      const fichaFinal = page.locator('#ficha').contentFrame();
-      await fichaFinal.getByRole('img', { name: 'Adjuntar Documento' }).first().waitFor({ state: 'visible' }).catch(() => { });
+        // IMPORTANTE: Esperar a que el iframe se actualice y el primer botón vuelva a ser visible
+        await esperar(3000);
+        const fichaFinal = page.locator('#ficha').contentFrame();
+        await fichaFinal.getByRole('img', { name: 'Adjuntar Documento' }).first().waitFor({ state: 'visible' }).catch(() => { });
+      } catch (error) {
+        console.log(`      [!] Error crítico subiendo ${prefijo}:`, error.message);
+        await pausaConAviso(page, `Fallo al adjuntar el documento ${prefijo}. Súbelo manualmente.`);
+      }
     };
 
     // DOC 1: Autorización de Representación
@@ -1195,19 +1241,55 @@ export const runJuntaAutomation = async (payload) => {
     // DOC 2 (o el que corresponda al segundo): Buscando por prefijo "2.-"
     await subirDocConPopup('2.-', 4);
 
-    // DOC 3: Certificado de solidez — Buscando por prefijo "7.-"
+    // DOC 3: Certificado de adecuación/solidez — Activar checkbox primero si existe
+    try {
+      const currentFicha = page.locator('#ficha').contentFrame();
+      await currentFicha.getByText(/Certificado de adecuaci|Certificado de solidez/i).first().click().catch(() => {});
+      await esperar(1000);
+    } catch (e) { }
     await subirDocConPopup('7.-', null, 'li:nth-child(8) > .bloqueGrupo > .elemento_checkbox > img');
 
     // ==========================================
     // [SECCIÓN 5] PUNTO DE SUMINISTRO (Popup Nuevo Usuario)
     // ==========================================
-    console.log('\n[5/6] Abriendo popup "Nuevo Usuario" (Punto de Suministro)...');
-    const popupUserPromise = context.waitForEvent('page', { timeout: 60000 });
-    await fichaFrame2.getByRole('button', { name: 'Nuevo Usuario' }).click().catch(() => {
-      return page.getByRole('button', { name: 'Nuevo Usuario' }).click();
-    });
+    console.log('\n   -> Almacenando/Guardando datos de la ficha antes de Nuevo Usuario...');
+    try {
+      const fichaF = page.locator('#ficha').contentFrame();
+      const btnGuardarFicha = fichaF.getByRole('img', { name: 'Guardar' });
+      if (await btnGuardarFicha.isVisible({ timeout: 4000 }).catch(() => false)) {
+        page.once('dialog', d => d.accept().catch(() => { }));
+        await btnGuardarFicha.click({ noWaitAfter: true }).catch(() => {});
+        console.log('      ...esperando guardado de la ficha (5s)...');
+        await esperar(5000);
+      }
+    } catch (e) {
+      console.log('      [!] Aviso guardando ficha:', e.message);
+    }
 
-    const popupUser = await popupUserPromise.catch(() => null);
+    console.log('\n[5/6] Abriendo popup "Nuevo Usuario" (Punto de Suministro)...');
+    let popupUser = null;
+    try {
+      const fichaFrameFinal = page.locator('#ficha').contentFrame();
+      const popupUserPromise = page.waitForEvent('popup', { timeout: 30000 }).catch(() => null);
+      
+      await fichaFrameFinal.getByRole('button', { name: 'Nuevo Usuario' }).click({ noWaitAfter: true }).catch(() => {
+        return page.getByRole('button', { name: 'Nuevo Usuario' }).click({ noWaitAfter: true }).catch(() => {});
+      });
+
+      popupUser = await popupUserPromise;
+      if (!popupUser) {
+        // Fallback: buscar en context.pages()
+        popupUser = context.pages().find(p => p !== page && !p.isClosed());
+      }
+
+      if (!popupUser) {
+        throw new Error('No se abrió el popup de Nuevo Usuario.');
+      }
+    } catch (err) {
+      await pausaConAviso(page, `No se pudo abrir el popup de Nuevo Usuario (${err.message}). Si la web pide almacenar datos de la ficha, pulsa "Guardar" en la ficha y luego haz click en "Nuevo Usuario".`);
+      popupUser = context.pages().find(p => p !== page && !p.isClosed()) || context.pages()[context.pages().length - 1];
+    }
+
     if (!popupUser) {
       throw new Error('No se pudo detectar la apertura del popup de Nuevo Usuario.');
     }
@@ -1247,16 +1329,20 @@ export const runJuntaAutomation = async (payload) => {
     await seleccionar(popupUser.locator('#codigoProvinciaDomicilioTitularPuntoSuministro'), PROVINCIAS[provNorm] || datos.delegacion);
 
     // Buscador Municipio Titular Punto
-    console.log('   -> Buscando municipio (Titular Punto)...');
-    const popMunTitPromise = popupUser.waitForEvent('popup');
-    await popupUser.getByRole('group', { name: 'Datos titular del punto de' }).getByRole('img').click();
-    const popMunTit = await popMunTitPromise;
-    await popMunTit.waitForLoadState('networkidle').catch(() => { });
-    await popMunTit.locator('input[name="municipioBusqueda"]').fill((datos.municipioNombre || '').trim());
-    await popMunTit.getByRole('img', { name: 'Buscar Municipio' }).click({ noWaitAfter: true }).catch(() => { });
-    await esperar(3000);
-    await popMunTit.getByRole('link', { name: new RegExp((datos.municipioNombre || '').trim(), 'i') }).first().click({ timeout: 60000 });
-    await esperar(3000);
+    try {
+      console.log('   -> Buscando municipio (Titular Punto)...');
+      const popMunTitPromise = popupUser.waitForEvent('popup');
+      await popupUser.getByRole('group', { name: 'Datos titular del punto de' }).getByRole('img').click();
+      const popMunTit = await popMunTitPromise;
+      await popMunTit.waitForLoadState('networkidle').catch(() => { });
+      await popMunTit.locator('input[name="municipioBusqueda"]').fill((datos.municipioNombre || '').trim());
+      await popMunTit.getByRole('img', { name: 'Buscar Municipio' }).click({ noWaitAfter: true }).catch(() => { });
+      await esperar(3000);
+      await popMunTit.getByRole('link', { name: new RegExp((datos.municipioNombre || '').trim(), 'i') }).first().click({ timeout: 60000 });
+      await esperar(3000);
+    } catch (err) {
+      await pausaConAviso(popupUser || page, `Error en popup de Municipio (Titular Punto) con "${datos.municipioNombre}": ${err.message}`);
+    }
 
     await rellenar(popupUser.locator('#codigoPostalDomicilioTitularPuntoSuministro'), datos.codigoPostal);
     await rellenar(popupUser.getByRole('textbox', { name: 'Introduzca el teléfono' }), datos.telefono);
@@ -1276,16 +1362,20 @@ export const runJuntaAutomation = async (payload) => {
     await seleccionar(popupUser.locator('#codigoProvinciaDomicilioDatosPuntoSuministro'), PROVINCIAS[provNorm] || datos.delegacion);
 
     // Buscador Municipio Punto
-    console.log('   -> Buscando municipio (Punto Suministro)...');
-    const popMunPuntoPromise = popupUser.waitForEvent('popup');
-    await popupUser.getByRole('group', { name: 'Datos del punto de suministro' }).getByRole('img').click();
-    const popMunPunto = await popMunPuntoPromise;
-    await popMunPunto.waitForLoadState('networkidle').catch(() => { });
-    await popMunPunto.locator('input[name="municipioBusqueda"]').fill((datos.municipioNombre || '').trim());
-    await popMunPunto.getByRole('img', { name: 'Buscar Municipio' }).click({ noWaitAfter: true }).catch(() => { });
-    await esperar(3000);
-    await popMunPunto.getByRole('link', { name: new RegExp((datos.municipioNombre || '').trim(), 'i') }).first().click({ timeout: 60000 });
-    await esperar(3000);
+    try {
+      console.log('   -> Buscando municipio (Punto Suministro)...');
+      const popMunPuntoPromise = popupUser.waitForEvent('popup');
+      await popupUser.getByRole('group', { name: 'Datos del punto de suministro' }).getByRole('img').click();
+      const popMunPunto = await popMunPuntoPromise;
+      await popMunPunto.waitForLoadState('networkidle').catch(() => { });
+      await popMunPunto.locator('input[name="municipioBusqueda"]').fill((datos.municipioNombre || '').trim());
+      await popMunPunto.getByRole('img', { name: 'Buscar Municipio' }).click({ noWaitAfter: true }).catch(() => { });
+      await esperar(3000);
+      await popMunPunto.getByRole('link', { name: new RegExp((datos.municipioNombre || '').trim(), 'i') }).first().click({ timeout: 60000 });
+      await esperar(3000);
+    } catch (err) {
+      await pausaConAviso(popupUser || page, `Error en popup de Municipio (Punto Suministro) con "${datos.municipioNombre}": ${err.message}`);
+    }
 
     await rellenar(popupUser.locator('#codigoPostalDomicilioDatosPuntoSuministro'), datos.codigoPostal);
 
@@ -1393,7 +1483,8 @@ export const runJuntaAutomation = async (payload) => {
       autoClicker.stop();
       await esperar(3000);
     } else {
-      console.log('   [!] Botón Firmar no apareció tras Presentar. Continuando con pausa manual...');
+      console.log('   [!] Botón Firmar no apareció tras Presentar. Pausando...');
+      await pausaConAviso(page, 'Botón Firmar no apareció tras Presentar. Firma manualmente.');
     }
 
     // --- PASO 4: Presentar solicitud (fuera del iframe) + navegar a anclaBotonera ---
