@@ -25,8 +25,9 @@ Accede a la subcarpeta `componentes/` para ver la documentación técnica de los
 
 ---
 
-### 📜 4. Historial de Sesiones
+### 📜 4. Historial de Sesiones y Versiones
 Si necesitas saber qué se hizo en fechas específicas o ver el estado de traspaso:
+- **[Estado de Ramas y Sincronización](./ESTADO_RAMAS_Y_SINCRONIZACION.md)**: **LEER PARA CONTROL DE GIT.** Mapa de ramas de seguridad (`presentacion-funcional`, `test-merge`, `main`) y resolución de conflictos.
 - **[Último Traspaso (Handover)](./historial/ESTADO_ACTUAL_Y_HANDOVER.md)**: Estado del proyecto a finales de Marzo 2026.
 
 ---
