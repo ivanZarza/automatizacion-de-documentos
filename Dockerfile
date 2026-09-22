@@ -7,12 +7,17 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install
+RUN npm install --ignore-scripts
 
 # Copy project files
 COPY . .
 
+# Prepare Nuxt types and directory (now that files are present)
+RUN npx nuxt prepare
+
 # Build the application
+ARG NUXT_APP_BASE_URL
+ENV NUXT_APP_BASE_URL=$NUXT_APP_BASE_URL
 RUN npm run build
 
 # Production stage
@@ -39,10 +44,6 @@ USER nuxt
 
 # Expose port
 EXPOSE 3000
-
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=40s --retries=3 \
-  CMD curl -f http://localhost:3000/ || exit 1
 
 # Start application
 CMD ["node", ".output/server/index.mjs"]

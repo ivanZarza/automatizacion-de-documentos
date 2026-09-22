@@ -26,7 +26,7 @@
           <strong>{{ representante }}</strong>, con DNI/NIF <strong>{{ dniRepresentante }}</strong>, y con domicilio en
           <strong>{{ domicilioRepresentante }}</strong>, localidad Sevilla, provincia de Sevilla, ante el ayuntamiento
           de <strong>{{ organismo }}</strong>, para realizar en mi nombre las gestiones de <strong>{{ gestiones
-            }}</strong>.
+          }}</strong>.
         </p>
 
         <div class="caja-validez">

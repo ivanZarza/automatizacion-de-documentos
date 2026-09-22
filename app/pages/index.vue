@@ -13,7 +13,8 @@ const tabs = [
   { id: 'legalizacion', label: 'Legalización' },
   { id: 'aceptaciones', label: 'Aceptaciones' },
   { id: 'justificaciones', label: 'Justificaciones' },
-  { id: 'justificacion50', label: 'JUSTIFICACIÓN(50%)' }
+  { id: 'justificacion50', label: 'JUSTIFICACIÓN(50%)' },
+  { id: 'pac', label: 'PAC' }
 ]
 
 const allDocuments = getAllDocuments()
@@ -36,6 +37,10 @@ const documentosJustificaciones = computed(() =>
 
 const documentosJustificacion50 = computed(() =>
   allDocuments.filter(doc => doc.category === 'justificacion50')
+)
+
+const documentosPac = computed(() =>
+  allDocuments.filter(doc => doc.category === 'pac')
 )
 </script>
 
@@ -166,6 +171,24 @@ const documentosJustificacion50 = computed(() =>
               </div>
               <div v-else class="documentos-grid">
                 <DocumentCard v-for="documento in documentosJustificacion50" :key="documento.id" :config="documento" />
+              </div>
+            </div>
+          </div>
+
+          <!-- PESTAÑA: PAC -->
+          <div v-if="activeTab === 'pac'" class="tab-pane">
+            <div class="section-container">
+              <div class="section-header-static">
+                <h3 class="section-title">📦 Documentos PAC</h3>
+                <span class="doc-count">{{ documentosPac.length }} documentos</span>
+              </div>
+
+              <div v-if="documentosPac.length === 0" class="empty-state">
+                <span class="empty-icon">🔜</span>
+                <p class="empty-text">No hay documentos en esta categoría</p>
+              </div>
+              <div v-else class="documentos-grid">
+                <DocumentCard v-for="documento in documentosPac" :key="documento.id" :config="documento" />
               </div>
             </div>
           </div>

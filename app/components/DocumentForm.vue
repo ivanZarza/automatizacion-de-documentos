@@ -29,6 +29,17 @@
                   <span class="group-toggle-icon"
                     :class="{ 'is-open': expandedGroups[`${activeSubsection}-${groupName}`] }">▶</span>
                   <h4 class="group-title">{{ groupName }}</h4>
+                  
+                  <!-- BOTÓN PARA GENERAR DOCUMENTO DE FACTURA -->
+                  <Boton 
+                    v-if="groupFields.some(f => f.facturaGroup)"
+                    type="button" 
+                    variant="primary" 
+                    class="btn-generar-factura-inline"
+                    @click.stop="generarDocumentoFactura(groupFields[0].facturaGroup)"
+                  >
+                    📄 Generar DR Corriente Pago
+                  </Boton>
                 </div>
 
                 <!-- Contenido del grupo -->
@@ -36,26 +47,59 @@
                   class="group-content">
                   <div class="fields-grid">
                     <div v-for="field in groupFields" :key="field.name" class="field-wrapper">
-                      <label v-if="field.type !== 'checkbox'" class="field-label">{{ field.label }}</label>
+                      <label v-if="field.type !== 'checkbox'" class="field-label">
+                        {{ field.label }} <span v-if="field.required" style="color: #ef4444; font-weight: bold;">*</span>
+                      </label>
                       <input v-if="field.type === 'text' || field.type === 'email' || field.type === 'tel'"
                         v-model="formData[field.name]" :type="field.type" :placeholder="field.placeholder"
-                        class="field-input" @blur="onFieldBlur(field.name)" />
+                        class="field-input" :style="field.required ? 'border-color: #ef4444; border-width: 2px;' : ''" @blur="onFieldBlur(field.name)" />
                       <div v-else-if="field.type === 'url' && field.preview" class="url-preview-wrapper">
                         <input v-model="formData[field.name]" type="url" :placeholder="field.placeholder"
-                          class="field-input" @blur="onFieldBlur(field.name)" />
+                          class="field-input" :style="field.required ? 'border-color: #ef4444; border-width: 2px;' : ''" @blur="onFieldBlur(field.name)" />
                         <div v-if="formData[field.name]" class="file-preview">
                           <img :src="formData[field.name]" class="file-preview-image"
                             style="max-width:200px;max-height:100px;object-fit:contain;" />
                         </div>
                       </div>
                       <input v-else-if="field.type === 'url'" v-model="formData[field.name]" type="url"
-                        :placeholder="field.placeholder" class="field-input" @blur="onFieldBlur(field.name)" />
+                        :placeholder="field.placeholder" class="field-input" :style="field.required ? 'border-color: #ef4444; border-width: 2px;' : ''" @blur="onFieldBlur(field.name)" />
                       <input v-else-if="field.type === 'date'" v-model="formData[field.name]" type="date"
-                        class="field-input" />
+                        class="field-input" :style="field.required ? 'border-color: #ef4444; border-width: 2px;' : ''" />
                       <textarea v-else-if="field.type === 'textarea'" v-model="formData[field.name]"
                         :placeholder="field.placeholder" :rows="field.rows || 3"
-                        class="field-input field-textarea" @blur="onFieldBlur(field.name)"></textarea>
-                      <select v-else-if="field.type === 'select'" v-model="formData[field.name]" class="field-input">
+                        class="field-input field-textarea" :style="field.required ? 'border-color: #ef4444; border-width: 2px;' : ''" @blur="onFieldBlur(field.name)"></textarea>
+                      <!-- Campo Combobox / Autocomplete con Texto Libre -->
+                      <div v-else-if="field.type === 'combobox' || field.isCombobox" class="combobox-wrapper" style="position: relative; width: 100%;">
+                        <input
+                          :id="field.name"
+                          type="text"
+                          v-model="formData[field.name]"
+                          :placeholder="field.placeholder || 'Escriba o seleccione...'"
+                          class="field-input"
+                          :style="field.required ? 'border-color: #ef4444; border-width: 2px;' : ''"
+                          @focus="activeCombobox = field.name"
+                          @blur="onComboboxBlur"
+                          @input="activeCombobox = field.name"
+                          autocomplete="off"
+                        />
+                        <div
+                          v-if="activeCombobox === field.name && getComboboxFilteredOptions(field).length > 0"
+                          class="combobox-dropdown"
+                          style="position: absolute; top: calc(100% + 4px); left: 0; right: 0; max-height: 220px; overflow-y: auto; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 0.5rem; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); z-index: 9999;"
+                        >
+                          <div
+                            v-for="option in getComboboxFilteredOptions(field)"
+                            :key="option.value || option.label || option"
+                            class="combobox-item"
+                            style="padding: 10px 14px; cursor: pointer; border-bottom: 1px solid #f1f5f9; font-size: 0.875rem; color: #1e293b; transition: background 0.15s ease;"
+                            @mousedown.prevent="selectComboboxOption(field.name, option)"
+                          >
+                            {{ option.label || option.value || option }}
+                          </div>
+                        </div>
+                      </div>
+                      <select v-else-if="field.type === 'select'" v-model="formData[field.name]" class="field-input"
+                        :style="field.required ? 'border-color: #ef4444; border-width: 2px;' : ''">
                         <option value="">{{ field.placeholder || 'Seleccionar...' }}</option>
                         <option v-for="option in field.options" :key="option.value || option"
                           :value="option.value || option">{{ option.label || option }}</option>
@@ -133,8 +177,14 @@
               <Boton type="button" variant="primary" class="btn-launch-automation" @click="handleLaunchAutomation">
                 🚀 Lanzar Automatización (Junta de Andalucía)
               </Boton>
-              <p class="automation-hint">Se abrirá una ventana del navegador para completar la firma con su certificado.
-              </p>
+              <p class="automation-hint">Se abrirá una ventana del navegador para completar la firma con su certificado.</p>
+            </div>
+
+            <div v-if="activeSubsection === 'REGISTRO'" class="automation-actions">
+              <Boton type="button" variant="primary" class="btn-launch-automation" @click="handleLaunchRegistro">
+                🏛️ Lanzar Registro CEE (Junta de Andalucía)
+              </Boton>
+              <p class="automation-hint">Se abrirá una ventana del navegador para registrar el Certificado Energético.</p>
             </div>
           </div>
         </Transition>
@@ -169,11 +219,13 @@ async function onDrop(event, fieldName) {
   }
 }
 import { ref, watch, computed, onMounted, nextTick } from 'vue'
+import { useRouter } from 'vue-router'
 import Boton from './Boton.vue'
 import { masterFormFields } from '../config/masterFormFields'
 import { saveImageToStorage } from '../utils/storageManager'
 import { useEquipmentStore } from '../stores/equipmentStore'
 import { municipiosPorProvincia } from '../config/municipiosOptions'
+import municipiosAndalucia from '../config/municipiosAndalucia.json'
 
 // Mapa de fuentes de datos para selects dependientes
 const dependentSelectSources = {
@@ -193,6 +245,7 @@ function getDependentOptions(field) {
 }
 
 const equipmentStore = useEquipmentStore()
+const router = useRouter()
 
 onMounted(async () => {
   await equipmentStore.cargarEquiposBD('inversores')
@@ -217,6 +270,79 @@ const handleEquipmentSelect = (value, field) => {
     })
     console.log(`[DocumentForm] Auto-completado aplicado para ${field.name} desde equipo ${selectedEq.id}`)
   }
+}
+
+// Lógica para Combobox / Autocomplete con Texto Libre
+const activeCombobox = ref(null)
+
+const removeAccents = (str) => {
+  return str ? str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase() : ''
+}
+
+const getMunicipiosForProvincia = (prov) => {
+  if (!prov) return null
+  if (municipiosAndalucia[prov]) return municipiosAndalucia[prov]
+  const provClean = removeAccents(prov)
+  for (const [k, v] of Object.entries(municipiosAndalucia)) {
+    if (removeAccents(k) === provClean) {
+      return v
+    }
+  }
+  return null
+}
+
+const getComboboxFilteredOptions = (field) => {
+  let opts = field.options || []
+
+  // Para campos de municipio, obtener dinámicamente según provincia o catálogo global
+  if (field.name === 'localidadEmplazamiento' || field.name === 'registro_t3_localidad') {
+    const provKey = field.name === 'localidadEmplazamiento' ? 'provinciaEmplazamiento' : 'registro_t3_provincia'
+    const currentProv = formData.value[provKey]
+    const munesProv = getMunicipiosForProvincia(currentProv)
+
+    if (munesProv) {
+      opts = munesProv
+    } else {
+      // Si no se ha elegido provincia aún, cargar la lista completa de municipios de Andalucía
+      opts = Object.values(municipiosAndalucia).flat()
+    }
+  }
+
+  const rawQuery = (formData.value[field.name] || '').toString().trim()
+  if (!rawQuery) {
+    return opts.slice(0, 100)
+  }
+
+  const queryClean = removeAccents(rawQuery)
+
+  return opts.filter(opt => {
+    const label = (opt.label || opt.value || opt).toString()
+    const labelClean = removeAccents(label)
+    return labelClean.includes(queryClean)
+  }).slice(0, 100)
+}
+
+const selectComboboxOption = (fieldName, option) => {
+  const val = typeof option === 'object' ? (option.label || option.value) : option
+  formData.value[fieldName] = val
+  activeCombobox.value = null
+
+  // Si se selecciona un municipio y la provincia está vacía o desactualizada, auto-asignarla
+  if (fieldName === 'localidadEmplazamiento' || fieldName === 'registro_t3_localidad') {
+    const targetProvKey = fieldName === 'localidadEmplazamiento' ? 'provinciaEmplazamiento' : 'registro_t3_provincia'
+    for (const [prov, munes] of Object.entries(municipiosAndalucia)) {
+      if (munes.some(m => m.value === val || m.label === val)) {
+        formData.value[targetProvKey] = prov
+        break
+      }
+    }
+  }
+}
+
+const onComboboxBlur = () => {
+  setTimeout(() => {
+    activeCombobox.value = null
+  }, 200)
 }
 
 const props = defineProps({
@@ -487,74 +613,119 @@ watch(formData, (newVal) => {
   }
 }, { deep: true })
 
-// Lógica de sincronización automática 'mapFrom' para automatización
+// Memoria para el two-way binding de los campos enlazados por mapFrom
+let lastMapValues = {}
+masterFormFields.forEach(field => {
+  if (field.mapFrom) {
+    lastMapValues[field.mapFrom] = formData.value[field.mapFrom]
+    lastMapValues[field.name] = formData.value[field.name]
+  }
+})
+
+// Lógica de sincronización bidireccional 'mapFrom'
 watch(formData, (newVal) => {
   if (isInternalChange) return
 
+  let hasChanges = false
+  const changesToApply = {}
+
   masterFormFields.forEach(field => {
     if (field.mapFrom) {
-      const sourceValue = newVal[field.mapFrom]
-      const sourceOldValue = lastMapFromSourceValues[field.mapFrom]
+      const sourceName = field.mapFrom
+      const targetName = field.name
 
-      // Si el origen ha cambiado...
-      if (sourceValue !== sourceOldValue) {
-        if (field.name === 'nombre_presentador' && sourceValue) {
-          let nombre = sourceValue
-          let ap1 = ''
-          let ap2 = ''
-          if (sourceValue.includes(',')) {
-            const partes = sourceValue.split(',')
-            nombre = partes[1].trim()
-            const apellidos = partes[0].trim().split(' ')
-            ap1 = apellidos[0] || ''
-            ap2 = apellidos.slice(1).join(' ') || ''
-          } else {
-            const partes = sourceValue.trim().split(' ')
-            if (partes.length >= 3) {
-              nombre = partes.slice(2).join(' ') // Si es "Apellido1 Apellido2 Nombre"
-              ap1 = partes[0]
-              ap2 = partes[1]
-              // Ajuste heurístico simple (si el usuario lo introduce normal "Nombre Apellido1 Apellido2"):
-              nombre = partes[0]
-              ap1 = partes[1]
-              ap2 = partes.slice(2).join(' ')
-            } else if (partes.length === 2) {
-              nombre = partes[0]
-              ap1 = partes[1]
+      const currentSource = newVal[sourceName]
+      const currentTarget = newVal[targetName]
+      
+      const lastSource = lastMapValues[sourceName]
+      const lastTarget = lastMapValues[targetName]
+
+      // 1. ¿Ha cambiado el origen (Ej: Sección A)?
+      if (currentSource !== lastSource) {
+        let valueToInject = currentSource
+
+        // Transformación si existe mapTransform
+        if (field.mapTransform) {
+          const lookupKey = typeof currentSource === 'string'
+            ? currentSource.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+            : currentSource
+          if (field.mapTransform[lookupKey] !== undefined) {
+            valueToInject = field.mapTransform[lookupKey]
+          } else if (field.mapTransform[currentSource] !== undefined) {
+            valueToInject = field.mapTransform[currentSource]
+          }
+        }
+        
+        // Si el destino es un select de objetos (ej: provincia/municipio), mapear de Nombre (Texto) a Código (Value)
+        if (field.options && field.options.length > 0 && typeof field.options[0] === 'object') {
+          const matchedOption = field.options.find(o => o.label && currentSource && String(o.label).trim().toUpperCase() === String(currentSource).trim().toUpperCase())
+          if (matchedOption) valueToInject = matchedOption.value
+        } else if (field.name === 'registro_t3_localidad' && currentSource) {
+          // Si las opciones están vacías (ej. aún no se seleccionó provincia), buscar globalmente en municipiosAndalucia
+          const targetStr = String(currentSource).trim().toUpperCase()
+          for (const provCode in municipiosAndalucia) {
+            const matchedOption = municipiosAndalucia[provCode].find(o => String(o.label).trim().toUpperCase() === targetStr)
+            if (matchedOption) {
+              valueToInject = matchedOption.value
+              break
             }
           }
-          formData.value.nombre_presentador = nombre
-          if (!formData.value.apellido1_presentador) formData.value.apellido1_presentador = ap1
-          if (!formData.value.apellido2_presentador) formData.value.apellido2_presentador = ap2
-          return
         }
 
-        let finalValue = typeof sourceValue === 'string' ? sourceValue.trim() : sourceValue
-        if (field.mapTransform) {
-          const lookupKey = typeof sourceValue === 'string'
-            ? sourceValue.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-            : sourceValue
-          if (field.mapTransform[lookupKey] !== undefined) {
-            finalValue = field.mapTransform[lookupKey]
-          } else if (field.mapTransform[sourceValue] !== undefined) {
-            finalValue = field.mapTransform[sourceValue]
+        if (currentTarget !== valueToInject) {
+          // Lógica especial para nombres (separar apellidos)
+          if (field.name === 'nombre_presentador' && currentSource) {
+            let nombre = currentSource, ap1 = '', ap2 = ''
+            if (currentSource.includes(',')) {
+              const partes = currentSource.split(',')
+              nombre = partes[1].trim()
+              const apellidos = partes[0].trim().split(' ')
+              ap1 = apellidos[0] || ''; ap2 = apellidos.slice(1).join(' ') || ''
+            } else {
+              const partes = currentSource.trim().split(' ')
+              if (partes.length >= 3) {
+                nombre = partes[0]; ap1 = partes[1]; ap2 = partes.slice(2).join(' ')
+              } else if (partes.length === 2) {
+                nombre = partes[0]; ap1 = partes[1]
+              }
+            }
+            changesToApply.nombre_presentador = nombre
+            if (!newVal.apellido1_presentador) changesToApply.apellido1_presentador = ap1
+            if (!newVal.apellido2_presentador) changesToApply.apellido2_presentador = ap2
           } else {
-            finalValue = '' // Si no coincide con la transformación (ej. Toledo), vaciar
+            // Sincronización normal Origen -> Destino
+            changesToApply[targetName] = valueToInject
+          }
+          hasChanges = true
+        }
+      }
+      // 2. ¿Ha cambiado el destino (Ej: REGISTRO T3)? -> TWO-WAY BINDING
+      else if (currentTarget !== lastTarget) {
+        let valueToInjectBack = currentTarget
+        // Si el destino es un select de objetos (ej: provincia/municipio), mapear de Código (Value) a Nombre (Texto)
+        if (field.options && field.options.length > 0 && typeof field.options[0] === 'object') {
+          const matchedOption = field.options.find(o => String(o.value) === String(currentTarget))
+          if (matchedOption) valueToInjectBack = matchedOption.label
+        } else if (field.name === 'registro_t3_localidad' && currentTarget) {
+          // Búsqueda inversa global si options está vacío por algún motivo
+          for (const provCode in municipiosAndalucia) {
+            const matchedOption = municipiosAndalucia[provCode].find(o => String(o.value) === String(currentTarget))
+            if (matchedOption) {
+              valueToInjectBack = matchedOption.label
+              break
+            }
           }
         }
 
-        if (typeof finalValue === 'string') {
-          finalValue = finalValue.trim()
+        if (currentSource !== valueToInjectBack) {
+          // No aplicamos reverse sync para nombre del presentador ni para campos de dirección del Registro
+          const isAddressField = field.name === 'registro_t3_localidad' || field.name === 'registro_t3_provincia'
+          if (field.name !== 'nombre_presentador' && !isAddressField) {
+            changesToApply[sourceName] = valueToInjectBack
+            hasChanges = true
+          }
         }
-        formData.value[field.name] = finalValue
       }
-    }
-  })
-
-  // Actualizar los valores guardados de origen para la siguiente comparación
-  masterFormFields.forEach(field => {
-    if (field.mapFrom) {
-      lastMapFromSourceValues[field.mapFrom] = newVal[field.mapFrom]
     }
   })
 
@@ -572,9 +743,70 @@ watch(formData, (newVal) => {
   const tieneAcum = isNonZero(potAccum) || isNonZero(energAccum)
   const expectedTieneAcum = tieneAcum ? 'si' : 'no'
   if (newVal.tiene_acumulacion !== expectedTieneAcum) {
-    newVal.tiene_acumulacion = expectedTieneAcum
+    changesToApply.tiene_acumulacion = expectedTieneAcum
+    hasChanges = true
+  }
+
+  // Actualizar la memoria con los valores actuales ANTES de inyectar los cambios
+  masterFormFields.forEach(field => {
+    if (field.mapFrom) {
+      lastMapValues[field.mapFrom] = newVal[field.mapFrom]
+      lastMapValues[field.name] = newVal[field.name]
+    }
+  })
+
+  // Aplicar los cambios detectados
+  if (hasChanges) {
+    isInternalChange = true
+    Object.entries(changesToApply).forEach(([key, val]) => {
+      formData.value[key] = val
+      lastMapValues[key] = val // Sincronizar memoria inmediatamente
+    })
+    nextTick(() => {
+      isInternalChange = false
+    })
   }
 }, { deep: true })
+
+// Auto-rellenar normativas (Edificación e Instalaciones) según el año de construcción
+watch(() => formData.value.registro_t3_anioConstruccion, (newVal) => {
+  if (newVal) {
+    const anio = parseInt(newVal)
+    if (!isNaN(anio)) {
+      // Normativa Edificación
+      if (anio < 1980) {
+        formData.value.registro_t9_edificacion = 'otro'
+        if (!formData.value.registro_t9_otro_edif) formData.value.registro_t9_otro_edif = 'Anterior a NBE-CT-79'
+      }
+      else if (anio >= 1980 && anio <= 2006) formData.value.registro_t9_edificacion = 'nbe'
+      else if (anio >= 2007 && anio <= 2013) formData.value.registro_t9_edificacion = 'cte'
+      else if (anio >= 2014) formData.value.registro_t9_edificacion = 'cte_2013'
+
+      // Normativa Instalación Térmica
+      if (anio < 1998) {
+        formData.value.registro_t9_instalacion = 'otro'
+        if (!formData.value.registro_t9_otro_inst) formData.value.registro_t9_otro_inst = 'Anterior a RITE'
+      }
+      else if (anio >= 1998 && anio <= 2007) formData.value.registro_t9_instalacion = 'rite98'
+      else if (anio > 2007) formData.value.registro_t9_instalacion = 'rite07'
+    }
+  }
+})
+
+// Dinamizar opciones de municipio al cambiar de provincia
+watch(() => formData.value.provinciaEmplazamiento, (newProvincia) => {
+  const localidadFieldA = masterFormFields.find(f => f.name === 'localidadEmplazamiento')
+  if (localidadFieldA) {
+    localidadFieldA.options = getMunicipiosForProvincia(newProvincia) || []
+  }
+}, { immediate: true })
+
+watch(() => formData.value.registro_t3_provincia, (newProvincia) => {
+  const localidadFieldT3 = masterFormFields.find(f => f.name === 'registro_t3_localidad')
+  if (localidadFieldT3) {
+    localidadFieldT3.options = getMunicipiosForProvincia(newProvincia) || []
+  }
+}, { immediate: true })
 
 // Guardar automáticamente en localStorage controlado por DocumentPage
 // (No auto-guardamos aquí para evitar loops infinitos con listeners)
@@ -646,7 +878,6 @@ const handleFileUpload = async (event, fieldName) => {
       formData.value[`${fieldName}_name`] = normalizedName
       saveImageToStorage(`${fieldName}_filename`, normalizedName)
       saveImageToStorage(`${fieldName}_name`, normalizedName)
-
       // Comprimir imagen si es tipo imagen
       if (file.type.startsWith('image/')) {
         const compressedDataUrl = await compressImage(file)
@@ -722,7 +953,8 @@ const sectionLineColorMap = {
   'I': '#7C3AED',
   'IMAGEN': '#2E952E',
   'LEGALIZACION': '#8B5A8B',
-  'PRESENTACIÓN': '#7C3AED'
+  'PRESENTACIÓN': '#7C3AED',
+  'REGISTRO': '#059669'
 }
 
 const getSectionColor = (section) => {
@@ -759,7 +991,7 @@ const groupedFieldsBySection = computed(() => {
   // Ordenar secciones con ACEPTACION al final
   const sortOrder = ['A', 'E1', 'E1.1', 'E1.2', 'E1.3', 'E1.4', 'E1.5', 'E1.6', 'E1.7',
     'E2', 'E2.1', 'E2.2', 'E2.3', 'E2.4', 'E2.5', 'E2.6',
-    'F', 'G', 'H', 'I', 'IMAGEN', 'LEGALIZACION', 'PRESENTACIÓN', 'ACEPTACION']
+    'F', 'G', 'H', 'I', 'IMAGEN', 'LEGALIZACION', 'PRESENTACIÓN', 'REGISTRO', 'ACEPTACION']
 
   const sorted = {}
   sortOrder.forEach(key => {
@@ -901,8 +1133,60 @@ function groupFieldsBySubsection(fields) {
   return grouped
 }
 // Etiquetas de subsección
+async function handleLaunchRegistro() {
+  console.log('[DocumentForm] 🚀 Botón "Lanzar Registro CEE" pulsado.')
+  if (isAutomating.value) {
+    console.warn('[DocumentForm] ⚠️ Ya hay una automatización en curso.')
+    return
+  }
+
+  const confirmLaunch = confirm('¿Deseas iniciar el registro del Certificado Energético? Se abrirá una ventana para firmar con tu certificado.')
+  if (!confirmLaunch) {
+    console.log('[DocumentForm] ℹ️ Usuario canceló la confirmación de Registro CEE.')
+    return
+  }
+
+  isAutomating.value = true
+
+  try {
+    console.log('[DocumentForm] 💾 Auto-guardando datos en la Base de Datos (modo silencioso)...')
+    await submit(true)
+
+    console.log('[DocumentForm] 📤 Enviando petición a /api/automation-registro...')
+    const form = formData.value
+    console.log('[DocumentForm] 📦 Payload a enviar:', { datosKeysCount: Object.keys(form || {}).length })
+
+    const response = await fetch('/api/automation-registro', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ datos: form })
+    })
+
+    console.log('[DocumentForm] 📥 Respuesta HTTP recibida. Status:', response.status, response.statusText)
+    const result = await response.json()
+    console.log('[DocumentForm] 📋 Resultado deserializado:', result)
+
+    if (result.success) {
+      alert('🚀 ¡Registro CEE iniciado en segundo plano! Se ha abierto la ventana del navegador Chrome para continuar el trámite.')
+    } else {
+      console.error('[DocumentForm] ❌ Error reportado por el backend:', result.error)
+      alert(`Error en el registro: ${result.error || 'Ocurrió un error inesperado'}`)
+    }
+  } catch (error) {
+    console.error('[DocumentForm] 💥 Error de red o ejecución en registro:', error)
+    alert(`Error de conexión con el servidor: ${error.message || error}`)
+  } finally {
+    isAutomating.value = false
+    console.log('[DocumentForm] 🏁 Fin de handleLaunchRegistro.')
+  }
+}
+
 async function handleLaunchAutomation() {
-  if (isAutomating.value) return
+  console.log('[DocumentForm] 🚀 Botón "Lanzar Automatización Junta" pulsado.')
+  if (isAutomating.value) {
+    console.warn('[DocumentForm] ⚠️ Ya hay una automatización en curso.')
+    return
+  }
 
   // Recortar espacios de los campos a validar antes de la verificación
   if (formData.value.ps_distribuidora) formData.value.ps_distribuidora = String(formData.value.ps_distribuidora).trim()
@@ -925,113 +1209,163 @@ async function handleLaunchAutomation() {
   }
 
   const confirmLaunch = confirm('¿Deseas iniciar la automatización? Se abrirá una ventana de Chrome para realizar los trámites en el portal de la Junta.')
-  if (!confirmLaunch) return
+  if (!confirmLaunch) {
+    console.log('[DocumentForm] ℹ️ Usuario canceló la confirmación de Automatización Junta.')
+    return
+  }
 
   isAutomating.value = true
 
-  // ✅ AUTO-GUARDADO ANTES DE LANZAR EL ROBOT
-  console.log('[DocumentForm] Auto-guardando datos en la Base de Datos (modo silencioso)...')
-  await submit(true) // Llama al UPSERT de PostgreSQL
-
-  console.log('[DocumentForm] Iniciando automatización con los datos actuales...')
-
-  const form = formData.value
-  const robotPayload = {
-    datos: {
-      tipoDocumento: form.tipo_documento_presentador,
-      nif: form.nif_presentador,
-      nombre: form.nombre_presentador,
-      apellido1: form.apellido1_presentador,
-      apellido2: form.apellido2_presentador,
-      sexo: form.sexo_presentador,
-      delegacion: form.cod_delegacion,
-
-      tipoVia: form.tipo_via_presentador,
-      nombreVia: form.nombre_via_presentador,
-      tipoNumeracion: form.tipo_numeracion_presentador,
-      numero: form.numero_presentador,
-      calificador: form.calificador_numero_presentador,
-      bloque: form.bloque_presentador,
-      escalera: form.escalera_presentador,
-      piso: form.piso_presentador,
-      puerta: form.puerta_presentador,
-      margen: form.margen_presentador,
-      codigoPostal: form.cp_presentador,
-      provincia: form.provincia_presentador,
-      municipioNombre: form.municipio_presentador,
-      poblacion: form.poblacion_presentador,
-      telefono: form.telefono_presentador,
-      movil: form.movil_presentador,
-      email: form.email_presentador,
-      ps_distribuidora: form.ps_distribuidora,
-
-      conRepresentante: form.con_representante_legal,
-      representante: {
-        tipoDocumento: form.rep_leg_tipo_documento,
-        nif: form.rep_leg_nif,
-        sexo: form.rep_leg_sexo,
-        nombre: form.rep_leg_nombre,
-        apellido1: form.rep_leg_apellido1,
-        apellido2: form.rep_leg_apellido2,
-      },
-
-      conPersonaAutorizada: form.con_persona_autorizada,
-      personaAutorizada: {
-        tipoDocumento: form.per_aut_tipo_documento,
-        nif: form.per_aut_nif,
-        sexo: form.per_aut_sexo,
-        nombre: form.per_aut_nombre,
-        apellido1: form.per_aut_apellido1,
-        apellido2: form.per_aut_apellido2,
-      },
-
-      otrosDatos75codigo: form.cnae_rite,
-      otrosDatosNumero: form.numero_empresa_instaladora,
-      codigoComunidadAutonoma: form.codigo_ccaa,
-
-      fichaTecnica: {
-        potencia: form.potencia_instalacion,
-        uso: form.uso_instalacion,
-        tipoSuministro: form.tipo_suministro,
-        tension: form.tension_red,
-        esAutoconsumo: form.es_autoconsumo,
-        cau: form.cau_presentador,
-        potenciaInstalada: form.potencia_instalada_ficha,
-        acumulacion: form.tiene_acumulacion,
-        potenciaAcumulacion: form.potencia_acumulacion,
-        energiaMaximaAlmacenada: form.energia_almacenada,
-        empresaInstaladora: form.nombre_empresa_instaladora,
-        empresaInstaladoraDocTipo: form.empresa_instaladora_doc_tipo,
-        empresaInstaladoraDoc: form.empresa_instaladora_doc,
-        empresaDistribuidora: form.ps_distribuidora || '',
-        cups: form.cups_presentador,
-      }
-    },
-    // Añadimos el flat data por si el script backend aún usa variables planas en alguna vista temporal
-    flatFormData: form
-  }
-
   try {
-    const response = await fetch('/api/automation/junta', {
+    console.log('[DocumentForm] 💾 Auto-guardando datos en la Base de Datos (modo silencioso)...')
+    await submit(true)
+
+    console.log('[DocumentForm] 📤 Enviando petición a /api/automation-junta...')
+    const form = formData.value
+    const robotPayload = {
+      datos: {
+        tipoDocumento: form.tipo_documento_presentador,
+        nif: form.nif_presentador,
+        nombre: form.nombre_presentador,
+        apellido1: form.apellido1_presentador,
+        apellido2: form.apellido2_presentador,
+        sexo: form.sexo_presentador,
+        delegacion: form.cod_delegacion,
+
+        tipoVia: form.tipo_via_presentador,
+        nombreVia: form.nombre_via_presentador,
+        tipoNumeracion: form.tipo_numeracion_presentador,
+        numero: form.numero_presentador,
+        calificador: form.calificador_numero_presentador,
+        bloque: form.bloque_presentador,
+        escalera: form.escalera_presentador,
+        piso: form.piso_presentador,
+        puerta: form.puerta_presentador,
+        margen: form.margen_presentador,
+        codigoPostal: form.cp_presentador,
+        provincia: form.provincia_presentador,
+        municipioNombre: form.municipio_presentador,
+        poblacion: form.poblacion_presentador,
+        telefono: form.telefono_presentador,
+        movil: form.movil_presentador,
+        email: form.email_presentador,
+        ps_distribuidora: form.ps_distribuidora,
+
+        conRepresentante: form.con_representante_legal,
+        representante: {
+          tipoDocumento: form.rep_leg_tipo_documento,
+          nif: form.rep_leg_nif,
+          sexo: form.rep_leg_sexo,
+          nombre: form.rep_leg_nombre,
+          apellido1: form.rep_leg_apellido1,
+          apellido2: form.rep_leg_apellido2,
+        },
+
+        conPersonaAutorizada: form.con_persona_autorizada,
+        personaAutorizada: {
+          tipoDocumento: form.per_aut_tipo_documento,
+          nif: form.per_aut_nif,
+          sexo: form.per_aut_sexo,
+          nombre: form.per_aut_nombre,
+          apellido1: form.per_aut_apellido1,
+          apellido2: form.per_aut_apellido2,
+        },
+
+        otrosDatos75codigo: form.cnae_rite,
+        otrosDatosNumero: form.numero_empresa_instaladora,
+        codigoComunidadAutonoma: form.codigo_ccaa,
+
+        fichaTecnica: {
+          potencia: form.potencia_instalacion,
+          uso: form.uso_instalacion,
+          tipoSuministro: form.tipo_suministro,
+          tension: form.tension_red,
+          esAutoconsumo: form.es_autoconsumo,
+          cau: form.cau_presentador,
+          potenciaInstalada: form.potencia_instalada_ficha,
+          acumulacion: form.tiene_acumulacion,
+          potenciaAcumulacion: form.potencia_acumulacion,
+          energiaMaximaAlmacenada: form.energia_almacenada,
+          empresaInstaladora: form.nombre_empresa_instaladora,
+          empresaInstaladoraDocTipo: form.empresa_instaladora_doc_tipo,
+          empresaInstaladoraDoc: form.empresa_instaladora_doc,
+          empresaDistribuidora: form.ps_distribuidora || '',
+          cups: form.cups_presentador,
+        }
+      },
+      flatFormData: form
+    }
+
+    const response = await fetch('/api/automation-junta', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(robotPayload)
     })
 
+    console.log('[DocumentForm] 📥 Respuesta HTTP recibida. Status:', response.status, response.statusText)
     const result = await response.json()
+    console.log('[DocumentForm] 📋 Resultado deserializado:', result)
 
     if (result.success) {
-      alert('¡Automatización completada con éxito!')
+      alert('🚀 ¡Automatización de la Junta iniciada en segundo plano! Se ha abierto la ventana del navegador Chrome para continuar el trámite.')
     } else {
-      console.error('[DocumentForm] Error en automatización:', result.error)
+      console.error('[DocumentForm] ❌ Error reportado por el backend:', result.error)
       alert(`Error en la automatización: ${result.error || 'Ocurrió un error inesperado'}`)
     }
   } catch (error) {
-    console.error('[DocumentForm] Error de red en automatización:', error)
-    alert('Error de conexión con el servidor de automatización. Asegúrate de que el servidor esté en ejecución.')
+    console.error('[DocumentForm] 💥 Error de red o ejecución en automatización:', error)
+    alert(`Error de conexión con el servidor: ${error.message || error}`)
   } finally {
     isAutomating.value = false
+    console.log('[DocumentForm] 🏁 Fin de handleLaunchAutomation.')
   }
+}
+
+// Función para generar documento específico de una factura
+const generarDocumentoFactura = async (facturaIndex) => {
+  console.log(`[DocumentForm] Generando documento para Factura ${facturaIndex}`)
+  
+  // Guardar datos actuales en el store
+  await submit(true) // submit silencioso
+  
+  // Validar que existan los datos mínimos de la factura
+  const numeroFactura = formData.value[`numeroFactura${facturaIndex}`] || ''
+  const nombreEmpresa = formData.value[`acreedor${facturaIndex}`] || ''
+  const cifEmpresa = formData.value[`cf${facturaIndex}`] || ''
+  
+  if (!numeroFactura) {
+    alert(`⚠️ Por favor, ingresa el número de la Factura ${facturaIndex} antes de generar el documento.`)
+    return
+  }
+  
+  if (!nombreEmpresa || !cifEmpresa) {
+    alert(`⚠️ Por favor, completa los datos de Acreedor y CF de la Factura ${facturaIndex} antes de generar el documento.`)
+    return
+  }
+  
+  // Datos comunes para todas las facturas (según fieldMapping del config)
+  const datosComunes = {
+    numeroExpediente: formData.value.expedienteEco || '',
+    apellidosNombre: formData.value.apellidosNombre || '',
+    nifCif: formData.value.nifCif || '',
+    localidad: formData.value.localidadEmplazamiento || 'Málaga',
+    dia: formData.value.diaFirmaJustificacion || '',
+    mes: formData.value.mesFirmaJustificacion || '',
+    anio: formData.value.anioFirmaJustificacion || '',
+  }
+  
+  // Datos específicos de la factura (dinámicos según el índice)
+  const datosFactura = {
+    numeroFactura,
+    nombreEmpresa,
+    cifEmpresa,
+  }
+  
+  // Navegar al documento con todos los datos
+  router.push({
+    path: '/justificaciones/declaracion-corriente-pago-acreedores',
+    query: { ...datosComunes, ...datosFactura, facturaIndex }
+  })
 }
 
 function getSubsectionLabel(subsection) {
@@ -1059,7 +1393,10 @@ function getSubsectionLabel(subsection) {
     'IMAGEN': 'Imágenes y Documentos',
     'LEGALIZACION': 'LEGALIZACIÓN',
     'PRESENTACIÓN': 'PRESENTACIÓN',
+    'REGISTRO': 'REGISTRO CEE',
     'ACEPTACION': 'ACEPTACIÓN',
+    'JUSTIFICACION': 'JUSTIFICACIÓN',
+    'FACTURAS': 'FACTURAS',
   }
   return labels[subsection] || subsection
 }
@@ -1404,6 +1741,14 @@ function getSubsectionLabel(subsection) {
   font-weight: 600;
   color: #374151;
   margin: 0;
+  flex: 1;
+}
+
+.btn-generar-factura-inline {
+  margin-left: auto;
+  font-size: 12px;
+  padding: 6px 12px;
+  white-space: nowrap;
 }
 
 .group-content {
@@ -1576,6 +1921,7 @@ function getSubsectionLabel(subsection) {
   text-align: center;
 }
 
+/* FACTURA ACTIONS */
 @media (max-width: 768px) {
   .fields-grid {
     grid-template-columns: 1fr;

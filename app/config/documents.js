@@ -28,7 +28,7 @@ export const autorizacionRepresentacionConfig = {
     provincia: '',
     representante: 'Solay Ingenieros, S.L.',
     dniRepresentante: 'B09848912',
-    domicilioRepresentante: 'Calle Ebro, 35 – 41012, Sevilla, Sevilla',
+    domicilioRepresentante: 'Calle Ebro, 35 – 41012,',
     organismo: '',
     gestiones: 'SOLICITUD DE LICENCIA DE OBRA MENOR CON DECLARACIÓN RESPONSABLE O AUTORIZACIÓN URBANÍSTICA',
     dia: '18',
@@ -2943,11 +2943,14 @@ import { memoriaFvAerConfig } from './justificaciones/memoriaFvAerConfig'
 import { obraMassolConfig } from './justificaciones/obraMassolConfig'
 import { certificadoPedidosContratosConfig } from './justificaciones/certificadoPedidosContratosConfig'
 import { declaracionCompromisoCorrienteConfig } from './justificaciones/declaracionCompromisoCorrienteConfig'
+import { declaracionCorrientePagoAcreedoresConfig } from './justificaciones/declaracionCorrientePagoAcreedoresConfig'
 import { cartelL3Config } from './justificaciones/cartelL3Config'
 import { cartelL4Config } from './justificaciones/cartelL4Config'
 import { l3PagoAnticipado50Config } from './justificaciones/L3PagoAnticipado50Config'
 import { l3PagoRestante50Config } from './justificaciones/L3PagoRestante50Config'
 import { l4PagoAnticipado100Config } from './justificaciones/L4PagoAnticipado100Config'
+import { pacConfig1 } from './pac/pacConfig1'
+import { pacConfig2 } from './pac/pacConfig2'
 
 const documentConfigs = {
   'autorizacion-representacion': autorizacionRepresentacionConfig,
@@ -2987,11 +2990,14 @@ const documentConfigs = {
 /*   'declaracion-compromiso-corriente': declaracionCompromisoCorrienteConfig,
  */  'obra-massol': obraMassolConfig,
   'declaracion-compromiso-corriente': declaracionCompromisoCorrienteConfig,
+  'declaracion-corriente-pago-acreedores': declaracionCorrientePagoAcreedoresConfig,
   'cartel-l3': cartelL3Config,
   'cartel-l4': cartelL4Config,
   'l3-pago-anticipado-50': l3PagoAnticipado50Config,
   'l3-pago-restante-50': l3PagoRestante50Config,
   'l4-pago-anticipado-100': l4PagoAnticipado100Config,
+  'pac-documento-1': pacConfig1,
+  'pac-documento-2': pacConfig2,
 
 }
 

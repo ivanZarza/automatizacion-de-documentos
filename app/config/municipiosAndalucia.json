@@ -1,0 +1,3988 @@
+{
+  "CÁDIZ": [
+    {
+      "value": "Alcalá de los Gazules",
+      "label": "Alcalá de los Gazules",
+      "codigoJunta": "ALCALA GAZUL"
+    },
+    {
+      "value": "Alcalá del Valle",
+      "label": "Alcalá del Valle",
+      "codigoJunta": "ALCALA VALLE"
+    },
+    {
+      "value": "Algar",
+      "label": "Algar",
+      "codigoJunta": "ALGAR"
+    },
+    {
+      "value": "Algeciras",
+      "label": "Algeciras",
+      "codigoJunta": "ALGECIRAS"
+    },
+    {
+      "value": "Algodonales",
+      "label": "Algodonales",
+      "codigoJunta": "ALGODONALES"
+    },
+    {
+      "value": "Arcos de la Frontera",
+      "label": "Arcos de la Frontera",
+      "codigoJunta": "ARCOS FRONTE"
+    },
+    {
+      "value": "Barbate",
+      "label": "Barbate",
+      "codigoJunta": "BARBATE"
+    },
+    {
+      "value": "Los Barrios",
+      "label": "Los Barrios",
+      "codigoJunta": "BARRIOS"
+    },
+    {
+      "value": "Benalup-Casas Viejas",
+      "label": "Benalup-Casas Viejas",
+      "codigoJunta": "BENALUP"
+    },
+    {
+      "value": "Benaocaz",
+      "label": "Benaocaz",
+      "codigoJunta": "BENAOCAZ"
+    },
+    {
+      "value": "Bornos",
+      "label": "Bornos",
+      "codigoJunta": "BORNOS"
+    },
+    {
+      "value": "El Bosque",
+      "label": "El Bosque",
+      "codigoJunta": "BOSQUE"
+    },
+    {
+      "value": "Cádiz",
+      "label": "Cádiz",
+      "codigoJunta": "CADIZ"
+    },
+    {
+      "value": "Castellar de la Frontera",
+      "label": "Castellar de la Frontera",
+      "codigoJunta": "CASTELLAR FR"
+    },
+    {
+      "value": "Chiclana de la Frontera",
+      "label": "Chiclana de la Frontera",
+      "codigoJunta": "CHICLANA FRO"
+    },
+    {
+      "value": "Chipiona",
+      "label": "Chipiona",
+      "codigoJunta": "CHIPIONA"
+    },
+    {
+      "value": "Conil de la Frontera",
+      "label": "Conil de la Frontera",
+      "codigoJunta": "CONIL"
+    },
+    {
+      "value": "Espera",
+      "label": "Espera",
+      "codigoJunta": "ESPERA"
+    },
+    {
+      "value": "El Gastor",
+      "label": "El Gastor",
+      "codigoJunta": "GASTOR"
+    },
+    {
+      "value": "Grazalema",
+      "label": "Grazalema",
+      "codigoJunta": "GRAZALEMA"
+    },
+    {
+      "value": "Jerez de la Frontera",
+      "label": "Jerez de la Frontera",
+      "codigoJunta": "JEREZ FRONTE"
+    },
+    {
+      "value": "Jimena de la Frontera",
+      "label": "Jimena de la Frontera",
+      "codigoJunta": "JIMENA FRONT"
+    },
+    {
+      "value": "La Línea de la Concepción",
+      "label": "La Línea de la Concepción",
+      "codigoJunta": "LINEA"
+    },
+    {
+      "value": "Medina Sidonia",
+      "label": "Medina Sidonia",
+      "codigoJunta": "MEDINA SIDON"
+    },
+    {
+      "value": "Olvera",
+      "label": "Olvera",
+      "codigoJunta": "OLVERA"
+    },
+    {
+      "value": "Paterna de Rivera",
+      "label": "Paterna de Rivera",
+      "codigoJunta": "PATERNA RIVE"
+    },
+    {
+      "value": "Prado del Rey",
+      "label": "Prado del Rey",
+      "codigoJunta": "PRADO REY"
+    },
+    {
+      "value": "Puerto Real",
+      "label": "Puerto Real",
+      "codigoJunta": "PUERTO REAL"
+    },
+    {
+      "value": "Puerto Serrano",
+      "label": "Puerto Serrano",
+      "codigoJunta": "PUERTO SERRA"
+    },
+    {
+      "value": "El Puerto de Santa María",
+      "label": "El Puerto de Santa María",
+      "codigoJunta": "PUERTO ST MA"
+    },
+    {
+      "value": "Rota",
+      "label": "Rota",
+      "codigoJunta": "ROTA"
+    },
+    {
+      "value": "San Fernando",
+      "label": "San Fernando",
+      "codigoJunta": "S FERNANDO"
+    },
+    {
+      "value": "San José del Valle",
+      "label": "San José del Valle",
+      "codigoJunta": "S JOSE VALLE"
+    },
+    {
+      "value": "San Roque",
+      "label": "San Roque",
+      "codigoJunta": "S ROQUE"
+    },
+    {
+      "value": "San Martín del Tesorillo",
+      "label": "San Martín del Tesorillo",
+      "codigoJunta": "SAN MARTIN DEL TESORILLO"
+    },
+    {
+      "value": "Sanlúcar de Barrameda",
+      "label": "Sanlúcar de Barrameda",
+      "codigoJunta": "SANLUCAR BAR"
+    },
+    {
+      "value": "Setenil de las Bodegas",
+      "label": "Setenil de las Bodegas",
+      "codigoJunta": "SETENIL"
+    },
+    {
+      "value": "Tarifa",
+      "label": "Tarifa",
+      "codigoJunta": "TARIFA"
+    },
+    {
+      "value": "Torre Alháquime",
+      "label": "Torre Alháquime",
+      "codigoJunta": "TORRE ALHAQU"
+    },
+    {
+      "value": "Trebujena",
+      "label": "Trebujena",
+      "codigoJunta": "TREBUJENA"
+    },
+    {
+      "value": "Ubrique",
+      "label": "Ubrique",
+      "codigoJunta": "UBRIQUE"
+    },
+    {
+      "value": "Vejer de la Frontera",
+      "label": "Vejer de la Frontera",
+      "codigoJunta": "VEJER FRONTE"
+    },
+    {
+      "value": "Villaluenga del Rosario",
+      "label": "Villaluenga del Rosario",
+      "codigoJunta": "VILLALUENGA"
+    },
+    {
+      "value": "Villamartín",
+      "label": "Villamartín",
+      "codigoJunta": "VILLAMARTIN"
+    },
+    {
+      "value": "Zahara de la Sierra",
+      "label": "Zahara de la Sierra",
+      "codigoJunta": "ZAHARA-SIERR"
+    }
+  ],
+  "CÓRDOBA": [
+    {
+      "value": "Adamuz",
+      "label": "Adamuz",
+      "codigoJunta": "ADAMUZ"
+    },
+    {
+      "value": "Aguilar",
+      "label": "Aguilar",
+      "codigoJunta": "AGUILAR"
+    },
+    {
+      "value": "Alcaracejos",
+      "label": "Alcaracejos",
+      "codigoJunta": "ALCARACEJOS"
+    },
+    {
+      "value": "Almedinilla",
+      "label": "Almedinilla",
+      "codigoJunta": "ALMEDINILLA"
+    },
+    {
+      "value": "Almodóvar del Río",
+      "label": "Almodóvar del Río",
+      "codigoJunta": "ALMODOVAR RI"
+    },
+    {
+      "value": "Añora",
+      "label": "Añora",
+      "codigoJunta": "AÑORA"
+    },
+    {
+      "value": "Baena",
+      "label": "Baena",
+      "codigoJunta": "BAENA"
+    },
+    {
+      "value": "Belalcazar",
+      "label": "Belalcazar",
+      "codigoJunta": "BELALCAZAR"
+    },
+    {
+      "value": "Belmez",
+      "label": "Belmez",
+      "codigoJunta": "BELMEZ"
+    },
+    {
+      "value": "Benameji",
+      "label": "Benameji",
+      "codigoJunta": "BENAMEJI"
+    },
+    {
+      "value": "Blazquez",
+      "label": "Blazquez",
+      "codigoJunta": "BLAZQUEZ"
+    },
+    {
+      "value": "Bujalance",
+      "label": "Bujalance",
+      "codigoJunta": "BUJALANCE"
+    },
+    {
+      "value": "Cabra",
+      "label": "Cabra",
+      "codigoJunta": "CABRA"
+    },
+    {
+      "value": "Carcabuey",
+      "label": "Carcabuey",
+      "codigoJunta": "CARCABUEY"
+    },
+    {
+      "value": "Cardeña",
+      "label": "Cardeña",
+      "codigoJunta": "CARDEÑA"
+    },
+    {
+      "value": "Carlota",
+      "label": "Carlota",
+      "codigoJunta": "CARLOTA"
+    },
+    {
+      "value": "Carpio",
+      "label": "Carpio",
+      "codigoJunta": "CARPIO"
+    },
+    {
+      "value": "Castro del Río",
+      "label": "Castro del Río",
+      "codigoJunta": "CASTRO RIO"
+    },
+    {
+      "value": "Cañete Torre",
+      "label": "Cañete Torre",
+      "codigoJunta": "CAÑETE TORRE"
+    },
+    {
+      "value": "Conquista",
+      "label": "Conquista",
+      "codigoJunta": "CONQUISTA"
+    },
+    {
+      "value": "Córdoba",
+      "label": "Córdoba",
+      "codigoJunta": "CORDOBA"
+    },
+    {
+      "value": "Dos Torres",
+      "label": "Dos Torres",
+      "codigoJunta": "DOS TORRES"
+    },
+    {
+      "value": "Doña Mencia",
+      "label": "Doña Mencia",
+      "codigoJunta": "DOÑA MENCIA"
+    },
+    {
+      "value": "Encinas Real",
+      "label": "Encinas Real",
+      "codigoJunta": "ENCINAS REAL"
+    },
+    {
+      "value": "Espejo",
+      "label": "Espejo",
+      "codigoJunta": "ESPEJO"
+    },
+    {
+      "value": "Espiel",
+      "label": "Espiel",
+      "codigoJunta": "ESPIEL"
+    },
+    {
+      "value": "Fernán-Núñez",
+      "label": "Fernán-Núñez",
+      "codigoJunta": "FERNAN NUÑEZ"
+    },
+    {
+      "value": "Fuente Carreteros",
+      "label": "Fuente Carreteros",
+      "codigoJunta": "FUENTE CARRETEROS"
+    },
+    {
+      "value": "Fuente Lanch",
+      "label": "Fuente Lanch",
+      "codigoJunta": "FUENTE LANCH"
+    },
+    {
+      "value": "Fuente Obeju",
+      "label": "Fuente Obeju",
+      "codigoJunta": "FUENTE OBEJU"
+    },
+    {
+      "value": "Fuente Palmera",
+      "label": "Fuente Palmera",
+      "codigoJunta": "FUENTE PALME"
+    },
+    {
+      "value": "Fuente Tojar",
+      "label": "Fuente Tojar",
+      "codigoJunta": "FUENTE TOJAR"
+    },
+    {
+      "value": "Granjuela",
+      "label": "Granjuela",
+      "codigoJunta": "GRANJUELA"
+    },
+    {
+      "value": "Guadalcazar",
+      "label": "Guadalcazar",
+      "codigoJunta": "GUADALCAZAR"
+    },
+    {
+      "value": "Guijarrosa (la)",
+      "label": "Guijarrosa (la)",
+      "codigoJunta": "GUIJARROSA (LA)"
+    },
+    {
+      "value": "Guijo",
+      "label": "Guijo",
+      "codigoJunta": "GUIJO"
+    },
+    {
+      "value": "Hinojosa del Duque",
+      "label": "Hinojosa del Duque",
+      "codigoJunta": "HINOJOSA DUQ"
+    },
+    {
+      "value": "Hornachuelos",
+      "label": "Hornachuelos",
+      "codigoJunta": "HORNACHUELOS"
+    },
+    {
+      "value": "Iznajar",
+      "label": "Iznajar",
+      "codigoJunta": "IZNAJAR"
+    },
+    {
+      "value": "Lucena",
+      "label": "Lucena",
+      "codigoJunta": "LUCENA"
+    },
+    {
+      "value": "Luque",
+      "label": "Luque",
+      "codigoJunta": "LUQUE"
+    },
+    {
+      "value": "Montalban Co",
+      "label": "Montalban Co",
+      "codigoJunta": "MONTALBAN CO"
+    },
+    {
+      "value": "Montemayor",
+      "label": "Montemayor",
+      "codigoJunta": "MONTEMAYOR"
+    },
+    {
+      "value": "Montilla",
+      "label": "Montilla",
+      "codigoJunta": "MONTILLA"
+    },
+    {
+      "value": "Montoro",
+      "label": "Montoro",
+      "codigoJunta": "MONTORO"
+    },
+    {
+      "value": "Monturque",
+      "label": "Monturque",
+      "codigoJunta": "MONTURQUE"
+    },
+    {
+      "value": "Moriles",
+      "label": "Moriles",
+      "codigoJunta": "MORILES"
+    },
+    {
+      "value": "Nueva Cartey",
+      "label": "Nueva Cartey",
+      "codigoJunta": "NUEVA CARTEY"
+    },
+    {
+      "value": "Obejo",
+      "label": "Obejo",
+      "codigoJunta": "OBEJO"
+    },
+    {
+      "value": "Palenciana",
+      "label": "Palenciana",
+      "codigoJunta": "PALENCIANA"
+    },
+    {
+      "value": "Palma del Río",
+      "label": "Palma del Río",
+      "codigoJunta": "PALMA RIO"
+    },
+    {
+      "value": "Pedro Abad",
+      "label": "Pedro Abad",
+      "codigoJunta": "PEDRO ABAD"
+    },
+    {
+      "value": "Pedroche",
+      "label": "Pedroche",
+      "codigoJunta": "PEDROCHE"
+    },
+    {
+      "value": "Peñarroya-Pueblonuevo",
+      "label": "Peñarroya-Pueblonuevo",
+      "codigoJunta": "PEÑARROYA PU"
+    },
+    {
+      "value": "Posadas",
+      "label": "Posadas",
+      "codigoJunta": "POSADAS"
+    },
+    {
+      "value": "Pozoblanco",
+      "label": "Pozoblanco",
+      "codigoJunta": "POZOBLANCO"
+    },
+    {
+      "value": "Priego de Córdoba",
+      "label": "Priego de Córdoba",
+      "codigoJunta": "PRIEGO CORDO"
+    },
+    {
+      "value": "Puente Genil",
+      "label": "Puente Genil",
+      "codigoJunta": "PUENTE GENIL"
+    },
+    {
+      "value": "Rambla",
+      "label": "Rambla",
+      "codigoJunta": "RAMBLA"
+    },
+    {
+      "value": "Rute",
+      "label": "Rute",
+      "codigoJunta": "RUTE"
+    },
+    {
+      "value": "S Sebastian",
+      "label": "S Sebastian",
+      "codigoJunta": "S SEBASTIAN"
+    },
+    {
+      "value": "Santaella",
+      "label": "Santaella",
+      "codigoJunta": "SANTAELLA"
+    },
+    {
+      "value": "Sta Eufemia",
+      "label": "Sta Eufemia",
+      "codigoJunta": "STA EUFEMIA"
+    },
+    {
+      "value": "Torrecampo",
+      "label": "Torrecampo",
+      "codigoJunta": "TORRECAMPO"
+    },
+    {
+      "value": "Valenzuela",
+      "label": "Valenzuela",
+      "codigoJunta": "VALENZUELA"
+    },
+    {
+      "value": "Valsequillo",
+      "label": "Valsequillo",
+      "codigoJunta": "VALSEQUILLO"
+    },
+    {
+      "value": "Victoria",
+      "label": "Victoria",
+      "codigoJunta": "VICTORIA"
+    },
+    {
+      "value": "Villa Rio",
+      "label": "Villa Rio",
+      "codigoJunta": "VILLA RIO"
+    },
+    {
+      "value": "Villafranca",
+      "label": "Villafranca",
+      "codigoJunta": "VILLAFRANCA"
+    },
+    {
+      "value": "Villaharta",
+      "label": "Villaharta",
+      "codigoJunta": "VILLAHARTA"
+    },
+    {
+      "value": "Villanue Cor",
+      "label": "Villanue Cor",
+      "codigoJunta": "VILLANUE COR"
+    },
+    {
+      "value": "Villanue Duq",
+      "label": "Villanue Duq",
+      "codigoJunta": "VILLANUE DUQ"
+    },
+    {
+      "value": "Villanue Rey",
+      "label": "Villanue Rey",
+      "codigoJunta": "VILLANUE REY"
+    },
+    {
+      "value": "Villaralto",
+      "label": "Villaralto",
+      "codigoJunta": "VILLARALTO"
+    },
+    {
+      "value": "Villaviciosa",
+      "label": "Villaviciosa",
+      "codigoJunta": "VILLAVICIOSA"
+    },
+    {
+      "value": "Viso",
+      "label": "Viso",
+      "codigoJunta": "VISO"
+    },
+    {
+      "value": "Zuheros",
+      "label": "Zuheros",
+      "codigoJunta": "ZUHEROS"
+    }
+  ],
+  "GRANADA": [
+    {
+      "value": "Agron",
+      "label": "Agron",
+      "codigoJunta": "AGRON"
+    },
+    {
+      "value": "Alamedilla",
+      "label": "Alamedilla",
+      "codigoJunta": "ALAMEDILLA"
+    },
+    {
+      "value": "Albolote",
+      "label": "Albolote",
+      "codigoJunta": "ALBOLOTE"
+    },
+    {
+      "value": "Albondon",
+      "label": "Albondon",
+      "codigoJunta": "ALBONDON"
+    },
+    {
+      "value": "Albuñan",
+      "label": "Albuñan",
+      "codigoJunta": "ALBUÑAN"
+    },
+    {
+      "value": "Albuñol",
+      "label": "Albuñol",
+      "codigoJunta": "ALBUÑOL"
+    },
+    {
+      "value": "Albuñuelas",
+      "label": "Albuñuelas",
+      "codigoJunta": "ALBUÑUELAS"
+    },
+    {
+      "value": "Aldeire",
+      "label": "Aldeire",
+      "codigoJunta": "ALDEIRE"
+    },
+    {
+      "value": "Alfacar",
+      "label": "Alfacar",
+      "codigoJunta": "ALFACAR"
+    },
+    {
+      "value": "Algarinejo",
+      "label": "Algarinejo",
+      "codigoJunta": "ALGARINEJO"
+    },
+    {
+      "value": "Alhama Grana",
+      "label": "Alhama Grana",
+      "codigoJunta": "ALHAMA GRANA"
+    },
+    {
+      "value": "Alhendin",
+      "label": "Alhendin",
+      "codigoJunta": "ALHENDIN"
+    },
+    {
+      "value": "Alicun Orteg",
+      "label": "Alicun Orteg",
+      "codigoJunta": "ALICUN ORTEG"
+    },
+    {
+      "value": "Almegijar",
+      "label": "Almegijar",
+      "codigoJunta": "ALMEGIJAR"
+    },
+    {
+      "value": "Almuñécar",
+      "label": "Almuñécar",
+      "codigoJunta": "ALMUÑECAR"
+    },
+    {
+      "value": "Alpujarra Si",
+      "label": "Alpujarra Si",
+      "codigoJunta": "ALPUJARRA SI"
+    },
+    {
+      "value": "Alquife",
+      "label": "Alquife",
+      "codigoJunta": "ALQUIFE"
+    },
+    {
+      "value": "Arenas Rey",
+      "label": "Arenas Rey",
+      "codigoJunta": "ARENAS REY"
+    },
+    {
+      "value": "Armilla",
+      "label": "Armilla",
+      "codigoJunta": "ARMILLA"
+    },
+    {
+      "value": "Atarfe",
+      "label": "Atarfe",
+      "codigoJunta": "ATARFE"
+    },
+    {
+      "value": "Baza",
+      "label": "Baza",
+      "codigoJunta": "BAZA"
+    },
+    {
+      "value": "Beas Granada",
+      "label": "Beas Granada",
+      "codigoJunta": "BEAS GRANADA"
+    },
+    {
+      "value": "Beas Guadix",
+      "label": "Beas Guadix",
+      "codigoJunta": "BEAS GUADIX"
+    },
+    {
+      "value": "Benalua Guad",
+      "label": "Benalua Guad",
+      "codigoJunta": "BENALUA GUAD"
+    },
+    {
+      "value": "Benalua Vill",
+      "label": "Benalua Vill",
+      "codigoJunta": "BENALUA VILL"
+    },
+    {
+      "value": "Benamaurel",
+      "label": "Benamaurel",
+      "codigoJunta": "BENAMAUREL"
+    },
+    {
+      "value": "Berchules",
+      "label": "Berchules",
+      "codigoJunta": "BERCHULES"
+    },
+    {
+      "value": "Bubion",
+      "label": "Bubion",
+      "codigoJunta": "BUBION"
+    },
+    {
+      "value": "Busquistar",
+      "label": "Busquistar",
+      "codigoJunta": "BUSQUISTAR"
+    },
+    {
+      "value": "Cacin",
+      "label": "Cacin",
+      "codigoJunta": "CACIN"
+    },
+    {
+      "value": "Cadiar",
+      "label": "Cadiar",
+      "codigoJunta": "CADIAR"
+    },
+    {
+      "value": "Cajar",
+      "label": "Cajar",
+      "codigoJunta": "CAJAR"
+    },
+    {
+      "value": "Calicasas",
+      "label": "Calicasas",
+      "codigoJunta": "CALICASAS"
+    },
+    {
+      "value": "Campotejar",
+      "label": "Campotejar",
+      "codigoJunta": "CAMPOTEJAR"
+    },
+    {
+      "value": "Caniles",
+      "label": "Caniles",
+      "codigoJunta": "CANILES"
+    },
+    {
+      "value": "Capileira",
+      "label": "Capileira",
+      "codigoJunta": "CAPILEIRA"
+    },
+    {
+      "value": "Carataunas",
+      "label": "Carataunas",
+      "codigoJunta": "CARATAUNAS"
+    },
+    {
+      "value": "Castaras",
+      "label": "Castaras",
+      "codigoJunta": "CASTARAS"
+    },
+    {
+      "value": "Castillejar",
+      "label": "Castillejar",
+      "codigoJunta": "CASTILLEJAR"
+    },
+    {
+      "value": "Castril",
+      "label": "Castril",
+      "codigoJunta": "CASTRIL"
+    },
+    {
+      "value": "Cañar",
+      "label": "Cañar",
+      "codigoJunta": "CAÑAR"
+    },
+    {
+      "value": "Cenes Vega",
+      "label": "Cenes Vega",
+      "codigoJunta": "CENES VEGA"
+    },
+    {
+      "value": "Chauchina",
+      "label": "Chauchina",
+      "codigoJunta": "CHAUCHINA"
+    },
+    {
+      "value": "Chimeneas",
+      "label": "Chimeneas",
+      "codigoJunta": "CHIMENEAS"
+    },
+    {
+      "value": "Churriana Ve",
+      "label": "Churriana Ve",
+      "codigoJunta": "CHURRIANA VE"
+    },
+    {
+      "value": "Cijuela",
+      "label": "Cijuela",
+      "codigoJunta": "CIJUELA"
+    },
+    {
+      "value": "Cogollos Gua",
+      "label": "Cogollos Gua",
+      "codigoJunta": "COGOLLOS GUA"
+    },
+    {
+      "value": "Cogollos Veg",
+      "label": "Cogollos Veg",
+      "codigoJunta": "COGOLLOS VEG"
+    },
+    {
+      "value": "Colomera",
+      "label": "Colomera",
+      "codigoJunta": "COLOMERA"
+    },
+    {
+      "value": "Cortes Baza",
+      "label": "Cortes Baza",
+      "codigoJunta": "CORTES BAZA"
+    },
+    {
+      "value": "Cortes Grae",
+      "label": "Cortes Grae",
+      "codigoJunta": "CORTES GRAE"
+    },
+    {
+      "value": "Cuevas Campo",
+      "label": "Cuevas Campo",
+      "codigoJunta": "CUEVAS CAMPO"
+    },
+    {
+      "value": "Cullar",
+      "label": "Cullar",
+      "codigoJunta": "CULLAR"
+    },
+    {
+      "value": "Cullar Vega",
+      "label": "Cullar Vega",
+      "codigoJunta": "CULLAR VEGA"
+    },
+    {
+      "value": "Darro",
+      "label": "Darro",
+      "codigoJunta": "DARRO"
+    },
+    {
+      "value": "Dehesas Guad",
+      "label": "Dehesas Guad",
+      "codigoJunta": "DEHESAS GUAD"
+    },
+    {
+      "value": "Dehesas Viejas",
+      "label": "Dehesas Viejas",
+      "codigoJunta": "DEHESAS VIEJAS"
+    },
+    {
+      "value": "Deifontes",
+      "label": "Deifontes",
+      "codigoJunta": "DEIFONTES"
+    },
+    {
+      "value": "Diezma",
+      "label": "Diezma",
+      "codigoJunta": "DIEZMA"
+    },
+    {
+      "value": "Dilar",
+      "label": "Dilar",
+      "codigoJunta": "DILAR"
+    },
+    {
+      "value": "Dolar",
+      "label": "Dolar",
+      "codigoJunta": "DOLAR"
+    },
+    {
+      "value": "Domingo Pérez",
+      "label": "Domingo Pérez",
+      "codigoJunta": "DOMINGO PÉREZ"
+    },
+    {
+      "value": "Dudar",
+      "label": "Dudar",
+      "codigoJunta": "DUDAR"
+    },
+    {
+      "value": "Durcal",
+      "label": "Durcal",
+      "codigoJunta": "DURCAL"
+    },
+    {
+      "value": "El Pinar",
+      "label": "El Pinar",
+      "codigoJunta": "EL PINAR"
+    },
+    {
+      "value": "El Valle",
+      "label": "El Valle",
+      "codigoJunta": "EL VALLE"
+    },
+    {
+      "value": "Escuzar",
+      "label": "Escuzar",
+      "codigoJunta": "ESCUZAR"
+    },
+    {
+      "value": "Ferreira",
+      "label": "Ferreira",
+      "codigoJunta": "FERREIRA"
+    },
+    {
+      "value": "Fonelas",
+      "label": "Fonelas",
+      "codigoJunta": "FONELAS"
+    },
+    {
+      "value": "Fornes",
+      "label": "Fornes",
+      "codigoJunta": "FORNES"
+    },
+    {
+      "value": "Freila",
+      "label": "Freila",
+      "codigoJunta": "FREILA"
+    },
+    {
+      "value": "Fuente Vaque",
+      "label": "Fuente Vaque",
+      "codigoJunta": "FUENTE VAQUE"
+    },
+    {
+      "value": "Galera",
+      "label": "Galera",
+      "codigoJunta": "GALERA"
+    },
+    {
+      "value": "Gobernador",
+      "label": "Gobernador",
+      "codigoJunta": "GOBERNADOR"
+    },
+    {
+      "value": "Gojar",
+      "label": "Gojar",
+      "codigoJunta": "GOJAR"
+    },
+    {
+      "value": "Gor",
+      "label": "Gor",
+      "codigoJunta": "GOR"
+    },
+    {
+      "value": "Gorafe",
+      "label": "Gorafe",
+      "codigoJunta": "GORAFE"
+    },
+    {
+      "value": "Granada",
+      "label": "Granada",
+      "codigoJunta": "GRANADA"
+    },
+    {
+      "value": "Guadahortuna",
+      "label": "Guadahortuna",
+      "codigoJunta": "GUADAHORTUNA"
+    },
+    {
+      "value": "Guadix",
+      "label": "Guadix",
+      "codigoJunta": "GUADIX"
+    },
+    {
+      "value": "Gualchos",
+      "label": "Gualchos",
+      "codigoJunta": "GUALCHOS"
+    },
+    {
+      "value": "Guejar Sierr",
+      "label": "Guejar Sierr",
+      "codigoJunta": "GUEJAR SIERR"
+    },
+    {
+      "value": "Guevejar",
+      "label": "Guevejar",
+      "codigoJunta": "GUEVEJAR"
+    },
+    {
+      "value": "Huelago",
+      "label": "Huelago",
+      "codigoJunta": "HUELAGO"
+    },
+    {
+      "value": "Hueneja",
+      "label": "Hueneja",
+      "codigoJunta": "HUENEJA"
+    },
+    {
+      "value": "Huescar",
+      "label": "Huescar",
+      "codigoJunta": "HUESCAR"
+    },
+    {
+      "value": "Huetor Santi",
+      "label": "Huetor Santi",
+      "codigoJunta": "HUETOR SANTI"
+    },
+    {
+      "value": "Huetor Tajar",
+      "label": "Huetor Tajar",
+      "codigoJunta": "HUETOR TAJAR"
+    },
+    {
+      "value": "Huetor Vega",
+      "label": "Huetor Vega",
+      "codigoJunta": "HUETOR VEGA"
+    },
+    {
+      "value": "Illora",
+      "label": "Illora",
+      "codigoJunta": "ILLORA"
+    },
+    {
+      "value": "Itrabo",
+      "label": "Itrabo",
+      "codigoJunta": "ITRABO"
+    },
+    {
+      "value": "Iznalloz",
+      "label": "Iznalloz",
+      "codigoJunta": "IZNALLOZ"
+    },
+    {
+      "value": "Jayena",
+      "label": "Jayena",
+      "codigoJunta": "JAYENA"
+    },
+    {
+      "value": "Jeres Marque",
+      "label": "Jeres Marque",
+      "codigoJunta": "JERES MARQUE"
+    },
+    {
+      "value": "Jete",
+      "label": "Jete",
+      "codigoJunta": "JETE"
+    },
+    {
+      "value": "Jun",
+      "label": "Jun",
+      "codigoJunta": "JUN"
+    },
+    {
+      "value": "Juviles",
+      "label": "Juviles",
+      "codigoJunta": "JUVILES"
+    },
+    {
+      "value": "Játar",
+      "label": "Játar",
+      "codigoJunta": "JÁTAR"
+    },
+    {
+      "value": "La Taha",
+      "label": "La Taha",
+      "codigoJunta": "LA TAHA"
+    },
+    {
+      "value": "Lacalahorra",
+      "label": "Lacalahorra",
+      "codigoJunta": "LACALAHORRA"
+    },
+    {
+      "value": "Lachar",
+      "label": "Lachar",
+      "codigoJunta": "LACHAR"
+    },
+    {
+      "value": "Lanjaron",
+      "label": "Lanjaron",
+      "codigoJunta": "LANJARON"
+    },
+    {
+      "value": "Lanteira",
+      "label": "Lanteira",
+      "codigoJunta": "LANTEIRA"
+    },
+    {
+      "value": "Las Gabias",
+      "label": "Las Gabias",
+      "codigoJunta": "LAS GABIAS"
+    },
+    {
+      "value": "Lecrin",
+      "label": "Lecrin",
+      "codigoJunta": "LECRIN"
+    },
+    {
+      "value": "Lentegi",
+      "label": "Lentegi",
+      "codigoJunta": "LENTEGI"
+    },
+    {
+      "value": "Lobras",
+      "label": "Lobras",
+      "codigoJunta": "LOBRAS"
+    },
+    {
+      "value": "Loja",
+      "label": "Loja",
+      "codigoJunta": "LOJA"
+    },
+    {
+      "value": "Los Guajares",
+      "label": "Los Guajares",
+      "codigoJunta": "LOS GUAJARES"
+    },
+    {
+      "value": "Lugros",
+      "label": "Lugros",
+      "codigoJunta": "LUGROS"
+    },
+    {
+      "value": "Lujar",
+      "label": "Lujar",
+      "codigoJunta": "LUJAR"
+    },
+    {
+      "value": "Malaha la",
+      "label": "Malaha la",
+      "codigoJunta": "MALAHA LA"
+    },
+    {
+      "value": "Maracena",
+      "label": "Maracena",
+      "codigoJunta": "MARACENA"
+    },
+    {
+      "value": "Marchal",
+      "label": "Marchal",
+      "codigoJunta": "MARCHAL"
+    },
+    {
+      "value": "Moclin",
+      "label": "Moclin",
+      "codigoJunta": "MOCLIN"
+    },
+    {
+      "value": "Molvizar",
+      "label": "Molvizar",
+      "codigoJunta": "MOLVIZAR"
+    },
+    {
+      "value": "Monachil",
+      "label": "Monachil",
+      "codigoJunta": "MONACHIL"
+    },
+    {
+      "value": "Montefrio",
+      "label": "Montefrio",
+      "codigoJunta": "MONTEFRIO"
+    },
+    {
+      "value": "Montejicar",
+      "label": "Montejicar",
+      "codigoJunta": "MONTEJICAR"
+    },
+    {
+      "value": "Montillana",
+      "label": "Montillana",
+      "codigoJunta": "MONTILLANA"
+    },
+    {
+      "value": "Moraleda Zaf",
+      "label": "Moraleda Zaf",
+      "codigoJunta": "MORALEDA ZAF"
+    },
+    {
+      "value": "Morelabor",
+      "label": "Morelabor",
+      "codigoJunta": "MORELABOR"
+    },
+    {
+      "value": "Motril",
+      "label": "Motril",
+      "codigoJunta": "MOTRIL"
+    },
+    {
+      "value": "Murtas",
+      "label": "Murtas",
+      "codigoJunta": "MURTAS"
+    },
+    {
+      "value": "Nevada",
+      "label": "Nevada",
+      "codigoJunta": "NEVADA"
+    },
+    {
+      "value": "Niguelas",
+      "label": "Niguelas",
+      "codigoJunta": "NIGUELAS"
+    },
+    {
+      "value": "Nivar",
+      "label": "Nivar",
+      "codigoJunta": "NIVAR"
+    },
+    {
+      "value": "Ogijares",
+      "label": "Ogijares",
+      "codigoJunta": "OGIJARES"
+    },
+    {
+      "value": "Orce",
+      "label": "Orce",
+      "codigoJunta": "ORCE"
+    },
+    {
+      "value": "Orgiva",
+      "label": "Orgiva",
+      "codigoJunta": "ORGIVA"
+    },
+    {
+      "value": "Otivar",
+      "label": "Otivar",
+      "codigoJunta": "OTIVAR"
+    },
+    {
+      "value": "Otura",
+      "label": "Otura",
+      "codigoJunta": "OTURA"
+    },
+    {
+      "value": "Padul",
+      "label": "Padul",
+      "codigoJunta": "PADUL"
+    },
+    {
+      "value": "Pampaneira",
+      "label": "Pampaneira",
+      "codigoJunta": "PAMPANEIRA"
+    },
+    {
+      "value": "Pedro Martin",
+      "label": "Pedro Martin",
+      "codigoJunta": "PEDRO MARTIN"
+    },
+    {
+      "value": "Peligros",
+      "label": "Peligros",
+      "codigoJunta": "PELIGROS"
+    },
+    {
+      "value": "Peza",
+      "label": "Peza",
+      "codigoJunta": "PEZA"
+    },
+    {
+      "value": "Pinos Genil",
+      "label": "Pinos Genil",
+      "codigoJunta": "PINOS GENIL"
+    },
+    {
+      "value": "Pinos Puente",
+      "label": "Pinos Puente",
+      "codigoJunta": "PINOS PUENTE"
+    },
+    {
+      "value": "Piñar",
+      "label": "Piñar",
+      "codigoJunta": "PIÑAR"
+    },
+    {
+      "value": "Policar",
+      "label": "Policar",
+      "codigoJunta": "POLICAR"
+    },
+    {
+      "value": "Polopos",
+      "label": "Polopos",
+      "codigoJunta": "POLOPOS"
+    },
+    {
+      "value": "Portugos",
+      "label": "Portugos",
+      "codigoJunta": "PORTUGOS"
+    },
+    {
+      "value": "Puebla D Fad",
+      "label": "Puebla D Fad",
+      "codigoJunta": "PUEBLA D FAD"
+    },
+    {
+      "value": "Pulianas",
+      "label": "Pulianas",
+      "codigoJunta": "PULIANAS"
+    },
+    {
+      "value": "Purullena",
+      "label": "Purullena",
+      "codigoJunta": "PURULLENA"
+    },
+    {
+      "value": "Quentar",
+      "label": "Quentar",
+      "codigoJunta": "QUENTAR"
+    },
+    {
+      "value": "Rubite",
+      "label": "Rubite",
+      "codigoJunta": "RUBITE"
+    },
+    {
+      "value": "Salar",
+      "label": "Salar",
+      "codigoJunta": "SALAR"
+    },
+    {
+      "value": "Salobreña",
+      "label": "Salobreña",
+      "codigoJunta": "SALOBREÑA"
+    },
+    {
+      "value": "Santafe",
+      "label": "Santafe",
+      "codigoJunta": "SANTAFE"
+    },
+    {
+      "value": "Soportujar",
+      "label": "Soportujar",
+      "codigoJunta": "SOPORTUJAR"
+    },
+    {
+      "value": "Sorvilan",
+      "label": "Sorvilan",
+      "codigoJunta": "SORVILAN"
+    },
+    {
+      "value": "St Cruz Come",
+      "label": "St Cruz Come",
+      "codigoJunta": "ST CRUZ COME"
+    },
+    {
+      "value": "Torre Cardel",
+      "label": "Torre Cardel",
+      "codigoJunta": "TORRE CARDEL"
+    },
+    {
+      "value": "Torrenueva Costa",
+      "label": "Torrenueva Costa",
+      "codigoJunta": "TORRENUEVA COSTA"
+    },
+    {
+      "value": "Torvizcon",
+      "label": "Torvizcon",
+      "codigoJunta": "TORVIZCON"
+    },
+    {
+      "value": "Trevelez",
+      "label": "Trevelez",
+      "codigoJunta": "TREVELEZ"
+    },
+    {
+      "value": "Turon",
+      "label": "Turon",
+      "codigoJunta": "TURON"
+    },
+    {
+      "value": "Ugijar",
+      "label": "Ugijar",
+      "codigoJunta": "UGIJAR"
+    },
+    {
+      "value": "Valderrubio",
+      "label": "Valderrubio",
+      "codigoJunta": "VALDERRUBIO"
+    },
+    {
+      "value": "Valle Zalabi",
+      "label": "Valle Zalabi",
+      "codigoJunta": "VALLE ZALABI"
+    },
+    {
+      "value": "Valor",
+      "label": "Valor",
+      "codigoJunta": "VALOR"
+    },
+    {
+      "value": "Vegas Genil",
+      "label": "Vegas Genil",
+      "codigoJunta": "VEGAS GENIL"
+    },
+    {
+      "value": "Velez Benaud",
+      "label": "Velez Benaud",
+      "codigoJunta": "VELEZ BENAUD"
+    },
+    {
+      "value": "Ventas Huelm",
+      "label": "Ventas Huelm",
+      "codigoJunta": "VENTAS HUELM"
+    },
+    {
+      "value": "Villamena",
+      "label": "Villamena",
+      "codigoJunta": "VILLAMENA"
+    },
+    {
+      "value": "Villanue Mes",
+      "label": "Villanue Mes",
+      "codigoJunta": "VILLANUE MES"
+    },
+    {
+      "value": "Villanue Tor",
+      "label": "Villanue Tor",
+      "codigoJunta": "VILLANUE TOR"
+    },
+    {
+      "value": "Viznar",
+      "label": "Viznar",
+      "codigoJunta": "VIZNAR"
+    },
+    {
+      "value": "Zafarraya",
+      "label": "Zafarraya",
+      "codigoJunta": "ZAFARRAYA"
+    },
+    {
+      "value": "Zagra",
+      "label": "Zagra",
+      "codigoJunta": "ZAGRA"
+    },
+    {
+      "value": "Zubia",
+      "label": "Zubia",
+      "codigoJunta": "ZUBIA"
+    },
+    {
+      "value": "Zujar",
+      "label": "Zujar",
+      "codigoJunta": "ZUJAR"
+    }
+  ],
+  "HUELVA": [
+    {
+      "value": "Alajar",
+      "label": "Alajar",
+      "codigoJunta": "ALAJAR"
+    },
+    {
+      "value": "Aljaraque",
+      "label": "Aljaraque",
+      "codigoJunta": "ALJARAQUE"
+    },
+    {
+      "value": "Almendro el",
+      "label": "Almendro el",
+      "codigoJunta": "ALMENDRO EL"
+    },
+    {
+      "value": "Almonaster R",
+      "label": "Almonaster R",
+      "codigoJunta": "ALMONASTER R"
+    },
+    {
+      "value": "Almonte",
+      "label": "Almonte",
+      "codigoJunta": "ALMONTE"
+    },
+    {
+      "value": "Alosno",
+      "label": "Alosno",
+      "codigoJunta": "ALOSNO"
+    },
+    {
+      "value": "Aracena",
+      "label": "Aracena",
+      "codigoJunta": "ARACENA"
+    },
+    {
+      "value": "Aroche",
+      "label": "Aroche",
+      "codigoJunta": "AROCHE"
+    },
+    {
+      "value": "Arroyomolino",
+      "label": "Arroyomolino",
+      "codigoJunta": "ARROYOMOLINO"
+    },
+    {
+      "value": "Ayamonte",
+      "label": "Ayamonte",
+      "codigoJunta": "AYAMONTE"
+    },
+    {
+      "value": "Beas",
+      "label": "Beas",
+      "codigoJunta": "BEAS"
+    },
+    {
+      "value": "Berrocal",
+      "label": "Berrocal",
+      "codigoJunta": "BERROCAL"
+    },
+    {
+      "value": "Bollullos Cd",
+      "label": "Bollullos Cd",
+      "codigoJunta": "BOLLULLOS CD"
+    },
+    {
+      "value": "Bonares",
+      "label": "Bonares",
+      "codigoJunta": "BONARES"
+    },
+    {
+      "value": "Cabezas Rubi",
+      "label": "Cabezas Rubi",
+      "codigoJunta": "CABEZAS RUBI"
+    },
+    {
+      "value": "Cala",
+      "label": "Cala",
+      "codigoJunta": "CALA"
+    },
+    {
+      "value": "Calañas",
+      "label": "Calañas",
+      "codigoJunta": "CALAÑAS"
+    },
+    {
+      "value": "Campillo el",
+      "label": "Campillo el",
+      "codigoJunta": "CAMPILLO EL"
+    },
+    {
+      "value": "Campofrio",
+      "label": "Campofrio",
+      "codigoJunta": "CAMPOFRIO"
+    },
+    {
+      "value": "Cartaya",
+      "label": "Cartaya",
+      "codigoJunta": "CARTAYA"
+    },
+    {
+      "value": "Castaño Robl",
+      "label": "Castaño Robl",
+      "codigoJunta": "CASTAÑO ROBL"
+    },
+    {
+      "value": "Cañaveral Le",
+      "label": "Cañaveral Le",
+      "codigoJunta": "CAÑAVERAL LE"
+    },
+    {
+      "value": "Cerro Andeva",
+      "label": "Cerro Andeva",
+      "codigoJunta": "CERRO ANDEVA"
+    },
+    {
+      "value": "Chucena",
+      "label": "Chucena",
+      "codigoJunta": "CHUCENA"
+    },
+    {
+      "value": "Corteconcepc",
+      "label": "Corteconcepc",
+      "codigoJunta": "CORTECONCEPC"
+    },
+    {
+      "value": "Cortegana",
+      "label": "Cortegana",
+      "codigoJunta": "CORTEGANA"
+    },
+    {
+      "value": "Cortelazor",
+      "label": "Cortelazor",
+      "codigoJunta": "CORTELAZOR"
+    },
+    {
+      "value": "Cumbres de E",
+      "label": "Cumbres de E",
+      "codigoJunta": "CUMBRES DE E"
+    },
+    {
+      "value": "Cumbres Mayo",
+      "label": "Cumbres Mayo",
+      "codigoJunta": "CUMBRES MAYO"
+    },
+    {
+      "value": "Cumbres S Ba",
+      "label": "Cumbres S Ba",
+      "codigoJunta": "CUMBRES S BA"
+    },
+    {
+      "value": "Encinasola",
+      "label": "Encinasola",
+      "codigoJunta": "ENCINASOLA"
+    },
+    {
+      "value": "Escacena Cam",
+      "label": "Escacena Cam",
+      "codigoJunta": "ESCACENA CAM"
+    },
+    {
+      "value": "Fuenteherido",
+      "label": "Fuenteherido",
+      "codigoJunta": "FUENTEHERIDO"
+    },
+    {
+      "value": "Galaroza",
+      "label": "Galaroza",
+      "codigoJunta": "GALAROZA"
+    },
+    {
+      "value": "Gibraleon",
+      "label": "Gibraleon",
+      "codigoJunta": "GIBRALEON"
+    },
+    {
+      "value": "Granada Riot",
+      "label": "Granada Riot",
+      "codigoJunta": "GRANADA RIOT"
+    },
+    {
+      "value": "Granado el",
+      "label": "Granado el",
+      "codigoJunta": "GRANADO EL"
+    },
+    {
+      "value": "Higuera Sier",
+      "label": "Higuera Sier",
+      "codigoJunta": "HIGUERA SIER"
+    },
+    {
+      "value": "Hinojales",
+      "label": "Hinojales",
+      "codigoJunta": "HINOJALES"
+    },
+    {
+      "value": "Hinojos",
+      "label": "Hinojos",
+      "codigoJunta": "HINOJOS"
+    },
+    {
+      "value": "Huelva",
+      "label": "Huelva",
+      "codigoJunta": "HUELVA"
+    },
+    {
+      "value": "Isla Cristin",
+      "label": "Isla Cristin",
+      "codigoJunta": "ISLA CRISTIN"
+    },
+    {
+      "value": "Jabugo",
+      "label": "Jabugo",
+      "codigoJunta": "JABUGO"
+    },
+    {
+      "value": "Lepe",
+      "label": "Lepe",
+      "codigoJunta": "LEPE"
+    },
+    {
+      "value": "Linares Sier",
+      "label": "Linares Sier",
+      "codigoJunta": "LINARES SIER"
+    },
+    {
+      "value": "Lucena Puert",
+      "label": "Lucena Puert",
+      "codigoJunta": "LUCENA PUERT"
+    },
+    {
+      "value": "Manzanilla",
+      "label": "Manzanilla",
+      "codigoJunta": "MANZANILLA"
+    },
+    {
+      "value": "Marines los",
+      "label": "Marines los",
+      "codigoJunta": "MARINES LOS"
+    },
+    {
+      "value": "Minas Riotin",
+      "label": "Minas Riotin",
+      "codigoJunta": "MINAS RIOTIN"
+    },
+    {
+      "value": "Moguer",
+      "label": "Moguer",
+      "codigoJunta": "MOGUER"
+    },
+    {
+      "value": "Nava la",
+      "label": "Nava la",
+      "codigoJunta": "NAVA LA"
+    },
+    {
+      "value": "Nerva",
+      "label": "Nerva",
+      "codigoJunta": "NERVA"
+    },
+    {
+      "value": "Niebla",
+      "label": "Niebla",
+      "codigoJunta": "NIEBLA"
+    },
+    {
+      "value": "Palma Cdo la",
+      "label": "Palma Cdo la",
+      "codigoJunta": "PALMA CDO LA"
+    },
+    {
+      "value": "Palos Ftra",
+      "label": "Palos Ftra",
+      "codigoJunta": "PALOS FTRA"
+    },
+    {
+      "value": "Paterna Camp",
+      "label": "Paterna Camp",
+      "codigoJunta": "PATERNA CAMP"
+    },
+    {
+      "value": "Paymogo",
+      "label": "Paymogo",
+      "codigoJunta": "PAYMOGO"
+    },
+    {
+      "value": "Puebla Guzma",
+      "label": "Puebla Guzma",
+      "codigoJunta": "PUEBLA GUZMA"
+    },
+    {
+      "value": "Puerto Moral",
+      "label": "Puerto Moral",
+      "codigoJunta": "PUERTO MORAL"
+    },
+    {
+      "value": "Punta Umbria",
+      "label": "Punta Umbria",
+      "codigoJunta": "PUNTA UMBRIA"
+    },
+    {
+      "value": "Rociana Cdo",
+      "label": "Rociana Cdo",
+      "codigoJunta": "ROCIANA CDO"
+    },
+    {
+      "value": "Rosal Ftra",
+      "label": "Rosal Ftra",
+      "codigoJunta": "ROSAL FTRA"
+    },
+    {
+      "value": "S Juan Pto",
+      "label": "S Juan Pto",
+      "codigoJunta": "S JUAN PTO"
+    },
+    {
+      "value": "S Silvestre",
+      "label": "S Silvestre",
+      "codigoJunta": "S SILVESTRE"
+    },
+    {
+      "value": "San Bartolom",
+      "label": "San Bartolom",
+      "codigoJunta": "SAN BARTOLOM"
+    },
+    {
+      "value": "Sanlucar Gua",
+      "label": "Sanlucar Gua",
+      "codigoJunta": "SANLUCAR GUA"
+    },
+    {
+      "value": "St Ana Real",
+      "label": "St Ana Real",
+      "codigoJunta": "ST ANA REAL"
+    },
+    {
+      "value": "St Barbara C",
+      "label": "St Barbara C",
+      "codigoJunta": "ST BARBARA C"
+    },
+    {
+      "value": "St Olalla Ca",
+      "label": "St Olalla Ca",
+      "codigoJunta": "ST OLALLA CA"
+    },
+    {
+      "value": "Trigueros",
+      "label": "Trigueros",
+      "codigoJunta": "TRIGUEROS"
+    },
+    {
+      "value": "Valdelarco",
+      "label": "Valdelarco",
+      "codigoJunta": "VALDELARCO"
+    },
+    {
+      "value": "Valverde Cno",
+      "label": "Valverde Cno",
+      "codigoJunta": "VALVERDE CNO"
+    },
+    {
+      "value": "Villablanca",
+      "label": "Villablanca",
+      "codigoJunta": "VILLABLANCA"
+    },
+    {
+      "value": "Villalba Alc",
+      "label": "Villalba Alc",
+      "codigoJunta": "VILLALBA ALC"
+    },
+    {
+      "value": "Villanue Cas",
+      "label": "Villanue Cas",
+      "codigoJunta": "VILLANUE CAS"
+    },
+    {
+      "value": "Villanue Cru",
+      "label": "Villanue Cru",
+      "codigoJunta": "VILLANUE CRU"
+    },
+    {
+      "value": "Villarrasa",
+      "label": "Villarrasa",
+      "codigoJunta": "VILLARRASA"
+    },
+    {
+      "value": "Zalamea la R",
+      "label": "Zalamea la R",
+      "codigoJunta": "ZALAMEA LA R"
+    },
+    {
+      "value": "Zarza-perrunal (la)",
+      "label": "Zarza-perrunal (la)",
+      "codigoJunta": "ZARZA-PERRUNAL (LA)"
+    },
+    {
+      "value": "Zufre",
+      "label": "Zufre",
+      "codigoJunta": "ZUFRE"
+    }
+  ],
+  "JAÉN": [
+    {
+      "value": "Albanchez Ma",
+      "label": "Albanchez Ma",
+      "codigoJunta": "ALBANCHEZ MA"
+    },
+    {
+      "value": "Alcalá la Real",
+      "label": "Alcalá la Real",
+      "codigoJunta": "ALCALA REAL"
+    },
+    {
+      "value": "Alcaudete",
+      "label": "Alcaudete",
+      "codigoJunta": "ALCAUDETE"
+    },
+    {
+      "value": "Aldeaquemada",
+      "label": "Aldeaquemada",
+      "codigoJunta": "ALDEAQUEMADA"
+    },
+    {
+      "value": "Andújar",
+      "label": "Andújar",
+      "codigoJunta": "ANDUJAR"
+    },
+    {
+      "value": "Arjona",
+      "label": "Arjona",
+      "codigoJunta": "ARJONA"
+    },
+    {
+      "value": "Arjonilla",
+      "label": "Arjonilla",
+      "codigoJunta": "ARJONILLA"
+    },
+    {
+      "value": "Arquillos",
+      "label": "Arquillos",
+      "codigoJunta": "ARQUILLOS"
+    },
+    {
+      "value": "Arroyo Ojanc",
+      "label": "Arroyo Ojanc",
+      "codigoJunta": "ARROYO OJANC"
+    },
+    {
+      "value": "Baeza",
+      "label": "Baeza",
+      "codigoJunta": "BAEZA"
+    },
+    {
+      "value": "Bailen",
+      "label": "Bailen",
+      "codigoJunta": "BAILEN"
+    },
+    {
+      "value": "Baños Encina",
+      "label": "Baños Encina",
+      "codigoJunta": "BAÑOS ENCINA"
+    },
+    {
+      "value": "Beas Segura",
+      "label": "Beas Segura",
+      "codigoJunta": "BEAS SEGURA"
+    },
+    {
+      "value": "Bedmar-garci",
+      "label": "Bedmar-garci",
+      "codigoJunta": "BEDMAR-GARCI"
+    },
+    {
+      "value": "Begijar",
+      "label": "Begijar",
+      "codigoJunta": "BEGIJAR"
+    },
+    {
+      "value": "Belmez Moral",
+      "label": "Belmez Moral",
+      "codigoJunta": "BELMEZ MORAL"
+    },
+    {
+      "value": "Benatae",
+      "label": "Benatae",
+      "codigoJunta": "BENATAE"
+    },
+    {
+      "value": "Cabra St Cri",
+      "label": "Cabra St Cri",
+      "codigoJunta": "CABRA ST CRI"
+    },
+    {
+      "value": "Cambil",
+      "label": "Cambil",
+      "codigoJunta": "CAMBIL"
+    },
+    {
+      "value": "Campillo Are",
+      "label": "Campillo Are",
+      "codigoJunta": "CAMPILLO ARE"
+    },
+    {
+      "value": "Canena",
+      "label": "Canena",
+      "codigoJunta": "CANENA"
+    },
+    {
+      "value": "Carboneros",
+      "label": "Carboneros",
+      "codigoJunta": "CARBONEROS"
+    },
+    {
+      "value": "Carchel",
+      "label": "Carchel",
+      "codigoJunta": "CARCHEL"
+    },
+    {
+      "value": "Carcheles",
+      "label": "Carcheles",
+      "codigoJunta": "CARCHELES"
+    },
+    {
+      "value": "Carolina",
+      "label": "Carolina",
+      "codigoJunta": "CAROLINA"
+    },
+    {
+      "value": "Castellar",
+      "label": "Castellar",
+      "codigoJunta": "CASTELLAR"
+    },
+    {
+      "value": "Castillo Loc",
+      "label": "Castillo Loc",
+      "codigoJunta": "CASTILLO LOC"
+    },
+    {
+      "value": "Cazalilla",
+      "label": "Cazalilla",
+      "codigoJunta": "CAZALILLA"
+    },
+    {
+      "value": "Cazorla",
+      "label": "Cazorla",
+      "codigoJunta": "CAZORLA"
+    },
+    {
+      "value": "Chiclana Seg",
+      "label": "Chiclana Seg",
+      "codigoJunta": "CHICLANA SEG"
+    },
+    {
+      "value": "Chilluevar",
+      "label": "Chilluevar",
+      "codigoJunta": "CHILLUEVAR"
+    },
+    {
+      "value": "Escañuela",
+      "label": "Escañuela",
+      "codigoJunta": "ESCAÑUELA"
+    },
+    {
+      "value": "Espeluy",
+      "label": "Espeluy",
+      "codigoJunta": "ESPELUY"
+    },
+    {
+      "value": "Frailes",
+      "label": "Frailes",
+      "codigoJunta": "FRAILES"
+    },
+    {
+      "value": "Fuensanta Ma",
+      "label": "Fuensanta Ma",
+      "codigoJunta": "FUENSANTA MA"
+    },
+    {
+      "value": "Fuerte Rey",
+      "label": "Fuerte Rey",
+      "codigoJunta": "FUERTE REY"
+    },
+    {
+      "value": "Garciez",
+      "label": "Garciez",
+      "codigoJunta": "GARCIEZ"
+    },
+    {
+      "value": "Genave",
+      "label": "Genave",
+      "codigoJunta": "GENAVE"
+    },
+    {
+      "value": "Guardia Jaen",
+      "label": "Guardia Jaen",
+      "codigoJunta": "GUARDIA JAEN"
+    },
+    {
+      "value": "Guarroman",
+      "label": "Guarroman",
+      "codigoJunta": "GUARROMAN"
+    },
+    {
+      "value": "Higuera Cala",
+      "label": "Higuera Cala",
+      "codigoJunta": "HIGUERA CALA"
+    },
+    {
+      "value": "Hinojares",
+      "label": "Hinojares",
+      "codigoJunta": "HINOJARES"
+    },
+    {
+      "value": "Hornos",
+      "label": "Hornos",
+      "codigoJunta": "HORNOS"
+    },
+    {
+      "value": "Huelma-soler",
+      "label": "Huelma-soler",
+      "codigoJunta": "HUELMA-SOLER"
+    },
+    {
+      "value": "Huesa",
+      "label": "Huesa",
+      "codigoJunta": "HUESA"
+    },
+    {
+      "value": "Ibros",
+      "label": "Ibros",
+      "codigoJunta": "IBROS"
+    },
+    {
+      "value": "Iruela",
+      "label": "Iruela",
+      "codigoJunta": "IRUELA"
+    },
+    {
+      "value": "Iznatoraf",
+      "label": "Iznatoraf",
+      "codigoJunta": "IZNATORAF"
+    },
+    {
+      "value": "Jabalquinto",
+      "label": "Jabalquinto",
+      "codigoJunta": "JABALQUINTO"
+    },
+    {
+      "value": "Jaén",
+      "label": "Jaén",
+      "codigoJunta": "JAEN"
+    },
+    {
+      "value": "Jamilena",
+      "label": "Jamilena",
+      "codigoJunta": "JAMILENA"
+    },
+    {
+      "value": "Jimena",
+      "label": "Jimena",
+      "codigoJunta": "JIMENA"
+    },
+    {
+      "value": "Jodar",
+      "label": "Jodar",
+      "codigoJunta": "JODAR"
+    },
+    {
+      "value": "Lahiguera",
+      "label": "Lahiguera",
+      "codigoJunta": "LAHIGUERA"
+    },
+    {
+      "value": "Larva",
+      "label": "Larva",
+      "codigoJunta": "LARVA"
+    },
+    {
+      "value": "Linares",
+      "label": "Linares",
+      "codigoJunta": "LINARES"
+    },
+    {
+      "value": "Lopera",
+      "label": "Lopera",
+      "codigoJunta": "LOPERA"
+    },
+    {
+      "value": "Lupion",
+      "label": "Lupion",
+      "codigoJunta": "LUPION"
+    },
+    {
+      "value": "Mancha Real",
+      "label": "Mancha Real",
+      "codigoJunta": "MANCHA REAL"
+    },
+    {
+      "value": "Marmolejo",
+      "label": "Marmolejo",
+      "codigoJunta": "MARMOLEJO"
+    },
+    {
+      "value": "Martos",
+      "label": "Martos",
+      "codigoJunta": "MARTOS"
+    },
+    {
+      "value": "Mengibar",
+      "label": "Mengibar",
+      "codigoJunta": "MENGIBAR"
+    },
+    {
+      "value": "Montizon",
+      "label": "Montizon",
+      "codigoJunta": "MONTIZON"
+    },
+    {
+      "value": "Navas S Juan",
+      "label": "Navas S Juan",
+      "codigoJunta": "NAVAS S JUAN"
+    },
+    {
+      "value": "Noalejo",
+      "label": "Noalejo",
+      "codigoJunta": "NOALEJO"
+    },
+    {
+      "value": "Orcera",
+      "label": "Orcera",
+      "codigoJunta": "ORCERA"
+    },
+    {
+      "value": "Peal Becerro",
+      "label": "Peal Becerro",
+      "codigoJunta": "PEAL BECERRO"
+    },
+    {
+      "value": "Pegalajar",
+      "label": "Pegalajar",
+      "codigoJunta": "PEGALAJAR"
+    },
+    {
+      "value": "Pontones",
+      "label": "Pontones",
+      "codigoJunta": "PONTONES"
+    },
+    {
+      "value": "Porcuna",
+      "label": "Porcuna",
+      "codigoJunta": "PORCUNA"
+    },
+    {
+      "value": "Pozo Alcon",
+      "label": "Pozo Alcon",
+      "codigoJunta": "POZO ALCON"
+    },
+    {
+      "value": "Puente Genav",
+      "label": "Puente Genav",
+      "codigoJunta": "PUENTE GENAV"
+    },
+    {
+      "value": "Puerta Segur",
+      "label": "Puerta Segur",
+      "codigoJunta": "PUERTA SEGUR"
+    },
+    {
+      "value": "Quesada",
+      "label": "Quesada",
+      "codigoJunta": "QUESADA"
+    },
+    {
+      "value": "Rus",
+      "label": "Rus",
+      "codigoJunta": "RUS"
+    },
+    {
+      "value": "Sabiote",
+      "label": "Sabiote",
+      "codigoJunta": "SABIOTE"
+    },
+    {
+      "value": "Santiago Cal",
+      "label": "Santiago Cal",
+      "codigoJunta": "SANTIAGO CAL"
+    },
+    {
+      "value": "Santisteban",
+      "label": "Santisteban",
+      "codigoJunta": "SANTISTEBAN"
+    },
+    {
+      "value": "Segura Sierr",
+      "label": "Segura Sierr",
+      "codigoJunta": "SEGURA SIERR"
+    },
+    {
+      "value": "Siles",
+      "label": "Siles",
+      "codigoJunta": "SILES"
+    },
+    {
+      "value": "Solera",
+      "label": "Solera",
+      "codigoJunta": "SOLERA"
+    },
+    {
+      "value": "Sorihuela Gu",
+      "label": "Sorihuela Gu",
+      "codigoJunta": "SORIHUELA GU"
+    },
+    {
+      "value": "St Elena",
+      "label": "St Elena",
+      "codigoJunta": "ST ELENA"
+    },
+    {
+      "value": "St Tome",
+      "label": "St Tome",
+      "codigoJunta": "ST TOME"
+    },
+    {
+      "value": "Stgo-pontone",
+      "label": "Stgo-pontone",
+      "codigoJunta": "STGO-PONTONE"
+    },
+    {
+      "value": "Torreblascop",
+      "label": "Torreblascop",
+      "codigoJunta": "TORREBLASCOP"
+    },
+    {
+      "value": "Torredelcamp",
+      "label": "Torredelcamp",
+      "codigoJunta": "TORREDELCAMP"
+    },
+    {
+      "value": "Torredonjime",
+      "label": "Torredonjime",
+      "codigoJunta": "TORREDONJIME"
+    },
+    {
+      "value": "Torreperogil",
+      "label": "Torreperogil",
+      "codigoJunta": "TORREPEROGIL"
+    },
+    {
+      "value": "Torrequebrad",
+      "label": "Torrequebrad",
+      "codigoJunta": "TORREQUEBRAD"
+    },
+    {
+      "value": "Torres",
+      "label": "Torres",
+      "codigoJunta": "TORRES"
+    },
+    {
+      "value": "Torres Alban",
+      "label": "Torres Alban",
+      "codigoJunta": "TORRES ALBAN"
+    },
+    {
+      "value": "Úbeda",
+      "label": "Úbeda",
+      "codigoJunta": "UBEDA"
+    },
+    {
+      "value": "Valdepeñas J",
+      "label": "Valdepeñas J",
+      "codigoJunta": "VALDEPEÑAS J"
+    },
+    {
+      "value": "Vilches",
+      "label": "Vilches",
+      "codigoJunta": "VILCHES"
+    },
+    {
+      "value": "Villacarrill",
+      "label": "Villacarrill",
+      "codigoJunta": "VILLACARRILL"
+    },
+    {
+      "value": "Villanue Arz",
+      "label": "Villanue Arz",
+      "codigoJunta": "VILLANUE ARZ"
+    },
+    {
+      "value": "Villanue Rei",
+      "label": "Villanue Rei",
+      "codigoJunta": "VILLANUE REI"
+    },
+    {
+      "value": "Villardompar",
+      "label": "Villardompar",
+      "codigoJunta": "VILLARDOMPAR"
+    },
+    {
+      "value": "Villares",
+      "label": "Villares",
+      "codigoJunta": "VILLARES"
+    },
+    {
+      "value": "Villarrodri",
+      "label": "Villarrodri",
+      "codigoJunta": "VILLARRODRI"
+    },
+    {
+      "value": "Villatorres",
+      "label": "Villatorres",
+      "codigoJunta": "VILLATORRES"
+    }
+  ],
+  "MÁLAGA": [
+    {
+      "value": "Alameda",
+      "label": "Alameda",
+      "codigoJunta": "ALAMEDA"
+    },
+    {
+      "value": "Alcaucin",
+      "label": "Alcaucin",
+      "codigoJunta": "ALCAUCIN"
+    },
+    {
+      "value": "Alfarnate",
+      "label": "Alfarnate",
+      "codigoJunta": "ALFARNATE"
+    },
+    {
+      "value": "Alfarnatejo",
+      "label": "Alfarnatejo",
+      "codigoJunta": "ALFARNATEJO"
+    },
+    {
+      "value": "Algarrobo",
+      "label": "Algarrobo",
+      "codigoJunta": "ALGARROBO"
+    },
+    {
+      "value": "Algatocin",
+      "label": "Algatocin",
+      "codigoJunta": "ALGATOCIN"
+    },
+    {
+      "value": "Alhaurin Gra",
+      "label": "Alhaurin Gra",
+      "codigoJunta": "ALHAURIN GRA"
+    },
+    {
+      "value": "Alhaurín de la Torre",
+      "label": "Alhaurín de la Torre",
+      "codigoJunta": "ALHAURIN TOR"
+    },
+    {
+      "value": "Almachar",
+      "label": "Almachar",
+      "codigoJunta": "ALMACHAR"
+    },
+    {
+      "value": "Almargen",
+      "label": "Almargen",
+      "codigoJunta": "ALMARGEN"
+    },
+    {
+      "value": "Almogia",
+      "label": "Almogia",
+      "codigoJunta": "ALMOGIA"
+    },
+    {
+      "value": "Alora",
+      "label": "Alora",
+      "codigoJunta": "ALORA"
+    },
+    {
+      "value": "Alozaina",
+      "label": "Alozaina",
+      "codigoJunta": "ALOZAINA"
+    },
+    {
+      "value": "Alpandeire",
+      "label": "Alpandeire",
+      "codigoJunta": "ALPANDEIRE"
+    },
+    {
+      "value": "Antequera",
+      "label": "Antequera",
+      "codigoJunta": "ANTEQUERA"
+    },
+    {
+      "value": "Archez",
+      "label": "Archez",
+      "codigoJunta": "ARCHEZ"
+    },
+    {
+      "value": "Archidona",
+      "label": "Archidona",
+      "codigoJunta": "ARCHIDONA"
+    },
+    {
+      "value": "Ardales",
+      "label": "Ardales",
+      "codigoJunta": "ARDALES"
+    },
+    {
+      "value": "Arenas",
+      "label": "Arenas",
+      "codigoJunta": "ARENAS"
+    },
+    {
+      "value": "Arriate",
+      "label": "Arriate",
+      "codigoJunta": "ARRIATE"
+    },
+    {
+      "value": "Atajate",
+      "label": "Atajate",
+      "codigoJunta": "ATAJATE"
+    },
+    {
+      "value": "Benadalid",
+      "label": "Benadalid",
+      "codigoJunta": "BENADALID"
+    },
+    {
+      "value": "Benahavis",
+      "label": "Benahavis",
+      "codigoJunta": "BENAHAVIS"
+    },
+    {
+      "value": "Benalauria",
+      "label": "Benalauria",
+      "codigoJunta": "BENALAURIA"
+    },
+    {
+      "value": "Benalmádena",
+      "label": "Benalmádena",
+      "codigoJunta": "BENALMADENA"
+    },
+    {
+      "value": "Benamargosa",
+      "label": "Benamargosa",
+      "codigoJunta": "BENAMARGOSA"
+    },
+    {
+      "value": "Benamocarra",
+      "label": "Benamocarra",
+      "codigoJunta": "BENAMOCARRA"
+    },
+    {
+      "value": "Benaojan",
+      "label": "Benaojan",
+      "codigoJunta": "BENAOJAN"
+    },
+    {
+      "value": "Benarraba",
+      "label": "Benarraba",
+      "codigoJunta": "BENARRABA"
+    },
+    {
+      "value": "Borge",
+      "label": "Borge",
+      "codigoJunta": "BORGE"
+    },
+    {
+      "value": "Burgo",
+      "label": "Burgo",
+      "codigoJunta": "BURGO"
+    },
+    {
+      "value": "Campillos",
+      "label": "Campillos",
+      "codigoJunta": "CAMPILLOS"
+    },
+    {
+      "value": "Can Aceituno",
+      "label": "Can Aceituno",
+      "codigoJunta": "CAN ACEITUNO"
+    },
+    {
+      "value": "Can Albaida",
+      "label": "Can Albaida",
+      "codigoJunta": "CAN ALBAIDA"
+    },
+    {
+      "value": "Carratraca",
+      "label": "Carratraca",
+      "codigoJunta": "CARRATRACA"
+    },
+    {
+      "value": "Cartajima",
+      "label": "Cartajima",
+      "codigoJunta": "CARTAJIMA"
+    },
+    {
+      "value": "Cartama",
+      "label": "Cartama",
+      "codigoJunta": "CARTAMA"
+    },
+    {
+      "value": "Casabermeja",
+      "label": "Casabermeja",
+      "codigoJunta": "CASABERMEJA"
+    },
+    {
+      "value": "Casarabonela",
+      "label": "Casarabonela",
+      "codigoJunta": "CASARABONELA"
+    },
+    {
+      "value": "Casares",
+      "label": "Casares",
+      "codigoJunta": "CASARES"
+    },
+    {
+      "value": "Cañete Real",
+      "label": "Cañete Real",
+      "codigoJunta": "CAÑETE REAL"
+    },
+    {
+      "value": "Coin",
+      "label": "Coin",
+      "codigoJunta": "COIN"
+    },
+    {
+      "value": "Colmenar",
+      "label": "Colmenar",
+      "codigoJunta": "COLMENAR"
+    },
+    {
+      "value": "Comares",
+      "label": "Comares",
+      "codigoJunta": "COMARES"
+    },
+    {
+      "value": "Competa",
+      "label": "Competa",
+      "codigoJunta": "COMPETA"
+    },
+    {
+      "value": "Cortes de la Frontera",
+      "label": "Cortes de la Frontera",
+      "codigoJunta": "CORTES FRONT"
+    },
+    {
+      "value": "Cuevas Bajas",
+      "label": "Cuevas Bajas",
+      "codigoJunta": "CUEVAS BAJAS"
+    },
+    {
+      "value": "Cuevas Becer",
+      "label": "Cuevas Becer",
+      "codigoJunta": "CUEVAS BECER"
+    },
+    {
+      "value": "Cuevas S Mar",
+      "label": "Cuevas S Mar",
+      "codigoJunta": "CUEVAS S MAR"
+    },
+    {
+      "value": "Cutar",
+      "label": "Cutar",
+      "codigoJunta": "CUTAR"
+    },
+    {
+      "value": "Estepona",
+      "label": "Estepona",
+      "codigoJunta": "ESTEPONA"
+    },
+    {
+      "value": "Farajan",
+      "label": "Farajan",
+      "codigoJunta": "FARAJAN"
+    },
+    {
+      "value": "Frigiliana",
+      "label": "Frigiliana",
+      "codigoJunta": "FRIGILIANA"
+    },
+    {
+      "value": "Fuengirola",
+      "label": "Fuengirola",
+      "codigoJunta": "FUENGIROLA"
+    },
+    {
+      "value": "Fuente Piedr",
+      "label": "Fuente Piedr",
+      "codigoJunta": "FUENTE PIEDR"
+    },
+    {
+      "value": "Gaucin",
+      "label": "Gaucin",
+      "codigoJunta": "GAUCIN"
+    },
+    {
+      "value": "Genalguacil",
+      "label": "Genalguacil",
+      "codigoJunta": "GENALGUACIL"
+    },
+    {
+      "value": "Guaro",
+      "label": "Guaro",
+      "codigoJunta": "GUARO"
+    },
+    {
+      "value": "Humilladero",
+      "label": "Humilladero",
+      "codigoJunta": "HUMILLADERO"
+    },
+    {
+      "value": "Igualeja",
+      "label": "Igualeja",
+      "codigoJunta": "IGUALEJA"
+    },
+    {
+      "value": "Istan",
+      "label": "Istan",
+      "codigoJunta": "ISTAN"
+    },
+    {
+      "value": "Iznate",
+      "label": "Iznate",
+      "codigoJunta": "IZNATE"
+    },
+    {
+      "value": "Jimera Libar",
+      "label": "Jimera Libar",
+      "codigoJunta": "JIMERA LIBAR"
+    },
+    {
+      "value": "Jubrique",
+      "label": "Jubrique",
+      "codigoJunta": "JUBRIQUE"
+    },
+    {
+      "value": "Juzcar",
+      "label": "Juzcar",
+      "codigoJunta": "JUZCAR"
+    },
+    {
+      "value": "Macharaviall",
+      "label": "Macharaviall",
+      "codigoJunta": "MACHARAVIALL"
+    },
+    {
+      "value": "Málaga",
+      "label": "Málaga",
+      "codigoJunta": "MALAGA"
+    },
+    {
+      "value": "Manilva",
+      "label": "Manilva",
+      "codigoJunta": "MANILVA"
+    },
+    {
+      "value": "Marbella",
+      "label": "Marbella",
+      "codigoJunta": "MARBELLA"
+    },
+    {
+      "value": "Mijas",
+      "label": "Mijas",
+      "codigoJunta": "MIJAS"
+    },
+    {
+      "value": "Moclinejo",
+      "label": "Moclinejo",
+      "codigoJunta": "MOCLINEJO"
+    },
+    {
+      "value": "Mollina",
+      "label": "Mollina",
+      "codigoJunta": "MOLLINA"
+    },
+    {
+      "value": "Monda",
+      "label": "Monda",
+      "codigoJunta": "MONDA"
+    },
+    {
+      "value": "Montecorto",
+      "label": "Montecorto",
+      "codigoJunta": "MONTECORTO"
+    },
+    {
+      "value": "Montejaque",
+      "label": "Montejaque",
+      "codigoJunta": "MONTEJAQUE"
+    },
+    {
+      "value": "Nerja",
+      "label": "Nerja",
+      "codigoJunta": "NERJA"
+    },
+    {
+      "value": "Ojen",
+      "label": "Ojen",
+      "codigoJunta": "OJEN"
+    },
+    {
+      "value": "Parauta",
+      "label": "Parauta",
+      "codigoJunta": "PARAUTA"
+    },
+    {
+      "value": "Periana",
+      "label": "Periana",
+      "codigoJunta": "PERIANA"
+    },
+    {
+      "value": "Peñarrubia",
+      "label": "Peñarrubia",
+      "codigoJunta": "PEÑARRUBIA"
+    },
+    {
+      "value": "Pizarra",
+      "label": "Pizarra",
+      "codigoJunta": "PIZARRA"
+    },
+    {
+      "value": "Pujerra",
+      "label": "Pujerra",
+      "codigoJunta": "PUJERRA"
+    },
+    {
+      "value": "Rincon Victo",
+      "label": "Rincon Victo",
+      "codigoJunta": "RINCON VICTO"
+    },
+    {
+      "value": "Riogordo",
+      "label": "Riogordo",
+      "codigoJunta": "RIOGORDO"
+    },
+    {
+      "value": "Ronda",
+      "label": "Ronda",
+      "codigoJunta": "RONDA"
+    },
+    {
+      "value": "Salares",
+      "label": "Salares",
+      "codigoJunta": "SALARES"
+    },
+    {
+      "value": "Sayalonga",
+      "label": "Sayalonga",
+      "codigoJunta": "SAYALONGA"
+    },
+    {
+      "value": "Sedella",
+      "label": "Sedella",
+      "codigoJunta": "SEDELLA"
+    },
+    {
+      "value": "Serrato",
+      "label": "Serrato",
+      "codigoJunta": "SERRATO"
+    },
+    {
+      "value": "Sierra Yegua",
+      "label": "Sierra Yegua",
+      "codigoJunta": "SIERRA YEGUA"
+    },
+    {
+      "value": "Teba",
+      "label": "Teba",
+      "codigoJunta": "TEBA"
+    },
+    {
+      "value": "Tolox",
+      "label": "Tolox",
+      "codigoJunta": "TOLOX"
+    },
+    {
+      "value": "Torremolinos",
+      "label": "Torremolinos",
+      "codigoJunta": "TORREMOLINOS"
+    },
+    {
+      "value": "Torrox",
+      "label": "Torrox",
+      "codigoJunta": "TORROX"
+    },
+    {
+      "value": "Totalan",
+      "label": "Totalan",
+      "codigoJunta": "TOTALAN"
+    },
+    {
+      "value": "Valle Abdala",
+      "label": "Valle Abdala",
+      "codigoJunta": "VALLE ABDALA"
+    },
+    {
+      "value": "Velez-malaga",
+      "label": "Velez-malaga",
+      "codigoJunta": "VELEZ-MALAGA"
+    },
+    {
+      "value": "Viñuela",
+      "label": "Viñuela",
+      "codigoJunta": "VIÑUELA"
+    },
+    {
+      "value": "Vva Algaidas",
+      "label": "Vva Algaidas",
+      "codigoJunta": "VVA ALGAIDAS"
+    },
+    {
+      "value": "Vva Concepcion",
+      "label": "Vva Concepcion",
+      "codigoJunta": "VVA CONCEPCION"
+    },
+    {
+      "value": "Vva de Tapia",
+      "label": "Vva de Tapia",
+      "codigoJunta": "VVA DE TAPIA"
+    },
+    {
+      "value": "Vva Rosario",
+      "label": "Vva Rosario",
+      "codigoJunta": "VVA ROSARIO"
+    },
+    {
+      "value": "Vva Trabuco",
+      "label": "Vva Trabuco",
+      "codigoJunta": "VVA TRABUCO"
+    },
+    {
+      "value": "Yunquera",
+      "label": "Yunquera",
+      "codigoJunta": "YUNQUERA"
+    }
+  ],
+  "SEVILLA": [
+    {
+      "value": "Aguadulce",
+      "label": "Aguadulce",
+      "codigoJunta": "AGUADULCE"
+    },
+    {
+      "value": "Alanis",
+      "label": "Alanis",
+      "codigoJunta": "ALANIS"
+    },
+    {
+      "value": "Albaida Alja",
+      "label": "Albaida Alja",
+      "codigoJunta": "ALBAIDA ALJA"
+    },
+    {
+      "value": "Alcalá de Guadaíra",
+      "label": "Alcalá de Guadaíra",
+      "codigoJunta": "ALCALA GUADA"
+    },
+    {
+      "value": "Alcalá del Río",
+      "label": "Alcalá del Río",
+      "codigoJunta": "ALCALA RIO"
+    },
+    {
+      "value": "Alcolea del Río",
+      "label": "Alcolea del Río",
+      "codigoJunta": "ALCOLEA RIO"
+    },
+    {
+      "value": "Algamitas",
+      "label": "Algamitas",
+      "codigoJunta": "ALGAMITAS"
+    },
+    {
+      "value": "Almaden Plat",
+      "label": "Almaden Plat",
+      "codigoJunta": "ALMADEN PLAT"
+    },
+    {
+      "value": "Almensilla",
+      "label": "Almensilla",
+      "codigoJunta": "ALMENSILLA"
+    },
+    {
+      "value": "Arahal",
+      "label": "Arahal",
+      "codigoJunta": "ARAHAL"
+    },
+    {
+      "value": "Aznalcazar",
+      "label": "Aznalcazar",
+      "codigoJunta": "AZNALCAZAR"
+    },
+    {
+      "value": "Aznalcollar",
+      "label": "Aznalcollar",
+      "codigoJunta": "AZNALCOLLAR"
+    },
+    {
+      "value": "Badolatosa",
+      "label": "Badolatosa",
+      "codigoJunta": "BADOLATOSA"
+    },
+    {
+      "value": "Benacazon",
+      "label": "Benacazon",
+      "codigoJunta": "BENACAZON"
+    },
+    {
+      "value": "Bollullos Mi",
+      "label": "Bollullos Mi",
+      "codigoJunta": "BOLLULLOS MI"
+    },
+    {
+      "value": "Bormujos",
+      "label": "Bormujos",
+      "codigoJunta": "BORMUJOS"
+    },
+    {
+      "value": "Brenes",
+      "label": "Brenes",
+      "codigoJunta": "BRENES"
+    },
+    {
+      "value": "Burguillos",
+      "label": "Burguillos",
+      "codigoJunta": "BURGUILLOS"
+    },
+    {
+      "value": "Cabezas S Ju",
+      "label": "Cabezas S Ju",
+      "codigoJunta": "CABEZAS S JU"
+    },
+    {
+      "value": "Camas",
+      "label": "Camas",
+      "codigoJunta": "CAMAS"
+    },
+    {
+      "value": "Cantillana",
+      "label": "Cantillana",
+      "codigoJunta": "CANTILLANA"
+    },
+    {
+      "value": "Carmona",
+      "label": "Carmona",
+      "codigoJunta": "CARMONA"
+    },
+    {
+      "value": "Carrión de los Céspedes",
+      "label": "Carrión de los Céspedes",
+      "codigoJunta": "CARRION CESP"
+    },
+    {
+      "value": "Casariche",
+      "label": "Casariche",
+      "codigoJunta": "CASARICHE"
+    },
+    {
+      "value": "Castilblanco de los Arroyos",
+      "label": "Castilblanco de los Arroyos",
+      "codigoJunta": "CASTILBLANCO"
+    },
+    {
+      "value": "Castille Cam",
+      "label": "Castille Cam",
+      "codigoJunta": "CASTILLE CAM"
+    },
+    {
+      "value": "Castille Cue",
+      "label": "Castille Cue",
+      "codigoJunta": "CASTILLE CUE"
+    },
+    {
+      "value": "Castille Guz",
+      "label": "Castille Guz",
+      "codigoJunta": "CASTILLE GUZ"
+    },
+    {
+      "value": "Castillo Gua",
+      "label": "Castillo Gua",
+      "codigoJunta": "CASTILLO GUA"
+    },
+    {
+      "value": "Cazalla de la Sierra",
+      "label": "Cazalla de la Sierra",
+      "codigoJunta": "CAZALLA SIER"
+    },
+    {
+      "value": "Cañada Rosal",
+      "label": "Cañada Rosal",
+      "codigoJunta": "CAÑADA ROSAL"
+    },
+    {
+      "value": "Constantina",
+      "label": "Constantina",
+      "codigoJunta": "CONSTANTINA"
+    },
+    {
+      "value": "Coria del Río",
+      "label": "Coria del Río",
+      "codigoJunta": "CORIA RIO"
+    },
+    {
+      "value": "Coripe",
+      "label": "Coripe",
+      "codigoJunta": "CORIPE"
+    },
+    {
+      "value": "Dos Hermanas",
+      "label": "Dos Hermanas",
+      "codigoJunta": "DOS HERMANAS"
+    },
+    {
+      "value": "Écija",
+      "label": "Écija",
+      "codigoJunta": "ECIJA"
+    },
+    {
+      "value": "El Coronil",
+      "label": "El Coronil",
+      "codigoJunta": "EL CORONIL"
+    },
+    {
+      "value": "El Cuervo",
+      "label": "El Cuervo",
+      "codigoJunta": "EL CUERVO"
+    },
+    {
+      "value": "El Garrobo",
+      "label": "El Garrobo",
+      "codigoJunta": "EL GARROBO"
+    },
+    {
+      "value": "El Pedroso",
+      "label": "El Pedroso",
+      "codigoJunta": "EL PEDROSO"
+    },
+    {
+      "value": "El Real Jara",
+      "label": "El Real Jara",
+      "codigoJunta": "EL REAL JARA"
+    },
+    {
+      "value": "El Ronquillo",
+      "label": "El Ronquillo",
+      "codigoJunta": "EL RONQUILLO"
+    },
+    {
+      "value": "El Rubio",
+      "label": "El Rubio",
+      "codigoJunta": "EL RUBIO"
+    },
+    {
+      "value": "El Saucejo",
+      "label": "El Saucejo",
+      "codigoJunta": "EL SAUCEJO"
+    },
+    {
+      "value": "El Viso",
+      "label": "El Viso",
+      "codigoJunta": "EL VISO"
+    },
+    {
+      "value": "Espartinas",
+      "label": "Espartinas",
+      "codigoJunta": "ESPARTINAS"
+    },
+    {
+      "value": "Estepa",
+      "label": "Estepa",
+      "codigoJunta": "ESTEPA"
+    },
+    {
+      "value": "Fuentes Anda",
+      "label": "Fuentes Anda",
+      "codigoJunta": "FUENTES ANDA"
+    },
+    {
+      "value": "Gelves",
+      "label": "Gelves",
+      "codigoJunta": "GELVES"
+    },
+    {
+      "value": "Gerena",
+      "label": "Gerena",
+      "codigoJunta": "GERENA"
+    },
+    {
+      "value": "Gilena",
+      "label": "Gilena",
+      "codigoJunta": "GILENA"
+    },
+    {
+      "value": "Gines",
+      "label": "Gines",
+      "codigoJunta": "GINES"
+    },
+    {
+      "value": "Guadalcanal",
+      "label": "Guadalcanal",
+      "codigoJunta": "GUADALCANAL"
+    },
+    {
+      "value": "Guillena",
+      "label": "Guillena",
+      "codigoJunta": "GUILLENA"
+    },
+    {
+      "value": "Herrera",
+      "label": "Herrera",
+      "codigoJunta": "HERRERA"
+    },
+    {
+      "value": "Huévar del Aljarafe",
+      "label": "Huévar del Aljarafe",
+      "codigoJunta": "HUEVAR"
+    },
+    {
+      "value": "Isla Mayor",
+      "label": "Isla Mayor",
+      "codigoJunta": "ISLA MAYOR"
+    },
+    {
+      "value": "La Algaba",
+      "label": "La Algaba",
+      "codigoJunta": "LA ALGABA"
+    },
+    {
+      "value": "La Campana",
+      "label": "La Campana",
+      "codigoJunta": "LA CAMPANA"
+    },
+    {
+      "value": "La Lantejuel",
+      "label": "La Lantejuel",
+      "codigoJunta": "LA LANTEJUEL"
+    },
+    {
+      "value": "La Luisiana",
+      "label": "La Luisiana",
+      "codigoJunta": "LA LUISIANA"
+    },
+    {
+      "value": "La Puebla Ca",
+      "label": "La Puebla Ca",
+      "codigoJunta": "LA PUEBLA CA"
+    },
+    {
+      "value": "La Puebla Ri",
+      "label": "La Puebla Ri",
+      "codigoJunta": "LA PUEBLA RI"
+    },
+    {
+      "value": "La Rinconada",
+      "label": "La Rinconada",
+      "codigoJunta": "LA RINCONADA"
+    },
+    {
+      "value": "La Roda And",
+      "label": "La Roda And",
+      "codigoJunta": "LA RODA AND"
+    },
+    {
+      "value": "Lebrija",
+      "label": "Lebrija",
+      "codigoJunta": "LEBRIJA"
+    },
+    {
+      "value": "Lora de Estepa",
+      "label": "Lora de Estepa",
+      "codigoJunta": "LORA ESTEPA"
+    },
+    {
+      "value": "Lora Rio",
+      "label": "Lora Rio",
+      "codigoJunta": "LORA RIO"
+    },
+    {
+      "value": "Los Corrales",
+      "label": "Los Corrales",
+      "codigoJunta": "LOS CORRALES"
+    },
+    {
+      "value": "Los Molares",
+      "label": "Los Molares",
+      "codigoJunta": "LOS MOLARES"
+    },
+    {
+      "value": "Los Palacios",
+      "label": "Los Palacios",
+      "codigoJunta": "LOS PALACIOS"
+    },
+    {
+      "value": "El Madroño",
+      "label": "El Madroño",
+      "codigoJunta": "MADROÑO"
+    },
+    {
+      "value": "Mairena del Alcor",
+      "label": "Mairena del Alcor",
+      "codigoJunta": "MAIRENA ALCO"
+    },
+    {
+      "value": "Mairena del Aljarafe",
+      "label": "Mairena del Aljarafe",
+      "codigoJunta": "MAIRENA ALJA"
+    },
+    {
+      "value": "Marchena",
+      "label": "Marchena",
+      "codigoJunta": "MARCHENA"
+    },
+    {
+      "value": "Marinaleda",
+      "label": "Marinaleda",
+      "codigoJunta": "MARINALEDA"
+    },
+    {
+      "value": "Martin Jara",
+      "label": "Martin Jara",
+      "codigoJunta": "MARTIN JARA"
+    },
+    {
+      "value": "Montellano",
+      "label": "Montellano",
+      "codigoJunta": "MONTELLANO"
+    },
+    {
+      "value": "Morón de la Frontera",
+      "label": "Morón de la Frontera",
+      "codigoJunta": "MORON FRONTE"
+    },
+    {
+      "value": "Navas Concep",
+      "label": "Navas Concep",
+      "codigoJunta": "NAVAS CONCEP"
+    },
+    {
+      "value": "Olivares",
+      "label": "Olivares",
+      "codigoJunta": "OLIVARES"
+    },
+    {
+      "value": "Osuna",
+      "label": "Osuna",
+      "codigoJunta": "OSUNA"
+    },
+    {
+      "value": "Palmar de Troya (el)",
+      "label": "Palmar de Troya (el)",
+      "codigoJunta": "PALMAR DE TROYA (EL)"
+    },
+    {
+      "value": "Palomares del Río",
+      "label": "Palomares del Río",
+      "codigoJunta": "PALOMARES RI"
+    },
+    {
+      "value": "Paradas",
+      "label": "Paradas",
+      "codigoJunta": "PARADAS"
+    },
+    {
+      "value": "Pedrera",
+      "label": "Pedrera",
+      "codigoJunta": "PEDRERA"
+    },
+    {
+      "value": "Peñaflor",
+      "label": "Peñaflor",
+      "codigoJunta": "PEÑAFLOR"
+    },
+    {
+      "value": "Pilas",
+      "label": "Pilas",
+      "codigoJunta": "PILAS"
+    },
+    {
+      "value": "Pruna",
+      "label": "Pruna",
+      "codigoJunta": "PRUNA"
+    },
+    {
+      "value": "La Puebla de los Infantes",
+      "label": "La Puebla de los Infantes",
+      "codigoJunta": "PUEBLA INFAN"
+    },
+    {
+      "value": "S Juan Aznal",
+      "label": "S Juan Aznal",
+      "codigoJunta": "S JUAN AZNAL"
+    },
+    {
+      "value": "S Nicolas Pu",
+      "label": "S Nicolas Pu",
+      "codigoJunta": "S NICOLAS PU"
+    },
+    {
+      "value": "Salteras",
+      "label": "Salteras",
+      "codigoJunta": "SALTERAS"
+    },
+    {
+      "value": "Sanlúcar la Mayor",
+      "label": "Sanlúcar la Mayor",
+      "codigoJunta": "SANLUCAR MAY"
+    },
+    {
+      "value": "Santiponce",
+      "label": "Santiponce",
+      "codigoJunta": "SANTIPONCE"
+    },
+    {
+      "value": "Sevilla",
+      "label": "Sevilla",
+      "codigoJunta": "SEVILLA"
+    },
+    {
+      "value": "Tocina-Los Rosales",
+      "label": "Tocina-Los Rosales",
+      "codigoJunta": "TOCINA"
+    },
+    {
+      "value": "Tomares",
+      "label": "Tomares",
+      "codigoJunta": "TOMARES"
+    },
+    {
+      "value": "Umbrete",
+      "label": "Umbrete",
+      "codigoJunta": "UMBRETE"
+    },
+    {
+      "value": "Utrera",
+      "label": "Utrera",
+      "codigoJunta": "UTRERA"
+    },
+    {
+      "value": "Valencina Co",
+      "label": "Valencina Co",
+      "codigoJunta": "VALENCINA CO"
+    },
+    {
+      "value": "Villamanrique de la Condesa",
+      "label": "Villamanrique de la Condesa",
+      "codigoJunta": "VILLAMANRIQU"
+    },
+    {
+      "value": "Villanue Ari",
+      "label": "Villanue Ari",
+      "codigoJunta": "VILLANUE ARI"
+    },
+    {
+      "value": "Villanue Rio",
+      "label": "Villanue Rio",
+      "codigoJunta": "VILLANUE RIO"
+    },
+    {
+      "value": "Villanue S J",
+      "label": "Villanue S J",
+      "codigoJunta": "VILLANUE S J"
+    },
+    {
+      "value": "Villaverde R",
+      "label": "Villaverde R",
+      "codigoJunta": "VILLAVERDE R"
+    }
+  ],
+  "ALMERÍA": [
+    {
+      "value": "Abla",
+      "label": "Abla",
+      "codigoJunta": "ABLA"
+    },
+    {
+      "value": "Abrucena",
+      "label": "Abrucena",
+      "codigoJunta": "ABRUCENA"
+    },
+    {
+      "value": "Adra",
+      "label": "Adra",
+      "codigoJunta": "ADRA"
+    },
+    {
+      "value": "Albanchez",
+      "label": "Albanchez",
+      "codigoJunta": "ALBANCHEZ"
+    },
+    {
+      "value": "Alboloduy",
+      "label": "Alboloduy",
+      "codigoJunta": "ALBOLODUY"
+    },
+    {
+      "value": "Albox",
+      "label": "Albox",
+      "codigoJunta": "ALBOX"
+    },
+    {
+      "value": "Alcolea",
+      "label": "Alcolea",
+      "codigoJunta": "ALCOLEA"
+    },
+    {
+      "value": "Alcontar",
+      "label": "Alcontar",
+      "codigoJunta": "ALCONTAR"
+    },
+    {
+      "value": "Alcudia Mont",
+      "label": "Alcudia Mont",
+      "codigoJunta": "ALCUDIA MONT"
+    },
+    {
+      "value": "Alhabia",
+      "label": "Alhabia",
+      "codigoJunta": "ALHABIA"
+    },
+    {
+      "value": "Alhama Almer",
+      "label": "Alhama Almer",
+      "codigoJunta": "ALHAMA ALMER"
+    },
+    {
+      "value": "Alicun",
+      "label": "Alicun",
+      "codigoJunta": "ALICUN"
+    },
+    {
+      "value": "Almería",
+      "label": "Almería",
+      "codigoJunta": "ALMERÍA"
+    },
+    {
+      "value": "Almocita",
+      "label": "Almocita",
+      "codigoJunta": "ALMOCITA"
+    },
+    {
+      "value": "Alsodux",
+      "label": "Alsodux",
+      "codigoJunta": "ALSODUX"
+    },
+    {
+      "value": "Antas",
+      "label": "Antas",
+      "codigoJunta": "ANTAS"
+    },
+    {
+      "value": "Arboleas",
+      "label": "Arboleas",
+      "codigoJunta": "ARBOLEAS"
+    },
+    {
+      "value": "Armuña Alman",
+      "label": "Armuña Alman",
+      "codigoJunta": "ARMUÑA ALMAN"
+    },
+    {
+      "value": "Bacares",
+      "label": "Bacares",
+      "codigoJunta": "BACARES"
+    },
+    {
+      "value": "Balanegra",
+      "label": "Balanegra",
+      "codigoJunta": "BALANEGRA"
+    },
+    {
+      "value": "Bayarcal",
+      "label": "Bayarcal",
+      "codigoJunta": "BAYARCAL"
+    },
+    {
+      "value": "Bayarque",
+      "label": "Bayarque",
+      "codigoJunta": "BAYARQUE"
+    },
+    {
+      "value": "Bedar",
+      "label": "Bedar",
+      "codigoJunta": "BEDAR"
+    },
+    {
+      "value": "Beires",
+      "label": "Beires",
+      "codigoJunta": "BEIRES"
+    },
+    {
+      "value": "Benahadux",
+      "label": "Benahadux",
+      "codigoJunta": "BENAHADUX"
+    },
+    {
+      "value": "Beninar",
+      "label": "Beninar",
+      "codigoJunta": "BENINAR"
+    },
+    {
+      "value": "Benitagla",
+      "label": "Benitagla",
+      "codigoJunta": "BENITAGLA"
+    },
+    {
+      "value": "Benizalon",
+      "label": "Benizalon",
+      "codigoJunta": "BENIZALON"
+    },
+    {
+      "value": "Bentarique",
+      "label": "Bentarique",
+      "codigoJunta": "BENTARIQUE"
+    },
+    {
+      "value": "Berja",
+      "label": "Berja",
+      "codigoJunta": "BERJA"
+    },
+    {
+      "value": "Canjayar",
+      "label": "Canjayar",
+      "codigoJunta": "CANJAYAR"
+    },
+    {
+      "value": "Cantoria",
+      "label": "Cantoria",
+      "codigoJunta": "CANTORIA"
+    },
+    {
+      "value": "Carboneras",
+      "label": "Carboneras",
+      "codigoJunta": "CARBONERAS"
+    },
+    {
+      "value": "Castro Filab",
+      "label": "Castro Filab",
+      "codigoJunta": "CASTRO FILAB"
+    },
+    {
+      "value": "Chercos",
+      "label": "Chercos",
+      "codigoJunta": "CHERCOS"
+    },
+    {
+      "value": "Chirivel",
+      "label": "Chirivel",
+      "codigoJunta": "CHIRIVEL"
+    },
+    {
+      "value": "Cobdar",
+      "label": "Cobdar",
+      "codigoJunta": "COBDAR"
+    },
+    {
+      "value": "Cuevas Alman",
+      "label": "Cuevas Alman",
+      "codigoJunta": "CUEVAS ALMAN"
+    },
+    {
+      "value": "Dalias",
+      "label": "Dalias",
+      "codigoJunta": "DALIAS"
+    },
+    {
+      "value": "Darrical",
+      "label": "Darrical",
+      "codigoJunta": "DARRICAL"
+    },
+    {
+      "value": "Ejido el",
+      "label": "Ejido el",
+      "codigoJunta": "EJIDO EL"
+    },
+    {
+      "value": "Enix",
+      "label": "Enix",
+      "codigoJunta": "ENIX"
+    },
+    {
+      "value": "Escullar",
+      "label": "Escullar",
+      "codigoJunta": "ESCULLAR"
+    },
+    {
+      "value": "Felix",
+      "label": "Felix",
+      "codigoJunta": "FELIX"
+    },
+    {
+      "value": "Fines",
+      "label": "Fines",
+      "codigoJunta": "FINES"
+    },
+    {
+      "value": "Fiñana",
+      "label": "Fiñana",
+      "codigoJunta": "FIÑANA"
+    },
+    {
+      "value": "Fondon",
+      "label": "Fondon",
+      "codigoJunta": "FONDON"
+    },
+    {
+      "value": "Gador",
+      "label": "Gador",
+      "codigoJunta": "GADOR"
+    },
+    {
+      "value": "Gallardos",
+      "label": "Gallardos",
+      "codigoJunta": "GALLARDOS"
+    },
+    {
+      "value": "Garrucha",
+      "label": "Garrucha",
+      "codigoJunta": "GARRUCHA"
+    },
+    {
+      "value": "Gergal",
+      "label": "Gergal",
+      "codigoJunta": "GERGAL"
+    },
+    {
+      "value": "Huecija",
+      "label": "Huecija",
+      "codigoJunta": "HUECIJA"
+    },
+    {
+      "value": "Huercal Alme",
+      "label": "Huercal Alme",
+      "codigoJunta": "HUERCAL ALME"
+    },
+    {
+      "value": "Huercal Over",
+      "label": "Huercal Over",
+      "codigoJunta": "HUERCAL OVER"
+    },
+    {
+      "value": "Illar",
+      "label": "Illar",
+      "codigoJunta": "ILLAR"
+    },
+    {
+      "value": "Instincion",
+      "label": "Instincion",
+      "codigoJunta": "INSTINCION"
+    },
+    {
+      "value": "Laroya",
+      "label": "Laroya",
+      "codigoJunta": "LAROYA"
+    },
+    {
+      "value": "Laujar Andar",
+      "label": "Laujar Andar",
+      "codigoJunta": "LAUJAR ANDAR"
+    },
+    {
+      "value": "Lijar",
+      "label": "Lijar",
+      "codigoJunta": "LIJAR"
+    },
+    {
+      "value": "Lubrin",
+      "label": "Lubrin",
+      "codigoJunta": "LUBRIN"
+    },
+    {
+      "value": "Lucainena To",
+      "label": "Lucainena To",
+      "codigoJunta": "LUCAINENA TO"
+    },
+    {
+      "value": "Lucar",
+      "label": "Lucar",
+      "codigoJunta": "LUCAR"
+    },
+    {
+      "value": "Macael",
+      "label": "Macael",
+      "codigoJunta": "MACAEL"
+    },
+    {
+      "value": "Maria",
+      "label": "Maria",
+      "codigoJunta": "MARIA"
+    },
+    {
+      "value": "Mojacar",
+      "label": "Mojacar",
+      "codigoJunta": "MOJACAR"
+    },
+    {
+      "value": "Mojonera la",
+      "label": "Mojonera la",
+      "codigoJunta": "MOJONERA LA"
+    },
+    {
+      "value": "Nacimiento",
+      "label": "Nacimiento",
+      "codigoJunta": "NACIMIENTO"
+    },
+    {
+      "value": "Nijar",
+      "label": "Nijar",
+      "codigoJunta": "NIJAR"
+    },
+    {
+      "value": "Ohanes",
+      "label": "Ohanes",
+      "codigoJunta": "OHANES"
+    },
+    {
+      "value": "Olula Castro",
+      "label": "Olula Castro",
+      "codigoJunta": "OLULA CASTRO"
+    },
+    {
+      "value": "Olula Rio",
+      "label": "Olula Rio",
+      "codigoJunta": "OLULA RIO"
+    },
+    {
+      "value": "Oria",
+      "label": "Oria",
+      "codigoJunta": "ORIA"
+    },
+    {
+      "value": "Padules",
+      "label": "Padules",
+      "codigoJunta": "PADULES"
+    },
+    {
+      "value": "Partaloa",
+      "label": "Partaloa",
+      "codigoJunta": "PARTALOA"
+    },
+    {
+      "value": "Paterna Rio",
+      "label": "Paterna Rio",
+      "codigoJunta": "PATERNA RIO"
+    },
+    {
+      "value": "Pechina",
+      "label": "Pechina",
+      "codigoJunta": "PECHINA"
+    },
+    {
+      "value": "Pulpi",
+      "label": "Pulpi",
+      "codigoJunta": "PULPI"
+    },
+    {
+      "value": "Purchena",
+      "label": "Purchena",
+      "codigoJunta": "PURCHENA"
+    },
+    {
+      "value": "Ragol",
+      "label": "Ragol",
+      "codigoJunta": "RAGOL"
+    },
+    {
+      "value": "Rioja",
+      "label": "Rioja",
+      "codigoJunta": "RIOJA"
+    },
+    {
+      "value": "Roquetas de Mar",
+      "label": "Roquetas de Mar",
+      "codigoJunta": "ROQUETAS MAR"
+    },
+    {
+      "value": "Santa Cruz de Marchena",
+      "label": "Santa Cruz de Marchena",
+      "codigoJunta": "SANTA CRUZ DE MARCHENA"
+    },
+    {
+      "value": "Senes",
+      "label": "Senes",
+      "codigoJunta": "SENES"
+    },
+    {
+      "value": "Seron",
+      "label": "Seron",
+      "codigoJunta": "SERON"
+    },
+    {
+      "value": "Sierro",
+      "label": "Sierro",
+      "codigoJunta": "SIERRO"
+    },
+    {
+      "value": "Somontin",
+      "label": "Somontin",
+      "codigoJunta": "SOMONTIN"
+    },
+    {
+      "value": "Sorbas",
+      "label": "Sorbas",
+      "codigoJunta": "SORBAS"
+    },
+    {
+      "value": "St Fe Monduj",
+      "label": "St Fe Monduj",
+      "codigoJunta": "ST FE MONDUJ"
+    },
+    {
+      "value": "Sufli",
+      "label": "Sufli",
+      "codigoJunta": "SUFLI"
+    },
+    {
+      "value": "Tabernas",
+      "label": "Tabernas",
+      "codigoJunta": "TABERNAS"
+    },
+    {
+      "value": "Taberno",
+      "label": "Taberno",
+      "codigoJunta": "TABERNO"
+    },
+    {
+      "value": "Tahal",
+      "label": "Tahal",
+      "codigoJunta": "TAHAL"
+    },
+    {
+      "value": "Terque",
+      "label": "Terque",
+      "codigoJunta": "TERQUE"
+    },
+    {
+      "value": "Tijola",
+      "label": "Tijola",
+      "codigoJunta": "TIJOLA"
+    },
+    {
+      "value": "Tres Villas",
+      "label": "Tres Villas",
+      "codigoJunta": "TRES VILLAS"
+    },
+    {
+      "value": "Turre",
+      "label": "Turre",
+      "codigoJunta": "TURRE"
+    },
+    {
+      "value": "Turrillas",
+      "label": "Turrillas",
+      "codigoJunta": "TURRILLAS"
+    },
+    {
+      "value": "Uleila Campo",
+      "label": "Uleila Campo",
+      "codigoJunta": "ULEILA CAMPO"
+    },
+    {
+      "value": "Urracal",
+      "label": "Urracal",
+      "codigoJunta": "URRACAL"
+    },
+    {
+      "value": "Velefique",
+      "label": "Velefique",
+      "codigoJunta": "VELEFIQUE"
+    },
+    {
+      "value": "Velez Blanco",
+      "label": "Velez Blanco",
+      "codigoJunta": "VELEZ BLANCO"
+    },
+    {
+      "value": "Velez Rubio",
+      "label": "Velez Rubio",
+      "codigoJunta": "VELEZ RUBIO"
+    },
+    {
+      "value": "Vera",
+      "label": "Vera",
+      "codigoJunta": "VERA"
+    },
+    {
+      "value": "Viator",
+      "label": "Viator",
+      "codigoJunta": "VIATOR"
+    },
+    {
+      "value": "Vicar",
+      "label": "Vicar",
+      "codigoJunta": "VICAR"
+    },
+    {
+      "value": "Zurgena",
+      "label": "Zurgena",
+      "codigoJunta": "ZURGENA"
+    }
+  ]
+}

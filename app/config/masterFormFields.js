@@ -3,6 +3,94 @@ import { cnaeOptions } from "./cnaeOptions"
 import { tipoViaOptions } from "./tipoViaOptions"
 import { distribuidoraOptions } from "./distribuidoraOptions"
 
+const opcionesTiposT11 = [
+  { label: 'Red de Distrito', value: 'distrito' },
+  { label: 'Centralizado', value: 'central' },
+  { label: 'Equipo Individual', value: 'eqIndiv' }
+];
+
+const opcionesT6Calidad = [
+  { label: 'PROYECTISTA FIRMANTE DEL CERTIFICADO', value: 'proFirmCertificado' },
+  { label: 'DIRECCIÓN FACULTATIVA FIRMANTE DEL CERTIFICADO (ACTUANDO COMO DIRECTOR/A DE LA OBRA)', value: 'dirObra' },
+  { label: 'DIRECCIÓN FACULTATIVA FIRMANTE DEL CERTIFICADO (ACTUANDO COMO DIRECTOR/A DE EJECUCIÓN DE OBRA)', value: 'ejecObra' },
+  { label: 'TÉCNICO/A COMPETENTE FIRMANTE DEL CERTIFICADO', value: 'tcFirm' }
+];
+
+const opcionesT17CalidadFirmante = [
+  { label: 'Propietario', value: 'PROPIETARIO' },
+  { label: 'Promotor', value: 'PROMOTOR' },
+  { label: 'Representante Legal', value: 'REPLEGAL' },
+  { label: 'Técnico/a competente autorizado S/A AnexoII', value: 'TECNICO' }
+];
+
+const opcionesT6Titulacion = [
+  { label: 'Arquitecto', value: 'Arquitecto' },
+  { label: 'Arquitecto Técnico/Aparejador', value: 'Arquitecto Técnico/Aparejador' },
+  { label: 'Ingeniero Aeronáutico', value: 'Ingeniero Aeronáutico' },
+  { label: 'Ingeniero Agrónomo', value: 'Ingeniero Agrónomo' },
+  { label: 'Ingeniero de Caminos, Canales y Puertos', value: 'Ingeniero de Caminos, Canales y Puertos' },
+  { label: 'Ingeniero Industrial', value: 'Ingeniero Industrial' },
+  { label: 'Ingeniero de Minas', value: 'Ingeniero de Minas' },
+  { label: 'Ingeniero de Montes', value: 'Ingeniero de Montes' },
+  { label: 'Ingeniero Naval y Oceánico', value: 'Ingeniero Naval y Oceánico' },
+  { label: 'Ingeniero de Telecomunicación', value: 'Ingeniero de Telecomunicación' },
+  { label: 'Ingeniero Técnico Aeronáutico', value: 'Ingeniero Técnico Aeronáutico' },
+  { label: 'Ingeniero Técnico Agrícola', value: 'Ingeniero Técnico Agrícola' },
+  { label: 'Ingeniero Técnico Forestal', value: 'Ingeniero Técnico Forestal' },
+  { label: 'Ingeniero Técnico Industrial', value: 'Ingeniero Técnico Industrial' },
+  { label: 'Ingeniero Técnico de Minas', value: 'Ingeniero Técnico de Minas' },
+  { label: 'Ingeniero Técnico Naval', value: 'Ingeniero Técnico Naval' },
+  { label: 'Ingeniero Técnico de Obras Públicas', value: 'Ingeniero Técnico de ObrasPúblicas' },
+  { label: 'Ingeniero Técnico Telecomunicación', value: 'Ingeniero Técnico Forestal' },
+  { label: 'Ingeniero Técnico Topógrafo', value: 'Ingeniero Técnico Topógrafo' }
+];
+
+const opcionesCalefaccionEq = [
+  { label: 'Caldera estándar.', value: 'CALDERA_ESTANDAR' },
+  { label: 'Caldera Baja Temperatura.', value: 'CALDERO_BAJA' },
+  { label: 'Caldera Condensación.', value: 'CALDERA_CONDENSACION' },
+  { label: 'Equipo Autónomo Expansión Directa Aire-Aire.', value: 'EQ_AU_EX_DI_AI_AI' },
+  { label: 'Equipo Autónomo Expansión Directa Aire-Aire Caud. Refr. Var.', value: 'EQ_AU_EX_DI_AI_AI_CRV' },
+  { label: 'Equipo Autónomo Expansión Directa Agua-Aire.', value: 'EQ_AU_EX_DI_AG_AI' },
+  { label: 'Equipo Autónomo Expansión Directa Agua-Aire Caud. Refr. Var.', value: 'EQ_AU_EX_DI_AG_AI_CRV' },
+  { label: 'Bomba Calor Aire-Agua 2T.', value: 'BOMBA_CALOR_AI_AG_2T' },
+  { label: 'Bomba Calor Aire-Agua 4T.', value: 'BOMBA_CALOR_AI_AG_4T' },
+  { label: 'Bomba Calor Agua-Agua 2T.', value: 'BOMBA_CALOR_AG_AG_2T' },
+  { label: 'Bomba Calor Agua-Agua 4T.', value: 'BOMBA_CALOR_AG_AG_4T' },
+  { label: 'Efecto Joule.', value: 'EFECTO_JOULE' },
+  { label: 'Otro.', value: 'OTRO' }
+];
+
+const opcionesRefrigEq = [
+  { label: 'Equipo Autónomo Expansión Directa Aire-Aire.', value: 'EQ_AUT_EXP_DIR_AI_AI' },
+  { label: 'Equipo Autónomo Expansión Directa Aire-Aire Caud. Refr. Var.', value: 'EQ_AUT_EXP_DIR_AI_AI_CRV' },
+  { label: 'Equipo Autónomo Expansión Directa Agua-Aire.', value: 'EQ_AUT_EXP_DIR_AG_AI' },
+  { label: 'Equipo Autónomo Expansión Directa Agua-Aire Caud. Refr. Var.', value: 'EQ_AU_EX_DI_AG_AI_CRV' },
+  { label: 'Planta Enfriadora Aire-Agua.', value: 'PLANTA_ENFRIADORA_AI_AG' },
+  { label: 'Planta Enfriadora Agua-Agua.', value: 'PLANTA_ENFRIADORA_AG_AG' },
+  { label: 'Bomba Calor Aire-Agua 2T.', value: 'BOMBA_CALOR_AI_AG_2T' },
+  { label: 'Bomba Calor Aire-Agua 4T.', value: 'BOMBA_CALOR_AI_AG_4T' },
+  { label: 'Bomba Calor Agua-Agua 2T.', value: 'BOMBA_CALOR_AG_AG_2T' },
+  { label: 'Bomba Calor Agua-Agua 4T.', value: 'BOMBA_CALOR_AG_AG_4T' },
+  { label: 'Absorción.', value: 'ABSORCION' },
+  { label: 'Enfriamiento Evaporativo.', value: 'ENFRIAMIENTO_EVAPORATIVO' },
+  { label: 'Otro.', value: 'OTRO' }
+];
+
+const opcionesACSEq = [
+  { label: 'Caldera estándar.', value: 'CALDERA_ESTANDAR' },
+  { label: 'Caldera Baja Temperatura.', value: 'CALDERO_BAJA' },
+  { label: 'Caldera Condensación.', value: 'CALDERA_CONDENSACION' },
+  { label: 'Equipo Autónomo Expansión Directa Aire-Aire.', value: 'EQ_AU_EX_DI_AI_AI' },
+  { label: 'Equipo Autónomo Expansión Directa Aire-Aire Caud. Refr. Var.', value: 'EQ_AU_EX_DI_AI_AI_CRV' },
+  { label: 'Equipo Autónomo Expansión Directa Agua-Aire.', value: 'EQ_AU_EX_DI_AG_AI' },
+  { label: 'Equipo Autónomo Expansión Directa Agua-Aire Caud. Refr. Var.', value: 'EQ_AU_EX_DI_AG_AI_CRV' },
+  { label: 'Bomba Calor Aire-Agua.', value: 'BOMBA_CALOR_AI_AG' },
+  { label: 'Bomba Calor Agua-Agua.', value: 'BOMBA_CALOR_AG_AG' },
+  { label: 'Efecto Joule.', value: 'EFECTO_JOULE' },
+  { label: 'Otro.', value: 'OTRO' }
+];
+
 export const masterFormFields = [
   // ========== SECCIÓN A ==========
 
@@ -23,8 +111,11 @@ export const masterFormFields = [
   { name: 'planta', label: 'Planta', placeholder: 'Ej: 3º', type: 'text', subsection: 'A' },
   { name: 'puerta', label: 'Puerta', placeholder: 'Ej: B', type: 'text', subsection: 'A' },
   { name: 'telefonoFijo', label: 'Teléfono Fijo', placeholder: 'Ej: 954 123 456', type: 'tel', subsection: 'A' },
-  { name: 'localidadEmplazamiento', label: 'Localidad del Emplazamiento', placeholder: 'Ej: Sevilla', type: 'text', subsection: 'A' },
-  { name: 'provinciaEmplazamiento', label: 'Provincia del Emplazamiento', placeholder: 'Ej: Sevilla', type: 'text', subsection: 'A' },
+  { name: 'localidadEmplazamiento', label: 'Localidad del Emplazamiento', placeholder: 'Escriba o seleccione Municipio...', type: 'combobox', subsection: 'A', options: [] },
+  { name: 'provinciaEmplazamiento', label: 'Provincia del Emplazamiento', placeholder: 'Escriba o seleccione Provincia...', type: 'combobox', subsection: 'A', options: [
+    { value: 'Almería', label: 'Almería' }, { value: 'Cádiz', label: 'Cádiz' }, { value: 'Córdoba', label: 'Córdoba' }, { value: 'Granada', label: 'Granada' }, 
+    { value: 'Huelva', label: 'Huelva' }, { value: 'Jaén', label: 'Jaén' }, { value: 'Málaga', label: 'Málaga' }, { value: 'Sevilla', label: 'Sevilla' }
+  ] },
   { name: 'codigoPostalEmplazamiento', label: 'Código Postal del Emplazamiento', placeholder: 'Ej: 41001', type: 'text', subsection: 'A' },
   { name: 'direccionCompleta', label: 'Dirección Completa', placeholder: 'Ej: Avenida de la Innovación 42, 1ºA, 41001 Sevilla', type: 'text', subsection: 'A' },
   { name: 'referenciaCatastral', label: 'Referencia Catastral', placeholder: 'Ej: 4127805SG0000200000CT', type: 'text', subsection: 'A' },
@@ -102,7 +193,15 @@ export const masterFormFields = [
     group: 'Inversor'
   },
   { name: 'e2_potenciaNominalInversor', label: 'POTENCIA NOMINAL (kW) 1', placeholder: 'Ej: 5000', type: 'text', subsection: 'E2', group: 'Inversor' },
-  { name: 'e2_relacionTensionInversor', label: 'RELACIÓN TENSIÓN  AC, Vn (V) 1', placeholder: 'Ej: 230V/400V', type: 'text', subsection: 'E2', group: 'Inversor' },
+  {
+    name: 'e2_relacionTensionInversor',
+    label: 'RELACIÓN TENSIÓN AC, Vn (V) 1',
+    placeholder: 'Selecciona tensión...',
+    type: 'select',
+    options: ['230', '400'],
+    subsection: 'E2',
+    group: 'Inversor'
+  },
   { name: 'e2_formaOndaSalidaInversor', label: 'Vcc MÁXIMA 1', placeholder: 'Ej: Senoidal Pura', type: 'text', subsection: 'E2', group: 'Inversor' },
   { name: 'e2_frecuenciaNominalInversor', label: 'Vcc MÍNIMA 1', placeholder: 'Ej: 50', type: 'text', subsection: 'E2', group: 'Inversor' },
   { name: 'e2_tipoConexionRed1', label: 'CONEXIÓN 1', placeholder: 'Ej: Monofásica / Trifásica', type: 'select', options: ['Monofásica', 'Trifásica'], subsection: 'E2', group: 'Inversor' },
@@ -256,7 +355,14 @@ export const masterFormFields = [
   { name: 'terminacioAnual', label: 'Terminación Anual', placeholder: 'Ej: 2025', type: 'select', options: ['26', '27', '28'], subsection: 'LEGALIZACION' },
   { name: 'almacenamiento', label: 'Almacenamiento', placeholder: 'Seleccionar tipo...', type: 'select', options: ['con almacenamiento', 'sin almacenamiento'], subsection: 'LEGALIZACION' },
   { name: 'observaciones', label: 'Observaciones', placeholder: 'Selecciona una opción', type: 'select', options: [{ label: 'con batería', value: 'Se trata de una instalación de generación para autoconsumo FV de B.T.con baterias conectado a la red con excedentes acogido a compensación' }, { label: 'sin batería', value: 'Se trata de una instalación de generación para autoconsumo FV de B.T. conectado a la red con excedentes acogido a compensación' }], subsection: 'LEGALIZACION' },
-  { name: 'usoDestino', label: 'Uso y Destino', placeholder: 'Ej: Autoconsumo para vivienda', type: 'select', options: ['doméstico', 'negocio'], subsection: 'LEGALIZACION' },
+  {
+    name: 'usoDestino',
+    label: 'Uso y Destino',
+    placeholder: 'Selecciona uso...',
+    type: 'select',
+    options: ['doméstico', 'negocio', 'Producción de energía eléctrica'],
+    subsection: 'LEGALIZACION'
+  },
   { name: 'figuraTecnicoCompetente', label: 'Técnico Competente', type: 'checkbox', subsection: 'LEGALIZACION', group: 'anexo III' },
   { name: 'figuraInstaladorHabilitado', label: 'Instalador Habilitado', type: 'checkbox', subsection: 'LEGALIZACION', group: 'anexo III' },
   { name: 'figuraResponsableTecnico', label: 'Responsable Técnico', type: 'checkbox', subsection: 'LEGALIZACION', group: 'anexo III' },
@@ -327,8 +433,9 @@ export const masterFormFields = [
   { name: 'mesInicio', label: 'Mes Inicio', placeholder: 'Ej: 10', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'anioInicio', label: 'Año Inicio', placeholder: 'Ej: 2023', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'diaFirmaJustificacion', label: 'Día Firma Justificación', placeholder: 'Ej: 08', type: 'text', subsection: 'JUSTIFICACION' },
-  { name: 'mesFirmaJustificacion', label: 'Mes Firma Justificación', placeholder: 'Ej: 09', type: 'text', subsection: 'JUSTIFICACION' },
+  { name: 'mesFirmaJustificacion', label: 'Mes Firma Justificación', placeholder: 'Ej: septiembre', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'anioFirmaJustificacion', label: 'Año Firma Justificación', placeholder: 'Ej: 2025', type: 'text', subsection: 'JUSTIFICACION' },
+
   { name: 'nombreRepresentanteEntidad', label: 'Nombre del Representante de la Entidad', placeholder: 'Ej: Juan Pérez', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'dniRepresentanteEntidad', label: 'DNI del Representante de la Entidad', placeholder: 'Ej: 12345678A', type: 'text', subsection: 'JUSTIFICACION' },
   { name: 'nifEmpresa', label: 'NIF Empresa', placeholder: 'Ej: B12345678', type: 'text', subsection: 'JUSTIFICACION' },
@@ -360,7 +467,7 @@ export const masterFormFields = [
 
   // ========== SUBSECCIÓN JUSTIFICACIÓN: Pedidos y Facturas ==========
   // Factura 1
-  { name: 'numeroFactura1', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 1' },
+  { name: 'numeroFactura1', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 1', facturaGroup: 1 },
   { name: 'fechaFactura1', label: 'Fecha Factura', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 1' },
   { name: 'cf1', label: 'CF', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 1' },
   { name: 'acreedor1', label: 'Acreedor', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 1' },
@@ -368,7 +475,7 @@ export const masterFormFields = [
   { name: 'fechaPago1', label: 'Fecha Pago', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 1' },
   { name: 'importe1', label: 'Importe', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 1' },
   // Factura 2
-  { name: 'numeroFactura2', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 2' },
+  { name: 'numeroFactura2', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 2', facturaGroup: 2 },
   { name: 'fechaFactura2', label: 'Fecha Factura', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 2' },
   { name: 'cf2', label: 'CF', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 2' },
   { name: 'acreedor2', label: 'Acreedor', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 2' },
@@ -376,7 +483,7 @@ export const masterFormFields = [
   { name: 'fechaPago2', label: 'Fecha Pago', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 2' },
   { name: 'importe2', label: 'Importe', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 2' },
   // Factura 3
-  { name: 'numeroFactura3', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 3' },
+  { name: 'numeroFactura3', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 3', facturaGroup: 3 },
   { name: 'fechaFactura3', label: 'Fecha Factura', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 3' },
   { name: 'cf3', label: 'CF', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 3' },
   { name: 'acreedor3', label: 'Acreedor', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 3' },
@@ -384,7 +491,7 @@ export const masterFormFields = [
   { name: 'fechaPago3', label: 'Fecha Pago', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 3' },
   { name: 'importe3', label: 'Importe', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 3' },
   // Factura 4
-  { name: 'numeroFactura4', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 4' },
+  { name: 'numeroFactura4', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 4', facturaGroup: 4 },
   { name: 'fechaFactura4', label: 'Fecha Factura', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 4' },
   { name: 'cf4', label: 'CF', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 4' },
   { name: 'acreedor4', label: 'Acreedor', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 4' },
@@ -392,13 +499,29 @@ export const masterFormFields = [
   { name: 'fechaPago4', label: 'Fecha Pago', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 4' },
   { name: 'importe4', label: 'Importe', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 4' },
   // Factura 5
-  { name: 'numeroFactura5', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 5' },
+  { name: 'numeroFactura5', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 5', facturaGroup: 5 },
   { name: 'fechaFactura5', label: 'Fecha Factura', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 5' },
   { name: 'cf5', label: 'CF', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 5' },
   { name: 'acreedor5', label: 'Acreedor', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 5' },
   { name: 'concepto5', label: 'Concepto', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 5' },
   { name: 'fechaPago5', label: 'Fecha Pago', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 5' },
   { name: 'importe5', label: 'Importe', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 5' },
+  // Factura 6
+  { name: 'numeroFactura6', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 6', facturaGroup: 6 },
+  { name: 'fechaFactura6', label: 'Fecha Factura', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 6' },
+  { name: 'cf6', label: 'CF', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 6' },
+  { name: 'acreedor6', label: 'Acreedor', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 6' },
+  { name: 'concepto6', label: 'Concepto', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 6' },
+  { name: 'fechaPago6', label: 'Fecha Pago', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 6' },
+  { name: 'importe6', label: 'Importe', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 6' },
+  // Factura 7
+  { name: 'numeroFactura7', label: 'Nº Factura', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 7', facturaGroup: 7 },
+  { name: 'fechaFactura7', label: 'Fecha Factura', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 7' },
+  { name: 'cf7', label: 'CF', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 7' },
+  { name: 'acreedor7', label: 'Acreedor', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 7' },
+  { name: 'concepto7', label: 'Concepto', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 7' },
+  { name: 'fechaPago7', label: 'Fecha Pago', type: 'date', subsection: 'JUSTIFICACION', group: 'Factura 7' },
+  { name: 'importe7', label: 'Importe', type: 'text', subsection: 'JUSTIFICACION', group: 'Factura 7' },
   // Pedido 1
   { name: 'pedido1Concepto', label: 'Concepto', placeholder: 'Ej: Módulos solares', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 1' },
   { name: 'pedido1Proveedor', label: 'Proveedor', placeholder: 'Ej: Empresa XYZ', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 1' },
@@ -418,36 +541,55 @@ export const masterFormFields = [
   { name: 'pedido2IdPedido', label: 'Id. Pedido (factura)', placeholder: 'Ej: PED-2025-002', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
   { name: 'pedido2FechaPedido', label: 'Fecha Pedido (factura)', placeholder: 'Ej: 17/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
   { name: 'pedido2ImportePedido', label: 'Importe Pedido (€) (factura)', placeholder: 'Ej: 2500', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 2' },
-  /*   // Pedido 3
-    { name: 'pedido3Concepto', label: 'Concepto', placeholder: 'Ej: Estructura de montaje', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
-    { name: 'pedido3Proveedor', label: 'Proveedor', placeholder: 'Ej: Empresa DEF', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
-    { name: 'pedido3IdOferta', label: 'Id. Oferta', placeholder: 'Ej: OF-2025-003', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
-    { name: 'pedido3FechaOferta', label: 'Fecha Oferta', placeholder: 'Ej: 17/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
-    { name: 'pedido3ImporteOferta', label: 'Importe Oferta (€)', placeholder: 'Ej: 1500', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
-    { name: 'pedido3IdPedido', label: 'Id. Pedido', placeholder: 'Ej: PED-2025-003', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
-    { name: 'pedido3FechaPedido', label: 'Fecha Pedido', placeholder: 'Ej: 18/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
-    { name: 'pedido3ImportePedido', label: 'Importe Pedido (€)', placeholder: 'Ej: 1500', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
-  
-    // Pedido 4
-    { name: 'pedido4Concepto', label: 'Concepto', placeholder: 'Ej: Materiales para instalación', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
-    { name: 'pedido4Proveedor', label: 'Proveedor', placeholder: 'Ej: Empresa GHI', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
-    { name: 'pedido4IdOferta', label: 'Id. Oferta', placeholder: 'Ej: OF-2025-004', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
-    { name: 'pedido4FechaOferta', label: 'Fecha Oferta', placeholder: 'Ej: 18/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
-    { name: 'pedido4ImporteOferta', label: 'Importe Oferta (€)', placeholder: 'Ej: 1000', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
-    { name: 'pedido4IdPedido', label: 'Id. Pedido', placeholder: 'Ej: PED-2025-004', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
-    { name: 'pedido4FechaPedido', label: 'Fecha Pedido', placeholder: 'Ej: 19/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
-    { name: 'pedido4ImportePedido', label: 'Importe Pedido (€)', placeholder: 'Ej: 1000', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
-  
-    // Pedido 5
-    { name: 'pedido5Concepto', label: 'Concepto', placeholder: 'Ej: Mano de obra instalación', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
-    { name: 'pedido5Proveedor', label: 'Proveedor', placeholder: 'Ej: Empresa JKL', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
-    { name: 'pedido5IdOferta', label: 'Id. Oferta', placeholder: 'Ej: OF-2025-005', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
-    { name: 'pedido5FechaOferta', label: 'Fecha Oferta', placeholder: 'Ej: 19/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
-    { name: 'pedido5ImporteOferta', label: 'Importe Oferta (€)', placeholder: 'Ej: 800', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
-    { name: 'pedido5IdPedido', label: 'Id. Pedido', placeholder: 'Ej: PED-2025-005', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
-    { name: 'pedido5FechaPedido', label: 'Fecha Pedido', placeholder: 'Ej: 20/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
-    { name: 'pedido5ImportePedido', label: 'Importe Pedido (€)', placeholder: 'Ej: 800', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
-   */
+  // Pedido 3
+  { name: 'pedido3Concepto', label: 'Concepto', placeholder: 'Ej: Estructura de montaje', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
+  { name: 'pedido3Proveedor', label: 'Proveedor', placeholder: 'Ej: Empresa DEF', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
+  { name: 'pedido3IdOferta', label: 'Id. Oferta', placeholder: 'Ej: OF-2025-003', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
+  { name: 'pedido3FechaOferta', label: 'Fecha Oferta', placeholder: 'Ej: 17/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
+  { name: 'pedido3ImporteOferta', label: 'Importe Oferta (€)', placeholder: 'Ej: 1500', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
+  { name: 'pedido3IdPedido', label: 'Id. Pedido', placeholder: 'Ej: PED-2025-003', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
+  { name: 'pedido3FechaPedido', label: 'Fecha Pedido', placeholder: 'Ej: 18/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
+  { name: 'pedido3ImportePedido', label: 'Importe Pedido (€)', placeholder: 'Ej: 1500', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 3' },
+
+  // Pedido 4
+  { name: 'pedido4Concepto', label: 'Concepto', placeholder: 'Ej: Materiales para instalación', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
+  { name: 'pedido4Proveedor', label: 'Proveedor', placeholder: 'Ej: Empresa GHI', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
+  { name: 'pedido4IdOferta', label: 'Id. Oferta', placeholder: 'Ej: OF-2025-004', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
+  { name: 'pedido4FechaOferta', label: 'Fecha Oferta', placeholder: 'Ej: 18/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
+  { name: 'pedido4ImporteOferta', label: 'Importe Oferta (€)', placeholder: 'Ej: 1000', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
+  { name: 'pedido4IdPedido', label: 'Id. Pedido', placeholder: 'Ej: PED-2025-004', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
+  { name: 'pedido4FechaPedido', label: 'Fecha Pedido', placeholder: 'Ej: 19/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
+  { name: 'pedido4ImportePedido', label: 'Importe Pedido (€)', placeholder: 'Ej: 1000', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 4' },
+
+  // Pedido 5
+  { name: 'pedido5Concepto', label: 'Concepto', placeholder: 'Ej: Mano de obra instalación', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
+  { name: 'pedido5Proveedor', label: 'Proveedor', placeholder: 'Ej: Empresa JKL', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
+  { name: 'pedido5IdOferta', label: 'Id. Oferta', placeholder: 'Ej: OF-2025-005', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
+  { name: 'pedido5FechaOferta', label: 'Fecha Oferta', placeholder: 'Ej: 19/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
+  { name: 'pedido5ImporteOferta', label: 'Importe Oferta (€)', placeholder: 'Ej: 800', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
+  { name: 'pedido5IdPedido', label: 'Id. Pedido', placeholder: 'Ej: PED-2025-005', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
+  { name: 'pedido5FechaPedido', label: 'Fecha Pedido', placeholder: 'Ej: 20/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
+  { name: 'pedido5ImportePedido', label: 'Importe Pedido (€)', placeholder: 'Ej: 800', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 5' },
+
+  // Pedido 6
+  { name: 'pedido6Concepto', label: 'Concepto', placeholder: 'Ej: Concepto 6', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 6' },
+  { name: 'pedido6Proveedor', label: 'Proveedor', placeholder: 'Ej: Proveedor 6', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 6' },
+  { name: 'pedido6IdOferta', label: 'Id. Oferta', placeholder: 'Ej: OF-2025-006', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 6' },
+  { name: 'pedido6FechaOferta', label: 'Fecha Oferta', placeholder: 'Ej: 20/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 6' },
+  { name: 'pedido6ImporteOferta', label: 'Importe Oferta (€)', placeholder: 'Ej: 500', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 6' },
+  { name: 'pedido6IdPedido', label: 'Id. Pedido', placeholder: 'Ej: PED-2025-006', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 6' },
+  { name: 'pedido6FechaPedido', label: 'Fecha Pedido', placeholder: 'Ej: 21/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 6' },
+  { name: 'pedido6ImportePedido', label: 'Importe Pedido (€)', placeholder: 'Ej: 500', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 6' },
+
+  // Pedido 7
+  { name: 'pedido7Concepto', label: 'Concepto', placeholder: 'Ej: Concepto 7', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 7' },
+  { name: 'pedido7Proveedor', label: 'Proveedor', placeholder: 'Ej: Proveedor 7', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 7' },
+  { name: 'pedido7IdOferta', label: 'Id. Oferta', placeholder: 'Ej: OF-2025-007', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 7' },
+  { name: 'pedido7FechaOferta', label: 'Fecha Oferta', placeholder: 'Ej: 21/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 7' },
+  { name: 'pedido7ImporteOferta', label: 'Importe Oferta (€)', placeholder: 'Ej: 300', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 7' },
+  { name: 'pedido7IdPedido', label: 'Id. Pedido', placeholder: 'Ej: PED-2025-007', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 7' },
+  { name: 'pedido7FechaPedido', label: 'Fecha Pedido', placeholder: 'Ej: 22/01/2025', type: 'date', subsection: 'JUSTIFICACION', group: 'Pedido 7' },
+  { name: 'pedido7ImportePedido', label: 'Importe Pedido (€)', placeholder: 'Ej: 300', type: 'text', subsection: 'JUSTIFICACION', group: 'Pedido 7' },
   // --- SECCIÓN PRESENTACIÓN (PLAYWRIGHT) ---
   { 
     name: 'cod_delegacion', 
@@ -548,8 +690,116 @@ export const masterFormFields = [
 
   // --- ARCHIVOS ADJUNTOS (NUEVO) ---
   { name: 'doc_autorizacion_rep', label: '1.- MTD', type: 'file', accept: '.pdf,image/*', subsection: 'PRESENTACIÓN', group: 'Documentos a Subir' },
-  { name: 'doc_adicional_2', label: '2.- Documento Adicional / CIE', type: 'file', accept: '.pdf,image/*', subsection: 'PRESENTACIÓN', group: 'Documentos a Subir' },
-  { name: 'doc_certificado_solidez', label: '7.- Certificado de Solidez', type: 'file', accept: '.pdf,image/*', subsection: 'PRESENTACIÓN', group: 'Documentos a Subir' }
+  { name: 'doc_certificado_solidez', label: '7.- Certificado de Adecuación / Solidez', type: 'file', accept: '.pdf,image/*', subsection: 'PRESENTACIÓN', group: 'Documentos a Subir' },
+
+  // ========== SECCIÓN REGISTRO (CERTIFICADO ENERGÉTICO ANDALUZ) ==========
+
+  // -- Trámite --
+  {
+    name: 'registro_tramite',
+    label: 'Tipo de Trámite',
+    type: 'select',
+    options: [
+      { label: 'INSCRIPCIÓN EN EL REGISTRO DEL CERTIFICADO DE EFICIENCIA ENERGÉTICA INCLUÍDO EN EL ÁMBITO DE APLICACIÓN DEL REAL DECRETO 390/2021, DE 1 DE JUNIO', value: 'inscripcion' },
+      { label: 'CORRECCIÓN DE DATOS', value: 'correccion' },
+      { label: 'ACTUALIZACIÓN DEL CERTIFICADO INSCRITO', value: 'actualizacion' },
+      { label: 'BAJA EN EL REGISTRO DE CERTIFICADOS ENERGÉTICOS ANDALUCES', value: 'baja' },
+      { label: 'RENOVACIÓN DEL CERTIFICADO INSCRITO', value: 'renovacion' }
+    ],
+    value: 'inscripcion',
+    subsection: 'REGISTRO',
+    group: 'Trámite',
+    required: true
+  },
+  { name: 'intro_numInscripcion', label: 'Nº Inscripción Anterior', type: 'text', placeholder: 'En caso de Baja/Actualización/Renovación', subsection: 'REGISTRO', group: 'Trámite' },
+  { name: 'intro_causas', label: 'Causas (Baja/Actualización/Corrección)', type: 'text', placeholder: 'Motivo o causa de la modificación', subsection: 'REGISTRO', group: 'Trámite' },
+  { name: 'intro_numExpediente', label: 'Nº de expediente original', type: 'text', placeholder: 'En caso de Baja/Actualización/Renovación', subsection: 'REGISTRO', group: 'Trámite' },
+
+  // -- T1 y T3: Inmueble --
+  { name: 'registro_t1_subgrupo', label: 'Subgrupo de Edificio', type: 'select', options: [{ label: 'Edificios destinados a uso residencial', value: 'resi' }, { label: 'Edificios destinados a otros usos', value: 'otros' }], value: 'resi', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)', required: true },
+  { name: 'registro_t1_uso', label: 'Uso del Edificio', type: 'select', options: [{ label: 'Edificio de viviendas', value: 'edif' }, { label: 'Vivienda perteneciente a un bloque', value: 'bloq' }, { label: 'Viviendas unifamiliares', value: 'unif' }], value: 'edif', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)', required: true },
+  { name: 'registro_t3_tipoVia', label: 'Tipo de Vía', type: 'select', options: tipoViaOptions, mapFrom: 'tipo_via_presentador', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
+  { name: 'registro_t3_nombreVia', label: 'Nombre de la Vía', type: 'text', mapFrom: 'emplazamientoCalle', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)', required: true },
+  { name: 'registro_t3_tipoNumeracion', label: 'Tipo Numeración', type: 'select', options: [{ value: '-', label: '-' }, { value: 'NUM', label: 'Número' }, { value: 'KM', label: 'Kilómetro' }, { value: 'S/N', label: 'Sin Número (S/N)' }, { value: 'OTR', label: 'Otros (OTR)' }], value: 'NUM', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
+  { name: 'registro_t3_numero', label: 'Número', type: 'text', mapFrom: 'numero', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
+  { name: 'registro_t3_calificadorNumero', label: 'Calificador Número', type: 'text', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
+  { name: 'registro_t3_bloque', label: 'Bloque', type: 'text', mapFrom: 'bloque', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
+  { name: 'registro_t3_portal', label: 'Portal', type: 'text', mapFrom: 'portal', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
+  { name: 'registro_t3_letra', label: 'Letra', type: 'text', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
+  { name: 'registro_t3_escalera', label: 'Escalera', type: 'text', mapFrom: 'escalera', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
+  { name: 'registro_t3_piso', label: 'Piso', type: 'text', mapFrom: 'planta', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
+  { name: 'registro_t3_puerta', label: 'Puerta', type: 'text', mapFrom: 'puerta', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
+  { name: 'registro_t3_pais', label: 'País (T3)', type: 'text', value: 'ES', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)', required: true },
+  { name: 'registro_t3_provincia', label: 'Provincia', type: 'combobox', mapFrom: 'provinciaEmplazamiento', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)', required: true, options: [
+    { value: 'Almería', label: 'Almería' }, { value: 'Cádiz', label: 'Cádiz' }, { value: 'Córdoba', label: 'Córdoba' }, { value: 'Granada', label: 'Granada' }, 
+    { value: 'Huelva', label: 'Huelva' }, { value: 'Jaén', label: 'Jaén' }, { value: 'Málaga', label: 'Málaga' }, { value: 'Sevilla', label: 'Sevilla' }
+  ] },
+  { name: 'registro_t3_localidad', label: 'Municipio', type: 'combobox', mapFrom: 'localidadEmplazamiento', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)', required: true, options: [] },
+  { name: 'registro_t3_entPoblacion', label: 'Entidad de Población', type: 'text', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
+  { name: 'registro_t3_cPostal', label: 'Código Postal', type: 'text', mapFrom: 'codigoPostalEmplazamiento', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)', required: true },
+  { name: 'registro_t3_refCatastral', label: 'Referencia Catastral', type: 'text', mapFrom: 'referenciaCatastral', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)', required: true },
+  { name: 'registro_t3_superficie', label: 'Superficie construida (m²)', type: 'text', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)', required: true },
+  { name: 'registro_t3_plantas', label: 'Nº Plantas', type: 'text', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)', required: true },
+  { name: 'registro_t3_altura', label: 'Altura total (m)', type: 'text', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)', required: true },
+  { name: 'registro_t3_anioConstruccion', label: 'Año Construcción', type: 'text', subsection: 'REGISTRO', group: 'Inmueble (T1, T3)' },
+
+  // -- T5 y T17: Promotor --
+  { name: 't5_select_tipoIdentificacion', label: 'Tipo Identificación', type: 'select', options: [{ label: 'NIF', value: 'TIPO_NIF' }, { label: 'CIF', value: 'TIPO_CIF' }, { label: 'Pasaporte', value: 'TIPO_PASAPORTE' }, { label: 'Otros', value: 'TIPO_OTROS' }], value: 'TIPO_NIF', subsection: 'REGISTRO', group: 'Promotor (T5, T17)', required: true },
+  { name: 'registro_t5_nif', label: 'NIF Promotor', type: 'text', mapFrom: 'nifCif', subsection: 'REGISTRO', group: 'Promotor (T5, T17)', required: true },
+  { name: 'registro_t5_nombre', label: 'Nombre Promotor', type: 'text', mapFrom: 'apellidosNombre', subsection: 'REGISTRO', group: 'Promotor (T5, T17)', required: true },
+  { name: 'registro_t5_sexo', label: 'Sexo Promotor', type: 'select', options: [{ label: 'Hombre', value: 'varon' }, { label: 'Mujer', value: 'mujer' }], value: 'varon', subsection: 'REGISTRO', group: 'Promotor (T5, T17)' },
+  { name: 'registro_t17_correo', label: 'Correo Notificaciones', type: 'email', subsection: 'REGISTRO', group: 'Promotor (T5, T17)', required: true },
+  { name: 'registro_t17_movil', label: 'Móvil Notificaciones', type: 'tel', subsection: 'REGISTRO', group: 'Promotor (T5, T17)' },
+
+  // -- T6: Técnico Certificador --
+  { name: 'registro_t6_nombre', label: 'APELLIDOS Y NOMBRE/RAZÓN SOCIAL:', type: 'text', subsection: 'REGISTRO', group: 'Técnico (T6)', required: true },
+  { name: 'registro_t6_calidad', label: 'EN CALIDAD DE:', type: 'select', options: opcionesT6Calidad, value: 'proFirmCertificado', subsection: 'REGISTRO', group: 'Técnico (T6)', required: true },
+  { name: 'registro_t6_titulacion', label: 'TITULACIÓN:', type: 'select', options: opcionesT6Titulacion, value: 'Ingeniero Industrial', mapFrom: 'titulacion', subsection: 'REGISTRO', group: 'Técnico (T6)', required: true },
+  { name: 'registro_t6_nif', label: 'N.I.F./N.I.E./PASAPORTE/OTROS:', type: 'text', subsection: 'REGISTRO', group: 'Técnico (T6)', required: true },
+  // { name: 'registro_t6_otra_titulacion', label: 'OTRA TITULACIÓN:', type: 'text', subsection: 'REGISTRO', group: 'Técnico (T6)' },
+  { name: 'registro_t6_colegio', label: 'COLEGIO:', type: 'text', mapFrom: 'colegioOficial', subsection: 'REGISTRO', group: 'Técnico (T6)' },
+  { name: 'registro_t6_numColegiado', label: 'N.º COLEGIACIÓN:', type: 'text', mapFrom: 'numeroColegiado', subsection: 'REGISTRO', group: 'Técnico (T6)' },
+  { name: 'registro_t6_sexo', label: 'SEXO:', type: 'select', options: [{ label: 'H', value: 'H' }, { label: 'M', value: 'M' }], value: 'H', subsection: 'REGISTRO', group: 'Técnico (T6)', required: true },
+  { name: 'registro_t17_calidad_firmante', label: 'FIRMANTE EN CALIDAD DE (T17):', type: 'select', options: opcionesT17CalidadFirmante, value: 'REPLEGAL', subsection: 'REGISTRO', group: 'Técnico (T6)', required: true },
+
+  // -- T8 y T9: Normativa --
+  { name: 'registro_t8_fecha', label: 'Fecha CEE', type: 'date', subsection: 'REGISTRO', group: 'Normativa (T8, T9)', required: true },
+  { name: 'registro_t8_validez', label: 'Validez del Registro (Fecha)', type: 'date', subsection: 'REGISTRO', group: 'Normativa (T8, T9)' },
+  { name: 'registro_t9_edificacion', label: 'Normativa Edificación', type: 'select', options: [{ label: 'CTE (2006)', value: 'cte' }, { label: 'NBE-CT-79', value: 'nbe' }, { label: 'CTE (2013)', value: 'cte_2013' }, { label: 'Otros:', value: 'otro' }], value: 'cte', subsection: 'REGISTRO', group: 'Normativa (T8, T9)', required: true },
+  { name: 'registro_t9_otro_edif', label: 'Otra Norm. Edificación', type: 'text', subsection: 'REGISTRO', group: 'Normativa (T8, T9)' },
+  { name: 'registro_t9_instalacion', label: 'Normativa Instalaciones Térmicas', type: 'select', options: [{ label: 'RITE (1998)', value: 'rite98' }, { label: 'RITE (2007)', value: 'rite07' }, { label: 'Otros:', value: 'otro' }], value: 'rite98', subsection: 'REGISTRO', group: 'Normativa (T8, T9)', required: true },
+  { name: 'registro_t9_otro_inst', label: 'Otra Norm. Instalación', type: 'text', subsection: 'REGISTRO', group: 'Normativa (T8, T9)' },
+
+  // -- T10 y T11: Instalaciones --
+  { name: 'registro_t10_docReconocido', label: 'Documento Reconocido', type: 'select', options: [{ label: 'CE3', value: 'CE3' }, { label: 'CE3X', value: 'CE3X' }, { label: 'Método abreviado (CERMA)', value: 'CERMA' }, { label: 'Herramienta Unificada Líder Cálener', value: 'HULC' }, { label: 'CYPETHERM HE Plus', value: 'CYPETHERM' }, { label: 'EfinovaticHE Certificación energética con EnergyPlus', value: 'EFINOVATICHE' }, { label: 'Procedimiento de Habilitación CE3X para nueva construcción', value: 'HABILITACIONCE3X' }, { label: 'TeKton3D TK-CEEP', value: 'TEKTON3D' }], value: 'CE3X', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)', required: true },
+  { name: 'registro_t10_version', label: 'Versión (Documento Reconocido)', type: 'text', value: 'V2.3', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
+  { name: 'registro_t11_potenciaElectrica', label: 'Potencia Eléctrica (kW)', type: 'text', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
+  { name: 'registro_t11_calefaccionTipo', label: 'Calefacción (Tipo)', type: 'select', options: opcionesTiposT11, value: 'distrito', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
+  { name: 'registro_t11_calefaccionEq', label: 'Calefacción (Equipo)', type: 'select', options: opcionesCalefaccionEq, value: 'CALDERA_ESTANDAR', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
+  { name: 'registro_t11_refrigeracionTipo', label: 'Refrigeración (Tipo)', type: 'select', options: opcionesTiposT11, value: 'distrito', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
+  { name: 'registro_t11_refrigeracionEq', label: 'Refrigeración (Equipo)', type: 'select', options: opcionesRefrigEq, value: 'EQ_AUT_EXP_DIR_AI_AI', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
+  { name: 'registro_t11_acsTipo', label: 'ACS (Tipo)', type: 'select', options: opcionesTiposT11, value: 'distrito', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
+  { name: 'registro_t11_acsEq', label: 'ACS (Equipo)', type: 'select', options: opcionesACSEq, value: 'CALDERA_ESTANDAR', subsection: 'REGISTRO', group: 'Instalaciones (T10, T11)' },
+
+  // -- T16, T18, T19, T20: Gestión --
+  {
+    name: 'registro_t16_mejora1', label: 'Tipo de Mejora', type: 'select', options: [
+      { label: 'Envolvente', value: 'Envolvente' },
+      { label: 'Instalaciones', value: 'Instalaciones' },
+      { label: 'Elementos', value: 'Elementos' },
+      { label: 'Envolventes e instalaciones', value: 'Envolventes_instalaciones' }
+    ], value: 'Instalaciones', subsection: 'REGISTRO', group: 'Gestión (T16-T20)'
+  },
+  { name: 'registro_t20_numLiquidacion', label: 'Nº Autoliquidación (046)', type: 'text', subsection: 'REGISTRO', group: 'Gestión (T16-T20)', required: true },
+  { name: 'registro_t19_lugarFirma', label: 'Lugar Firma', type: 'text', value: 'Sevilla', subsection: 'REGISTRO', group: 'Gestión (T16-T20)', required: true },
+
+  // -- Archivos Adjuntos --
+  { name: 'registro_doc_xml', label: 'Documento XML', type: 'file', accept: '.xml', subsection: 'REGISTRO', group: 'Archivos Adjuntos' },
+  { name: 'registro_doc_cee_pdf', label: 'Certificado PDF', type: 'file', accept: '.pdf', subsection: 'REGISTRO', group: 'Archivos Adjuntos' },
+  { name: 'registro_doc_cee_zip', label: 'Archivo ZIP', type: 'file', accept: '.zip', subsection: 'REGISTRO', group: 'Archivos Adjuntos' },
+  { name: 'registro_doc_mejoras', label: 'Medidas de Mejora (PDF)', type: 'file', accept: '.pdf', subsection: 'REGISTRO', group: 'Archivos Adjuntos' },
+  { name: 'registro_doc_tasa', label: 'Tasa 046 (PDF)', type: 'file', accept: '.pdf', subsection: 'REGISTRO', group: 'Archivos Adjuntos' },
+  { name: 'registro_doc_autorizacion', label: 'Autorización Representación (PDF)', type: 'file', accept: '.pdf', subsection: 'REGISTRO', group: 'Archivos Adjuntos' }
 ]
 
 export const getMasterFormDefaultData = () => {
