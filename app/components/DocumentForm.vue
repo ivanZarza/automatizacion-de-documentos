@@ -543,6 +543,21 @@ watch(() => formData.value.cod_delegacion, (newCod) => {
   if (municipioActual && !municipiosValidos.includes(municipioActual)) {
     formData.value.municipio_presentador = ''
   }
+  
+  // Sincronizar automáticamente la provincia del presentador usando el nombre
+  const provinciaNombres = {
+    '04': 'ALMERÍA',
+    '11': 'CÁDIZ',
+    '14': 'CÓRDOBA',
+    '18': 'GRANADA',
+    '21': 'HUELVA',
+    '23': 'JAÉN',
+    '29': 'MÁLAGA',
+    '41': 'SEVILLA'
+  }
+  if (provinciaNombres[newCod]) {
+    formData.value.provincia_presentador = provinciaNombres[newCod]
+  }
 })
 
 // Cuando cambia el municipio seleccionado, sincronizar con poblacion_presentador
@@ -1243,7 +1258,10 @@ async function handleLaunchAutomation() {
         puerta: form.puerta_presentador,
         margen: form.margen_presentador,
         codigoPostal: form.cp_presentador,
-        provincia: form.provincia_presentador,
+        provincia: {
+          'ALMERÍA': '04', 'CÁDIZ': '11', 'CÓRDOBA': '14', 'GRANADA': '18',
+          'HUELVA': '21', 'JAÉN': '23', 'MÁLAGA': '29', 'SEVILLA': '41'
+        }[form.provincia_presentador] || form.cod_delegacion || form.provincia_presentador,
         municipioNombre: form.municipio_presentador,
         poblacion: form.poblacion_presentador,
         telefono: form.telefono_presentador,
